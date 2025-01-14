@@ -13,7 +13,11 @@ env = SConscript("godot-cpp/SConstruct")
 # - LINKFLAGS are for linking flags
 
 # tweak this if you want to use different folders, or more folders, to store your source code in.
-env.Append(CPPPATH=["src/"])
+env.Append(CPPPATH=["src/", "haxe/bin/include/", "/Users/kevin/haxe/haxelib/hxcpp/4,3,2/include/"])
+env.Append(CPPDEFINES=["HXCPP_SCRIPTABLE"])
+env.Append(LIBPATH=["haxe/bin/"])
+env.Append(LIBS=["cppiahost"])
+
 sources = Glob("src/*.cpp")
 
 if env["platform"] == "macos":

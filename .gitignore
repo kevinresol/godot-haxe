@@ -7,3 +7,7 @@ demo/bin/**
 # When configure fails, SCons outputs these
 config.log
 .sconf_temp
+
+haxe/bin
+
+*.os

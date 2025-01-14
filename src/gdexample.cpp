@@ -1,5 +1,7 @@
 #include "gdexample.h"
+#include <CppiaHost.h>
 #include <godot_cpp/core/class_db.hpp>
+#include <godot_cpp/variant/utility_functions.hpp>
 
 using namespace godot;
 
@@ -11,6 +13,9 @@ GDExample::GDExample()
 {
 	// Initialize any variables here.
 	time_passed = 0.0;
+
+	int x = CppiaHost_obj::add(1, 2);
+	UtilityFunctions::print(String::num(x));
 }
 
 GDExample::~GDExample()
