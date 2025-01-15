@@ -132,7 +132,7 @@ class Lambda
 class EReg
 class DateTools
 class Date
-class CppiaHost
+class Cppia
 file /Users/kevin/haxe/versions/4.3.4/std/DateTools.hx /Users/kevin/haxe/versions/4.3.4/std/DateTools.hx
 file /Users/kevin/haxe/versions/4.3.4/std/Lambda.hx /Users/kevin/haxe/versions/4.3.4/std/Lambda.hx
 file /Users/kevin/haxe/versions/4.3.4/std/StringTools.hx /Users/kevin/haxe/versions/4.3.4/std/StringTools.hx
@@ -231,4 +231,4 @@ file /Users/kevin/haxe/versions/4.3.4/std/haxe/xml/Parser.hx /Users/kevin/haxe/v
 file /Users/kevin/haxe/versions/4.3.4/std/haxe/xml/Printer.hx /Users/kevin/haxe/versions/4.3.4/std/haxe/xml/Printer.hx
 file /Users/kevin/haxe/versions/4.3.4/std/sys/thread/EventLoop.hx /Users/kevin/haxe/versions/4.3.4/std/sys/thread/EventLoop.hx
 file /Users/kevin/haxe/versions/4.3.4/std/sys/thread/NoEventLoopException.hx /Users/kevin/haxe/versions/4.3.4/std/sys/thread/NoEventLoopException.hx
-file CppiaHost.hx /Users/kevin/Codes/godot-haxe/haxe/CppiaHost.hx
+file Cppia.hx /Users/kevin/Codes/godot-haxe/haxe/src/Cppia.hx

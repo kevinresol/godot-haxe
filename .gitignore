@@ -3,11 +3,12 @@ demo/bin/**
 
 # for projects that use SCons for building: http://http://www.scons.org/
 .sconsign.dblite
+*.os
 
 # When configure fails, SCons outputs these
 config.log
 .sconf_temp
 
+# Haxe
 haxe/bin
-
-*.os
+export_classes.info

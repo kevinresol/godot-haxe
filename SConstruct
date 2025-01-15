@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 import os
-import sys
+import fnmatch
 
 env = SConscript("godot-cpp/SConstruct")
 
@@ -13,16 +13,25 @@ env = SConscript("godot-cpp/SConstruct")
 # - LINKFLAGS are for linking flags
 
 # tweak this if you want to use different folders, or more folders, to store your source code in.
-env.Append(CPPPATH=["src/", "haxe/bin/include/", "/Users/kevin/haxe/haxelib/hxcpp/4,3,2/include/"])
+env.Append(CPPPATH=["cpp/src/", "haxe/bin/include/", "/Users/kevin/haxe/haxelib/hxcpp/4,3,2/include/"])
 env.Append(CPPDEFINES=["HXCPP_SCRIPTABLE"])
 env.Append(LIBPATH=["haxe/bin/"])
-env.Append(LIBS=["cppiahost"])
+env.Append(LIBS=["cppia"])
 
-sources = Glob("src/*.cpp")
+
+print(Glob("cpp/src/*.cpp"))
+
+sources = []
+for root, dirnames, filenames in os.walk('cpp/src'):
+  sources += Glob(os.path.join(root, '*.cpp'))
+    
+# print full path for each source file
+for source in sources:
+    print(source.abspath)
 
 if env["platform"] == "macos":
     library = env.SharedLibrary(
-        "demo/bin/libgdexample.{}.{}.framework/libgdexample.{}.{}".format(
+        "demo/bin/libgdcppia.{}.{}.framework/libgdcppia.{}.{}".format(
             env["platform"], env["target"], env["platform"], env["target"]
         ),
         source=sources,
@@ -30,17 +39,17 @@ if env["platform"] == "macos":
 elif env["platform"] == "ios":
     if env["ios_simulator"]:
         library = env.StaticLibrary(
-            "demo/bin/libgdexample.{}.{}.simulator.a".format(env["platform"], env["target"]),
+            "demo/bin/libgdcppia.{}.{}.simulator.a".format(env["platform"], env["target"]),
             source=sources,
         )
     else:
         library = env.StaticLibrary(
-            "demo/bin/libgdexample.{}.{}.a".format(env["platform"], env["target"]),
+            "demo/bin/libgdcppia.{}.{}.a".format(env["platform"], env["target"]),
             source=sources,
         )
 else:
     library = env.SharedLibrary(
-        "demo/bin/libgdexample{}{}".format(env["suffix"], env["SHLIBSUFFIX"]),
+        "demo/bin/libgdcppia{}{}".format(env["suffix"], env["SHLIBSUFFIX"]),
         source=sources,
     )
 

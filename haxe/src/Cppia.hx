@@ -1,4 +1,4 @@
-class CppiaHost {
+class Cppia {
 	public static function main() {
 		trace("Hello from Haxe 1!");
 	}

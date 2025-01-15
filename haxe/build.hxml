@@ -1,11 +1,12 @@
---main CppiaHost
+--main Cppia
+--class-path src
 --cpp bin
 -D static_link
 -D scriptable
 
 --each
--D HAXE_OUTPUT_PART=cppiahost_x86_64
+-D HAXE_OUTPUT_PART=cppia_x86_64
 
 --next
--D HAXE_OUTPUT_PART=cppiahost_arm64
+-D HAXE_OUTPUT_PART=cppia_arm64
 -D HXCPP_ARM64
