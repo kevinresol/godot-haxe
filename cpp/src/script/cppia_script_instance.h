@@ -67,6 +67,7 @@ class CppiaScriptInstance {
  private:
   bool _is_placeholder;
 
+  void* _cppia_handle;
   godot::Ref<CppiaScript> _cppia_script;
   godot::Object* _godot_object;
 

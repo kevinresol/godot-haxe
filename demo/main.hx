@@ -1,1 +1,5 @@
-TODO: Haxe code template here
+class Main {
+	function _process(delta:Float) {
+		trace(delta);
+	}
+}

@@ -3,5 +3,6 @@
 	"python.analysis.extraPaths": [
 		"/opt/homebrew/Cellar/scons/4.8.1/libexec/lib/python3.12/site-packages"
 	],
-	"C_Cpp.clang_format_fallbackStyle": "Google"
+	"C_Cpp.clang_format_fallbackStyle": "Google",
+	"haxe.configurations": [["--cwd", "haxe", "build.hxml"]]
 }

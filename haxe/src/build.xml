@@ -1,0 +1,11 @@
+<xml>
+	<set name="GODOT_CPPIA" value="/Users/kevin/Codes/godot-haxe/haxe/src" />
+
+	<files id="haxe">
+
+
+		<file name="${GODOT_CPPIA}/gdcppia_api.cpp" />
+
+	</files>
+
+</xml>

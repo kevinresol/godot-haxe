@@ -49,6 +49,8 @@ class CppiaScriptLanguage : public godot::ScriptLanguageExtension {
                                  const godot::String &symbol,
                                  const godot::String &path,
                                  godot::Object *owner) const override;
+
+  bool _can_make_function() const override { return false; }
   godot::String _make_function(
       const godot::String &class_name, const godot::String &name,
       const godot::PackedStringArray &args) const override;
@@ -59,6 +61,10 @@ class CppiaScriptLanguage : public godot::ScriptLanguageExtension {
     // TODO:
   }
   bool _supports_documentation() const override { return false; }
+  ScriptLanguage::ScriptNameCasing _preferred_file_name_casing()
+      const override {
+    return SCRIPT_NAME_CASING_PASCAL_CASE;
+  };
 
   /* Thread Functions */
   void _thread_enter() override;

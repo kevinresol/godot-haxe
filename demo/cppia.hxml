@@ -1,0 +1,2 @@
+--macro include('', true, [], ['.'])
+--cppia .godot/cppia/bin/script.cppia

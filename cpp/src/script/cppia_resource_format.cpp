@@ -78,25 +78,19 @@ void CppiaResourceFormatSaver::_bind_methods() {}
 godot::Error CppiaResourceFormatSaver::_save(
     const godot::Ref<godot::Resource> &resource, const godot::String &path,
     uint32_t flags) {
-  printf("CppiaResourceFormatSaver::_save\n");
-  GD_PRINT_ERROR(path.utf8().get_data());
-
   Ref<CppiaScript> script = Object::cast_to<CppiaScript>(resource.ptr());
   if (script.is_null()) {
-    GD_PRINT_ERROR("script is null");
     return ERR_BUG;
   }
 
   Ref<FileAccess> file = FileAccess::open(path, FileAccess::ModeFlags::WRITE);
   if (file.is_null()) {
-    GD_PRINT_ERROR("file is null");
     return ERR_BUG;
   }
 
   String source = script->get_source_code();
   file->store_string(source);
   if (file->get_error() != OK && file->get_error() != ERR_FILE_EOF) {
-    GD_PRINT_ERROR("Failed to save script to file.");
     return ERR_CANT_CREATE;
   }
 

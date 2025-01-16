@@ -27,6 +27,7 @@ godot::ScriptLanguage *CppiaScript::_get_language() const {
 }
 
 void CppiaScript::_set_source_code(const godot::String &code) {
+  printf("_set_source_code\n%s\n", code.utf8().get_data());
   _source_code = code;
 }
 
@@ -64,7 +65,10 @@ godot::Dictionary CppiaScript::_get_method_info(
   return ret;
 }
 
-bool CppiaScript::_is_valid() const { return true; }
+bool CppiaScript::_is_valid() const {
+  printf("_is_valid\n");
+  return true;
+}
 
 bool CppiaScript::_has_script_signal(const godot::StringName &signal) const {
   return false;
@@ -107,7 +111,10 @@ godot::TypedArray<godot::Dictionary> CppiaScript::_get_script_property_list()
   return ret_val;
 }
 
-godot::Error CppiaScript::_reload(bool keep_state) { return godot::Error::OK; }
+godot::Error CppiaScript::_reload(bool keep_state) {
+  printf("_reload keep_state=%d\n", keep_state);
+  return godot::Error::OK;
+}
 
 bool CppiaScript::_is_tool() const { return false; }
 

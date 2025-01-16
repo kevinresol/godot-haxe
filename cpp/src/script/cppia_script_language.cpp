@@ -1,7 +1,11 @@
 #include "cppia_script_language.h"
 
+#include <gdcppia_api.h>
+
 #include <godot_cpp/classes/editor_file_system.hpp>
 #include <godot_cpp/classes/editor_interface.hpp>
+#include <godot_cpp/classes/engine.hpp>
+#include <godot_cpp/classes/file_access.hpp>
 #include <godot_cpp/classes/resource_loader.hpp>
 
 #include "../helper.h"
@@ -23,7 +27,21 @@ void CppiaScriptLanguage::shutdown() {
 }
 
 CppiaScriptLanguage::CppiaScriptLanguage() {}
-void CppiaScriptLanguage::_init() {}
+void CppiaScriptLanguage::_init() {
+  printf("CppiaScriptLanguage::_init\n");
+  printf("Engine::get_singleton()->is_editor_hint() = %d\n",
+         godot::Engine::get_singleton()->is_editor_hint());
+
+  // load cppia bytecode
+  godot::String path = "res://.godot/cppia/bin/script.cppia";
+  printf("godot::FileAccess::file_exists(path) = %s\n",
+         godot::FileAccess::file_exists(path) ? "true" : "false");
+
+  godot::PackedByteArray bytecode = godot::FileAccess::get_file_as_bytes(path);
+  printf("bytecode.size() = %lld\n", bytecode.size());
+
+  gdcppia::load_bytecode(bytecode.ptr(), bytecode.size());
+}
 
 godot::String CppiaScriptLanguage::_get_name() const {
   static godot::StringName name("Cppia", true);
@@ -92,7 +110,7 @@ godot::PackedStringArray CppiaScriptLanguage::_get_comment_delimiters() const {
 godot::PackedStringArray CppiaScriptLanguage::_get_doc_comment_delimiters()
     const {
   godot::PackedStringArray delimiters;
-  delimiters.append("/** **/");
+  delimiters.append("/** */");
   return delimiters;
 }
 
@@ -141,7 +159,10 @@ godot::Dictionary CppiaScriptLanguage::_validate(
 
 godot::String CppiaScriptLanguage::_validate_path(
     const godot::String &path) const {
-  printf("_validate_path\n");
+  godot::String first = path.get_file().substr(0, 1);
+  if (first != first.to_upper()) {
+    return "Haxe files must start with a uppercase letter";
+  }
   return godot::String();
 }
 
@@ -233,12 +254,14 @@ CppiaScriptLanguage::_debug_get_current_stack_info() {
 }
 
 void CppiaScriptLanguage::_reload_all_scripts() {
-  // Trigger the hot reloader
+  printf("_reload_all_scripts\n");
+  // TODO: Trigger the hot reloader
 }
 
 void CppiaScriptLanguage::_reload_tool_script(
     const godot::Ref<godot::Script> &script, bool soft_reload) {
-  // Trigger the hot reloader
+  printf("_reload_tool_script\n");
+  // TODO: Trigger the hot reloader
 }
 
 /* Loader functions */
@@ -252,10 +275,12 @@ godot::PackedStringArray CppiaScriptLanguage::_get_recognized_extensions()
 
 godot::TypedArray<godot::Dictionary>
 CppiaScriptLanguage::_get_public_functions() const {
+  printf("_get_public_functions\n");
   return godot::TypedArray<godot::Dictionary>();
 }
 
 godot::Dictionary CppiaScriptLanguage::_get_public_constants() const {
+  printf("_get_public_constants\n");
   return godot::Dictionary();
 }
 
@@ -264,7 +289,9 @@ CppiaScriptLanguage::_get_public_annotations() const {
   return godot::TypedArray<godot::Dictionary>();
 }
 
-void CppiaScriptLanguage::_frame() {}
+void CppiaScriptLanguage::_frame() {
+  // printf("_frame\n");
+}
 
 bool CppiaScriptLanguage::_handles_global_class_type(
     const godot::String &type) const {
