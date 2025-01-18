@@ -1,10 +1,36 @@
 package gd;
-
-typedef ObjectStar = cpp.Star<Object>;
-
-@:include("godot_cpp/classes/object.hpp")
-@:native("godot::Object")
-@:structAccess
-extern class Object {
-	function call(method:cpp.ConstCharStar):Variant;
+class Object {
+	public var __native : godot.gen.Object;
+	function get_class():String return ((cast __native : godot.gen.Object)).get_class();
+	function is_class(p_class:String):Bool return ((cast __native : godot.gen.Object)).is_class(p_class);
+	function set(p_property:String, p_value:Dynamic):Void ((cast __native : godot.gen.Object)).set(p_property, p_value);
+	function get(p_property:String):Dynamic return ((cast __native : godot.gen.Object)).get(p_property);
+	function property_can_revert(p_property:String):Bool return ((cast __native : godot.gen.Object)).property_can_revert(p_property);
+	function property_get_revert(p_property:String):Dynamic return ((cast __native : godot.gen.Object)).property_get_revert(p_property);
+	function notification(p_what:Int, ?p_reversed:Bool):Void ((cast __native : godot.gen.Object)).notification(p_what, p_reversed);
+	function to_string():String return ((cast __native : godot.gen.Object)).to_string();
+	function get_instance_id():Int return ((cast __native : godot.gen.Object)).get_instance_id();
+	function set_script(p_script:Dynamic):Void ((cast __native : godot.gen.Object)).set_script(p_script);
+	function get_script():Dynamic return ((cast __native : godot.gen.Object)).get_script();
+	function set_meta(p_name:String, p_value:Dynamic):Void ((cast __native : godot.gen.Object)).set_meta(p_name, p_value);
+	function remove_meta(p_name:String):Void ((cast __native : godot.gen.Object)).remove_meta(p_name);
+	function get_meta(p_name:String, ?p_default:Dynamic):Dynamic return ((cast __native : godot.gen.Object)).get_meta(p_name, p_default);
+	function has_meta(p_name:String):Bool return ((cast __native : godot.gen.Object)).has_meta(p_name);
+	function has_user_signal(p_signal:String):Bool return ((cast __native : godot.gen.Object)).has_user_signal(p_signal);
+	function remove_user_signal(p_signal:String):Void ((cast __native : godot.gen.Object)).remove_user_signal(p_signal);
+	function call(p_method:String):Dynamic return ((cast __native : godot.gen.Object)).call(p_method);
+	function call_deferred(p_method:String):Dynamic return ((cast __native : godot.gen.Object)).call_deferred(p_method);
+	function set_deferred(p_property:String, p_value:Dynamic):Void ((cast __native : godot.gen.Object)).set_deferred(p_property, p_value);
+	function has_method(p_method:String):Bool return ((cast __native : godot.gen.Object)).has_method(p_method);
+	function get_method_argument_count(p_method:String):Int return ((cast __native : godot.gen.Object)).get_method_argument_count(p_method);
+	function has_signal(p_signal:String):Bool return ((cast __native : godot.gen.Object)).has_signal(p_signal);
+	function set_block_signals(p_enable:Bool):Void ((cast __native : godot.gen.Object)).set_block_signals(p_enable);
+	function is_blocking_signals():Bool return ((cast __native : godot.gen.Object)).is_blocking_signals();
+	function notify_property_list_changed():Void ((cast __native : godot.gen.Object)).notify_property_list_changed();
+	function set_message_translation(p_enable:Bool):Void ((cast __native : godot.gen.Object)).set_message_translation(p_enable);
+	function can_translate_messages():Bool return ((cast __native : godot.gen.Object)).can_translate_messages();
+	function tr(p_message:String, ?p_context:String):String return ((cast __native : godot.gen.Object)).tr(p_message, p_context);
+	function tr_n(p_message:String, p_plural_message:String, p_n:Int, ?p_context:String):String return ((cast __native : godot.gen.Object)).tr_n(p_message, p_plural_message, p_n, p_context);
+	function is_queued_for_deletion():Bool return ((cast __native : godot.gen.Object)).is_queued_for_deletion();
+	function cancel_free():Void ((cast __native : godot.gen.Object)).cancel_free();
 }

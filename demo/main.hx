@@ -1,19 +1,23 @@
-class Main extends gd.wrapper.Node {
+class Main extends gd.Node {
 	var processed = false;
 
 	function new() {
 		trace("new Main() 2");
 	}
 
-	function _enter_tree() {
+	override function _enter_tree() {
 		trace("_enter_tree");
 	}
 
-	function _ready() {
+	override function _ready() {
 		trace('_ready ${get_child_count(false)}');
+		trace('get_name: ${get_name()}');
+		trace('get_index: ${get_index()}');
+		trace('get_tree_string: ${get_tree_string()}');
+		trace('get_scene_file_path: ${get_scene_file_path()}');
 	}
 
-	function _process(delta:Float) {
+	override function _process(delta:Float) {
 		if (!processed) {
 			trace('_process($delta) $processed');
 			processed = true;

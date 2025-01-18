@@ -1,4 +1,5 @@
 --main gdcppia.Cppia
+--macro include('gd')
 --class-path src
 --cpp bin
 --library haxeparser
@@ -8,6 +9,7 @@
 
 --each
 -D HAXE_OUTPUT_PART=cppia_x86_64
+-D HXCPP_M64
 
 --next
 -D HAXE_OUTPUT_PART=cppia_arm64

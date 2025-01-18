@@ -1,7 +1,5 @@
 package gdcppia;
 
-import gd.wrapper.Node;
-import gd.Object;
 import cpp.Reference;
 import cpp.vm.Gc;
 import haxe.Exception;
@@ -15,6 +13,7 @@ class Cppia {
 		trace("Hello from Haxe!");
 
 		trace(analyzer.analyze('class A extends B {}'));
+		trace(godot.gen.UtilityFunctions.sin(0.5));
 	}
 
 	static var analyzer:CodeAnalyzer = new CodeAnalyzer();
@@ -28,9 +27,10 @@ class Cppia {
 
 		module = cpp.cppia.Module.fromData(data);
 		module.boot();
+		trace('Done booting module');
 	}
 
-	public static function createInstance(className:String, owner:ObjectStar) {
+	public static function createInstance(className:String, owner:godot.gen.Object) {
 		trace('Creating instance of ${className}');
 		final classType = module.resolveClass(className);
 		if (classType == null) {
@@ -38,10 +38,12 @@ class Cppia {
 			return null;
 		} else {
 			final inst:Dynamic = Type.createInstance(classType, []);
-			switch Std.downcast(inst, Node) {
+			switch Std.downcast(inst, gd.Object) {
 				case null:
+					trace('Instance is not a gd.Object');
 				case node:
-					node.native = cast owner;
+					trace('Instance is a gd.Object');
+					node.__native = cast owner;
 			}
 			trace(inst);
 			return inst;
