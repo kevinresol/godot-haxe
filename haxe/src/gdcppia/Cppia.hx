@@ -41,7 +41,7 @@ class Cppia {
 			switch Std.downcast(inst, Node) {
 				case null:
 				case node:
-					node.native = owner;
+					node.native = cast owner;
 			}
 			trace(inst);
 			return inst;

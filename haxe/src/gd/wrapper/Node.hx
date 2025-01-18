@@ -1,18 +1,18 @@
 package gd.wrapper;
 
-import gd.Object;
+import gd.Node;
 
 @:unreflective
 class Node {
-	public var native:ObjectStar;
+	public var native:NodeStar;
 
 	function new() {
 		trace("new Node()");
 	}
 
 	function get_child_count(p_include_internal:Bool):Int {
-		final val = native.call("get_child_count");
-		UtilityFunctions.print(val);
-		return 0;
+		final val = native.get_child_count(p_include_internal);
+		trace(val);
+		return val;
 	}
 }
