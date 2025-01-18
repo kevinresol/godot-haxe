@@ -1,21 +1,28 @@
+package gdcppia;
+
+import gd.wrapper.Node;
+import gd.Object;
+import cpp.Reference;
+import cpp.vm.Gc;
 import haxe.Exception;
 import cpp.UInt8;
 
 @:buildXml('<include name="/Users/kevin/Codes/godot-haxe/haxe/src/build.xml" />')
 @:headerInclude('hx/Scriptable.h') // https://github.com/HaxeFoundation/hxcpp/issues/816
+@:unreflective
 class Cppia {
 	public static function main() {
 		trace("Hello from Haxe!");
+
+		trace(analyzer.analyze('class A extends B {}'));
 	}
 
+	static var analyzer:CodeAnalyzer = new CodeAnalyzer();
 	static var module:cpp.cppia.Module;
 
 	// static var moduleExtern:Module2;
 
-	public static function runBytes(ptr:cpp.ConstPointer<cpp.UInt8>, size:Int) {
-		// copy bytes from external, which we don't manage
-		final data:Array<cpp.UInt8> = untyped __cpp__("::Array_obj<unsigned char>::fromData({0}, {1})", ptr, size);
-
+	public static function runBytes(data:Array<UInt8>) {
 		final bytes = haxe.io.Bytes.ofData(data);
 		trace('Loaded bytes:${bytes.length}');
 
@@ -23,14 +30,19 @@ class Cppia {
 		module.boot();
 	}
 
-	public static function createInstance(className:String) {
+	public static function createInstance(className:String, owner:ObjectStar) {
 		trace('Creating instance of ${className}');
 		final classType = module.resolveClass(className);
 		if (classType == null) {
 			trace('Class not found: ${className}');
 			return null;
 		} else {
-			final inst = Type.createInstance(classType, []);
+			final inst:Dynamic = Type.createInstance(classType, []);
+			switch Std.downcast(inst, Node) {
+				case null:
+				case node:
+					node.native = owner;
+			}
 			trace(inst);
 			return inst;
 		}

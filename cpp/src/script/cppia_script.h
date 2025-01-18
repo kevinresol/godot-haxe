@@ -1,9 +1,8 @@
 #pragma once
 
-#include <unordered_set>
-
 #include <godot_cpp/classes/script_extension.hpp>
 #include <godot_cpp/classes/script_language.hpp>
+#include <unordered_set>
 
 class CppiaScriptInstance;
 

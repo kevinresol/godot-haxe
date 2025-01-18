@@ -1,6 +1,9 @@
 #include <godot_cpp/classes/object.hpp>
+#include <godot_cpp/core/memory.hpp>
 
 #include "cppia_script_instance.h"
+
+using namespace godot;
 
 // * Static Callback Functions for Godot */
 GDExtensionBool cppia_script_instance_set(
@@ -215,7 +218,9 @@ GDExtensionScriptLanguagePtr cppia_script_instance_get_language(
 }
 
 void cppia_script_instance_free(GDExtensionScriptInstanceDataPtr p_instance) {
-  // TODO
+  printf("about to cppia_script_instance_free %p\n", p_instance);
+  // memdelete((CppiaScriptInstance*)p_instance);
+  printf("done cppia_script_instance_free\n");
 }
 
 GDExtensionScriptInstanceInfo3 CppiaScriptInstance::script_instance_info = {

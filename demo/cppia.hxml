@@ -1,2 +1,3 @@
 --macro include('', true, [], ['.'])
 --cppia .godot/cppia/bin/script.cppia
+--class-path ../haxe/src/extern

@@ -12,7 +12,7 @@ using namespace godot;
 
 CppiaScript::CppiaScript() : _source_code() {}
 
-CppiaScript::~CppiaScript() {}
+CppiaScript::~CppiaScript() { printf("~CppiaScript\n"); }
 
 void CppiaScript::_bind_methods() {}
 

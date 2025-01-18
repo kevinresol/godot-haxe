@@ -1,8 +1,10 @@
---main Cppia
+--main gdcppia.Cppia
 --class-path src
 --cpp bin
+--library haxeparser
 -D static_link
 -D scriptable
+-D HXCPP_CPP17
 
 --each
 -D HAXE_OUTPUT_PART=cppia_x86_64

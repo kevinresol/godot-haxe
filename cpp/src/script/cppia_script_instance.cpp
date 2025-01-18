@@ -6,27 +6,6 @@
 
 #include "cppia_script_language.h"
 
-::String to_haxe_string(const godot::String &str) {
-  godot::CharString utf8 = str.utf8();
-  return ::String::create(utf8.get_data(), utf8.length());
-}
-::Dynamic to_haxe_dynamic(const godot::Variant *val) {
-  godot::Variant::Type type = val->get_type();
-  if (type == godot::Variant::FLOAT) {
-    return val->operator double();
-  } else {
-    return null();
-  }
-}
-::Dynamic to_haxe_dynamic(const godot::Variant **ptr, int size) {
-  ::Array<::Dynamic> arr = ::Array_obj<::Dynamic>::__new(size);
-  for (int i = 0; i < size; i++) {
-    auto v = ptr[i];
-    arr[i] = to_haxe_dynamic(v);
-  }
-  return arr;
-}
-
 CppiaScriptInstance::CppiaScriptInstance(godot::Ref<CppiaScript> script,
                                          godot::Object *owner,
                                          bool is_placeholder,
@@ -35,9 +14,11 @@ CppiaScriptInstance::CppiaScriptInstance(godot::Ref<CppiaScript> script,
   // s_instanceMap[(intptr_t)this] = this;
   // _binding.initialize(for_object, is_refcounted);
 
+  printf("owner:%llu %s\n", owner->get_instance_id(),
+         owner->get_class().utf8().get_data());
   _cppia_script = script;
   _cppia_handle = gdcppia::create_instance(
-      script->get_path().get_file().get_basename().utf8().get_data());
+      script->get_path().get_file().get_basename().utf8().get_data(), owner);
 }
 
 CppiaScriptInstance::~CppiaScriptInstance() {
@@ -139,8 +120,8 @@ void CppiaScriptInstance::free_method_list(const GDExtensionMethodInfo *p_list,
 
 GDExtensionBool CppiaScriptInstance::has_method(
     const godot::StringName &p_name) {
-  bool has =
-      gdcppia::instance_has_method(_cppia_handle, to_haxe_string(p_name));
+  bool has = gdcppia::instance_has_method(_cppia_handle,
+                                          gdcppia::to_haxe_string(p_name));
   printf("has_method %s = %d\n", p_name.to_utf8_buffer().ptr(), has);
   return has;
 }
@@ -150,22 +131,31 @@ void CppiaScriptInstance::call(const godot::StringName *p_method,
                                GDExtensionInt p_argument_count,
                                GDExtensionVariantPtr r_return,
                                GDExtensionCallError *r_error) {
-  printf("call %s\n", p_method->to_utf8_buffer().ptr());
+  // printf("call %s\n", p_method->to_utf8_buffer().ptr());
   gdcppia::instance_call(
-      _cppia_handle, to_haxe_string(*p_method),
-      to_haxe_dynamic((const godot::Variant **)p_args, p_argument_count));
+      _cppia_handle, gdcppia::to_haxe_string(*p_method),
+      gdcppia::to_haxe_dynamic_array((const godot::Variant **)p_args,
+                                     p_argument_count));
 }
 
 void CppiaScriptInstance::notification(int32_t p_what, bool p_reversed) {
-  printf("notification %d\n", p_what);
+  // printf("notification %d\n", p_what);
 }
 
 void CppiaScriptInstance::to_string(GDExtensionBool *r_is_valid,
-                                    GDExtensionStringPtr r_out) {}
+                                    GDExtensionStringPtr r_out) {
+  *(godot::String *)r_out = godot::String("TODO: CppiaScriptInstance");
+  *r_is_valid = true;
+}
 
-void CppiaScriptInstance::ref_count_incremented() {}
+void CppiaScriptInstance::ref_count_incremented() {
+  printf("CppiaScriptInstance::ref_count_incremented\n");
+}
 
-GDExtensionBool CppiaScriptInstance::ref_count_decremented() { return false; }
+GDExtensionBool CppiaScriptInstance::ref_count_decremented() {
+  printf("CppiaScriptInstance::ref_count_decremented\n");
+  return false;
+}
 
 GDExtensionObjectPtr CppiaScriptInstance::get_script() {
   return _cppia_script->_owner;
