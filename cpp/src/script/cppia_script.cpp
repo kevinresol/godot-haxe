@@ -8,7 +8,7 @@
 #include "cppia_script_instance.h"
 #include "cppia_script_language.h"
 
-using namespace godot;
+namespace godot {
 
 CppiaScript::CppiaScript() : _source_code() {}
 
@@ -16,28 +16,27 @@ CppiaScript::~CppiaScript() { printf("~CppiaScript\n"); }
 
 void CppiaScript::_bind_methods() {}
 
-godot::Ref<Script> CppiaScript::_get_base_script() const {
+Ref<Script> CppiaScript::_get_base_script() const {
   const_cast<CppiaScript *>(this)->refresh_type(false);
 
   return _base_script;
 }
 
-bool CppiaScript::_inherits_script(
-    const godot::Ref<godot::Script> &p_script) const {
+bool CppiaScript::_inherits_script(const Ref<Script> &p_script) const {
   // TODO
   return false;
 }
 
-godot::ScriptLanguage *CppiaScript::_get_language() const {
+ScriptLanguage *CppiaScript::_get_language() const {
   return CppiaScriptLanguage::get_singleton();
 }
 
-void CppiaScript::_set_source_code(const godot::String &code) {
+void CppiaScript::_set_source_code(const String &code) {
   // printf("_set_source_code\n%s\n", code.utf8().get_data());
   _source_code = code;
 }
 
-godot::String CppiaScript::_get_source_code() const { return _source_code; }
+String CppiaScript::_get_source_code() const { return _source_code; }
 
 bool CppiaScript::_has_source_code() const { return !_source_code.is_empty(); }
 
@@ -45,17 +44,14 @@ bool CppiaScript::_can_instantiate() const {
   return _is_tool() || !Engine::get_singleton()->is_editor_hint();
 }
 
-bool CppiaScript::_has_method(const godot::StringName &method) const {
+bool CppiaScript::_has_method(const StringName &method) const { return false; }
+
+bool CppiaScript::_has_static_method(const StringName &method) const {
   return false;
 }
 
-bool CppiaScript::_has_static_method(const godot::StringName &method) const {
-  return false;
-}
-
-godot::Dictionary CppiaScript::_get_method_info(
-    const godot::StringName &method) const {
-  godot::Dictionary ret;
+Dictionary CppiaScript::_get_method_info(const StringName &method) const {
+  Dictionary ret;
   return ret;
 }
 
@@ -64,66 +60,60 @@ bool CppiaScript::_is_valid() const {
   return true;
 }
 
-bool CppiaScript::_has_script_signal(const godot::StringName &signal) const {
+bool CppiaScript::_has_script_signal(const StringName &signal) const {
   return false;
 }
 
-godot::TypedArray<godot::Dictionary> CppiaScript::_get_script_signal_list()
-    const {
-  godot::TypedArray<godot::Dictionary> ret;
+TypedArray<Dictionary> CppiaScript::_get_script_signal_list() const {
+  TypedArray<Dictionary> ret;
   return ret;
 }
 
-godot::TypedArray<godot::Dictionary> CppiaScript::_get_script_method_list()
-    const {
-  godot::TypedArray<godot::Dictionary> ret_val;
+TypedArray<Dictionary> CppiaScript::_get_script_method_list() const {
+  TypedArray<Dictionary> ret_val;
 
   return ret_val;
 }
 
-godot::TypedArray<godot::Dictionary> CppiaScript::_get_script_property_list()
-    const {
-  godot::TypedArray<godot::Dictionary> ret_val;
+TypedArray<Dictionary> CppiaScript::_get_script_property_list() const {
+  TypedArray<Dictionary> ret_val;
 
   // TODO: Look if there's a better way to store these strings as constants
   for (const auto &prop : _properties_cache) {
     const auto &prop_info = prop.second;
-    godot::Dictionary info_dict;
-    info_dict[godot::Variant(godot::String("type"))] = Variant(prop_info.type);
-    info_dict[godot::Variant(godot::String("name"))] =
-        Variant(*reinterpret_cast<godot::String *>(prop_info.name));
-    info_dict[godot::Variant(godot::String("class_name"))] =
-        Variant(*reinterpret_cast<godot::StringName *>(prop_info.name));
-    info_dict[godot::Variant(godot::String("hint"))] = Variant(prop_info.hint);
-    info_dict[godot::Variant(godot::String("hint_string"))] =
-        Variant(*reinterpret_cast<godot::String *>(prop_info.hint_string));
-    info_dict[godot::Variant(godot::String("usage"))] =
-        Variant(prop_info.usage);
+    Dictionary info_dict;
+    info_dict[Variant(String("type"))] = Variant(prop_info.type);
+    info_dict[Variant(String("name"))] =
+        Variant(*reinterpret_cast<String *>(prop_info.name));
+    info_dict[Variant(String("class_name"))] =
+        Variant(*reinterpret_cast<StringName *>(prop_info.name));
+    info_dict[Variant(String("hint"))] = Variant(prop_info.hint);
+    info_dict[Variant(String("hint_string"))] =
+        Variant(*reinterpret_cast<String *>(prop_info.hint_string));
+    info_dict[Variant(String("usage"))] = Variant(prop_info.usage);
     ret_val.push_back(info_dict);
   }
 
   return ret_val;
 }
 
-godot::Error CppiaScript::_reload(bool keep_state) {
+Error CppiaScript::_reload(bool keep_state) {
   printf("_reload keep_state=%d\n", keep_state);
-  return godot::Error::OK;
+  return Error::OK;
 }
 
 bool CppiaScript::_is_tool() const { return false; }
 
-godot::StringName CppiaScript::_get_instance_base_type() const {
-  return godot::StringName();
-}
+StringName CppiaScript::_get_instance_base_type() const { return StringName(); }
 
 bool CppiaScript::_has_property_default_value(
-    const godot::StringName &property) const {
+    const StringName &property) const {
   return false;
 }
 
-godot::Variant CppiaScript::_get_property_default_value(
-    const godot::StringName &property) const {
-  return godot::Variant();
+Variant CppiaScript::_get_property_default_value(
+    const StringName &property) const {
+  return Variant();
 }
 
 void CppiaScript::_update_exports() {
@@ -134,12 +124,12 @@ void CppiaScript::_update_exports() {
   }
 }
 
-godot::StringName CppiaScript::_get_global_name() const {
-  godot::StringName ret;
+StringName CppiaScript::_get_global_name() const {
+  StringName ret;
   return ret;
 }
 
-void CppiaScript::load_from_disk(const godot::String &path) {
+void CppiaScript::load_from_disk(const String &path) {
   printf("load_from_disk\n");
   Ref<FileAccess> file = FileAccess::open(path, FileAccess::READ);
   if (!file.is_null()) {
@@ -153,7 +143,7 @@ void CppiaScript::load_from_disk(const godot::String &path) {
 void CppiaScript::did_hot_reload() {
   printf("did_hot_reload\n");
   _update_exports();
-  auto editor_interface = godot::EditorInterface::get_singleton();
+  auto editor_interface = EditorInterface::get_singleton();
   if (editor_interface) {
     editor_interface->get_resource_filesystem()->update_file(_path);
   }
@@ -186,7 +176,7 @@ void *CppiaScript::create_script_instance_internal(Object *for_object,
                                  is_placeholder, rc != nullptr));
 
   godot_script_instance =
-      godot::internal::gdextension_interface_script_instance_create3(
+      internal::gdextension_interface_script_instance_create3(
           CppiaScriptInstance::get_script_instance_info(),
           reinterpret_cast<GDExtensionScriptInstanceDataPtr>(script_instance));
 
@@ -205,3 +195,5 @@ void *CppiaScript::create_script_instance_internal(Object *for_object,
 void CppiaScript::clear_property_cache() {}
 
 void CppiaScript::refresh_type(bool force) {}
+
+}  // namespace godot

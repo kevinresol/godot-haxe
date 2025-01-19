@@ -7,8 +7,7 @@
 #include "cppia_script.h"
 #include "cppia_script_language.h"
 
-using namespace godot;
-
+namespace godot {
 // ResourceFormatLoader
 
 CppiaResourceFormatLoader::CppiaResourceFormatLoader() {}
@@ -109,3 +108,5 @@ PackedStringArray CppiaResourceFormatSaver::_get_recognized_extensions(
   array.push_back("hx");
   return array;
 }
+
+}  // namespace godot

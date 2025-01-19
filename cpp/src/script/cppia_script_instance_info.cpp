@@ -4,14 +4,13 @@
 #include "cppia_script.h"
 #include "cppia_script_instance.h"
 
-using namespace godot;
+namespace godot {
 
 // * Static Callback Functions for Godot */
 GDExtensionBool cppia_script_instance_set(
     GDExtensionScriptInstanceDataPtr p_instance,
     GDExtensionConstStringNamePtr p_name, GDExtensionConstVariantPtr p_value) {
-  const godot::StringName* gd_name =
-      reinterpret_cast<const godot::StringName*>(p_name);
+  const StringName* gd_name = reinterpret_cast<const StringName*>(p_name);
   CppiaScriptInstance* instance =
       reinterpret_cast<CppiaScriptInstance*>(p_instance);
   return instance->set(*gd_name, p_value);
@@ -20,8 +19,7 @@ GDExtensionBool cppia_script_instance_set(
 GDExtensionBool cppia_script_instance_get(
     GDExtensionScriptInstanceDataPtr p_instance,
     GDExtensionConstStringNamePtr p_name, GDExtensionVariantPtr r_ret) {
-  const godot::StringName* gd_name =
-      reinterpret_cast<const godot::StringName*>(p_name);
+  const StringName* gd_name = reinterpret_cast<const StringName*>(p_name);
   CppiaScriptInstance* instance =
       reinterpret_cast<CppiaScriptInstance*>(p_instance);
   return instance->get(*gd_name, r_ret);
@@ -53,8 +51,7 @@ void cppia_script_instance_free_property_list(
 GDExtensionVariantType cppia_script_instance_get_property_type(
     GDExtensionScriptInstanceDataPtr p_instance,
     GDExtensionConstStringNamePtr p_name, GDExtensionBool* r_is_valid) {
-  const godot::StringName* gd_name =
-      reinterpret_cast<const godot::StringName*>(p_name);
+  const StringName* gd_name = reinterpret_cast<const StringName*>(p_name);
   CppiaScriptInstance* instance =
       reinterpret_cast<CppiaScriptInstance*>(p_instance);
   return instance->get_property_type(*gd_name, r_is_valid);
@@ -71,8 +68,7 @@ GDExtensionBool cppia_script_instance_validate_property(
 GDExtensionBool cppia_script_instance_property_can_revert(
     GDExtensionScriptInstanceDataPtr p_instance,
     GDExtensionConstStringNamePtr p_name) {
-  const godot::StringName* gd_name =
-      reinterpret_cast<const godot::StringName*>(p_name);
+  const StringName* gd_name = reinterpret_cast<const StringName*>(p_name);
   CppiaScriptInstance* instance =
       reinterpret_cast<CppiaScriptInstance*>(p_instance);
   return instance->property_can_revert(*gd_name);
@@ -81,8 +77,7 @@ GDExtensionBool cppia_script_instance_property_can_revert(
 GDExtensionBool cppia_script_instance_property_get_revert(
     GDExtensionScriptInstanceDataPtr p_instance,
     GDExtensionConstStringNamePtr p_name, GDExtensionVariantPtr r_ret) {
-  const godot::StringName* gd_name =
-      reinterpret_cast<const godot::StringName*>(p_name);
+  const StringName* gd_name = reinterpret_cast<const StringName*>(p_name);
   CppiaScriptInstance* instance =
       reinterpret_cast<CppiaScriptInstance*>(p_instance);
   return instance->property_get_revert(*gd_name, r_ret);
@@ -121,8 +116,7 @@ void cppia_script_instance_free_method_list(
 GDExtensionBool cppia_script_instance_has_method(
     GDExtensionScriptInstanceDataPtr p_instance,
     GDExtensionConstStringNamePtr p_name) {
-  const godot::StringName* gd_name =
-      reinterpret_cast<const godot::StringName*>(p_name);
+  const StringName* gd_name = reinterpret_cast<const StringName*>(p_name);
   CppiaScriptInstance* instance =
       reinterpret_cast<CppiaScriptInstance*>(p_instance);
   return instance->has_method(*gd_name);
@@ -140,8 +134,7 @@ void cppia_script_instance_call(GDExtensionScriptInstanceDataPtr p_self,
                                 GDExtensionInt p_argument_count,
                                 GDExtensionVariantPtr r_return,
                                 GDExtensionCallError* r_error) {
-  const godot::StringName* gd_method =
-      reinterpret_cast<const godot::StringName*>(p_method);
+  const StringName* gd_method = reinterpret_cast<const StringName*>(p_method);
   CppiaScriptInstance* instance =
       reinterpret_cast<CppiaScriptInstance*>(p_self);
   instance->call(gd_method, p_args, p_argument_count, r_return, r_error);
@@ -194,8 +187,7 @@ GDExtensionBool cppia_script_instance_is_placeholder(
 GDExtensionBool cppia_script_instance_set_fallback(
     GDExtensionScriptInstanceDataPtr p_instance,
     GDExtensionConstStringNamePtr p_name, GDExtensionConstVariantPtr p_value) {
-  const godot::StringName* gd_name =
-      reinterpret_cast<const godot::StringName*>(p_name);
+  const StringName* gd_name = reinterpret_cast<const StringName*>(p_name);
   CppiaScriptInstance* instance =
       reinterpret_cast<CppiaScriptInstance*>(p_instance);
   return instance->set_fallback(*gd_name, p_value);
@@ -204,8 +196,7 @@ GDExtensionBool cppia_script_instance_set_fallback(
 GDExtensionBool cppia_script_instance_get_fallback(
     GDExtensionScriptInstanceDataPtr p_instance,
     GDExtensionConstStringNamePtr p_name, GDExtensionVariantPtr r_ret) {
-  const godot::StringName* gd_name =
-      reinterpret_cast<const godot::StringName*>(p_name);
+  const StringName* gd_name = reinterpret_cast<const StringName*>(p_name);
   CppiaScriptInstance* instance =
       reinterpret_cast<CppiaScriptInstance*>(p_instance);
   return instance->get_fallback(*gd_name, r_ret);
@@ -250,3 +241,4 @@ GDExtensionScriptInstanceInfo3 CppiaScriptInstance::script_instance_info = {
     cppia_script_instance_get_language,
     cppia_script_instance_free,
 };
+}  // namespace godot

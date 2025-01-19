@@ -3,7 +3,7 @@
 #include <godot_cpp/core/class_db.hpp>
 #include <godot_cpp/variant/utility_functions.hpp>
 
-using namespace godot;
+namespace godot {
 
 void GDExample::_bind_methods() {}
 
@@ -24,3 +24,5 @@ void GDExample::_process(double delta) {
 
   set_position(new_position);
 }
+
+}  // namespace godot

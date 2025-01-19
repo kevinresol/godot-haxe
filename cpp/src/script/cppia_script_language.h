@@ -5,8 +5,9 @@
 
 #include "cppia_script.h"
 
-class CppiaScriptLanguage : public godot::ScriptLanguageExtension {
-  GDCLASS(CppiaScriptLanguage, godot::ScriptLanguageExtension);
+namespace godot {
+class CppiaScriptLanguage : public ScriptLanguageExtension {
+  GDCLASS(CppiaScriptLanguage, ScriptLanguageExtension);
 
  public:
   static CppiaScriptLanguage *get_singleton() { return singleton; }
@@ -14,53 +15,48 @@ class CppiaScriptLanguage : public godot::ScriptLanguageExtension {
   CppiaScriptLanguage();
   ~CppiaScriptLanguage();
 
-  godot::String _get_name() const override;
+  String _get_name() const override;
 
   /* Language Functions */
   void _init() override;
-  godot::String _get_type() const override;
-  godot::String _get_extension() const override;
+  String _get_type() const override;
+  String _get_extension() const override;
   void _finish() override;
 
   /* Editor Functions */
-  godot::PackedStringArray _get_reserved_words() const override;
-  bool _is_control_flow_keyword(const godot::String &keyword) const override;
-  godot::PackedStringArray _get_comment_delimiters() const override;
-  godot::PackedStringArray _get_doc_comment_delimiters() const override;
-  godot::PackedStringArray _get_string_delimiters() const override;
-  godot::Ref<godot::Script> _make_template(
-      const godot::String &_template, const godot::String &class_name,
-      const godot::String &base_class_name) const override;
+  PackedStringArray _get_reserved_words() const override;
+  bool _is_control_flow_keyword(const String &keyword) const override;
+  PackedStringArray _get_comment_delimiters() const override;
+  PackedStringArray _get_doc_comment_delimiters() const override;
+  PackedStringArray _get_string_delimiters() const override;
+  Ref<Script> _make_template(const String &_template, const String &class_name,
+                             const String &base_class_name) const override;
   bool _is_using_templates() override { return false; }
-  godot::TypedArray<godot::Dictionary> _get_built_in_templates(
-      const godot::StringName &object) const override;
-  godot::Dictionary _validate(const godot::String &script,
-                              const godot::String &path,
-                              bool validate_functions, bool validate_errors,
-                              bool validate_warnings,
-                              bool validate_safe_lines) const override;
-  godot::String _validate_path(const godot::String &path) const override;
-  godot::Object *_create_script() const override;
+  TypedArray<Dictionary> _get_built_in_templates(
+      const StringName &object) const override;
+  Dictionary _validate(const String &script, const String &path,
+                       bool validate_functions, bool validate_errors,
+                       bool validate_warnings,
+                       bool validate_safe_lines) const override;
+  String _validate_path(const String &path) const override;
+  Object *_create_script() const override;
   bool _has_named_classes() const override { return true; }
   bool _supports_builtin_mode() const override { return false; }
   bool _can_inherit_from_file() const override { return false; }
-  int _find_function(const godot::String &class_name,
-                     const godot::String &funciton_name) const override;
+  int _find_function(const String &class_name,
+                     const String &funciton_name) const override;
   bool _overrides_external_editor() override { return false; }
 
-  godot::Dictionary _lookup_code(const godot::String &code,
-                                 const godot::String &symbol,
-                                 const godot::String &path,
-                                 godot::Object *owner) const override;
+  Dictionary _lookup_code(const String &code, const String &symbol,
+                          const String &path, Object *owner) const override;
 
   bool _can_make_function() const override { return false; }
-  godot::String _make_function(
-      const godot::String &class_name, const godot::String &name,
-      const godot::PackedStringArray &args) const override;
-  godot::String _auto_indent_code(const godot::String &code, int32_t fromLine,
-                                  int32_t toLine) const override;
-  void _add_global_constant(const godot::StringName &p_variable,
-                            const godot::Variant &value) override {
+  String _make_function(const String &class_name, const String &name,
+                        const PackedStringArray &args) const override;
+  String _auto_indent_code(const String &code, int32_t fromLine,
+                           int32_t toLine) const override;
+  void _add_global_constant(const StringName &p_variable,
+                            const Variant &value) override {
     // TODO:
   }
   bool _supports_documentation() const override { return false; }
@@ -74,34 +70,33 @@ class CppiaScriptLanguage : public godot::ScriptLanguageExtension {
   void _thread_exit() override;
 
   /* Debugger Functions */
-  godot::String _debug_get_error() const override;
+  String _debug_get_error() const override;
   int32_t _debug_get_stack_level_count() const override;
   int32_t _debug_get_stack_level_line(int32_t level) const override;
-  godot::String _debug_get_stack_level_function(int32_t level) const override;
-  godot::Dictionary _debug_get_stack_level_locals(int32_t level,
-                                                  int32_t max_subitems,
-                                                  int32_t max_depth) override;
-  godot::Dictionary _debug_get_stack_level_members(int32_t level,
-                                                   int32_t max_subitems,
-                                                   int32_t max_depth) override;
+  String _debug_get_stack_level_function(int32_t level) const override;
+  Dictionary _debug_get_stack_level_locals(int32_t level, int32_t max_subitems,
+                                           int32_t max_depth) override;
+  Dictionary _debug_get_stack_level_members(int32_t level, int32_t max_subitems,
+                                            int32_t max_depth) override;
   void *_debug_get_stack_level_instance(int32_t level) override;
-  godot::Dictionary _debug_get_globals(int32_t max_subitems,
-                                       int32_t max_depth) override;
-  godot::String _debug_parse_stack_level_expression(
-      int32_t level, const godot::String &expression, int32_t max_subitems,
-      int32_t max_depth) override;
-  godot::TypedArray<godot::Dictionary> _debug_get_current_stack_info() override;
+  Dictionary _debug_get_globals(int32_t max_subitems,
+                                int32_t max_depth) override;
+  String _debug_parse_stack_level_expression(int32_t level,
+                                             const String &expression,
+                                             int32_t max_subitems,
+                                             int32_t max_depth) override;
+  TypedArray<Dictionary> _debug_get_current_stack_info() override;
 
   void _reload_all_scripts() override;
-  void _reload_tool_script(const godot::Ref<godot::Script> &script,
+  void _reload_tool_script(const Ref<Script> &script,
                            bool soft_reload) override;
 
   /* Loader functions */
 
-  godot::PackedStringArray _get_recognized_extensions() const override;
-  godot::TypedArray<godot::Dictionary> _get_public_functions() const override;
-  godot::Dictionary _get_public_constants() const override;
-  godot::TypedArray<godot::Dictionary> _get_public_annotations() const override;
+  PackedStringArray _get_recognized_extensions() const override;
+  TypedArray<Dictionary> _get_public_functions() const override;
+  Dictionary _get_public_constants() const override;
+  TypedArray<Dictionary> _get_public_annotations() const override;
 
   void _profiling_start() override {
     // TODO:
@@ -110,13 +105,13 @@ class CppiaScriptLanguage : public godot::ScriptLanguageExtension {
     // TODO:
   }
   int32_t _profiling_get_accumulated_data(
-      godot::ScriptLanguageExtensionProfilingInfo *info_array,
+      ScriptLanguageExtensionProfilingInfo *info_array,
       int32_t info_max) override {
     // TODO:
     return 0;
   }
   int32_t _profiling_get_frame_data(
-      godot::ScriptLanguageExtensionProfilingInfo *info_array,
+      ScriptLanguageExtensionProfilingInfo *info_array,
       int32_t info_max) override {
     // TODO:
     return 0;
@@ -124,10 +119,8 @@ class CppiaScriptLanguage : public godot::ScriptLanguageExtension {
 
   void _frame() override;
 
-  virtual bool _handles_global_class_type(
-      const godot::String &type) const override;
-  virtual godot::Dictionary _get_global_class_name(
-      const godot::String &path) const override;
+  virtual bool _handles_global_class_type(const String &type) const override;
+  virtual Dictionary _get_global_class_name(const String &path) const override;
 
   void shutdown();
   void did_finish_hot_reload();
@@ -138,3 +131,5 @@ class CppiaScriptLanguage : public godot::ScriptLanguageExtension {
  private:
   static CppiaScriptLanguage *singleton;
 };
+
+}  // namespace godot

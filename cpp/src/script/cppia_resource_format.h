@@ -5,23 +5,22 @@
 
 #include "cppia_script.h"
 
-class CppiaResourceFormatLoader : public godot::ResourceFormatLoader {
+namespace godot {
+class CppiaResourceFormatLoader : public ResourceFormatLoader {
   GDCLASS(CppiaResourceFormatLoader, ResourceFormatLoader)
 
  public:
   CppiaResourceFormatLoader();
 
-  bool _handles_type(const godot::StringName &type) const override;
-  godot::PackedStringArray _get_recognized_extensions() const override;
-  bool _recognize_path(const godot::String &path,
-                       const godot::StringName &type) const override;
-  godot::String _get_resource_type(const godot::String &path) const override;
-  godot::String _get_resource_script_class(
-      const godot::String &path) const override;
-  bool _exists(const godot::String &path) const override;
-  godot::Variant _load(const godot::String &path,
-                       const godot::String &original_path, bool use_sub_threads,
-                       int32_t cache_mode) const override;
+  bool _handles_type(const StringName &type) const override;
+  PackedStringArray _get_recognized_extensions() const override;
+  bool _recognize_path(const String &path,
+                       const StringName &type) const override;
+  String _get_resource_type(const String &path) const override;
+  String _get_resource_script_class(const String &path) const override;
+  bool _exists(const String &path) const override;
+  Variant _load(const String &path, const String &original_path,
+                bool use_sub_threads, int32_t cache_mode) const override;
 
  protected:
   static void _bind_methods();
@@ -29,18 +28,20 @@ class CppiaResourceFormatLoader : public godot::ResourceFormatLoader {
  private:
 };
 
-class CppiaResourceFormatSaver : public godot::ResourceFormatSaver {
+class CppiaResourceFormatSaver : public ResourceFormatSaver {
   GDCLASS(CppiaResourceFormatSaver, ResourceFormatSaver)
 
  public:
-  godot::Error _save(const godot::Ref<godot::Resource> &resource,
-                     const godot::String &path, uint32_t flags) override;
-  bool _recognize(const godot::Ref<godot::Resource> &resource) const override;
-  bool _recognize_path(const godot::Ref<godot::Resource> &resource,
-                       const godot::String &path) const override;
-  godot::PackedStringArray _get_recognized_extensions(
-      const godot::Ref<godot::Resource> &resource) const override;
+  Error _save(const Ref<Resource> &resource, const String &path,
+              uint32_t flags) override;
+  bool _recognize(const Ref<Resource> &resource) const override;
+  bool _recognize_path(const Ref<Resource> &resource,
+                       const String &path) const override;
+  PackedStringArray _get_recognized_extensions(
+      const Ref<Resource> &resource) const override;
 
  protected:
   static void _bind_methods();
 };
+
+}  // namespace godot
