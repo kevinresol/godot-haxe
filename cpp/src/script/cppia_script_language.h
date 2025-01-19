@@ -9,7 +9,10 @@ class CppiaScriptLanguage : public godot::ScriptLanguageExtension {
   GDCLASS(CppiaScriptLanguage, godot::ScriptLanguageExtension);
 
  public:
+  static CppiaScriptLanguage *get_singleton() { return singleton; }
+
   CppiaScriptLanguage();
+  ~CppiaScriptLanguage();
 
   godot::String _get_name() const override;
 
@@ -129,11 +132,9 @@ class CppiaScriptLanguage : public godot::ScriptLanguageExtension {
   void shutdown();
   void did_finish_hot_reload();
 
-  static CppiaScriptLanguage *instance();
-
  protected:
   static void _bind_methods();
 
  private:
-  static CppiaScriptLanguage *s_instance;
+  static CppiaScriptLanguage *singleton;
 };

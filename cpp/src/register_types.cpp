@@ -41,13 +41,15 @@ void initialize_cppia_module(ModuleInitializationLevel p_level) {
     GDREGISTER_CLASS(CppiaResourceFormatSaver);
 
     _resource_format_loader.instantiate();
-    _resource_format_saver.instantiate();
     godot::ResourceLoader::get_singleton()->add_resource_format_loader(
         _resource_format_loader);
+
+    _resource_format_saver.instantiate();
     godot::ResourceSaver::get_singleton()->add_resource_format_saver(
         _resource_format_saver);
+
     godot::Engine::get_singleton()->register_script_language(
-        CppiaScriptLanguage::instance());
+        memnew(CppiaScriptLanguage));
   }
 }
 
@@ -60,14 +62,14 @@ void uninitialize_cppia_module(ModuleInitializationLevel p_level) {
     godot::ResourceLoader::get_singleton()->remove_resource_format_loader(
         _resource_format_loader);
     _resource_format_loader.unref();
+
     godot::ResourceSaver::get_singleton()->remove_resource_format_saver(
         _resource_format_saver);
     _resource_format_saver.unref();
-    CppiaScriptLanguage* language = CppiaScriptLanguage::instance();
-    godot::Engine::get_singleton()->unregister_script_language(language);
 
-    // This will cause the instance to delete itself
-    language->shutdown();
+    CppiaScriptLanguage* language = CppiaScriptLanguage::get_singleton();
+    godot::Engine::get_singleton()->unregister_script_language(language);
+    memdelete(language);
   }
 }
 
@@ -82,7 +84,7 @@ godot_cppia_entrypoint(GDExtensionInterfaceGetProcAddress p_get_proc_address,
                                                  r_initialization);
 
   init_obj.set_minimum_library_initialization_level(
-      MODULE_INITIALIZATION_LEVEL_SERVERS);
+      MODULE_INITIALIZATION_LEVEL_CORE);
   init_obj.register_initializer(initialize_cppia_module);
   init_obj.register_terminator(uninitialize_cppia_module);
 

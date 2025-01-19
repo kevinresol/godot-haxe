@@ -1,6 +1,7 @@
 #include <godot_cpp/classes/object.hpp>
 #include <godot_cpp/core/memory.hpp>
 
+#include "cppia_script.h"
 #include "cppia_script_instance.h"
 
 using namespace godot;
@@ -180,7 +181,7 @@ GDExtensionObjectPtr cppia_script_instance_get_script(
     GDExtensionScriptInstanceDataPtr p_instance) {
   CppiaScriptInstance* instance =
       reinterpret_cast<CppiaScriptInstance*>(p_instance);
-  return instance->get_script();
+  return instance->get_script().ptr()->_owner;
 }
 
 GDExtensionBool cppia_script_instance_is_placeholder(
@@ -214,13 +215,11 @@ GDExtensionScriptLanguagePtr cppia_script_instance_get_language(
     GDExtensionScriptInstanceDataPtr p_instance) {
   CppiaScriptInstance* instance =
       reinterpret_cast<CppiaScriptInstance*>(p_instance);
-  return instance->get_language();
+  return instance->get_language()->_owner;
 }
 
 void cppia_script_instance_free(GDExtensionScriptInstanceDataPtr p_instance) {
-  printf("about to cppia_script_instance_free %p\n", p_instance);
   memdelete((CppiaScriptInstance*)p_instance);
-  printf("done cppia_script_instance_free\n");
 }
 
 GDExtensionScriptInstanceInfo3 CppiaScriptInstance::script_instance_info = {

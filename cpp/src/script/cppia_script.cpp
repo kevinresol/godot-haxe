@@ -22,12 +22,18 @@ godot::Ref<Script> CppiaScript::_get_base_script() const {
   return _base_script;
 }
 
+bool CppiaScript::_inherits_script(
+    const godot::Ref<godot::Script> &p_script) const {
+  // TODO
+  return false;
+}
+
 godot::ScriptLanguage *CppiaScript::_get_language() const {
-  return CppiaScriptLanguage::instance();
+  return CppiaScriptLanguage::get_singleton();
 }
 
 void CppiaScript::_set_source_code(const godot::String &code) {
-  printf("_set_source_code\n%s\n", code.utf8().get_data());
+  // printf("_set_source_code\n%s\n", code.utf8().get_data());
   _source_code = code;
 }
 
@@ -38,18 +44,6 @@ bool CppiaScript::_has_source_code() const { return !_source_code.is_empty(); }
 bool CppiaScript::_can_instantiate() const {
   return _is_tool() || !Engine::get_singleton()->is_editor_hint();
 }
-
-/// Helper to make sure script info is refreshed and bindings are valid
-#define WITH_SCRIPT_INFO(default_return)                       \
-  GodotDartBindings *bindings = GodotDartBindings::instance(); \
-  if (bindings == nullptr) {                                   \
-    return default_return;                                     \
-  }                                                            \
-                                                               \
-  const_cast<CppiaScript *>(this)->refresh_type(false);        \
-  if (_script_info == nullptr) {                               \
-    return default_return;                                     \
-  }
 
 bool CppiaScript::_has_method(const godot::StringName &method) const {
   return false;
@@ -120,11 +114,6 @@ bool CppiaScript::_is_tool() const { return false; }
 
 godot::StringName CppiaScript::_get_instance_base_type() const {
   return godot::StringName();
-}
-
-godot::TypedArray<godot::Dictionary> CppiaScript::_get_documentation() const {
-  // TODO: See if the Dart VM can get me this info
-  return godot::TypedArray<godot::Dictionary>();
 }
 
 bool CppiaScript::_has_property_default_value(

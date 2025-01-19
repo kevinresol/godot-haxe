@@ -3,6 +3,7 @@
 #include <gdcppia_api.h>
 
 #include <godot_cpp/classes/object.hpp>
+#include <godot_cpp/classes/script_language.hpp>
 
 #include "cppia_script_language.h"
 
@@ -10,12 +11,10 @@ CppiaScriptInstance::CppiaScriptInstance(godot::Ref<CppiaScript> script,
                                          godot::Object *owner,
                                          bool is_placeholder,
                                          bool is_refcounted)
-    : _cppia_script(script),
-      _is_placeholder(is_placeholder),
-      _godot_object(owner) {
+    : script(script), _is_placeholder(is_placeholder), owner(owner) {
   {
     // TODO: mutex
-    _cppia_script->instances.insert(_godot_object->get_instance_id(), this);
+    script->instances.insert(owner->get_instance_id(), this);
   }
   // _binding.initialize(for_object, is_refcounted);
 
@@ -28,7 +27,7 @@ CppiaScriptInstance::CppiaScriptInstance(godot::Ref<CppiaScript> script,
 CppiaScriptInstance::~CppiaScriptInstance() {
   {
     // TODO: mutex
-    _cppia_script->instances.erase(_godot_object->get_instance_id());
+    script->instances.erase(owner->get_instance_id());
   }
   gdcppia::destroy_instance(_cppia_handle);
   _cppia_handle = nullptr;
@@ -52,7 +51,7 @@ bool CppiaScriptInstance::get_class_category(
 const GDExtensionPropertyInfo *CppiaScriptInstance::get_property_list(
     uint32_t *r_count) {
   GDExtensionPropertyInfo *prop_list{nullptr};
-  const auto &prop_map = _cppia_script->get_properties();
+  const auto &prop_map = script->get_properties();
   size_t prop_count = prop_map.size();
   *r_count = prop_count;
   if (prop_count > 0) {
@@ -74,7 +73,7 @@ void CppiaScriptInstance::free_property_list(
 
 GDExtensionVariantType CppiaScriptInstance::get_property_type(
     const godot::StringName &p_name, GDExtensionBool *r_is_valid) {
-  const auto &properties = _cppia_script->get_properties();
+  const auto &properties = script->get_properties();
   const auto &prop_itr = properties.find(p_name);
   *r_is_valid = prop_itr != properties.end();
   if (r_is_valid) {
@@ -87,8 +86,8 @@ bool CppiaScriptInstance::validate_property(
     GDExtensionPropertyInfo *p_property) {
   godot::StringName *n = (godot::StringName *)(p_property->name);
   godot::StringName *c = (godot::StringName *)(p_property->class_name);
-  printf("validate_property %s %s\n", n->to_utf8_buffer().ptr(),
-         c->to_utf8_buffer().ptr());
+  // printf("validate_property %s %s\n", n->to_utf8_buffer().ptr(),
+  //        c->to_utf8_buffer().ptr());
   return false;
 }
 
@@ -102,11 +101,6 @@ GDExtensionBool CppiaScriptInstance::property_get_revert(
     const godot::StringName &p_name, GDExtensionVariantPtr r_ret) {
   printf("property_get_revert %s\n", p_name.to_utf8_buffer().ptr());
   return false;
-}
-
-GDExtensionObjectPtr CppiaScriptInstance::get_owner() {
-  printf("get_owner\n");
-  return _godot_object;
 }
 
 void CppiaScriptInstance::get_property_state(
@@ -164,10 +158,6 @@ GDExtensionBool CppiaScriptInstance::ref_count_decremented() {
   return false;
 }
 
-GDExtensionObjectPtr CppiaScriptInstance::get_script() {
-  return _cppia_script->_owner;
-}
-
 GDExtensionBool CppiaScriptInstance::is_placeholder() {
   return _is_placeholder;
 }
@@ -182,17 +172,13 @@ bool CppiaScriptInstance::get_fallback(const godot::StringName &p_name,
   return false;
 }
 
-GDExtensionScriptLanguagePtr CppiaScriptInstance::get_language() {
-  auto ptr = CppiaScriptLanguage::instance();
-  if (ptr == nullptr) {
-    return nullptr;
-  }
-  return ptr->_owner;
+godot::ScriptLanguage *CppiaScriptInstance::get_language() const {
+  return CppiaScriptLanguage::get_singleton();
 }
 
 void CppiaScriptInstance::notify_property_list_changed() {
-  if (_godot_object && _is_placeholder) {
-    _godot_object->notify_property_list_changed();
+  if (owner && _is_placeholder) {
+    owner->notify_property_list_changed();
   }
 }
 

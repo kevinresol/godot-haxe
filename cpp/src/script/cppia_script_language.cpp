@@ -11,22 +11,10 @@
 #include "../helper.h"
 #include "cppia_script.h"
 
-CppiaScriptLanguage *CppiaScriptLanguage::s_instance = nullptr;
-CppiaScriptLanguage *CppiaScriptLanguage::instance() {
-  if (s_instance == nullptr) {
-    s_instance = memnew(CppiaScriptLanguage);
-  }
+CppiaScriptLanguage *CppiaScriptLanguage::singleton = nullptr;
+CppiaScriptLanguage::CppiaScriptLanguage() { singleton = this; }
+CppiaScriptLanguage::~CppiaScriptLanguage() { singleton = nullptr; }
 
-  return s_instance;
-}
-
-void CppiaScriptLanguage::shutdown() {
-  s_instance = nullptr;
-
-  memdelete(this);
-}
-
-CppiaScriptLanguage::CppiaScriptLanguage() {}
 void CppiaScriptLanguage::_init() {
   printf("CppiaScriptLanguage::_init\n");
   printf("Engine::get_singleton()->is_editor_hint() = %d\n",
@@ -43,23 +31,9 @@ void CppiaScriptLanguage::_init() {
   gdcppia::load_bytecode(bytecode.ptr(), bytecode.size());
 }
 
-godot::String CppiaScriptLanguage::_get_name() const {
-  static godot::StringName name("Cppia", true);
-
-  return name;
-}
-
-godot::String CppiaScriptLanguage::_get_type() const {
-  static godot::StringName type("CppiaScript", true);
-
-  return type;
-}
-
-godot::String CppiaScriptLanguage::_get_extension() const {
-  static godot::StringName ext("hx", true);
-
-  return ext;
-}
+godot::String CppiaScriptLanguage::_get_name() const { return "Cppia"; }
+godot::String CppiaScriptLanguage::_get_type() const { return "CppiaScript"; }
+godot::String CppiaScriptLanguage::_get_extension() const { return "hx"; }
 
 void CppiaScriptLanguage::_finish() {
   // TODO: Anything to do here?
@@ -167,7 +141,6 @@ godot::String CppiaScriptLanguage::_validate_path(
 }
 
 godot::Object *CppiaScriptLanguage::_create_script() const {
-  printf("_create_script\n");
   return memnew(CppiaScript);
 }
 
