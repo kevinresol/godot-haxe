@@ -219,7 +219,7 @@ GDExtensionScriptLanguagePtr cppia_script_instance_get_language(
 
 void cppia_script_instance_free(GDExtensionScriptInstanceDataPtr p_instance) {
   printf("about to cppia_script_instance_free %p\n", p_instance);
-  // memdelete((CppiaScriptInstance*)p_instance);
+  memdelete((CppiaScriptInstance*)p_instance);
   printf("done cppia_script_instance_free\n");
 }
 

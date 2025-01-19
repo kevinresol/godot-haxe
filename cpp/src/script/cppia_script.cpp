@@ -170,6 +170,11 @@ void CppiaScript::did_hot_reload() {
   }
 }
 
+bool CppiaScript::_instance_has(Object *object) const {
+  // TODO: mutex
+  return instances.has(object->get_instance_id());
+}
+
 void *CppiaScript::_instance_create(Object *for_object) const {
   printf("_instance_create\n");
   return create_script_instance_internal(for_object, false);
@@ -188,8 +193,8 @@ void *CppiaScript::create_script_instance_internal(Object *for_object,
   RefCounted *rc = Object::cast_to<RefCounted>(for_object);
 
   CppiaScriptInstance *script_instance =
-      new CppiaScriptInstance(const_cast<CppiaScript *>(this), for_object,
-                              is_placeholder, rc != nullptr);
+      memnew(CppiaScriptInstance(const_cast<CppiaScript *>(this), for_object,
+                                 is_placeholder, rc != nullptr));
 
   godot_script_instance =
       godot::internal::gdextension_interface_script_instance_create3(

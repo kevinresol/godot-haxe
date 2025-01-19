@@ -1,4 +1,4 @@
-class Main extends gd.Node {
+class Main extends gd.Node2D {
 	var processed = false;
 	var physicsProcessed = false;
 
@@ -23,12 +23,14 @@ class Main extends gd.Node {
 			trace('_process($delta) $processed');
 			processed = true;
 		}
+
+		// this.get_position().x += delta * 10;
 	}
 
-	override function _physics_process(delta:Float) {
-		if (!physicsProcessed) {
-			trace('_physics_process($delta) $physicsProcessed');
-			physicsProcessed = true;
-		}
-	}
+	// override function _physics_process(delta:Float) {
+	// 	if (!physicsProcessed) {
+	// 		trace('_physics_process($delta) $physicsProcessed');
+	// 		physicsProcessed = true;
+	// 	}
+	// }
 }

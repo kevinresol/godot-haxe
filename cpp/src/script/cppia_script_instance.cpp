@@ -10,19 +10,26 @@ CppiaScriptInstance::CppiaScriptInstance(godot::Ref<CppiaScript> script,
                                          godot::Object *owner,
                                          bool is_placeholder,
                                          bool is_refcounted)
-    : _is_placeholder(is_placeholder), _godot_object(owner) {
-  // s_instanceMap[(intptr_t)this] = this;
+    : _cppia_script(script),
+      _is_placeholder(is_placeholder),
+      _godot_object(owner) {
+  {
+    // TODO: mutex
+    _cppia_script->instances.insert(_godot_object->get_instance_id(), this);
+  }
   // _binding.initialize(for_object, is_refcounted);
 
   printf("owner:%llu %s\n", owner->get_instance_id(),
          owner->get_class().utf8().get_data());
-  _cppia_script = script;
   _cppia_handle = gdcppia::create_instance(
       script->get_path().get_file().get_basename().utf8().get_data(), owner);
 }
 
 CppiaScriptInstance::~CppiaScriptInstance() {
-  // s_instanceMap.erase((intptr_t)this);
+  {
+    // TODO: mutex
+    _cppia_script->instances.erase(_godot_object->get_instance_id());
+  }
   gdcppia::destroy_instance(_cppia_handle);
   _cppia_handle = nullptr;
 }
@@ -99,7 +106,7 @@ GDExtensionBool CppiaScriptInstance::property_get_revert(
 
 GDExtensionObjectPtr CppiaScriptInstance::get_owner() {
   printf("get_owner\n");
-  return nullptr;
+  return _godot_object;
 }
 
 void CppiaScriptInstance::get_property_state(
@@ -122,7 +129,7 @@ GDExtensionBool CppiaScriptInstance::has_method(
     const godot::StringName &p_name) {
   bool has = gdcppia::instance_has_method(_cppia_handle,
                                           gdcppia::to_haxe_string(p_name));
-  printf("has_method %s = %d\n", p_name.to_utf8_buffer().ptr(), has);
+  // printf("has_method %s = %d\n", p_name.to_utf8_buffer().ptr(), has);
   return has;
 }
 

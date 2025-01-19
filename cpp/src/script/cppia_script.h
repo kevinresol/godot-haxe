@@ -2,12 +2,15 @@
 
 #include <godot_cpp/classes/script_extension.hpp>
 #include <godot_cpp/classes/script_language.hpp>
+#include <godot_cpp/templates/hash_map.hpp>
 #include <unordered_set>
 
 class CppiaScriptInstance;
 
 class CppiaScript : public godot::ScriptExtension {
   GDCLASS(CppiaScript, ScriptExtension);
+
+  friend class CppiaScriptInstance;
 
  public:
   CppiaScript();
@@ -46,6 +49,7 @@ class CppiaScript : public godot::ScriptExtension {
   void load_from_disk(const godot::String& path);
   void did_hot_reload();
 
+  bool _instance_has(godot::Object* object) const override;
   void* _instance_create(Object* for_object) const override;
   void* _placeholder_instance_create(Object* for_object) const override;
 
@@ -69,6 +73,7 @@ class CppiaScript : public godot::ScriptExtension {
       _properties_cache;
   godot::Variant _rpc_config;
 
+  godot::HashMap<uint64_t, CppiaScriptInstance*> instances;
   mutable std::unordered_set<CppiaScriptInstance*> _placeholders;
   mutable godot::Ref<CppiaScript> _base_script;
 };

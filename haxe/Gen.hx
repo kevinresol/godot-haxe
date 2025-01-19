@@ -37,6 +37,20 @@ class Gen {
 			trace('$name is a builtin class');
 	}
 
+	function getClassInheritance(name:String):Array<String> {
+		final ret = [name];
+		var parent = getClassParent(name);
+		while (parent != null) {
+			ret.push(parent);
+			parent = getClassParent(parent);
+		}
+		return ret;
+	}
+
+	function getClassParent(name:String):Null<String> {
+		return api.classes.find(c -> c.name == name)?.inherits;
+	}
+
 	function generate() {
 		generateClasses();
 		generateUtilityFunctions();
@@ -51,7 +65,7 @@ class Gen {
 			final hppExists = sys.FileSystem.exists(hppPath);
 
 			if (hppExists) {
-				if (cname == 'Object' || cname == 'Node') {
+				if (getClassInheritance('Node2D').contains(cname)) {
 					generateClassExtern(clazz, hpp);
 					generateClassWrapper(clazz);
 					generateClassScriptExtern(clazz);
@@ -250,6 +264,7 @@ function makeGodotType(gdType:String):ComplexType {
 		case 'String': macro :godot.String;
 		case 'StringName': macro :godot.StringName;
 		case 'Variant': macro :godot.Variant;
+		// case 'Vector2': macro :godot.Vector2;
 		case v:
 			// trace('Unhandled type $gdType');
 			// macro :Dynamic;
@@ -266,6 +281,7 @@ function makeHaxeType(gdType:String):ComplexType {
 		case 'String': macro :String;
 		case 'StringName': macro :String;
 		case 'Variant': macro :Dynamic;
+		// case 'Vector2': macro :godot.Vector2;
 		case v:
 			// trace('Unhandled type $gdType');
 			// macro :Dynamic;
