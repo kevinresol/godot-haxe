@@ -34,6 +34,7 @@ class Gen {
 
 	function generate() {
 		new gen.ClassBuilder(api).generate();
+		new gen.BuiltinClassBuilder(api).generate();
 		generateUtilityFunctions();
 	}
 

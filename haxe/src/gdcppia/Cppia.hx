@@ -15,12 +15,10 @@ class Cppia {
 		trace(analyzer.analyze('class A extends B {}'));
 		trace(godot.gen.UtilityFunctions.sin(0.5));
 
-		final x:Dynamic = new gd.Vector2(2, 3);
-		trace(x);
+		final x = new godot.gen.Vector2();
 		trace(x.x);
 		trace(x.y);
-		final y:gd.Vector2 = x;
-		trace(y);
+		final y = new godot.gen.Vector2(2, 42);
 		trace(y.x);
 		trace(y.y);
 	}

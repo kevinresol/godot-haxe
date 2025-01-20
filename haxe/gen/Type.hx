@@ -12,11 +12,11 @@ class Type {
 			case 'String': macro :godot.String;
 			case 'StringName': macro :godot.StringName;
 			case 'Variant': macro :godot.Variant;
-			case 'Vector2': macro :godot.Vector2;
+			case 'Vector2': macro :godot.gen.Vector2;
 			case v:
 				// trace('Unhandled type $gdType');
 				// macro :Dynamic;
-				throw 0;
+				throw gdType;
 		}
 	}
 
@@ -33,7 +33,7 @@ class Type {
 			case v:
 				// trace('Unhandled type $gdType');
 				// macro :Dynamic;
-				throw 0;
+				throw gdType;
 		}
 	}
 
@@ -51,7 +51,7 @@ class Type {
 			case v:
 				// trace('Unhandled type $gdType');
 				// macro :Dynamic;
-				throw 0;
+				throw gdType;
 		}
 	}
 }

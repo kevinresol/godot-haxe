@@ -1,47 +1,34 @@
 package gd;
-
-@:forward
-abstract Vector2AutoCast(Vector2) from Vector2 to Vector2 {
-	public inline function new(x:Float, y:Float) {
-		this = new Vector2(x, y);
+class Vector2 {
+	final __gd_value : cpp.Struct<godot.gen.Vector2>;
+	public function new(value:cpp.Struct<godot.gen.Vector2>) {
+		__gd_value = value;
 	}
-
-	@:from static inline function fromVector2(v:godot.Vector2):Vector2AutoCast {
-		return Vector2.from(v);
+	var x(get, set) : Float;
+	function get_x():Float {
+		return __gd_value.x;
 	}
-
-	@:to inline function toVector2():godot.Vector2 {
-		return @:privateAccess this.value;
+	function set_x(v:Float):Float {
+		__gd_value.x = v;
+		return v;
+	}
+	var y(get, set) : Float;
+	function get_y():Float {
+		return __gd_value.y;
+	}
+	function set_y(v:Float):Float {
+		__gd_value.y = v;
+		return v;
 	}
 }
 
-class Vector2 {
-	final value:cpp.Struct<godot.Vector2>;
-
-	public function new(x:Float, y:Float) {
-		value = new godot.Vector2(x, y);
+abstract Vector2AutoCast(Vector2) from Vector2 to Vector2 {
+	@:from
+	static inline function fromNative(v:godot.gen.Vector2):Vector2AutoCast {
+		return new Vector2(v);
 	}
-
-	public static inline function from(v:cpp.Struct<godot.Vector2>) {
-		return new Vector2(v.x, v.y);
-	}
-
-	public var x(get, set):Float;
-	public var y(get, set):Float;
-
-	function get_x():Float {
-		return value.x;
-	}
-
-	function set_x(v:Float):Float {
-		return value.x = v;
-	}
-
-	function get_y():Float {
-		return value.y;
-	}
-
-	function set_y(v:Float):Float {
-		return value.y = v;
+	@:to
+	inline function toVector2():godot.gen.Vector2 {
+		return @:privateAccess this.__gd_value;
 	}
 }

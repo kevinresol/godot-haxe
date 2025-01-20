@@ -11,13 +11,7 @@ using StringTools;
 using haxe.io.Path;
 using gen.StringTools;
 
-class ClassBuilder {
-	final api:Api;
-
-	public function new(api:Api) {
-		this.api = api;
-	}
-
+class ClassBuilder extends Builder {
 	public function generate() {
 		for (clazz in api.classes) {
 			final cname = clazz.name;
@@ -92,14 +86,8 @@ class ClassBuilder {
 			} catch (e) {}
 		}
 
-		final source = new haxe.macro.Printer().printTypeDefinition(def) + '\ntypedef $cname = cpp.Star<${cname}_obj>;';
-		// trace(source);
-
-		final dest = Path.join([
-			Sys.programPath().directory(),
-			'${config.folder}/${def.pack.join('/')}/$cname.hx'
-		]);
-		sys.io.File.saveContent(dest, source);
+		final source = printTypeDefinition(def) + '\ntypedef $cname = cpp.Star<${cname}_obj>;';
+		write('${config.folder}/${def.pack.join('/')}/$cname.hx', source);
 	}
 
 	function generateClassWrapper(clazz:Clazz) {
@@ -144,12 +132,8 @@ class ClassBuilder {
 			} catch (e) {}
 		}
 
-		final source = new haxe.macro.Printer().printTypeDefinition(def);
-		final dest = Path.join([
-			Sys.programPath().directory(),
-			'${config.folder}/${def.pack.join('/')}/$cname.hx'
-		]);
-		sys.io.File.saveContent(dest, source);
+		final source = printTypeDefinition(def);
+		write('${config.folder}/${def.pack.join('/')}/$cname.hx', source);
 	}
 
 	function generateClassScriptExtern(clazz:Clazz) {
@@ -188,12 +172,8 @@ class ClassBuilder {
 			} catch (e) {}
 		}
 
-		final source = new haxe.macro.Printer().printTypeDefinition(def);
-		final dest = Path.join([
-			Sys.programPath().directory(),
-			'${config.folder}/${def.pack.join('/')}/$cname.hx'
-		]);
-		sys.io.File.saveContent(dest, source);
+		final source = printTypeDefinition(def);
+		write('${config.folder}/${def.pack.join('/')}/$cname.hx', source);
 	}
 
 	function getClassInheritance(name:String):Array<String> {
