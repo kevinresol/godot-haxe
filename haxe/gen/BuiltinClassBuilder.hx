@@ -27,6 +27,11 @@ class BuiltinClassBuilder extends Builder {
 		}
 	}
 
+	function getMethods(clazz:BuiltinClass):Array<BuiltinClassMethod> {
+		// TODO: investigate why "bezier_derivative" is not in the generated gdextension c++
+		return (clazz.methods ?? []).filter(m -> m.name != 'bezier_derivative');
+	}
+
 	function generateClassExtern(clazz:BuiltinClass, hpp:String) {
 		final cname = clazz.name;
 		final config = Config.nativeExtern;
@@ -60,6 +65,8 @@ class BuiltinClassBuilder extends Builder {
 				meta: [],
 			}
 			cls.fields.push(ctor);
+
+			// overloads
 			if (clazz.constructors.length > 1) {
 				for (i in 1...clazz.constructors.length) {
 					try {
@@ -85,6 +92,25 @@ class BuiltinClassBuilder extends Builder {
 			}
 		}
 
+		for (fn in getMethods(clazz)) {
+			final fname = fn.name;
+			final rtype = fn.return_type ?? 'void';
+			try {
+				cls.fields.push({
+					pos: null,
+					name: fname,
+					kind: FFun({
+						args: fn.arguments?.map(arg -> ({
+							name: 'p_${arg.name}',
+							type: makeGodotType(arg.type),
+							opt: arg.default_value != null,
+						} : FunctionArg)) ?? [],
+						ret: makeGodotType(rtype),
+					})
+				});
+			} catch (e) {}
+		}
+
 		final source = printTypeDefinition(cls);
 		write('${config.folder}/${cls.pack.join('/')}/$cname.hx', source);
 	}
@@ -106,6 +132,7 @@ class BuiltinClassBuilder extends Builder {
 			final ptype = makeGodotType(prop.type);
 			cls.fields.push({
 				pos: null,
+				access: [APublic],
 				name: pname,
 				kind: FProp('get', 'set', ptype),
 			});
@@ -123,6 +150,47 @@ class BuiltinClassBuilder extends Builder {
 			}).fields);
 		}
 
+		for (i => ctor in clazz.constructors) {
+			final tp = {pack: [], name: cname};
+			try {
+				cls.fields.push({
+					pos: null,
+					access: [APublic, AStatic],
+					name: '_new${i}',
+					kind: FFun({
+						args: (ctor.arguments ?? []).map(arg -> ({
+							name: 'p_${arg.name}',
+							type: makeHaxeHostType(arg.type),
+						} : FunctionArg)) ?? [],
+						expr: macro return new $tp(new godot.gen.$cname($a{
+							(ctor.arguments ?? []).map(arg -> macro $i{'p_${arg.name}'})
+						}))
+					})
+				});
+			} catch (e) {}
+		}
+
+		for (fn in getMethods(clazz)) {
+			final fname = fn.name;
+			final rtype = fn.return_type ?? 'void';
+			try {
+				cls.fields.push({
+					pos: null,
+					access: [APublic],
+					name: fname,
+					kind: FFun({
+						args: fn.arguments?.map(arg -> ({
+							name: 'p_${arg.name}',
+							type: makeHaxeHostType(arg.type),
+							opt: arg.default_value != null,
+						} : FunctionArg)) ?? [],
+						ret: makeHaxeHostType(rtype),
+						expr: macro return __gd_value.$fname($a{(fn.arguments ?? []).map(arg -> macro $i{'p_${arg.name}'})})
+					})
+				});
+			} catch (e) {}
+		}
+
 		final aname = '${cname}AutoCast';
 		final ctp = {pack: [], name: cname};
 		final ct = TPath(ctp);
@@ -137,6 +205,7 @@ class BuiltinClassBuilder extends Builder {
 			}
 		}
 		abs.kind = TDAbstract(ct, [AbFrom(ct), AbTo(ct)]);
+		abs.meta = [{pos: null, name: ':forward'},];
 		final source = printTypeDefinition(cls) + '\n\n' + printTypeDefinition(abs);
 		write('${config.folder}/${cls.pack.join('/')}/$cname.hx', source);
 	}
@@ -154,6 +223,43 @@ class BuiltinClassBuilder extends Builder {
 				name: prop.name,
 				kind: FProp('get', 'set', makeGodotType(prop.type)),
 			});
+		}
+
+		for (i => ctor in clazz.constructors) {
+			final tp = {pack: [], name: cname};
+			try {
+				def.fields.push({
+					pos: null,
+					access: [AStatic],
+					name: '_new${i}',
+					kind: FFun({
+						args: (ctor.arguments ?? []).map(arg -> ({
+							name: 'p_${arg.name}',
+							type: makeHaxeScriptType(arg.type),
+						} : FunctionArg)) ?? [],
+						ret: macro :gd.$cname,
+					})
+				});
+			} catch (e) {}
+		}
+
+		for (fn in getMethods(clazz)) {
+			final fname = fn.name;
+			final rtype = fn.return_type ?? 'void';
+			try {
+				def.fields.push({
+					pos: null,
+					name: fname,
+					kind: FFun({
+						args: fn.arguments?.map(arg -> ({
+							name: 'p_${arg.name}',
+							type: makeHaxeScriptType(arg.type),
+							opt: arg.default_value != null,
+						} : FunctionArg)) ?? [],
+						ret: makeHaxeScriptType(rtype),
+					})
+				});
+			} catch (e) {}
 		}
 
 		final source = printTypeDefinition(def);

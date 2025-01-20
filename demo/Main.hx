@@ -10,6 +10,8 @@ class Main extends gd.Node2D {
 		trace("_enter_tree");
 	}
 
+	var target = gd.Vector2._new3(100, 100);
+
 	override function _ready() {
 		trace('_ready ${get_child_count(false)}');
 		trace('get_name: ${get_name()}');
@@ -28,10 +30,7 @@ class Main extends gd.Node2D {
 			processed = true;
 		}
 
-		final pos = get_position();
-		trace(pos.x, pos.y);
-		pos.x -= delta * 10;
-		set_position(pos);
+		set_position(get_position().move_toward(target, delta * 10));
 	}
 
 	// override function _physics_process(delta:Float) {
