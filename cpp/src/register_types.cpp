@@ -14,9 +14,6 @@
 #include "script/cppia_script.h"
 #include "script/cppia_script_language.h"
 
-extern "C" const char* hxRunLibrary();
-extern "C" void hxcpp_set_top_of_stack();
-
 namespace godot {
 
 Ref<CppiaResourceFormatLoader> _resource_format_loader;
@@ -25,20 +22,14 @@ Ref<CppiaResourceFormatSaver> _resource_format_saver;
 void initialize_cppia_module(ModuleInitializationLevel p_level) {
   printf("initialize_cppia_module %d\n", p_level);
 
-  if (p_level == MODULE_INITIALIZATION_LEVEL_CORE) {
-    // init haxe runtime
-    hxcpp_set_top_of_stack();
-    const char* err = hxRunLibrary();
-    if (err) {
-      fprintf(stderr, "Error %s\n", err);
-    }
-  }
-
   if (p_level == MODULE_INITIALIZATION_LEVEL_SCENE) {
     GDREGISTER_CLASS(CppiaScriptLanguage);
     GDREGISTER_CLASS(CppiaScript);
     GDREGISTER_CLASS(CppiaResourceFormatLoader);
     GDREGISTER_CLASS(CppiaResourceFormatSaver);
+
+    Engine::get_singleton()->register_script_language(
+        memnew(CppiaScriptLanguage));
 
     _resource_format_loader.instantiate();
     ResourceLoader::get_singleton()->add_resource_format_loader(
@@ -47,17 +38,11 @@ void initialize_cppia_module(ModuleInitializationLevel p_level) {
     _resource_format_saver.instantiate();
     ResourceSaver::get_singleton()->add_resource_format_saver(
         _resource_format_saver);
-
-    Engine::get_singleton()->register_script_language(
-        memnew(CppiaScriptLanguage));
   }
 }
 
 void uninitialize_cppia_module(ModuleInitializationLevel p_level) {
   printf("uninitialize_cppia_module %d\n", p_level);
-  if (p_level == MODULE_INITIALIZATION_LEVEL_CORE) {
-    // TODO: find a way to shutdown haxe runtime
-  }
   if (p_level == MODULE_INITIALIZATION_LEVEL_SCENE) {
     ResourceLoader::get_singleton()->remove_resource_format_loader(
         _resource_format_loader);

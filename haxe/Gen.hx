@@ -18,6 +18,8 @@ class Gen {
 		final json = sys.io.File.getContent(path);
 		final api:Api = haxe.Json.parse(json);
 
+		// trace(api.builtin_classes.map(v -> v.name));
+
 		new Gen(api).generate();
 		// findType(api, 'Variant');
 		// findType(api, 'Object');
@@ -163,10 +165,10 @@ class Gen {
 					kind: FFun({
 						args: fn.arguments?.map(arg -> ({
 							name: 'p_${arg.name}',
-							type: makeHaxeType(arg.type),
+							type: makeHaxeHostType(arg.type),
 							opt: arg.default_value != null,
 						} : FunctionArg)) ?? [],
-						ret: makeHaxeType(rtype),
+						ret: makeHaxeHostType(rtype),
 						expr: {
 							final native = TPath({pack: EXTERN_PACKAGE, name: cname});
 							final e = macro(cast __native : $native).$fname($a{fn.arguments?.map(arg -> macro $i{'p_${arg.name}'}) ?? []});
@@ -208,10 +210,10 @@ class Gen {
 					kind: FFun({
 						args: fn.arguments?.map(arg -> ({
 							name: 'p_${arg.name}',
-							type: makeHaxeType(arg.type),
+							type: makeHaxeScriptType(arg.type),
 							opt: arg.default_value != null,
 						} : FunctionArg)) ?? [],
-						ret: makeHaxeType(rtype),
+						ret: makeHaxeScriptType(rtype),
 					})
 				});
 			} catch (e) {}
@@ -264,7 +266,7 @@ function makeGodotType(gdType:String):ComplexType {
 		case 'String': macro :godot.String;
 		case 'StringName': macro :godot.StringName;
 		case 'Variant': macro :godot.Variant;
-		// case 'Vector2': macro :godot.Vector2;
+		case 'Vector2': macro :godot.Vector2;
 		case v:
 			// trace('Unhandled type $gdType');
 			// macro :Dynamic;
@@ -272,7 +274,7 @@ function makeGodotType(gdType:String):ComplexType {
 	}
 }
 
-function makeHaxeType(gdType:String):ComplexType {
+function makeHaxeHostType(gdType:String):ComplexType {
 	return switch gdType {
 		case 'void': macro :Void;
 		case 'float': macro :Float;
@@ -281,7 +283,25 @@ function makeHaxeType(gdType:String):ComplexType {
 		case 'String': macro :String;
 		case 'StringName': macro :String;
 		case 'Variant': macro :Dynamic;
-		// case 'Vector2': macro :godot.Vector2;
+		case 'Vector2': macro :gd.Vector2.Vector2AutoCast;
+		case v:
+			// trace('Unhandled type $gdType');
+			// macro :Dynamic;
+			throw 0;
+	}
+}
+
+/** Types that cppia scripts see **/
+function makeHaxeScriptType(gdType:String):ComplexType {
+	return switch gdType {
+		case 'void': macro :Void;
+		case 'float': macro :Float;
+		case 'int': macro :Int;
+		case 'bool': macro :Bool;
+		case 'String': macro :String;
+		case 'StringName': macro :String;
+		case 'Variant': macro :Dynamic;
+		case 'Vector2': macro :gd.Vector2;
 		case v:
 			// trace('Unhandled type $gdType');
 			// macro :Dynamic;

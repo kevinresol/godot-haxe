@@ -11,6 +11,9 @@
 #include "../helper.h"
 #include "cppia_script.h"
 
+extern "C" const char *hxRunLibrary();
+extern "C" void hxcpp_set_top_of_stack();
+
 namespace godot {
 
 CppiaScriptLanguage *CppiaScriptLanguage::singleton = nullptr;
@@ -19,6 +22,14 @@ CppiaScriptLanguage::~CppiaScriptLanguage() { singleton = nullptr; }
 
 void CppiaScriptLanguage::_init() {
   printf("CppiaScriptLanguage::_init\n");
+
+  // init haxe runtime
+  hxcpp_set_top_of_stack();
+  const char *err = hxRunLibrary();
+  if (err) {
+    fprintf(stderr, "Error %s\n", err);
+  }
+
   printf("Engine::get_singleton()->is_editor_hint() = %d\n",
          Engine::get_singleton()->is_editor_hint());
 
@@ -32,14 +43,13 @@ void CppiaScriptLanguage::_init() {
 
   gdcppia::load_bytecode(bytecode.ptr(), bytecode.size());
 }
+void CppiaScriptLanguage::_finish() {
+  // TODO: wind down the haxe runtime
+}
 
 String CppiaScriptLanguage::_get_name() const { return "Cppia"; }
 String CppiaScriptLanguage::_get_type() const { return "CppiaScript"; }
 String CppiaScriptLanguage::_get_extension() const { return "hx"; }
-
-void CppiaScriptLanguage::_finish() {
-  // TODO: Anything to do here?
-}
 
 /* Editor Functions */
 

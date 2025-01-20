@@ -22,9 +22,7 @@ bool CppiaResourceFormatLoader::_handles_type(const StringName &p_type) const {
 
 PackedStringArray CppiaResourceFormatLoader::_get_recognized_extensions()
     const {
-  PackedStringArray array;
-  array.push_back("hx");
-  return array;
+  return CppiaScriptLanguage::get_singleton()->_get_recognized_extensions();
 }
 
 bool CppiaResourceFormatLoader::_recognize_path(const String &path,
@@ -33,12 +31,16 @@ bool CppiaResourceFormatLoader::_recognize_path(const String &path,
 }
 
 String CppiaResourceFormatLoader::_get_resource_type(const String &path) const {
-  return path.get_extension() == "hx" ? "CppiaScript" : "";
+  return path.get_extension() == "hx"
+             ? CppiaScriptLanguage::get_singleton()->_get_type()
+             : "";
 }
 
 String CppiaResourceFormatLoader::_get_resource_script_class(
     const String &path) const {
-  return path.get_extension() == "hx" ? "CppiaScript" : "";
+  return path.get_extension() == "hx"
+             ? CppiaScriptLanguage::get_singleton()->_get_type()
+             : "";
 }
 
 bool CppiaResourceFormatLoader::_exists(const String &path) const {

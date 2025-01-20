@@ -14,6 +14,15 @@ class Cppia {
 
 		trace(analyzer.analyze('class A extends B {}'));
 		trace(godot.gen.UtilityFunctions.sin(0.5));
+
+		final x:Dynamic = new gd.Vector2(2, 3);
+		trace(x);
+		trace(x.x);
+		trace(x.y);
+		final y:gd.Vector2 = x;
+		trace(y);
+		trace(y.x);
+		trace(y.y);
 	}
 
 	static var analyzer:CodeAnalyzer = new CodeAnalyzer();
@@ -33,6 +42,7 @@ class Cppia {
 	public static function createInstance(className:String, owner:godot.gen.Object) {
 		trace('Creating instance of ${className}');
 		final classType = module.resolveClass(className);
+		trace('${Type.getClassName(classType)} inherits ${Type.getClassName(Type.getSuperClass(classType))}');
 		if (classType == null) {
 			trace('Class not found: ${className}');
 			return null;
@@ -62,3 +72,5 @@ class Cppia {
 		}
 	}
 }
+
+typedef Vector2Container = cpp.Struct<gd.Vector2>;

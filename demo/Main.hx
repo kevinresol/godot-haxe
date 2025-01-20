@@ -15,7 +15,11 @@ class Main extends gd.Node2D {
 		trace('get_name: ${get_name()}');
 		trace('get_index: ${get_index()}');
 		trace('get_tree_string: ${get_tree_string()}');
-		trace('get_scene_file_path: ${get_scene_file_path()}');
+		trace('get_scene_file_path1: ${get_scene_file_path()}');
+
+		final pos = get_position();
+		pos.x = 0;
+		set_position(pos);
 	}
 
 	override function _process(delta:Float) {
@@ -24,7 +28,10 @@ class Main extends gd.Node2D {
 			processed = true;
 		}
 
-		// this.get_position().x += delta * 10;
+		final pos = get_position();
+		trace(pos.x, pos.y);
+		pos.x -= delta * 10;
+		set_position(pos);
 	}
 
 	// override function _physics_process(delta:Float) {

@@ -10,19 +10,18 @@
 
 namespace godot {
 
-CppiaScript::CppiaScript() : _source_code() {}
+CppiaScript::CppiaScript() : source() {}
 
 CppiaScript::~CppiaScript() { printf("~CppiaScript\n"); }
 
 void CppiaScript::_bind_methods() {}
 
-Ref<Script> CppiaScript::_get_base_script() const {
-  const_cast<CppiaScript *>(this)->refresh_type(false);
-
-  return _base_script;
-}
+StringName CppiaScript::_get_instance_base_type() const { return StringName(); }
+Ref<Script> CppiaScript::_get_base_script() const { return base; }
 
 bool CppiaScript::_inherits_script(const Ref<Script> &p_script) const {
+  printf("_inherits_script\n", p_script->get_path().utf8().get_data());
+  printf("%s\n", p_script->get_path().utf8().get_data());
   // TODO
   return false;
 }
@@ -31,21 +30,15 @@ ScriptLanguage *CppiaScript::_get_language() const {
   return CppiaScriptLanguage::get_singleton();
 }
 
-void CppiaScript::_set_source_code(const String &code) {
-  // printf("_set_source_code\n%s\n", code.utf8().get_data());
-  _source_code = code;
-}
-
-String CppiaScript::_get_source_code() const { return _source_code; }
-
-bool CppiaScript::_has_source_code() const { return !_source_code.is_empty(); }
+void CppiaScript::_set_source_code(const String &code) { source = code; }
+String CppiaScript::_get_source_code() const { return source; }
+bool CppiaScript::_has_source_code() const { return !source.is_empty(); }
 
 bool CppiaScript::_can_instantiate() const {
   return _is_tool() || !Engine::get_singleton()->is_editor_hint();
 }
 
 bool CppiaScript::_has_method(const StringName &method) const { return false; }
-
 bool CppiaScript::_has_static_method(const StringName &method) const {
   return false;
 }
@@ -104,8 +97,6 @@ Error CppiaScript::_reload(bool keep_state) {
 
 bool CppiaScript::_is_tool() const { return false; }
 
-StringName CppiaScript::_get_instance_base_type() const { return StringName(); }
-
 bool CppiaScript::_has_property_default_value(
     const StringName &property) const {
   return false;
@@ -129,14 +120,14 @@ StringName CppiaScript::_get_global_name() const {
   return ret;
 }
 
-void CppiaScript::load_from_disk(const String &path) {
+void CppiaScript::load_from_disk(const String &p_path) {
   printf("load_from_disk\n");
-  Ref<FileAccess> file = FileAccess::open(path, FileAccess::READ);
+  Ref<FileAccess> file = FileAccess::open(p_path, FileAccess::READ);
   if (!file.is_null()) {
     String text = file->get_as_text();
     set_source_code(text);
     file->close();
-    _path = path;
+    path = p_path;
   }
 }
 
@@ -145,7 +136,7 @@ void CppiaScript::did_hot_reload() {
   _update_exports();
   auto editor_interface = EditorInterface::get_singleton();
   if (editor_interface) {
-    editor_interface->get_resource_filesystem()->update_file(_path);
+    editor_interface->get_resource_filesystem()->update_file(path);
   }
 }
 

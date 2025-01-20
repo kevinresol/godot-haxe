@@ -14,6 +14,10 @@ class CppiaScript : public ScriptExtension {
 
   friend class CppiaScriptInstance;
 
+  String source;
+  String path;
+  mutable Ref<CppiaScript> base;
+
  public:
   CppiaScript();
   ~CppiaScript();
@@ -44,6 +48,11 @@ class CppiaScript : public ScriptExtension {
   Ref<Script> _get_base_script() const override;
   bool _inherits_script(const Ref<Script>& p_script) const override;
 
+  /* SCRIPT DOC */
+  TypedArray<Dictionary> _get_documentation() const override {
+    return TypedArray<Dictionary>();
+  };
+
   /* SCRIPT METHODS */
   bool _has_method(const StringName& method) const override;
   bool _has_static_method(const StringName& method) const override;
@@ -59,9 +68,6 @@ class CppiaScript : public ScriptExtension {
   bool _has_property_default_value(const StringName& property) const override;
   Variant _get_property_default_value(
       const StringName& property) const override;
-
-  /* SCRIPT DOC */
-  //   TypedArray<Dictionary> _get_documentation() const override;
 
   /* RPC*/
   Variant _get_rpc_config() const override { return _rpc_config; }
@@ -83,14 +89,11 @@ class CppiaScript : public ScriptExtension {
   void* create_script_instance_internal(Object* for_object,
                                         bool is_placeholder) const;
 
-  String _source_code;
-  String _path;
   std::unordered_map<StringName, GDExtensionPropertyInfo> _properties_cache;
   Variant _rpc_config;
 
   HashMap<uint64_t, CppiaScriptInstance*> instances;
   mutable std::unordered_set<CppiaScriptInstance*> _placeholders;
-  mutable Ref<CppiaScript> _base_script;
 };
 
 }  // namespace godot

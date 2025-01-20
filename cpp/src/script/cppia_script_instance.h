@@ -22,9 +22,21 @@ class CppiaScriptInstance {
                       bool is_placeholder, bool is_refcounted);
   ~CppiaScriptInstance();
 
+  /* Meta */
+  ScriptLanguage* get_language() const;
+  Object* get_owner() const { return owner; }
+  Ref<CppiaScript> get_script() const { return script; }
+  GDExtensionBool is_placeholder();
+  void to_string(GDExtensionBool* r_is_valid, GDExtensionStringPtr r_out);
+  bool get_class_category(GDExtensionPropertyInfo* p_class_category);
+
+  /* Properties */
   bool set(const StringName& p_name, GDExtensionConstVariantPtr p_value);
   bool get(const StringName& p_name, GDExtensionVariantPtr r_ret);
-  bool get_class_category(GDExtensionPropertyInfo* p_class_category);
+
+  bool set_fallback(const StringName& p_name,
+                    GDExtensionConstVariantPtr p_value);
+  bool get_fallback(const StringName& p_name, GDExtensionVariantPtr r_ret);
 
   const GDExtensionPropertyInfo* get_property_list(uint32_t* r_count);
   void free_property_list(const GDExtensionPropertyInfo* p_list,
@@ -40,31 +52,23 @@ class CppiaScriptInstance {
   void get_property_state(GDExtensionScriptInstancePropertyStateAdd p_add_func,
                           void* p_userdata);
 
+  void notify_property_list_changed();
+
+  /* Methods */
   const GDExtensionMethodInfo* get_method_list(uint32_t* r_count);
   void free_method_list(const GDExtensionMethodInfo* p_list, uint32_t p_count);
-
   GDExtensionBool has_method(const StringName& p_name);
-
   void call(const StringName* p_method,
             const GDExtensionConstVariantPtr* p_args,
             GDExtensionInt p_argument_count, GDExtensionVariantPtr r_return,
             GDExtensionCallError* r_error);
-  void notification(int32_t p_what, bool p_reversed);
-  void to_string(GDExtensionBool* r_is_valid, GDExtensionStringPtr r_out);
 
+  /* Notification */
+  void notification(int32_t p_what, bool p_reversed);
+
+  /* Memory */
   void ref_count_incremented();
   GDExtensionBool ref_count_decremented();
-
-  ScriptLanguage* get_language() const;
-  Object* get_owner() const { return owner; }
-  Ref<CppiaScript> get_script() const { return script; }
-  GDExtensionBool is_placeholder();
-
-  bool set_fallback(const StringName& p_name,
-                    GDExtensionConstVariantPtr p_value);
-  bool get_fallback(const StringName& p_name, GDExtensionVariantPtr r_ret);
-
-  void notify_property_list_changed();
 
   static const GDExtensionScriptInstanceInfo3* get_script_instance_info();
 
