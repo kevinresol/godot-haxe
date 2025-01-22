@@ -119,6 +119,8 @@ class BuiltinClassBuilder extends Builder {
 		final cname = clazz.name;
 		final config = Config.wrapper;
 		final cls = macro class $cname {
+			// cppia can't seem to access cpp.Struct fields directly
+			// so we need a wrapper and expose the fields getter/setter as real haxe functions
 			final __gd_value:cpp.Struct<godot.gen.$cname>;
 
 			public function new(value:cpp.Struct<godot.gen.$cname>) {
@@ -136,6 +138,7 @@ class BuiltinClassBuilder extends Builder {
 				name: pname,
 				kind: FProp('get', 'set', ptype),
 			});
+
 			final getter = 'get_${prop.name}';
 			final setter = 'set_${prop.name}';
 			cls.fields = cls.fields.concat((macro class {

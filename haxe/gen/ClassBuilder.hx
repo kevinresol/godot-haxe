@@ -86,7 +86,7 @@ class ClassBuilder extends Builder {
 			} catch (e) {}
 		}
 
-		final source = printTypeDefinition(def) + '\ntypedef $cname = cpp.Star<${cname}_obj>;';
+		final source = printTypeDefinition(def) + '\ntypedef $cname = cpp.Pointer<${cname}_obj>;';
 		write('${config.folder}/${def.pack.join('/')}/$cname.hx', source);
 	}
 
@@ -98,7 +98,7 @@ class ClassBuilder extends Builder {
 			final name = cname;
 			if (parent == null) {
 				macro class $name {
-					public var __native:godot.gen.$cname;
+					public var __gd__native:godot.gen.$cname;
 				};
 			} else {
 				final tp = {pack: config.pack, name: parent};
@@ -124,7 +124,7 @@ class ClassBuilder extends Builder {
 						ret: makeHaxeHostType(rtype),
 						expr: {
 							final native = TPath({pack: Config.nativeExtern.pack, name: cname});
-							final e = macro(cast __native : $native).$fname($a{fn.arguments?.map(arg -> macro $i{'p_${arg.name}'}) ?? []});
+							final e = macro(cast __gd__native.ptr : $native).value.$fname($a{fn.arguments?.map(arg -> macro $i{'p_${arg.name}'}) ?? []});
 							rtype == 'void' ? e : macro return $e;
 						}
 					})

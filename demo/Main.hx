@@ -1,16 +1,35 @@
+@:rtti
 class Main extends gd.Node2D {
-	var processed = false;
-	var physicsProcessed = false;
+	@export
+	@export_range(0, 100)
+	var speed:Float = 42;
 
 	function new() {
-		trace("new Main() 2");
+		trace("new Main()");
 	}
 
 	override function _enter_tree() {
 		trace("_enter_tree");
 	}
 
-	var target = gd.Vector2._new3(100, 100);
+	final target = gd.Vector2._new3(100, 100);
+
+	override function _process(delta:Float) {
+		if (!processed) {
+			trace('_process($delta) $processed');
+			processed = true;
+		}
+
+		final pos = get_position();
+		if (pos.x == 100 && pos.y == 100) {
+			set_position(gd.Vector2._new0());
+		} else {
+			set_position(pos.move_toward(target, delta * speed));
+		}
+	}
+
+	var processed = false;
+	var physicsProcessed = false;
 
 	override function _ready() {
 		trace('_ready ${get_child_count(false)}');
@@ -22,15 +41,6 @@ class Main extends gd.Node2D {
 		final pos = get_position();
 		pos.x = 0;
 		set_position(pos);
-	}
-
-	override function _process(delta:Float) {
-		if (!processed) {
-			trace('_process($delta) $processed');
-			processed = true;
-		}
-
-		set_position(get_position().move_toward(target, delta * 10));
 	}
 
 	// override function _physics_process(delta:Float) {

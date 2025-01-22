@@ -1,9 +1,16 @@
-#include <gdcppia/CodeAnalyzer.h>
-#include <gdcppia/CodeInfo.h>
+#include <gdcppia/ClassInfo.h>
 #include <gdcppia/Cppia.h>
+#include <gdcppia/Module.h>
+#include <gdcppia/PropertyInfo.h>
+#include <gdcppia_api.h>
 
 #include <cstdio>
 #include <godot_cpp/classes/object.hpp>
+#include <godot_cpp/core/memory.hpp>
+#include <godot_cpp/variant/utility_functions.hpp>
+
+#define DYN_GET(obj, field, as_type) \
+  ((as_type)obj->__Field(HX_CSTRING(field), HX_PROP_DYNAMIC))
 
 namespace gdcppia {
 
@@ -15,7 +22,7 @@ void load_bytecode(const uint8_t* p_ptr, int p_size) {
 
 void* create_instance(::String p_class_name, godot::Object* p_owner) {
   ::Dynamic instance =
-      gdcppia::Cppia_obj::createInstance(p_class_name, p_owner);
+      gdcppia::Cppia_obj::module->createInstance(p_class_name, p_owner);
 
   void* alloc = malloc(sizeof(::hx::Object*));
   ::hx::Object** root = static_cast<::hx::Object**>(alloc);
@@ -32,6 +39,78 @@ void destroy_instance(void* p_instance) {
   free(root);
 }
 
+bool instance_set(void* p_instance, godot::StringName p_name,
+                  const godot::Variant* p_val) {
+  ::hx::Object** root = static_cast<::hx::Object**>(p_instance);
+  auto name = to_haxe_string(p_name);
+
+  if (!gdcppia::Cppia_obj::instanceHasProperty(*root, name)) {
+    return false;
+  } else {
+    gdcppia::Cppia_obj::instanceSetProperty(*root, name,
+                                            to_haxe_dynamic(p_val));
+    return true;
+  }
+}
+
+bool instance_get(void* p_instance, godot::StringName p_name,
+                  godot::Variant* r_ret) {
+  ::hx::Object** root = static_cast<::hx::Object**>(p_instance);
+
+  auto name = to_haxe_string(p_name);
+  if (!gdcppia::Cppia_obj::instanceHasProperty(*root, name)) {
+    return false;
+  } else {
+    ::Dynamic val = gdcppia::Cppia_obj::instanceGetProperty(*root, name);
+    *r_ret = from_haxe_dynamic(val);
+    return true;
+  }
+}
+
+const GDExtensionPropertyInfo* instance_get_property_list(
+    const godot::StringName& p_name, uint32_t* r_count) {
+  auto info = gdcppia::Cppia_obj::module->makeClassInfo(to_haxe_string(p_name));
+
+  if (info == null()) {
+    *r_count = 0;
+    return nullptr;
+  }
+
+  auto size = info->properties.__length();
+  *r_count = size;
+
+  GDExtensionPropertyInfo* ret =
+      godot::memnew_arr(GDExtensionPropertyInfo, size);
+
+  for (int i = 0; i < size; i++) {
+    auto prop = (gdcppia::PropertyInfo)info->properties[i];
+
+    ret[i].type = static_cast<GDExtensionVariantType>(prop->type);
+    ret[i].name = memnew(godot::StringName((const char*)prop->name));
+    ret[i].class_name = memnew(godot::StringName((const char*)prop->className));
+    ret[i].hint = prop->hint;
+    ret[i].hint_string = memnew(godot::String((const char*)prop->hintString));
+    ret[i].usage = prop->usage;
+  }
+
+  return ret;
+}
+
+void instance_free_property_list(const GDExtensionPropertyInfo* p_list,
+                                 uint32_t p_count) {
+  if (p_list == nullptr) {
+    return;
+  }
+
+  for (int i = 0; i < p_count; i++) {
+    godot::memdelete((godot::StringName*)p_list[i].name);
+    godot::memdelete((godot::StringName*)p_list[i].class_name);
+    godot::memdelete((godot::String*)p_list[i].hint_string);
+  }
+
+  godot::memdelete_arr(p_list);
+}
+
 bool instance_has_method(void* p_instance, ::String p_method_name) {
   ::hx::Object** root = static_cast<::hx::Object**>(p_instance);
   return gdcppia::Cppia_obj::instanceHasMethod(*root, p_method_name);
@@ -44,9 +123,9 @@ void instance_call(void* p_instance, ::String p_method_name,
 }
 
 void analyze_code(::String p_source, ::String p_class_name) {
-  auto result =
-      gdcppia::Cppia_obj::analyzer->analyze(p_source)->findClass(p_class_name);
-  auto info = result;
+  // auto result =
+  //     gdcppia::Cppia_obj::analyzer->analyze(p_source)->findClass(p_class_name);
+  // auto info = result;
 }
 
 ::String to_haxe_string(const godot::String& p_str) {
@@ -55,12 +134,7 @@ void analyze_code(::String p_source, ::String p_class_name) {
 }
 
 ::Dynamic to_haxe_dynamic(const godot::Variant* p_val) {
-  godot::Variant::Type type = p_val->get_type();
-  if (type == godot::Variant::FLOAT) {
-    return p_val->operator double();
-  } else {
-    return null();
-  }  // TODO: handle more types
+  return gdcppia::Cppia_obj::fromVariant(*p_val);
 }
 
 ::Array<::Dynamic> to_haxe_dynamic_array(const godot::Variant** p_ptr,
@@ -71,6 +145,10 @@ void analyze_code(::String p_source, ::String p_class_name) {
     arr[i] = to_haxe_dynamic(v);
   }
   return arr;
+}
+
+godot::Variant from_haxe_dynamic(::Dynamic val) {
+  return gdcppia::Cppia_obj::toVariant(val);
 }
 
 }  // namespace gdcppia

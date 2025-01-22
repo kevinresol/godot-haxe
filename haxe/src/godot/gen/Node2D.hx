@@ -31,4 +31,4 @@ package godot.gen;
 	function to_local(p_global_point:godot.gen.Vector2):godot.gen.Vector2;
 	function to_global(p_local_point:godot.gen.Vector2):godot.gen.Vector2;
 }
-typedef Node2D = cpp.Star<Node2D_obj>;
+typedef Node2D = cpp.Pointer<Node2D_obj>;

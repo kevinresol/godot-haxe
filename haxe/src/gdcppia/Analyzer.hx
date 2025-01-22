@@ -1,8 +1,10 @@
 package gdcppia;
 
+import godot.gen.Vector2;
+
 using Lambda;
 
-class CodeAnalyzer {
+class Analyzer {
 	public function new() {}
 
 	public function analyze(code:String):CodeInfo {
@@ -22,7 +24,8 @@ class CodeAnalyzer {
 										ex.name;
 									case _:
 										"";
-								}
+								},
+								properties: []
 							}
 						case _:
 							continue;
@@ -48,4 +51,15 @@ class CodeInfo {
 class ClassInfo {
 	public final name:String;
 	public final parent:String;
+	public final properties:Array<PropertyInfo>;
+}
+
+@:structAccess
+extern class PropertyInfo {
+	var type:godot.Variant.VariantType;
+	var name:String;
+	var class_name:String;
+	var hint:cpp.UInt32; // Bitfield of `PropertyHint` (defined in `extension_api.json`).
+	var hint_string:String;
+	var usage:cpp.UInt32; // Bitfield of `PropertyUsageFlags` (defined in `extension_api.json`).
 }

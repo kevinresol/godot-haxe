@@ -3,18 +3,39 @@ package godot;
 @:unreflective
 abstract Variant(Variant_obj) from Variant_obj to Variant_obj {
 	@:to
-	extern inline function toHaxe():Dynamic {
+	public function toHaxe():Dynamic {
 		return switch this.get_type() {
 			case FLOAT:
-				untyped __cpp__('{0}.operator double()', this);
+				(untyped __cpp__('{0}.operator double()', this) : Float);
+			case INT:
+				(untyped __cpp__('{0}.operator int32_t()', this) : Int);
+			case STRING:
+				toString();
 			default:
 				null;
 		}
 	}
 
 	@:from
-	extern static inline function fromHaxe(v:Dynamic):Variant {
-		return untyped __cpp__('godot::Variant()');
+	public static function fromHaxe(v:Dynamic):Variant {
+		switch Type.typeof(v) {
+			case TFloat:
+				return new Variant_obj((v : Float));
+			case TInt:
+				return new Variant_obj((v : Int));
+			case TClass(std.String):
+				return fromString(v);
+			default:
+		}
+		return new Variant_obj();
+	}
+
+	@:from static inline function fromString(v:std.String):Variant {
+		return new Variant_obj(cpp.NativeString.c_str(v));
+	}
+
+	@:to inline function toString():std.String {
+		return ((untyped __cpp__('{0}.operator godot::String()', this) : godot.String) : std.String);
 	}
 }
 
@@ -22,11 +43,18 @@ abstract Variant(Variant_obj) from Variant_obj to Variant_obj {
 @:native("godot::Variant")
 @:structAccess
 extern class Variant_obj {
+	@:overload(function(v:cpp.ConstPointer<cpp.Char>):Void {})
+	@:overload(function(v:cpp.ConstCharStar):Void {})
+	@:overload(function(v:Float):Void {})
+	@:overload(function(v:Int):Void {})
+	function new();
+
 	function get_type():VariantType;
+	static function print(v:Variant_obj):Void;
 }
 
 @:native("godot::Variant::Type")
-enum abstract VariantType(Int) {
+extern enum abstract VariantType(Int) to Int {
 	final NIL = 0;
 	final BOOL = 1;
 	final INT = 2;
@@ -67,4 +95,8 @@ enum abstract VariantType(Int) {
 	final PACKED_COLOR_ARRAY = 37;
 	final PACKED_VECTOR4_ARRAY = 38;
 	final MAX = 39;
+	// @:to
+	// inline function toGDExtensionVariantType():gdc.GDExtensionVariantType {
+	// 	return cast this;
+	// }
 }

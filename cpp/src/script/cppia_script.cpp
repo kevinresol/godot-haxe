@@ -69,33 +69,22 @@ TypedArray<Dictionary> CppiaScript::_get_script_method_list() const {
 }
 
 TypedArray<Dictionary> CppiaScript::_get_script_property_list() const {
-  TypedArray<Dictionary> ret_val;
+  printf("get_script_property_list\n");
 
-  // TODO: Look if there's a better way to store these strings as constants
-  for (const auto &prop : _properties_cache) {
-    const auto &prop_info = prop.second;
-    Dictionary info_dict;
-    info_dict[Variant(String("type"))] = Variant(prop_info.type);
-    info_dict[Variant(String("name"))] =
-        Variant(*reinterpret_cast<String *>(prop_info.name));
-    info_dict[Variant(String("class_name"))] =
-        Variant(*reinterpret_cast<StringName *>(prop_info.name));
-    info_dict[Variant(String("hint"))] = Variant(prop_info.hint);
-    info_dict[Variant(String("hint_string"))] =
-        Variant(*reinterpret_cast<String *>(prop_info.hint_string));
-    info_dict[Variant(String("usage"))] = Variant(prop_info.usage);
-    ret_val.push_back(info_dict);
-  }
+  TypedArray<Dictionary> properties;
 
-  return ret_val;
+  // WIP
+  Dictionary dict;
+  dict["type"] = GDEXTENSION_VARIANT_TYPE_FLOAT;
+  dict["name"] = "foo";
+  dict["class_name"] = "Main";
+  dict["hint"] = PROPERTY_HINT_NONE;
+  dict["hint_string"] = "TODO: hint_string";
+  dict["usage"] = PROPERTY_USAGE_DEFAULT;
+  properties.push_back(dict);
+
+  return properties;
 }
-
-Error CppiaScript::_reload(bool keep_state) {
-  printf("_reload keep_state=%d\n", keep_state);
-  return Error::OK;
-}
-
-bool CppiaScript::_is_tool() const { return false; }
 
 bool CppiaScript::_has_property_default_value(
     const StringName &property) const {
@@ -107,6 +96,12 @@ Variant CppiaScript::_get_property_default_value(
   return Variant();
 }
 
+Error CppiaScript::_reload(bool keep_state) {
+  printf("_reload keep_state=%d\n", keep_state);
+  return Error::OK;
+}
+
+bool CppiaScript::_is_tool() const { return false; }
 void CppiaScript::_update_exports() {
   refresh_type(true);
 
@@ -116,8 +111,9 @@ void CppiaScript::_update_exports() {
 }
 
 StringName CppiaScript::_get_global_name() const {
-  StringName ret;
-  return ret;
+  // WIP
+  static StringName global_name = StringName("Main");
+  return global_name;
 }
 
 void CppiaScript::load_from_disk(const String &p_path) {

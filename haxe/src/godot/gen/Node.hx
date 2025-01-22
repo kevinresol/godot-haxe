@@ -75,4 +75,4 @@ package godot.gen;
 	function set_thread_safe(p_property:godot.StringName, p_value:godot.Variant):Void;
 	function notify_thread_safe(p_what:Int):Void;
 }
-typedef Node = cpp.Star<Node_obj>;
+typedef Node = cpp.Pointer<Node_obj>;

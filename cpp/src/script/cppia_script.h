@@ -54,17 +54,17 @@ class CppiaScript : public ScriptExtension {
   };
 
   /* SCRIPT METHODS */
+  TypedArray<Dictionary> _get_script_method_list() const override;
   bool _has_method(const StringName& method) const override;
   bool _has_static_method(const StringName& method) const override;
   Dictionary _get_method_info(const StringName& method) const override;
-  TypedArray<Dictionary> _get_script_method_list() const override;
 
   /* SCRIPT SIGNALS */
-  bool _has_script_signal(const StringName& signal) const override;
   TypedArray<Dictionary> _get_script_signal_list() const override;
-  TypedArray<Dictionary> _get_script_property_list() const override;
+  bool _has_script_signal(const StringName& signal) const override;
 
   /* SCRIPT PROPERTIES */
+  TypedArray<Dictionary> _get_script_property_list() const override;
   bool _has_property_default_value(const StringName& property) const override;
   Variant _get_property_default_value(
       const StringName& property) const override;

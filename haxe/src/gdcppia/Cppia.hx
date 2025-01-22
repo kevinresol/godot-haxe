@@ -1,9 +1,12 @@
 package gdcppia;
 
+import godot.gen.UtilityFunctions;
 import cpp.Reference;
 import cpp.vm.Gc;
 import haxe.Exception;
 import cpp.UInt8;
+
+using Lambda;
 
 @:buildXml('<include name="/Users/kevin/Codes/godot-haxe/haxe/src/build.xml" />')
 @:headerInclude('hx/Scriptable.h') // https://github.com/HaxeFoundation/hxcpp/issues/816
@@ -12,54 +15,32 @@ class Cppia {
 	public static function main() {
 		trace("Hello from Haxe!");
 
-		trace(analyzer.analyze('class A extends B {}'));
-		trace(godot.gen.UtilityFunctions.sin(0.5));
-
-		final x = new godot.gen.Vector2();
-		trace(x.x);
-		trace(x.y);
-		final y = new godot.gen.Vector2(2, 42);
-		trace(y.x);
-		trace(y.y);
+		haxe.Log.trace = godotTrace;
 	}
 
-	static var analyzer:CodeAnalyzer = new CodeAnalyzer();
-	static var module:cpp.cppia.Module;
-
-	// static var moduleExtern:Module2;
+	static var module:Module;
 
 	public static function runBytes(data:Array<UInt8>) {
 		final bytes = haxe.io.Bytes.ofData(data);
 		trace('Loaded bytes:${bytes.length}');
 
-		module = cpp.cppia.Module.fromData(data);
-		module.boot();
+		module = new Module(data);
 		trace('Done booting module');
 	}
 
-	public static function createInstance(className:String, owner:godot.gen.Object) {
-		trace('Creating instance of ${className}');
-		final classType = module.resolveClass(className);
-		trace('${Type.getClassName(classType)} inherits ${Type.getClassName(Type.getSuperClass(classType))}');
-		if (classType == null) {
-			trace('Class not found: ${className}');
-			return null;
-		} else {
-			final inst:Dynamic = Type.createInstance(classType, []);
-			switch Std.downcast(inst, gd.Object) {
-				case null:
-					trace('Instance is not a gd.Object');
-				case node:
-					trace('Instance is a gd.Object');
-					node.__native = cast owner;
-			}
-			trace(inst);
-			return inst;
-		}
+	public static function instanceHasProperty(inst:Dynamic, key:String):Bool {
+		return Type.getInstanceFields(Type.getClass(inst)).contains(key);
+	}
+
+	public static function instanceGetProperty(inst:Dynamic, key:String):Dynamic {
+		return Reflect.getProperty(inst, key);
+	}
+
+	public static function instanceSetProperty(inst:Dynamic, key:String, value:Dynamic):Void {
+		return Reflect.setProperty(inst, key, value);
 	}
 
 	public static function instanceHasMethod(inst:Dynamic, methodName:String):Bool {
-		trace('Checking if instance has method ${methodName}');
 		return Reflect.isFunction(Reflect.field(inst, methodName));
 	}
 
@@ -69,6 +50,18 @@ class Cppia {
 			Reflect.callMethod(inst, fn, args);
 		}
 	}
+
+	public static function fromVariant(val:godot.Variant):Dynamic {
+		return val.toHaxe();
+	}
+
+	public static function toVariant(val:Dynamic) {
+		return godot.Variant.fromHaxe(val);
+	}
+}
+
+function godotTrace(v:Dynamic, ?infos:haxe.PosInfos):Void {
+	UtilityFunctions.print(haxe.Log.formatOutput(v, infos));
 }
 
 typedef Vector2Container = cpp.Struct<gd.Vector2>;

@@ -4,6 +4,7 @@
 
 #include <godot_cpp/classes/object.hpp>
 #include <godot_cpp/classes/script_language.hpp>
+#include <godot_cpp/variant/utility_functions.hpp>
 
 #include "cppia_script_language.h"
 
@@ -36,12 +37,12 @@ CppiaScriptInstance::~CppiaScriptInstance() {
 
 bool CppiaScriptInstance::set(const StringName &p_name,
                               GDExtensionConstVariantPtr p_value) {
-  return false;
+  return gdcppia::instance_set(_cppia_handle, p_name, (Variant *)p_value);
 }
 
 bool CppiaScriptInstance::get(const StringName &p_name,
                               GDExtensionVariantPtr r_ret) {
-  return false;
+  return gdcppia::instance_get(_cppia_handle, p_name, (Variant *)r_ret);
 }
 
 bool CppiaScriptInstance::get_class_category(
@@ -51,25 +52,13 @@ bool CppiaScriptInstance::get_class_category(
 
 const GDExtensionPropertyInfo *CppiaScriptInstance::get_property_list(
     uint32_t *r_count) {
-  GDExtensionPropertyInfo *prop_list{nullptr};
-  const auto &prop_map = script->get_properties();
-  size_t prop_count = prop_map.size();
-  *r_count = prop_count;
-  if (prop_count > 0) {
-    prop_list = new GDExtensionPropertyInfo[prop_count];
-    size_t index = 0;
-    for (const auto &property : prop_map) {
-      prop_list[index] = property.second;
-      ++index;
-    }
-  }
-
-  return prop_list;
+  return gdcppia::instance_get_property_list(script->get_global_name(),
+                                             r_count);
 }
 
 void CppiaScriptInstance::free_property_list(
     const GDExtensionPropertyInfo *p_list, uint32_t p_count) {
-  delete[] p_list;
+  gdcppia::instance_free_property_list(p_list, p_count);
 }
 
 GDExtensionVariantType CppiaScriptInstance::get_property_type(
@@ -94,7 +83,7 @@ bool CppiaScriptInstance::validate_property(
 
 GDExtensionBool CppiaScriptInstance::property_can_revert(
     const StringName &p_name) {
-  printf("property_can_revert %s\n", p_name.to_utf8_buffer().ptr());
+  // printf("property_can_revert %s\n", p_name.to_utf8_buffer().ptr());
   return false;
 }
 
@@ -112,6 +101,7 @@ void CppiaScriptInstance::get_property_state(
 const GDExtensionMethodInfo *CppiaScriptInstance::get_method_list(
     uint32_t *r_count) {
   printf("get_method_list\n");
+  *r_count = 0;
   return nullptr;
 }
 

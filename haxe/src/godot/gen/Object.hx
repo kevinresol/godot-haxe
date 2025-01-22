@@ -33,4 +33,4 @@ package godot.gen;
 	function is_queued_for_deletion():Bool;
 	function cancel_free():Void;
 }
-typedef Object = cpp.Star<Object_obj>;
+typedef Object = cpp.Pointer<Object_obj>;
