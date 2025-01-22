@@ -8,7 +8,7 @@ import cpp.UInt8;
 
 using Lambda;
 
-@:buildXml('<include name="/Users/kevin/Codes/godot-haxe/haxe/src/build.xml" />')
+@:build(gdcppia.Cppia.xml())
 @:headerInclude('hx/Scriptable.h') // https://github.com/HaxeFoundation/hxcpp/issues/816
 @:unreflective
 class Cppia {
@@ -99,6 +99,8 @@ class Cppia {
 	public static function toVariant(val:Dynamic) {
 		return godot.Variant.fromHaxe(val);
 	}
+
+	public static macro function xml(rel:String):Array<haxe.macro.Expr.Field>;
 }
 
 typedef Vector2Container = cpp.Struct<gd.Vector2>;

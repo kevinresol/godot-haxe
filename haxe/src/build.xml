@@ -1,22 +1,14 @@
 <xml>
-	<set name="GODOT_CPPIA" value="/Users/kevin/Codes/godot-haxe/haxe/src" />
-
 	<files id="__lib__">
-		<compilerflag value="-I/Users/kevin/Codes/godot-haxe/haxe/src/include/" />
-		<compilerflag value="-I/Users/kevin/Codes/godot-haxe/godot-cpp/gdextension/" />
-		<compilerflag value="-I/Users/kevin/Codes/godot-haxe/godot-cpp/include/" />
-		<compilerflag value="-I/Users/kevin/Codes/godot-haxe/godot-cpp/gen/include/" />
+		<compilerflag value="-I${GODOT_CPPIA}../../godot-cpp/gdextension/" />
+		<compilerflag value="-I${GODOT_CPPIA}../../godot-cpp/include/" />
+		<compilerflag value="-I${GODOT_CPPIA}../../godot-cpp/gen/include/" />
 
 	</files>
 
 	<files id="haxe">
-
-		<compilerflag value="-I/Users/kevin/Codes/godot-haxe/haxe/src/include/" />
-		<compilerflag value="-I/Users/kevin/Codes/godot-haxe/godot-cpp/gdextension/" />
-		<compilerflag value="-I/Users/kevin/Codes/godot-haxe/godot-cpp/include/" />
-		<compilerflag value="-I/Users/kevin/Codes/godot-haxe/godot-cpp/gen/include/" />
-		<file name="${GODOT_CPPIA}/gdcppia_api.cpp" />
-
+		<compilerflag value="-I${GODOT_CPPIA}../../godot-cpp/gdextension/" />
+		<compilerflag value="-I${GODOT_CPPIA}../../godot-cpp/include/" />
+		<compilerflag value="-I${GODOT_CPPIA}../../godot-cpp/gen/include/" />
 	</files>
-
 </xml>

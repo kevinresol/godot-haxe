@@ -8,7 +8,6 @@
 #include <godot_cpp/core/defs.hpp>
 #include <godot_cpp/godot.hpp>
 
-#include "gdexample.h"
 #include "helper.h"
 #include "script/cppia_resource_format.h"
 #include "script/cppia_script.h"
