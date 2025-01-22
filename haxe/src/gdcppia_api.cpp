@@ -8,6 +8,9 @@
 #include <godot_cpp/classes/object.hpp>
 #include <godot_cpp/core/memory.hpp>
 #include <godot_cpp/variant/utility_functions.hpp>
+#include <iostream>
+#include <string>
+#include <thread>
 
 #define DYN_GET(obj, field, as_type) \
   ((as_type)obj->__Field(HX_CSTRING(field), HX_PROP_DYNAMIC))
@@ -24,8 +27,8 @@ void* create_instance(::String p_class_name, godot::Object* p_owner) {
   ::Dynamic instance =
       gdcppia::Cppia_obj::module->createInstance(p_class_name, p_owner);
 
-  void* alloc = malloc(sizeof(::hx::Object*));
-  ::hx::Object** root = static_cast<::hx::Object**>(alloc);
+  void* alloc = memalloc(sizeof(::hx::Object*));
+  ::hx::Object** root = reinterpret_cast<::hx::Object**>(alloc);
 
   *root = instance.mPtr;
   ::hx::GCAddRoot(root);
@@ -34,20 +37,24 @@ void* create_instance(::String p_class_name, godot::Object* p_owner) {
 }
 
 void destroy_instance(void* p_instance) {
-  ::hx::Object** root = static_cast<::hx::Object**>(p_instance);
+  ::hx::Object** root = reinterpret_cast<::hx::Object**>(p_instance);
   ::hx::GCRemoveRoot(root);
-  free(root);
+  memfree(root);
 }
 
 bool instance_set(void* p_instance, godot::StringName p_name,
                   const godot::Variant* p_val) {
-  ::hx::Object** root = static_cast<::hx::Object**>(p_instance);
+  ::hx::Object** root = reinterpret_cast<::hx::Object**>(p_instance);
   auto name = to_haxe_string(p_name);
 
-  if (!gdcppia::Cppia_obj::instanceHasProperty(*root, name)) {
+  auto threadId = std::this_thread::get_id();
+
+  // std::cout << "Set Thread ID: " << std::this_thread::get_id() << std::endl;
+
+  if (!gdcppia::Cppia_obj::instanceHasProperty(::Dynamic(*root), name)) {
     return false;
   } else {
-    gdcppia::Cppia_obj::instanceSetProperty(*root, name,
+    gdcppia::Cppia_obj::instanceSetProperty(::Dynamic(*root), name,
                                             to_haxe_dynamic(p_val));
     return true;
   }
@@ -55,13 +62,16 @@ bool instance_set(void* p_instance, godot::StringName p_name,
 
 bool instance_get(void* p_instance, godot::StringName p_name,
                   godot::Variant* r_ret) {
-  ::hx::Object** root = static_cast<::hx::Object**>(p_instance);
+  ::hx::Object** root = reinterpret_cast<::hx::Object**>(p_instance);
 
   auto name = to_haxe_string(p_name);
-  if (!gdcppia::Cppia_obj::instanceHasProperty(*root, name)) {
+  // std::cout << "Get Thread ID: " << std::this_thread::get_id() << std::endl;
+
+  if (!gdcppia::Cppia_obj::instanceHasProperty(::Dynamic(*root), name)) {
     return false;
   } else {
-    ::Dynamic val = gdcppia::Cppia_obj::instanceGetProperty(*root, name);
+    ::Dynamic val =
+        gdcppia::Cppia_obj::instanceGetProperty(::Dynamic(*root), name);
     *r_ret = from_haxe_dynamic(val);
     return true;
   }
@@ -112,14 +122,14 @@ void instance_free_property_list(const GDExtensionPropertyInfo* p_list,
 }
 
 bool instance_has_method(void* p_instance, ::String p_method_name) {
-  ::hx::Object** root = static_cast<::hx::Object**>(p_instance);
-  return gdcppia::Cppia_obj::instanceHasMethod(*root, p_method_name);
+  ::hx::Object** root = reinterpret_cast<::hx::Object**>(p_instance);
+  return gdcppia::Cppia_obj::instanceHasMethod(::Dynamic(*root), p_method_name);
 }
 
 void instance_call(void* p_instance, ::String p_method_name,
                    ::Array<::Dynamic> p_args) {
-  ::hx::Object** root = static_cast<::hx::Object**>(p_instance);
-  gdcppia::Cppia_obj::instanceCall(*root, p_method_name, p_args);
+  ::hx::Object** root = reinterpret_cast<::hx::Object**>(p_instance);
+  gdcppia::Cppia_obj::instanceCall(::Dynamic(*root), p_method_name, p_args);
 }
 
 void analyze_code(::String p_source, ::String p_class_name) {

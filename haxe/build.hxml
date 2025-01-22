@@ -6,6 +6,7 @@
 -D static_link
 -D scriptable
 -D HXCPP_CPP17
+--debug
 
 --each
 -D HAXE_OUTPUT_PART=cppia_x86_64

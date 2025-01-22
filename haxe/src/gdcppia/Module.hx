@@ -67,7 +67,7 @@ class Module {
 			final classType = module.resolveClass(className);
 			final rtti = haxe.rtti.Rtti.getRtti(classType);
 
-			final info:ClassInfo = {
+			return {
 				name: className,
 				parent: rtti.superClass?.path,
 				properties: [
@@ -111,8 +111,6 @@ class Module {
 					// 		}
 				]
 			}
-			trace(info.properties[0].name);
-			return info;
 		} catch (e) {
 			return null;
 		}

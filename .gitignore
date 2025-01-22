@@ -12,3 +12,5 @@ config.log
 # Haxe
 haxe/bin
 export_classes.info
+
+run.sh
