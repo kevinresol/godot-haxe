@@ -1,0 +1,29 @@
+package godot;
+@:include("godot_cpp/classes/global_constants.hpp") @:native("godot::Variant::Operator") extern enum abstract Variant.Operator(cpp.UInt32) to cpp.UInt32 {
+	final OP_EQUAL;
+	final OP_NOT_EQUAL;
+	final OP_LESS;
+	final OP_LESS_EQUAL;
+	final OP_GREATER;
+	final OP_GREATER_EQUAL;
+	final OP_ADD;
+	final OP_SUBTRACT;
+	final OP_MULTIPLY;
+	final OP_DIVIDE;
+	final OP_NEGATE;
+	final OP_POSITIVE;
+	final OP_MODULE;
+	final OP_POWER;
+	final OP_SHIFT_LEFT;
+	final OP_SHIFT_RIGHT;
+	final OP_BIT_AND;
+	final OP_BIT_OR;
+	final OP_BIT_XOR;
+	final OP_BIT_NEGATE;
+	final OP_AND;
+	final OP_OR;
+	final OP_XOR;
+	final OP_NOT;
+	final OP_IN;
+	final OP_MAX;
+}

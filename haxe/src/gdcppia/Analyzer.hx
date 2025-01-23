@@ -1,6 +1,6 @@
 package gdcppia;
 
-import godot.gen.Vector2;
+import godot.Vector2;
 
 using Lambda;
 

@@ -40,7 +40,7 @@ class Module {
 		}
 	}
 
-	public function createInstance(className:String, owner:godot.gen.Object) {
+	public function createInstance(className:String, owner:godot.Object) {
 		trace('Creating instance of ${className}');
 		final classType = module.resolveClass(className);
 		trace('${Type.getClassName(classType)} inherits ${Type.getClassName(Type.getSuperClass(classType))}');

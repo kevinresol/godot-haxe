@@ -1,6 +1,7 @@
 --main gdcppia.Cppia
 --macro include('gd')
 --class-path src
+--class-path generated
 --cpp bin
 --library haxeparser
 -D static_link

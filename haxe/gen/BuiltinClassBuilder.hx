@@ -121,11 +121,10 @@ class BuiltinClassBuilder extends Builder {
 		final cls = macro class $cname {
 			// cppia can't seem to access cpp.Struct fields directly
 			// so we need a wrapper and expose the fields getter/setter as real haxe functions
-			final __gd_value:cpp.Struct<godot.gen.$cname>;
+			final __gd_value:cpp.Struct<godot.$cname>;
 
-			public function new(value:cpp.Struct<godot.gen.$cname>) {
+			public function new(value:cpp.Struct<godot.$cname>)
 				__gd_value = value;
-			}
 		}
 		cls.pack = config.pack;
 
@@ -142,14 +141,9 @@ class BuiltinClassBuilder extends Builder {
 			final getter = 'get_${prop.name}';
 			final setter = 'set_${prop.name}';
 			cls.fields = cls.fields.concat((macro class {
-				function $getter():$ptype {
-					return __gd_value.$pname;
-				}
+				function $getter():$ptype return __gd_value.$pname;
 
-				function $setter(v : $ptype):$ptype {
-					__gd_value.$pname = v;
-					return v;
-				}
+				function $setter(v : $ptype):$ptype return __gd_value.$pname = v;
 			}).fields);
 		}
 
@@ -165,7 +159,7 @@ class BuiltinClassBuilder extends Builder {
 							name: 'p_${arg.name}',
 							type: makeHaxeHostType(arg.type),
 						} : FunctionArg)) ?? [],
-						expr: macro return new $tp(new godot.gen.$cname($a{
+						expr: macro return new $tp(new godot.$cname($a{
 							(ctor.arguments ?? []).map(arg -> macro $i{'p_${arg.name}'})
 						}))
 					})
@@ -199,11 +193,11 @@ class BuiltinClassBuilder extends Builder {
 		final ct = TPath(ctp);
 		final at = TPath({pack: [], name: aname});
 		final abs = macro class $aname {
-			@:from static inline function fromNative(v:godot.gen.$cname):$at {
+			@:from static inline function fromNative(v:godot.$cname):$at {
 				return new $ctp(v);
 			}
 
-			@:to inline function toNative():godot.gen.$cname {
+			@:to inline function toNative():godot.$cname {
 				return @:privateAccess this.__gd_value;
 			}
 		}

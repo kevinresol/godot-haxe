@@ -19,6 +19,10 @@ class Builder {
 
 	function write(dest:String, content:String) {
 		final dest = Path.join([Sys.programPath().directory(), dest]);
+		final dir = Path.directory(dest);
+		if (!sys.FileSystem.exists(dir)) {
+			sys.FileSystem.createDirectory(dir);
+		}
 		sys.io.File.saveContent(dest, content);
 	}
 }

@@ -13,8 +13,8 @@ class Type {
 			case 'StringName': macro :godot.StringName;
 			case 'NodePath': macro :godot.NodePath;
 			case 'Variant': macro :godot.Variant;
-			case 'Node': macro :cpp.Star<godot.gen.Node.Node_obj>;
-			case 'Vector2': macro :godot.gen.Vector2;
+			case 'Node': macro :cpp.Star<godot.Node.Node_obj>;
+			case 'Vector2': macro :godot.Vector2;
 			case v:
 				// trace('Unhandled type $gdType');
 				// macro :Dynamic;
@@ -32,11 +32,11 @@ class Type {
 			case 'StringName': macro :godot.StringName;
 			case 'NodePath': macro :godot.NodePath;
 			case 'Variant': macro :godot.Variant;
-			case 'Node': macro :godot.gen.Node;
-			case 'Node2D': macro :godot.gen.Node2D;
-			case 'CanvasItem': macro :godot.gen.CanvasItem;
-			case 'Object': macro :godot.gen.Object;
-			case 'Vector2': macro :godot.gen.Vector2;
+			case 'Node': macro :godot.Node;
+			case 'Node2D': macro :godot.Node2D;
+			case 'CanvasItem': macro :godot.CanvasItem;
+			case 'Object': macro :godot.Object;
+			case 'Vector2': macro :godot.Vector2;
 			case v:
 				// trace('Unhandled type $gdType');
 				// macro :Dynamic;

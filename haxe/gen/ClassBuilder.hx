@@ -119,7 +119,7 @@ class ClassBuilder extends Builder {
 			final name = cname;
 			if (parent == null) {
 				macro class $name {
-					public var __gd__native:godot.gen.$cname;
+					public var __gd__native:godot.$cname;
 
 					public function new(native)
 						__gd__native = native;
@@ -159,7 +159,7 @@ class ClassBuilder extends Builder {
 
 		if (cname == 'Object') {
 			cls.fields.push((macro class {
-				function cast_to<T:haxe.Constraints.Constructible<godot.gen.Object->Void>>(cls:Class<T>):T
+				function cast_to<T:haxe.Constraints.Constructible<godot.Object->Void>>(cls:Class<T>):T
 					return Type.createInstance(cls, [__gd__native]);
 			}).fields[0]);
 		}
@@ -171,20 +171,20 @@ class ClassBuilder extends Builder {
 		final ct = TPath(ctp);
 		final at = TPath({pack: [], name: aname});
 		final abs = macro class $aname {
-			@:from static inline function fromStar(v:godot.gen.$cstar):$at {
+			@:from static inline function fromStar(v:godot.$cstar):$at {
 				return fromPointer(cpp.Pointer.fromStar(v));
 			}
 
-			@:from static inline function fromPointer(v:godot.gen.$cname):$at {
+			@:from static inline function fromPointer(v:godot.$cname):$at {
 				return new $ctp(v.reinterpret());
 			}
 
-			@:to inline function toPointer():godot.gen.$cname {
+			@:to inline function toPointer():godot.$cname {
 				return @:privateAccess this.__gd__native.reinterpret();
 			}
 
 			@:analyzer(no_const_propagation)
-			@:to inline function toStar():godot.gen.$cstar {
+			@:to inline function toStar():godot.$cstar {
 				final p = toPointer();
 				return p.ptr;
 			}

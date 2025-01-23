@@ -1,6 +1,6 @@
 package gdcppia;
 
-import godot.gen.UtilityFunctions;
+import godot.UtilityFunctions;
 import cpp.Reference;
 import cpp.vm.Gc;
 import haxe.Exception;
