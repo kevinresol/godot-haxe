@@ -1,5 +1,5 @@
 package godot;
-@:include("godot_cpp/classes/node.hpp") @:native("godot::Node") @:structAccess extern class Node_native extends godot.Object.Object_native {
+@:include("godot_cpp/classes/node.hpp") @:native("godot::Node") @:structAccess extern class Node_extern extends godot.Object.Object_extern {
 	function _process(p_delta:Float):Void;
 	function _physics_process(p_delta:Float):Void;
 	function _enter_tree():Void;
@@ -97,11 +97,11 @@ package godot;
 	function set_thread_safe(p_property:godot.StringName, p_value:godot.Variant):Void;
 	function notify_thread_safe(p_what:Int):Void;
 }
-@:forward abstract Node(cpp.Pointer<Node_native>) from cpp.Pointer<Node_native> to cpp.Pointer<Node_native> {
+@:forward abstract Node(cpp.Pointer<Node_extern>) from cpp.Pointer<Node_extern> to cpp.Pointer<Node_extern> {
 	@:from
 	static inline function fromWrapper(v:gd.Node):godot.Node return @:privateAccess v.__gd__native.reinterpret();
 	@:to
 	inline function toWrapper():gd.Node return new gd.Node(this.reinterpret());
 }
 
-typedef Node_star = cpp.Star<Node_native>;
+typedef Node_star = cpp.Star<Node_extern>;

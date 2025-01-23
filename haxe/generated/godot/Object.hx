@@ -1,5 +1,5 @@
 package godot;
-@:include("godot_cpp/classes/object.hpp") @:native("godot::Object") @:structAccess extern class Object_native {
+@:include("godot_cpp/classes/object.hpp") @:native("godot::Object") @:structAccess extern class Object_extern {
 	function get_class():godot.String;
 	function is_class(p_class:godot.String):Bool;
 	function set(p_property:godot.StringName, p_value:godot.Variant):Void;
@@ -35,11 +35,11 @@ package godot;
 	function is_queued_for_deletion():Bool;
 	function cancel_free():Void;
 }
-@:forward abstract Object(cpp.Pointer<Object_native>) from cpp.Pointer<Object_native> to cpp.Pointer<Object_native> {
+@:forward abstract Object(cpp.Pointer<Object_extern>) from cpp.Pointer<Object_extern> to cpp.Pointer<Object_extern> {
 	@:from
 	static inline function fromWrapper(v:gd.Object):godot.Object return @:privateAccess v.__gd__native.reinterpret();
 	@:to
 	inline function toWrapper():gd.Object return new gd.Object(this.reinterpret());
 }
 
-typedef Object_star = cpp.Star<Object_native>;
+typedef Object_star = cpp.Star<Object_extern>;

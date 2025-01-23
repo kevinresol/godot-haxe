@@ -36,12 +36,12 @@ class ClassBuilder extends Builder {
 		final cname = clazz.name;
 		final parent = clazz.inherits;
 		final config = Config.nativeExtern;
-		final nativeName = '${cname}_native';
+		final nativeName = '${cname}_extern';
 		final cls = {
 			if (parent == null) {
 				macro class $nativeName {};
 			} else {
-				final tp = {pack: config.pack, name: '$parent.${parent}_native'};
+				final tp = {pack: config.pack, name: '$parent.${parent}_extern'};
 				macro class $nativeName extends $tp {};
 			}
 		}
