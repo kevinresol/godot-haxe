@@ -38,3 +38,24 @@ class CanvasItem extends gd.Node {
 	function set_visibility_layer_bit(p_layer:Int, p_enabled:Bool):Void ((cast __gd__native.ptr : godot.gen.CanvasItem)).value.set_visibility_layer_bit(p_layer, p_enabled);
 	function get_visibility_layer_bit(p_layer:Int):Bool return ((cast __gd__native.ptr : godot.gen.CanvasItem)).value.get_visibility_layer_bit(p_layer);
 }
+
+@:forward abstract CanvasItemAutoCast(CanvasItem) from CanvasItem to CanvasItem {
+	@:from
+	static inline function fromStar(v:godot.gen.CanvasItem.CanvasItem_star):CanvasItemAutoCast {
+		return fromPointer(cpp.Pointer.fromStar(v));
+	}
+	@:from
+	static inline function fromPointer(v:godot.gen.CanvasItem):CanvasItemAutoCast {
+		return new CanvasItem(v.reinterpret());
+	}
+	@:to
+	inline function toPointer():godot.gen.CanvasItem {
+		return @:privateAccess this.__gd__native.reinterpret();
+	}
+	@:analyzer(no_const_propagation)
+	@:to
+	inline function toStar():godot.gen.CanvasItem.CanvasItem_star {
+		final p = toPointer();
+		return p.ptr;
+	}
+}

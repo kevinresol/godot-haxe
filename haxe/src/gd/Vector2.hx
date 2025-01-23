@@ -78,7 +78,7 @@ class Vector2 {
 		return new Vector2(v);
 	}
 	@:to
-	inline function toVector2():godot.gen.Vector2 {
+	inline function toNative():godot.gen.Vector2 {
 		return @:privateAccess this.__gd_value;
 	}
 }

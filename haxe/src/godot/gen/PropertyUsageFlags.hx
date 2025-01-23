@@ -1,7 +1,5 @@
-package godot;
-
-@:native("godot::PropertyUsageFlags")
-extern enum abstract PropertyUsage(cpp.UInt32) to cpp.UInt32 {
+package godot.gen;
+@:include("godot_cpp/classes/global_constants.hpp") @:native("godot::PropertyUsageFlags") extern enum abstract PropertyUsageFlags(cpp.UInt32) to cpp.UInt32 {
 	final PROPERTY_USAGE_NONE;
 	final PROPERTY_USAGE_STORAGE;
 	final PROPERTY_USAGE_EDITOR;

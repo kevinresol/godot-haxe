@@ -1,0 +1,27 @@
+package gd;
+enum abstract JoyButton(cpp.UInt32) to cpp.UInt32 {
+	final JOY_BUTTON_INVALID = -1;
+	final JOY_BUTTON_A = 0;
+	final JOY_BUTTON_B = 1;
+	final JOY_BUTTON_X = 2;
+	final JOY_BUTTON_Y = 3;
+	final JOY_BUTTON_BACK = 4;
+	final JOY_BUTTON_GUIDE = 5;
+	final JOY_BUTTON_START = 6;
+	final JOY_BUTTON_LEFT_STICK = 7;
+	final JOY_BUTTON_RIGHT_STICK = 8;
+	final JOY_BUTTON_LEFT_SHOULDER = 9;
+	final JOY_BUTTON_RIGHT_SHOULDER = 10;
+	final JOY_BUTTON_DPAD_UP = 11;
+	final JOY_BUTTON_DPAD_DOWN = 12;
+	final JOY_BUTTON_DPAD_LEFT = 13;
+	final JOY_BUTTON_DPAD_RIGHT = 14;
+	final JOY_BUTTON_MISC1 = 15;
+	final JOY_BUTTON_PADDLE1 = 16;
+	final JOY_BUTTON_PADDLE2 = 17;
+	final JOY_BUTTON_PADDLE3 = 18;
+	final JOY_BUTTON_PADDLE4 = 19;
+	final JOY_BUTTON_TOUCHPAD = 20;
+	final JOY_BUTTON_SDL_MAX = 21;
+	final JOY_BUTTON_MAX = 128;
+}

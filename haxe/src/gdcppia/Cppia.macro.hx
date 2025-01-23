@@ -24,8 +24,6 @@ class Cppia {
 		var def = '<set name="$dname" value="$dir/"/>';
 		var incl = '<include name="$${$dname}build.xml" />';
 
-		trace('$def\n$incl');
-
 		cls.get().meta.add(":buildXml", [{expr: EConst(CString('$def\n$incl')), pos: pos}], pos);
 
 		return Context.getBuildFields();

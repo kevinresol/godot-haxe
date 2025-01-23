@@ -39,3 +39,4 @@ package godot.gen;
 	function get_visibility_layer_bit(p_layer:Int):Bool;
 }
 typedef CanvasItem = cpp.Pointer<CanvasItem_obj>;
+typedef CanvasItem_star = cpp.Star<CanvasItem_obj>;

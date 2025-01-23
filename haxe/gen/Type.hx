@@ -3,6 +3,25 @@ package gen;
 import haxe.macro.Expr;
 
 class Type {
+	public static function makeRawGodotType(gdType:String):ComplexType {
+		return switch gdType {
+			case 'void': macro :Void;
+			case 'float': macro :Float;
+			case 'int': macro :Int;
+			case 'bool': macro :Bool;
+			case 'String': macro :godot.String;
+			case 'StringName': macro :godot.StringName;
+			case 'NodePath': macro :godot.NodePath;
+			case 'Variant': macro :godot.Variant;
+			case 'Node': macro :cpp.Star<godot.gen.Node.Node_obj>;
+			case 'Vector2': macro :godot.gen.Vector2;
+			case v:
+				// trace('Unhandled type $gdType');
+				// macro :Dynamic;
+				throw gdType;
+		}
+	}
+
 	public static function makeGodotType(gdType:String):ComplexType {
 		return switch gdType {
 			case 'void': macro :Void;
@@ -11,7 +30,12 @@ class Type {
 			case 'bool': macro :Bool;
 			case 'String': macro :godot.String;
 			case 'StringName': macro :godot.StringName;
+			case 'NodePath': macro :godot.NodePath;
 			case 'Variant': macro :godot.Variant;
+			case 'Node': macro :godot.gen.Node;
+			case 'Node2D': macro :godot.gen.Node2D;
+			case 'CanvasItem': macro :godot.gen.CanvasItem;
+			case 'Object': macro :godot.gen.Object;
 			case 'Vector2': macro :godot.gen.Vector2;
 			case v:
 				// trace('Unhandled type $gdType');
@@ -28,7 +52,12 @@ class Type {
 			case 'bool': macro :Bool;
 			case 'String': macro :String;
 			case 'StringName': macro :String;
+			case 'NodePath': macro :String;
 			case 'Variant': macro :Dynamic;
+			case 'Node': macro :gd.Node.NodeAutoCast;
+			case 'Node2D': macro :gd.Node2D.Node2DAutoCast;
+			case 'CanvasItem': macro :gd.CanvasItem.CanvasItemAutoCast;
+			case 'Object': macro :gd.Object.ObjectItemAutoCast;
 			case 'Vector2': macro :gd.Vector2.Vector2AutoCast;
 			case v:
 				// trace('Unhandled type $gdType');
@@ -46,7 +75,9 @@ class Type {
 			case 'bool': macro :Bool;
 			case 'String': macro :String;
 			case 'StringName': macro :String;
+			case 'NodePath': macro :String;
 			case 'Variant': macro :Dynamic;
+			case 'Node': macro :gd.Node;
 			case 'Vector2': macro :gd.Vector2;
 			case v:
 				// trace('Unhandled type $gdType');

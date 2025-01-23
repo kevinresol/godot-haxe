@@ -4,6 +4,8 @@ extern class Object {
 	function is_class(p_class:String):Bool;
 	function set(p_property:String, p_value:Dynamic):Void;
 	function get(p_property:String):Dynamic;
+	function set_indexed(p_property_path:String, p_value:Dynamic):Void;
+	function get_indexed(p_property_path:String):Dynamic;
 	function property_can_revert(p_property:String):Bool;
 	function property_get_revert(p_property:String):Dynamic;
 	function notification(p_what:Int, ?p_reversed:Bool):Void;

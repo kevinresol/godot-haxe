@@ -1,7 +1,7 @@
 package gdcppia;
 
-import godot.PropertyHint;
-import godot.PropertyUsage;
+import gd.PropertyHint;
+import gd.PropertyUsageFlags;
 import cpp.Int32;
 import cpp.UInt8;
 import cpp.UInt32;
@@ -80,7 +80,7 @@ class Module {
 								className: className,
 								hint: PropertyHint.PROPERTY_HINT_RANGE,
 								hintString: meta.params.join(','),
-								usage: PropertyUsage.PROPERTY_USAGE_DEFAULT,
+								usage: PropertyUsageFlags.PROPERTY_USAGE_DEFAULT,
 							}
 						} else if (f.meta.exists(m -> m.name == 'export')) {
 							{
@@ -89,7 +89,7 @@ class Module {
 								className: className,
 								hint: PropertyHint.PROPERTY_HINT_NONE,
 								hintString: 'TODO: hint string',
-								usage: PropertyUsage.PROPERTY_USAGE_DEFAULT,
+								usage: PropertyUsageFlags.PROPERTY_USAGE_DEFAULT,
 							}
 						}
 					}

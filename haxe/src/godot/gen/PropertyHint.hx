@@ -1,7 +1,5 @@
-package godot;
-
-@:native("godot::PropertyHint")
-extern enum abstract PropertyHint(cpp.UInt32) to cpp.UInt32 {
+package godot.gen;
+@:include("godot_cpp/classes/global_constants.hpp") @:native("godot::PropertyHint") extern enum abstract PropertyHint(cpp.UInt32) to cpp.UInt32 {
 	final PROPERTY_HINT_NONE;
 	final PROPERTY_HINT_RANGE;
 	final PROPERTY_HINT_ENUM;

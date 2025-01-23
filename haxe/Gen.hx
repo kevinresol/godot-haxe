@@ -35,6 +35,7 @@ class Gen {
 	function generate() {
 		new gen.ClassBuilder(api).generate();
 		new gen.BuiltinClassBuilder(api).generate();
+		new gen.GlobalEnumBuilder(api).generate();
 		generateUtilityFunctions();
 	}
 

@@ -34,42 +34,28 @@ class Cppia {
 		trace('Done booting module');
 	}
 
-	public static function instanceHasProperty(inst:Dynamic, key:String):Bool {
-		static final cache = new Map<String, Array<String>>();
-
-		if (inst == null) {
-			trace('Instance is null');
-			return false;
-		}
+	public static function instanceHasProperty(inst:Dynamic, name:String):Bool {
+		static final cache = new Map<String, Bool>();
 
 		final cls = Type.getClass(inst);
 		final cname = Type.getClassName(Type.getClass(inst));
+		final key = '$cname::$name';
 
-		final fields = switch cache.get(cname) {
+		return switch cache.get(key) {
 			case null:
-				final fields = Type.getInstanceFields(cls);
-				cache.set(cname, fields);
-				fields;
-			case fields:
-				fields;
+				final val = Type.getInstanceFields(cls).contains(name);
+				cache.set(key, val);
+				val;
+			case v:
+				v;
 		}
-
-		return fields.contains(key);
 	}
 
 	public static function instanceGetProperty(inst:Dynamic, key:String):Dynamic {
-		if (inst == null) {
-			trace('Instance is null');
-			return null;
-		}
 		return Reflect.getProperty(inst, key);
 	}
 
 	public static function instanceSetProperty(inst:Dynamic, key:String, value:Dynamic):Void {
-		if (inst == null) {
-			trace('Instance is null');
-			return;
-		}
 		Reflect.setProperty(inst, key, value);
 	}
 

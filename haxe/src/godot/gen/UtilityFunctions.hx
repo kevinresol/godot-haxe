@@ -103,6 +103,7 @@ package godot.gen;
 	static function var_to_str(p_variable:godot.Variant):godot.String;
 	static function str_to_var(p_string:godot.String):godot.Variant;
 	static function hash(p_variable:godot.Variant):Int;
+	static function instance_from_id(p_instance_id:Int):godot.gen.Object;
 	static function is_instance_id_valid(p_id:Int):Bool;
 	static function is_instance_valid(p_instance:godot.Variant):Bool;
 	static function rid_allocate_id():Int;

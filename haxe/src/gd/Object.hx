@@ -1,10 +1,15 @@
 package gd;
 class Object {
 	public var __gd__native : godot.gen.Object;
+	public function new(native) {
+		__gd__native = native;
+	}
 	function get_class():String return ((cast __gd__native.ptr : godot.gen.Object)).value.get_class();
 	function is_class(p_class:String):Bool return ((cast __gd__native.ptr : godot.gen.Object)).value.is_class(p_class);
 	function set(p_property:String, p_value:Dynamic):Void ((cast __gd__native.ptr : godot.gen.Object)).value.set(p_property, p_value);
 	function get(p_property:String):Dynamic return ((cast __gd__native.ptr : godot.gen.Object)).value.get(p_property);
+	function set_indexed(p_property_path:String, p_value:Dynamic):Void ((cast __gd__native.ptr : godot.gen.Object)).value.set_indexed(p_property_path, p_value);
+	function get_indexed(p_property_path:String):Dynamic return ((cast __gd__native.ptr : godot.gen.Object)).value.get_indexed(p_property_path);
 	function property_can_revert(p_property:String):Bool return ((cast __gd__native.ptr : godot.gen.Object)).value.property_can_revert(p_property);
 	function property_get_revert(p_property:String):Dynamic return ((cast __gd__native.ptr : godot.gen.Object)).value.property_get_revert(p_property);
 	function notification(p_what:Int, ?p_reversed:Bool):Void ((cast __gd__native.ptr : godot.gen.Object)).value.notification(p_what, p_reversed);
@@ -33,4 +38,25 @@ class Object {
 	function tr_n(p_message:String, p_plural_message:String, p_n:Int, ?p_context:String):String return ((cast __gd__native.ptr : godot.gen.Object)).value.tr_n(p_message, p_plural_message, p_n, p_context);
 	function is_queued_for_deletion():Bool return ((cast __gd__native.ptr : godot.gen.Object)).value.is_queued_for_deletion();
 	function cancel_free():Void ((cast __gd__native.ptr : godot.gen.Object)).value.cancel_free();
+}
+
+@:forward abstract ObjectAutoCast(Object) from Object to Object {
+	@:from
+	static inline function fromStar(v:godot.gen.Object.Object_star):ObjectAutoCast {
+		return fromPointer(cpp.Pointer.fromStar(v));
+	}
+	@:from
+	static inline function fromPointer(v:godot.gen.Object):ObjectAutoCast {
+		return new Object(v.reinterpret());
+	}
+	@:to
+	inline function toPointer():godot.gen.Object {
+		return @:privateAccess this.__gd__native.reinterpret();
+	}
+	@:analyzer(no_const_propagation)
+	@:to
+	inline function toStar():godot.gen.Object.Object_star {
+		final p = toPointer();
+		return p.ptr;
+	}
 }

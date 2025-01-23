@@ -203,7 +203,7 @@ class BuiltinClassBuilder extends Builder {
 				return new $ctp(v);
 			}
 
-			@:to inline function toVector2():godot.gen.$cname {
+			@:to inline function toNative():godot.gen.$cname {
 				return @:privateAccess this.__gd_value;
 			}
 		}

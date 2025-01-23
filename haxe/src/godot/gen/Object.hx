@@ -4,6 +4,8 @@ package godot.gen;
 	function is_class(p_class:godot.String):Bool;
 	function set(p_property:godot.StringName, p_value:godot.Variant):Void;
 	function get(p_property:godot.StringName):godot.Variant;
+	function set_indexed(p_property_path:godot.NodePath, p_value:godot.Variant):Void;
+	function get_indexed(p_property_path:godot.NodePath):godot.Variant;
 	function property_can_revert(p_property:godot.StringName):Bool;
 	function property_get_revert(p_property:godot.StringName):godot.Variant;
 	function notification(p_what:Int, ?p_reversed:Bool):Void;
@@ -34,3 +36,4 @@ package godot.gen;
 	function cancel_free():Void;
 }
 typedef Object = cpp.Pointer<Object_obj>;
+typedef Object_star = cpp.Star<Object_obj>;
