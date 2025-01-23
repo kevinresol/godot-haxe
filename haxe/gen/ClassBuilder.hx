@@ -58,39 +58,18 @@ class ClassBuilder extends Builder {
 			final fname = fn.name;
 			final rtype = fn.return_value?.type ?? 'void';
 			try {
-				switch [cname, fname] {
-					case ['Node', 'get_node']: // Node::get_node is a templated function and needs to be called with explicit type
-						cls.fields.push({
-							pos: null,
-							name: fname,
-							access: [AExtern, AInline],
-							kind: FFun({
-								args: fn.arguments?.map(arg -> ({
-									name: 'p_${arg.name}',
-									type: makeGodotType(arg.type),
-									opt: arg.default_value != null,
-								} : FunctionArg)) ?? [],
-								ret: makeGodotType(rtype),
-								expr: {
-									final call = '{0}.get_node<godot::Node>({1})';
-									macro return untyped __cpp__($v{call}, this, p_path);
-								}
-							})
-						});
-					case _:
-						cls.fields.push({
-							pos: null,
-							name: fname,
-							kind: FFun({
-								args: fn.arguments?.map(arg -> ({
-									name: 'p_${arg.name}',
-									type: makeGodotType(arg.type),
-									opt: arg.default_value != null,
-								} : FunctionArg)) ?? [],
-								ret: makeGodotType(rtype),
-							})
-						});
-				}
+				cls.fields.push({
+					pos: null,
+					name: fname,
+					kind: FFun({
+						args: fn.arguments?.map(arg -> ({
+							name: 'p_${arg.name}',
+							type: makeGodotType(arg.type),
+							opt: arg.default_value != null,
+						} : FunctionArg)) ?? [],
+						ret: makeGodotType(rtype),
+					})
+				});
 			} catch (e) {}
 		}
 
@@ -106,7 +85,7 @@ class ClassBuilder extends Builder {
 		abs.kind = TDAbstract(pointer, [AbFrom(pointer), AbTo(pointer)]);
 		abs.meta = [{pos: null, name: ':forward'}];
 
-		final source = printTypeDefinition(cls) + '\n' + printTypeDefinition(abs) + '\n\ntypedef ${cname}_star = cpp.Star<$nativeName>;';
+		final source = printTypeDefinition(cls) + '\n' + printTypeDefinition(abs);
 		write('${config.folder}/${cls.pack.join('/')}/$cname.hx', source);
 	}
 
@@ -163,34 +142,7 @@ class ClassBuilder extends Builder {
 			}).fields[0]);
 		}
 
-		// final aname = '${cname}AutoCast';
-		// final cstar = '$cname.${cname}_star';
-		// final ctp = {pack: [], name: cname};
-		// final ct = TPath(ctp);
-		// final at = TPath({pack: [], name: aname});
-		// final abs = macro class $aname {
-		// 	@:from static inline function fromStar(v:godot.$cstar):$at {
-		// 		return fromPointer(cpp.Pointer.fromStar(v));
-		// 	}
-
-		// 	@:from static inline function fromPointer(v:godot.$cname):$at {
-		// 		return new $ctp(v.reinterpret());
-		// 	}
-
-		// 	@:to inline function toPointer():godot.$cname {
-		// 		return @:privateAccess this.__gd__native.reinterpret();
-		// 	}
-
-		// 	@:analyzer(no_const_propagation)
-		// 	@:to inline function toStar():godot.$cstar {
-		// 		final p = toPointer();
-		// 		return p.ptr;
-		// 	}
-		// }
-
-		// abs.kind = TDAbstract(ct, [AbFrom(ct), AbTo(ct)]);
-		// abs.meta = [{pos: null, name: ':forward'},];
-		final source = printTypeDefinition(cls); // + '\n\n' + printTypeDefinition(abs);
+		final source = printTypeDefinition(cls);
 		write('${config.folder}/${cls.pack.join('/')}/$cname.hx', source);
 	}
 

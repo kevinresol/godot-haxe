@@ -44,5 +44,3 @@ package godot;
 	@:to
 	inline function toWrapper():gd.CanvasItem return new gd.CanvasItem(this.reinterpret());
 }
-
-typedef CanvasItem_star = cpp.Star<CanvasItem_extern>;

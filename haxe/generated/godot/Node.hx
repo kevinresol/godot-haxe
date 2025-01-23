@@ -14,7 +14,7 @@ package godot;
 	function get_child_count(?p_include_internal:Bool):Int;
 	function get_child(p_idx:Int, ?p_include_internal:Bool):godot.Node;
 	function has_node(p_path:godot.NodePath):Bool;
-	extern inline function get_node(p_path:godot.NodePath):godot.Node return untyped __cpp__("{0}.get_node<godot::Node>({1})", this, p_path);
+	function get_node(p_path:godot.NodePath):godot.Node;
 	function get_node_or_null(p_path:godot.NodePath):godot.Node;
 	function get_parent():godot.Node;
 	function find_child(p_pattern:godot.String, ?p_recursive:Bool, ?p_owned:Bool):godot.Node;
@@ -103,5 +103,3 @@ package godot;
 	@:to
 	inline function toWrapper():gd.Node return new gd.Node(this.reinterpret());
 }
-
-typedef Node_star = cpp.Star<Node_extern>;

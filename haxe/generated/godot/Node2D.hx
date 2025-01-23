@@ -37,5 +37,3 @@ package godot;
 	@:to
 	inline function toWrapper():gd.Node2D return new gd.Node2D(this.reinterpret());
 }
-
-typedef Node2D_star = cpp.Star<Node2D_extern>;
