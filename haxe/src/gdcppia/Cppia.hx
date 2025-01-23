@@ -1,10 +1,7 @@
 package gdcppia;
 
-import godot.UtilityFunctions;
-import cpp.Reference;
-import cpp.vm.Gc;
-import haxe.Exception;
 import cpp.UInt8;
+import godot.UtilityFunctions;
 
 using Lambda;
 
@@ -22,6 +19,14 @@ class Cppia {
 			// oldTrace(v, infos);
 			UtilityFunctions.print(haxe.Log.formatOutput(v, infos));
 		}
+
+		trace('UtilityFunctions::print checks');
+		UtilityFunctions.print(42);
+		UtilityFunctions.print(42.3);
+		UtilityFunctions.print(true);
+		UtilityFunctions.print('HaxeString');
+		UtilityFunctions.print(gd.Vector2._new3(42, 44));
+		UtilityFunctions.print(('Node/Path' : gd.NodePath));
 	}
 
 	static var module:Module;
@@ -83,7 +88,7 @@ class Cppia {
 	}
 
 	public static function toVariant(val:Dynamic) {
-		return godot.Variant.fromHaxe(val);
+		return godot.Variant.fromHaxeDynamic(val);
 	}
 
 	public static macro function xml(rel:String):Array<haxe.macro.Expr.Field>;

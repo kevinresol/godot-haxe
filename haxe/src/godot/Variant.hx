@@ -1,41 +1,65 @@
 package godot;
 
 @:unreflective
-abstract Variant(Variant_obj) from Variant_obj to Variant_obj {
-	@:to
+abstract Variant(Variant_extern) from Variant_extern to Variant_extern {
+	@:from
+	extern static inline function fromNodePath(v:godot.NodePath):Variant
+		return new Variant_extern(v);
+
+	@:from
+	extern static inline function fromString(v:godot.String):Variant
+		return new Variant_extern(v);
+
+	@:from
+	extern static inline function fromStringName(v:godot.StringName):Variant
+		return new Variant_extern(v);
+
+	@:from
+	extern static inline function fromVector2(v:gd.Vector2):Variant {
+		// use .get() to unwrap cpp.Struct
+		return new Variant_extern(untyped __cpp__('{0}.get()', (v : godot.Vector2)));
+	}
+
+	@:from
+	extern static inline function fromHaxeString(v:std.String):Variant
+		return new Variant_extern(cpp.NativeString.c_str(v));
+
+	@:from
+	public static function fromHaxeDynamic(v:Dynamic):Variant {
+		switch Type.typeof(v) {
+			case TBool:
+				return new Variant_extern((v : Bool));
+			case TFloat:
+				return new Variant_extern((v : Float));
+			case TInt:
+				return new Variant_extern((v : Int));
+			case TClass(std.String):
+				return fromHaxeString(v);
+			default:
+		}
+		return new Variant_extern();
+	}
+
+	@:to @:analyzer(no_const_propagation)
 	public function toHaxe():Dynamic {
-		untyped __cpp__('godot::NodePath tnp("111")');
 		return switch this.get_type() {
-			case FLOAT:
-				(untyped __cpp__('{0}.operator double()', this) : Float);
+			case BOOL:
+				final v = (cast this : Bool);
+				v;
 			case INT:
-				(untyped __cpp__('{0}.operator int32_t()', this) : Int);
+				final v = (cast this : Int);
+				v;
+			case FLOAT:
+				final v = (cast this : Float);
+				v;
 			case STRING:
-				toString();
+				toHaxeString();
 			default:
 				null;
 		}
 	}
 
-	@:from
-	public static function fromHaxe(v:Dynamic):Variant {
-		switch Type.typeof(v) {
-			case TFloat:
-				return new Variant_obj((v : Float));
-			case TInt:
-				return new Variant_obj((v : Int));
-			case TClass(std.String):
-				return fromString(v);
-			default:
-		}
-		return new Variant_obj();
-	}
-
-	@:from static inline function fromString(v:std.String):Variant {
-		return new Variant_obj(cpp.NativeString.c_str(v));
-	}
-
-	@:to inline function toString():std.String {
+	@:to inline function toHaxeString():std.String {
 		return ((untyped __cpp__('{0}.operator godot::String()', this) : godot.String) : std.String);
 	}
 }
@@ -43,15 +67,20 @@ abstract Variant(Variant_obj) from Variant_obj to Variant_obj {
 @:include("godot_cpp/classes/object.hpp")
 @:native("godot::Variant")
 @:structAccess
-extern class Variant_obj {
+extern class Variant_extern {
+	@:overload(function(v:godot.Vector2.Vector2_extern):Void {})
+	@:overload(function(v:godot.StringName):Void {})
+	@:overload(function(v:godot.String):Void {})
+	@:overload(function(v:godot.NodePath):Void {})
 	@:overload(function(v:cpp.ConstPointer<cpp.Char>):Void {})
 	@:overload(function(v:cpp.ConstCharStar):Void {})
 	@:overload(function(v:Float):Void {})
 	@:overload(function(v:Int):Void {})
+	@:overload(function(v:Bool):Void {})
 	function new();
 
 	function get_type():VariantType;
-	static function print(v:Variant_obj):Void;
+	static function print(v:Variant_extern):Void;
 }
 
 @:native("godot::Variant::Type")

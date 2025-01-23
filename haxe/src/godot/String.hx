@@ -1,7 +1,7 @@
 package godot;
 
 @:unreflective
-abstract String(String_obj) from String_obj to String_obj {
+abstract String(String_extern) from String_extern to String_extern {
 	@:to
 	extern inline function toHaxe():std.String {
 		untyped __cpp__('auto utf8 = {0}.utf8()', this);
@@ -16,4 +16,4 @@ abstract String(String_obj) from String_obj to String_obj {
 
 @:include("godot_cpp/variant/string.hpp")
 @:native("godot::String")
-extern class String_obj {}
+extern class String_extern {}

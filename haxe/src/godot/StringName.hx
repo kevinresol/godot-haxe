@@ -1,7 +1,7 @@
 package godot;
 
 @:unreflective
-abstract StringName(StringName_obj) from StringName_obj to StringName_obj {
+abstract StringName(StringName_extern) from StringName_extern to StringName_extern {
 	@:to
 	extern inline function toHaxe():std.String {
 		return (cast this : godot.String);
@@ -15,4 +15,4 @@ abstract StringName(StringName_obj) from StringName_obj to StringName_obj {
 
 @:include("godot_cpp/variant/string.hpp")
 @:native("godot::StringName")
-extern class StringName_obj {}
+extern class StringName_extern {}
