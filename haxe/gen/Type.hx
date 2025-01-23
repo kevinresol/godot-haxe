@@ -54,10 +54,10 @@ class Type {
 			case 'StringName': macro :String;
 			case 'NodePath': macro :String;
 			case 'Variant': macro :Dynamic;
-			case 'Node': macro :gd.Node.NodeAutoCast;
-			case 'Node2D': macro :gd.Node2D.Node2DAutoCast;
-			case 'CanvasItem': macro :gd.CanvasItem.CanvasItemAutoCast;
-			case 'Object': macro :gd.Object.ObjectItemAutoCast;
+			case 'Node': macro :gd.Node;
+			case 'Node2D': macro :gd.Node2D;
+			case 'CanvasItem': macro :gd.CanvasItem;
+			case 'Object': macro :gd.Object;
 			case 'Vector2': macro :gd.Vector2.Vector2AutoCast;
 			case v:
 				// trace('Unhandled type $gdType');

@@ -6,32 +6,32 @@ class Node extends gd.Object {
 	function _exit_tree():Void ((cast __gd__native.ptr : godot.Node)).value._exit_tree();
 	function _ready():Void ((cast __gd__native.ptr : godot.Node)).value._ready();
 	function print_orphan_nodes():Void ((cast __gd__native.ptr : godot.Node)).value.print_orphan_nodes();
-	function add_sibling(p_sibling:gd.Node.NodeAutoCast, ?p_force_readable_name:Bool):Void ((cast __gd__native.ptr : godot.Node)).value.add_sibling(p_sibling, p_force_readable_name);
+	function add_sibling(p_sibling:gd.Node, ?p_force_readable_name:Bool):Void ((cast __gd__native.ptr : godot.Node)).value.add_sibling(p_sibling, p_force_readable_name);
 	function set_name(p_name:String):Void ((cast __gd__native.ptr : godot.Node)).value.set_name(p_name);
 	function get_name():String return ((cast __gd__native.ptr : godot.Node)).value.get_name();
-	function remove_child(p_node:gd.Node.NodeAutoCast):Void ((cast __gd__native.ptr : godot.Node)).value.remove_child(p_node);
-	function reparent(p_new_parent:gd.Node.NodeAutoCast, ?p_keep_global_transform:Bool):Void ((cast __gd__native.ptr : godot.Node)).value.reparent(p_new_parent, p_keep_global_transform);
+	function remove_child(p_node:gd.Node):Void ((cast __gd__native.ptr : godot.Node)).value.remove_child(p_node);
+	function reparent(p_new_parent:gd.Node, ?p_keep_global_transform:Bool):Void ((cast __gd__native.ptr : godot.Node)).value.reparent(p_new_parent, p_keep_global_transform);
 	function get_child_count(?p_include_internal:Bool):Int return ((cast __gd__native.ptr : godot.Node)).value.get_child_count(p_include_internal);
-	function get_child(p_idx:Int, ?p_include_internal:Bool):gd.Node.NodeAutoCast return ((cast __gd__native.ptr : godot.Node)).value.get_child(p_idx, p_include_internal);
+	function get_child(p_idx:Int, ?p_include_internal:Bool):gd.Node return ((cast __gd__native.ptr : godot.Node)).value.get_child(p_idx, p_include_internal);
 	function has_node(p_path:String):Bool return ((cast __gd__native.ptr : godot.Node)).value.has_node(p_path);
-	function get_node(p_path:String):gd.Node.NodeAutoCast return ((cast __gd__native.ptr : godot.Node)).value.get_node(p_path);
-	function get_node_or_null(p_path:String):gd.Node.NodeAutoCast return ((cast __gd__native.ptr : godot.Node)).value.get_node_or_null(p_path);
-	function get_parent():gd.Node.NodeAutoCast return ((cast __gd__native.ptr : godot.Node)).value.get_parent();
-	function find_child(p_pattern:String, ?p_recursive:Bool, ?p_owned:Bool):gd.Node.NodeAutoCast return ((cast __gd__native.ptr : godot.Node)).value.find_child(p_pattern, p_recursive, p_owned);
-	function find_parent(p_pattern:String):gd.Node.NodeAutoCast return ((cast __gd__native.ptr : godot.Node)).value.find_parent(p_pattern);
+	function get_node(p_path:String):gd.Node return ((cast __gd__native.ptr : godot.Node)).value.get_node(p_path);
+	function get_node_or_null(p_path:String):gd.Node return ((cast __gd__native.ptr : godot.Node)).value.get_node_or_null(p_path);
+	function get_parent():gd.Node return ((cast __gd__native.ptr : godot.Node)).value.get_parent();
+	function find_child(p_pattern:String, ?p_recursive:Bool, ?p_owned:Bool):gd.Node return ((cast __gd__native.ptr : godot.Node)).value.find_child(p_pattern, p_recursive, p_owned);
+	function find_parent(p_pattern:String):gd.Node return ((cast __gd__native.ptr : godot.Node)).value.find_parent(p_pattern);
 	function has_node_and_resource(p_path:String):Bool return ((cast __gd__native.ptr : godot.Node)).value.has_node_and_resource(p_path);
 	function is_inside_tree():Bool return ((cast __gd__native.ptr : godot.Node)).value.is_inside_tree();
 	function is_part_of_edited_scene():Bool return ((cast __gd__native.ptr : godot.Node)).value.is_part_of_edited_scene();
-	function is_ancestor_of(p_node:gd.Node.NodeAutoCast):Bool return ((cast __gd__native.ptr : godot.Node)).value.is_ancestor_of(p_node);
-	function is_greater_than(p_node:gd.Node.NodeAutoCast):Bool return ((cast __gd__native.ptr : godot.Node)).value.is_greater_than(p_node);
+	function is_ancestor_of(p_node:gd.Node):Bool return ((cast __gd__native.ptr : godot.Node)).value.is_ancestor_of(p_node);
+	function is_greater_than(p_node:gd.Node):Bool return ((cast __gd__native.ptr : godot.Node)).value.is_greater_than(p_node);
 	function get_path():String return ((cast __gd__native.ptr : godot.Node)).value.get_path();
-	function get_path_to(p_node:gd.Node.NodeAutoCast, ?p_use_unique_path:Bool):String return ((cast __gd__native.ptr : godot.Node)).value.get_path_to(p_node, p_use_unique_path);
+	function get_path_to(p_node:gd.Node, ?p_use_unique_path:Bool):String return ((cast __gd__native.ptr : godot.Node)).value.get_path_to(p_node, p_use_unique_path);
 	function add_to_group(p_group:String, ?p_persistent:Bool):Void ((cast __gd__native.ptr : godot.Node)).value.add_to_group(p_group, p_persistent);
 	function remove_from_group(p_group:String):Void ((cast __gd__native.ptr : godot.Node)).value.remove_from_group(p_group);
 	function is_in_group(p_group:String):Bool return ((cast __gd__native.ptr : godot.Node)).value.is_in_group(p_group);
-	function move_child(p_child_node:gd.Node.NodeAutoCast, p_to_index:Int):Void ((cast __gd__native.ptr : godot.Node)).value.move_child(p_child_node, p_to_index);
-	function set_owner(p_owner:gd.Node.NodeAutoCast):Void ((cast __gd__native.ptr : godot.Node)).value.set_owner(p_owner);
-	function get_owner():gd.Node.NodeAutoCast return ((cast __gd__native.ptr : godot.Node)).value.get_owner();
+	function move_child(p_child_node:gd.Node, p_to_index:Int):Void ((cast __gd__native.ptr : godot.Node)).value.move_child(p_child_node, p_to_index);
+	function set_owner(p_owner:gd.Node):Void ((cast __gd__native.ptr : godot.Node)).value.set_owner(p_owner);
+	function get_owner():gd.Node return ((cast __gd__native.ptr : godot.Node)).value.get_owner();
 	function get_index(?p_include_internal:Bool):Int return ((cast __gd__native.ptr : godot.Node)).value.get_index(p_include_internal);
 	function print_tree():Void ((cast __gd__native.ptr : godot.Node)).value.print_tree();
 	function print_tree_pretty():Void ((cast __gd__native.ptr : godot.Node)).value.print_tree_pretty();
@@ -70,12 +70,12 @@ class Node extends gd.Object {
 	function is_physics_interpolated():Bool return ((cast __gd__native.ptr : godot.Node)).value.is_physics_interpolated();
 	function is_physics_interpolated_and_enabled():Bool return ((cast __gd__native.ptr : godot.Node)).value.is_physics_interpolated_and_enabled();
 	function reset_physics_interpolation():Void ((cast __gd__native.ptr : godot.Node)).value.reset_physics_interpolation();
-	function duplicate(?p_flags:Int):gd.Node.NodeAutoCast return ((cast __gd__native.ptr : godot.Node)).value.duplicate(p_flags);
-	function replace_by(p_node:gd.Node.NodeAutoCast, ?p_keep_groups:Bool):Void ((cast __gd__native.ptr : godot.Node)).value.replace_by(p_node, p_keep_groups);
+	function duplicate(?p_flags:Int):gd.Node return ((cast __gd__native.ptr : godot.Node)).value.duplicate(p_flags);
+	function replace_by(p_node:gd.Node, ?p_keep_groups:Bool):Void ((cast __gd__native.ptr : godot.Node)).value.replace_by(p_node, p_keep_groups);
 	function set_scene_instance_load_placeholder(p_load_placeholder:Bool):Void ((cast __gd__native.ptr : godot.Node)).value.set_scene_instance_load_placeholder(p_load_placeholder);
 	function get_scene_instance_load_placeholder():Bool return ((cast __gd__native.ptr : godot.Node)).value.get_scene_instance_load_placeholder();
-	function set_editable_instance(p_node:gd.Node.NodeAutoCast, p_is_editable:Bool):Void ((cast __gd__native.ptr : godot.Node)).value.set_editable_instance(p_node, p_is_editable);
-	function is_editable_instance(p_node:gd.Node.NodeAutoCast):Bool return ((cast __gd__native.ptr : godot.Node)).value.is_editable_instance(p_node);
+	function set_editable_instance(p_node:gd.Node, p_is_editable:Bool):Void ((cast __gd__native.ptr : godot.Node)).value.set_editable_instance(p_node, p_is_editable);
+	function is_editable_instance(p_node:gd.Node):Bool return ((cast __gd__native.ptr : godot.Node)).value.is_editable_instance(p_node);
 	function queue_free():Void ((cast __gd__native.ptr : godot.Node)).value.queue_free();
 	function request_ready():Void ((cast __gd__native.ptr : godot.Node)).value.request_ready();
 	function is_node_ready():Bool return ((cast __gd__native.ptr : godot.Node)).value.is_node_ready();
@@ -96,25 +96,4 @@ class Node extends gd.Object {
 	function call_thread_safe(p_method:String):Dynamic return ((cast __gd__native.ptr : godot.Node)).value.call_thread_safe(p_method);
 	function set_thread_safe(p_property:String, p_value:Dynamic):Void ((cast __gd__native.ptr : godot.Node)).value.set_thread_safe(p_property, p_value);
 	function notify_thread_safe(p_what:Int):Void ((cast __gd__native.ptr : godot.Node)).value.notify_thread_safe(p_what);
-}
-
-@:forward abstract NodeAutoCast(Node) from Node to Node {
-	@:from
-	static inline function fromStar(v:godot.Node.Node_star):NodeAutoCast {
-		return fromPointer(cpp.Pointer.fromStar(v));
-	}
-	@:from
-	static inline function fromPointer(v:godot.Node):NodeAutoCast {
-		return new Node(v.reinterpret());
-	}
-	@:to
-	inline function toPointer():godot.Node {
-		return @:privateAccess this.__gd__native.reinterpret();
-	}
-	@:analyzer(no_const_propagation)
-	@:to
-	inline function toStar():godot.Node.Node_star {
-		final p = toPointer();
-		return p.ptr;
-	}
 }

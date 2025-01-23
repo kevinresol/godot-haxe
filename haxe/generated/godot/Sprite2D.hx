@@ -1,5 +1,5 @@
 package godot;
-@:include("godot_cpp/classes/sprite2d.hpp") @:native("godot::Sprite2D") @:structAccess extern class Sprite2D_obj extends godot.Node2D.Node2D_obj {
+@:include("godot_cpp/classes/sprite2d.hpp") @:native("godot::Sprite2D") @:structAccess extern class Sprite2D_native extends godot.Node2D.Node2D_native {
 	function set_centered(p_centered:Bool):Void;
 	function is_centered():Bool;
 	function set_offset(p_offset:godot.Vector2):Void;
@@ -20,5 +20,10 @@ package godot;
 	function set_hframes(p_hframes:Int):Void;
 	function get_hframes():Int;
 }
-typedef Sprite2D = cpp.Pointer<Sprite2D_obj>;
-typedef Sprite2D_star = cpp.Star<Sprite2D_obj>;
+@:forward abstract Sprite2D(cpp.Pointer<Sprite2D_native>) from cpp.Pointer<Sprite2D_native> to cpp.Pointer<Sprite2D_native> {
+	@:from
+	static inline function fromWrapper(v:gd.Sprite2D):godot.Sprite2D return @:privateAccess v.__gd__native.reinterpret();
+	@:to
+	inline function toWrapper():gd.Sprite2D return new gd.Sprite2D(this.reinterpret());
+}
+typedef Sprite2D_star = cpp.Star<Sprite2D_native>;

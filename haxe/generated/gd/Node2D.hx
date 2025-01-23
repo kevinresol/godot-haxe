@@ -31,24 +31,3 @@ class Node2D extends gd.CanvasItem {
 	function to_local(p_global_point:gd.Vector2.Vector2AutoCast):gd.Vector2.Vector2AutoCast return ((cast __gd__native.ptr : godot.Node2D)).value.to_local(p_global_point);
 	function to_global(p_local_point:gd.Vector2.Vector2AutoCast):gd.Vector2.Vector2AutoCast return ((cast __gd__native.ptr : godot.Node2D)).value.to_global(p_local_point);
 }
-
-@:forward abstract Node2DAutoCast(Node2D) from Node2D to Node2D {
-	@:from
-	static inline function fromStar(v:godot.Node2D.Node2D_star):Node2DAutoCast {
-		return fromPointer(cpp.Pointer.fromStar(v));
-	}
-	@:from
-	static inline function fromPointer(v:godot.Node2D):Node2DAutoCast {
-		return new Node2D(v.reinterpret());
-	}
-	@:to
-	inline function toPointer():godot.Node2D {
-		return @:privateAccess this.__gd__native.reinterpret();
-	}
-	@:analyzer(no_const_propagation)
-	@:to
-	inline function toStar():godot.Node2D.Node2D_star {
-		final p = toPointer();
-		return p.ptr;
-	}
-}

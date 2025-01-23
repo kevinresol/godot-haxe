@@ -20,24 +20,3 @@ class Sprite2D extends gd.Node2D {
 	function set_hframes(p_hframes:Int):Void ((cast __gd__native.ptr : godot.Sprite2D)).value.set_hframes(p_hframes);
 	function get_hframes():Int return ((cast __gd__native.ptr : godot.Sprite2D)).value.get_hframes();
 }
-
-@:forward abstract Sprite2DAutoCast(Sprite2D) from Sprite2D to Sprite2D {
-	@:from
-	static inline function fromStar(v:godot.Sprite2D.Sprite2D_star):Sprite2DAutoCast {
-		return fromPointer(cpp.Pointer.fromStar(v));
-	}
-	@:from
-	static inline function fromPointer(v:godot.Sprite2D):Sprite2DAutoCast {
-		return new Sprite2D(v.reinterpret());
-	}
-	@:to
-	inline function toPointer():godot.Sprite2D {
-		return @:privateAccess this.__gd__native.reinterpret();
-	}
-	@:analyzer(no_const_propagation)
-	@:to
-	inline function toStar():godot.Sprite2D.Sprite2D_star {
-		final p = toPointer();
-		return p.ptr;
-	}
-}

@@ -1,5 +1,5 @@
 package godot;
-@:include("godot_cpp/classes/canvas_item.hpp") @:native("godot::CanvasItem") @:structAccess extern class CanvasItem_obj extends godot.Node.Node_obj {
+@:include("godot_cpp/classes/canvas_item.hpp") @:native("godot::CanvasItem") @:structAccess extern class CanvasItem_native extends godot.Node.Node_native {
 	function _draw():Void;
 	function set_visible(p_visible:Bool):Void;
 	function is_visible():Bool;
@@ -38,5 +38,10 @@ package godot;
 	function set_visibility_layer_bit(p_layer:Int, p_enabled:Bool):Void;
 	function get_visibility_layer_bit(p_layer:Int):Bool;
 }
-typedef CanvasItem = cpp.Pointer<CanvasItem_obj>;
-typedef CanvasItem_star = cpp.Star<CanvasItem_obj>;
+@:forward abstract CanvasItem(cpp.Pointer<CanvasItem_native>) from cpp.Pointer<CanvasItem_native> to cpp.Pointer<CanvasItem_native> {
+	@:from
+	static inline function fromWrapper(v:gd.CanvasItem):godot.CanvasItem return @:privateAccess v.__gd__native.reinterpret();
+	@:to
+	inline function toWrapper():gd.CanvasItem return new gd.CanvasItem(this.reinterpret());
+}
+typedef CanvasItem_star = cpp.Star<CanvasItem_native>;

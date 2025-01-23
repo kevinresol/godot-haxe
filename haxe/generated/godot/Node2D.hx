@@ -1,5 +1,5 @@
 package godot;
-@:include("godot_cpp/classes/node2d.hpp") @:native("godot::Node2D") @:structAccess extern class Node2D_obj extends godot.CanvasItem.CanvasItem_obj {
+@:include("godot_cpp/classes/node2d.hpp") @:native("godot::Node2D") @:structAccess extern class Node2D_native extends godot.CanvasItem.CanvasItem_native {
 	function set_position(p_position:godot.Vector2):Void;
 	function set_rotation(p_radians:Float):Void;
 	function set_rotation_degrees(p_degrees:Float):Void;
@@ -31,5 +31,10 @@ package godot;
 	function to_local(p_global_point:godot.Vector2):godot.Vector2;
 	function to_global(p_local_point:godot.Vector2):godot.Vector2;
 }
-typedef Node2D = cpp.Pointer<Node2D_obj>;
-typedef Node2D_star = cpp.Star<Node2D_obj>;
+@:forward abstract Node2D(cpp.Pointer<Node2D_native>) from cpp.Pointer<Node2D_native> to cpp.Pointer<Node2D_native> {
+	@:from
+	static inline function fromWrapper(v:gd.Node2D):godot.Node2D return @:privateAccess v.__gd__native.reinterpret();
+	@:to
+	inline function toWrapper():gd.Node2D return new gd.Node2D(this.reinterpret());
+}
+typedef Node2D_star = cpp.Star<Node2D_native>;

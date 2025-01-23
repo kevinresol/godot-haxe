@@ -32,35 +32,22 @@ class ClassBuilder extends Builder {
 		}
 	}
 
-	function isMethodDeclaredInParent(method:String, parent:String) {
-		if (parent == null)
-			return false;
-		final parent = api.classes.find(c -> c.name == parent);
-		if (parent == null)
-			throw 'Parent class not found';
-		if (parent.methods?.exists(m -> m.name == method))
-			return true;
-		if (parent.inherits != null)
-			return isMethodDeclaredInParent(method, parent.inherits);
-		return false;
-	}
-
 	function generateClassExtern(clazz:Clazz, hpp:String) {
 		final cname = clazz.name;
 		final parent = clazz.inherits;
 		final config = Config.nativeExtern;
-		final def = {
-			final name = '${cname}_obj';
+		final nativeName = '${cname}_native';
+		final cls = {
 			if (parent == null) {
-				macro class $name {};
+				macro class $nativeName {};
 			} else {
-				final tp = {pack: config.pack, name: '$parent.${parent}_obj'};
-				macro class $name extends $tp {};
+				final tp = {pack: config.pack, name: '$parent.${parent}_native'};
+				macro class $nativeName extends $tp {};
 			}
 		}
-		def.isExtern = true;
-		def.pack = config.pack;
-		def.meta = [
+		cls.isExtern = true;
+		cls.pack = config.pack;
+		cls.meta = [
 			{pos: null, name: ':include', params: [macro $v{hpp}]},
 			{pos: null, name: ':native', params: [macro $v{'godot::$cname'}]},
 			{pos: null, name: ':structAccess', params: []},
@@ -73,7 +60,7 @@ class ClassBuilder extends Builder {
 			try {
 				switch [cname, fname] {
 					case ['Node', 'get_node']: // Node::get_node is a templated function and needs to be called with explicit type
-						def.fields.push({
+						cls.fields.push({
 							pos: null,
 							name: fname,
 							access: [AExtern, AInline],
@@ -91,7 +78,7 @@ class ClassBuilder extends Builder {
 							})
 						});
 					case _:
-						def.fields.push({
+						cls.fields.push({
 							pos: null,
 							name: fname,
 							kind: FFun({
@@ -107,8 +94,20 @@ class ClassBuilder extends Builder {
 			} catch (e) {}
 		}
 
-		final source = printTypeDefinition(def) + '\ntypedef $cname = cpp.Pointer<${cname}_obj>;\ntypedef ${cname}_star = cpp.Star<${cname}_obj>;';
-		write('${config.folder}/${def.pack.join('/')}/$cname.hx', source);
+		final local = TPath({pack: [], name: nativeName});
+		final abs = macro class $cname {
+			@:from static inline function fromWrapper(v:gd.$cname):godot.$cname
+				return @:privateAccess v.__gd__native.reinterpret();
+
+			@:to inline function toWrapper():gd.$cname
+				return new gd.$cname(this.reinterpret());
+		};
+		final pointer = macro :cpp.Pointer<$local>;
+		abs.kind = TDAbstract(pointer, [AbFrom(pointer), AbTo(pointer)]);
+		abs.meta = [{pos: null, name: ':forward'}];
+
+		final source = printTypeDefinition(cls) + '\n' + printTypeDefinition(abs) + '\n\ntypedef ${cname}_star = cpp.Star<$nativeName>;';
+		write('${config.folder}/${cls.pack.join('/')}/$cname.hx', source);
 	}
 
 	function generateClassWrapper(clazz:Clazz) {
@@ -164,35 +163,34 @@ class ClassBuilder extends Builder {
 			}).fields[0]);
 		}
 
-		final root = getClassInheritance(cname).pop();
-		final aname = '${cname}AutoCast';
-		final cstar = '$cname.${cname}_star';
-		final ctp = {pack: [], name: cname};
-		final ct = TPath(ctp);
-		final at = TPath({pack: [], name: aname});
-		final abs = macro class $aname {
-			@:from static inline function fromStar(v:godot.$cstar):$at {
-				return fromPointer(cpp.Pointer.fromStar(v));
-			}
+		// final aname = '${cname}AutoCast';
+		// final cstar = '$cname.${cname}_star';
+		// final ctp = {pack: [], name: cname};
+		// final ct = TPath(ctp);
+		// final at = TPath({pack: [], name: aname});
+		// final abs = macro class $aname {
+		// 	@:from static inline function fromStar(v:godot.$cstar):$at {
+		// 		return fromPointer(cpp.Pointer.fromStar(v));
+		// 	}
 
-			@:from static inline function fromPointer(v:godot.$cname):$at {
-				return new $ctp(v.reinterpret());
-			}
+		// 	@:from static inline function fromPointer(v:godot.$cname):$at {
+		// 		return new $ctp(v.reinterpret());
+		// 	}
 
-			@:to inline function toPointer():godot.$cname {
-				return @:privateAccess this.__gd__native.reinterpret();
-			}
+		// 	@:to inline function toPointer():godot.$cname {
+		// 		return @:privateAccess this.__gd__native.reinterpret();
+		// 	}
 
-			@:analyzer(no_const_propagation)
-			@:to inline function toStar():godot.$cstar {
-				final p = toPointer();
-				return p.ptr;
-			}
-		}
+		// 	@:analyzer(no_const_propagation)
+		// 	@:to inline function toStar():godot.$cstar {
+		// 		final p = toPointer();
+		// 		return p.ptr;
+		// 	}
+		// }
 
-		abs.kind = TDAbstract(ct, [AbFrom(ct), AbTo(ct)]);
-		abs.meta = [{pos: null, name: ':forward'},];
-		final source = printTypeDefinition(cls) + '\n\n' + printTypeDefinition(abs);
+		// abs.kind = TDAbstract(ct, [AbFrom(ct), AbTo(ct)]);
+		// abs.meta = [{pos: null, name: ':forward'},];
+		final source = printTypeDefinition(cls); // + '\n\n' + printTypeDefinition(abs);
 		write('${config.folder}/${cls.pack.join('/')}/$cname.hx', source);
 	}
 
@@ -240,6 +238,19 @@ class ClassBuilder extends Builder {
 
 		final source = printTypeDefinition(def);
 		write('${config.folder}/${def.pack.join('/')}/$cname.hx', source);
+	}
+
+	function isMethodDeclaredInParent(method:String, parent:String) {
+		if (parent == null)
+			return false;
+		final parent = api.classes.find(c -> c.name == parent);
+		if (parent == null)
+			throw 'Parent class not found';
+		if (parent.methods?.exists(m -> m.name == method))
+			return true;
+		if (parent.inherits != null)
+			return isMethodDeclaredInParent(method, parent.inherits);
+		return false;
 	}
 
 	function getClassInheritance(name:String):Array<String> {

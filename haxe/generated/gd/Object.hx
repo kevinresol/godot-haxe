@@ -38,24 +38,3 @@ class Object {
 	function cancel_free():Void ((cast __gd__native.ptr : godot.Object)).value.cancel_free();
 	function cast_to<T:(haxe.Constraints.Constructible<godot.Object -> Void>)>(cls:Class<T>):T return Type.createInstance(cls, [__gd__native]);
 }
-
-@:forward abstract ObjectAutoCast(Object) from Object to Object {
-	@:from
-	static inline function fromStar(v:godot.Object.Object_star):ObjectAutoCast {
-		return fromPointer(cpp.Pointer.fromStar(v));
-	}
-	@:from
-	static inline function fromPointer(v:godot.Object):ObjectAutoCast {
-		return new Object(v.reinterpret());
-	}
-	@:to
-	inline function toPointer():godot.Object {
-		return @:privateAccess this.__gd__native.reinterpret();
-	}
-	@:analyzer(no_const_propagation)
-	@:to
-	inline function toStar():godot.Object.Object_star {
-		final p = toPointer();
-		return p.ptr;
-	}
-}
