@@ -121,9 +121,8 @@ class ClassBuilder extends Builder {
 				macro class $name {
 					public var __gd__native:godot.gen.$cname;
 
-					public function new(native) {
+					public function new(native)
 						__gd__native = native;
-					}
 				};
 			} else {
 				final tp = {pack: config.pack, name: parent};
@@ -160,9 +159,8 @@ class ClassBuilder extends Builder {
 
 		if (cname == 'Object') {
 			cls.fields.push((macro class {
-				function cast_to<T:haxe.Constraints.Constructible<godot.gen.Object->Void>>(cls:Class<T>):T {
+				function cast_to<T:haxe.Constraints.Constructible<godot.gen.Object->Void>>(cls:Class<T>):T
 					return Type.createInstance(cls, [__gd__native]);
-				}
 			}).fields[0]);
 		}
 

@@ -1,9 +1,7 @@
 package gd;
 class Object {
 	public var __gd__native : godot.gen.Object;
-	public function new(native) {
-		__gd__native = native;
-	}
+	public function new(native) __gd__native = native;
 	function get_class():String return ((cast __gd__native.ptr : godot.gen.Object)).value.get_class();
 	function is_class(p_class:String):Bool return ((cast __gd__native.ptr : godot.gen.Object)).value.is_class(p_class);
 	function set(p_property:String, p_value:Dynamic):Void ((cast __gd__native.ptr : godot.gen.Object)).value.set(p_property, p_value);
@@ -38,9 +36,7 @@ class Object {
 	function tr_n(p_message:String, p_plural_message:String, p_n:Int, ?p_context:String):String return ((cast __gd__native.ptr : godot.gen.Object)).value.tr_n(p_message, p_plural_message, p_n, p_context);
 	function is_queued_for_deletion():Bool return ((cast __gd__native.ptr : godot.gen.Object)).value.is_queued_for_deletion();
 	function cancel_free():Void ((cast __gd__native.ptr : godot.gen.Object)).value.cancel_free();
-	function cast_to<T:(haxe.Constraints.Constructible<godot.gen.Object -> Void>)>(cls:Class<T>):T {
-		return Type.createInstance(cls, [__gd__native]);
-	}
+	function cast_to<T:(haxe.Constraints.Constructible<godot.gen.Object -> Void>)>(cls:Class<T>):T return Type.createInstance(cls, [__gd__native]);
 }
 
 @:forward abstract ObjectAutoCast(Object) from Object to Object {
