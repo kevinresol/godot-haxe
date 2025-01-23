@@ -1,10 +1,26 @@
 package godot;
 
 @:unreflective
-abstract Variant(Variant_extern) from Variant_extern to Variant_extern {
+abstract Variant(cpp.Struct<Variant_extern>) from cpp.Struct<Variant_extern> to cpp.Struct<Variant_extern> {
 	@:from
-	extern static inline function fromNodePath(v:godot.NodePath):Variant
+	extern static inline function fromWrapper(v:gd.Variant):Variant
+		return @:privateAccess v.__gd_value;
+
+	@:from
+	extern static inline function fromFloat(v:Float):Variant
 		return new Variant_extern(v);
+
+	@:from
+	extern static inline function fromInt(v:Int):Variant
+		return new Variant_extern(v);
+
+	@:from
+	extern static inline function fromBool(v:Bool):Variant
+		return new Variant_extern(v);
+
+	@:from
+	extern static inline function fromHaxeString(v:std.String):Variant
+		return new Variant_extern(cpp.NativeString.c_str(v));
 
 	@:from
 	extern static inline function fromString(v:godot.String):Variant
@@ -15,14 +31,18 @@ abstract Variant(Variant_extern) from Variant_extern to Variant_extern {
 		return new Variant_extern(v);
 
 	@:from
-	extern static inline function fromVector2(v:gd.Vector2):Variant {
-		// use .get() to unwrap cpp.Struct
-		return new Variant_extern(untyped __cpp__('{0}.get()', (v : godot.Vector2)));
-	}
+	extern static inline function fromVector2(v:godot.Vector2):Variant
+		return new Variant_extern(v);
 
 	@:from
-	extern static inline function fromHaxeString(v:std.String):Variant
-		return new Variant_extern(cpp.NativeString.c_str(v));
+	extern static inline function fromNodePath(v:godot.NodePath):Variant
+		return new Variant_extern(v);
+
+	@:from
+	extern static inline function fromVector2Wrapper(v:gd.Vector2):Variant {
+		// use .get() to unwrap cpp.Struct
+		return fromVector2(untyped __cpp__('{0}.get()', (v : godot.Vector2)));
+	}
 
 	@:from
 	public static function fromHaxeDynamic(v:Dynamic):Variant {
@@ -40,17 +60,21 @@ abstract Variant(Variant_extern) from Variant_extern to Variant_extern {
 		return new Variant_extern();
 	}
 
+	@:to
+	extern inline function toWrapper():gd.Variant
+		return @:privateAccess new gd.Variant(this);
+
 	@:to @:analyzer(no_const_propagation)
 	public function toHaxe():Dynamic {
 		return switch this.get_type() {
 			case BOOL:
-				final v = (cast this : Bool);
+				final v = (cast val() : Bool);
 				v;
 			case INT:
-				final v = (cast this : Int);
+				final v = (cast val() : Int);
 				v;
 			case FLOAT:
-				final v = (cast this : Float);
+				final v = (cast val() : Float);
 				v;
 			case STRING:
 				toHaxeString();
@@ -60,7 +84,11 @@ abstract Variant(Variant_extern) from Variant_extern to Variant_extern {
 	}
 
 	@:to inline function toHaxeString():std.String {
-		return ((untyped __cpp__('{0}.operator godot::String()', this) : godot.String) : std.String);
+		return ((untyped __cpp__('{0}.operator godot::String()', val()) : godot.String) : std.String);
+	}
+
+	inline function val():Variant_extern {
+		return untyped __cpp__('{0}.get()', this);
 	}
 }
 

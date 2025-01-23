@@ -6,6 +6,14 @@ class Main extends gd.Node2D {
 
 	function new() {
 		trace("new Main()");
+
+		trace('UtilityFunctions::print checks (cppia)');
+		gd.UtilityFunctions.print(42);
+		gd.UtilityFunctions.print(42.3);
+		gd.UtilityFunctions.print(true);
+		gd.UtilityFunctions.print('HaxeString');
+		gd.UtilityFunctions.print(gd.Vector2._new3(42, 44));
+		// UtilityFunctions.print(('Node/Path' : gd.NodePath));
 	}
 
 	override function _enter_tree() {

@@ -1,7 +1,7 @@
 package gdcppia;
 
 import cpp.UInt8;
-import godot.UtilityFunctions;
+import gd.UtilityFunctions;
 
 using Lambda;
 
@@ -20,7 +20,7 @@ class Cppia {
 			UtilityFunctions.print(haxe.Log.formatOutput(v, infos));
 		}
 
-		trace('UtilityFunctions::print checks');
+		trace('UtilityFunctions::print checks (host)');
 		UtilityFunctions.print(42);
 		UtilityFunctions.print(42.3);
 		UtilityFunctions.print(true);
