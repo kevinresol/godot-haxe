@@ -34,4 +34,5 @@ extern class Object {
 	function tr_n(p_message:String, p_plural_message:String, p_n:Int, ?p_context:String):String;
 	function is_queued_for_deletion():Bool;
 	function cancel_free():Void;
+	function cast_to<T:(gd.Object)>(cls:Class<T>):T;
 }

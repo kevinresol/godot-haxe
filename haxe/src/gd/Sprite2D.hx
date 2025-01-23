@@ -1,0 +1,43 @@
+package gd;
+class Sprite2D extends gd.Node2D {
+	function set_centered(p_centered:Bool):Void ((cast __gd__native.ptr : godot.gen.Sprite2D)).value.set_centered(p_centered);
+	function is_centered():Bool return ((cast __gd__native.ptr : godot.gen.Sprite2D)).value.is_centered();
+	function set_offset(p_offset:gd.Vector2.Vector2AutoCast):Void ((cast __gd__native.ptr : godot.gen.Sprite2D)).value.set_offset(p_offset);
+	function get_offset():gd.Vector2.Vector2AutoCast return ((cast __gd__native.ptr : godot.gen.Sprite2D)).value.get_offset();
+	function set_flip_h(p_flip_h:Bool):Void ((cast __gd__native.ptr : godot.gen.Sprite2D)).value.set_flip_h(p_flip_h);
+	function is_flipped_h():Bool return ((cast __gd__native.ptr : godot.gen.Sprite2D)).value.is_flipped_h();
+	function set_flip_v(p_flip_v:Bool):Void ((cast __gd__native.ptr : godot.gen.Sprite2D)).value.set_flip_v(p_flip_v);
+	function is_flipped_v():Bool return ((cast __gd__native.ptr : godot.gen.Sprite2D)).value.is_flipped_v();
+	function set_region_enabled(p_enabled:Bool):Void ((cast __gd__native.ptr : godot.gen.Sprite2D)).value.set_region_enabled(p_enabled);
+	function is_region_enabled():Bool return ((cast __gd__native.ptr : godot.gen.Sprite2D)).value.is_region_enabled();
+	function is_pixel_opaque(p_pos:gd.Vector2.Vector2AutoCast):Bool return ((cast __gd__native.ptr : godot.gen.Sprite2D)).value.is_pixel_opaque(p_pos);
+	function set_region_filter_clip_enabled(p_enabled:Bool):Void ((cast __gd__native.ptr : godot.gen.Sprite2D)).value.set_region_filter_clip_enabled(p_enabled);
+	function is_region_filter_clip_enabled():Bool return ((cast __gd__native.ptr : godot.gen.Sprite2D)).value.is_region_filter_clip_enabled();
+	function set_frame(p_frame:Int):Void ((cast __gd__native.ptr : godot.gen.Sprite2D)).value.set_frame(p_frame);
+	function get_frame():Int return ((cast __gd__native.ptr : godot.gen.Sprite2D)).value.get_frame();
+	function set_vframes(p_vframes:Int):Void ((cast __gd__native.ptr : godot.gen.Sprite2D)).value.set_vframes(p_vframes);
+	function get_vframes():Int return ((cast __gd__native.ptr : godot.gen.Sprite2D)).value.get_vframes();
+	function set_hframes(p_hframes:Int):Void ((cast __gd__native.ptr : godot.gen.Sprite2D)).value.set_hframes(p_hframes);
+	function get_hframes():Int return ((cast __gd__native.ptr : godot.gen.Sprite2D)).value.get_hframes();
+}
+
+@:forward abstract Sprite2DAutoCast(Sprite2D) from Sprite2D to Sprite2D {
+	@:from
+	static inline function fromStar(v:godot.gen.Sprite2D.Sprite2D_star):Sprite2DAutoCast {
+		return fromPointer(cpp.Pointer.fromStar(v));
+	}
+	@:from
+	static inline function fromPointer(v:godot.gen.Sprite2D):Sprite2DAutoCast {
+		return new Sprite2D(v.reinterpret());
+	}
+	@:to
+	inline function toPointer():godot.gen.Sprite2D {
+		return @:privateAccess this.__gd__native.reinterpret();
+	}
+	@:analyzer(no_const_propagation)
+	@:to
+	inline function toStar():godot.gen.Sprite2D.Sprite2D_star {
+		final p = toPointer();
+		return p.ptr;
+	}
+}

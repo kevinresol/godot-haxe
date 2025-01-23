@@ -38,8 +38,9 @@ class Main extends gd.Node2D {
 		trace('get_tree_string: ${get_tree_string()}');
 		trace('get_scene_file_path1: ${get_scene_file_path()}');
 
-		final sprite = get_node("Node2D/Sprite2D");
+		final sprite = get_node("Node2D/Sprite2D").cast_to(gd.Sprite2D);
 		trace('get_node: ${sprite.get_name()}');
+		sprite.set_flip_v(true);
 
 		final pos = get_position();
 		pos.x = 0;

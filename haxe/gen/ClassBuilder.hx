@@ -21,7 +21,7 @@ class ClassBuilder extends Builder {
 			final hppExists = sys.FileSystem.exists(hppPath);
 
 			if (hppExists) {
-				if (getClassInheritance('Node2D').contains(cname)) {
+				if (getClassInheritance('Sprite2D').contains(cname)) {
 					generateClassExtern(clazz, hpp);
 					generateClassWrapper(clazz);
 					generateClassScriptExtern(clazz);
@@ -158,6 +158,14 @@ class ClassBuilder extends Builder {
 			} catch (e) {}
 		}
 
+		if (cname == 'Object') {
+			cls.fields.push((macro class {
+				function cast_to<T:haxe.Constraints.Constructible<godot.gen.Object->Void>>(cls:Class<T>):T {
+					return Type.createInstance(cls, [__gd__native]);
+				}
+			}).fields[0]);
+		}
+
 		final root = getClassInheritance(cname).pop();
 		final aname = '${cname}AutoCast';
 		final cstar = '$cname.${cname}_star';
@@ -224,6 +232,12 @@ class ClassBuilder extends Builder {
 					})
 				});
 			} catch (e) {}
+		}
+
+		if (cname == 'Object') {
+			def.fields.push((macro class {
+				function cast_to<T:gd.Object>(cls:Class<T>):T;
+			}).fields[0]);
 		}
 
 		final source = printTypeDefinition(def);
