@@ -103,4 +103,5 @@ package godot;
 	@:to
 	inline function toWrapper():gd.Node return new gd.Node(this.reinterpret());
 }
+
 typedef Node_star = cpp.Star<Node_native>;

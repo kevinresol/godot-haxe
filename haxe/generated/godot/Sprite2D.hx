@@ -26,4 +26,5 @@ package godot;
 	@:to
 	inline function toWrapper():gd.Sprite2D return new gd.Sprite2D(this.reinterpret());
 }
+
 typedef Sprite2D_star = cpp.Star<Sprite2D_native>;

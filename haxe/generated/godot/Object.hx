@@ -41,4 +41,5 @@ package godot;
 	@:to
 	inline function toWrapper():gd.Object return new gd.Object(this.reinterpret());
 }
+
 typedef Object_star = cpp.Star<Object_native>;

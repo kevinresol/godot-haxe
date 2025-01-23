@@ -34,8 +34,9 @@ class BuiltinClassBuilder extends Builder {
 
 	function generateClassExtern(clazz:BuiltinClass, hpp:String) {
 		final cname = clazz.name;
+		final ename = '${cname}_extern';
 		final config = Config.nativeExtern;
-		final cls = macro class $cname {};
+		final cls = macro class $ename {};
 		cls.isExtern = true;
 		cls.pack = config.pack;
 		cls.meta = [
@@ -43,14 +44,6 @@ class BuiltinClassBuilder extends Builder {
 			{pos: null, name: ':native', params: [macro $v{'godot::$cname'}]},
 			{pos: null, name: ':structAccess', params: []},
 		];
-
-		for (prop in clazz.members) {
-			cls.fields.push({
-				pos: null,
-				name: prop.name,
-				kind: FVar(makeGodotType(prop.type)),
-			});
-		}
 
 		if (clazz.constructors.length > 0) {
 			final ctor = {
@@ -111,7 +104,47 @@ class BuiltinClassBuilder extends Builder {
 			} catch (e) {}
 		}
 
-		final source = printTypeDefinition(cls);
+		final abs = macro class $cname {
+			@:from static inline function fromWrapper(v:gd.$cname):godot.$cname
+				return @:privateAccess v.__gd_value;
+
+			@:to inline function toWrapper():gd.$cname
+				return new gd.$cname(this);
+		}
+		final local = TPath({pack: [], name: ename});
+		final struct = macro :cpp.Struct<$local>;
+		abs.kind = TDAbstract(struct, [AbFrom(struct), AbTo(struct)]);
+		abs.meta = [{pos: null, name: ':forward'},];
+
+		for (prop in clazz.members) {
+			cls.fields.push({
+				pos: null,
+				name: prop.name,
+				kind: FVar(makeGodotType(prop.type)),
+			});
+		}
+
+		for (ctor in clazz.constructors) {
+			final tp = {pack: [], name: cname};
+			try {
+				abs.fields.push({
+					pos: null,
+					access: [APublic, AExtern, AOverload, AInline],
+					name: 'new',
+					kind: FFun({
+						args: (ctor.arguments ?? []).map(arg -> ({
+							name: 'p_${arg.name}',
+							type: makeHaxeHostType(arg.type),
+						} : FunctionArg)) ?? [],
+						expr: macro this = new godot.$ename($a{
+							(ctor.arguments ?? []).map(arg -> macro $i{'p_${arg.name}'})
+						})
+					})
+				});
+			} catch (e) {}
+		}
+
+		final source = printTypeDefinition(cls) + '\n\n' + printTypeDefinition(abs);
 		write('${config.folder}/${cls.pack.join('/')}/$cname.hx', source);
 	}
 
@@ -121,9 +154,9 @@ class BuiltinClassBuilder extends Builder {
 		final cls = macro class $cname {
 			// cppia can't seem to access cpp.Struct fields directly
 			// so we need a wrapper and expose the fields getter/setter as real haxe functions
-			final __gd_value:cpp.Struct<godot.$cname>;
+			final __gd_value:godot.$cname;
 
-			public function new(value:cpp.Struct<godot.$cname>)
+			public function new(value:godot.$cname)
 				__gd_value = value;
 		}
 		cls.pack = config.pack;
@@ -188,22 +221,7 @@ class BuiltinClassBuilder extends Builder {
 			} catch (e) {}
 		}
 
-		final aname = '${cname}AutoCast';
-		final ctp = {pack: [], name: cname};
-		final ct = TPath(ctp);
-		final at = TPath({pack: [], name: aname});
-		final abs = macro class $aname {
-			@:from static inline function fromNative(v:godot.$cname):$at {
-				return new $ctp(v);
-			}
-
-			@:to inline function toNative():godot.$cname {
-				return @:privateAccess this.__gd_value;
-			}
-		}
-		abs.kind = TDAbstract(ct, [AbFrom(ct), AbTo(ct)]);
-		abs.meta = [{pos: null, name: ':forward'},];
-		final source = printTypeDefinition(cls) + '\n\n' + printTypeDefinition(abs);
+		final source = printTypeDefinition(cls);
 		write('${config.folder}/${cls.pack.join('/')}/$cname.hx', source);
 	}
 

@@ -1,7 +1,5 @@
 package godot;
-@:include("godot_cpp/variant/vector2.hpp") @:native("godot::Vector2") @:structAccess extern class Vector2 {
-	var x : Float;
-	var y : Float;
+@:include("godot_cpp/variant/vector2.hpp") @:native("godot::Vector2") @:structAccess extern class Vector2_extern {
 	@:overload(function(p_from:godot.Vector2):Void { })
 	@:overload(function(p_x:Float, p_y:Float):Void { })
 	function new();
@@ -52,4 +50,16 @@ package godot;
 	function max(p_with:godot.Vector2):godot.Vector2;
 	function maxf(p_with:Float):godot.Vector2;
 	function from_angle(p_angle:Float):godot.Vector2;
+	var x : Float;
+	var y : Float;
+}
+
+@:forward abstract Vector2(cpp.Struct<Vector2_extern>) from cpp.Struct<Vector2_extern> to cpp.Struct<Vector2_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.Vector2):godot.Vector2 return @:privateAccess v.__gd_value;
+	@:to
+	inline function toWrapper():gd.Vector2 return new gd.Vector2(this);
+	public extern overload inline function new() this = new godot.Vector2_extern();
+	public extern overload inline function new(p_from:gd.Vector2) this = new godot.Vector2_extern(p_from);
+	public extern overload inline function new(p_x:Float, p_y:Float) this = new godot.Vector2_extern(p_x, p_y);
 }

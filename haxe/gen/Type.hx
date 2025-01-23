@@ -58,7 +58,7 @@ class Type {
 			case 'Node2D': macro :gd.Node2D;
 			case 'CanvasItem': macro :gd.CanvasItem;
 			case 'Object': macro :gd.Object;
-			case 'Vector2': macro :gd.Vector2.Vector2AutoCast;
+			case 'Vector2': macro :gd.Vector2;
 			case v:
 				// trace('Unhandled type $gdType');
 				// macro :Dynamic;
