@@ -61,6 +61,7 @@ class ClassBuilder extends Builder {
 				cls.fields.push({
 					pos: null,
 					name: fname,
+					access: fn.is_static ? [AStatic] : [],
 					kind: FFun({
 						args: fn.arguments?.map(arg -> ({
 							name: 'p_${arg.name}',
@@ -118,6 +119,7 @@ class ClassBuilder extends Builder {
 				cls.fields.push({
 					pos: null,
 					name: fname,
+					access: fn.is_static ? [AStatic] : [],
 					kind: FFun({
 						args: fn.arguments?.map(arg -> ({
 							name: 'p_${arg.name}',
@@ -126,8 +128,12 @@ class ClassBuilder extends Builder {
 						} : FunctionArg)) ?? [],
 						ret: rct,
 						expr: {
-							final native = TPath({pack: Config.nativeExtern.pack, name: cname});
-							final e = macro(cast __gd.ptr : $native).value.$fname($a{fn.arguments?.map(arg -> macro $i{'p_${arg.name}'}) ?? []});
+							final target = fn.is_static ? macro $p{Config.nativeExtern.pack.concat([cname, '${cname}_extern'])} : {
+								final native = TPath({pack: Config.nativeExtern.pack, name: cname});
+								macro(cast __gd.ptr : $native).value;
+							};
+
+							final e = macro $target.$fname($a{fn.arguments?.map(arg -> macro $i{'p_${arg.name}'}) ?? []});
 							rtype == 'void' ? e : macro return $e;
 						}
 					})
@@ -170,6 +176,7 @@ class ClassBuilder extends Builder {
 				def.fields.push({
 					pos: null,
 					name: fname,
+					access: fn.is_static ? [AStatic] : [],
 					kind: FFun({
 						args: fn.arguments?.map(arg -> ({
 							name: 'p_${arg.name}',
@@ -183,11 +190,9 @@ class ClassBuilder extends Builder {
 		}
 
 		if (cname == 'Object') {
-			def.meta.push({pos: null, name: ':autoBuild', params: [macro gd.Object.build()]});
+			def.meta.push({pos: null, name: ':autoBuild', params: [macro gd.ObjectMacro.build()]});
 			def.fields = def.fields.concat((macro class {
 				function cast_to<T:gd.Object>(cls:Class<T>):T;
-
-				static macro function build();
 			}).fields);
 		}
 

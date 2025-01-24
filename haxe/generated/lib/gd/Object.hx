@@ -1,7 +1,5 @@
 package gd;
-
-@:autoBuild(gd.ObjectMacro.build())
-extern class Object {
+@:autoBuild(gd.ObjectMacro.build()) extern class Object {
 	function get_class():String;
 	function is_class(p_class:String):Bool;
 	function set(p_property:String, p_value:gd.Variant):Void;

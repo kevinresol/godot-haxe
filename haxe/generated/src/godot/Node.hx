@@ -5,7 +5,7 @@ package godot;
 	function _enter_tree():Void;
 	function _exit_tree():Void;
 	function _ready():Void;
-	function print_orphan_nodes():Void;
+	static function print_orphan_nodes():Void;
 	function add_sibling(p_sibling:godot.Node, ?p_force_readable_name:Bool):Void;
 	function set_name(p_name:godot.String):Void;
 	function get_name():godot.StringName;

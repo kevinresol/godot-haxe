@@ -5,7 +5,7 @@ class Node extends gd.Object {
 	function _enter_tree():Void ((cast __gd.ptr : godot.Node)).value._enter_tree();
 	function _exit_tree():Void ((cast __gd.ptr : godot.Node)).value._exit_tree();
 	function _ready():Void ((cast __gd.ptr : godot.Node)).value._ready();
-	function print_orphan_nodes():Void ((cast __gd.ptr : godot.Node)).value.print_orphan_nodes();
+	static function print_orphan_nodes():Void godot.Node.Node_extern.print_orphan_nodes();
 	function add_sibling(p_sibling:gd.Node, ?p_force_readable_name:Bool):Void ((cast __gd.ptr : godot.Node)).value.add_sibling(p_sibling, p_force_readable_name);
 	function set_name(p_name:String):Void ((cast __gd.ptr : godot.Node)).value.set_name(p_name);
 	function get_name():String return ((cast __gd.ptr : godot.Node)).value.get_name();
