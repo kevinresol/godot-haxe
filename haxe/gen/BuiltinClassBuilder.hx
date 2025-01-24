@@ -138,7 +138,7 @@ class BuiltinClassBuilder extends Builder {
 					kind: FFun({
 						args: (ctor.arguments ?? []).map(arg -> ({
 							name: 'p_${arg.name}',
-							type: makeHaxeHostType(arg.type),
+							type: makeHaxeType(arg.type),
 						} : FunctionArg)) ?? [],
 						expr: macro this = new godot.$ename($a{
 							(ctor.arguments ?? []).map(arg -> macro $i{'p_${arg.name}'})
@@ -203,7 +203,7 @@ class BuiltinClassBuilder extends Builder {
 					kind: FFun({
 						args: (ctor.arguments ?? []).map(arg -> ({
 							name: 'p_${arg.name}',
-							type: makeHaxeHostType(arg.type),
+							type: makeHaxeType(arg.type),
 						} : FunctionArg)) ?? [],
 						ret: TPath({pack: [], name: wname}),
 						expr: isScriptExtern ? null : macro return new $wtp(new godot.$cname($a{
@@ -218,7 +218,7 @@ class BuiltinClassBuilder extends Builder {
 					kind: FFun({
 						args: (ctor.arguments ?? []).map(arg -> ({
 							name: 'p_${arg.name}',
-							type: makeHaxeHostType(arg.type),
+							type: makeHaxeType(arg.type),
 						} : FunctionArg)),
 						expr: {
 							final e = macro $p{[wname, '_new${i}']}($a{
@@ -244,17 +244,17 @@ class BuiltinClassBuilder extends Builder {
 					kind: FFun({
 						args: fn.arguments?.map(arg -> ({
 							name: 'p_${arg.name}',
-							type: makeHaxeHostType(arg.type),
+							type: makeHaxeType(arg.type),
 							opt: arg.default_value != null,
 						} : FunctionArg)) ?? [],
-						ret: makeHaxeHostType(rtype),
+						ret: makeHaxeType(rtype),
 						expr: isScriptExtern ? null : macro return __gd.$fname($a{(fn.arguments ?? []).map(arg -> macro $i{'p_${arg.name}'})})
 					})
 				});
 			} catch (e) {}
 		}
 		for (const in clazz.constants) {
-			final type = makeHaxeHostType(const.type);
+			final type = makeHaxeType(const.type);
 			cls.fields.push({
 				pos: null,
 				name: const.name,

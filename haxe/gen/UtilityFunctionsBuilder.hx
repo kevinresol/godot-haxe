@@ -67,9 +67,9 @@ class UtilityFunctionsBuilder extends Builder {
 					kind: FFun({
 						args: fn.arguments?.map(arg -> ({
 							name: 'p_${arg.name}',
-							type: makeHaxeHostType(arg.type),
+							type: makeHaxeType(arg.type),
 						} : FunctionArg)) ?? [],
-						ret: makeHaxeHostType(rtype),
+						ret: makeHaxeType(rtype),
 						expr: isScriptExtern ? null : {
 							final e = macro godot.UtilityFunctions.$fname($a{(fn.arguments ?? []).map(arg -> macro $i{'p_${arg.name}'})});
 							rtype == 'void' ? e : macro return $e;

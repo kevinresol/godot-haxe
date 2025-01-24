@@ -115,7 +115,7 @@ class ClassBuilder extends Builder {
 			final fname = fn.name;
 			final rtype = fn.return_value?.type ?? 'void';
 			try {
-				final rct = makeHaxeHostType(rtype);
+				final rct = makeHaxeType(rtype);
 				cls.fields.push({
 					pos: null,
 					name: fname,
@@ -123,7 +123,7 @@ class ClassBuilder extends Builder {
 					kind: FFun({
 						args: fn.arguments?.map(arg -> ({
 							name: 'p_${arg.name}',
-							type: makeHaxeHostType(arg.type),
+							type: makeHaxeType(arg.type),
 							opt: arg.default_value != null,
 						} : FunctionArg)) ?? [],
 						ret: rct,
@@ -180,10 +180,10 @@ class ClassBuilder extends Builder {
 					kind: FFun({
 						args: fn.arguments?.map(arg -> ({
 							name: 'p_${arg.name}',
-							type: makeHaxeScriptType(arg.type),
+							type: makeHaxeType(arg.type),
 							opt: arg.default_value != null,
 						} : FunctionArg)) ?? [],
-						ret: makeHaxeScriptType(rtype),
+						ret: makeHaxeType(rtype),
 					})
 				});
 			} catch (e) {}

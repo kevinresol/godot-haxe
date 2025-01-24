@@ -28,17 +28,17 @@ class Type {
 		}
 	}
 
-	public static function makeHaxeHostType(gdType:String):ComplexType {
+	public static function makeHaxeType(gdType:String):ComplexType {
 		return switch gdType {
 			case 'void': macro :Void;
 			case 'float': macro :Float;
 			case 'int': macro :Int;
 			case 'bool': macro :Bool;
-			case 'Variant': macro :gd.Variant;
 
 			case 'Color': macro :gd.Color;
 			case 'NodePath': macro :String;
 			case 'String': macro :String;
+			case 'Variant': macro :gd.Variant;
 			case 'StringName': macro :String;
 			case 'Vector2': macro :gd.Vector2;
 
@@ -46,29 +46,6 @@ class Type {
 			case 'Node': macro :gd.Node;
 			case 'Node2D': macro :gd.Node2D;
 			case 'Object': macro :gd.Object;
-			case v:
-				// trace('Unhandled type $gdType');
-				// macro :Dynamic;
-				throw gdType;
-		}
-	}
-
-	/** Types that cppia scripts see **/
-	public static function makeHaxeScriptType(gdType:String):ComplexType {
-		return switch gdType {
-			case 'void': macro :Void;
-			case 'float': macro :Float;
-			case 'int': macro :Int;
-			case 'bool': macro :Bool;
-			case 'Variant': macro :gd.Variant;
-
-			case 'Color': macro :gd.Color;
-			case 'NodePath': macro :String;
-			case 'String': macro :String;
-			case 'StringName': macro :String;
-			case 'Vector2': macro :gd.Vector2;
-
-			case 'Node': macro :gd.Node;
 			case v:
 				// trace('Unhandled type $gdType');
 				// macro :Dynamic;
