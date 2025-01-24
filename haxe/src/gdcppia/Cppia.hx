@@ -37,6 +37,10 @@ class Cppia {
 		UtilityFunctions.print(UtilityFunctions.typeof(new gd.Vector2()));
 		UtilityFunctions.print(UtilityFunctions.typeof(new gd.Vector2(42, 44)));
 		UtilityFunctions.print(UtilityFunctions.typeof(('Node/Path' : gd.NodePath)));
+
+		trace('Enum checks (host)');
+		UtilityFunctions.print(gd.VariantType.INT);
+		UtilityFunctions.print(gd.VariantType.FLOAT);
 	}
 
 	static var module:Module;

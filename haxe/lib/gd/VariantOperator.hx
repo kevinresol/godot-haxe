@@ -1,5 +1,5 @@
 package gd;
-enum abstract Variant.Operator(cpp.UInt32) to cpp.UInt32 {
+enum abstract VariantOperator(cpp.UInt32) to cpp.UInt32 {
 	final OP_EQUAL = 0;
 	final OP_NOT_EQUAL = 1;
 	final OP_LESS = 2;

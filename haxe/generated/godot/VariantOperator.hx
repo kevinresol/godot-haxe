@@ -1,5 +1,5 @@
 package godot;
-@:include("godot_cpp/classes/global_constants.hpp") @:native("godot::Variant::Operator") extern enum abstract Variant.Operator(cpp.UInt32) to cpp.UInt32 {
+@:include("godot_cpp/classes/global_constants.hpp") @:native("godot::Variant::Operator") extern enum abstract VariantOperator(cpp.UInt32) to cpp.UInt32 {
 	final OP_EQUAL;
 	final OP_NOT_EQUAL;
 	final OP_LESS;

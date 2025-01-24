@@ -15,7 +15,7 @@ class GlobalEnumBuilder extends Builder {
 	}
 
 	function generateExtern(e:GlobalEnum) {
-		final ename = e.name;
+		final ename = e.name.replace('.', '');
 		final config = Config.nativeExtern;
 		final def = macro class $ename {}
 		def.isExtern = true;
@@ -26,8 +26,13 @@ class GlobalEnumBuilder extends Builder {
 			{pos: null, name: ':native', params: [macro $v{'godot::' + e.name.replace('.', '::')}]}
 		];
 		for (v in e.values) {
-			final vname = v.name;
-			final vval = v.value;
+			final vname = switch e.name {
+				case 'Variant.Type':
+					v.name.substr('TYPE_'.length);
+				default:
+					v.name;
+			}
+			// final vval = v.value;
 			def.fields.push({
 				pos: null,
 				access: [AFinal],
@@ -41,7 +46,7 @@ class GlobalEnumBuilder extends Builder {
 	}
 
 	function generateTypedef(e:GlobalEnum) {
-		final ename = e.name;
+		final ename = e.name.replace('.', '');
 		final config = Config.wrapper;
 		final def = macro class $ename {}
 		def.kind = TDAlias(TPath({pack: Config.nativeExtern.pack, name: ename}));
@@ -52,16 +57,22 @@ class GlobalEnumBuilder extends Builder {
 	}
 
 	function generateScriptExtern(e:GlobalEnum) {
-		final ename = e.name;
+		final ename = e.name.replace('.', '');
 		final config = Config.cppiaExtern;
 		final def = macro class $ename {}
 		def.kind = TDAbstract(macro :cpp.UInt32, [AbEnum, AbTo(macro :cpp.UInt32)]);
 		def.pack = config.pack;
 		for (v in e.values) {
+			final vname = switch e.name {
+				case 'Variant.Type':
+					v.name.substr('TYPE_'.length);
+				default:
+					v.name;
+			}
 			def.fields.push({
 				pos: null,
 				access: [AFinal],
-				name: v.name,
+				name: vname,
 				kind: FVar(null, macro $v{v.value}),
 			});
 		}

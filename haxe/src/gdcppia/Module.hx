@@ -110,7 +110,7 @@ class Module {
 		}
 	}
 
-	function rttiTypeToGodotVariantType(type:haxe.rtti.CType):godot.Variant.VariantType {
+	function rttiTypeToGodotVariantType(type:haxe.rtti.CType):godot.VariantType {
 		return switch type {
 			case CAbstract('Float', _):
 				FLOAT;
@@ -132,7 +132,7 @@ class ClassInfo {
 @:structInit
 @:unreflective
 class PropertyInfo {
-	public final type:godot.Variant.VariantType;
+	public final type:godot.VariantType;
 	public final name:String;
 	public final className:String;
 	public final hint:cpp.UInt32; // Bitfield of `PropertyHint` (defined in `extension_api.json`).

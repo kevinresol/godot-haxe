@@ -24,6 +24,10 @@ class Main extends gd.Node2D {
 		gd.UtilityFunctions.print(gd.UtilityFunctions.typeof(new gd.Vector2()));
 		gd.UtilityFunctions.print(gd.UtilityFunctions.typeof(new gd.Vector2(42, 44)));
 		// UtilityFunctions.typeof(('Node/Path' : gd.NodePath));
+
+		trace('Enum checks (cppia)');
+		gd.UtilityFunctions.print(gd.VariantType.INT);
+		gd.UtilityFunctions.print(gd.VariantType.FLOAT);
 	}
 
 	override function _enter_tree() {

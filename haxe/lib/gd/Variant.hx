@@ -19,6 +19,9 @@ abstract Variant(VariantContainer) from VariantContainer to VariantContainer {
 
 	// @:from static inline function fromNodePath(v:gd.NodePath):Variant
 	// 	return VariantContainer.fromNodePath(v);
+
+	@:from static inline function fromVariantType(v:gd.VariantType):Variant
+		return fromInt(v);
 }
 
 extern class VariantContainer {
