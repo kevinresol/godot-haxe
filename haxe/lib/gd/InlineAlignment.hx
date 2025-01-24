@@ -1,16 +1,16 @@
 package gd;
 enum abstract InlineAlignment(cpp.UInt32) to cpp.UInt32 {
-	final INLINE_ALIGNMENT_TOP_TO = 0;
-	final INLINE_ALIGNMENT_CENTER_TO = 1;
-	final INLINE_ALIGNMENT_BASELINE_TO = 3;
-	final INLINE_ALIGNMENT_BOTTOM_TO = 2;
-	final INLINE_ALIGNMENT_TO_TOP = 0;
-	final INLINE_ALIGNMENT_TO_CENTER = 4;
-	final INLINE_ALIGNMENT_TO_BASELINE = 8;
-	final INLINE_ALIGNMENT_TO_BOTTOM = 12;
-	final INLINE_ALIGNMENT_TOP = 0;
-	final INLINE_ALIGNMENT_CENTER = 5;
-	final INLINE_ALIGNMENT_BOTTOM = 14;
-	final INLINE_ALIGNMENT_IMAGE_MASK = 3;
-	final INLINE_ALIGNMENT_TEXT_MASK = 12;
+	final TOP_TO = 0;
+	final CENTER_TO = 1;
+	final BASELINE_TO = 3;
+	final BOTTOM_TO = 2;
+	final TO_TOP = 0;
+	final TO_CENTER = 4;
+	final TO_BASELINE = 8;
+	final TO_BOTTOM = 12;
+	final TOP = 0;
+	final CENTER = 5;
+	final BOTTOM = 14;
+	final IMAGE_MASK = 3;
+	final TEXT_MASK = 12;
 }

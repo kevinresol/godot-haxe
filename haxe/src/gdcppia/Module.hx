@@ -72,18 +72,18 @@ class Module {
 								type: rttiTypeToGodotVariantType(f.type),
 								name: f.name,
 								className: className,
-								hint: PropertyHint.PROPERTY_HINT_RANGE,
+								hint: PropertyHint.RANGE,
 								hintString: meta.params.join(','),
-								usage: PropertyUsageFlags.PROPERTY_USAGE_DEFAULT,
+								usage: PropertyUsageFlags.DEFAULT,
 							}
 						} else if (f.meta.exists(m -> m.name == 'export')) {
 							{
 								type: rttiTypeToGodotVariantType(f.type),
 								name: f.name,
 								className: className,
-								hint: PropertyHint.PROPERTY_HINT_NONE,
+								hint: PropertyHint.NONE,
 								hintString: 'TODO: hint string',
-								usage: PropertyUsageFlags.PROPERTY_USAGE_DEFAULT,
+								usage: PropertyUsageFlags.DEFAULT,
 							}
 						}
 					}

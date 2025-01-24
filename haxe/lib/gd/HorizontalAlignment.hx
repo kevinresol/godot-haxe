@@ -1,7 +1,7 @@
 package gd;
 enum abstract HorizontalAlignment(cpp.UInt32) to cpp.UInt32 {
-	final HORIZONTAL_ALIGNMENT_LEFT = 0;
-	final HORIZONTAL_ALIGNMENT_CENTER = 1;
-	final HORIZONTAL_ALIGNMENT_RIGHT = 2;
-	final HORIZONTAL_ALIGNMENT_FILL = 3;
+	final LEFT = 0;
+	final CENTER = 1;
+	final RIGHT = 2;
+	final FILL = 3;
 }
