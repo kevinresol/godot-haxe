@@ -17,9 +17,6 @@ class Gen {
 		// trace(api.builtin_classes.map(v -> v.name));
 
 		new Gen(api).generate();
-		// findType(api, 'Variant');
-		// findType(api, 'Object');
-		// findType(api, 'Node');
 	}
 
 	final api:Api;

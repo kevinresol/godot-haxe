@@ -254,6 +254,34 @@ class BuiltinClassBuilder extends Builder {
 			} catch (e) {}
 		}
 
+		for (const in clazz.constants) {
+			final type = makeHaxeHostType(const.type);
+			cls.fields.push({
+				pos: null,
+				name: const.name,
+				access: [APublic, AStatic, AFinal],
+				// doc: '${const.type}: ${const.value}',
+				kind: FVar(type, isScriptExtern ? null : switch const.type {
+					case 'int':
+						macro $v{Std.parseInt(const.value)};
+					default:
+						final regex = ~/^([\w]+)\(([^(]*)\)$/;
+						if (regex.match(const.value)) {
+							final tp = {pack: ['gd'], name: regex.matched(1)};
+							final args = regex.matched(2).split(',').map(v -> v.trim()).map(v -> switch v {
+								case 'inf': macro Math.POSITIVE_INFINITY;
+								case '-inf': macro Math.NEGATIVE_INFINITY;
+								case 'nan': macro Math.NaN;
+								default: macro $v{Std.parseInt(v)};
+							});
+							macro new $tp($a{args});
+						} else {
+							throw 'Unhandled constant type ${const.type}';
+						}
+				}),
+			});
+		}
+
 		final source = printTypeDefinition(cls) + '\n\n' + printTypeDefinition(abs);
 		write('${config.folder}/${cls.pack.join('/')}/$cname.hx', source);
 	}

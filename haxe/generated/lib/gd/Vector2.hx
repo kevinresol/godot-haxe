@@ -52,6 +52,15 @@ extern class Vector2_wrapper {
 	function max(p_with:gd.Vector2):gd.Vector2;
 	function maxf(p_with:Float):gd.Vector2;
 	function from_angle(p_angle:Float):gd.Vector2;
+	public static final AXIS_X : Int;
+	public static final AXIS_Y : Int;
+	public static final ZERO : gd.Vector2;
+	public static final ONE : gd.Vector2;
+	public static final INF : gd.Vector2;
+	public static final LEFT : gd.Vector2;
+	public static final RIGHT : gd.Vector2;
+	public static final UP : gd.Vector2;
+	public static final DOWN : gd.Vector2;
 }
 
 @:forward @:forwardStatics abstract Vector2(Vector2_wrapper) from Vector2_wrapper to Vector2_wrapper {

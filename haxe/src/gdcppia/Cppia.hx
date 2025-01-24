@@ -27,6 +27,7 @@ class Cppia {
 		UtilityFunctions.print('HaxeString');
 		UtilityFunctions.print(new gd.Vector2());
 		UtilityFunctions.print(new gd.Vector2(42, 44));
+		UtilityFunctions.print(gd.Vector2.ONE);
 		UtilityFunctions.print(('Node/Path' : gd.NodePath));
 
 		trace('UtilityFunctions::typeof checks (host)');
