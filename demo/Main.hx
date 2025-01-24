@@ -30,6 +30,7 @@ class Main extends Base {
 		UtilityFunctions.print(new Vector2());
 		UtilityFunctions.print(new Vector2(42, 44));
 		UtilityFunctions.print(Vector2.ONE);
+		UtilityFunctions.print(Color.WHEAT);
 		// UtilityFunctions.print(('Node/Path' : gd.NodePath));
 
 		trace('UtilityFunctions::typeof checks (cppia)');

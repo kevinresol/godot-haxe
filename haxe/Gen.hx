@@ -17,6 +17,10 @@ class Gen {
 		// trace(api.builtin_classes.map(v -> v.name));
 
 		new Gen(api).generate();
+
+		// for (cls in api.builtin_classes)
+		// 	for (const in (cls.constants ?? []))
+		// 		trace(const.name, const.type, const.value);
 	}
 
 	final api:Api;

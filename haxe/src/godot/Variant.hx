@@ -31,17 +31,27 @@ abstract Variant(cpp.Struct<Variant_extern>) from cpp.Struct<Variant_extern> to 
 		return new Variant_extern(v);
 
 	@:from
-	extern static inline function fromVector2(v:godot.Vector2):Variant
+	extern static inline function fromNodePath(v:godot.NodePath):Variant
 		return new Variant_extern(v);
 
 	@:from
-	extern static inline function fromNodePath(v:godot.NodePath):Variant
+	extern static inline function fromVector2(v:godot.Vector2):Variant
 		return new Variant_extern(v);
 
 	@:from
 	extern static inline function fromVector2Wrapper(v:gd.Vector2):Variant {
 		// use .get() to unwrap cpp.Struct
 		return fromVector2(untyped __cpp__('{0}.get()', (v : godot.Vector2)));
+	}
+
+	@:from
+	extern static inline function fromColor(v:godot.Color):Variant
+		return new Variant_extern(v);
+
+	@:from
+	extern static inline function fromColorWrapper(v:gd.Color):Variant {
+		// use .get() to unwrap cpp.Struct
+		return fromColor(untyped __cpp__('{0}.get()', (v : godot.Color)));
 	}
 
 	@:from
@@ -96,6 +106,7 @@ abstract Variant(cpp.Struct<Variant_extern>) from cpp.Struct<Variant_extern> to 
 @:native("godot::Variant")
 @:structAccess
 extern class Variant_extern {
+	@:overload(function(v:godot.Color.Color_extern):Void {})
 	@:overload(function(v:godot.Vector2.Vector2_extern):Void {})
 	@:overload(function(v:godot.StringName):Void {})
 	@:overload(function(v:godot.String):Void {})

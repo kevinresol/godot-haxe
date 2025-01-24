@@ -12,6 +12,10 @@ class CanvasItem extends gd.Node {
 	function is_set_as_top_level():Bool return ((cast __gd.ptr : godot.CanvasItem)).value.is_set_as_top_level();
 	function set_light_mask(p_light_mask:Int):Void ((cast __gd.ptr : godot.CanvasItem)).value.set_light_mask(p_light_mask);
 	function get_light_mask():Int return ((cast __gd.ptr : godot.CanvasItem)).value.get_light_mask();
+	function set_modulate(p_modulate:gd.Color):Void ((cast __gd.ptr : godot.CanvasItem)).value.set_modulate(p_modulate);
+	function get_modulate():gd.Color return ((cast __gd.ptr : godot.CanvasItem)).value.get_modulate();
+	function set_self_modulate(p_self_modulate:gd.Color):Void ((cast __gd.ptr : godot.CanvasItem)).value.set_self_modulate(p_self_modulate);
+	function get_self_modulate():gd.Color return ((cast __gd.ptr : godot.CanvasItem)).value.get_self_modulate();
 	function set_z_index(p_z_index:Int):Void ((cast __gd.ptr : godot.CanvasItem)).value.set_z_index(p_z_index);
 	function get_z_index():Int return ((cast __gd.ptr : godot.CanvasItem)).value.get_z_index();
 	function set_z_as_relative(p_enable:Bool):Void ((cast __gd.ptr : godot.CanvasItem)).value.set_z_as_relative(p_enable);
@@ -20,6 +24,10 @@ class CanvasItem extends gd.Node {
 	function is_y_sort_enabled():Bool return ((cast __gd.ptr : godot.CanvasItem)).value.is_y_sort_enabled();
 	function set_draw_behind_parent(p_enable:Bool):Void ((cast __gd.ptr : godot.CanvasItem)).value.set_draw_behind_parent(p_enable);
 	function is_draw_behind_parent_enabled():Bool return ((cast __gd.ptr : godot.CanvasItem)).value.is_draw_behind_parent_enabled();
+	function draw_line(p_from:gd.Vector2, p_to:gd.Vector2, p_color:gd.Color, ?p_width:Float, ?p_antialiased:Bool):Void ((cast __gd.ptr : godot.CanvasItem)).value.draw_line(p_from, p_to, p_color, p_width, p_antialiased);
+	function draw_dashed_line(p_from:gd.Vector2, p_to:gd.Vector2, p_color:gd.Color, ?p_width:Float, ?p_dash:Float, ?p_aligned:Bool, ?p_antialiased:Bool):Void ((cast __gd.ptr : godot.CanvasItem)).value.draw_dashed_line(p_from, p_to, p_color, p_width, p_dash, p_aligned, p_antialiased);
+	function draw_arc(p_center:gd.Vector2, p_radius:Float, p_start_angle:Float, p_end_angle:Float, p_point_count:Int, p_color:gd.Color, ?p_width:Float, ?p_antialiased:Bool):Void ((cast __gd.ptr : godot.CanvasItem)).value.draw_arc(p_center, p_radius, p_start_angle, p_end_angle, p_point_count, p_color, p_width, p_antialiased);
+	function draw_circle(p_position:gd.Vector2, p_radius:Float, p_color:gd.Color, ?p_filled:Bool, ?p_width:Float, ?p_antialiased:Bool):Void ((cast __gd.ptr : godot.CanvasItem)).value.draw_circle(p_position, p_radius, p_color, p_filled, p_width, p_antialiased);
 	function draw_set_transform(p_position:gd.Vector2, ?p_rotation:Float, ?p_scale:gd.Vector2):Void ((cast __gd.ptr : godot.CanvasItem)).value.draw_set_transform(p_position, p_rotation, p_scale);
 	function draw_animation_slice(p_animation_length:Float, p_slice_begin:Float, p_slice_end:Float, ?p_offset:Float):Void ((cast __gd.ptr : godot.CanvasItem)).value.draw_animation_slice(p_animation_length, p_slice_begin, p_slice_end, p_offset);
 	function draw_end_animation():Void ((cast __gd.ptr : godot.CanvasItem)).value.draw_end_animation();

@@ -9,15 +9,18 @@ class Type {
 			case 'float': macro :Float;
 			case 'int': macro :Int;
 			case 'bool': macro :Bool;
+			case 'Variant': macro :godot.Variant;
+
+			case 'Color': macro :godot.Color;
+			case 'NodePath': macro :godot.NodePath;
 			case 'String': macro :godot.String;
 			case 'StringName': macro :godot.StringName;
-			case 'NodePath': macro :godot.NodePath;
-			case 'Variant': macro :godot.Variant;
+			case 'Vector2': macro :godot.Vector2;
+
+			case 'CanvasItem': macro :godot.CanvasItem;
 			case 'Node': macro :godot.Node;
 			case 'Node2D': macro :godot.Node2D;
-			case 'CanvasItem': macro :godot.CanvasItem;
 			case 'Object': macro :godot.Object;
-			case 'Vector2': macro :godot.Vector2;
 			case v:
 				// trace('Unhandled type $gdType');
 				// macro :Dynamic;
@@ -31,15 +34,18 @@ class Type {
 			case 'float': macro :Float;
 			case 'int': macro :Int;
 			case 'bool': macro :Bool;
+			case 'Variant': macro :gd.Variant;
+
+			case 'Color': macro :gd.Color;
+			case 'NodePath': macro :String;
 			case 'String': macro :String;
 			case 'StringName': macro :String;
-			case 'NodePath': macro :String;
-			case 'Variant': macro :gd.Variant;
+			case 'Vector2': macro :gd.Vector2;
+
+			case 'CanvasItem': macro :gd.CanvasItem;
 			case 'Node': macro :gd.Node;
 			case 'Node2D': macro :gd.Node2D;
-			case 'CanvasItem': macro :gd.CanvasItem;
 			case 'Object': macro :gd.Object;
-			case 'Vector2': macro :gd.Vector2;
 			case v:
 				// trace('Unhandled type $gdType');
 				// macro :Dynamic;
@@ -54,12 +60,15 @@ class Type {
 			case 'float': macro :Float;
 			case 'int': macro :Int;
 			case 'bool': macro :Bool;
+			case 'Variant': macro :gd.Variant;
+
+			case 'Color': macro :gd.Color;
+			case 'NodePath': macro :String;
 			case 'String': macro :String;
 			case 'StringName': macro :String;
-			case 'NodePath': macro :String;
-			case 'Node': macro :gd.Node;
 			case 'Vector2': macro :gd.Vector2;
-			case 'Variant': macro :gd.Variant;
+
+			case 'Node': macro :gd.Node;
 			case v:
 				// trace('Unhandled type $gdType');
 				// macro :Dynamic;

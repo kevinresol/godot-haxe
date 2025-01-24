@@ -16,7 +16,7 @@ class BuiltinClassBuilder extends Builder {
 			final hppExists = sys.FileSystem.exists(Path.join([Sys.programPath().directory(), '../godot-cpp/include', hpp]))
 				|| sys.FileSystem.exists(Path.join([Sys.programPath().directory(), '../godot-cpp/gen/include', hpp]));
 			if (hppExists) {
-				if (clazz.name == 'Vector2') {
+				if (clazz.name == 'Vector2' || clazz.name == 'Color') {
 					generateClassExtern(clazz, hpp);
 					generateClassWrapper(clazz, false);
 					generateClassWrapper(clazz, true);
@@ -25,11 +25,6 @@ class BuiltinClassBuilder extends Builder {
 				trace('Skipping ${cname} because ${hpp} does not exist');
 			}
 		}
-	}
-
-	function getMethods(clazz:BuiltinClass):Array<BuiltinClassMethod> {
-		// TODO: investigate why "bezier_derivative" is not in the generated gdextension c++
-		return (clazz.methods ?? []).filter(m -> m.name != 'bezier_derivative');
 	}
 
 	function generateClassExtern(clazz:BuiltinClass, hpp:String) {
@@ -48,6 +43,23 @@ class BuiltinClassBuilder extends Builder {
 			{pos: null, name: ':native', params: [macro $v{'godot::$cname'}]},
 			{pos: null, name: ':structAccess', params: []},
 		];
+
+		final abs = macro class $cname {
+			@:from static inline function fromWrapper(v:gd.$cname):godot.$cname
+				return fromWrapperInternal(v);
+
+			@:from static inline function fromWrapperInternal(v:$wct):godot.$cname
+				return @:privateAccess v.__gd;
+
+			@:to inline function toWrapper():gd.$cname
+				return toWrapperInternal();
+
+			@:to inline function toWrapperInternal():$wct
+				return new $wtp(this);
+		}
+		final struct = macro :cpp.Struct<$ect>;
+		abs.kind = TDAbstract(struct, [AbFrom(struct), AbTo(struct)]);
+		abs.meta = [{pos: null, name: ':forward'},];
 
 		if (clazz.constructors.length > 0) {
 			final ctor = {
@@ -89,7 +101,7 @@ class BuiltinClassBuilder extends Builder {
 			}
 		}
 
-		for (fn in getMethods(clazz)) {
+		for (fn in getValidMethods(clazz)) {
 			final fname = fn.name;
 			final rtype = fn.return_type ?? 'void';
 			try {
@@ -108,24 +120,7 @@ class BuiltinClassBuilder extends Builder {
 			} catch (e) {}
 		}
 
-		final abs = macro class $cname {
-			@:from static inline function fromWrapper(v:gd.$cname):godot.$cname
-				return fromWrapperInternal(v);
-
-			@:from static inline function fromWrapperInternal(v:$wct):godot.$cname
-				return @:privateAccess v.__gd;
-
-			@:to inline function toWrapper():gd.$cname
-				return toWrapperInternal();
-
-			@:to inline function toWrapperInternal():$wct
-				return new $wtp(this);
-		}
-		final struct = macro :cpp.Struct<$ect>;
-		abs.kind = TDAbstract(struct, [AbFrom(struct), AbTo(struct)]);
-		abs.meta = [{pos: null, name: ':forward'},];
-
-		for (prop in clazz.members) {
+		for (prop in getValidMembers(clazz)) {
 			cls.fields.push({
 				pos: null,
 				name: prop.name,
@@ -177,7 +172,7 @@ class BuiltinClassBuilder extends Builder {
 		abs.kind = TDAbstract(wct, [AbFrom(wct), AbTo(wct)]);
 		abs.meta = [{pos: null, name: ':forward'}, {pos: null, name: ':forwardStatics'},];
 
-		for (prop in clazz.members) {
+		for (prop in getValidMembers(clazz)) {
 			final pname = prop.name;
 			final ptype = makeGodotType(prop.type);
 			cls.fields.push({
@@ -203,7 +198,7 @@ class BuiltinClassBuilder extends Builder {
 			try {
 				cls.fields.push({
 					pos: null,
-					access: isScriptExtern ? [AStatic] : [APublic, AStatic],
+					access: [AStatic],
 					name: '_new${i}',
 					kind: FFun({
 						args: (ctor.arguments ?? []).map(arg -> ({
@@ -225,17 +220,22 @@ class BuiltinClassBuilder extends Builder {
 							name: 'p_${arg.name}',
 							type: makeHaxeHostType(arg.type),
 						} : FunctionArg)),
-						expr: macro this = $p{[wname, '_new${i}']}($a{
-							(ctor.arguments ?? []).map(arg -> macro $i{'p_${arg.name}'})
-						})
+						expr: {
+							final e = macro $p{[wname, '_new${i}']}($a{
+								(ctor.arguments ?? []).map(arg -> macro $i{'p_${arg.name}'})
+							});
+							isScriptExtern ? macro this = $e : macro this = @:privateAccess
+								$e;
+						}
 					})
 				});
 			} catch (e) {}
 		}
 
-		for (fn in getMethods(clazz)) {
+		for (fn in getValidMethods(clazz)) {
 			final fname = fn.name;
 			final rtype = fn.return_type ?? 'void';
+
 			try {
 				cls.fields.push({
 					pos: null,
@@ -253,7 +253,6 @@ class BuiltinClassBuilder extends Builder {
 				});
 			} catch (e) {}
 		}
-
 		for (const in clazz.constants) {
 			final type = makeHaxeHostType(const.type);
 			cls.fields.push({
@@ -271,9 +270,9 @@ class BuiltinClassBuilder extends Builder {
 							final args = regex.matched(2).split(',').map(v -> v.trim()).map(v -> switch v {
 								case 'inf': macro Math.POSITIVE_INFINITY;
 								case '-inf': macro Math.NEGATIVE_INFINITY;
-								case 'nan': macro Math.NaN;
-								default: macro $v{Std.parseInt(v)};
+								default: macro $v{v.contains('.') ? Std.parseFloat(v) : Std.parseInt(v)};
 							});
+
 							macro new $tp($a{args});
 						} else {
 							throw 'Unhandled constant type ${const.type}';
@@ -281,8 +280,24 @@ class BuiltinClassBuilder extends Builder {
 				}),
 			});
 		}
-
 		final source = printTypeDefinition(cls) + '\n\n' + printTypeDefinition(abs);
 		write('${config.folder}/${cls.pack.join('/')}/$cname.hx', source);
+	}
+
+	function getValidMethods(clazz:BuiltinClass):Array<BuiltinClassMethod> {
+		// TODO: investigate why some methods are not in the generated gdextension c++
+		return switch clazz.name {
+			case 'Color':
+				clazz.methods.filter(m -> !['from_ok_hsl'].contains(m.name));
+			case 'Vector2':
+				clazz.methods.filter(m -> !['bezier_derivative'].contains(m.name));
+			default:
+				clazz.methods;
+		}
+	}
+
+	function getValidMembers(clazz:BuiltinClass):Array<BuiltinClassMember> {
+		// TODO: handle these virtual members
+		return if (clazz.name == 'Color') clazz.members.filter(m -> !['r8', 'g8', 'b8', 'a8', 'h', 's', 'v'].contains(m.name)); else clazz.members;
 	}
 }

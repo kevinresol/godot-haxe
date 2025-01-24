@@ -12,6 +12,10 @@ extern class CanvasItem extends gd.Node {
 	function is_set_as_top_level():Bool;
 	function set_light_mask(p_light_mask:Int):Void;
 	function get_light_mask():Int;
+	function set_modulate(p_modulate:gd.Color):Void;
+	function get_modulate():gd.Color;
+	function set_self_modulate(p_self_modulate:gd.Color):Void;
+	function get_self_modulate():gd.Color;
 	function set_z_index(p_z_index:Int):Void;
 	function get_z_index():Int;
 	function set_z_as_relative(p_enable:Bool):Void;
@@ -20,6 +24,10 @@ extern class CanvasItem extends gd.Node {
 	function is_y_sort_enabled():Bool;
 	function set_draw_behind_parent(p_enable:Bool):Void;
 	function is_draw_behind_parent_enabled():Bool;
+	function draw_line(p_from:gd.Vector2, p_to:gd.Vector2, p_color:gd.Color, ?p_width:Float, ?p_antialiased:Bool):Void;
+	function draw_dashed_line(p_from:gd.Vector2, p_to:gd.Vector2, p_color:gd.Color, ?p_width:Float, ?p_dash:Float, ?p_aligned:Bool, ?p_antialiased:Bool):Void;
+	function draw_arc(p_center:gd.Vector2, p_radius:Float, p_start_angle:Float, p_end_angle:Float, p_point_count:Int, p_color:gd.Color, ?p_width:Float, ?p_antialiased:Bool):Void;
+	function draw_circle(p_position:gd.Vector2, p_radius:Float, p_color:gd.Color, ?p_filled:Bool, ?p_width:Float, ?p_antialiased:Bool):Void;
 	function draw_set_transform(p_position:gd.Vector2, ?p_rotation:Float, ?p_scale:gd.Vector2):Void;
 	function draw_animation_slice(p_animation_length:Float, p_slice_begin:Float, p_slice_end:Float, ?p_offset:Float):Void;
 	function draw_end_animation():Void;

@@ -17,11 +17,14 @@ abstract Variant(VariantContainer) from VariantContainer to VariantContainer {
 	@:from static inline function fromString(v:String):Variant
 		return VariantContainer.fromString(v);
 
+	@:from static inline function fromNodePath(v:gd.NodePath):Variant
+		return VariantContainer.fromNodePath(v);
+
 	@:from static inline function fromVector2(v:gd.Vector2):Variant
 		return VariantContainer.fromVector2(v);
 
-	@:from static inline function fromNodePath(v:gd.NodePath):Variant
-		return VariantContainer.fromNodePath(v);
+	@:from static inline function fromColor(v:gd.Color):Variant
+		return VariantContainer.fromColor(v);
 
 	@:from static inline function fromVariantType(v:gd.VariantType):Variant
 		return fromInt(v);
@@ -45,9 +48,12 @@ class VariantContainer {
 	public static function fromString(v:String)
 		return new VariantContainer(v);
 
+	public static function fromNodePath(v:gd.NodePath)
+		return new VariantContainer(v);
+
 	public static function fromVector2(v:gd.Vector2)
 		return new VariantContainer(@:privateAccess v.__gd);
 
-	public static function fromNodePath(v:gd.NodePath)
-		return new VariantContainer(v);
+	public static function fromColor(v:gd.Color)
+		return new VariantContainer(@:privateAccess v.__gd);
 }
