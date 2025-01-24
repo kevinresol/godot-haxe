@@ -1,5 +1,5 @@
 package gd;
-enum abstract PropertyHint(cpp.UInt32) to cpp.UInt32 {
+enum abstract PropertyHint(Int) to Int {
 	final NONE = 0;
 	final RANGE = 1;
 	final ENUM = 2;

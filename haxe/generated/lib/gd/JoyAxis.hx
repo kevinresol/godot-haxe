@@ -1,5 +1,5 @@
 package gd;
-enum abstract JoyAxis(cpp.UInt32) to cpp.UInt32 {
+enum abstract JoyAxis(Int) to Int {
 	final INVALID = -1;
 	final LEFT_X = 0;
 	final LEFT_Y = 1;

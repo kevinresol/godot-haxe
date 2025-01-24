@@ -1,5 +1,5 @@
 package gd;
-enum abstract MouseButton(cpp.UInt32) to cpp.UInt32 {
+enum abstract MouseButton(Int) to Int {
 	final NONE = 0;
 	final LEFT = 1;
 	final RIGHT = 2;

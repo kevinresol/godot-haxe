@@ -1,5 +1,5 @@
 package gd;
-enum abstract MethodFlags(cpp.UInt32) to cpp.UInt32 {
+enum abstract MethodFlags(Int) to Int {
 	final NORMAL = 1;
 	final EDITOR = 2;
 	final CONST = 4;

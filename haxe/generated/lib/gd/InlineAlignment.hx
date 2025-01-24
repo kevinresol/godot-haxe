@@ -1,5 +1,5 @@
 package gd;
-enum abstract InlineAlignment(cpp.UInt32) to cpp.UInt32 {
+enum abstract InlineAlignment(Int) to Int {
 	final TOP_TO = 0;
 	final CENTER_TO = 1;
 	final BASELINE_TO = 3;

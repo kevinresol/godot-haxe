@@ -1,5 +1,5 @@
 package gd;
-enum abstract MIDIMessage(cpp.UInt32) to cpp.UInt32 {
+enum abstract MIDIMessage(Int) to Int {
 	final NONE = 0;
 	final NOTE_OFF = 8;
 	final NOTE_ON = 9;

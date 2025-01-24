@@ -1,5 +1,5 @@
 package gd;
-enum abstract KeyModifierMask(cpp.UInt32) to cpp.UInt32 {
+enum abstract KeyModifierMask(Int) to Int {
 	final MASK = 8388607;
 	final IER_MASK = 532676608;
 	final CMD_OR_CTRL = 16777216;

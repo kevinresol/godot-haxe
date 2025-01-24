@@ -1,5 +1,5 @@
 package gd;
-enum abstract VerticalAlignment(cpp.UInt32) to cpp.UInt32 {
+enum abstract VerticalAlignment(Int) to Int {
 	final TOP = 0;
 	final CENTER = 1;
 	final BOTTOM = 2;

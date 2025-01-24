@@ -1,5 +1,5 @@
 package gd;
-enum abstract VariantOperator(cpp.UInt32) to cpp.UInt32 {
+enum abstract VariantOperator(Int) to Int {
 	final EQUAL = 0;
 	final NOT_EQUAL = 1;
 	final LESS = 2;

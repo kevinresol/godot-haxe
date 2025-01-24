@@ -1,5 +1,5 @@
 package gd;
-enum abstract JoyButton(cpp.UInt32) to cpp.UInt32 {
+enum abstract JoyButton(Int) to Int {
 	final INVALID = -1;
 	final A = 0;
 	final B = 1;

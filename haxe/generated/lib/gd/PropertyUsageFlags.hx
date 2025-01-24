@@ -1,5 +1,5 @@
 package gd;
-enum abstract PropertyUsageFlags(cpp.UInt32) to cpp.UInt32 {
+enum abstract PropertyUsageFlags(Int) to Int {
 	final NONE = 0;
 	final STORAGE = 2;
 	final EDITOR = 4;

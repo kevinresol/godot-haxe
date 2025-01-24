@@ -1,5 +1,5 @@
 package gd;
-enum abstract Side(cpp.UInt32) to cpp.UInt32 {
+enum abstract Side(Int) to Int {
 	final LEFT = 0;
 	final TOP = 1;
 	final RIGHT = 2;

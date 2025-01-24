@@ -136,10 +136,10 @@ class ClassBuilder extends Builder {
 		}
 
 		if (cname == 'Object') {
-			cls.fields.push((macro class {
+			cls.fields = cls.fields.concat((macro class {
 				function cast_to<T:haxe.Constraints.Constructible<godot.Object->Void>>(cls:Class<T>):T
 					return Type.createInstance(cls, [__gd]);
-			}).fields[0]);
+			}).fields);
 		}
 
 		final source = printTypeDefinition(cls);
@@ -183,9 +183,12 @@ class ClassBuilder extends Builder {
 		}
 
 		if (cname == 'Object') {
-			def.fields.push((macro class {
+			def.meta.push({pos: null, name: ':autoBuild', params: [macro gd.Object.build()]});
+			def.fields = def.fields.concat((macro class {
 				function cast_to<T:gd.Object>(cls:Class<T>):T;
-			}).fields[0]);
+
+				static macro function build();
+			}).fields);
 		}
 
 		final source = printTypeDefinition(def);

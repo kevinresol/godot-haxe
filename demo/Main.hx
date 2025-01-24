@@ -1,11 +1,24 @@
 @:rtti
-class Main extends gd.Node2D {
+class Base extends gd.Node2D {
+	@export
+	var base:Float = 42;
+
+	function new() {
+		trace('new Base()');
+		trace(__props);
+	}
+}
+
+@:rtti
+class Main extends Base {
 	@export
 	@export_range(0, 100)
 	var speed:Float = 42;
 
 	function new() {
-		trace("new Main()");
+		super();
+		trace('new Main()');
+		trace(__props);
 
 		trace('UtilityFunctions::print checks (cppia)');
 		gd.UtilityFunctions.print(42);

@@ -1,4 +1,6 @@
 package gd;
+
+@:autoBuild(gd.ObjectMacro.build())
 extern class Object {
 	function get_class():String;
 	function is_class(p_class:String):Bool;

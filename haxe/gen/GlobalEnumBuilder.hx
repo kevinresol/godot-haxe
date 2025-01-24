@@ -57,7 +57,7 @@ class GlobalEnumBuilder extends Builder {
 		final ename = e.name.replace('.', '');
 		final config = Config.cppiaExtern;
 		final def = macro class $ename {}
-		def.kind = TDAbstract(macro :cpp.UInt32, [AbEnum, AbTo(macro :cpp.UInt32)]);
+		def.kind = TDAbstract(macro :Int, [AbEnum, AbTo(macro :Int)]);
 		def.pack = config.pack;
 		for (v in e.values) {
 			def.fields.push({

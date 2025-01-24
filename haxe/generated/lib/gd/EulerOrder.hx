@@ -1,5 +1,5 @@
 package gd;
-enum abstract EulerOrder(cpp.UInt32) to cpp.UInt32 {
+enum abstract EulerOrder(Int) to Int {
 	final XYZ = 0;
 	final XZY = 1;
 	final YXZ = 2;

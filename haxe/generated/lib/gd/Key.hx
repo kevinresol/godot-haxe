@@ -1,5 +1,5 @@
 package gd;
-enum abstract Key(cpp.UInt32) to cpp.UInt32 {
+enum abstract Key(Int) to Int {
 	final NONE = 0;
 	final SPECIAL = 4194304;
 	final ESCAPE = 4194305;

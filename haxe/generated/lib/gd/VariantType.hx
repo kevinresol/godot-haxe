@@ -1,5 +1,5 @@
 package gd;
-enum abstract VariantType(cpp.UInt32) to cpp.UInt32 {
+enum abstract VariantType(Int) to Int {
 	final NIL = 0;
 	final BOOL = 1;
 	final INT = 2;

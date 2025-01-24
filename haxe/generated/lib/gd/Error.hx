@@ -1,5 +1,5 @@
 package gd;
-enum abstract Error(cpp.UInt32) to cpp.UInt32 {
+enum abstract Error(Int) to Int {
 	final OK = 0;
 	final FAILED = 1;
 	final UNAVAILABLE = 2;
