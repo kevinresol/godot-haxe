@@ -1,5 +1,5 @@
 package gd;
-class Vector2 {
+class Vector2_wrapper {
 	final __gd : godot.Vector2;
 	public function new(value:godot.Vector2) __gd = value;
 	public var x(get, set) : Float;
@@ -8,9 +8,9 @@ class Vector2 {
 	public var y(get, set) : Float;
 	function get_y():Float return __gd.y;
 	function set_y(v:Float):Float return __gd.y = v;
-	public static function _new0():gd.Vector2 return new Vector2(new godot.Vector2());
-	public static function _new1(p_from:gd.Vector2):gd.Vector2 return new Vector2(new godot.Vector2(p_from));
-	public static function _new3(p_x:Float, p_y:Float):gd.Vector2 return new Vector2(new godot.Vector2(p_x, p_y));
+	public static function _new0():Vector2_wrapper return new Vector2_wrapper(new godot.Vector2());
+	public static function _new1(p_from:gd.Vector2):Vector2_wrapper return new Vector2_wrapper(new godot.Vector2(p_from));
+	public static function _new3(p_x:Float, p_y:Float):Vector2_wrapper return new Vector2_wrapper(new godot.Vector2(p_x, p_y));
 	public function angle():Float return __gd.angle();
 	public function angle_to(p_to:gd.Vector2):Float return __gd.angle_to(p_to);
 	public function angle_to_point(p_to:gd.Vector2):Float return __gd.angle_to_point(p_to);
@@ -58,4 +58,10 @@ class Vector2 {
 	public function max(p_with:gd.Vector2):gd.Vector2 return __gd.max(p_with);
 	public function maxf(p_with:Float):gd.Vector2 return __gd.maxf(p_with);
 	public function from_angle(p_angle:Float):gd.Vector2 return __gd.from_angle(p_angle);
+}
+
+@:forward @:forwardStatics abstract Vector2(Vector2_wrapper) from Vector2_wrapper to Vector2_wrapper {
+	public extern overload inline function new() this = Vector2_wrapper._new0();
+	public extern overload inline function new(p_from:gd.Vector2) this = Vector2_wrapper._new1(p_from);
+	public extern overload inline function new(p_x:Float, p_y:Float) this = Vector2_wrapper._new3(p_x, p_y);
 }

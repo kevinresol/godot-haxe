@@ -12,7 +12,8 @@ class Main extends gd.Node2D {
 		gd.UtilityFunctions.print(42.3);
 		gd.UtilityFunctions.print(true);
 		gd.UtilityFunctions.print('HaxeString');
-		gd.UtilityFunctions.print(gd.Vector2._new3(42, 44));
+		gd.UtilityFunctions.print(new gd.Vector2());
+		gd.UtilityFunctions.print(new gd.Vector2(42, 44));
 		// UtilityFunctions.print(('Node/Path' : gd.NodePath));
 	}
 

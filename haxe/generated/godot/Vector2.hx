@@ -56,9 +56,13 @@ package godot;
 
 @:forward abstract Vector2(cpp.Struct<Vector2_extern>) from cpp.Struct<Vector2_extern> to cpp.Struct<Vector2_extern> {
 	@:from
-	static inline function fromWrapper(v:gd.Vector2):godot.Vector2 return @:privateAccess v.__gd;
+	static inline function fromWrapper(v:gd.Vector2):godot.Vector2 return fromWrapperInternal(v);
+	@:from
+	static inline function fromWrapperInternal(v:gd.Vector2.Vector2_wrapper):godot.Vector2 return @:privateAccess v.__gd;
 	@:to
-	inline function toWrapper():gd.Vector2 return new gd.Vector2(this);
+	inline function toWrapper():gd.Vector2 return toWrapperInternal();
+	@:to
+	inline function toWrapperInternal():gd.Vector2.Vector2_wrapper return new gd.Vector2.Vector2_wrapper(this);
 	public extern overload inline function new() this = new godot.Vector2_extern();
 	public extern overload inline function new(p_from:gd.Vector2) this = new godot.Vector2_extern(p_from);
 	public extern overload inline function new(p_x:Float, p_y:Float) this = new godot.Vector2_extern(p_x, p_y);

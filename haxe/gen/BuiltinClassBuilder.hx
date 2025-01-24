@@ -35,6 +35,9 @@ class BuiltinClassBuilder extends Builder {
 	function generateClassExtern(clazz:BuiltinClass, hpp:String) {
 		final cname = clazz.name;
 		final ename = '${cname}_extern';
+		final wname = '${cname}_wrapper';
+		final wtp = {pack: ['gd'], name: cname, sub: wname};
+		final wct = TPath(wtp);
 		final config = Config.nativeExtern;
 		final cls = macro class $ename {};
 		cls.isExtern = true;
@@ -106,10 +109,16 @@ class BuiltinClassBuilder extends Builder {
 
 		final abs = macro class $cname {
 			@:from static inline function fromWrapper(v:gd.$cname):godot.$cname
+				return fromWrapperInternal(v);
+
+			@:from static inline function fromWrapperInternal(v:$wct):godot.$cname
 				return @:privateAccess v.__gd;
 
 			@:to inline function toWrapper():gd.$cname
-				return new gd.$cname(this);
+				return toWrapperInternal();
+
+			@:to inline function toWrapperInternal():$wct
+				return new $wtp(this);
 		}
 		final local = TPath({pack: [], name: ename});
 		final struct = macro :cpp.Struct<$local>;
@@ -151,7 +160,9 @@ class BuiltinClassBuilder extends Builder {
 	function generateClassWrapper(clazz:BuiltinClass, isScriptExtern:Bool) {
 		final cname = clazz.name;
 		final config = isScriptExtern ? Config.cppiaExtern : Config.wrapper;
-		final cls = isScriptExtern ? (macro class $cname {}) : (macro class $cname {
+		final wname = '${cname}_wrapper';
+		final wct = TPath({pack: [], name: wname});
+		final cls = isScriptExtern ? (macro class $wname {}) : (macro class $wname {
 			// cpp.Struct is not a real haxe class so cppia can't access its fields directly
 			// so we need a real haxe class as wrapper and expose the fields getter/setter as real haxe functions
 			final __gd:godot.$cname;
@@ -161,6 +172,10 @@ class BuiltinClassBuilder extends Builder {
 		});
 		cls.pack = config.pack;
 		cls.isExtern = isScriptExtern;
+
+		final abs = macro class $cname {}
+		abs.kind = TDAbstract(wct, [AbFrom(wct), AbTo(wct)]);
+		abs.meta = [{pos: null, name: ':forward'}, {pos: null, name: ':forwardStatics'},];
 
 		for (prop in clazz.members) {
 			final pname = prop.name;
@@ -184,7 +199,7 @@ class BuiltinClassBuilder extends Builder {
 		}
 
 		for (i => ctor in clazz.constructors) {
-			final tp = {pack: [], name: cname};
+			final wtp = {pack: [], name: wname};
 			try {
 				cls.fields.push({
 					pos: null,
@@ -195,10 +210,24 @@ class BuiltinClassBuilder extends Builder {
 							name: 'p_${arg.name}',
 							type: makeHaxeHostType(arg.type),
 						} : FunctionArg)) ?? [],
-						ret: macro :gd.$cname,
-						expr: isScriptExtern ? null : macro return new $tp(new godot.$cname($a{
+						ret: TPath({pack: [], name: wname}),
+						expr: isScriptExtern ? null : macro return new $wtp(new godot.$cname($a{
 							(ctor.arguments ?? []).map(arg -> macro $i{'p_${arg.name}'})
 						}))
+					})
+				});
+				abs.fields.push({
+					pos: null,
+					access: [APublic, AExtern, AOverload, AInline],
+					name: 'new',
+					kind: FFun({
+						args: (ctor.arguments ?? []).map(arg -> ({
+							name: 'p_${arg.name}',
+							type: makeHaxeHostType(arg.type),
+						} : FunctionArg)),
+						expr: macro this = $p{[wname, '_new${i}']}($a{
+							(ctor.arguments ?? []).map(arg -> macro $i{'p_${arg.name}'})
+						})
 					})
 				});
 			} catch (e) {}
@@ -225,7 +254,7 @@ class BuiltinClassBuilder extends Builder {
 			} catch (e) {}
 		}
 
-		final source = printTypeDefinition(cls);
+		final source = printTypeDefinition(cls) + '\n\n' + printTypeDefinition(abs);
 		write('${config.folder}/${cls.pack.join('/')}/$cname.hx', source);
 	}
 }
