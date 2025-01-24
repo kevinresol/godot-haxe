@@ -8,9 +8,9 @@ class Vector2 {
 	public var y(get, set) : Float;
 	function get_y():Float return __gd.y;
 	function set_y(v:Float):Float return __gd.y = v;
-	public static function _new0() return new Vector2(new godot.Vector2());
-	public static function _new1(p_from:gd.Vector2) return new Vector2(new godot.Vector2(p_from));
-	public static function _new3(p_x:Float, p_y:Float) return new Vector2(new godot.Vector2(p_x, p_y));
+	public static function _new0():gd.Vector2 return new Vector2(new godot.Vector2());
+	public static function _new1(p_from:gd.Vector2):gd.Vector2 return new Vector2(new godot.Vector2(p_from));
+	public static function _new3(p_x:Float, p_y:Float):gd.Vector2 return new Vector2(new godot.Vector2(p_x, p_y));
 	public function angle():Float return __gd.angle();
 	public function angle_to(p_to:gd.Vector2):Float return __gd.angle_to(p_to);
 	public function angle_to_point(p_to:gd.Vector2):Float return __gd.angle_to_point(p_to);

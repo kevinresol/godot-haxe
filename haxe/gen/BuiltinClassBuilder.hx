@@ -18,8 +18,8 @@ class BuiltinClassBuilder extends Builder {
 			if (hppExists) {
 				if (clazz.name == 'Vector2') {
 					generateClassExtern(clazz, hpp);
-					generateClassWrapper(clazz);
-					generateClassScriptExtern(clazz);
+					generateClassWrapper(clazz, false);
+					generateClassWrapper(clazz, true);
 				}
 			} else {
 				trace('Skipping ${cname} because ${hpp} does not exist');
@@ -148,36 +148,39 @@ class BuiltinClassBuilder extends Builder {
 		write('${config.folder}/${cls.pack.join('/')}/$cname.hx', source);
 	}
 
-	function generateClassWrapper(clazz:BuiltinClass) {
+	function generateClassWrapper(clazz:BuiltinClass, isScriptExtern:Bool) {
 		final cname = clazz.name;
-		final config = Config.wrapper;
-		final cls = macro class $cname {
-			// cppia can't seem to access cpp.Struct fields directly
-			// so we need a wrapper and expose the fields getter/setter as real haxe functions
+		final config = isScriptExtern ? Config.cppiaExtern : Config.wrapper;
+		final cls = isScriptExtern ? (macro class $cname {}) : (macro class $cname {
+			// cpp.Struct is not a real haxe class so cppia can't access its fields directly
+			// so we need a real haxe class as wrapper and expose the fields getter/setter as real haxe functions
 			final __gd:godot.$cname;
 
 			public function new(value:godot.$cname)
 				__gd = value;
-		}
+		});
 		cls.pack = config.pack;
+		cls.isExtern = isScriptExtern;
 
 		for (prop in clazz.members) {
 			final pname = prop.name;
 			final ptype = makeGodotType(prop.type);
 			cls.fields.push({
 				pos: null,
-				access: [APublic],
+				access: isScriptExtern ? [] : [APublic],
 				name: pname,
 				kind: FProp('get', 'set', ptype),
 			});
 
-			final getter = 'get_${prop.name}';
-			final setter = 'set_${prop.name}';
-			cls.fields = cls.fields.concat((macro class {
-				function $getter():$ptype return __gd.$pname;
+			if (!isScriptExtern) {
+				final getter = 'get_${prop.name}';
+				final setter = 'set_${prop.name}';
+				cls.fields = cls.fields.concat((macro class {
+					function $getter():$ptype return __gd.$pname;
 
-				function $setter(v : $ptype):$ptype return __gd.$pname = v;
-			}).fields);
+					function $setter(v : $ptype):$ptype return __gd.$pname = v;
+				}).fields);
+			}
 		}
 
 		for (i => ctor in clazz.constructors) {
@@ -185,14 +188,15 @@ class BuiltinClassBuilder extends Builder {
 			try {
 				cls.fields.push({
 					pos: null,
-					access: [APublic, AStatic],
+					access: isScriptExtern ? [AStatic] : [APublic, AStatic],
 					name: '_new${i}',
 					kind: FFun({
 						args: (ctor.arguments ?? []).map(arg -> ({
 							name: 'p_${arg.name}',
 							type: makeHaxeHostType(arg.type),
 						} : FunctionArg)) ?? [],
-						expr: macro return new $tp(new godot.$cname($a{
+						ret: macro :gd.$cname,
+						expr: isScriptExtern ? null : macro return new $tp(new godot.$cname($a{
 							(ctor.arguments ?? []).map(arg -> macro $i{'p_${arg.name}'})
 						}))
 					})
@@ -206,7 +210,7 @@ class BuiltinClassBuilder extends Builder {
 			try {
 				cls.fields.push({
 					pos: null,
-					access: [APublic],
+					access: isScriptExtern ? [] : [APublic],
 					name: fname,
 					kind: FFun({
 						args: fn.arguments?.map(arg -> ({
@@ -215,7 +219,7 @@ class BuiltinClassBuilder extends Builder {
 							opt: arg.default_value != null,
 						} : FunctionArg)) ?? [],
 						ret: makeHaxeHostType(rtype),
-						expr: macro return __gd.$fname($a{(fn.arguments ?? []).map(arg -> macro $i{'p_${arg.name}'})})
+						expr: isScriptExtern ? null : macro return __gd.$fname($a{(fn.arguments ?? []).map(arg -> macro $i{'p_${arg.name}'})})
 					})
 				});
 			} catch (e) {}
@@ -223,61 +227,5 @@ class BuiltinClassBuilder extends Builder {
 
 		final source = printTypeDefinition(cls);
 		write('${config.folder}/${cls.pack.join('/')}/$cname.hx', source);
-	}
-
-	function generateClassScriptExtern(clazz:BuiltinClass) {
-		final cname = clazz.name;
-		final config = Config.cppiaExtern;
-		final def = macro class $cname {};
-		def.isExtern = true;
-		def.pack = config.pack;
-
-		for (prop in clazz.members) {
-			def.fields.push({
-				pos: null,
-				name: prop.name,
-				kind: FProp('get', 'set', makeGodotType(prop.type)),
-			});
-		}
-
-		for (i => ctor in clazz.constructors) {
-			final tp = {pack: [], name: cname};
-			try {
-				def.fields.push({
-					pos: null,
-					access: [AStatic],
-					name: '_new${i}',
-					kind: FFun({
-						args: (ctor.arguments ?? []).map(arg -> ({
-							name: 'p_${arg.name}',
-							type: makeHaxeScriptType(arg.type),
-						} : FunctionArg)) ?? [],
-						ret: macro :gd.$cname,
-					})
-				});
-			} catch (e) {}
-		}
-
-		for (fn in getMethods(clazz)) {
-			final fname = fn.name;
-			final rtype = fn.return_type ?? 'void';
-			try {
-				def.fields.push({
-					pos: null,
-					name: fname,
-					kind: FFun({
-						args: fn.arguments?.map(arg -> ({
-							name: 'p_${arg.name}',
-							type: makeHaxeScriptType(arg.type),
-							opt: arg.default_value != null,
-						} : FunctionArg)) ?? [],
-						ret: makeHaxeScriptType(rtype),
-					})
-				});
-			} catch (e) {}
-		}
-
-		final source = printTypeDefinition(def);
-		write('${config.folder}/${def.pack.join('/')}/$cname.hx', source);
 	}
 }
