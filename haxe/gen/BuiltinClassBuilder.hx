@@ -35,6 +35,7 @@ class BuiltinClassBuilder extends Builder {
 	function generateClassExtern(clazz:BuiltinClass, hpp:String) {
 		final cname = clazz.name;
 		final ename = '${cname}_extern';
+		final ect = TPath({pack: [], name: ename});
 		final wname = '${cname}_wrapper';
 		final wtp = {pack: ['gd'], name: cname, sub: wname};
 		final wct = TPath(wtp);
@@ -120,8 +121,7 @@ class BuiltinClassBuilder extends Builder {
 			@:to inline function toWrapperInternal():$wct
 				return new $wtp(this);
 		}
-		final local = TPath({pack: [], name: ename});
-		final struct = macro :cpp.Struct<$local>;
+		final struct = macro :cpp.Struct<$ect>;
 		abs.kind = TDAbstract(struct, [AbFrom(struct), AbTo(struct)]);
 		abs.meta = [{pos: null, name: ':forward'},];
 

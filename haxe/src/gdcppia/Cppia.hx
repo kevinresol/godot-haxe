@@ -28,6 +28,15 @@ class Cppia {
 		UtilityFunctions.print(new gd.Vector2());
 		UtilityFunctions.print(new gd.Vector2(42, 44));
 		UtilityFunctions.print(('Node/Path' : gd.NodePath));
+
+		trace('UtilityFunctions::typeof checks (host)');
+		UtilityFunctions.print(UtilityFunctions.typeof(42));
+		UtilityFunctions.print(UtilityFunctions.typeof(42.3));
+		UtilityFunctions.print(UtilityFunctions.typeof(true));
+		UtilityFunctions.print(UtilityFunctions.typeof('HaxeString'));
+		UtilityFunctions.print(UtilityFunctions.typeof(new gd.Vector2()));
+		UtilityFunctions.print(UtilityFunctions.typeof(new gd.Vector2(42, 44)));
+		UtilityFunctions.print(UtilityFunctions.typeof(('Node/Path' : gd.NodePath)));
 	}
 
 	static var module:Module;

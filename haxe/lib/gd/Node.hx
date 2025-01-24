@@ -82,7 +82,7 @@ extern class Node extends gd.Object {
 	function set_multiplayer_authority(p_id:Int, ?p_recursive:Bool):Void;
 	function get_multiplayer_authority():Int;
 	function is_multiplayer_authority():Bool;
-	function rpc_config(p_method:String, p_config:Dynamic):Void;
+	function rpc_config(p_method:String, p_config:gd.Variant):Void;
 	function set_editor_description(p_editor_description:String):Void;
 	function get_editor_description():String;
 	function set_unique_name_in_owner(p_enable:Bool):Void;
@@ -90,10 +90,10 @@ extern class Node extends gd.Object {
 	function atr(p_message:String, ?p_context:String):String;
 	function atr_n(p_message:String, p_plural_message:String, p_n:Int, ?p_context:String):String;
 	function update_configuration_warnings():Void;
-	function call_deferred_thread_group(p_method:String):Dynamic;
-	function set_deferred_thread_group(p_property:String, p_value:Dynamic):Void;
+	function call_deferred_thread_group(p_method:String):gd.Variant;
+	function set_deferred_thread_group(p_property:String, p_value:gd.Variant):Void;
 	function notify_deferred_thread_group(p_what:Int):Void;
-	function call_thread_safe(p_method:String):Dynamic;
-	function set_thread_safe(p_property:String, p_value:Dynamic):Void;
+	function call_thread_safe(p_method:String):gd.Variant;
+	function set_thread_safe(p_property:String, p_value:gd.Variant):Void;
 	function notify_thread_safe(p_what:Int):Void;
 }

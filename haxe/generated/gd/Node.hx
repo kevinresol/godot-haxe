@@ -82,7 +82,7 @@ class Node extends gd.Object {
 	function set_multiplayer_authority(p_id:Int, ?p_recursive:Bool):Void ((cast __gd.ptr : godot.Node)).value.set_multiplayer_authority(p_id, p_recursive);
 	function get_multiplayer_authority():Int return ((cast __gd.ptr : godot.Node)).value.get_multiplayer_authority();
 	function is_multiplayer_authority():Bool return ((cast __gd.ptr : godot.Node)).value.is_multiplayer_authority();
-	function rpc_config(p_method:String, p_config:Dynamic):Void ((cast __gd.ptr : godot.Node)).value.rpc_config(p_method, p_config);
+	function rpc_config(p_method:String, p_config:gd.Variant):Void ((cast __gd.ptr : godot.Node)).value.rpc_config(p_method, p_config);
 	function set_editor_description(p_editor_description:String):Void ((cast __gd.ptr : godot.Node)).value.set_editor_description(p_editor_description);
 	function get_editor_description():String return ((cast __gd.ptr : godot.Node)).value.get_editor_description();
 	function set_unique_name_in_owner(p_enable:Bool):Void ((cast __gd.ptr : godot.Node)).value.set_unique_name_in_owner(p_enable);
@@ -90,10 +90,10 @@ class Node extends gd.Object {
 	function atr(p_message:String, ?p_context:String):String return ((cast __gd.ptr : godot.Node)).value.atr(p_message, p_context);
 	function atr_n(p_message:String, p_plural_message:String, p_n:Int, ?p_context:String):String return ((cast __gd.ptr : godot.Node)).value.atr_n(p_message, p_plural_message, p_n, p_context);
 	function update_configuration_warnings():Void ((cast __gd.ptr : godot.Node)).value.update_configuration_warnings();
-	function call_deferred_thread_group(p_method:String):Dynamic return ((cast __gd.ptr : godot.Node)).value.call_deferred_thread_group(p_method);
-	function set_deferred_thread_group(p_property:String, p_value:Dynamic):Void ((cast __gd.ptr : godot.Node)).value.set_deferred_thread_group(p_property, p_value);
+	function call_deferred_thread_group(p_method:String):gd.Variant return ((cast __gd.ptr : godot.Node)).value.call_deferred_thread_group(p_method);
+	function set_deferred_thread_group(p_property:String, p_value:gd.Variant):Void ((cast __gd.ptr : godot.Node)).value.set_deferred_thread_group(p_property, p_value);
 	function notify_deferred_thread_group(p_what:Int):Void ((cast __gd.ptr : godot.Node)).value.notify_deferred_thread_group(p_what);
-	function call_thread_safe(p_method:String):Dynamic return ((cast __gd.ptr : godot.Node)).value.call_thread_safe(p_method);
-	function set_thread_safe(p_property:String, p_value:Dynamic):Void ((cast __gd.ptr : godot.Node)).value.set_thread_safe(p_property, p_value);
+	function call_thread_safe(p_method:String):gd.Variant return ((cast __gd.ptr : godot.Node)).value.call_thread_safe(p_method);
+	function set_thread_safe(p_property:String, p_value:gd.Variant):Void ((cast __gd.ptr : godot.Node)).value.set_thread_safe(p_property, p_value);
 	function notify_thread_safe(p_what:Int):Void ((cast __gd.ptr : godot.Node)).value.notify_thread_safe(p_what);
 }

@@ -15,6 +15,15 @@ class Main extends gd.Node2D {
 		gd.UtilityFunctions.print(new gd.Vector2());
 		gd.UtilityFunctions.print(new gd.Vector2(42, 44));
 		// UtilityFunctions.print(('Node/Path' : gd.NodePath));
+
+		trace('UtilityFunctions::typeof checks (cppia)');
+		gd.UtilityFunctions.print(gd.UtilityFunctions.typeof(42));
+		gd.UtilityFunctions.print(gd.UtilityFunctions.typeof(42.3));
+		gd.UtilityFunctions.print(gd.UtilityFunctions.typeof(true));
+		gd.UtilityFunctions.print(gd.UtilityFunctions.typeof('HaxeString'));
+		gd.UtilityFunctions.print(gd.UtilityFunctions.typeof(new gd.Vector2()));
+		gd.UtilityFunctions.print(gd.UtilityFunctions.typeof(new gd.Vector2(42, 44)));
+		// UtilityFunctions.typeof(('Node/Path' : gd.NodePath));
 	}
 
 	override function _enter_tree() {

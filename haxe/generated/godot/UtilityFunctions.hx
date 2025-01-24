@@ -86,6 +86,7 @@ package godot;
 	static function randfn(p_mean:Float, p_deviation:Float):Float;
 	static function seed(p_base:Int):Void;
 	static function weakref(p_obj:godot.Variant):godot.Variant;
+	@:native("godot::UtilityFunctions::type_of")
 	static function typeof(p_variable:godot.Variant):Int;
 	static function type_convert(p_variant:godot.Variant, p_type:Int):godot.Variant;
 	static function str(p_arg1:godot.Variant):godot.String;
