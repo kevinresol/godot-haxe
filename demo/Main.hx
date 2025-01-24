@@ -1,5 +1,7 @@
+import gd.*;
+
 @:rtti
-class Base extends gd.Node2D {
+class Base extends Node2D {
 	@export
 	var base:Float = 42;
 
@@ -21,33 +23,33 @@ class Main extends Base {
 		trace(__props);
 
 		trace('UtilityFunctions::print checks (cppia)');
-		gd.UtilityFunctions.print(42);
-		gd.UtilityFunctions.print(42.3);
-		gd.UtilityFunctions.print(true);
-		gd.UtilityFunctions.print('HaxeString');
-		gd.UtilityFunctions.print(new gd.Vector2());
-		gd.UtilityFunctions.print(new gd.Vector2(42, 44));
+		UtilityFunctions.print(42);
+		UtilityFunctions.print(42.3);
+		UtilityFunctions.print(true);
+		UtilityFunctions.print('HaxeString');
+		UtilityFunctions.print(new Vector2());
+		UtilityFunctions.print(new Vector2(42, 44));
 		// UtilityFunctions.print(('Node/Path' : gd.NodePath));
 
 		trace('UtilityFunctions::typeof checks (cppia)');
-		gd.UtilityFunctions.print(gd.UtilityFunctions.typeof(42));
-		gd.UtilityFunctions.print(gd.UtilityFunctions.typeof(42.3));
-		gd.UtilityFunctions.print(gd.UtilityFunctions.typeof(true));
-		gd.UtilityFunctions.print(gd.UtilityFunctions.typeof('HaxeString'));
-		gd.UtilityFunctions.print(gd.UtilityFunctions.typeof(new gd.Vector2()));
-		gd.UtilityFunctions.print(gd.UtilityFunctions.typeof(new gd.Vector2(42, 44)));
+		UtilityFunctions.print(UtilityFunctions.typeof(42));
+		UtilityFunctions.print(UtilityFunctions.typeof(42.3));
+		UtilityFunctions.print(UtilityFunctions.typeof(true));
+		UtilityFunctions.print(UtilityFunctions.typeof('HaxeString'));
+		UtilityFunctions.print(UtilityFunctions.typeof(new Vector2()));
+		UtilityFunctions.print(UtilityFunctions.typeof(new Vector2(42, 44)));
 		// UtilityFunctions.typeof(('Node/Path' : gd.NodePath));
 
 		trace('Enum checks (cppia)');
-		gd.UtilityFunctions.print(gd.VariantType.INT);
-		gd.UtilityFunctions.print(gd.VariantType.FLOAT);
+		UtilityFunctions.print(VariantType.INT);
+		UtilityFunctions.print(VariantType.FLOAT);
 	}
 
 	override function _enter_tree() {
 		trace("_enter_tree");
 	}
 
-	final target = gd.Vector2._new3(100, 100);
+	final target = new Vector2(100, 100);
 
 	override function _process(delta:Float) {
 		if (!processed) {
@@ -57,7 +59,7 @@ class Main extends Base {
 
 		final pos = get_position();
 		if (pos.x == 100 && pos.y == 100) {
-			set_position(gd.Vector2._new0());
+			set_position(new Vector2());
 		} else {
 			set_position(pos.move_toward(target, delta * speed));
 		}
@@ -73,7 +75,7 @@ class Main extends Base {
 		trace('get_tree_string: ${get_tree_string()}');
 		trace('get_scene_file_path1: ${get_scene_file_path()}');
 
-		final sprite = get_node("Node2D/Sprite2D").cast_to(gd.Sprite2D);
+		final sprite = get_node("Node2D/Sprite2D").cast_to(Sprite2D);
 		trace('get_node: ${sprite.get_name()}');
 		sprite.set_flip_v(true);
 
