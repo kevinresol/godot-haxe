@@ -42,7 +42,8 @@ class Module {
 		if (classType == null) {
 			return null;
 		} else {
-			final inst:Dynamic = Type.createEmptyInstance(classType);
+			// can't use createEmptyInstance because in that case instance variables will not be initialized
+			final inst:Dynamic = Type.createInstance(classType, []);
 			switch Std.downcast(inst, gd.Object) {
 				case null:
 					// TODO: we should probably throw an error here.
