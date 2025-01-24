@@ -56,7 +56,7 @@ package godot;
 
 @:forward abstract Vector2(cpp.Struct<Vector2_extern>) from cpp.Struct<Vector2_extern> to cpp.Struct<Vector2_extern> {
 	@:from
-	static inline function fromWrapper(v:gd.Vector2):godot.Vector2 return @:privateAccess v.__gd_value;
+	static inline function fromWrapper(v:gd.Vector2):godot.Vector2 return @:privateAccess v.__gd;
 	@:to
 	inline function toWrapper():gd.Vector2 return new gd.Vector2(this);
 	public extern overload inline function new() this = new godot.Vector2_extern();

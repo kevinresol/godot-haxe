@@ -37,7 +37,7 @@ package godot;
 }
 @:forward abstract Object(cpp.Pointer<Object_extern>) from cpp.Pointer<Object_extern> to cpp.Pointer<Object_extern> {
 	@:from
-	static inline function fromWrapper(v:gd.Object):godot.Object return @:privateAccess v.__gd__native.reinterpret();
+	static inline function fromWrapper(v:gd.Object):godot.Object return @:privateAccess v.__gd.reinterpret();
 	@:to
 	inline function toWrapper():gd.Object return new gd.Object(this.reinterpret());
 }

@@ -25,10 +25,10 @@ abstract Variant(VariantContainer) from VariantContainer to VariantContainer {
 }
 
 class VariantContainer {
-	final __gd_value:godot.Variant;
+	final __gd:godot.Variant;
 
 	function new(v:godot.Variant)
-		this.__gd_value = v;
+		this.__gd = v;
 
 	public static function fromBool(v:Bool)
 		return new VariantContainer(v);
@@ -43,7 +43,7 @@ class VariantContainer {
 		return new VariantContainer(v);
 
 	public static function fromVector2(v:gd.Vector2)
-		return new VariantContainer(@:privateAccess v.__gd_value);
+		return new VariantContainer(@:privateAccess v.__gd);
 
 	public static function fromNodePath(v:gd.NodePath)
 		return new VariantContainer(v);

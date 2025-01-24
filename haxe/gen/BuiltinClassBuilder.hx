@@ -106,7 +106,7 @@ class BuiltinClassBuilder extends Builder {
 
 		final abs = macro class $cname {
 			@:from static inline function fromWrapper(v:gd.$cname):godot.$cname
-				return @:privateAccess v.__gd_value;
+				return @:privateAccess v.__gd;
 
 			@:to inline function toWrapper():gd.$cname
 				return new gd.$cname(this);
@@ -154,10 +154,10 @@ class BuiltinClassBuilder extends Builder {
 		final cls = macro class $cname {
 			// cppia can't seem to access cpp.Struct fields directly
 			// so we need a wrapper and expose the fields getter/setter as real haxe functions
-			final __gd_value:godot.$cname;
+			final __gd:godot.$cname;
 
 			public function new(value:godot.$cname)
-				__gd_value = value;
+				__gd = value;
 		}
 		cls.pack = config.pack;
 
@@ -174,9 +174,9 @@ class BuiltinClassBuilder extends Builder {
 			final getter = 'get_${prop.name}';
 			final setter = 'set_${prop.name}';
 			cls.fields = cls.fields.concat((macro class {
-				function $getter():$ptype return __gd_value.$pname;
+				function $getter():$ptype return __gd.$pname;
 
-				function $setter(v : $ptype):$ptype return __gd_value.$pname = v;
+				function $setter(v : $ptype):$ptype return __gd.$pname = v;
 			}).fields);
 		}
 
@@ -215,7 +215,7 @@ class BuiltinClassBuilder extends Builder {
 							opt: arg.default_value != null,
 						} : FunctionArg)) ?? [],
 						ret: makeHaxeHostType(rtype),
-						expr: macro return __gd_value.$fname($a{(fn.arguments ?? []).map(arg -> macro $i{'p_${arg.name}'})})
+						expr: macro return __gd.$fname($a{(fn.arguments ?? []).map(arg -> macro $i{'p_${arg.name}'})})
 					})
 				});
 			} catch (e) {}

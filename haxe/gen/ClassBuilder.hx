@@ -76,7 +76,7 @@ class ClassBuilder extends Builder {
 		final local = TPath({pack: [], name: nativeName});
 		final abs = macro class $cname {
 			@:from static inline function fromWrapper(v:gd.$cname):godot.$cname
-				return @:privateAccess v.__gd__native.reinterpret();
+				return @:privateAccess v.__gd.reinterpret();
 
 			@:to inline function toWrapper():gd.$cname
 				return new gd.$cname(this.reinterpret());
@@ -97,10 +97,10 @@ class ClassBuilder extends Builder {
 			final name = cname;
 			if (parent == null) {
 				macro class $name {
-					public var __gd__native:godot.$cname;
+					public var __gd:godot.$cname;
 
 					public function new(native)
-						__gd__native = native;
+						__gd = native;
 				};
 			} else {
 				final tp = {pack: config.pack, name: parent};
@@ -127,7 +127,7 @@ class ClassBuilder extends Builder {
 						ret: rct,
 						expr: {
 							final native = TPath({pack: Config.nativeExtern.pack, name: cname});
-							final e = macro(cast __gd__native.ptr : $native).value.$fname($a{fn.arguments?.map(arg -> macro $i{'p_${arg.name}'}) ?? []});
+							final e = macro(cast __gd.ptr : $native).value.$fname($a{fn.arguments?.map(arg -> macro $i{'p_${arg.name}'}) ?? []});
 							rtype == 'void' ? e : macro return $e;
 						}
 					})
@@ -138,7 +138,7 @@ class ClassBuilder extends Builder {
 		if (cname == 'Object') {
 			cls.fields.push((macro class {
 				function cast_to<T:haxe.Constraints.Constructible<godot.Object->Void>>(cls:Class<T>):T
-					return Type.createInstance(cls, [__gd__native]);
+					return Type.createInstance(cls, [__gd]);
 			}).fields[0]);
 		}
 

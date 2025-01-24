@@ -33,7 +33,7 @@ package godot;
 }
 @:forward abstract Node2D(cpp.Pointer<Node2D_extern>) from cpp.Pointer<Node2D_extern> to cpp.Pointer<Node2D_extern> {
 	@:from
-	static inline function fromWrapper(v:gd.Node2D):godot.Node2D return @:privateAccess v.__gd__native.reinterpret();
+	static inline function fromWrapper(v:gd.Node2D):godot.Node2D return @:privateAccess v.__gd.reinterpret();
 	@:to
 	inline function toWrapper():gd.Node2D return new gd.Node2D(this.reinterpret());
 }

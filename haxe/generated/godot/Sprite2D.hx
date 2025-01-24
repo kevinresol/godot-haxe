@@ -22,7 +22,7 @@ package godot;
 }
 @:forward abstract Sprite2D(cpp.Pointer<Sprite2D_extern>) from cpp.Pointer<Sprite2D_extern> to cpp.Pointer<Sprite2D_extern> {
 	@:from
-	static inline function fromWrapper(v:gd.Sprite2D):godot.Sprite2D return @:privateAccess v.__gd__native.reinterpret();
+	static inline function fromWrapper(v:gd.Sprite2D):godot.Sprite2D return @:privateAccess v.__gd.reinterpret();
 	@:to
 	inline function toWrapper():gd.Sprite2D return new gd.Sprite2D(this.reinterpret());
 }

@@ -17,11 +17,8 @@ class Module {
 	public function new(data:Array<UInt8>) {
 		final bytes = haxe.io.Bytes.ofData(data);
 
-		trace('Loaded bytes:${bytes.length}');
 		module = cpp.cppia.Module.fromData(data);
 		module.boot();
-		trace('Done booting module');
-		analyze('Main');
 	}
 
 	public function analyze(className:String):ClassInfo {
@@ -41,22 +38,18 @@ class Module {
 	}
 
 	public function createInstance(className:String, owner:godot.Object) {
-		trace('Creating instance of ${className}');
 		final classType = module.resolveClass(className);
-		trace('${Type.getClassName(classType)} inherits ${Type.getClassName(Type.getSuperClass(classType))}');
 		if (classType == null) {
-			trace('Class not found: ${className}');
 			return null;
 		} else {
-			final inst:Dynamic = Type.createInstance(classType, []);
+			final inst:Dynamic = Type.createEmptyInstance(classType);
 			switch Std.downcast(inst, gd.Object) {
 				case null:
+					// TODO: we should probably throw an error here.
 					trace('Instance is not a gd.Object');
 				case node:
-					trace('Instance is a gd.Object');
-					node.__gd__native = cast owner;
+					node.__gd = cast owner;
 			}
-			trace(inst);
 			return inst;
 		}
 	}

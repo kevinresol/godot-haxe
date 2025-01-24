@@ -4,7 +4,7 @@ package godot;
 abstract Variant(cpp.Struct<Variant_extern>) from cpp.Struct<Variant_extern> to cpp.Struct<Variant_extern> {
 	@:from
 	extern static inline function fromWrapper(v:gd.Variant):Variant
-		return @:privateAccess v.__gd_value;
+		return @:privateAccess v.__gd;
 
 	@:from
 	extern static inline function fromFloat(v:Float):Variant
