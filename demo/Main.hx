@@ -81,6 +81,8 @@ class Main extends Base {
 		trace('get_node: ${sprite.get_name()}');
 		final texture = sprite.get_texture();
 		UtilityFunctions.print(texture);
+		UtilityFunctions.print(texture.get_width());
+		UtilityFunctions.print(texture.get_height());
 		sprite.set_flip_v(true);
 
 		final pos = get_position();

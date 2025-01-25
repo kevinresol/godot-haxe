@@ -152,10 +152,11 @@ class ClassBuilder extends Builder {
 						} : FunctionArg)) ?? [],
 						ret: makeHaxeType(rtype),
 						expr: isScriptExtern ? null : {
+							// TODO: cleanup these pointer magic a bit, perhaps wrap into a function
 							final target = fn.is_static ? macro $p{Config.nativeExtern.pack.concat([cname, '${cname}_extern'])} : {
-								if (isRefcounted(cname)) {
+								if (isRefCounted(cname)) {
 									final native = TPath({pack: Config.nativeExtern.pack, name: cname, sub: '${cname}_extern'});
-									macro(cast(cast __ref.ptr() : cpp.Pointer<godot.RefCounted.RefCounted_extern>).reinterpret() : cpp.Pointer<$native>).value;
+									macro(cast __ref.ptr().reinterpret() : cpp.Pointer<$native>).value;
 								} else {
 									final native = TPath({pack: Config.nativeExtern.pack, name: cname});
 									macro(cast __gd.ptr : $native).value;
@@ -220,7 +221,7 @@ class ClassBuilder extends Builder {
 		return false;
 	}
 
-	function isRefcounted(name:String):Bool {
+	function isRefCounted(name:String):Bool {
 		return api.classes.find(c -> c.name == name)?.is_refcounted ?? false;
 	}
 
