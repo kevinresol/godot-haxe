@@ -34,8 +34,10 @@ class Object {
 	public function tr_n(p_message:String, p_plural_message:String, p_n:Int, ?p_context:String):String return ((cast __gd.ptr : cpp.Pointer<gdnative.Object.Object_extern>)).value.tr_n(p_message, p_plural_message, p_n, p_context);
 	public function is_queued_for_deletion():Bool return ((cast __gd.ptr : cpp.Pointer<gdnative.Object.Object_extern>)).value.is_queued_for_deletion();
 	public function cancel_free():Void ((cast __gd.ptr : cpp.Pointer<gdnative.Object.Object_extern>)).value.cancel_free();
+	public function new(allocate:Bool = true) {
+		if (allocate) __gd = new gdnative.ObjectContainer(((gdnative.Object.Object_extern.__alloc().reinterpret() : cpp.Pointer<gdnative.Object.Object_extern>)), true);
+	}
 	public var __gd : gdnative.ObjectContainer;
-	public function new() { }
 	function cast_to<T:(gd.Object)>(cls:Class<T>):T {
 		final ret:T = Type.createInstance(cls, []);
 		ret.__gd = __gd;

@@ -45,8 +45,8 @@ class Cppia {
 		UtilityFunctions.print(gd.VariantType.INT);
 		UtilityFunctions.print(gd.VariantType.FLOAT);
 
-		final x = new gdnative.ObjectContainer(gdnative.Object.Object_extern.__alloc(), true);
-		trace(x);
+		final x = new gd.Node2D();
+		UtilityFunctions.print(x);
 	}
 
 	static var module:Module;

@@ -18,6 +18,7 @@ class Type {
 			case 'Vector2': macro :gdnative.Vector2;
 
 			case 'CanvasItem' | 'Node' | 'Node2D' | 'Object' | 'Sprite2D' | 'Texture' | 'Texture2D': TPath({pack: ['gdnative'], name: gdType});
+			case 'enum::Node.InternalMode': macro :Int;
 			case v:
 				// trace('Unhandled type $gdType');
 				// macro :Dynamic;
@@ -40,6 +41,7 @@ class Type {
 			case 'Vector2': macro :gd.Vector2;
 
 			case 'CanvasItem' | 'Node' | 'Node2D' | 'Object' | 'Sprite2D' | 'Texture' | 'Texture2D': TPath({pack: ['gd'], name: gdType});
+			case 'enum::Node.InternalMode': macro :Int;
 			case v:
 				// trace('Unhandled type $gdType');
 				// macro :Dynamic;

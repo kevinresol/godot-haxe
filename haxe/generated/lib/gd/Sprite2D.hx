@@ -21,4 +21,5 @@ extern class Sprite2D extends gd.Node2D {
 	function get_vframes():Int;
 	function set_hframes(p_hframes:Int):Void;
 	function get_hframes():Int;
+	function new(allocate:Bool = true);
 }

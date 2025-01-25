@@ -30,4 +30,8 @@ class Node2D extends gd.CanvasItem {
 	public function get_angle_to(p_point:gd.Vector2):Float return ((cast __gd.ptr : cpp.Pointer<gdnative.Node2D.Node2D_extern>)).value.get_angle_to(p_point);
 	public function to_local(p_global_point:gd.Vector2):gd.Vector2 return ((cast __gd.ptr : cpp.Pointer<gdnative.Node2D.Node2D_extern>)).value.to_local(p_global_point);
 	public function to_global(p_local_point:gd.Vector2):gd.Vector2 return ((cast __gd.ptr : cpp.Pointer<gdnative.Node2D.Node2D_extern>)).value.to_global(p_local_point);
+	public function new(allocate:Bool = true) {
+		super(false);
+		if (allocate) __gd = new gdnative.ObjectContainer(((gdnative.Node2D.Node2D_extern.__alloc().reinterpret() : cpp.Pointer<gdnative.Object.Object_extern>)), true);
+	}
 }

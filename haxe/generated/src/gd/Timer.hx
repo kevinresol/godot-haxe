@@ -12,4 +12,8 @@ class Timer extends gd.Node {
 	public function is_paused():Bool return ((cast __gd.ptr : cpp.Pointer<gdnative.Timer.Timer_extern>)).value.is_paused();
 	public function is_stopped():Bool return ((cast __gd.ptr : cpp.Pointer<gdnative.Timer.Timer_extern>)).value.is_stopped();
 	public function get_time_left():Float return ((cast __gd.ptr : cpp.Pointer<gdnative.Timer.Timer_extern>)).value.get_time_left();
+	public function new(allocate:Bool = true) {
+		super(false);
+		if (allocate) __gd = new gdnative.ObjectContainer(((gdnative.Timer.Timer_extern.__alloc().reinterpret() : cpp.Pointer<gdnative.Object.Object_extern>)), true);
+	}
 }

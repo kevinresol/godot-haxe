@@ -9,6 +9,7 @@ extern class Node extends gd.Object {
 	function add_sibling(p_sibling:gd.Node, ?p_force_readable_name:Bool):Void;
 	function set_name(p_name:String):Void;
 	function get_name():String;
+	function add_child(p_node:gd.Node, ?p_force_readable_name:Bool):Void;
 	function remove_child(p_node:gd.Node):Void;
 	function reparent(p_new_parent:gd.Node, ?p_keep_global_transform:Bool):Void;
 	function get_child_count(?p_include_internal:Bool):Int;
@@ -96,4 +97,5 @@ extern class Node extends gd.Object {
 	function call_thread_safe(p_method:String):gd.Variant;
 	function set_thread_safe(p_property:String, p_value:gd.Variant):Void;
 	function notify_thread_safe(p_what:Int):Void;
+	function new(allocate:Bool = true);
 }

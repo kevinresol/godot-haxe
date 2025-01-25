@@ -8,4 +8,8 @@ class Texture2D extends gd.Texture {
 	public function get_height():Int return ((cast __gd.ptr : cpp.Pointer<gdnative.Texture2D.Texture2D_extern>)).value.get_height();
 	public function get_size():gd.Vector2 return ((cast __gd.ptr : cpp.Pointer<gdnative.Texture2D.Texture2D_extern>)).value.get_size();
 	public function has_alpha():Bool return ((cast __gd.ptr : cpp.Pointer<gdnative.Texture2D.Texture2D_extern>)).value.has_alpha();
+	public function new(allocate:Bool = true) {
+		super(false);
+		if (allocate) __gd = new gdnative.ObjectContainer(((gdnative.Texture2D.Texture2D_extern.__alloc().reinterpret() : cpp.Pointer<gdnative.Object.Object_extern>)), true);
+	}
 }

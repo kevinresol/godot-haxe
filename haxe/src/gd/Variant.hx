@@ -55,11 +55,11 @@ class VariantContainer {
 		return new VariantContainer(v);
 
 	public static function fromVector2(v:gd.Vector2)
-		return new VariantContainer(@:privateAccess v.__gd);
+		return new VariantContainer(v);
 
 	public static function fromColor(v:gd.Color)
-		return new VariantContainer(@:privateAccess v.__gd);
+		return new VariantContainer(v);
 
 	public static function fromObject(v:gd.Object)
-		return new VariantContainer(@:privateAccess v.__gd.ptr);
+		return new VariantContainer(v);
 }

@@ -55,17 +55,14 @@ abstract Variant(cpp.Struct<Variant_extern>) from cpp.Struct<Variant_extern> to 
 	}
 
 	@:from
-	extern static inline function fromObject(v:gdnative.Object):Variant {
+	extern static inline function fromObject(v:gdnative.Object):Variant
 		return new Variant_extern(v.ptr);
-	}
 
 	@:from
-	extern static inline function fromObjectWrapper(v:gd.Object):Variant {
-		// use .get() to unwrap cpp.Struct
-		return fromObject(untyped __cpp__('{0}.get()', (v : gdnative.Object)));
-	}
+	extern static inline function fromObjectWrapper(v:gd.Object):Variant
+		return fromObject(v.__gd.pointer);
 
-	@:from
+	// @:from
 	public static function fromHaxeDynamic(v:Dynamic):Variant {
 		switch Type.typeof(v) {
 			case TBool:

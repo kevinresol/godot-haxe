@@ -14,4 +14,5 @@ extern class Resource extends gd.RefCounted {
 	function set_scene_unique_id(p_id:String):Void;
 	function get_scene_unique_id():String;
 	function emit_changed():Void;
+	function new(allocate:Bool = true);
 }

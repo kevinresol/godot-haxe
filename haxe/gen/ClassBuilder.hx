@@ -1,5 +1,6 @@
 package gen;
 
+import haxe.macro.MacroStringTools;
 import sys.io.File;
 import haxe.macro.Expr;
 import gen.Api;
@@ -57,6 +58,7 @@ class ClassBuilder extends Builder {
 
 		final local = TPath({pack: [], name: nativeName});
 		cls.fields = cls.fields.concat((macro class {
+			// put the alloc function in extern class to make sure the header file is included
 			extern static inline function __alloc():cpp.Pointer<$local>
 				return gdnative.Memory.Memory_extern.memnew(untyped __cpp__($v{'godot::$cname'}));
 		}).fields);
@@ -71,11 +73,11 @@ class ClassBuilder extends Builder {
 					name: fname,
 					access: fn.is_static ? [AStatic] : [],
 					kind: FFun({
-						args: fn.arguments?.map(arg -> ({
+						args: (fn.arguments ?? []).filter(arg -> arg.type != 'enum::Node.InternalMode').map(arg -> ({
 							name: 'p_${arg.name}',
 							type: makeGodotType(arg.type),
 							opt: arg.default_value != null,
-						} : FunctionArg)) ?? [],
+						} : FunctionArg)),
 						ret: makeGodotType(rtype),
 					})
 				});
@@ -152,11 +154,11 @@ class ClassBuilder extends Builder {
 						a;
 					},
 					kind: FFun({
-						args: fn.arguments?.map(arg -> ({
+						args: (fn.arguments ?? []).filter(arg -> arg.type != 'enum::Node.InternalMode').map(arg -> ({
 							name: 'p_${arg.name}',
 							type: makeHaxeType(arg.type),
 							opt: arg.default_value != null,
-						} : FunctionArg)) ?? [],
+						} : FunctionArg)),
 						ret: makeHaxeType(rtype),
 						expr: isScriptExtern ? null : {
 							final target = if (fn.is_static) {
@@ -168,12 +170,40 @@ class ClassBuilder extends Builder {
 								macro(cast __gd.ptr : cpp.Pointer<$native>).value;
 							}
 
-							final e = macro $target.$fname($a{fn.arguments?.map(arg -> macro $i{'p_${arg.name}'}) ?? []});
+							final e = macro $target.$fname($a{
+								(fn.arguments ?? []).filter(arg -> arg.type != 'enum::Node.InternalMode').map(arg -> macro $i{'p_${arg.name}'})
+							});
 							rtype == 'void' ? e : macro return $e;
 						}
 					})
 				});
 			} catch (e) {}
+		}
+
+		// constructor
+		if (clazz.is_instantiable) {
+			cls.fields.push({
+				pos: null,
+				access: isScriptExtern ? [] : [APublic],
+				name: 'new',
+				kind: FFun({
+					args: [
+						{
+							name: 'allocate',
+							type: macro :Bool,
+							value: macro true,
+						}
+					],
+					expr: isScriptExtern ? null : {
+						final exprs = [];
+						if (parent != null)
+							exprs.push(macro super(false));
+						exprs.push(macro if (allocate) __gd = new gdnative.ObjectContainer(($p{['gdnative', cname, '${cname}_extern']}.__alloc()
+							.reinterpret():cpp.Pointer<gdnative.Object.Object_extern>), true));
+						macro $b{exprs};
+					}
+				})
+			});
 		}
 
 		// special cases
@@ -189,7 +219,7 @@ class ClassBuilder extends Builder {
 					cls.fields = cls.fields.concat((macro class {
 						public var __gd:gdnative.ObjectContainer;
 
-						public function new() {}
+						// public function new() {}
 
 						function cast_to<T:gd.Object>(cls:Class<T>):T {
 							final ret:T = Type.createInstance(cls, []);

@@ -12,4 +12,5 @@ extern class Timer extends gd.Node {
 	function is_paused():Bool;
 	function is_stopped():Bool;
 	function get_time_left():Float;
+	function new(allocate:Bool = true);
 }

@@ -10,6 +10,7 @@ package gdnative;
 	function add_sibling(p_sibling:gdnative.Node, ?p_force_readable_name:Bool):Void;
 	function set_name(p_name:gdnative.String):Void;
 	function get_name():gdnative.StringName;
+	function add_child(p_node:gdnative.Node, ?p_force_readable_name:Bool):Void;
 	function remove_child(p_node:gdnative.Node):Void;
 	function reparent(p_new_parent:gdnative.Node, ?p_keep_global_transform:Bool):Void;
 	function get_child_count(?p_include_internal:Bool):Int;

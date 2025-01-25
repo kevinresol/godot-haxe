@@ -6,6 +6,7 @@ class Base extends Node2D {
 	var base:Float = 42;
 
 	function new() {
+		super();
 		trace('new Base()');
 		trace(__props);
 	}
@@ -89,9 +90,10 @@ class Main extends Base {
 		UtilityFunctions.print(texture2.get_reference_count());
 		sprite.set_flip_v(true);
 
-		// final timer = new Timer();
-		// timer.set_wait_time(1000);
-		// timer.conn
+		final timer = new Timer();
+		timer.set_wait_time(1000);
+		UtilityFunctions.print(timer);
+		add_child(timer);
 
 		final pos = get_position();
 		pos.x = 0;

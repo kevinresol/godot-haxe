@@ -14,4 +14,8 @@ class Resource extends gd.RefCounted {
 	public function set_scene_unique_id(p_id:String):Void ((cast __gd.ptr : cpp.Pointer<gdnative.Resource.Resource_extern>)).value.set_scene_unique_id(p_id);
 	public function get_scene_unique_id():String return ((cast __gd.ptr : cpp.Pointer<gdnative.Resource.Resource_extern>)).value.get_scene_unique_id();
 	public function emit_changed():Void ((cast __gd.ptr : cpp.Pointer<gdnative.Resource.Resource_extern>)).value.emit_changed();
+	public function new(allocate:Bool = true) {
+		super(false);
+		if (allocate) __gd = new gdnative.ObjectContainer(((gdnative.Resource.Resource_extern.__alloc().reinterpret() : cpp.Pointer<gdnative.Object.Object_extern>)), true);
+	}
 }

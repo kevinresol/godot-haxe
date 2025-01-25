@@ -9,6 +9,7 @@ class Node extends gd.Object {
 	public function add_sibling(p_sibling:gd.Node, ?p_force_readable_name:Bool):Void ((cast __gd.ptr : cpp.Pointer<gdnative.Node.Node_extern>)).value.add_sibling(p_sibling, p_force_readable_name);
 	public function set_name(p_name:String):Void ((cast __gd.ptr : cpp.Pointer<gdnative.Node.Node_extern>)).value.set_name(p_name);
 	public function get_name():String return ((cast __gd.ptr : cpp.Pointer<gdnative.Node.Node_extern>)).value.get_name();
+	public function add_child(p_node:gd.Node, ?p_force_readable_name:Bool):Void ((cast __gd.ptr : cpp.Pointer<gdnative.Node.Node_extern>)).value.add_child(p_node, p_force_readable_name);
 	public function remove_child(p_node:gd.Node):Void ((cast __gd.ptr : cpp.Pointer<gdnative.Node.Node_extern>)).value.remove_child(p_node);
 	public function reparent(p_new_parent:gd.Node, ?p_keep_global_transform:Bool):Void ((cast __gd.ptr : cpp.Pointer<gdnative.Node.Node_extern>)).value.reparent(p_new_parent, p_keep_global_transform);
 	public function get_child_count(?p_include_internal:Bool):Int return ((cast __gd.ptr : cpp.Pointer<gdnative.Node.Node_extern>)).value.get_child_count(p_include_internal);
@@ -96,4 +97,8 @@ class Node extends gd.Object {
 	public function call_thread_safe(p_method:String):gd.Variant return ((cast __gd.ptr : cpp.Pointer<gdnative.Node.Node_extern>)).value.call_thread_safe(p_method);
 	public function set_thread_safe(p_property:String, p_value:gd.Variant):Void ((cast __gd.ptr : cpp.Pointer<gdnative.Node.Node_extern>)).value.set_thread_safe(p_property, p_value);
 	public function notify_thread_safe(p_what:Int):Void ((cast __gd.ptr : cpp.Pointer<gdnative.Node.Node_extern>)).value.notify_thread_safe(p_what);
+	public function new(allocate:Bool = true) {
+		super(false);
+		if (allocate) __gd = new gdnative.ObjectContainer(((gdnative.Node.Node_extern.__alloc().reinterpret() : cpp.Pointer<gdnative.Object.Object_extern>)), true);
+	}
 }
