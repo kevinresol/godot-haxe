@@ -26,6 +26,9 @@ abstract Variant(VariantContainer) from VariantContainer to VariantContainer {
 	@:from static inline function fromColor(v:gd.Color):Variant
 		return VariantContainer.fromColor(v);
 
+	@:from static inline function fromObject(v:gd.Object):Variant
+		return VariantContainer.fromObject(v);
+
 	@:from static inline function fromVariantType(v:gd.VariantType):Variant
 		return fromInt(v);
 }
@@ -55,5 +58,8 @@ class VariantContainer {
 		return new VariantContainer(@:privateAccess v.__gd);
 
 	public static function fromColor(v:gd.Color)
+		return new VariantContainer(@:privateAccess v.__gd);
+
+	public static function fromObject(v:gd.Object)
 		return new VariantContainer(@:privateAccess v.__gd);
 }

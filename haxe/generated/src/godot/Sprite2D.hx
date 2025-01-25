@@ -1,5 +1,7 @@
 package godot;
 @:include("godot_cpp/classes/sprite2d.hpp") @:native("godot::Sprite2D") @:structAccess extern class Sprite2D_extern extends godot.Node2D.Node2D_extern {
+	function set_texture(p_texture:godot.Texture2D):Void;
+	function get_texture():godot.Texture2D;
 	function set_centered(p_centered:Bool):Void;
 	function is_centered():Bool;
 	function set_offset(p_offset:godot.Vector2):Void;
@@ -24,5 +26,9 @@ package godot;
 	@:from
 	static inline function fromWrapper(v:gd.Sprite2D):godot.Sprite2D return @:privateAccess v.__gd.reinterpret();
 	@:to
-	inline function toWrapper():gd.Sprite2D return new gd.Sprite2D(this.reinterpret());
+	inline function toWrapper():gd.Sprite2D {
+		final v = new gd.Sprite2D();
+		v.__gd = this.reinterpret();
+		return v;
+	}
 }

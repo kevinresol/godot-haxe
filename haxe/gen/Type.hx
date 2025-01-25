@@ -17,12 +17,7 @@ class Type {
 			case 'StringName': macro :godot.StringName;
 			case 'Vector2': macro :godot.Vector2;
 
-			case 'CanvasItem': macro :godot.CanvasItem;
-			case 'Node': macro :godot.Node;
-			case 'Node2D': macro :godot.Node2D;
-			case 'Object': macro :godot.Object;
-			case 'Sprite2D': macro :godot.Sprite2D;
-			// case 'Texture2D': macro :godot.Texture2D;
+			case 'CanvasItem' | 'Node' | 'Node2D' | 'Object' | 'Sprite2D' | 'Texture' | 'Texture2D': TPath({pack: ['godot'], name: gdType});
 			case v:
 				// trace('Unhandled type $gdType');
 				// macro :Dynamic;
@@ -44,12 +39,7 @@ class Type {
 			case 'StringName': macro :String;
 			case 'Vector2': macro :gd.Vector2;
 
-			case 'CanvasItem': macro :gd.CanvasItem;
-			case 'Node': macro :gd.Node;
-			case 'Node2D': macro :gd.Node2D;
-			case 'Object': macro :gd.Object;
-			case 'Sprite2D': macro :gd.Sprite2D;
-			// case 'Texture2D': macro :gd.Texture2D;
+			case 'CanvasItem' | 'Node' | 'Node2D' | 'Object' | 'Sprite2D' | 'Texture' | 'Texture2D': TPath({pack: ['gd'], name: gdType});
 			case v:
 				// trace('Unhandled type $gdType');
 				// macro :Dynamic;

@@ -79,6 +79,8 @@ class Main extends Base {
 
 		final sprite = get_node("Node2D/Sprite2D").cast_to(Sprite2D);
 		trace('get_node: ${sprite.get_name()}');
+		final texture = sprite.get_texture();
+		UtilityFunctions.print(texture);
 		sprite.set_flip_v(true);
 
 		final pos = get_position();

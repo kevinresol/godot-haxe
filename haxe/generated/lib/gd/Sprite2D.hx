@@ -1,5 +1,7 @@
 package gd;
 extern class Sprite2D extends gd.Node2D {
+	function set_texture(p_texture:gd.Texture2D):Void;
+	function get_texture():gd.Texture2D;
 	function set_centered(p_centered:Bool):Void;
 	function is_centered():Bool;
 	function set_offset(p_offset:gd.Vector2):Void;

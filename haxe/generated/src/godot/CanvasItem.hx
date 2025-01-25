@@ -28,6 +28,7 @@ package godot;
 	function draw_dashed_line(p_from:godot.Vector2, p_to:godot.Vector2, p_color:godot.Color, ?p_width:Float, ?p_dash:Float, ?p_aligned:Bool, ?p_antialiased:Bool):Void;
 	function draw_arc(p_center:godot.Vector2, p_radius:Float, p_start_angle:Float, p_end_angle:Float, p_point_count:Int, p_color:godot.Color, ?p_width:Float, ?p_antialiased:Bool):Void;
 	function draw_circle(p_position:godot.Vector2, p_radius:Float, p_color:godot.Color, ?p_filled:Bool, ?p_width:Float, ?p_antialiased:Bool):Void;
+	function draw_texture(p_texture:godot.Texture2D, p_position:godot.Vector2, ?p_modulate:godot.Color):Void;
 	function draw_set_transform(p_position:godot.Vector2, ?p_rotation:Float, ?p_scale:godot.Vector2):Void;
 	function draw_animation_slice(p_animation_length:Float, p_slice_begin:Float, p_slice_end:Float, ?p_offset:Float):Void;
 	function draw_end_animation():Void;
@@ -50,5 +51,9 @@ package godot;
 	@:from
 	static inline function fromWrapper(v:gd.CanvasItem):godot.CanvasItem return @:privateAccess v.__gd.reinterpret();
 	@:to
-	inline function toWrapper():gd.CanvasItem return new gd.CanvasItem(this.reinterpret());
+	inline function toWrapper():gd.CanvasItem {
+		final v = new gd.CanvasItem();
+		v.__gd = this.reinterpret();
+		return v;
+	}
 }

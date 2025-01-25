@@ -101,5 +101,9 @@ package godot;
 	@:from
 	static inline function fromWrapper(v:gd.Node):godot.Node return @:privateAccess v.__gd.reinterpret();
 	@:to
-	inline function toWrapper():gd.Node return new gd.Node(this.reinterpret());
+	inline function toWrapper():gd.Node {
+		final v = new gd.Node();
+		v.__gd = this.reinterpret();
+		return v;
+	}
 }

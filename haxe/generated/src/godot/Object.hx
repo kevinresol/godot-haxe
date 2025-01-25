@@ -39,5 +39,9 @@ package godot;
 	@:from
 	static inline function fromWrapper(v:gd.Object):godot.Object return @:privateAccess v.__gd.reinterpret();
 	@:to
-	inline function toWrapper():gd.Object return new gd.Object(this.reinterpret());
+	inline function toWrapper():gd.Object {
+		final v = new gd.Object();
+		v.__gd = this.reinterpret();
+		return v;
+	}
 }

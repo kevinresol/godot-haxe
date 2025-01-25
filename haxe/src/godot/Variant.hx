@@ -55,6 +55,17 @@ abstract Variant(cpp.Struct<Variant_extern>) from cpp.Struct<Variant_extern> to 
 	}
 
 	@:from
+	extern static inline function fromObject(v:godot.Object):Variant {
+		return new Variant_extern(v.ptr);
+	}
+
+	@:from
+	extern static inline function fromObjectWrapper(v:gd.Object):Variant {
+		// use .get() to unwrap cpp.Struct
+		return fromObject(untyped __cpp__('{0}.get()', (v : godot.Object)));
+	}
+
+	@:from
 	public static function fromHaxeDynamic(v:Dynamic):Variant {
 		switch Type.typeof(v) {
 			case TBool:
@@ -106,6 +117,7 @@ abstract Variant(cpp.Struct<Variant_extern>) from cpp.Struct<Variant_extern> to 
 @:native("godot::Variant")
 @:structAccess
 extern class Variant_extern {
+	@:overload(function(v:godot.Object.Object_extern):Void {})
 	@:overload(function(v:godot.Color.Color_extern):Void {})
 	@:overload(function(v:godot.Vector2.Vector2_extern):Void {})
 	@:overload(function(v:godot.StringName):Void {})

@@ -42,6 +42,8 @@ class Module {
 		if (classType == null) {
 			return null;
 		} else {
+			trace("createInstance");
+			trace(owner);
 			// can't use createEmptyInstance because in that case instance variables will not be initialized
 			final inst:Dynamic = Type.createInstance(classType, []);
 			switch Std.downcast(inst, gd.Object) {
@@ -49,7 +51,13 @@ class Module {
 					// TODO: we should probably throw an error here.
 					trace('Instance is not a gd.Object');
 				case node:
-					node.__gd = cast owner;
+					node.__gd = owner;
+			}
+			switch Std.downcast(inst, gd.RefCounted) {
+				case null:
+					trace('Instance is not a gd.RefCounted');
+				case node:
+					node.__ref = cast owner;
 			}
 			return inst;
 		}

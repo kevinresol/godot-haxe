@@ -35,5 +35,9 @@ package godot;
 	@:from
 	static inline function fromWrapper(v:gd.Node2D):godot.Node2D return @:privateAccess v.__gd.reinterpret();
 	@:to
-	inline function toWrapper():gd.Node2D return new gd.Node2D(this.reinterpret());
+	inline function toWrapper():gd.Node2D {
+		final v = new gd.Node2D();
+		v.__gd = this.reinterpret();
+		return v;
+	}
 }

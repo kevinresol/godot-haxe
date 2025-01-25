@@ -21,7 +21,7 @@ class ClassBuilder extends Builder {
 			final hppExists = sys.FileSystem.exists(hppPath);
 
 			if (hppExists) {
-				if (getClassInheritance('Sprite2D').contains(cname) /*  || getClassInheritance('Texture2D').contains(cname) */) {
+				if (getClassInheritance('Sprite2D').contains(cname) || getClassInheritance('Texture2D').contains(cname)) {
 					generateClassExtern(clazz, hpp);
 					generateClassWrapper(clazz, true);
 					generateClassWrapper(clazz, false);
@@ -75,16 +75,38 @@ class ClassBuilder extends Builder {
 		}
 
 		final local = TPath({pack: [], name: nativeName});
-		final abs = macro class $cname {
-			@:from static inline function fromWrapper(v:gd.$cname):godot.$cname
-				return @:privateAccess v.__gd.reinterpret();
+		final abs = if (clazz.is_refcounted) {
+			final abs = macro class $cname {
+				@:from static inline function fromWrapper(v:gd.$cname):godot.$cname
+					return @:privateAccess v.__ref.ptr().reinterpret();
 
-			@:to inline function toWrapper():gd.$cname
-				return new gd.$cname(this.reinterpret());
-		};
-		final pointer = macro :cpp.Pointer<$local>;
-		abs.kind = TDAbstract(pointer, [AbFrom(pointer), AbTo(pointer)]);
-		abs.meta = [{pos: null, name: ':forward'}];
+				@:to inline function toWrapper():gd.$cname {
+					final v = new gd.$cname();
+					v.__gd = this.ptr().reinterpret();
+					v.__ref = new godot.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+					return v;
+				}
+			};
+			final ref = macro :godot.Ref<$local>;
+			abs.kind = TDAbstract(ref, [AbFrom(ref), AbTo(ref)]);
+			abs.meta = [{pos: null, name: ':forward'}];
+			abs;
+		} else {
+			final abs = macro class $cname {
+				@:from static inline function fromWrapper(v:gd.$cname):godot.$cname
+					return @:privateAccess v.__gd.reinterpret();
+
+				@:to inline function toWrapper():gd.$cname {
+					final v = new gd.$cname();
+					v.__gd = this.reinterpret();
+					return v;
+				}
+			};
+			final pointer = macro :cpp.Pointer<$local>;
+			abs.kind = TDAbstract(pointer, [AbFrom(pointer), AbTo(pointer)]);
+			abs.meta = [{pos: null, name: ':forward'}];
+			abs;
+		}
 
 		final source = printTypeDefinition(cls) + '\n' + printTypeDefinition(abs);
 		write('${config.folder}/${cls.pack.join('/')}/$cname.hx', source);
@@ -97,16 +119,7 @@ class ClassBuilder extends Builder {
 		final cls = {
 			final name = cname;
 			if (parent == null) {
-				if (isScriptExtern) {
-					macro class $name {};
-				} else {
-					macro class $name {
-						public var __gd:godot.$cname;
-
-						public function new(native)
-							__gd = native;
-					};
-				}
+				macro class $name {};
 			} else {
 				final tp = {pack: config.pack, name: parent};
 				macro class $name extends $tp {};
@@ -123,7 +136,14 @@ class ClassBuilder extends Builder {
 				cls.fields.push({
 					pos: null,
 					name: fname,
-					access: fn.is_static ? [AStatic] : [],
+					access: {
+						final a = [];
+						if (!isScriptExtern)
+							a.push(APublic);
+						if (fn.is_static)
+							a.push(AStatic);
+						a;
+					},
 					kind: FFun({
 						args: fn.arguments?.map(arg -> ({
 							name: 'p_${arg.name}',
@@ -133,8 +153,13 @@ class ClassBuilder extends Builder {
 						ret: makeHaxeType(rtype),
 						expr: isScriptExtern ? null : {
 							final target = fn.is_static ? macro $p{Config.nativeExtern.pack.concat([cname, '${cname}_extern'])} : {
-								final native = TPath({pack: Config.nativeExtern.pack, name: cname});
-								macro(cast __gd.ptr : $native).value;
+								if (isRefcounted(cname)) {
+									final native = TPath({pack: Config.nativeExtern.pack, name: cname, sub: '${cname}_extern'});
+									macro(cast(cast __ref.ptr() : cpp.Pointer<godot.RefCounted.RefCounted_extern>).reinterpret() : cpp.Pointer<$native>).value;
+								} else {
+									final native = TPath({pack: Config.nativeExtern.pack, name: cname});
+									macro(cast __gd.ptr : $native).value;
+								}
 							};
 
 							final e = macro $target.$fname($a{fn.arguments?.map(arg -> macro $i{'p_${arg.name}'}) ?? []});
@@ -145,19 +170,37 @@ class ClassBuilder extends Builder {
 			} catch (e) {}
 		}
 
-		if (cname == 'Object') {
-			if (isScriptExtern) {
-				cls.meta.push({pos: null, name: ':autoBuild', params: [macro gd.ObjectMacro.build()]});
+		// special cases
+		switch cname {
+			case 'Object':
+				if (isScriptExtern) {
+					cls.meta.push({pos: null, name: ':autoBuild', params: [macro gd.ObjectMacro.build()]});
 
-				cls.fields = cls.fields.concat((macro class {
-					function cast_to<T:gd.Object>(cls:Class<T>):T;
-				}).fields);
-			} else {
-				cls.fields = cls.fields.concat((macro class {
-					function cast_to<T:haxe.Constraints.Constructible<godot.Object->Void>>(cls:Class<T>):T
-						return Type.createInstance(cls, [__gd]);
-				}).fields);
-			}
+					cls.fields = cls.fields.concat((macro class {
+						function cast_to<T:gd.Object>(cls:Class<T>):T;
+					}).fields);
+				} else {
+					cls.fields = cls.fields.concat((macro class {
+						public var __gd:godot.Object;
+
+						public function new() {}
+
+						function cast_to<T:gd.Object>(cls:Class<T>):T {
+							final ret:T = Type.createInstance(cls, []);
+							ret.__gd = __gd;
+							return ret;
+						}
+					}).fields);
+				}
+			case 'RefCounted':
+				if (!isScriptExtern) {
+					final nct = TPath({pack: Config.nativeExtern.pack, name: cname, sub: '${cname}_extern'});
+					cls.fields = cls.fields.concat((macro class {
+						// godot.Ref is a native c++ helper, merely holding it will make ref counting work
+						public var __ref:godot.Ref<$nct>;
+					}).fields);
+				}
+			default:
 		}
 
 		final source = printTypeDefinition(cls);
@@ -175,6 +218,10 @@ class ClassBuilder extends Builder {
 		if (parent.inherits != null)
 			return isMethodDeclaredInParent(method, parent.inherits);
 		return false;
+	}
+
+	function isRefcounted(name:String):Bool {
+		return api.classes.find(c -> c.name == name)?.is_refcounted ?? false;
 	}
 
 	function getClassInheritance(name:String):Array<String> {
