@@ -83,6 +83,10 @@ class Main extends Base {
 		UtilityFunctions.print(texture);
 		UtilityFunctions.print(texture.get_width());
 		UtilityFunctions.print(texture.get_height());
+		UtilityFunctions.print(texture.get_reference_count());
+		final texture2 = sprite.get_texture();
+		UtilityFunctions.print(texture.get_reference_count());
+		UtilityFunctions.print(texture2.get_reference_count());
 		sprite.set_flip_v(true);
 
 		final pos = get_position();

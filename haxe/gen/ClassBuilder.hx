@@ -152,16 +152,14 @@ class ClassBuilder extends Builder {
 						} : FunctionArg)) ?? [],
 						ret: makeHaxeType(rtype),
 						expr: isScriptExtern ? null : {
-							// TODO: cleanup these pointer magic a bit, perhaps wrap into a function
-							final target = fn.is_static ? macro $p{Config.nativeExtern.pack.concat([cname, '${cname}_extern'])} : {
-								if (isRefCounted(cname)) {
-									final native = TPath({pack: Config.nativeExtern.pack, name: cname, sub: '${cname}_extern'});
-									macro(cast __ref.ptr().reinterpret() : cpp.Pointer<$native>).value;
-								} else {
-									final native = TPath({pack: Config.nativeExtern.pack, name: cname});
-									macro(cast __gd.ptr : $native).value;
-								}
-							};
+							final target = if (fn.is_static) {
+								macro $p{Config.nativeExtern.pack.concat([cname, '${cname}_extern'])};
+							} else {
+								final native = TPath({pack: Config.nativeExtern.pack, name: cname, sub: '${cname}_extern'});
+								// `__gd` is `godot.Object`(haxe) and `__gd.ptr` is always a `godot::Object*`(cpp)
+								// so we cast it into the correct pointer type before dereferencing
+								macro(cast __gd.ptr : cpp.Pointer<$native>).value;
+							}
 
 							final e = macro $target.$fname($a{fn.arguments?.map(arg -> macro $i{'p_${arg.name}'}) ?? []});
 							rtype == 'void' ? e : macro return $e;
