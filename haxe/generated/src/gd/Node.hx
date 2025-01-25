@@ -90,6 +90,8 @@ class Node extends gd.Object {
 	public function is_unique_name_in_owner():Bool return ((cast __gd.ptr : cpp.Pointer<gdnative.Node.Node_extern>)).value.is_unique_name_in_owner();
 	public function atr(p_message:String, ?p_context:String):String return ((cast __gd.ptr : cpp.Pointer<gdnative.Node.Node_extern>)).value.atr(p_message, p_context);
 	public function atr_n(p_message:String, p_plural_message:String, p_n:Int, ?p_context:String):String return ((cast __gd.ptr : cpp.Pointer<gdnative.Node.Node_extern>)).value.atr_n(p_message, p_plural_message, p_n, p_context);
+	public function rpc(p_method:String):gd.Error return ((cast __gd.ptr : cpp.Pointer<gdnative.Node.Node_extern>)).value.rpc(p_method);
+	public function rpc_id(p_peer_id:Int, p_method:String):gd.Error return ((cast __gd.ptr : cpp.Pointer<gdnative.Node.Node_extern>)).value.rpc_id(p_peer_id, p_method);
 	public function update_configuration_warnings():Void ((cast __gd.ptr : cpp.Pointer<gdnative.Node.Node_extern>)).value.update_configuration_warnings();
 	public function call_deferred_thread_group(p_method:String):gd.Variant return ((cast __gd.ptr : cpp.Pointer<gdnative.Node.Node_extern>)).value.call_deferred_thread_group(p_method);
 	public function set_deferred_thread_group(p_property:String, p_value:gd.Variant):Void ((cast __gd.ptr : cpp.Pointer<gdnative.Node.Node_extern>)).value.set_deferred_thread_group(p_property, p_value);

@@ -90,6 +90,8 @@ extern class Node extends gd.Object {
 	function is_unique_name_in_owner():Bool;
 	function atr(p_message:String, ?p_context:String):String;
 	function atr_n(p_message:String, p_plural_message:String, p_n:Int, ?p_context:String):String;
+	function rpc(p_method:String):gd.Error;
+	function rpc_id(p_peer_id:Int, p_method:String):gd.Error;
 	function update_configuration_warnings():Void;
 	function call_deferred_thread_group(p_method:String):gd.Variant;
 	function set_deferred_thread_group(p_property:String, p_value:gd.Variant):Void;

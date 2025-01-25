@@ -91,6 +91,8 @@ package gdnative;
 	function is_unique_name_in_owner():Bool;
 	function atr(p_message:gdnative.String, ?p_context:gdnative.StringName):gdnative.String;
 	function atr_n(p_message:gdnative.String, p_plural_message:gdnative.StringName, p_n:Int, ?p_context:gdnative.StringName):gdnative.String;
+	function rpc(p_method:gdnative.StringName):gdnative.Error;
+	function rpc_id(p_peer_id:Int, p_method:gdnative.StringName):gdnative.Error;
 	function update_configuration_warnings():Void;
 	function call_deferred_thread_group(p_method:gdnative.StringName):gdnative.Variant;
 	function set_deferred_thread_group(p_property:gdnative.StringName, p_value:gdnative.Variant):Void;

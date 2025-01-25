@@ -19,12 +19,16 @@ class Object {
 	public function has_meta(p_name:String):Bool return ((cast __gd.ptr : cpp.Pointer<gdnative.Object.Object_extern>)).value.has_meta(p_name);
 	public function has_user_signal(p_signal:String):Bool return ((cast __gd.ptr : cpp.Pointer<gdnative.Object.Object_extern>)).value.has_user_signal(p_signal);
 	public function remove_user_signal(p_signal:String):Void ((cast __gd.ptr : cpp.Pointer<gdnative.Object.Object_extern>)).value.remove_user_signal(p_signal);
+	public function emit_signal(p_signal:String):gd.Error return ((cast __gd.ptr : cpp.Pointer<gdnative.Object.Object_extern>)).value.emit_signal(p_signal);
 	public function call(p_method:String):gd.Variant return ((cast __gd.ptr : cpp.Pointer<gdnative.Object.Object_extern>)).value.call(p_method);
 	public function call_deferred(p_method:String):gd.Variant return ((cast __gd.ptr : cpp.Pointer<gdnative.Object.Object_extern>)).value.call_deferred(p_method);
 	public function set_deferred(p_property:String, p_value:gd.Variant):Void ((cast __gd.ptr : cpp.Pointer<gdnative.Object.Object_extern>)).value.set_deferred(p_property, p_value);
 	public function has_method(p_method:String):Bool return ((cast __gd.ptr : cpp.Pointer<gdnative.Object.Object_extern>)).value.has_method(p_method);
 	public function get_method_argument_count(p_method:String):Int return ((cast __gd.ptr : cpp.Pointer<gdnative.Object.Object_extern>)).value.get_method_argument_count(p_method);
 	public function has_signal(p_signal:String):Bool return ((cast __gd.ptr : cpp.Pointer<gdnative.Object.Object_extern>)).value.has_signal(p_signal);
+	public function connect(p_signal:String, p_callable:gd.Callable, ?p_flags:Int):gd.Error return ((cast __gd.ptr : cpp.Pointer<gdnative.Object.Object_extern>)).value.connect(p_signal, p_callable, p_flags);
+	public function disconnect(p_signal:String, p_callable:gd.Callable):Void ((cast __gd.ptr : cpp.Pointer<gdnative.Object.Object_extern>)).value.disconnect(p_signal, p_callable);
+	public function is_connected(p_signal:String, p_callable:gd.Callable):Bool return ((cast __gd.ptr : cpp.Pointer<gdnative.Object.Object_extern>)).value.is_connected(p_signal, p_callable);
 	public function set_block_signals(p_enable:Bool):Void ((cast __gd.ptr : cpp.Pointer<gdnative.Object.Object_extern>)).value.set_block_signals(p_enable);
 	public function is_blocking_signals():Bool return ((cast __gd.ptr : cpp.Pointer<gdnative.Object.Object_extern>)).value.is_blocking_signals();
 	public function notify_property_list_changed():Void ((cast __gd.ptr : cpp.Pointer<gdnative.Object.Object_extern>)).value.notify_property_list_changed();

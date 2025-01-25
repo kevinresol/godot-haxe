@@ -11,14 +11,13 @@ class Type {
 			case 'bool': macro :Bool;
 			case 'Variant': macro :gdnative.Variant;
 
-			case 'Color': macro :gdnative.Color;
-			case 'NodePath': macro :gdnative.NodePath;
-			case 'String': macro :gdnative.String;
-			case 'StringName': macro :gdnative.StringName;
-			case 'Vector2': macro :gdnative.Vector2;
-
-			case 'CanvasItem' | 'Node' | 'Node2D' | 'Object' | 'Sprite2D' | 'Texture' | 'Texture2D': TPath({pack: ['gdnative'], name: gdType});
+			// builitin
+			case 'Color' | 'NodePath' | 'String' | 'StringName' | 'Vector2' | 'Callable': TPath({pack: ['gdnative'], name: gdType});
+			// enums
+			case 'enum::Error': TPath({pack: ['gdnative'], name: gdType.substr('enum::'.length)});
 			case 'enum::Node.InternalMode': macro :Int;
+			// objects
+			case 'CanvasItem' | 'Node' | 'Node2D' | 'Object' | 'Sprite2D' | 'Texture' | 'Texture2D': TPath({pack: ['gdnative'], name: gdType});
 			case v:
 				// trace('Unhandled type $gdType');
 				// macro :Dynamic;
@@ -34,14 +33,14 @@ class Type {
 			case 'bool': macro :Bool;
 			case 'Variant': macro :gd.Variant;
 
-			case 'Color': macro :gd.Color;
-			case 'NodePath': macro :String;
-			case 'String': macro :String;
-			case 'StringName': macro :String;
-			case 'Vector2': macro :gd.Vector2;
-
-			case 'CanvasItem' | 'Node' | 'Node2D' | 'Object' | 'Sprite2D' | 'Texture' | 'Texture2D': TPath({pack: ['gd'], name: gdType});
+			// builitin
+			case 'NodePath' | 'String' | 'StringName': macro :std.String;
+			case 'Color' | 'Vector2' | 'Callable': TPath({pack: ['gd'], name: gdType});
+			// enums
+			case 'enum::Error': TPath({pack: ['gd'], name: gdType.substr('enum::'.length)});
 			case 'enum::Node.InternalMode': macro :Int;
+			// objects
+			case 'CanvasItem' | 'Node' | 'Node2D' | 'Object' | 'Sprite2D' | 'Texture' | 'Texture2D': TPath({pack: ['gd'], name: gdType});
 			case v:
 				// trace('Unhandled type $gdType');
 				// macro :Dynamic;

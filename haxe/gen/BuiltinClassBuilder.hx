@@ -16,7 +16,7 @@ class BuiltinClassBuilder extends Builder {
 			final hppExists = sys.FileSystem.exists(Path.join([Sys.programPath().directory(), '../godot-cpp/include', hpp]))
 				|| sys.FileSystem.exists(Path.join([Sys.programPath().directory(), '../godot-cpp/gen/include', hpp]));
 			if (hppExists) {
-				if (clazz.name == 'Vector2' || clazz.name == 'Color') {
+				if (clazz.name == 'Vector2' || clazz.name == 'Color' || clazz.name == 'Callable') {
 					generateClassExtern(clazz, hpp);
 					generateClassWrapper(clazz, false);
 					generateClassWrapper(clazz, true);
@@ -262,7 +262,7 @@ class BuiltinClassBuilder extends Builder {
 				});
 			} catch (e) {}
 		}
-		for (const in clazz.constants) {
+		for (const in (clazz.constants ?? [])) {
 			final type = makeHaxeType(const.type);
 			cls.fields.push({
 				pos: null,
@@ -306,7 +306,13 @@ class BuiltinClassBuilder extends Builder {
 	}
 
 	function getValidMembers(clazz:BuiltinClass):Array<BuiltinClassMember> {
-		// TODO: handle these virtual members
-		return if (clazz.name == 'Color') clazz.members.filter(m -> !['r8', 'g8', 'b8', 'a8', 'h', 's', 'v'].contains(m.name)); else clazz.members;
+		return if (clazz.members == null) {
+			[];
+		} else if (clazz.name == 'Color') {
+			// TODO: handle these virtual members
+			clazz.members.filter(m -> !['r8', 'g8', 'b8', 'a8', 'h', 's', 'v'].contains(m.name));
+		} else {
+			clazz.members;
+		}
 	}
 }
