@@ -42,7 +42,7 @@ package gdnative;
 	@:to
 	inline function toWrapper():gd.Object {
 		final v = new gd.Object();
-		v.__gd = this.reinterpret();
+		v.__gd = new gdnative.ObjectContainer(this.reinterpret(), false);
 		return v;
 	}
 }

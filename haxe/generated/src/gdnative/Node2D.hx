@@ -38,7 +38,7 @@ package gdnative;
 	@:to
 	inline function toWrapper():gd.Node2D {
 		final v = new gd.Node2D();
-		v.__gd = this.reinterpret();
+		v.__gd = new gdnative.ObjectContainer(this.reinterpret(), false);
 		return v;
 	}
 }

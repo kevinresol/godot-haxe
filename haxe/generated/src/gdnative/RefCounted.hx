@@ -12,7 +12,7 @@ package gdnative;
 	@:to
 	inline function toWrapper():gd.RefCounted {
 		final v = new gd.RefCounted();
-		v.__gd = this.ptr().reinterpret();
+		v.__gd = new gdnative.ObjectContainer(this.ptr().reinterpret(), false);
 		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
 		return v;
 	}

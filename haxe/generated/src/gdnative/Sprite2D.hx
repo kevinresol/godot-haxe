@@ -29,7 +29,7 @@ package gdnative;
 	@:to
 	inline function toWrapper():gd.Sprite2D {
 		final v = new gd.Sprite2D();
-		v.__gd = this.reinterpret();
+		v.__gd = new gdnative.ObjectContainer(this.reinterpret(), false);
 		return v;
 	}
 }

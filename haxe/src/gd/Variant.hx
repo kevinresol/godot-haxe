@@ -61,5 +61,5 @@ class VariantContainer {
 		return new VariantContainer(@:privateAccess v.__gd);
 
 	public static function fromObject(v:gd.Object)
-		return new VariantContainer(@:privateAccess v.__gd);
+		return new VariantContainer(@:privateAccess v.__gd.ptr);
 }

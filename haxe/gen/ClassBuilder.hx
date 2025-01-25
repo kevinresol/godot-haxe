@@ -89,7 +89,7 @@ class ClassBuilder extends Builder {
 
 				@:to inline function toWrapper():gd.$cname {
 					final v = new gd.$cname();
-					v.__gd = this.ptr().reinterpret();
+					v.__gd = new gdnative.ObjectContainer(this.ptr().reinterpret(), false);
 					v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
 					return v;
 				}
@@ -105,7 +105,7 @@ class ClassBuilder extends Builder {
 
 				@:to inline function toWrapper():gd.$cname {
 					final v = new gd.$cname();
-					v.__gd = this.reinterpret();
+					v.__gd = new gdnative.ObjectContainer(this.reinterpret(), false);
 					return v;
 				}
 			};
@@ -187,7 +187,7 @@ class ClassBuilder extends Builder {
 					}).fields);
 				} else {
 					cls.fields = cls.fields.concat((macro class {
-						public var __gd:gdnative.Object;
+						public var __gd:gdnative.ObjectContainer;
 
 						public function new() {}
 

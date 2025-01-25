@@ -104,7 +104,7 @@ package gdnative;
 	@:to
 	inline function toWrapper():gd.Node {
 		final v = new gd.Node();
-		v.__gd = this.reinterpret();
+		v.__gd = new gdnative.ObjectContainer(this.reinterpret(), false);
 		return v;
 	}
 }
