@@ -1,2 +1,2 @@
 package gd;
-typedef MIDIMessage = godot.MIDIMessage;
+typedef MIDIMessage = gdnative.MIDIMessage;

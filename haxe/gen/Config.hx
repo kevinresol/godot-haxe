@@ -2,7 +2,7 @@ package gen;
 
 class Config {
 	public static final nativeExtern = {
-		pack: ['godot'],
+		pack: ['gdnative'],
 		folder: 'generated/src'
 	}
 

@@ -1,2 +1,2 @@
 package gd;
-typedef JoyButton = godot.JoyButton;
+typedef JoyButton = gdnative.JoyButton;

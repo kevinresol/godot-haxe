@@ -1,2 +1,2 @@
 package gd;
-typedef PropertyHint = godot.PropertyHint;
+typedef PropertyHint = gdnative.PropertyHint;

@@ -1,2 +1,2 @@
 package gd;
-typedef JoyAxis = godot.JoyAxis;
+typedef JoyAxis = gdnative.JoyAxis;

@@ -1,2 +1,2 @@
 package gd;
-typedef Error = godot.Error;
+typedef Error = gdnative.Error;

@@ -1,2 +1,2 @@
 package gd;
-typedef Orientation = godot.Orientation;
+typedef Orientation = gdnative.Orientation;

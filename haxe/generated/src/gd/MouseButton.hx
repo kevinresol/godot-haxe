@@ -1,2 +1,2 @@
 package gd;
-typedef MouseButton = godot.MouseButton;
+typedef MouseButton = gdnative.MouseButton;

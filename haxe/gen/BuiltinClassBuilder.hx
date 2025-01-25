@@ -34,6 +34,8 @@ class BuiltinClassBuilder extends Builder {
 		final wname = '${cname}_wrapper';
 		final wtp = {pack: ['gd'], name: cname, sub: wname};
 		final wct = TPath(wtp);
+		final aname = cname;
+		final act = TPath({pack: Config.nativeExtern.pack, name: aname});
 		final config = Config.nativeExtern;
 		final cls = macro class $ename {};
 		cls.isExtern = true;
@@ -45,10 +47,10 @@ class BuiltinClassBuilder extends Builder {
 		];
 
 		final abs = macro class $cname {
-			@:from static inline function fromWrapper(v:gd.$cname):godot.$cname
+			@:from static inline function fromWrapper(v:gd.$cname):$act
 				return fromWrapperInternal(v);
 
-			@:from static inline function fromWrapperInternal(v:$wct):godot.$cname
+			@:from static inline function fromWrapperInternal(v:$wct):$act
 				return @:privateAccess v.__gd;
 
 			@:to inline function toWrapper():gd.$cname
@@ -140,9 +142,12 @@ class BuiltinClassBuilder extends Builder {
 							name: 'p_${arg.name}',
 							type: makeHaxeType(arg.type),
 						} : FunctionArg)) ?? [],
-						expr: macro this = new godot.$ename($a{
-							(ctor.arguments ?? []).map(arg -> macro $i{'p_${arg.name}'})
-						})
+						expr: {
+							final tp = {pack: Config.nativeExtern.pack, name: cname, sub: ename};
+							macro this = new $tp($a{
+								(ctor.arguments ?? []).map(arg -> macro $i{'p_${arg.name}'})
+							});
+						}
 					})
 				});
 			} catch (e) {}
@@ -157,12 +162,13 @@ class BuiltinClassBuilder extends Builder {
 		final config = isScriptExtern ? Config.cppiaExtern : Config.wrapper;
 		final wname = '${cname}_wrapper';
 		final wct = TPath({pack: [], name: wname});
+		final act = TPath({pack: Config.nativeExtern.pack, name: cname});
 		final cls = isScriptExtern ? (macro class $wname {}) : (macro class $wname {
 			// cpp.Struct is not a real haxe class so cppia can't access its fields directly
 			// so we need a real haxe class as wrapper and expose the fields getter/setter as real haxe functions
-			final __gd:godot.$cname;
+			final __gd:$act;
 
-			public function new(value:godot.$cname)
+			public function new(value:$act)
 				__gd = value;
 		});
 		cls.pack = config.pack;
@@ -206,9 +212,12 @@ class BuiltinClassBuilder extends Builder {
 							type: makeHaxeType(arg.type),
 						} : FunctionArg)) ?? [],
 						ret: TPath({pack: [], name: wname}),
-						expr: isScriptExtern ? null : macro return new $wtp(new godot.$cname($a{
-							(ctor.arguments ?? []).map(arg -> macro $i{'p_${arg.name}'})
-						}))
+						expr: isScriptExtern ? null : {
+							final tp = {pack: Config.nativeExtern.pack, name: cname};
+							macro return new $wtp(new $tp($a{
+								(ctor.arguments ?? []).map(arg -> macro $i{'p_${arg.name}'})
+							}));
+						}
 					})
 				});
 				abs.fields.push({

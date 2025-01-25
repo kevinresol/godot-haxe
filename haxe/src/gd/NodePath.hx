@@ -1,3 +1,3 @@
 package gd;
 
-typedef NodePath = godot.NodePath;
+typedef NodePath = gdnative.NodePath;

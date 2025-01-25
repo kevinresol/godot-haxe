@@ -71,7 +71,7 @@ class UtilityFunctionsBuilder extends Builder {
 						} : FunctionArg)) ?? [],
 						ret: makeHaxeType(rtype),
 						expr: isScriptExtern ? null : {
-							final e = macro godot.UtilityFunctions.$fname($a{(fn.arguments ?? []).map(arg -> macro $i{'p_${arg.name}'})});
+							final e = macro gdnative.UtilityFunctions.$fname($a{(fn.arguments ?? []).map(arg -> macro $i{'p_${arg.name}'})});
 							rtype == 'void' ? e : macro return $e;
 						},
 					})

@@ -1,2 +1,2 @@
 package gd;
-typedef Corner = godot.Corner;
+typedef Corner = gdnative.Corner;

@@ -1,2 +1,2 @@
 package gd;
-typedef Key = godot.Key;
+typedef Key = gdnative.Key;

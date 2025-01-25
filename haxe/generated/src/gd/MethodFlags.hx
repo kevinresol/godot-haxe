@@ -1,2 +1,2 @@
 package gd;
-typedef MethodFlags = godot.MethodFlags;
+typedef MethodFlags = gdnative.MethodFlags;

@@ -1,2 +1,2 @@
 package gd;
-typedef MouseButtonMask = godot.MouseButtonMask;
+typedef MouseButtonMask = gdnative.MouseButtonMask;

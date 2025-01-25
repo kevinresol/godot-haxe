@@ -1,2 +1,2 @@
 package gd;
-typedef PropertyUsageFlags = godot.PropertyUsageFlags;
+typedef PropertyUsageFlags = gdnative.PropertyUsageFlags;

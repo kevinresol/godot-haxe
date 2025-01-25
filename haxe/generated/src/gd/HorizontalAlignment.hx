@@ -1,2 +1,2 @@
 package gd;
-typedef HorizontalAlignment = godot.HorizontalAlignment;
+typedef HorizontalAlignment = gdnative.HorizontalAlignment;

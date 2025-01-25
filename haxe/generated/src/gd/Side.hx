@@ -1,2 +1,2 @@
 package gd;
-typedef Side = godot.Side;
+typedef Side = gdnative.Side;

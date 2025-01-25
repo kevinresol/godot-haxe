@@ -44,6 +44,9 @@ class Cppia {
 		trace('Enum checks (host)');
 		UtilityFunctions.print(gd.VariantType.INT);
 		UtilityFunctions.print(gd.VariantType.FLOAT);
+
+		final x = new gdnative.ObjectContainer(gdnative.Object.Object_extern.__alloc(), true);
+		trace(x);
 	}
 
 	static var module:Module;
@@ -100,12 +103,12 @@ class Cppia {
 		}
 	}
 
-	public static function fromVariant(val:godot.Variant):Dynamic {
+	public static function fromVariant(val:gdnative.Variant):Dynamic {
 		return val.toHaxe();
 	}
 
 	public static function toVariant(val:Dynamic) {
-		return godot.Variant.fromHaxeDynamic(val);
+		return gdnative.Variant.fromHaxeDynamic(val);
 	}
 
 	public static macro function xml(rel:String):Array<haxe.macro.Expr.Field>;

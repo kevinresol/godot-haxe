@@ -1,2 +1,2 @@
 package gd;
-typedef KeyLocation = godot.KeyLocation;
+typedef KeyLocation = gdnative.KeyLocation;

@@ -1,2 +1,2 @@
 package gd;
-typedef KeyModifierMask = godot.KeyModifierMask;
+typedef KeyModifierMask = gdnative.KeyModifierMask;

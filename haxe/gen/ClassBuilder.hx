@@ -21,7 +21,9 @@ class ClassBuilder extends Builder {
 			final hppExists = sys.FileSystem.exists(hppPath);
 
 			if (hppExists) {
-				if (getClassInheritance('Sprite2D').contains(cname) || getClassInheritance('Texture2D').contains(cname)) {
+				if (getClassInheritance('Sprite2D').contains(cname)
+					|| getClassInheritance('Texture2D').contains(cname)
+					|| getClassInheritance('Timer').contains(cname)) {
 					generateClassExtern(clazz, hpp);
 					generateClassWrapper(clazz, true);
 					generateClassWrapper(clazz, false);
@@ -53,6 +55,12 @@ class ClassBuilder extends Builder {
 			{pos: null, name: ':structAccess', params: []},
 		];
 
+		final local = TPath({pack: [], name: nativeName});
+		cls.fields = cls.fields.concat((macro class {
+			extern static inline function __alloc():cpp.Pointer<$local>
+				return gdnative.Memory.Memory_extern.memnew(untyped __cpp__($v{'godot::$cname'}));
+		}).fields);
+
 		final methods = (clazz.methods ?? []).filter(m -> m.name != 'new' && !isMethodDeclaredInParent(m.name, parent));
 		for (fn in methods) {
 			final fname = fn.name;
@@ -74,26 +82,25 @@ class ClassBuilder extends Builder {
 			} catch (e) {}
 		}
 
-		final local = TPath({pack: [], name: nativeName});
 		final abs = if (clazz.is_refcounted) {
 			final abs = macro class $cname {
-				@:from static inline function fromWrapper(v:gd.$cname):godot.$cname
+				@:from static inline function fromWrapper(v:gd.$cname):gdnative.$cname
 					return @:privateAccess v.__ref.ptr().reinterpret();
 
 				@:to inline function toWrapper():gd.$cname {
 					final v = new gd.$cname();
 					v.__gd = this.ptr().reinterpret();
-					v.__ref = new godot.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+					v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
 					return v;
 				}
 			};
-			final ref = macro :godot.Ref<$local>;
+			final ref = macro :gdnative.Ref<$local>;
 			abs.kind = TDAbstract(ref, [AbFrom(ref), AbTo(ref)]);
 			abs.meta = [{pos: null, name: ':forward'}];
 			abs;
 		} else {
 			final abs = macro class $cname {
-				@:from static inline function fromWrapper(v:gd.$cname):godot.$cname
+				@:from static inline function fromWrapper(v:gd.$cname):gdnative.$cname
 					return @:privateAccess v.__gd.reinterpret();
 
 				@:to inline function toWrapper():gd.$cname {
@@ -156,7 +163,7 @@ class ClassBuilder extends Builder {
 								macro $p{Config.nativeExtern.pack.concat([cname, '${cname}_extern'])};
 							} else {
 								final native = TPath({pack: Config.nativeExtern.pack, name: cname, sub: '${cname}_extern'});
-								// `__gd` is `godot.Object`(haxe) and `__gd.ptr` is always a `godot::Object*`(cpp)
+								// `__gd` is `gdnative.Object`(haxe) and `__gd.ptr` is always a `godot::Object*`(cpp)
 								// so we cast it into the correct pointer type before dereferencing
 								macro(cast __gd.ptr : cpp.Pointer<$native>).value;
 							}
@@ -180,7 +187,7 @@ class ClassBuilder extends Builder {
 					}).fields);
 				} else {
 					cls.fields = cls.fields.concat((macro class {
-						public var __gd:godot.Object;
+						public var __gd:gdnative.Object;
 
 						public function new() {}
 
@@ -208,8 +215,8 @@ class ClassBuilder extends Builder {
 				if (!isScriptExtern) {
 					final nct = TPath({pack: Config.nativeExtern.pack, name: cname, sub: '${cname}_extern'});
 					cls.fields = cls.fields.concat((macro class {
-						// godot.Ref is a native c++ helper, merely holding it will make ref counting work
-						public var __ref:godot.Ref<$nct>;
+						// gdnative.Ref is a native c++ helper, merely holding it will make ref counting work
+						public var __ref:gdnative.Ref<$nct>;
 					}).fields);
 				}
 			default:

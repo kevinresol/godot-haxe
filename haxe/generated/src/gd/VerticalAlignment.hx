@@ -1,2 +1,2 @@
 package gd;
-typedef VerticalAlignment = godot.VerticalAlignment;
+typedef VerticalAlignment = gdnative.VerticalAlignment;

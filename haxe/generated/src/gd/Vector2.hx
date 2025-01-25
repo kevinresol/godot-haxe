@@ -1,16 +1,16 @@
 package gd;
 class Vector2_wrapper {
-	final __gd : godot.Vector2;
-	public function new(value:godot.Vector2) __gd = value;
+	final __gd : gdnative.Vector2;
+	public function new(value:gdnative.Vector2) __gd = value;
 	public var x(get, set) : Float;
 	function get_x():Float return __gd.x;
 	function set_x(v:Float):Float return __gd.x = v;
 	public var y(get, set) : Float;
 	function get_y():Float return __gd.y;
 	function set_y(v:Float):Float return __gd.y = v;
-	static function _new0():Vector2_wrapper return new Vector2_wrapper(new godot.Vector2());
-	static function _new1(p_from:gd.Vector2):Vector2_wrapper return new Vector2_wrapper(new godot.Vector2(p_from));
-	static function _new3(p_x:Float, p_y:Float):Vector2_wrapper return new Vector2_wrapper(new godot.Vector2(p_x, p_y));
+	static function _new0():Vector2_wrapper return new Vector2_wrapper(new gdnative.Vector2());
+	static function _new1(p_from:gd.Vector2):Vector2_wrapper return new Vector2_wrapper(new gdnative.Vector2(p_from));
+	static function _new3(p_x:Float, p_y:Float):Vector2_wrapper return new Vector2_wrapper(new gdnative.Vector2(p_x, p_y));
 	public function angle():Float return __gd.angle();
 	public function angle_to(p_to:gd.Vector2):Float return __gd.angle_to(p_to);
 	public function angle_to_point(p_to:gd.Vector2):Float return __gd.angle_to_point(p_to);

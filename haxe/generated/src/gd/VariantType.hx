@@ -1,2 +1,2 @@
 package gd;
-typedef VariantType = godot.VariantType;
+typedef VariantType = gdnative.VariantType;

@@ -1,2 +1,2 @@
 package gd;
-typedef InlineAlignment = godot.InlineAlignment;
+typedef InlineAlignment = gdnative.InlineAlignment;

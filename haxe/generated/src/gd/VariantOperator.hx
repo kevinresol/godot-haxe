@@ -1,2 +1,2 @@
 package gd;
-typedef VariantOperator = godot.VariantOperator;
+typedef VariantOperator = gdnative.VariantOperator;

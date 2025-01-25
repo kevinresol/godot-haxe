@@ -1,2 +1,2 @@
 package gd;
-typedef ClockDirection = godot.ClockDirection;
+typedef ClockDirection = gdnative.ClockDirection;

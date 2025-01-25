@@ -9,15 +9,15 @@ class Type {
 			case 'float': macro :Float;
 			case 'int': macro :Int;
 			case 'bool': macro :Bool;
-			case 'Variant': macro :godot.Variant;
+			case 'Variant': macro :gdnative.Variant;
 
-			case 'Color': macro :godot.Color;
-			case 'NodePath': macro :godot.NodePath;
-			case 'String': macro :godot.String;
-			case 'StringName': macro :godot.StringName;
-			case 'Vector2': macro :godot.Vector2;
+			case 'Color': macro :gdnative.Color;
+			case 'NodePath': macro :gdnative.NodePath;
+			case 'String': macro :gdnative.String;
+			case 'StringName': macro :gdnative.StringName;
+			case 'Vector2': macro :gdnative.Vector2;
 
-			case 'CanvasItem' | 'Node' | 'Node2D' | 'Object' | 'Sprite2D' | 'Texture' | 'Texture2D': TPath({pack: ['godot'], name: gdType});
+			case 'CanvasItem' | 'Node' | 'Node2D' | 'Object' | 'Sprite2D' | 'Texture' | 'Texture2D': TPath({pack: ['gdnative'], name: gdType});
 			case v:
 				// trace('Unhandled type $gdType');
 				// macro :Dynamic;

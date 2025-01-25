@@ -2,7 +2,7 @@ package gd;
 
 @:forward
 abstract Variant(VariantContainer) from VariantContainer to VariantContainer {
-	public inline function new(v:godot.Variant)
+	public inline function new(v:gdnative.Variant)
 		this = @:privateAccess new VariantContainer(v);
 
 	@:from static inline function fromBool(v:Bool):Variant
@@ -34,9 +34,9 @@ abstract Variant(VariantContainer) from VariantContainer to VariantContainer {
 }
 
 class VariantContainer {
-	final __gd:godot.Variant;
+	final __gd:gdnative.Variant;
 
-	function new(v:godot.Variant)
+	function new(v:gdnative.Variant)
 		this.__gd = v;
 
 	public static function fromBool(v:Bool)
