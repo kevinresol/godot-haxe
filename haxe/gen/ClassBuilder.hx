@@ -21,10 +21,10 @@ class ClassBuilder extends Builder {
 			final hppExists = sys.FileSystem.exists(hppPath);
 
 			if (hppExists) {
-				if (getClassInheritance('Sprite2D').contains(cname)) {
+				if (getClassInheritance('Sprite2D').contains(cname) /*  || getClassInheritance('Texture2D').contains(cname) */) {
 					generateClassExtern(clazz, hpp);
-					generateClassWrapper(clazz);
-					generateClassScriptExtern(clazz);
+					generateClassWrapper(clazz, true);
+					generateClassWrapper(clazz, false);
 				}
 			} else {
 				trace('Skipping ${cname} because ${hpp} does not exist');
@@ -90,24 +90,29 @@ class ClassBuilder extends Builder {
 		write('${config.folder}/${cls.pack.join('/')}/$cname.hx', source);
 	}
 
-	function generateClassWrapper(clazz:Clazz) {
+	function generateClassWrapper(clazz:Clazz, isScriptExtern:Bool) {
 		final cname = clazz.name;
 		final parent = clazz.inherits;
-		final config = Config.wrapper;
+		final config = isScriptExtern ? Config.cppiaExtern : Config.wrapper;
 		final cls = {
 			final name = cname;
 			if (parent == null) {
-				macro class $name {
-					public var __gd:godot.$cname;
+				if (isScriptExtern) {
+					macro class $name {};
+				} else {
+					macro class $name {
+						public var __gd:godot.$cname;
 
-					public function new(native)
-						__gd = native;
-				};
+						public function new(native)
+							__gd = native;
+					};
+				}
 			} else {
 				final tp = {pack: config.pack, name: parent};
 				macro class $name extends $tp {};
 			}
 		}
+		cls.isExtern = isScriptExtern;
 		cls.pack = config.pack;
 
 		final methods = (clazz.methods ?? []).filter(m -> m.name != 'new' && !isMethodDeclaredInParent(m.name, parent));
@@ -115,7 +120,6 @@ class ClassBuilder extends Builder {
 			final fname = fn.name;
 			final rtype = fn.return_value?.type ?? 'void';
 			try {
-				final rct = makeHaxeType(rtype);
 				cls.fields.push({
 					pos: null,
 					name: fname,
@@ -126,8 +130,8 @@ class ClassBuilder extends Builder {
 							type: makeHaxeType(arg.type),
 							opt: arg.default_value != null,
 						} : FunctionArg)) ?? [],
-						ret: rct,
-						expr: {
+						ret: makeHaxeType(rtype),
+						expr: isScriptExtern ? null : {
 							final target = fn.is_static ? macro $p{Config.nativeExtern.pack.concat([cname, '${cname}_extern'])} : {
 								final native = TPath({pack: Config.nativeExtern.pack, name: cname});
 								macro(cast __gd.ptr : $native).value;
@@ -142,62 +146,22 @@ class ClassBuilder extends Builder {
 		}
 
 		if (cname == 'Object') {
-			cls.fields = cls.fields.concat((macro class {
-				function cast_to<T:haxe.Constraints.Constructible<godot.Object->Void>>(cls:Class<T>):T
-					return Type.createInstance(cls, [__gd]);
-			}).fields);
+			if (isScriptExtern) {
+				cls.meta.push({pos: null, name: ':autoBuild', params: [macro gd.ObjectMacro.build()]});
+
+				cls.fields = cls.fields.concat((macro class {
+					function cast_to<T:gd.Object>(cls:Class<T>):T;
+				}).fields);
+			} else {
+				cls.fields = cls.fields.concat((macro class {
+					function cast_to<T:haxe.Constraints.Constructible<godot.Object->Void>>(cls:Class<T>):T
+						return Type.createInstance(cls, [__gd]);
+				}).fields);
+			}
 		}
 
 		final source = printTypeDefinition(cls);
 		write('${config.folder}/${cls.pack.join('/')}/$cname.hx', source);
-	}
-
-	function generateClassScriptExtern(clazz:Clazz) {
-		final cname = clazz.name;
-		final parent = clazz.inherits;
-		final config = Config.cppiaExtern;
-		final def = {
-			final name = cname;
-			if (parent == null) {
-				macro class $name {};
-			} else {
-				final tp = {pack: config.pack, name: parent};
-				macro class $name extends $tp {};
-			}
-		}
-		def.isExtern = true;
-		def.pack = config.pack;
-
-		final methods = (clazz.methods ?? []).filter(m -> m.name != 'new' && !isMethodDeclaredInParent(m.name, parent));
-		for (fn in methods) {
-			final fname = fn.name;
-			final rtype = fn.return_value?.type ?? 'void';
-			try {
-				def.fields.push({
-					pos: null,
-					name: fname,
-					access: fn.is_static ? [AStatic] : [],
-					kind: FFun({
-						args: fn.arguments?.map(arg -> ({
-							name: 'p_${arg.name}',
-							type: makeHaxeType(arg.type),
-							opt: arg.default_value != null,
-						} : FunctionArg)) ?? [],
-						ret: makeHaxeType(rtype),
-					})
-				});
-			} catch (e) {}
-		}
-
-		if (cname == 'Object') {
-			def.meta.push({pos: null, name: ':autoBuild', params: [macro gd.ObjectMacro.build()]});
-			def.fields = def.fields.concat((macro class {
-				function cast_to<T:gd.Object>(cls:Class<T>):T;
-			}).fields);
-		}
-
-		final source = printTypeDefinition(def);
-		write('${config.folder}/${def.pack.join('/')}/$cname.hx', source);
 	}
 
 	function isMethodDeclaredInParent(method:String, parent:String) {

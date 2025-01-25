@@ -21,6 +21,8 @@ class Type {
 			case 'Node': macro :godot.Node;
 			case 'Node2D': macro :godot.Node2D;
 			case 'Object': macro :godot.Object;
+			case 'Sprite2D': macro :godot.Sprite2D;
+			// case 'Texture2D': macro :godot.Texture2D;
 			case v:
 				// trace('Unhandled type $gdType');
 				// macro :Dynamic;
@@ -34,11 +36,11 @@ class Type {
 			case 'float': macro :Float;
 			case 'int': macro :Int;
 			case 'bool': macro :Bool;
+			case 'Variant': macro :gd.Variant;
 
 			case 'Color': macro :gd.Color;
 			case 'NodePath': macro :String;
 			case 'String': macro :String;
-			case 'Variant': macro :gd.Variant;
 			case 'StringName': macro :String;
 			case 'Vector2': macro :gd.Vector2;
 
@@ -46,6 +48,8 @@ class Type {
 			case 'Node': macro :gd.Node;
 			case 'Node2D': macro :gd.Node2D;
 			case 'Object': macro :gd.Object;
+			case 'Sprite2D': macro :gd.Sprite2D;
+			// case 'Texture2D': macro :gd.Texture2D;
 			case v:
 				// trace('Unhandled type $gdType');
 				// macro :Dynamic;
