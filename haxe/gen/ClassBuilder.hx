@@ -106,8 +106,7 @@ class ClassBuilder extends Builder {
 					return @:privateAccess v.__ref.ptr().reinterpret();
 
 				@:to inline function toWrapper():gd.$cname {
-					final v = new gd.$cname();
-					v.__gd = this.ptr().reinterpret();
+					final v = new gd.$cname(this.ptr());
 					v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
 					return v;
 				}
@@ -122,8 +121,7 @@ class ClassBuilder extends Builder {
 					return @:privateAccess v.__gd.reinterpret();
 
 				@:to inline function toWrapper():gd.$cname {
-					final v = new gd.$cname();
-					v.__gd = this.reinterpret();
+					final v = new gd.$cname(this);
 					return v;
 				}
 			};
@@ -155,28 +153,30 @@ class ClassBuilder extends Builder {
 		cls.pack = config.pack;
 
 		// constructor
-		if (clazz.is_instantiable) {
-			cls.fields.push({
-				pos: null,
-				access: isScriptExtern ? [] : [APublic],
-				name: 'new',
-				kind: FFun({
-					args: [
-						{
-							name: 'native',
-							type: isScriptExtern ? macro :Dynamic : macro :cpp.Pointer<$nct>,
-							opt: true,
-						}
-					],
-					expr: isScriptExtern ? null : macro $b{
-						[
-							macro if (native == null) native = $p{['gdnative', cname, '${cname}_extern']}.__alloc(),
-							parent == null ? macro __gd = native : macro super(native.reinterpret())
-						]
+		cls.fields.push({
+			pos: null,
+			access: isScriptExtern ? [] : [APublic], // TODO: private if not is_instantiable?
+			name: 'new',
+			kind: FFun({
+				args: [
+					{
+						name: 'native',
+						type: isScriptExtern ? macro :Dynamic : macro :cpp.Pointer<$nct>,
+						opt: true,
 					}
-				})
-			});
-		}
+				],
+				expr: isScriptExtern ? null : macro $b{
+					[
+						macro trace($v{cname}, native),
+						macro if (native == null) {
+							trace($v{'Allocating $cname'});
+							native = $p{['gdnative', cname, '${cname}_extern']}.__alloc();
+						},
+						parent == null ? macro __gd = native : macro super(native.reinterpret())
+					]
+				}
+			})
+		});
 
 		// singleton
 		if (isSingleton(cname)) {
@@ -259,8 +259,7 @@ class ClassBuilder extends Builder {
 						// public function new() {}
 
 						function cast_to<T:gd.Object>(cls:Class<T>):T {
-							final ret:T = Type.createInstance(cls, []);
-							ret.__gd = __gd;
+							final ret:T = Type.createInstance(cls, [__gd]);
 							switch [Std.downcast(this, gd.RefCounted), Std.downcast((ret : Dynamic), gd.RefCounted)] {
 								case [null, null]: // no-op
 								case [null, _]: // user is doing a wrong cast

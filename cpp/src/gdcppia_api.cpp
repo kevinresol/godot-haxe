@@ -39,6 +39,7 @@ void* create_instance(::String p_class_name, godot::Object* p_owner) {
 }
 
 void destroy_instance(void* p_instance) {
+  printf("gdcppia::destroy_instance\n");
   ::hx::Object** root = reinterpret_cast<::hx::Object**>(p_instance);
   ::hx::GCRemoveRoot(root);
   memfree(root);
@@ -182,6 +183,7 @@ void instance_call(void* p_instance, ::String p_method_name,
   gdcppia::Cppia_obj::instanceCall(::Dynamic(*root), p_method_name, p_args);
 }
 
+void gc_compact() { gdcppia::Cppia_obj::gcCompact(); }
 void analyze_code(::String p_source, ::String p_class_name) {
   // auto result =
   //     gdcppia::Cppia_obj::analyzer->analyze(p_source)->findClass(p_class_name);

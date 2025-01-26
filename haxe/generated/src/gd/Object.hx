@@ -1,7 +1,11 @@
 package gd;
 class Object {
 	public function new(?native:cpp.Pointer<gdnative.Object.Object_extern>) {
-		if (native == null) native = gdnative.Object.Object_extern.__alloc();
+		trace("Object", native);
+		if (native == null) {
+			trace("Allocating Object");
+			native = gdnative.Object.Object_extern.__alloc();
+		};
 		__gd = native;
 	}
 	extern inline function __object_ptr():cpp.Pointer<gdnative.Object.Object_extern> return cast __gd.ptr;
@@ -45,8 +49,7 @@ class Object {
 	public function cancel_free():Void __object_ptr().value.cancel_free();
 	public var __gd : gdnative.Object;
 	function cast_to<T:(gd.Object)>(cls:Class<T>):T {
-		final ret:T = Type.createInstance(cls, []);
-		ret.__gd = __gd;
+		final ret:T = Type.createInstance(cls, [__gd]);
 		switch [Std.downcast(this, gd.RefCounted), Std.downcast(((ret : Dynamic)), gd.RefCounted)] {
 			case [null, null]:
 			case [null, _]:{

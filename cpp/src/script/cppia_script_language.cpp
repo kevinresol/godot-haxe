@@ -18,7 +18,10 @@ namespace godot {
 
 CppiaScriptLanguage *CppiaScriptLanguage::singleton = nullptr;
 CppiaScriptLanguage::CppiaScriptLanguage() { singleton = this; }
-CppiaScriptLanguage::~CppiaScriptLanguage() { singleton = nullptr; }
+CppiaScriptLanguage::~CppiaScriptLanguage() {
+  gdcppia::gc_compact();
+  singleton = nullptr;
+}
 
 void CppiaScriptLanguage::_init() {
   printf("CppiaScriptLanguage::_init\n");

@@ -1,7 +1,11 @@
 package gd;
 class Texture2D extends gd.Texture {
 	public function new(?native:cpp.Pointer<gdnative.Texture2D.Texture2D_extern>) {
-		if (native == null) native = gdnative.Texture2D.Texture2D_extern.__alloc();
+		trace("Texture2D", native);
+		if (native == null) {
+			trace("Allocating Texture2D");
+			native = gdnative.Texture2D.Texture2D_extern.__alloc();
+		};
 		super(native.reinterpret());
 	}
 	extern inline function __texture2d_ptr():cpp.Pointer<gdnative.Texture2D.Texture2D_extern> return cast __gd.ptr;

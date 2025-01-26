@@ -16,8 +16,7 @@ package gdnative;
 	static inline function fromWrapper(v:gd.Texture2D):gdnative.Texture2D return @:privateAccess v.__ref.ptr().reinterpret();
 	@:to
 	inline function toWrapper():gd.Texture2D {
-		final v = new gd.Texture2D();
-		v.__gd = this.ptr().reinterpret();
+		final v = new gd.Texture2D(this.ptr());
 		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
 		return v;
 	}

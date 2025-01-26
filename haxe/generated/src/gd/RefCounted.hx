@@ -1,7 +1,11 @@
 package gd;
 class RefCounted extends gd.Object {
 	public function new(?native:cpp.Pointer<gdnative.RefCounted.RefCounted_extern>) {
-		if (native == null) native = gdnative.RefCounted.RefCounted_extern.__alloc();
+		trace("RefCounted", native);
+		if (native == null) {
+			trace("Allocating RefCounted");
+			native = gdnative.RefCounted.RefCounted_extern.__alloc();
+		};
 		super(native.reinterpret());
 	}
 	extern inline function __refcounted_ptr():cpp.Pointer<gdnative.RefCounted.RefCounted_extern> return cast __gd.ptr;

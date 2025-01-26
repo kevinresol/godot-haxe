@@ -19,8 +19,7 @@ package gdnative;
 	static inline function fromWrapper(v:gd.Timer):gdnative.Timer return @:privateAccess v.__gd.reinterpret();
 	@:to
 	inline function toWrapper():gd.Timer {
-		final v = new gd.Timer();
-		v.__gd = this.reinterpret();
+		final v = new gd.Timer(this);
 		return v;
 	}
 }

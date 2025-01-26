@@ -45,8 +45,7 @@ package gdnative;
 	static inline function fromWrapper(v:gd.Object):gdnative.Object return @:privateAccess v.__gd.reinterpret();
 	@:to
 	inline function toWrapper():gd.Object {
-		final v = new gd.Object();
-		v.__gd = this.reinterpret();
+		final v = new gd.Object(this);
 		return v;
 	}
 }

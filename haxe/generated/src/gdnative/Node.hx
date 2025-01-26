@@ -106,8 +106,7 @@ package gdnative;
 	static inline function fromWrapper(v:gd.Node):gdnative.Node return @:privateAccess v.__gd.reinterpret();
 	@:to
 	inline function toWrapper():gd.Node {
-		final v = new gd.Node();
-		v.__gd = this.reinterpret();
+		final v = new gd.Node(this);
 		return v;
 	}
 }

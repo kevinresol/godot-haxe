@@ -103,6 +103,11 @@ class Cppia {
 		}
 	}
 
+	public static function gcCompact() {
+		trace('gc compacting');
+		cpp.vm.Gc.compact();
+	}
+
 	public static function fromVariant(val:gdnative.Variant):Dynamic {
 		return val.toHaxe();
 	}

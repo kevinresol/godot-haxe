@@ -15,8 +15,7 @@ package gdnative;
 	static inline function fromWrapper(v:gd.ResourceLoader):gdnative.ResourceLoader return @:privateAccess v.__gd.reinterpret();
 	@:to
 	inline function toWrapper():gd.ResourceLoader {
-		final v = new gd.ResourceLoader();
-		v.__gd = this.reinterpret();
+		final v = new gd.ResourceLoader(this);
 		return v;
 	}
 }

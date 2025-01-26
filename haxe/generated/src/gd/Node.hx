@@ -1,7 +1,11 @@
 package gd;
 class Node extends gd.Object {
 	public function new(?native:cpp.Pointer<gdnative.Node.Node_extern>) {
-		if (native == null) native = gdnative.Node.Node_extern.__alloc();
+		trace("Node", native);
+		if (native == null) {
+			trace("Allocating Node");
+			native = gdnative.Node.Node_extern.__alloc();
+		};
 		super(native.reinterpret());
 	}
 	extern inline function __node_ptr():cpp.Pointer<gdnative.Node.Node_extern> return cast __gd.ptr;

@@ -1,7 +1,11 @@
 package gd;
 class Timer extends gd.Node {
 	public function new(?native:cpp.Pointer<gdnative.Timer.Timer_extern>) {
-		if (native == null) native = gdnative.Timer.Timer_extern.__alloc();
+		trace("Timer", native);
+		if (native == null) {
+			trace("Allocating Timer");
+			native = gdnative.Timer.Timer_extern.__alloc();
+		};
 		super(native.reinterpret());
 	}
 	extern inline function __timer_ptr():cpp.Pointer<gdnative.Timer.Timer_extern> return cast __gd.ptr;

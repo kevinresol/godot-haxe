@@ -1,5 +1,13 @@
 package gd;
 class CanvasItem extends gd.Node {
+	public function new(?native:cpp.Pointer<gdnative.CanvasItem.CanvasItem_extern>) {
+		trace("CanvasItem", native);
+		if (native == null) {
+			trace("Allocating CanvasItem");
+			native = gdnative.CanvasItem.CanvasItem_extern.__alloc();
+		};
+		super(native.reinterpret());
+	}
 	extern inline function __canvasitem_ptr():cpp.Pointer<gdnative.CanvasItem.CanvasItem_extern> return cast __gd.ptr;
 	public function _draw():Void __canvasitem_ptr().value._draw();
 	public function set_visible(p_visible:Bool):Void __canvasitem_ptr().value.set_visible(p_visible);

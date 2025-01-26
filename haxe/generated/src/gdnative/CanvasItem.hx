@@ -53,8 +53,7 @@ package gdnative;
 	static inline function fromWrapper(v:gd.CanvasItem):gdnative.CanvasItem return @:privateAccess v.__gd.reinterpret();
 	@:to
 	inline function toWrapper():gd.CanvasItem {
-		final v = new gd.CanvasItem();
-		v.__gd = this.reinterpret();
+		final v = new gd.CanvasItem(this);
 		return v;
 	}
 }

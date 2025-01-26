@@ -1,7 +1,11 @@
 package gd;
 class ResourceLoader extends gd.Object {
 	public function new(?native:cpp.Pointer<gdnative.ResourceLoader.ResourceLoader_extern>) {
-		if (native == null) native = gdnative.ResourceLoader.ResourceLoader_extern.__alloc();
+		trace("ResourceLoader", native);
+		if (native == null) {
+			trace("Allocating ResourceLoader");
+			native = gdnative.ResourceLoader.ResourceLoader_extern.__alloc();
+		};
 		super(native.reinterpret());
 	}
 	static public final singleton : gd.ResourceLoader = new ResourceLoader(gdnative.ResourceLoader.ResourceLoader_extern.get_singleton());

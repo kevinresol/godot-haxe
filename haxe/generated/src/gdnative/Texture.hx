@@ -7,8 +7,7 @@ package gdnative;
 	static inline function fromWrapper(v:gd.Texture):gdnative.Texture return @:privateAccess v.__ref.ptr().reinterpret();
 	@:to
 	inline function toWrapper():gd.Texture {
-		final v = new gd.Texture();
-		v.__gd = this.ptr().reinterpret();
+		final v = new gd.Texture(this.ptr());
 		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
 		return v;
 	}

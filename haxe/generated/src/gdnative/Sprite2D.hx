@@ -28,8 +28,7 @@ package gdnative;
 	static inline function fromWrapper(v:gd.Sprite2D):gdnative.Sprite2D return @:privateAccess v.__gd.reinterpret();
 	@:to
 	inline function toWrapper():gd.Sprite2D {
-		final v = new gd.Sprite2D();
-		v.__gd = this.reinterpret();
+		final v = new gd.Sprite2D(this);
 		return v;
 	}
 }

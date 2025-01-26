@@ -37,8 +37,7 @@ package gdnative;
 	static inline function fromWrapper(v:gd.Node2D):gdnative.Node2D return @:privateAccess v.__gd.reinterpret();
 	@:to
 	inline function toWrapper():gd.Node2D {
-		final v = new gd.Node2D();
-		v.__gd = this.reinterpret();
+		final v = new gd.Node2D(this);
 		return v;
 	}
 }

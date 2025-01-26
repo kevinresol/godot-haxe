@@ -22,8 +22,7 @@ package gdnative;
 	static inline function fromWrapper(v:gd.Resource):gdnative.Resource return @:privateAccess v.__ref.ptr().reinterpret();
 	@:to
 	inline function toWrapper():gd.Resource {
-		final v = new gd.Resource();
-		v.__gd = this.ptr().reinterpret();
+		final v = new gd.Resource(this.ptr());
 		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
 		return v;
 	}

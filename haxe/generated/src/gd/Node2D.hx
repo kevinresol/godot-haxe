@@ -1,7 +1,11 @@
 package gd;
 class Node2D extends gd.CanvasItem {
 	public function new(?native:cpp.Pointer<gdnative.Node2D.Node2D_extern>) {
-		if (native == null) native = gdnative.Node2D.Node2D_extern.__alloc();
+		trace("Node2D", native);
+		if (native == null) {
+			trace("Allocating Node2D");
+			native = gdnative.Node2D.Node2D_extern.__alloc();
+		};
 		super(native.reinterpret());
 	}
 	extern inline function __node2d_ptr():cpp.Pointer<gdnative.Node2D.Node2D_extern> return cast __gd.ptr;
