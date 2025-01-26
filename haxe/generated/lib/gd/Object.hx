@@ -1,6 +1,6 @@
 package gd;
 @:autoBuild(gd.ObjectMacro.build()) extern class Object {
-	function new();
+	function new(?native:Dynamic);
 	function get_class():std.String;
 	function is_class(p_class:std.String):Bool;
 	function set(p_property:std.String, p_value:gd.Variant):Void;

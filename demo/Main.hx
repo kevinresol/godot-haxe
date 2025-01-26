@@ -102,6 +102,13 @@ class Main extends Base {
 		UtilityFunctions.print(timer);
 		UtilityFunctions.print(timer.get_name());
 		timer.start();
+
+		trace('ResourceLoader::load');
+		final texture = ResourceLoader.singleton.load("res://icon.svg").cast_to(Texture2D);
+		UtilityFunctions.print(texture);
+		UtilityFunctions.print(texture.get_width());
+		UtilityFunctions.print(texture.get_height());
+		UtilityFunctions.print(texture.get_reference_count());
 	}
 
 	function _on_timer_timeout() {

@@ -1,10 +1,8 @@
 package gd;
 class Sprite2D extends gd.Node2D {
-	public function new() {
-		super();
-		if (Type.getClass(this) == gd.Sprite2D) {
-			__gd = ((gdnative.Sprite2D.Sprite2D_extern.__alloc().reinterpret() : cpp.Pointer<gdnative.Object.Object_extern>));
-		};
+	public function new(?native:cpp.Pointer<gdnative.Sprite2D.Sprite2D_extern>) {
+		if (native == null) native = gdnative.Sprite2D.Sprite2D_extern.__alloc();
+		super(native.reinterpret());
 	}
 	extern inline function __sprite2d_ptr():cpp.Pointer<gdnative.Sprite2D.Sprite2D_extern> return cast __gd.ptr;
 	public function set_texture(p_texture:gd.Texture2D):Void __sprite2d_ptr().value.set_texture(p_texture);

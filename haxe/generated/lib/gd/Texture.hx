@@ -1,4 +1,4 @@
 package gd;
 extern class Texture extends gd.Resource {
-	function new();
+	function new(?native:Dynamic);
 }

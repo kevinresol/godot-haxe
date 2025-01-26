@@ -1,6 +1,6 @@
 package gd;
 extern class Node extends gd.Object {
-	function new();
+	function new(?native:Dynamic);
 	function _process(p_delta:Float):Void;
 	function _physics_process(p_delta:Float):Void;
 	function _enter_tree():Void;

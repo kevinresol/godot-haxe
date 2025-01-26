@@ -1,10 +1,8 @@
 package gd;
 class Node2D extends gd.CanvasItem {
-	public function new() {
-		super();
-		if (Type.getClass(this) == gd.Node2D) {
-			__gd = ((gdnative.Node2D.Node2D_extern.__alloc().reinterpret() : cpp.Pointer<gdnative.Object.Object_extern>));
-		};
+	public function new(?native:cpp.Pointer<gdnative.Node2D.Node2D_extern>) {
+		if (native == null) native = gdnative.Node2D.Node2D_extern.__alloc();
+		super(native.reinterpret());
 	}
 	extern inline function __node2d_ptr():cpp.Pointer<gdnative.Node2D.Node2D_extern> return cast __gd.ptr;
 	public function set_position(p_position:gd.Vector2):Void __node2d_ptr().value.set_position(p_position);

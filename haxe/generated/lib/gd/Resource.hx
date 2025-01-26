@@ -1,6 +1,6 @@
 package gd;
 extern class Resource extends gd.RefCounted {
-	function new();
+	function new(?native:Dynamic);
 	function _setup_local_to_scene():Void;
 	function set_path(p_path:std.String):Void;
 	function take_over_path(p_path:std.String):Void;
@@ -15,4 +15,5 @@ extern class Resource extends gd.RefCounted {
 	function set_scene_unique_id(p_id:std.String):Void;
 	function get_scene_unique_id():std.String;
 	function emit_changed():Void;
+	function duplicate(?p_subresources:Bool):gd.Resource;
 }

@@ -1,6 +1,6 @@
 package gd;
 extern class Node2D extends gd.CanvasItem {
-	function new();
+	function new(?native:Dynamic);
 	function set_position(p_position:gd.Vector2):Void;
 	function set_rotation(p_radians:Float):Void;
 	function set_rotation_degrees(p_degrees:Float):Void;

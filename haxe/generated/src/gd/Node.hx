@@ -1,10 +1,8 @@
 package gd;
 class Node extends gd.Object {
-	public function new() {
-		super();
-		if (Type.getClass(this) == gd.Node) {
-			__gd = ((gdnative.Node.Node_extern.__alloc().reinterpret() : cpp.Pointer<gdnative.Object.Object_extern>));
-		};
+	public function new(?native:cpp.Pointer<gdnative.Node.Node_extern>) {
+		if (native == null) native = gdnative.Node.Node_extern.__alloc();
+		super(native.reinterpret());
 	}
 	extern inline function __node_ptr():cpp.Pointer<gdnative.Node.Node_extern> return cast __gd.ptr;
 	public function _process(p_delta:Float):Void __node_ptr().value._process(p_delta);

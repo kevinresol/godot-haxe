@@ -1,10 +1,8 @@
 package gd;
 class Timer extends gd.Node {
-	public function new() {
-		super();
-		if (Type.getClass(this) == gd.Timer) {
-			__gd = ((gdnative.Timer.Timer_extern.__alloc().reinterpret() : cpp.Pointer<gdnative.Object.Object_extern>));
-		};
+	public function new(?native:cpp.Pointer<gdnative.Timer.Timer_extern>) {
+		if (native == null) native = gdnative.Timer.Timer_extern.__alloc();
+		super(native.reinterpret());
 	}
 	extern inline function __timer_ptr():cpp.Pointer<gdnative.Timer.Timer_extern> return cast __gd.ptr;
 	public function set_wait_time(p_time_sec:Float):Void __timer_ptr().value.set_wait_time(p_time_sec);

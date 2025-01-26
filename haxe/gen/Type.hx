@@ -15,9 +15,9 @@ class Type {
 			case 'Color' | 'NodePath' | 'String' | 'StringName' | 'Vector2' | 'Callable': TPath({pack: ['gdnative'], name: gdType});
 			// enums
 			case 'enum::Error': TPath({pack: ['gdnative'], name: gdType.substr('enum::'.length)});
-			case 'enum::Node.InternalMode': macro :Int;
+			case 'enum::Node.InternalMode' | 'enum::ResourceLoader.CacheMode': macro :Int;
 			// objects
-			case 'CanvasItem' | 'Node' | 'Node2D' | 'Object' | 'Sprite2D' | 'Texture' | 'Texture2D': TPath({pack: ['gdnative'], name: gdType});
+			case 'CanvasItem' | 'Node' | 'Node2D' | 'Object' | 'Sprite2D' | 'Texture' | 'Texture2D' | 'Resource': TPath({pack: ['gdnative'], name: gdType});
 			case v:
 				// trace('Unhandled type $gdType');
 				// macro :Dynamic;
@@ -38,9 +38,9 @@ class Type {
 			case 'Color' | 'Vector2' | 'Callable': TPath({pack: ['gd'], name: gdType});
 			// enums
 			case 'enum::Error': TPath({pack: ['gd'], name: gdType.substr('enum::'.length)});
-			case 'enum::Node.InternalMode': macro :Int;
+			case 'enum::Node.InternalMode' | 'enum::ResourceLoader.CacheMode': macro :Int;
 			// objects
-			case 'CanvasItem' | 'Node' | 'Node2D' | 'Object' | 'Sprite2D' | 'Texture' | 'Texture2D': TPath({pack: ['gd'], name: gdType});
+			case 'CanvasItem' | 'Node' | 'Node2D' | 'Object' | 'Sprite2D' | 'Texture' | 'Texture2D' | 'Resource': TPath({pack: ['gd'], name: gdType});
 			case v:
 				// trace('Unhandled type $gdType');
 				// macro :Dynamic;

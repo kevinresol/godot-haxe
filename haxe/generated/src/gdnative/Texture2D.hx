@@ -9,6 +9,7 @@ package gdnative;
 	function get_height():Int;
 	function get_size():gdnative.Vector2;
 	function has_alpha():Bool;
+	function create_placeholder():gdnative.Resource;
 }
 @:forward abstract Texture2D(gdnative.Ref<Texture2D_extern>) from gdnative.Ref<Texture2D_extern> to gdnative.Ref<Texture2D_extern> {
 	@:from

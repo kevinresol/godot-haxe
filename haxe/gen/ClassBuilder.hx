@@ -1,7 +1,5 @@
 package gen;
 
-import haxe.macro.MacroStringTools;
-import sys.io.File;
 import haxe.macro.Expr;
 import gen.Api;
 import gen.Config;
@@ -24,6 +22,7 @@ class ClassBuilder extends Builder {
 			if (hppExists) {
 				if (getClassInheritance('Sprite2D').contains(cname)
 					|| getClassInheritance('Texture2D').contains(cname)
+					|| getClassInheritance('ResourceLoader').contains(cname)
 					|| getClassInheritance('Timer').contains(cname)) {
 					generateClassExtern(clazz, hpp);
 					generateClassWrapper(clazz, true);
@@ -57,11 +56,26 @@ class ClassBuilder extends Builder {
 		];
 
 		final local = TPath({pack: [], name: nativeName});
+
+		// native alloc
 		cls.fields = cls.fields.concat((macro class {
 			// put the alloc function in extern class to make sure the header file is included
 			extern static inline function __alloc():cpp.Pointer<$local>
 				return gdnative.Memory.Memory_extern.memnew(untyped __cpp__($v{'godot::$cname'}));
 		}).fields);
+
+		// singleton
+		if (isSingleton(cname)) {
+			cls.fields.push({
+				pos: null,
+				name: 'get_singleton',
+				access: [AStatic],
+				kind: FFun({
+					args: [],
+					ret: macro :cpp.Pointer<$local>,
+				})
+			});
+		}
 
 		final methods = (clazz.methods ?? []).filter(m -> m.name != 'new' && !isMethodDeclaredInParent(m.name, parent));
 		for (fn in methods) {
@@ -73,11 +87,13 @@ class ClassBuilder extends Builder {
 					name: fname,
 					access: fn.is_static ? [AStatic] : [],
 					kind: FFun({
-						args: (fn.arguments ?? []).filter(arg -> arg.type != 'enum::Node.InternalMode').map(arg -> ({
-							name: 'p_${arg.name}',
-							type: makeGodotType(arg.type),
-							opt: arg.default_value != null,
-						} : FunctionArg)),
+						args: (fn.arguments ?? []).filter(arg -> arg.type != 'enum::Node.InternalMode'
+							&& arg.type != 'enum::ResourceLoader.CacheMode')
+							.map(arg -> ({
+								name: 'p_${arg.name}',
+								type: makeGodotType(arg.type),
+								opt: arg.default_value != null,
+							} : FunctionArg)),
 						ret: makeGodotType(rtype),
 					})
 				});
@@ -125,6 +141,7 @@ class ClassBuilder extends Builder {
 		final cname = clazz.name;
 		final parent = clazz.inherits;
 		final config = isScriptExtern ? Config.cppiaExtern : Config.wrapper;
+		final nct = TPath({pack: Config.nativeExtern.pack, name: cname, sub: '${cname}_extern'});
 		final cls = {
 			final name = cname;
 			if (parent == null) {
@@ -144,18 +161,31 @@ class ClassBuilder extends Builder {
 				access: isScriptExtern ? [] : [APublic],
 				name: 'new',
 				kind: FFun({
-					args: [],
-					expr: isScriptExtern ? null : {
-						final exprs = [];
-						if (parent != null)
-							exprs.push(macro super());
-						exprs.push(macro if (Type.getClass(this) == gd.$cname) {
-							// this constructor is called directly (i.e. not called as `super()`), so we need to allocate the object
-							__gd = ($p{['gdnative', cname, '${cname}_extern']}.__alloc().reinterpret():cpp.Pointer<gdnative.Object.Object_extern>);
-						});
-						macro $b{exprs};
+					args: [
+						{
+							name: 'native',
+							type: isScriptExtern ? macro :Dynamic : macro :cpp.Pointer<$nct>,
+							opt: true,
+						}
+					],
+					expr: isScriptExtern ? null : macro $b{
+						[
+							macro if (native == null) native = $p{['gdnative', cname, '${cname}_extern']}.__alloc(),
+							parent == null ? macro __gd = native : macro super(native.reinterpret())
+						]
 					}
 				})
+			});
+		}
+
+		// singleton
+		if (isSingleton(cname)) {
+			final tp = {pack: [], name: cname}
+			cls.fields.push({
+				pos: null,
+				access: [AStatic, AFinal].concat(isScriptExtern ? [] : [APublic]),
+				name: 'singleton',
+				kind: FVar(macro :gd.$cname, isScriptExtern ? null : macro new $tp($p{['gdnative', cname, '${cname}_extern']}.get_singleton()))
 			});
 		}
 
@@ -187,11 +217,13 @@ class ClassBuilder extends Builder {
 						a;
 					},
 					kind: FFun({
-						args: (fn.arguments ?? []).filter(arg -> arg.type != 'enum::Node.InternalMode').map(arg -> ({
-							name: 'p_${arg.name}',
-							type: makeHaxeType(arg.type),
-							opt: arg.default_value != null,
-						} : FunctionArg)),
+						args: (fn.arguments ?? []).filter(arg -> arg.type != 'enum::Node.InternalMode'
+							&& arg.type != 'enum::ResourceLoader.CacheMode')
+							.map(arg -> ({
+								name: 'p_${arg.name}',
+								type: makeHaxeType(arg.type),
+								opt: arg.default_value != null,
+							} : FunctionArg)),
 						ret: makeHaxeType(rtype),
 						expr: isScriptExtern ? null : {
 							final target = if (fn.is_static) {
@@ -201,8 +233,9 @@ class ClassBuilder extends Builder {
 							}
 
 							final e = macro $target.$fname($a{
-								(fn.arguments ?? []).filter(arg -> arg.type != 'enum::Node.InternalMode').map(arg -> macro $i{'p_${arg.name}'})
-							});
+								(fn.arguments ?? []).filter(arg -> arg.type != 'enum::Node.InternalMode'
+									&& arg.type != 'enum::ResourceLoader.CacheMode')
+									.map(arg -> macro $i{'p_${arg.name}'})});
 							rtype == 'void' ? e : macro return $e;
 						}
 					})
@@ -247,7 +280,6 @@ class ClassBuilder extends Builder {
 				}
 			case 'RefCounted':
 				if (!isScriptExtern) {
-					final nct = TPath({pack: Config.nativeExtern.pack, name: cname, sub: '${cname}_extern'});
 					cls.fields = cls.fields.concat((macro class {
 						// gdnative.Ref is a native c++ helper, merely holding it will make ref counting work
 						public var __ref:gdnative.Ref<$nct>;
@@ -275,6 +307,10 @@ class ClassBuilder extends Builder {
 
 	function isRefCounted(name:String):Bool {
 		return api.classes.find(c -> c.name == name)?.is_refcounted ?? false;
+	}
+
+	function isSingleton(name:String):Bool {
+		return api.singletons.exists(v -> v.name == name);
 	}
 
 	function getClassInheritance(name:String):Array<String> {

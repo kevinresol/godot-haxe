@@ -1,10 +1,8 @@
 package gd;
 class Texture extends gd.Resource {
-	public function new() {
-		super();
-		if (Type.getClass(this) == gd.Texture) {
-			__gd = ((gdnative.Texture.Texture_extern.__alloc().reinterpret() : cpp.Pointer<gdnative.Object.Object_extern>));
-		};
+	public function new(?native:cpp.Pointer<gdnative.Texture.Texture_extern>) {
+		if (native == null) native = gdnative.Texture.Texture_extern.__alloc();
+		super(native.reinterpret());
 	}
 	extern inline function __texture_ptr():cpp.Pointer<gdnative.Texture.Texture_extern> return cast __gd.ptr;
 }

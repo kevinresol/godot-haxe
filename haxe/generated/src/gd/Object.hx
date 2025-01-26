@@ -1,9 +1,8 @@
 package gd;
 class Object {
-	public function new() {
-		if (Type.getClass(this) == gd.Object) {
-			__gd = ((gdnative.Object.Object_extern.__alloc().reinterpret() : cpp.Pointer<gdnative.Object.Object_extern>));
-		};
+	public function new(?native:cpp.Pointer<gdnative.Object.Object_extern>) {
+		if (native == null) native = gdnative.Object.Object_extern.__alloc();
+		__gd = native;
 	}
 	extern inline function __object_ptr():cpp.Pointer<gdnative.Object.Object_extern> return cast __gd.ptr;
 	public function get_class():std.String return __object_ptr().value.get_class();

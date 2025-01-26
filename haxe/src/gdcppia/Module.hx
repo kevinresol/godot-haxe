@@ -45,7 +45,7 @@ class Module {
 			trace("createInstance");
 			trace(owner);
 			// can't use createEmptyInstance because in that case instance variables will not be initialized
-			final inst:Dynamic = Type.createInstance(classType, [false]);
+			final inst:Dynamic = Type.createInstance(classType, [owner]);
 			switch Std.downcast(inst, gd.Object) {
 				case null:
 					// TODO: we should probably throw an error here.
