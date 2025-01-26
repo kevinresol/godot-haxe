@@ -112,9 +112,9 @@ void instance_free_property_list(const GDExtensionPropertyInfo* p_list,
   }
 
   for (int i = 0; i < p_count; i++) {
-    // godot::memdelete((godot::StringName*)p_list[i].name);
-    // godot::memdelete((godot::StringName*)p_list[i].class_name);
-    // godot::memdelete((godot::String*)p_list[i].hint_string);
+    godot::memdelete((godot::StringName*)p_list[i].name);
+    godot::memdelete((godot::StringName*)p_list[i].class_name);
+    godot::memdelete((godot::String*)p_list[i].hint_string);
   }
 
   godot::memdelete_arr(p_list);
@@ -142,8 +142,7 @@ const GDExtensionMethodInfo* instance_get_method_list(
     ret[i].return_value.class_name = memnew(godot::StringName());
     ret[i].return_value.hint = godot::PROPERTY_HINT_NONE;
     ret[i].return_value.hint_string = memnew(godot::String());
-    ret[i].return_value.usage =
-        godot::PROPERTY_USAGE_DEFAULT | godot::PROPERTY_USAGE_NIL_IS_VARIANT;
+    ret[i].return_value.usage = godot::PROPERTY_USAGE_DEFAULT;
 
     ret[i].flags = godot::MethodFlags::METHOD_FLAGS_DEFAULT;  // fn->flags;
     // ret[i].id = 0;                       // fn->id;
@@ -162,8 +161,11 @@ void instance_free_method_list(const GDExtensionMethodInfo* p_list,
   }
 
   for (int i = 0; i < p_count; i++) {
-    // godot::memdelete((godot::StringName*)p_list[i].name);
-    // TODO
+    godot::memdelete((godot::StringName*)p_list[i].name);
+    godot::memdelete((godot::StringName*)p_list[i].return_value.name);
+    godot::memdelete((godot::StringName*)p_list[i].return_value.class_name);
+    godot::memdelete((godot::String*)p_list[i].return_value.hint_string);
+    // TODO: args
   }
 
   godot::memdelete_arr(p_list);
