@@ -1,5 +1,6 @@
 #include "cppia_script_instance.h"
 
+#include <execinfo.h>
 #include <gdcppia_api.h>
 
 #include <godot_cpp/classes/object.hpp>
@@ -52,12 +53,14 @@ bool CppiaScriptInstance::get_class_category(
 
 const GDExtensionPropertyInfo *CppiaScriptInstance::get_property_list(
     uint32_t *r_count) {
+  printf("CppiaScriptInstance::get_property_list\n");
   return gdcppia::instance_get_property_list(script->get_global_name(),
                                              r_count);
 }
 
 void CppiaScriptInstance::free_property_list(
     const GDExtensionPropertyInfo *p_list, uint32_t p_count) {
+  printf("CppiaScriptInstance::free_property_list\n");
   gdcppia::instance_free_property_list(p_list, p_count);
 }
 
@@ -83,31 +86,37 @@ bool CppiaScriptInstance::validate_property(
 
 GDExtensionBool CppiaScriptInstance::property_can_revert(
     const StringName &p_name) {
-  // printf("property_can_revert %s\n", p_name.to_utf8_buffer().ptr());
+  // printf("CppiaScriptInstance::property_can_revert %s\n",
+  // p_name.to_utf8_buffer().ptr());
   return false;
 }
 
 GDExtensionBool CppiaScriptInstance::property_get_revert(
     const StringName &p_name, GDExtensionVariantPtr r_ret) {
-  printf("property_get_revert %s\n", p_name.to_utf8_buffer().ptr());
+  printf("CppiaScriptInstance::property_get_revert %s\n",
+         p_name.to_utf8_buffer().ptr());
   return false;
 }
 
 void CppiaScriptInstance::get_property_state(
     GDExtensionScriptInstancePropertyStateAdd p_add_func, void *p_userdata) {
-  printf("get_method_state\n");
+  printf("CppiaScriptInstance::get_property_state\n");
 }
 
 const GDExtensionMethodInfo *CppiaScriptInstance::get_method_list(
     uint32_t *r_count) {
-  printf("get_method_list\n");
-  *r_count = 0;
-  return nullptr;
+  printf("CppiaScriptInstance::get_method_list\n");
+
+  auto list =
+      gdcppia::instance_get_method_list(script->get_global_name(), r_count);
+  printf("got methods %d\n", *r_count);
+  return list;
 }
 
 void CppiaScriptInstance::free_method_list(const GDExtensionMethodInfo *p_list,
                                            uint32_t p_count) {
-  // TODO
+  printf("CppiaScriptInstance::free_method_list\n");
+  gdcppia::instance_free_method_list(p_list, p_count);
 }
 
 GDExtensionBool CppiaScriptInstance::has_method(const StringName &p_name) {
@@ -126,6 +135,10 @@ void CppiaScriptInstance::call(const StringName *p_method,
   gdcppia::instance_call(_cppia_handle, gdcppia::to_haxe_string(*p_method),
                          gdcppia::to_haxe_dynamic_array(
                              (const Variant **)p_args, p_argument_count));
+
+  // TODO:
+  *((godot::Variant *)r_return) = godot::Variant();
+  r_error->error = GDEXTENSION_CALL_OK;
 }
 
 void CppiaScriptInstance::notification(int32_t p_what, bool p_reversed) {

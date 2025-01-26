@@ -64,57 +64,74 @@ class Module {
 	}
 
 	function makeClassInfo(className:String):ClassInfo {
-		trace('makeClassInfo $className');
-		try {
-			final classType = module.resolveClass(className);
-			final rtti = haxe.rtti.Rtti.getRtti(classType);
+		static final cache = new Map<String, ClassInfo>();
 
-			return {
-				name: className,
-				parent: rtti.superClass?.path,
-				properties: [
-					for (f in rtti.fields) {
-						var meta;
-						if ((meta = f.meta.find(m -> m.name == 'export_range')) != null) {
-							{
-								type: rttiTypeToGodotVariantType(f.type),
-								name: f.name,
-								className: className,
-								hint: PropertyHint.RANGE,
-								hintString: meta.params.join(','),
-								usage: PropertyUsageFlags.DEFAULT,
+		trace('makeClassInfo $className');
+
+		return switch cache.get(className) {
+			case null:
+				final info:ClassInfo = try {
+					final classType = module.resolveClass(className);
+					final rtti = haxe.rtti.Rtti.getRtti(classType);
+					{
+						name: className,
+						parent: rtti.superClass?.path,
+						properties: [
+							for (f in rtti.fields) {
+								var meta;
+								if ((meta = f.meta.find(m -> m.name == 'export_range')) != null) {
+									{
+										type: rttiTypeToGodotVariantType(f.type),
+										name: f.name,
+										className: className,
+										hint: PropertyHint.RANGE,
+										hintString: meta.params.join(','),
+										usage: PropertyUsageFlags.DEFAULT,
+									}
+								} else if (f.meta.exists(m -> m.name == 'export')) {
+									{
+										type: rttiTypeToGodotVariantType(f.type),
+										name: f.name,
+										className: className,
+										hint: PropertyHint.NONE,
+										hintString: 'TODO: hint string',
+										usage: PropertyUsageFlags.DEFAULT,
+									}
+								}
 							}
-						} else if (f.meta.exists(m -> m.name == 'export')) {
-							{
-								type: rttiTypeToGodotVariantType(f.type),
-								name: f.name,
-								className: className,
-								hint: PropertyHint.NONE,
-								hintString: 'TODO: hint string',
-								usage: PropertyUsageFlags.DEFAULT,
-							}
-						}
+						],
+						methods: [
+							for (f in rtti.fields)
+								switch f.type {
+									case CFunction(args, ret) if (f.name != '_process' && f.name != 'new'):
+										// trace(f.name);
+										{
+											name: f.name,
+											returnValue: {
+												type: NIL,
+												name: '',
+												className: '',
+												hint: PropertyHint.NONE,
+												hintString: '',
+												usage: PropertyUsageFlags.DEFAULT | PropertyUsageFlags.NIL_IS_VARIANT,
+											},
+											flags: 1,
+											id: 0,
+											arguments: [],
+											defaultArguments: [],
+										}
+									default:
+										continue;
+								}
+						]
 					}
-				],
-				methods: [
-					// 	for (f in rtti.fields)
-					// 		switch f.type {
-					// 			case CFunction(args, ret):
-					// 				{
-					// 					name: String;
-					// 					returnValue: PropertyInfo;
-					// 					flags: UInt32; // Bitfield of `GDExtensionClassMethodFlags`.
-					// 					id: Int32;
-					// 					arguments: Array<PropertyInfo>;
-					// 					defaultArguments: Array<Dynamic>;
-					// 				}
-					// 			default:
-					// 				continue;
-					// 		}
-				]
-			}
-		} catch (e) {
-			return null;
+				} catch (e) {
+					null;
+				}
+				cache.set(className, info);
+				info;
+			case info:
+				info;
 		}
 	}
 
@@ -156,5 +173,5 @@ class MethodInfo {
 	public final flags:UInt32; // Bitfield of `GDExtensionClassMethodFlags`.
 	public final id:Int32;
 	public final arguments:Array<PropertyInfo>;
-	public final defaultArguments:Array<Dynamic>;
+	public final defaultArguments:Array<Int>; // TODO: type this properly.
 }

@@ -1,10 +1,12 @@
 #include <gdcppia/ClassInfo.h>
 #include <gdcppia/Cppia.h>
+#include <gdcppia/MethodInfo.h>
 #include <gdcppia/Module.h>
 #include <gdcppia/PropertyInfo.h>
 #include <gdcppia_api.h>
 
 #include <cstdio>
+#include <godot_cpp/classes/global_constants.hpp>
 #include <godot_cpp/classes/object.hpp>
 #include <godot_cpp/core/memory.hpp>
 #include <godot_cpp/variant/utility_functions.hpp>
@@ -81,18 +83,15 @@ const GDExtensionPropertyInfo* instance_get_property_list(
     const godot::StringName& p_name, uint32_t* r_count) {
   auto info = gdcppia::Cppia_obj::module->makeClassInfo(to_haxe_string(p_name));
 
-  if (info == null()) {
+  if (info == null() || (*r_count = info->properties.__length()) == 0) {
     *r_count = 0;
     return nullptr;
   }
 
-  auto size = info->properties.__length();
-  *r_count = size;
-
   GDExtensionPropertyInfo* ret =
-      godot::memnew_arr(GDExtensionPropertyInfo, size);
+      godot::memnew_arr(GDExtensionPropertyInfo, *r_count);
 
-  for (int i = 0; i < size; i++) {
+  for (int i = 0; i < *r_count; i++) {
     auto prop = (gdcppia::PropertyInfo)info->properties[i];
 
     ret[i].type = static_cast<GDExtensionVariantType>(prop->type);
@@ -113,9 +112,58 @@ void instance_free_property_list(const GDExtensionPropertyInfo* p_list,
   }
 
   for (int i = 0; i < p_count; i++) {
-    godot::memdelete((godot::StringName*)p_list[i].name);
-    godot::memdelete((godot::StringName*)p_list[i].class_name);
-    godot::memdelete((godot::String*)p_list[i].hint_string);
+    // godot::memdelete((godot::StringName*)p_list[i].name);
+    // godot::memdelete((godot::StringName*)p_list[i].class_name);
+    // godot::memdelete((godot::String*)p_list[i].hint_string);
+  }
+
+  godot::memdelete_arr(p_list);
+}
+
+const GDExtensionMethodInfo* instance_get_method_list(
+    const godot::StringName& p_name, uint32_t* r_count) {
+  auto info = gdcppia::Cppia_obj::module->makeClassInfo(to_haxe_string(p_name));
+
+  if (info == null() || (*r_count = info->methods.__length()) == 0) {
+    return nullptr;
+  }
+
+  GDExtensionMethodInfo* ret =
+      godot::memnew_arr(GDExtensionMethodInfo, *r_count);
+
+  for (int i = 0; i < *r_count; i++) {
+    auto fn = (gdcppia::MethodInfo)info->methods[i];
+
+    printf("method %s\n", (const char*)fn->name);
+    ret[i].name = memnew(godot::StringName((const char*)fn->name));
+
+    ret[i].return_value.type = GDEXTENSION_VARIANT_TYPE_NIL;
+    ret[i].return_value.name = memnew(godot::StringName());
+    ret[i].return_value.class_name = memnew(godot::StringName());
+    ret[i].return_value.hint = godot::PROPERTY_HINT_NONE;
+    ret[i].return_value.hint_string = memnew(godot::String());
+    ret[i].return_value.usage =
+        godot::PROPERTY_USAGE_DEFAULT | godot::PROPERTY_USAGE_NIL_IS_VARIANT;
+
+    ret[i].flags = godot::MethodFlags::METHOD_FLAGS_DEFAULT;  // fn->flags;
+    // ret[i].id = 0;                       // fn->id;
+    ret[i].argument_count = 0;           // fn->arguments.__length();
+    ret[i].arguments = nullptr;          // TODO
+    ret[i].default_argument_count = 0;   // fn->defaultArguments.__length();
+    ret[i].default_arguments = nullptr;  // TODO
+  }
+
+  return ret;
+}
+void instance_free_method_list(const GDExtensionMethodInfo* p_list,
+                               uint32_t p_count) {
+  if (p_list == nullptr) {
+    return;
+  }
+
+  for (int i = 0; i < p_count; i++) {
+    // godot::memdelete((godot::StringName*)p_list[i].name);
+    // TODO
   }
 
   godot::memdelete_arr(p_list);

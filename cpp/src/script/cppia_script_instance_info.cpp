@@ -218,27 +218,40 @@ GDExtensionScriptInstanceInfo3 CppiaScriptInstance::script_instance_info = {
     cppia_script_instance_get,
     cppia_script_instance_get_property_list,
     cppia_script_instance_free_property_list,
-    nullptr,  // get_class_category_func
+    nullptr,  // cppia_script_instance_get_class_category
+
     cppia_script_instance_property_can_revert,
     cppia_script_instance_property_get_revert,
+
     cppia_script_instance_get_owner,
-    cppia_script_instance_get_property_state,
+    nullptr,  // cppia_script_instance_get_property_state,
+
     cppia_script_instance_get_method_list,
     cppia_script_instance_free_method_list,
     cppia_script_instance_get_property_type,
     cppia_script_instance_validate_property,
+
     cppia_script_instance_has_method,
+
     cppia_script_get_method_argument_count,
+
     cppia_script_instance_call,
     cppia_script_instance_notification,
+
     cppia_script_instance_to_string,
+
     cppia_script_instance_ref_count_incremented,
     cppia_script_instance_ref_count_decremented,
+
     cppia_script_instance_get_script,
+
     cppia_script_instance_is_placeholder,
+
     cppia_script_instance_set_fallback,
     cppia_script_instance_get_fallback,
+
     cppia_script_instance_get_language,
+
     cppia_script_instance_free,
 };
 }  // namespace godot

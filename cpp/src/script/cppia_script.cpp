@@ -7,6 +7,7 @@
 
 #include "cppia_script_instance.h"
 #include "cppia_script_language.h"
+#include "gdcppia_api.h"
 
 namespace godot {
 
@@ -20,7 +21,8 @@ StringName CppiaScript::_get_instance_base_type() const { return StringName(); }
 Ref<Script> CppiaScript::_get_base_script() const { return base; }
 
 bool CppiaScript::_inherits_script(const Ref<Script> &p_script) const {
-  printf("_inherits_script\n", p_script->get_path().utf8().get_data());
+  printf("CppiaScript::_inherits_script %s\n",
+         p_script->get_path().utf8().get_data());
   printf("%s\n", p_script->get_path().utf8().get_data());
   // TODO
   return false;
@@ -35,21 +37,27 @@ String CppiaScript::_get_source_code() const { return source; }
 bool CppiaScript::_has_source_code() const { return !source.is_empty(); }
 
 bool CppiaScript::_can_instantiate() const {
-  return _is_tool() || !Engine::get_singleton()->is_editor_hint();
+  bool ret = _is_tool() || !Engine::get_singleton()->is_editor_hint();
+  printf("CppiaScript::_can_instantiate %d\n", ret);
+  return ret;
 }
 
-bool CppiaScript::_has_method(const StringName &method) const { return false; }
+bool CppiaScript::_has_method(const StringName &method) const {
+  printf("CppiaScript::_has_method\n");
+  return false;
+}
 bool CppiaScript::_has_static_method(const StringName &method) const {
   return false;
 }
 
 Dictionary CppiaScript::_get_method_info(const StringName &method) const {
+  printf("CppiaScript::_get_method_info\n");
   Dictionary ret;
   return ret;
 }
 
 bool CppiaScript::_is_valid() const {
-  printf("_is_valid\n");
+  printf("CppiaScript::_is_valid\n");
   return true;
 }
 
@@ -63,13 +71,37 @@ TypedArray<Dictionary> CppiaScript::_get_script_signal_list() const {
 }
 
 TypedArray<Dictionary> CppiaScript::_get_script_method_list() const {
+  printf("CppiaScript::_get_script_method_list\n");
   TypedArray<Dictionary> ret_val;
+  uint32_t r_count = 0;
+  auto list = gdcppia::instance_get_method_list(get_global_name(), &r_count);
+  for (uint32_t i = 0; i < r_count; i++) {
+    Dictionary dict;
+    dict["name"] = list[i].name;
+
+    Dictionary ret;
+    ret["type"] = list[i].return_value.type;
+    ret["usage"] = list[i].return_value.usage;
+    ret["name"] = list[i].return_value.name;
+    ret["class_name"] = list[i].return_value.class_name;
+    ret["hint"] = list[i].return_value.hint;
+    ret["hint_string"] = list[i].return_value.hint_string;
+    dict["return"] = ret;
+
+    dict["flags"] = list[i].flags;
+    Array args;
+    dict["args"] = args;
+    Array default_args;
+    dict["default_args"] = default_args;
+
+    ret_val.push_back(dict);
+  }
 
   return ret_val;
 }
 
 TypedArray<Dictionary> CppiaScript::_get_script_property_list() const {
-  printf("get_script_property_list\n");
+  printf("CppiaScript::_get_script_property_list\n");
 
   TypedArray<Dictionary> properties;
 
@@ -97,7 +129,7 @@ Variant CppiaScript::_get_property_default_value(
 }
 
 Error CppiaScript::_reload(bool keep_state) {
-  printf("_reload keep_state=%d\n", keep_state);
+  printf("CppiaScript::_reload keep_state=%d\n", keep_state);
   return Error::OK;
 }
 
@@ -117,7 +149,7 @@ StringName CppiaScript::_get_global_name() const {
 }
 
 void CppiaScript::load_from_disk(const String &p_path) {
-  printf("load_from_disk\n");
+  printf("CppiaScript::load_from_disk\n");
   Ref<FileAccess> file = FileAccess::open(p_path, FileAccess::READ);
   if (!file.is_null()) {
     String text = file->get_as_text();
@@ -128,7 +160,7 @@ void CppiaScript::load_from_disk(const String &p_path) {
 }
 
 void CppiaScript::did_hot_reload() {
-  printf("did_hot_reload\n");
+  printf("CppiaScript::did_hot_reload\n");
   _update_exports();
   auto editor_interface = EditorInterface::get_singleton();
   if (editor_interface) {
@@ -142,18 +174,17 @@ bool CppiaScript::_instance_has(Object *object) const {
 }
 
 void *CppiaScript::_instance_create(Object *for_object) const {
-  printf("_instance_create\n");
+  printf("CppiaScript::_instance_create\n");
   return create_script_instance_internal(for_object, false);
 }
 
 void *CppiaScript::_placeholder_instance_create(Object *for_object) const {
-  printf("_placeholder_instance_create\n");
+  printf("CppiaScript::_placeholder_instance_create\n");
   return create_script_instance_internal(for_object, true);
 }
 
 void *CppiaScript::create_script_instance_internal(Object *for_object,
                                                    bool is_placeholder) const {
-  printf("create_script_instance_internal\n");
   GDExtensionScriptInstancePtr godot_script_instance = nullptr;
 
   RefCounted *rc = Object::cast_to<RefCounted>(for_object);
