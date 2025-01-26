@@ -51,6 +51,6 @@ package gdnative;
 	public extern overload inline function new(p_from:gd.Color, p_alpha:Float) this = new gdnative.Color.Color_extern(p_from, p_alpha);
 	public extern overload inline function new(p_r:Float, p_g:Float, p_b:Float) this = new gdnative.Color.Color_extern(p_r, p_g, p_b);
 	public extern overload inline function new(p_r:Float, p_g:Float, p_b:Float, p_a:Float) this = new gdnative.Color.Color_extern(p_r, p_g, p_b, p_a);
-	public extern overload inline function new(p_code:String) this = new gdnative.Color.Color_extern(p_code);
-	public extern overload inline function new(p_code:String, p_alpha:Float) this = new gdnative.Color.Color_extern(p_code, p_alpha);
+	public extern overload inline function new(p_code:std.String) this = new gdnative.Color.Color_extern(p_code);
+	public extern overload inline function new(p_code:std.String, p_alpha:Float) this = new gdnative.Color.Color_extern(p_code, p_alpha);
 }

@@ -4,5 +4,5 @@ extern class RefCounted extends gd.Object {
 	function reference():Bool;
 	function unreference():Bool;
 	function get_reference_count():Int;
-	function new(allocate:Bool = true);
+	function new();
 }

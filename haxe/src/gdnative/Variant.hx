@@ -60,7 +60,7 @@ abstract Variant(cpp.Struct<Variant_extern>) from cpp.Struct<Variant_extern> to 
 
 	@:from
 	extern static inline function fromObjectWrapper(v:gd.Object):Variant
-		return fromObject(v.__gd.pointer);
+		return fromObject(v.__gd);
 
 	// @:from
 	public static function fromHaxeDynamic(v:Dynamic):Variant {

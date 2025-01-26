@@ -20,7 +20,7 @@ package gdnative;
 	@:to
 	inline function toWrapper():gd.Timer {
 		final v = new gd.Timer();
-		v.__gd = new gdnative.ObjectContainer(this.reinterpret(), false);
+		v.__gd = this.reinterpret();
 		return v;
 	}
 }

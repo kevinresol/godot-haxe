@@ -9,15 +9,15 @@ extern class Color_wrapper {
 	static function _new2(p_from:gd.Color, p_alpha:Float):Color_wrapper;
 	static function _new3(p_r:Float, p_g:Float, p_b:Float):Color_wrapper;
 	static function _new4(p_r:Float, p_g:Float, p_b:Float, p_a:Float):Color_wrapper;
-	static function _new5(p_code:String):Color_wrapper;
-	static function _new6(p_code:String, p_alpha:Float):Color_wrapper;
+	static function _new5(p_code:std.String):Color_wrapper;
+	static function _new6(p_code:std.String, p_alpha:Float):Color_wrapper;
 	function to_argb32():Int;
 	function to_abgr32():Int;
 	function to_rgba32():Int;
 	function to_argb64():Int;
 	function to_abgr64():Int;
 	function to_rgba64():Int;
-	function to_html(?p_with_alpha:Bool):String;
+	function to_html(?p_with_alpha:Bool):std.String;
 	function clamp(?p_min:gd.Color, ?p_max:gd.Color):gd.Color;
 	function inverted():gd.Color;
 	function lerp(p_to:gd.Color, p_weight:Float):gd.Color;
@@ -30,9 +30,9 @@ extern class Color_wrapper {
 	function is_equal_approx(p_to:gd.Color):Bool;
 	function hex(p_hex:Int):gd.Color;
 	function hex64(p_hex:Int):gd.Color;
-	function html(p_rgba:String):gd.Color;
-	function html_is_valid(p_color:String):Bool;
-	function from_string(p_str:String, p_default:gd.Color):gd.Color;
+	function html(p_rgba:std.String):gd.Color;
+	function html_is_valid(p_color:std.String):Bool;
+	function from_string(p_str:std.String, p_default:gd.Color):gd.Color;
 	function from_hsv(p_h:Float, p_s:Float, p_v:Float, ?p_alpha:Float):gd.Color;
 	function from_rgbe9995(p_rgbe:Int):gd.Color;
 	public static final ALICE_BLUE : gd.Color;
@@ -189,6 +189,6 @@ extern class Color_wrapper {
 	public extern overload inline function new(p_from:gd.Color, p_alpha:Float) this = Color_wrapper._new2(p_from, p_alpha);
 	public extern overload inline function new(p_r:Float, p_g:Float, p_b:Float) this = Color_wrapper._new3(p_r, p_g, p_b);
 	public extern overload inline function new(p_r:Float, p_g:Float, p_b:Float, p_a:Float) this = Color_wrapper._new4(p_r, p_g, p_b, p_a);
-	public extern overload inline function new(p_code:String) this = Color_wrapper._new5(p_code);
-	public extern overload inline function new(p_code:String, p_alpha:Float) this = Color_wrapper._new6(p_code, p_alpha);
+	public extern overload inline function new(p_code:std.String) this = Color_wrapper._new5(p_code);
+	public extern overload inline function new(p_code:std.String, p_alpha:Float) this = Color_wrapper._new6(p_code, p_alpha);
 }

@@ -19,15 +19,15 @@ class Color_wrapper {
 	static function _new2(p_from:gd.Color, p_alpha:Float):Color_wrapper return new Color_wrapper(new gdnative.Color(p_from, p_alpha));
 	static function _new3(p_r:Float, p_g:Float, p_b:Float):Color_wrapper return new Color_wrapper(new gdnative.Color(p_r, p_g, p_b));
 	static function _new4(p_r:Float, p_g:Float, p_b:Float, p_a:Float):Color_wrapper return new Color_wrapper(new gdnative.Color(p_r, p_g, p_b, p_a));
-	static function _new5(p_code:String):Color_wrapper return new Color_wrapper(new gdnative.Color(p_code));
-	static function _new6(p_code:String, p_alpha:Float):Color_wrapper return new Color_wrapper(new gdnative.Color(p_code, p_alpha));
+	static function _new5(p_code:std.String):Color_wrapper return new Color_wrapper(new gdnative.Color(p_code));
+	static function _new6(p_code:std.String, p_alpha:Float):Color_wrapper return new Color_wrapper(new gdnative.Color(p_code, p_alpha));
 	public function to_argb32():Int return __gd.to_argb32();
 	public function to_abgr32():Int return __gd.to_abgr32();
 	public function to_rgba32():Int return __gd.to_rgba32();
 	public function to_argb64():Int return __gd.to_argb64();
 	public function to_abgr64():Int return __gd.to_abgr64();
 	public function to_rgba64():Int return __gd.to_rgba64();
-	public function to_html(?p_with_alpha:Bool):String return __gd.to_html(p_with_alpha);
+	public function to_html(?p_with_alpha:Bool):std.String return __gd.to_html(p_with_alpha);
 	public function clamp(?p_min:gd.Color, ?p_max:gd.Color):gd.Color return __gd.clamp(p_min, p_max);
 	public function inverted():gd.Color return __gd.inverted();
 	public function lerp(p_to:gd.Color, p_weight:Float):gd.Color return __gd.lerp(p_to, p_weight);
@@ -40,9 +40,9 @@ class Color_wrapper {
 	public function is_equal_approx(p_to:gd.Color):Bool return __gd.is_equal_approx(p_to);
 	public function hex(p_hex:Int):gd.Color return __gd.hex(p_hex);
 	public function hex64(p_hex:Int):gd.Color return __gd.hex64(p_hex);
-	public function html(p_rgba:String):gd.Color return __gd.html(p_rgba);
-	public function html_is_valid(p_color:String):Bool return __gd.html_is_valid(p_color);
-	public function from_string(p_str:String, p_default:gd.Color):gd.Color return __gd.from_string(p_str, p_default);
+	public function html(p_rgba:std.String):gd.Color return __gd.html(p_rgba);
+	public function html_is_valid(p_color:std.String):Bool return __gd.html_is_valid(p_color);
+	public function from_string(p_str:std.String, p_default:gd.Color):gd.Color return __gd.from_string(p_str, p_default);
 	public function from_hsv(p_h:Float, p_s:Float, p_v:Float, ?p_alpha:Float):gd.Color return __gd.from_hsv(p_h, p_s, p_v, p_alpha);
 	public function from_rgbe9995(p_rgbe:Int):gd.Color return __gd.from_rgbe9995(p_rgbe);
 	public static final ALICE_BLUE : gd.Color = new gd.Color(0.941176, 0.972549, 1, 1);
@@ -199,6 +199,6 @@ class Color_wrapper {
 	public extern overload inline function new(p_from:gd.Color, p_alpha:Float) this = @:privateAccess Color_wrapper._new2(p_from, p_alpha);
 	public extern overload inline function new(p_r:Float, p_g:Float, p_b:Float) this = @:privateAccess Color_wrapper._new3(p_r, p_g, p_b);
 	public extern overload inline function new(p_r:Float, p_g:Float, p_b:Float, p_a:Float) this = @:privateAccess Color_wrapper._new4(p_r, p_g, p_b, p_a);
-	public extern overload inline function new(p_code:String) this = @:privateAccess Color_wrapper._new5(p_code);
-	public extern overload inline function new(p_code:String, p_alpha:Float) this = @:privateAccess Color_wrapper._new6(p_code, p_alpha);
+	public extern overload inline function new(p_code:std.String) this = @:privateAccess Color_wrapper._new5(p_code);
+	public extern overload inline function new(p_code:std.String, p_alpha:Float) this = @:privateAccess Color_wrapper._new6(p_code, p_alpha);
 }

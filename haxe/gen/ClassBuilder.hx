@@ -91,7 +91,7 @@ class ClassBuilder extends Builder {
 
 				@:to inline function toWrapper():gd.$cname {
 					final v = new gd.$cname();
-					v.__gd = new gdnative.ObjectContainer(this.ptr().reinterpret(), false);
+					v.__gd = this.ptr().reinterpret();
 					v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
 					return v;
 				}
@@ -107,7 +107,7 @@ class ClassBuilder extends Builder {
 
 				@:to inline function toWrapper():gd.$cname {
 					final v = new gd.$cname();
-					v.__gd = new gdnative.ObjectContainer(this.reinterpret(), false);
+					v.__gd = this.reinterpret();
 					return v;
 				}
 			};
@@ -187,19 +187,15 @@ class ClassBuilder extends Builder {
 				access: isScriptExtern ? [] : [APublic],
 				name: 'new',
 				kind: FFun({
-					args: [
-						{
-							name: 'allocate',
-							type: macro :Bool,
-							value: macro true,
-						}
-					],
+					args: [],
 					expr: isScriptExtern ? null : {
 						final exprs = [];
 						if (parent != null)
-							exprs.push(macro super(false));
-						exprs.push(macro if (allocate) __gd = new gdnative.ObjectContainer(($p{['gdnative', cname, '${cname}_extern']}.__alloc()
-							.reinterpret():cpp.Pointer<gdnative.Object.Object_extern>), true));
+							exprs.push(macro super());
+						exprs.push(macro if (Type.getClass(this) == gd.$cname) {
+							// this constructor is called directly (i.e. not called as `super()`), so we need to allocate the object
+							__gd = ($p{['gdnative', cname, '${cname}_extern']}.__alloc().reinterpret():cpp.Pointer<gdnative.Object.Object_extern>);
+						});
 						macro $b{exprs};
 					}
 				})
@@ -217,7 +213,7 @@ class ClassBuilder extends Builder {
 					}).fields);
 				} else {
 					cls.fields = cls.fields.concat((macro class {
-						public var __gd:gdnative.ObjectContainer;
+						public var __gd:gdnative.Object;
 
 						// public function new() {}
 

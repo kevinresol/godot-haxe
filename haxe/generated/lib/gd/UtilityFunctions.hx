@@ -88,9 +88,9 @@ extern class UtilityFunctions {
 	static function weakref(p_obj:gd.Variant):gd.Variant;
 	static function typeof(p_variable:gd.Variant):Int;
 	static function type_convert(p_variant:gd.Variant, p_type:Int):gd.Variant;
-	static function str(p_arg1:gd.Variant):String;
-	static function error_string(p_error:Int):String;
-	static function type_string(p_type:Int):String;
+	static function str(p_arg1:gd.Variant):std.String;
+	static function error_string(p_error:Int):std.String;
+	static function type_string(p_type:Int):std.String;
 	static function print(p_arg1:gd.Variant):Void;
 	static function print_rich(p_arg1:gd.Variant):Void;
 	static function printerr(p_arg1:gd.Variant):Void;
@@ -100,8 +100,8 @@ extern class UtilityFunctions {
 	static function print_verbose(p_arg1:gd.Variant):Void;
 	static function push_error(p_arg1:gd.Variant):Void;
 	static function push_warning(p_arg1:gd.Variant):Void;
-	static function var_to_str(p_variable:gd.Variant):String;
-	static function str_to_var(p_string:String):gd.Variant;
+	static function var_to_str(p_variable:gd.Variant):std.String;
+	static function str_to_var(p_string:std.String):gd.Variant;
 	static function hash(p_variable:gd.Variant):Int;
 	static function instance_from_id(p_instance_id:Int):gd.Object;
 	static function is_instance_id_valid(p_id:Int):Bool;

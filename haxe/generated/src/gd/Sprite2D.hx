@@ -21,8 +21,10 @@ class Sprite2D extends gd.Node2D {
 	public function get_vframes():Int return ((cast __gd.ptr : cpp.Pointer<gdnative.Sprite2D.Sprite2D_extern>)).value.get_vframes();
 	public function set_hframes(p_hframes:Int):Void ((cast __gd.ptr : cpp.Pointer<gdnative.Sprite2D.Sprite2D_extern>)).value.set_hframes(p_hframes);
 	public function get_hframes():Int return ((cast __gd.ptr : cpp.Pointer<gdnative.Sprite2D.Sprite2D_extern>)).value.get_hframes();
-	public function new(allocate:Bool = true) {
-		super(false);
-		if (allocate) __gd = new gdnative.ObjectContainer(((gdnative.Sprite2D.Sprite2D_extern.__alloc().reinterpret() : cpp.Pointer<gdnative.Object.Object_extern>)), true);
+	public function new() {
+		super();
+		if (Type.getClass(this) == gd.Sprite2D) {
+			__gd = ((gdnative.Sprite2D.Sprite2D_extern.__alloc().reinterpret() : cpp.Pointer<gdnative.Object.Object_extern>));
+		};
 	}
 }

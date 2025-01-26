@@ -51,7 +51,7 @@ class Module {
 					// TODO: we should probably throw an error here.
 					trace('Instance is not a gd.Object');
 				case node:
-					node.__gd = new gdnative.ObjectContainer(owner, false);
+					node.__gd = owner;
 			}
 			switch Std.downcast(inst, gd.RefCounted) {
 				case null:

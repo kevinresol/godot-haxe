@@ -8,7 +8,7 @@ package gdnative;
 	@:to
 	inline function toWrapper():gd.Texture {
 		final v = new gd.Texture();
-		v.__gd = new gdnative.ObjectContainer(this.ptr().reinterpret(), false);
+		v.__gd = this.ptr().reinterpret();
 		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
 		return v;
 	}

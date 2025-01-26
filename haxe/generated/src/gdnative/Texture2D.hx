@@ -16,7 +16,7 @@ package gdnative;
 	@:to
 	inline function toWrapper():gd.Texture2D {
 		final v = new gd.Texture2D();
-		v.__gd = new gdnative.ObjectContainer(this.ptr().reinterpret(), false);
+		v.__gd = this.ptr().reinterpret();
 		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
 		return v;
 	}

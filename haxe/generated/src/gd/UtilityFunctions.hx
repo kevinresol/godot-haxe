@@ -88,9 +88,9 @@ class UtilityFunctions {
 	public static function weakref(p_obj:gd.Variant):gd.Variant return gdnative.UtilityFunctions.weakref(p_obj);
 	public static function typeof(p_variable:gd.Variant):Int return gdnative.UtilityFunctions.typeof(p_variable);
 	public static function type_convert(p_variant:gd.Variant, p_type:Int):gd.Variant return gdnative.UtilityFunctions.type_convert(p_variant, p_type);
-	public static function str(p_arg1:gd.Variant):String return gdnative.UtilityFunctions.str(p_arg1);
-	public static function error_string(p_error:Int):String return gdnative.UtilityFunctions.error_string(p_error);
-	public static function type_string(p_type:Int):String return gdnative.UtilityFunctions.type_string(p_type);
+	public static function str(p_arg1:gd.Variant):std.String return gdnative.UtilityFunctions.str(p_arg1);
+	public static function error_string(p_error:Int):std.String return gdnative.UtilityFunctions.error_string(p_error);
+	public static function type_string(p_type:Int):std.String return gdnative.UtilityFunctions.type_string(p_type);
 	public static function print(p_arg1:gd.Variant):Void gdnative.UtilityFunctions.print(p_arg1);
 	public static function print_rich(p_arg1:gd.Variant):Void gdnative.UtilityFunctions.print_rich(p_arg1);
 	public static function printerr(p_arg1:gd.Variant):Void gdnative.UtilityFunctions.printerr(p_arg1);
@@ -100,8 +100,8 @@ class UtilityFunctions {
 	public static function print_verbose(p_arg1:gd.Variant):Void gdnative.UtilityFunctions.print_verbose(p_arg1);
 	public static function push_error(p_arg1:gd.Variant):Void gdnative.UtilityFunctions.push_error(p_arg1);
 	public static function push_warning(p_arg1:gd.Variant):Void gdnative.UtilityFunctions.push_warning(p_arg1);
-	public static function var_to_str(p_variable:gd.Variant):String return gdnative.UtilityFunctions.var_to_str(p_variable);
-	public static function str_to_var(p_string:String):gd.Variant return gdnative.UtilityFunctions.str_to_var(p_string);
+	public static function var_to_str(p_variable:gd.Variant):std.String return gdnative.UtilityFunctions.var_to_str(p_variable);
+	public static function str_to_var(p_string:std.String):gd.Variant return gdnative.UtilityFunctions.str_to_var(p_string);
 	public static function hash(p_variable:gd.Variant):Int return gdnative.UtilityFunctions.hash(p_variable);
 	public static function instance_from_id(p_instance_id:Int):gd.Object return gdnative.UtilityFunctions.instance_from_id(p_instance_id);
 	public static function is_instance_id_valid(p_id:Int):Bool return gdnative.UtilityFunctions.is_instance_id_valid(p_id);

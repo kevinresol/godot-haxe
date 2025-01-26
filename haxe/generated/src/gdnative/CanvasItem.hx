@@ -54,7 +54,7 @@ package gdnative;
 	@:to
 	inline function toWrapper():gd.CanvasItem {
 		final v = new gd.CanvasItem();
-		v.__gd = new gdnative.ObjectContainer(this.reinterpret(), false);
+		v.__gd = this.reinterpret();
 		return v;
 	}
 }

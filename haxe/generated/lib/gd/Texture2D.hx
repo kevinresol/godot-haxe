@@ -8,5 +8,5 @@ extern class Texture2D extends gd.Texture {
 	function get_height():Int;
 	function get_size():gd.Vector2;
 	function has_alpha():Bool;
-	function new(allocate:Bool = true);
+	function new();
 }
