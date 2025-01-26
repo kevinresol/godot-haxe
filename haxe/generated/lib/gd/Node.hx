@@ -1,5 +1,6 @@
 package gd;
 extern class Node extends gd.Object {
+	function new();
 	function _process(p_delta:Float):Void;
 	function _physics_process(p_delta:Float):Void;
 	function _enter_tree():Void;
@@ -99,5 +100,4 @@ extern class Node extends gd.Object {
 	function call_thread_safe(p_method:std.String):gd.Variant;
 	function set_thread_safe(p_property:std.String, p_value:gd.Variant):Void;
 	function notify_thread_safe(p_what:Int):Void;
-	function new();
 }

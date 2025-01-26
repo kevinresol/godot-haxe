@@ -137,6 +137,39 @@ class ClassBuilder extends Builder {
 		cls.isExtern = isScriptExtern;
 		cls.pack = config.pack;
 
+		// constructor
+		if (clazz.is_instantiable) {
+			cls.fields.push({
+				pos: null,
+				access: isScriptExtern ? [] : [APublic],
+				name: 'new',
+				kind: FFun({
+					args: [],
+					expr: isScriptExtern ? null : {
+						final exprs = [];
+						if (parent != null)
+							exprs.push(macro super());
+						exprs.push(macro if (Type.getClass(this) == gd.$cname) {
+							// this constructor is called directly (i.e. not called as `super()`), so we need to allocate the object
+							__gd = ($p{['gdnative', cname, '${cname}_extern']}.__alloc().reinterpret():cpp.Pointer<gdnative.Object.Object_extern>);
+						});
+						macro $b{exprs};
+					}
+				})
+			});
+		}
+
+		// helper
+		if (!isScriptExtern) {
+			final native = TPath({pack: Config.nativeExtern.pack, name: cname, sub: '${cname}_extern'});
+			final fname = getPointerHelperName(cname);
+			cls.fields = cls.fields.concat((macro class {
+				// `__gd` is `gdnative.Object`(haxe) and `__gd.ptr` is always a `godot::Object*`(cpp)
+				// so we cast it into the correct pointer type before dereferencing
+				extern inline function $fname():cpp.Pointer<$native> return cast __gd.ptr;
+			}).fields);
+		}
+
 		final methods = (clazz.methods ?? []).filter(m -> m.name != 'new' && !isMethodDeclaredInParent(m.name, parent));
 		for (fn in methods) {
 			final fname = fn.name;
@@ -164,10 +197,7 @@ class ClassBuilder extends Builder {
 							final target = if (fn.is_static) {
 								macro $p{Config.nativeExtern.pack.concat([cname, '${cname}_extern'])};
 							} else {
-								final native = TPath({pack: Config.nativeExtern.pack, name: cname, sub: '${cname}_extern'});
-								// `__gd` is `gdnative.Object`(haxe) and `__gd.ptr` is always a `godot::Object*`(cpp)
-								// so we cast it into the correct pointer type before dereferencing
-								macro(cast __gd.ptr : cpp.Pointer<$native>).value;
+								macro $i{getPointerHelperName(cname)}().value;
 							}
 
 							final e = macro $target.$fname($a{
@@ -178,28 +208,6 @@ class ClassBuilder extends Builder {
 					})
 				});
 			} catch (e) {}
-		}
-
-		// constructor
-		if (clazz.is_instantiable) {
-			cls.fields.push({
-				pos: null,
-				access: isScriptExtern ? [] : [APublic],
-				name: 'new',
-				kind: FFun({
-					args: [],
-					expr: isScriptExtern ? null : {
-						final exprs = [];
-						if (parent != null)
-							exprs.push(macro super());
-						exprs.push(macro if (Type.getClass(this) == gd.$cname) {
-							// this constructor is called directly (i.e. not called as `super()`), so we need to allocate the object
-							__gd = ($p{['gdnative', cname, '${cname}_extern']}.__alloc().reinterpret():cpp.Pointer<gdnative.Object.Object_extern>);
-						});
-						macro $b{exprs};
-					}
-				})
-			});
 		}
 
 		// special cases
@@ -281,5 +289,9 @@ class ClassBuilder extends Builder {
 
 	function getClassParent(name:String):Null<String> {
 		return api.classes.find(c -> c.name == name)?.inherits;
+	}
+
+	function getPointerHelperName(name:String):String {
+		return '__${name.toLowerCase()}_ptr';
 	}
 }

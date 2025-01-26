@@ -1,5 +1,6 @@
 package gd;
 extern class Sprite2D extends gd.Node2D {
+	function new();
 	function set_texture(p_texture:gd.Texture2D):Void;
 	function get_texture():gd.Texture2D;
 	function set_centered(p_centered:Bool):Void;
@@ -21,5 +22,4 @@ extern class Sprite2D extends gd.Node2D {
 	function get_vframes():Int;
 	function set_hframes(p_hframes:Int):Void;
 	function get_hframes():Int;
-	function new();
 }

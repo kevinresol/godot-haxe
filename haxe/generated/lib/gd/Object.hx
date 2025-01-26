@@ -1,5 +1,6 @@
 package gd;
 @:autoBuild(gd.ObjectMacro.build()) extern class Object {
+	function new();
 	function get_class():std.String;
 	function is_class(p_class:std.String):Bool;
 	function set(p_property:std.String, p_value:gd.Variant):Void;
@@ -38,6 +39,5 @@ package gd;
 	function tr_n(p_message:std.String, p_plural_message:std.String, p_n:Int, ?p_context:std.String):std.String;
 	function is_queued_for_deletion():Bool;
 	function cancel_free():Void;
-	function new();
 	function cast_to<T:(gd.Object)>(cls:Class<T>):T;
 }

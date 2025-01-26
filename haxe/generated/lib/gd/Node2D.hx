@@ -1,5 +1,6 @@
 package gd;
 extern class Node2D extends gd.CanvasItem {
+	function new();
 	function set_position(p_position:gd.Vector2):Void;
 	function set_rotation(p_radians:Float):Void;
 	function set_rotation_degrees(p_degrees:Float):Void;
@@ -30,5 +31,4 @@ extern class Node2D extends gd.CanvasItem {
 	function get_angle_to(p_point:gd.Vector2):Float;
 	function to_local(p_global_point:gd.Vector2):gd.Vector2;
 	function to_global(p_local_point:gd.Vector2):gd.Vector2;
-	function new();
 }

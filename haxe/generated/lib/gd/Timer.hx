@@ -1,5 +1,6 @@
 package gd;
 extern class Timer extends gd.Node {
+	function new();
 	function set_wait_time(p_time_sec:Float):Void;
 	function get_wait_time():Float;
 	function set_one_shot(p_enable:Bool):Void;
@@ -12,5 +13,4 @@ extern class Timer extends gd.Node {
 	function is_paused():Bool;
 	function is_stopped():Bool;
 	function get_time_left():Float;
-	function new();
 }

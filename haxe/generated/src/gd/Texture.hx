@@ -6,4 +6,5 @@ class Texture extends gd.Resource {
 			__gd = ((gdnative.Texture.Texture_extern.__alloc().reinterpret() : cpp.Pointer<gdnative.Object.Object_extern>));
 		};
 	}
+	extern inline function __texture_ptr():cpp.Pointer<gdnative.Texture.Texture_extern> return cast __gd.ptr;
 }
