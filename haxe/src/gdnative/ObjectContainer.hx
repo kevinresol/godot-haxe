@@ -21,7 +21,7 @@ class ObjectContainer extends Finalizable {
 		return pointer.reinterpret();
 
 	override function finalize() {
-		if (allocated)
-			gdnative.Memory.Memory_extern.memdelete(pointer.ptr);
+		// if (allocated)
+			// gdnative.Memory.Memory_extern.memdelete(pointer.ptr);
 	}
 }

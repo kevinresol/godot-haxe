@@ -122,7 +122,7 @@ void CppiaScriptInstance::call(const StringName *p_method,
                                GDExtensionInt p_argument_count,
                                GDExtensionVariantPtr r_return,
                                GDExtensionCallError *r_error) {
-  // printf("call %s\n", p_method->to_utf8_buffer().ptr());
+  // printf("call %s %d\n", p_method->to_utf8_buffer().ptr(), p_argument_count);
   gdcppia::instance_call(_cppia_handle, gdcppia::to_haxe_string(*p_method),
                          gdcppia::to_haxe_dynamic_array(
                              (const Variant **)p_args, p_argument_count));

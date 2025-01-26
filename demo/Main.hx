@@ -90,21 +90,31 @@ class Main extends Base {
 		UtilityFunctions.print(texture2.get_reference_count());
 		sprite.set_flip_v(true);
 
-		final timer = new Timer();
-		add_child(timer);
-		timer.set_wait_time(1);
-		timer.set_one_shot(true);
-		timer.connect("timeout", new Callable(this, "_on_timer_timeout"), 0);
-		UtilityFunctions.print(timer);
-		timer.start();
-
 		final pos = get_position();
 		pos.x = 0;
 		set_position(pos);
+
+		final timer = new Timer();
+		add_child(timer);
+		timer.set_name("Timer");
+		timer.set_wait_time(1);
+		timer.set_one_shot(true);
+		timer.connect("timeout", new Callable(this, "_on_timer_timeout"), 0);
+		timer.connect("tree_exiting", new Callable(this, "_on_timer_tree_exiting"), 0);
+		UtilityFunctions.print(timer);
+		UtilityFunctions.print(timer.get_name());
+		timer.start();
 	}
 
 	function _on_timer_timeout() {
 		trace('_on_timer_timeout');
+		final timer = get_node('Timer').cast_to(Timer);
+		trace(timer);
+		timer.queue_free();
+	}
+
+	function _on_timer_tree_exiting() {
+		trace("_on_timer_tree_exiting");
 	}
 
 	// override function _physics_process(delta:Float) {
