@@ -24,4 +24,28 @@ class Resource extends gd.RefCounted {
 	public function get_scene_unique_id():std.String return __resource_ptr().value.get_scene_unique_id();
 	public function emit_changed():Void __resource_ptr().value.emit_changed();
 	public function duplicate(?p_subresources:Bool):gd.Resource return __resource_ptr().value.duplicate(p_subresources);
+	var resource_local_to_scene(get, set) : Bool;
+	function get_resource_local_to_scene():Bool return is_local_to_scene();
+	function set_resource_local_to_scene(v:Bool):Bool {
+		set_local_to_scene(v);
+		return v;
+	}
+	var resource_path(get, set) : std.String;
+	function get_resource_path():std.String return get_path();
+	function set_resource_path(v:std.String):std.String {
+		set_path(v);
+		return v;
+	}
+	var resource_name(get, set) : std.String;
+	function get_resource_name():std.String return get_name();
+	function set_resource_name(v:std.String):std.String {
+		set_name(v);
+		return v;
+	}
+	var resource_scene_unique_id(get, set) : std.String;
+	function get_resource_scene_unique_id():std.String return get_scene_unique_id();
+	function set_resource_scene_unique_id(v:std.String):std.String {
+		set_scene_unique_id(v);
+		return v;
+	}
 }

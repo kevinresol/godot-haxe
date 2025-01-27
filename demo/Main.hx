@@ -55,21 +55,23 @@ class Main extends Base {
 	final target = new Vector2(100, 100);
 
 	override function _process(delta:Float) {
-		if (!processed) {
+		if (processed == 0) {
 			trace('_process($delta) $processed');
 			trace(gd.sky.ProcessMode.PROCESS_MODE_QUALITY);
-			processed = true;
-			set_process_mode(PROCESS_MODE_DISABLED);
+		} else if (processed == 60) {
+			process_mode = PROCESS_MODE_DISABLED;
 		}
+		processed++;
+
 		final pos = get_position();
-		if (pos.x == 100 && pos.y == 100) {
-			set_position(new Vector2());
+		position = if (pos.x == 100 && pos.y == 100) {
+			new Vector2();
 		} else {
-			set_position(pos.move_toward(target, delta * speed));
+			pos.move_toward(target, delta * speed);
 		}
 	}
 
-	var processed = false;
+	var processed = 0;
 	var physicsProcessed = false;
 
 	override function _ready() {

@@ -16,7 +16,10 @@ class Node extends gd.Object {
 	public function _ready():Void __node_ptr().value._ready();
 	public static function print_orphan_nodes():Void gdnative.Node.Node_extern.print_orphan_nodes();
 	public function add_sibling(p_sibling:gd.Node, ?p_force_readable_name:Bool):Void __node_ptr().value.add_sibling(p_sibling, p_force_readable_name);
-	public function set_name(p_name:std.String):Void __node_ptr().value.set_name(p_name);
+	public function set_name(p_name:std.String):std.String {
+		__node_ptr().value.set_name(p_name);
+		return p_name;
+	}
 	public function get_name():std.String return __node_ptr().value.get_name();
 	public function add_child(p_node:gd.Node, ?p_force_readable_name:Bool):Void __node_ptr().value.add_child(p_node, p_force_readable_name);
 	public function remove_child(p_node:gd.Node):Void __node_ptr().value.remove_child(p_node);
@@ -40,14 +43,20 @@ class Node extends gd.Object {
 	public function remove_from_group(p_group:std.String):Void __node_ptr().value.remove_from_group(p_group);
 	public function is_in_group(p_group:std.String):Bool return __node_ptr().value.is_in_group(p_group);
 	public function move_child(p_child_node:gd.Node, p_to_index:Int):Void __node_ptr().value.move_child(p_child_node, p_to_index);
-	public function set_owner(p_owner:gd.Node):Void __node_ptr().value.set_owner(p_owner);
+	public function set_owner(p_owner:gd.Node):gd.Node {
+		__node_ptr().value.set_owner(p_owner);
+		return p_owner;
+	}
 	public function get_owner():gd.Node return __node_ptr().value.get_owner();
 	public function get_index(?p_include_internal:Bool):Int return __node_ptr().value.get_index(p_include_internal);
 	public function print_tree():Void __node_ptr().value.print_tree();
 	public function print_tree_pretty():Void __node_ptr().value.print_tree_pretty();
 	public function get_tree_string():std.String return __node_ptr().value.get_tree_string();
 	public function get_tree_string_pretty():std.String return __node_ptr().value.get_tree_string_pretty();
-	public function set_scene_file_path(p_scene_file_path:std.String):Void __node_ptr().value.set_scene_file_path(p_scene_file_path);
+	public function set_scene_file_path(p_scene_file_path:std.String):std.String {
+		__node_ptr().value.set_scene_file_path(p_scene_file_path);
+		return p_scene_file_path;
+	}
 	public function get_scene_file_path():std.String return __node_ptr().value.get_scene_file_path();
 	public function propagate_notification(p_what:Int):Void __node_ptr().value.propagate_notification(p_what);
 	public function set_physics_process(p_enable:Bool):Void __node_ptr().value.set_physics_process(p_enable);
@@ -55,7 +64,10 @@ class Node extends gd.Object {
 	public function is_physics_processing():Bool return __node_ptr().value.is_physics_processing();
 	public function get_process_delta_time():Float return __node_ptr().value.get_process_delta_time();
 	public function set_process(p_enable:Bool):Void __node_ptr().value.set_process(p_enable);
-	public function set_process_priority(p_priority:Int):Void __node_ptr().value.set_process_priority(p_priority);
+	public function set_process_priority(p_priority:Int):Int {
+		__node_ptr().value.set_process_priority(p_priority);
+		return p_priority;
+	}
 	public function get_process_priority():Int return __node_ptr().value.get_process_priority();
 	public function set_physics_process_priority(p_priority:Int):Void __node_ptr().value.set_physics_process_priority(p_priority);
 	public function get_physics_process_priority():Int return __node_ptr().value.get_physics_process_priority();
@@ -68,12 +80,21 @@ class Node extends gd.Object {
 	public function is_processing_unhandled_input():Bool return __node_ptr().value.is_processing_unhandled_input();
 	public function set_process_unhandled_key_input(p_enable:Bool):Void __node_ptr().value.set_process_unhandled_key_input(p_enable);
 	public function is_processing_unhandled_key_input():Bool return __node_ptr().value.is_processing_unhandled_key_input();
-	public function set_process_mode(p_mode:gd.node.ProcessMode):Void __node_ptr().value.set_process_mode(p_mode);
+	public function set_process_mode(p_mode:gd.node.ProcessMode):gd.node.ProcessMode {
+		__node_ptr().value.set_process_mode(p_mode);
+		return p_mode;
+	}
 	public function get_process_mode():gd.node.ProcessMode return __node_ptr().value.get_process_mode();
 	public function can_process():Bool return __node_ptr().value.can_process();
-	public function set_process_thread_group(p_mode:gd.node.ProcessThreadGroup):Void __node_ptr().value.set_process_thread_group(p_mode);
+	public function set_process_thread_group(p_mode:gd.node.ProcessThreadGroup):gd.node.ProcessThreadGroup {
+		__node_ptr().value.set_process_thread_group(p_mode);
+		return p_mode;
+	}
 	public function get_process_thread_group():gd.node.ProcessThreadGroup return __node_ptr().value.get_process_thread_group();
-	public function set_process_thread_group_order(p_order:Int):Void __node_ptr().value.set_process_thread_group_order(p_order);
+	public function set_process_thread_group_order(p_order:Int):Int {
+		__node_ptr().value.set_process_thread_group_order(p_order);
+		return p_order;
+	}
 	public function get_process_thread_group_order():Int return __node_ptr().value.get_process_thread_group_order();
 	public function set_display_folded(p_fold:Bool):Void __node_ptr().value.set_display_folded(p_fold);
 	public function is_displayed_folded():Bool return __node_ptr().value.is_displayed_folded();
@@ -81,12 +102,18 @@ class Node extends gd.Object {
 	public function is_processing_internal():Bool return __node_ptr().value.is_processing_internal();
 	public function set_physics_process_internal(p_enable:Bool):Void __node_ptr().value.set_physics_process_internal(p_enable);
 	public function is_physics_processing_internal():Bool return __node_ptr().value.is_physics_processing_internal();
-	public function set_physics_interpolation_mode(p_mode:gd.node.PhysicsInterpolationMode):Void __node_ptr().value.set_physics_interpolation_mode(p_mode);
+	public function set_physics_interpolation_mode(p_mode:gd.node.PhysicsInterpolationMode):gd.node.PhysicsInterpolationMode {
+		__node_ptr().value.set_physics_interpolation_mode(p_mode);
+		return p_mode;
+	}
 	public function get_physics_interpolation_mode():gd.node.PhysicsInterpolationMode return __node_ptr().value.get_physics_interpolation_mode();
 	public function is_physics_interpolated():Bool return __node_ptr().value.is_physics_interpolated();
 	public function is_physics_interpolated_and_enabled():Bool return __node_ptr().value.is_physics_interpolated_and_enabled();
 	public function reset_physics_interpolation():Void __node_ptr().value.reset_physics_interpolation();
-	public function set_auto_translate_mode(p_mode:gd.node.AutoTranslateMode):Void __node_ptr().value.set_auto_translate_mode(p_mode);
+	public function set_auto_translate_mode(p_mode:gd.node.AutoTranslateMode):gd.node.AutoTranslateMode {
+		__node_ptr().value.set_auto_translate_mode(p_mode);
+		return p_mode;
+	}
 	public function get_auto_translate_mode():gd.node.AutoTranslateMode return __node_ptr().value.get_auto_translate_mode();
 	public function duplicate(?p_flags:Int):gd.Node return __node_ptr().value.duplicate(p_flags);
 	public function replace_by(p_node:gd.Node, ?p_keep_groups:Bool):Void __node_ptr().value.replace_by(p_node, p_keep_groups);
@@ -101,9 +128,15 @@ class Node extends gd.Object {
 	public function get_multiplayer_authority():Int return __node_ptr().value.get_multiplayer_authority();
 	public function is_multiplayer_authority():Bool return __node_ptr().value.is_multiplayer_authority();
 	public function rpc_config(p_method:std.String, p_config:gd.Variant):Void __node_ptr().value.rpc_config(p_method, p_config);
-	public function set_editor_description(p_editor_description:std.String):Void __node_ptr().value.set_editor_description(p_editor_description);
+	public function set_editor_description(p_editor_description:std.String):std.String {
+		__node_ptr().value.set_editor_description(p_editor_description);
+		return p_editor_description;
+	}
 	public function get_editor_description():std.String return __node_ptr().value.get_editor_description();
-	public function set_unique_name_in_owner(p_enable:Bool):Void __node_ptr().value.set_unique_name_in_owner(p_enable);
+	public function set_unique_name_in_owner(p_enable:Bool):Bool {
+		__node_ptr().value.set_unique_name_in_owner(p_enable);
+		return p_enable;
+	}
 	public function is_unique_name_in_owner():Bool return __node_ptr().value.is_unique_name_in_owner();
 	public function atr(p_message:std.String, ?p_context:std.String):std.String return __node_ptr().value.atr(p_message, p_context);
 	public function atr_n(p_message:std.String, p_plural_message:std.String, p_n:Int, ?p_context:std.String):std.String return __node_ptr().value.atr_n(p_message, p_plural_message, p_n, p_context);
@@ -116,4 +149,22 @@ class Node extends gd.Object {
 	public function call_thread_safe(p_method:std.String):gd.Variant return __node_ptr().value.call_thread_safe(p_method);
 	public function set_thread_safe(p_property:std.String, p_value:gd.Variant):Void __node_ptr().value.set_thread_safe(p_property, p_value);
 	public function notify_thread_safe(p_what:Int):Void __node_ptr().value.notify_thread_safe(p_what);
+	var name(get, set) : std.String;
+	var unique_name_in_owner(get, set) : Bool;
+	function get_unique_name_in_owner():Bool return is_unique_name_in_owner();
+	var scene_file_path(get, set) : std.String;
+	var owner(get, set) : gd.Node;
+	var process_mode(get, set) : gd.node.ProcessMode;
+	var process_priority(get, set) : Int;
+	var process_physics_priority(get, set) : Int;
+	function get_process_physics_priority():Int return get_physics_process_priority();
+	function set_process_physics_priority(v:Int):Int {
+		set_physics_process_priority(v);
+		return v;
+	}
+	var process_thread_group(get, set) : gd.node.ProcessThreadGroup;
+	var process_thread_group_order(get, set) : Int;
+	var physics_interpolation_mode(get, set) : gd.node.PhysicsInterpolationMode;
+	var auto_translate_mode(get, set) : gd.node.AutoTranslateMode;
+	var editor_description(get, set) : std.String;
 }

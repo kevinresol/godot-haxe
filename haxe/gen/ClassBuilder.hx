@@ -312,16 +312,63 @@ class ClassBuilder extends Builder {
 			} catch (e) {}
 		}
 
-		// // properties
-		// for (prop in (clazz.properties ?? [])) {
-		// 	try {
-		// 		cls.fields.push({
-		// 			pos: null,
-		// 			name: prop.name,
-		// 			kind: FProp(prop.getter == null ? 'never' : 'get', prop.setter == null ? 'never' : 'set', makeHaxeType(prop.type))
-		// 		});
-		// 	} catch (e) {}
-		// }
+		// properties
+		for (prop in (clazz.properties ?? [])) {
+			try {
+				final ptype = switch cls.fields.find(f -> f.name == prop.getter) {
+					case {kind: FFun(f)}: f.ret;
+					case _: throw 'Unexpected getter function type';
+				};
+
+				cls.fields.push({
+					pos: null,
+					name: prop.name,
+					kind: FProp('get', prop.setter == null ? 'never' : 'set', ptype)
+				});
+
+				// getter
+				if (!cls.fields.exists(f -> f.name == 'get_${prop.name}')) {
+					// if Haxe's expected getter function does not already exist, generate one
+					cls.fields.push({
+						pos: null,
+						name: 'get_${prop.name}',
+						kind: FFun({
+							args: [],
+							ret: ptype,
+							expr: isScriptExtern ? null : macro return $i{prop.getter}()
+						})
+					});
+				}
+
+				// setter
+				if (prop.setter != null) {
+					switch cls.fields.find(f -> f.name == 'set_${prop.name}') {
+						case null:
+							// if Haxe's expected setter function does not already exist, generate one
+							cls.fields.push({
+								pos: null,
+								name: 'set_${prop.name}',
+								kind: FFun({
+									args: [{name: 'v', type: ptype}],
+									ret: ptype,
+									expr: isScriptExtern ? null : macro {$i{prop.setter}(v); return v;}
+								})
+							});
+						case {kind: FFun(f)}:
+							// if Haxe's setter function name is already used, modify it to return the value so that it fulfills Haxe's setter requirement
+							f.ret = ptype;
+							if (!isScriptExtern)
+								f.expr = macro {
+									${f.expr};
+									return $i{f.args[0].name}
+								}
+						case _:
+					}
+				}
+			} catch (e) {
+				// trace(e);
+			}
+		}
 
 		// special cases
 		switch cname {
