@@ -15,7 +15,10 @@ class ClassBuilder extends Builder {
 		for (clazz in api.classes) {
 			final cname = clazz.name;
 			final parent = clazz.inherits;
-			final hpp = 'godot_cpp/classes/${cname.toSnakeCase()}.hpp';
+			final hpp = Path.join([
+				'godot_cpp/classes',
+				'${cname == 'ClassDB' ? 'class_db_singleton' : cname.toSnakeCase()}.hpp'
+			]);
 			final hppPath = Path.join([Sys.programPath().directory(), '../godot-cpp/gen/include', hpp]);
 			final hppExists = sys.FileSystem.exists(hppPath);
 
@@ -23,6 +26,7 @@ class ClassBuilder extends Builder {
 				if (getClassInheritance('Sprite2D').contains(cname)
 					|| getClassInheritance('Texture2D').contains(cname)
 					|| getClassInheritance('ResourceLoader').contains(cname)
+					|| getClassInheritance('ClassDB').contains(cname)
 					|| getClassInheritance('Timer').contains(cname)) {
 					generateClassExtern(clazz, hpp);
 					generateClassWrapper(clazz, true);
@@ -51,7 +55,7 @@ class ClassBuilder extends Builder {
 		cls.pack = config.pack;
 		cls.meta = [
 			{pos: null, name: ':include', params: [macro $v{hpp}]},
-			{pos: null, name: ':native', params: [macro $v{'godot::$cname'}]},
+			{pos: null, name: ':native', params: [macro $v{'godot::${cname == 'ClassDB' ? 'ClassDBSingleton' : cname}'}]},
 			{pos: null, name: ':structAccess', params: []},
 		];
 
@@ -160,20 +164,28 @@ class ClassBuilder extends Builder {
 			kind: FFun({
 				args: [
 					{
-						name: 'native',
+						name: isScriptExtern ? 'owner' : 'native',
 						type: isScriptExtern ? macro :Dynamic : macro :cpp.Pointer<$nct>,
 						opt: true,
 					}
 				],
-				expr: isScriptExtern ? null : macro $b{
-					[
-						macro trace($v{cname}, native),
-						macro if (native == null) {
-							trace($v{'Allocating $cname'});
-							native = $p{['gdnative', cname, '${cname}_extern']}.__alloc();
-						},
-						parent == null ? macro __gd = native : macro super(native.reinterpret())
-					]
+				expr: isScriptExtern ? null : macro {
+					trace($v{cname}, native);
+					if (native == null) {
+						{
+							// A warning to remind the user to capture the owner argument in the constructor and pass it to super()
+							final className = Type.getClassName(Type.getClass(this));
+							final isEngineClass = StringTools.startsWith(className, 'gd.')
+								&& gd.ClassDB.singleton.class_exists(className.substr(3));
+							if (!isEngineClass)
+								trace(className
+									+
+									$v{' is not a godot engine class (but extending the engine class $cname), instantiating it without an owner will cause memory leak. Make sure you capture the owner argument in its constructor and pass it to super()'});
+						}
+						trace($v{'Allocating $cname'});
+						native = $p{['gdnative', cname, '${cname}_extern']}.__alloc();
+					}
+					${parent == null ? macro __gd = native : macro super(native.reinterpret())}
 				}
 			})
 		});

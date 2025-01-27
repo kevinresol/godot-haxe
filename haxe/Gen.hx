@@ -14,9 +14,9 @@ class Gen {
 		final json = sys.io.File.getContent(path);
 		final api:Api = haxe.Json.parse(json);
 
-		// trace(api.builtin_classes.map(v -> v.name));
-
-		new Gen(api).generate();
+		final gen = new Gen(api);
+		gen.findType('ClassDB');
+		gen.generate();
 
 		// for (cls in api.builtin_classes)
 		// 	for (const in (cls.constants ?? []))

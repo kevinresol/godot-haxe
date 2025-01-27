@@ -1,6 +1,6 @@
 package gd;
 extern class Texture2D extends gd.Texture {
-	function new(?native:Dynamic);
+	function new(?owner:Dynamic);
 	function _get_width():Int;
 	function _get_height():Int;
 	function _is_pixel_opaque(p_x:Int, p_y:Int):Bool;

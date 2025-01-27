@@ -1,6 +1,6 @@
 package gd;
 extern class CanvasItem extends gd.Node {
-	function new(?native:Dynamic);
+	function new(?owner:Dynamic);
 	function _draw():Void;
 	function set_visible(p_visible:Bool):Void;
 	function is_visible():Bool;

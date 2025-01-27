@@ -1,6 +1,6 @@
 package gd;
 extern class Resource extends gd.RefCounted {
-	function new(?native:Dynamic);
+	function new(?owner:Dynamic);
 	function _setup_local_to_scene():Void;
 	function set_path(p_path:std.String):Void;
 	function take_over_path(p_path:std.String):Void;

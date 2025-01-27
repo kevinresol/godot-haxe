@@ -1,6 +1,6 @@
 package gd;
 extern class Sprite2D extends gd.Node2D {
-	function new(?native:Dynamic);
+	function new(?owner:Dynamic);
 	function set_texture(p_texture:gd.Texture2D):Void;
 	function get_texture():gd.Texture2D;
 	function set_centered(p_centered:Bool):Void;
