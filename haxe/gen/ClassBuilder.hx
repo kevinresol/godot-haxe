@@ -81,6 +81,7 @@ class ClassBuilder extends Builder {
 			});
 		}
 
+		// methods
 		final methods = (clazz.methods ?? []).filter(m -> m.name != 'new' && !isMethodDeclaredInParent(m.name, parent));
 		for (fn in methods) {
 			final fname = fn.name;
@@ -170,7 +171,6 @@ class ClassBuilder extends Builder {
 					}
 				],
 				expr: isScriptExtern ? null : macro {
-					trace($v{cname}, native);
 					if (native == null) {
 						gd.Utils.checkAndWarnForMissingOwner(this, $v{cname});
 						trace($v{'Allocating $cname'});
@@ -203,10 +203,12 @@ class ClassBuilder extends Builder {
 			}).fields);
 		}
 
+		// methods
 		final methods = (clazz.methods ?? []).filter(m -> m.name != 'new' && !isMethodDeclaredInParent(m.name, parent));
 		for (fn in methods) {
 			final fname = fn.name;
 			final rtype = fn.return_value?.type ?? 'void';
+			final isSetter = false; // clazz.properties?.exists(p -> p.setter == fname);
 			try {
 				cls.fields.push({
 					pos: null,
@@ -227,7 +229,7 @@ class ClassBuilder extends Builder {
 								type: makeHaxeType(arg.type),
 								opt: arg.default_value != null,
 							} : FunctionArg)),
-						ret: makeHaxeType(rtype),
+						ret: makeHaxeType(isSetter ? fn.arguments[0].type : rtype),
 						expr: isScriptExtern ? null : {
 							final target = if (fn.is_static) {
 								macro $p{Config.nativeExtern.pack.concat([cname, '${cname}_extern'])};
@@ -239,12 +241,33 @@ class ClassBuilder extends Builder {
 								(fn.arguments ?? []).filter(arg -> arg.type != 'enum::Node.InternalMode'
 									&& arg.type != 'enum::ResourceLoader.CacheMode')
 									.map(arg -> macro $i{'p_${arg.name}'})});
-							rtype == 'void' ? e : macro return $e;
+
+							if (isSetter) {
+								macro {
+									$e;
+									return $i{'p_${fn.arguments[0].name}'};
+								}
+							} else if (rtype == 'void') {
+								e;
+							} else {
+								macro return $e;
+							}
 						}
 					})
 				});
 			} catch (e) {}
 		}
+
+		// // properties
+		// for (prop in (clazz.properties ?? [])) {
+		// 	try {
+		// 		cls.fields.push({
+		// 			pos: null,
+		// 			name: prop.name,
+		// 			kind: FProp(prop.getter == null ? 'never' : 'get', prop.setter == null ? 'never' : 'set', makeHaxeType(prop.type))
+		// 		});
+		// 	} catch (e) {}
+		// }
 
 		// special cases
 		switch cname {

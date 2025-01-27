@@ -1,7 +1,6 @@
 package gd;
 class Node extends gd.Object {
 	public function new(?native:cpp.Pointer<gdnative.Node.Node_extern>) {
-		trace("Node", native);
 		if (native == null) {
 			gd.Utils.checkAndWarnForMissingOwner(this, "Node");
 			trace("Allocating Node");

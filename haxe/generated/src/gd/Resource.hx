@@ -1,7 +1,6 @@
 package gd;
 class Resource extends gd.RefCounted {
 	public function new(?native:cpp.Pointer<gdnative.Resource.Resource_extern>) {
-		trace("Resource", native);
 		if (native == null) {
 			gd.Utils.checkAndWarnForMissingOwner(this, "Resource");
 			trace("Allocating Resource");

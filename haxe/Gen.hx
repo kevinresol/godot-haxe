@@ -18,6 +18,11 @@ class Gen {
 		gen.findType('ClassDB');
 		gen.generate();
 
+		final e = [for (c in api.classes) for (e in (c.enums ?? [])) '${e.name}:${c.name}'];
+		e.sort(Reflect.compare);
+		for (v in e)
+			trace(v);
+
 		// for (cls in api.builtin_classes)
 		// 	for (const in (cls.constants ?? []))
 		// 		trace(const.name, const.type, const.value);

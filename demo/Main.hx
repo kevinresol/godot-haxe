@@ -88,9 +88,7 @@ class Main extends Base {
 		UtilityFunctions.print(texture2.get_reference_count());
 		sprite.set_flip_v(true);
 
-		final pos = get_position();
-		pos.x = 0;
-		set_position(pos);
+		// position = new Vector2(-100, -100);
 
 		final timer = new Timer();
 		add_child(timer);

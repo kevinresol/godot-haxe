@@ -1,7 +1,6 @@
 package gd;
 class CanvasItem extends gd.Node {
 	public function new(?native:cpp.Pointer<gdnative.CanvasItem.CanvasItem_extern>) {
-		trace("CanvasItem", native);
 		if (native == null) {
 			gd.Utils.checkAndWarnForMissingOwner(this, "CanvasItem");
 			trace("Allocating CanvasItem");

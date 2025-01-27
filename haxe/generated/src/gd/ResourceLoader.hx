@@ -1,7 +1,6 @@
 package gd;
 class ResourceLoader extends gd.Object {
 	public function new(?native:cpp.Pointer<gdnative.ResourceLoader.ResourceLoader_extern>) {
-		trace("ResourceLoader", native);
 		if (native == null) {
 			gd.Utils.checkAndWarnForMissingOwner(this, "ResourceLoader");
 			trace("Allocating ResourceLoader");
