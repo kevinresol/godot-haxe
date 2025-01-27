@@ -24,9 +24,9 @@ class VisualShaderNodeCompare extends gd.VisualShaderNode {
 		set_comparison_type(v);
 		return v;
 	}
-	var _function(get, set) : gd.visualshadernodecompare.Function;
-	function get__function():gd.visualshadernodecompare.Function return get_function();
-	function set__function(v:gd.visualshadernodecompare.Function):gd.visualshadernodecompare.Function {
+	var function_(get, set) : gd.visualshadernodecompare.Function;
+	function get_function_():gd.visualshadernodecompare.Function return get_function();
+	function set_function_(v:gd.visualshadernodecompare.Function):gd.visualshadernodecompare.Function {
 		set_function(v);
 		return v;
 	}

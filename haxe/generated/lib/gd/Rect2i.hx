@@ -18,8 +18,8 @@ extern class Rect2i_wrapper {
 	function grow_side(p_side:gd.Side, p_amount:Int):gd.Rect2i;
 	function grow_individual(p_left:Int, p_top:Int, p_right:Int, p_bottom:Int):gd.Rect2i;
 	function abs():gd.Rect2i;
-	var position(get, set) : gdnative.Vector2i;
-	var size(get, set) : gdnative.Vector2i;
+	var position(get, set) : gd.Vector2i;
+	var size(get, set) : gd.Vector2i;
 }
 
 @:forward @:forwardStatics abstract Rect2i(Rect2i_wrapper) from Rect2i_wrapper to Rect2i_wrapper {

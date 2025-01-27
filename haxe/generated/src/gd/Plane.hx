@@ -19,9 +19,9 @@ class Plane_wrapper {
 	public var d(get, set) : Float;
 	function get_d():Float return __gd.d;
 	function set_d(v:Float):Float return __gd.d = v;
-	public var normal(get, set) : gdnative.Vector3;
-	function get_normal():gdnative.Vector3 return __gd.normal;
-	function set_normal(v:gdnative.Vector3):gdnative.Vector3 return __gd.normal = v;
+	public var normal(get, set) : gd.Vector3;
+	function get_normal():gd.Vector3 return __gd.normal;
+	function set_normal(v:gd.Vector3):gd.Vector3 return __gd.normal = v;
 	public static final PLANE_YZ : gd.Plane = new gd.Plane(1, 0, 0, 0);
 	public static final PLANE_XZ : gd.Plane = new gd.Plane(0, 1, 0, 0);
 	public static final PLANE_XY : gd.Plane = new gd.Plane(0, 0, 1, 0);

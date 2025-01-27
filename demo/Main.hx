@@ -32,7 +32,7 @@ class Main extends Base {
 		UtilityFunctions.print(new Vector2(42, 44));
 		UtilityFunctions.print(Vector2.ONE);
 		UtilityFunctions.print(Color.WHEAT);
-		// UtilityFunctions.print(('Node/Path' : gd.NodePath));
+		UtilityFunctions.print(new NodePath('Node/Path'));
 
 		trace('UtilityFunctions::typeof checks (cppia)');
 		UtilityFunctions.print(UtilityFunctions.typeof(42));
@@ -41,11 +41,11 @@ class Main extends Base {
 		UtilityFunctions.print(UtilityFunctions.typeof('HaxeString'));
 		UtilityFunctions.print(UtilityFunctions.typeof(new Vector2()));
 		UtilityFunctions.print(UtilityFunctions.typeof(new Vector2(42, 44)));
-		// UtilityFunctions.typeof(('Node/Path' : gd.NodePath));
+		UtilityFunctions.typeof(new NodePath('Node/Path'));
 
 		trace('Enum checks (cppia)');
-		UtilityFunctions.print(VariantType.INT);
-		UtilityFunctions.print(VariantType.FLOAT);
+		UtilityFunctions.print(gd.variant.Type.INT);
+		UtilityFunctions.print(gd.variant.Type.FLOAT);
 	}
 
 	override function _enter_tree() {

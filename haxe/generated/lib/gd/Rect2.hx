@@ -20,8 +20,8 @@ extern class Rect2_wrapper {
 	function grow_side(p_side:gd.Side, p_amount:Float):gd.Rect2;
 	function grow_individual(p_left:Float, p_top:Float, p_right:Float, p_bottom:Float):gd.Rect2;
 	function abs():gd.Rect2;
-	var position(get, set) : gdnative.Vector2;
-	var size(get, set) : gdnative.Vector2;
+	var position(get, set) : gd.Vector2;
+	var size(get, set) : gd.Vector2;
 }
 
 @:forward @:forwardStatics abstract Rect2(Rect2_wrapper) from Rect2_wrapper to Rect2_wrapper {

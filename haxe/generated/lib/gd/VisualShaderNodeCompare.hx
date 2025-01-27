@@ -10,8 +10,8 @@ extern class VisualShaderNodeCompare extends gd.VisualShaderNode {
 	var type(get, set) : gd.visualshadernodecompare.ComparisonType;
 	function get_type():gd.visualshadernodecompare.ComparisonType;
 	function set_type(v:gd.visualshadernodecompare.ComparisonType):gd.visualshadernodecompare.ComparisonType;
-	var _function(get, set) : gd.visualshadernodecompare.Function;
-	function get__function():gd.visualshadernodecompare.Function;
-	function set__function(v:gd.visualshadernodecompare.Function):gd.visualshadernodecompare.Function;
+	var function_(get, set) : gd.visualshadernodecompare.Function;
+	function get_function_():gd.visualshadernodecompare.Function;
+	function set_function_(v:gd.visualshadernodecompare.Function):gd.visualshadernodecompare.Function;
 	var condition(get, set) : gd.visualshadernodecompare.Condition;
 }

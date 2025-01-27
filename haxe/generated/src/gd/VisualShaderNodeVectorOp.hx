@@ -11,9 +11,9 @@ class VisualShaderNodeVectorOp extends gd.VisualShaderNodeVectorBase {
 	extern inline function __visualshadernodevectorop_ptr():cpp.Pointer<gdnative.VisualShaderNodeVectorOp.VisualShaderNodeVectorOp_extern> return cast __gd.ptr;
 	public function set_operator(p_op:gd.visualshadernodevectorop.Operator):Void __visualshadernodevectorop_ptr().value.set_operator(p_op);
 	public function get_operator():gd.visualshadernodevectorop.Operator return __visualshadernodevectorop_ptr().value.get_operator();
-	var _operator(get, set) : gd.visualshadernodevectorop.Operator;
-	function get__operator():gd.visualshadernodevectorop.Operator return get_operator();
-	function set__operator(v:gd.visualshadernodevectorop.Operator):gd.visualshadernodevectorop.Operator {
+	var operator_(get, set) : gd.visualshadernodevectorop.Operator;
+	function get_operator_():gd.visualshadernodevectorop.Operator return get_operator();
+	function set_operator_(v:gd.visualshadernodevectorop.Operator):gd.visualshadernodevectorop.Operator {
 		set_operator(v);
 		return v;
 	}

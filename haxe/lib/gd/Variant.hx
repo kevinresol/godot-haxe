@@ -1,44 +1,44 @@
 package gd;
 
 @:forward
-abstract Variant(VariantContainer) from VariantContainer to VariantContainer {
+abstract Variant(Variant_obj) from Variant_obj to Variant_obj {
 	@:from static inline function fromBool(v:Bool):Variant
-		return VariantContainer.fromBool(v);
+		return Variant_obj.fromBool(v);
 
 	@:from static inline function fromInt(v:Int):Variant
-		return VariantContainer.fromInt(v);
+		return Variant_obj.fromInt(v);
 
 	@:from static inline function fromFloat(v:Float):Variant
-		return VariantContainer.fromFloat(v);
+		return Variant_obj.fromFloat(v);
 
-	@:from static inline function fromString(v:String):Variant
-		return VariantContainer.fromString(v);
+	@:from static inline function fromString(v:std.String):Variant
+		return Variant_obj.fromString(v);
 
 	@:from static inline function fromVector2(v:gd.Vector2):Variant
-		return VariantContainer.fromVector2(v);
+		return Variant_obj.fromVector2(v);
 
 	@:from static inline function fromColor(v:gd.Color):Variant
-		return VariantContainer.fromColor(v);
+		return Variant_obj.fromColor(v);
 
 	@:from static inline function fromObject(v:gd.Object):Variant
-		return VariantContainer.fromObject(v);
+		return Variant_obj.fromObject(v);
 
-	// @:from static inline function fromNodePath(v:gd.NodePath):Variant
-	// 	return VariantContainer.fromNodePath(v);
+	@:from static inline function fromNodePath(v:gd.NodePath):Variant
+		return Variant_obj.fromNodePath(v);
 
 	@:from static inline function fromVariantType(v:gd.variant.Type):Variant
 		return fromInt(v);
 }
 
-extern class VariantContainer {
-	static function fromBool(v:Bool):VariantContainer;
-	static function fromInt(v:Int):VariantContainer;
-	static function fromFloat(v:Float):VariantContainer;
-	static function fromString(v:String):VariantContainer;
+extern class Variant_obj {
+	static function fromBool(v:Bool):Variant_obj;
+	static function fromInt(v:Int):Variant_obj;
+	static function fromFloat(v:Float):Variant_obj;
+	static function fromString(v:std.String):Variant_obj;
 
-	static function fromVector2(v:gd.Vector2):VariantContainer;
-	static function fromColor(v:gd.Color):VariantContainer;
+	static function fromVector2(v:gd.Vector2):Variant_obj;
+	static function fromColor(v:gd.Color):Variant_obj;
 
-	static function fromObject(v:gd.Object):VariantContainer;
-	// static function fromNodePath(v:gd.NodePath):VariantContainer;
+	static function fromObject(v:gd.Object):Variant_obj;
+	static function fromNodePath(v:gd.NodePath):Variant_obj;
 }

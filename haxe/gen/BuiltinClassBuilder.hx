@@ -377,7 +377,7 @@ class BuiltinClassBuilder extends Builder {
 		for (prop in getValidMembers(clazz)) {
 			try {
 				final pname = isHaxeKeyword(prop.name) ? '${prop.name}_' : prop.name;
-				final ptype = makeGodotType(prop.type);
+				final ptype = makeHaxeType(prop.type);
 				cls.fields.push({
 					pos: null,
 					access: isScriptExtern ? [] : [APublic],

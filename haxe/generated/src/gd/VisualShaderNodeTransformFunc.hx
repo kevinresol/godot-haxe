@@ -11,9 +11,9 @@ class VisualShaderNodeTransformFunc extends gd.VisualShaderNode {
 	extern inline function __visualshadernodetransformfunc_ptr():cpp.Pointer<gdnative.VisualShaderNodeTransformFunc.VisualShaderNodeTransformFunc_extern> return cast __gd.ptr;
 	public function set_function(p_func:gd.visualshadernodetransformfunc.Function):Void __visualshadernodetransformfunc_ptr().value.set_function(p_func);
 	public function get_function():gd.visualshadernodetransformfunc.Function return __visualshadernodetransformfunc_ptr().value.get_function();
-	var _function(get, set) : gd.visualshadernodetransformfunc.Function;
-	function get__function():gd.visualshadernodetransformfunc.Function return get_function();
-	function set__function(v:gd.visualshadernodetransformfunc.Function):gd.visualshadernodetransformfunc.Function {
+	var function_(get, set) : gd.visualshadernodetransformfunc.Function;
+	function get_function_():gd.visualshadernodetransformfunc.Function return get_function();
+	function set_function_(v:gd.visualshadernodetransformfunc.Function):gd.visualshadernodetransformfunc.Function {
 		set_function(v);
 		return v;
 	}

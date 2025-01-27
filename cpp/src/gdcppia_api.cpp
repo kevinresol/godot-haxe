@@ -95,7 +95,7 @@ const GDExtensionPropertyInfo* instance_get_property_list(
   for (int i = 0; i < *r_count; i++) {
     auto prop = (gdcppia::PropertyInfo)info->properties[i];
 
-    ret[i].type = static_cast<GDExtensionVariantType>(prop->type);
+    ret[i].type = static_cast<GDExtensionVariantType>(prop->type.get());
     ret[i].name = memnew(godot::StringName((const char*)prop->name));
     ret[i].class_name = memnew(godot::StringName((const char*)prop->className));
     ret[i].hint = prop->hint;

@@ -22,12 +22,12 @@ class Rect2_wrapper {
 	public function grow_side(p_side:gd.Side, p_amount:Float):gd.Rect2 return __gd.grow_side(p_side, p_amount);
 	public function grow_individual(p_left:Float, p_top:Float, p_right:Float, p_bottom:Float):gd.Rect2 return __gd.grow_individual(p_left, p_top, p_right, p_bottom);
 	public function abs():gd.Rect2 return __gd.abs();
-	public var position(get, set) : gdnative.Vector2;
-	function get_position():gdnative.Vector2 return __gd.position;
-	function set_position(v:gdnative.Vector2):gdnative.Vector2 return __gd.position = v;
-	public var size(get, set) : gdnative.Vector2;
-	function get_size():gdnative.Vector2 return __gd.size;
-	function set_size(v:gdnative.Vector2):gdnative.Vector2 return __gd.size = v;
+	public var position(get, set) : gd.Vector2;
+	function get_position():gd.Vector2 return __gd.position;
+	function set_position(v:gd.Vector2):gd.Vector2 return __gd.position = v;
+	public var size(get, set) : gd.Vector2;
+	function get_size():gd.Vector2 return __gd.size;
+	function set_size(v:gd.Vector2):gd.Vector2 return __gd.size = v;
 }
 
 @:forward @:forwardStatics abstract Rect2(Rect2_wrapper) from Rect2_wrapper to Rect2_wrapper {

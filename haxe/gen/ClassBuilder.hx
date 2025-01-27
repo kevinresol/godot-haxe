@@ -357,7 +357,7 @@ class ClassBuilder extends Builder {
 					default:
 				}
 
-				final pname = isHaxeKeyword(prop.name) ? '_${prop.name}' : prop.name;
+				final pname = isHaxeKeyword(prop.name) ? '${prop.name}_' : prop.name;
 				final ptype = switch cls.fields.find(f -> f.name == prop.getter) {
 					case {kind: FFun(f)}: f.ret;
 					case _: throw 'Unexpected getter function type';

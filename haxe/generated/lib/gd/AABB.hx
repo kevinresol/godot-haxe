@@ -26,8 +26,8 @@ extern class AABB_wrapper {
 	function get_shortest_axis_index():Int;
 	function get_shortest_axis_size():Float;
 	function get_endpoint(p_idx:Int):gd.Vector3;
-	var position(get, set) : gdnative.Vector3;
-	var size(get, set) : gdnative.Vector3;
+	var position(get, set) : gd.Vector3;
+	var size(get, set) : gd.Vector3;
 }
 
 @:forward @:forwardStatics abstract AABB(AABB_wrapper) from AABB_wrapper to AABB_wrapper {

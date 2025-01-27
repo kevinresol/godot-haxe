@@ -11,9 +11,9 @@ class VisualShaderNodeTransformOp extends gd.VisualShaderNode {
 	extern inline function __visualshadernodetransformop_ptr():cpp.Pointer<gdnative.VisualShaderNodeTransformOp.VisualShaderNodeTransformOp_extern> return cast __gd.ptr;
 	public function set_operator(p_op:gd.visualshadernodetransformop.Operator):Void __visualshadernodetransformop_ptr().value.set_operator(p_op);
 	public function get_operator():gd.visualshadernodetransformop.Operator return __visualshadernodetransformop_ptr().value.get_operator();
-	var _operator(get, set) : gd.visualshadernodetransformop.Operator;
-	function get__operator():gd.visualshadernodetransformop.Operator return get_operator();
-	function set__operator(v:gd.visualshadernodetransformop.Operator):gd.visualshadernodetransformop.Operator {
+	var operator_(get, set) : gd.visualshadernodetransformop.Operator;
+	function get_operator_():gd.visualshadernodetransformop.Operator return get_operator();
+	function set_operator_(v:gd.visualshadernodetransformop.Operator):gd.visualshadernodetransformop.Operator {
 		set_operator(v);
 		return v;
 	}

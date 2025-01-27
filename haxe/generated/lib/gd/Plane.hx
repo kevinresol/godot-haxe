@@ -15,7 +15,7 @@ extern class Plane_wrapper {
 	function has_point(p_point:gd.Vector3, ?p_tolerance:Float):Bool;
 	function project(p_point:gd.Vector3):gd.Vector3;
 	var d(get, set) : Float;
-	var normal(get, set) : gdnative.Vector3;
+	var normal(get, set) : gd.Vector3;
 	public static final PLANE_YZ : gd.Plane;
 	public static final PLANE_XZ : gd.Plane;
 	public static final PLANE_XY : gd.Plane;

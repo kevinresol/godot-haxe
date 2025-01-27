@@ -4,7 +4,7 @@ import haxe.macro.Context;
 import haxe.macro.Expr;
 
 class ObjectMacro {
-	static macro function build():Array<Field> {
+	static macro function build():std.Array<Field> {
 		final cls = Context.getLocalClass().get();
 		final fields = Context.getBuildFields();
 		if (!cls.isExtern) {
@@ -13,7 +13,7 @@ class ObjectMacro {
 				name: '__props',
 				access: [APublic, AStatic],
 				// TODO: build Array<PropertyInfo> from fields
-				kind: FVar(macro :Array<String>, {
+				kind: FVar(macro :std.Array<std.String>, {
 					final props = macro [$v{'${cls.name}1'}, $v{'${cls.name}2'}];
 					props;
 					if (parent == null || parent.isExtern)
