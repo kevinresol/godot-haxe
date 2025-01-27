@@ -50,7 +50,7 @@ class Cppia {
 		x.free();
 
 		trace(gdnative.Error.OK);
-		trace(gdnative.sky.ProcessMode.PROCESS_MODE_QUALITY);
+		trace(gdnative.sky.ProcessMode.QUALITY);
 	}
 
 	static var module:Module;

@@ -1,7 +1,7 @@
 package gd.resourceloader;
 enum abstract ThreadLoadStatus(Int) to Int {
-	final THREAD_LOAD_INVALID_RESOURCE = 0;
-	final THREAD_LOAD_IN_PROGRESS = 1;
-	final THREAD_LOAD_FAILED = 2;
-	final THREAD_LOAD_LOADED = 3;
+	final INVALID_RESOURCE = 0;
+	final IN_PROGRESS = 1;
+	final FAILED = 2;
+	final LOADED = 3;
 }

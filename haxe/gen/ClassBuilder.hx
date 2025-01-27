@@ -4,6 +4,7 @@ import haxe.macro.Expr;
 import gen.Api;
 import gen.Config;
 import gen.Type.*;
+import gen.Utils.*;
 
 using Lambda;
 using StringTools;
@@ -99,13 +100,14 @@ class ClassBuilder extends Builder {
 				{pos: null, name: ':native', params: [macro $v{'cpp::Struct<godot::$cname::$ename, cpp::EnumHandler>'}]}
 			];
 			for (v in e.values) {
-				// final hname = getHaxeEntryName(e.name, v.name);
-				// final nname = getNativeEntryName(e.name, v.name);
+				final hname = getHaxeEnumEntryName('$cname.${e.name}', v.name);
+				final nname = getNativeEnumEntryName('$cname.${e.name}', v.name);
 				enm.fields.push({
 					pos: null,
 					access: [AFinal],
-					name: v.name,
+					name: hname,
 					kind: FVar(null),
+					meta: hname == nname ? [] : [{pos: null, name: ':native', params: [macro $v{'$ntype::$nname'}]}]
 				});
 			}
 			final source = printTypeDefinition(enm) + '\n' + printTypeDefinition(ecls);
@@ -245,7 +247,7 @@ class ClassBuilder extends Builder {
 					enm.fields.push({
 						pos: null,
 						access: [AFinal],
-						name: v.name,
+						name: getHaxeEnumEntryName('$cname.${e.name}', v.name),
 						kind: FVar(null, macro $v{v.value}),
 					});
 				}

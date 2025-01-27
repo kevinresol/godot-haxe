@@ -57,9 +57,9 @@ class Main extends Base {
 	override function _process(delta:Float) {
 		if (processed == 0) {
 			trace('_process($delta) $processed');
-			trace(gd.sky.ProcessMode.PROCESS_MODE_QUALITY);
+			trace(gd.sky.ProcessMode.QUALITY);
 		} else if (processed == 60) {
-			process_mode = PROCESS_MODE_DISABLED;
+			process_mode = DISABLED;
 		}
 		processed++;
 
@@ -112,6 +112,8 @@ class Main extends Base {
 		UtilityFunctions.print(texture.get_width());
 		UtilityFunctions.print(texture.get_height());
 		UtilityFunctions.print(texture.get_reference_count());
+
+		trace(haxe.CallStack.toString(haxe.CallStack.callStack()));
 	}
 
 	function _on_timer_timeout() {

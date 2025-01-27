@@ -1,7 +1,7 @@
 package gd;
 enum abstract KeyModifierMask(Int) to Int {
-	final MASK = 8388607;
-	final IER_MASK = 532676608;
+	final KEY_CODE_MASK = 8388607;
+	final KEY_MODIFIER_MASK = 532676608;
 	final CMD_OR_CTRL = 16777216;
 	final SHIFT = 33554432;
 	final ALT = 67108864;

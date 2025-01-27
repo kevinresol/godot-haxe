@@ -1,6 +1,7 @@
 package gen;
 
 import gen.Api;
+import gen.Utils.*;
 import haxe.macro.Expr;
 
 using StringTools;
@@ -27,8 +28,8 @@ class GlobalEnumBuilder extends Builder {
 			{pos: null, name: ':native', params: [macro $v{ntype}]}
 		];
 		for (v in e.values) {
-			final hname = getHaxeEntryName(e.name, v.name);
-			final nname = getNativeEntryName(e.name, v.name);
+			final hname = getHaxeEnumEntryName(e.name, v.name);
+			final nname = getNativeEnumEntryName(e.name, v.name);
 			def.fields.push({
 				pos: null,
 				access: [AFinal],
@@ -63,72 +64,12 @@ class GlobalEnumBuilder extends Builder {
 			def.fields.push({
 				pos: null,
 				access: [AFinal],
-				name: getHaxeEntryName(e.name, v.name),
+				name: getHaxeEnumEntryName(e.name, v.name),
 				kind: FVar(null, macro $v{v.value}),
 			});
 		}
 
 		final source = printTypeDefinition(def);
 		write('${config.folder}/${def.pack.join('/')}/$ename.hx', source);
-	}
-
-	function getNativeEntryName(type:String, name:String):String {
-		// fix for those cpp code does not match the json
-		return switch type {
-			case 'Variant.Type':
-				name.substr('TYPE_'.length);
-			default:
-				name;
-		}
-	}
-
-	function getHaxeEntryName(type:String, name:String):String {
-		return switch type {
-			case 'Side':
-				name.substr('SIDE_'.length);
-			case 'Corner':
-				name.substr('CORNER_'.length);
-			case 'HorizontalAlignment':
-				name.substr('HORIZONTAL_ALIGNMENT_'.length);
-			case 'VerticalAlignment':
-				name.substr('VERTICAL_ALIGNMENT_'.length);
-			case 'InlineAlignment':
-				name.substr('INLINE_ALIGNMENT_'.length);
-			case 'EulerOrder':
-				name.substr('EULER_ORDER_'.length);
-			case 'Key':
-				switch name.substr('KEY_'.length) {
-					case x if (~/^[0-9]/.match(x)): 'NUM_$x';
-					case x: x;
-				}
-			case 'KeyModifierMask':
-				name.substr('KEY_CODE_'.length);
-			case 'KeyLocation':
-				name.substr('KEY_LOCATION_'.length);
-			case 'MouseButton':
-				name.substr('MOUSE_BUTTON_'.length);
-			case 'MouseButtonMask':
-				name.substr('MOUSE_BUTTON_MASK_'.length);
-			case 'JoyButton':
-				name.substr('JOY_BUTTON_'.length);
-			case 'JoyAxis':
-				name.substr('JOY_AXIS_'.length);
-			case 'MIDIMessage':
-				name.substr('MIDI_MESSAGE_'.length);
-			case 'Error':
-				name.startsWith('ERR_') ? name.substr('ERR_'.length) : name;
-			case 'PropertyHint':
-				name.substr('PROPERTY_HINT_'.length);
-			case 'PropertyUsageFlags':
-				name.substr('PROPERTY_USAGE_'.length);
-			case 'MethodFlags':
-				name.substr(name.startsWith('METHOD_FLAGS_') ? 'METHOD_FLAGS_'.length : 'METHOD_FLAG_'.length);
-			case 'Variant.Type':
-				name.substr('TYPE_'.length);
-			case 'Variant.Operator':
-				name.substr('OP_'.length);
-			default:
-				name;
-		}
 	}
 }

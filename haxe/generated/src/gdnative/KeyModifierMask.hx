@@ -1,9 +1,7 @@
 package gdnative;
 @:include("godot_cpp/classes/global_constants.hpp") @:native("godot::KeyModifierMask") extern enum abstract KeyModifierMask(cpp.UInt32) to cpp.UInt32 {
-	@:native("godot::KeyModifierMask::KEY_CODE_MASK")
-	final MASK;
-	@:native("godot::KeyModifierMask::KEY_MODIFIER_MASK")
-	final IER_MASK;
+	final KEY_CODE_MASK;
+	final KEY_MODIFIER_MASK;
 	@:native("godot::KeyModifierMask::KEY_MASK_CMD_OR_CTRL")
 	final CMD_OR_CTRL;
 	@:native("godot::KeyModifierMask::KEY_MASK_SHIFT")

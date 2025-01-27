@@ -11,6 +11,10 @@ function toSnakeCase(v:String):String {
 		.toLowerCase();
 }
 
+function toConstCase(v:String):String {
+	return toSnakeCase(v).toUpperCase();
+}
+
 function regexReplace(v:String, regex:EReg, by:String):String {
 	return regex.replace(v, by);
 }
