@@ -25,15 +25,18 @@ package gdnative;
 	function get_default_compute_heuristic():gdnative.astargrid2d.Heuristic;
 	function set_default_estimate_heuristic(p_heuristic:gdnative.astargrid2d.Heuristic):Void;
 	function get_default_estimate_heuristic():gdnative.astargrid2d.Heuristic;
-	function set_point_solid(p_id:gdnative.Vector2i, ?p_solid:Bool):Void;
+	overload function set_point_solid(p_id:gdnative.Vector2i, p_solid:Bool):Void;
+	overload function set_point_solid(p_id:gdnative.Vector2i):Void;
 	function is_point_solid(p_id:gdnative.Vector2i):Bool;
 	function set_point_weight_scale(p_id:gdnative.Vector2i, p_weight_scale:Float):Void;
 	function get_point_weight_scale(p_id:gdnative.Vector2i):Float;
-	function fill_solid_region(p_region:gdnative.Rect2i, ?p_solid:Bool):Void;
+	overload function fill_solid_region(p_region:gdnative.Rect2i, p_solid:Bool):Void;
+	overload function fill_solid_region(p_region:gdnative.Rect2i):Void;
 	function fill_weight_scale_region(p_region:gdnative.Rect2i, p_weight_scale:Float):Void;
 	function clear():Void;
 	function get_point_position(p_id:gdnative.Vector2i):gdnative.Vector2;
-	function get_point_path(p_from_id:gdnative.Vector2i, p_to_id:gdnative.Vector2i, ?p_allow_partial_path:Bool):gdnative.PackedVector2Array;
+	overload function get_point_path(p_from_id:gdnative.Vector2i, p_to_id:gdnative.Vector2i, p_allow_partial_path:Bool):gdnative.PackedVector2Array;
+	overload function get_point_path(p_from_id:gdnative.Vector2i, p_to_id:gdnative.Vector2i):gdnative.PackedVector2Array;
 }
 @:forward abstract AStarGrid2D(gdnative.Ref<AStarGrid2D_extern>) from gdnative.Ref<AStarGrid2D_extern> to gdnative.Ref<AStarGrid2D_extern> {
 	@:from

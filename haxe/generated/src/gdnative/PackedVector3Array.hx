@@ -16,13 +16,17 @@ package gdnative;
 	function clear():Void;
 	function has(p_value:gdnative.Vector3):Bool;
 	function reverse():Void;
-	function slice(p_begin:Int, ?p_end:Int):gdnative.PackedVector3Array;
+	overload function slice(p_begin:Int, p_end:Int):gdnative.PackedVector3Array;
+	overload function slice(p_begin:Int):gdnative.PackedVector3Array;
 	function to_byte_array():gdnative.PackedByteArray;
 	function sort():Void;
-	function bsearch(p_value:gdnative.Vector3, ?p_before:Bool):Int;
+	overload function bsearch(p_value:gdnative.Vector3, p_before:Bool):Int;
+	overload function bsearch(p_value:gdnative.Vector3):Int;
 	function duplicate():gdnative.PackedVector3Array;
-	function find(p_value:gdnative.Vector3, ?p_from:Int):Int;
-	function rfind(p_value:gdnative.Vector3, ?p_from:Int):Int;
+	overload function find(p_value:gdnative.Vector3, p_from:Int):Int;
+	overload function find(p_value:gdnative.Vector3):Int;
+	overload function rfind(p_value:gdnative.Vector3, p_from:Int):Int;
+	overload function rfind(p_value:gdnative.Vector3):Int;
 	function count(p_value:gdnative.Vector3):Int;
 }
 

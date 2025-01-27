@@ -1,7 +1,8 @@
 package gdnative;
 @:include("godot_cpp/classes/immediate_mesh.hpp") @:native("godot::ImmediateMesh") @:structAccess extern class ImmediateMesh_extern extends gdnative.Mesh.Mesh_extern {
 	extern static inline function __alloc():cpp.Pointer<ImmediateMesh_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::ImmediateMesh"));
-	function surface_begin(p_primitive:gdnative.mesh.PrimitiveType, ?p_material:gdnative.Material):Void;
+	overload function surface_begin(p_primitive:gdnative.mesh.PrimitiveType, p_material:gdnative.Material):Void;
+	overload function surface_begin(p_primitive:gdnative.mesh.PrimitiveType):Void;
 	function surface_set_color(p_color:gdnative.Color):Void;
 	function surface_set_normal(p_normal:gdnative.Vector3):Void;
 	function surface_set_tangent(p_tangent:gdnative.Plane):Void;

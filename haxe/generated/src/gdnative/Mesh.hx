@@ -24,7 +24,9 @@ package gdnative;
 	function surface_get_material(p_surf_idx:Int):gdnative.Material;
 	function create_placeholder():gdnative.Resource;
 	function create_trimesh_shape():gdnative.ConcavePolygonShape3D;
-	function create_convex_shape(?p_clean:Bool, ?p_simplify:Bool):gdnative.ConvexPolygonShape3D;
+	overload function create_convex_shape(p_clean:Bool, p_simplify:Bool):gdnative.ConvexPolygonShape3D;
+	overload function create_convex_shape(p_clean:Bool):gdnative.ConvexPolygonShape3D;
+	overload function create_convex_shape():gdnative.ConvexPolygonShape3D;
 	function create_outline(p_margin:Float):gdnative.Mesh;
 	function generate_triangle_mesh():gdnative.TriangleMesh;
 }

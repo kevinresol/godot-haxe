@@ -16,13 +16,17 @@ package gdnative;
 	function clear():Void;
 	function has(p_value:gdnative.String):Bool;
 	function reverse():Void;
-	function slice(p_begin:Int, ?p_end:Int):gdnative.PackedStringArray;
+	overload function slice(p_begin:Int, p_end:Int):gdnative.PackedStringArray;
+	overload function slice(p_begin:Int):gdnative.PackedStringArray;
 	function to_byte_array():gdnative.PackedByteArray;
 	function sort():Void;
-	function bsearch(p_value:gdnative.String, ?p_before:Bool):Int;
+	overload function bsearch(p_value:gdnative.String, p_before:Bool):Int;
+	overload function bsearch(p_value:gdnative.String):Int;
 	function duplicate():gdnative.PackedStringArray;
-	function find(p_value:gdnative.String, ?p_from:Int):Int;
-	function rfind(p_value:gdnative.String, ?p_from:Int):Int;
+	overload function find(p_value:gdnative.String, p_from:Int):Int;
+	overload function find(p_value:gdnative.String):Int;
+	overload function rfind(p_value:gdnative.String, p_from:Int):Int;
+	overload function rfind(p_value:gdnative.String):Int;
 	function count(p_value:gdnative.String):Int;
 }
 

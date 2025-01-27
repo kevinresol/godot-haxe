@@ -19,7 +19,8 @@ package gdnative;
 	function get_enter_cost():Float;
 	function set_travel_cost(p_travel_cost:Float):Void;
 	function get_travel_cost():Float;
-	function bake_navigation_polygon(?p_on_thread:Bool):Void;
+	overload function bake_navigation_polygon(p_on_thread:Bool):Void;
+	overload function bake_navigation_polygon():Void;
 	function is_baking():Bool;
 }
 @:forward abstract NavigationRegion2D(cpp.Pointer<NavigationRegion2D_extern>) from cpp.Pointer<NavigationRegion2D_extern> to cpp.Pointer<NavigationRegion2D_extern> {

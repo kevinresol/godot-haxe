@@ -1,8 +1,11 @@
 package gdnative;
 @:include("godot_cpp/classes/tls_options.hpp") @:native("godot::TLSOptions") @:structAccess extern class TLSOptions_extern extends gdnative.RefCounted.RefCounted_extern {
 	extern static inline function __alloc():cpp.Pointer<TLSOptions_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::TLSOptions"));
-	static function client(?p_trusted_chain:gdnative.X509Certificate, ?p_common_name_override:gdnative.String):gdnative.TLSOptions;
-	static function client_unsafe(?p_trusted_chain:gdnative.X509Certificate):gdnative.TLSOptions;
+	overload static function client(p_trusted_chain:gdnative.X509Certificate, p_common_name_override:gdnative.String):gdnative.TLSOptions;
+	overload static function client(p_trusted_chain:gdnative.X509Certificate):gdnative.TLSOptions;
+	overload static function client():gdnative.TLSOptions;
+	overload static function client_unsafe(p_trusted_chain:gdnative.X509Certificate):gdnative.TLSOptions;
+	overload static function client_unsafe():gdnative.TLSOptions;
 	static function server(p_key:gdnative.CryptoKey, p_certificate:gdnative.X509Certificate):gdnative.TLSOptions;
 	function is_server():Bool;
 	function is_unsafe_client():Bool;

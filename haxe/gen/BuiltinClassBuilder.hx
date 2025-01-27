@@ -147,21 +147,27 @@ class BuiltinClassBuilder extends Builder {
 
 		// methods
 		for (fn in getValidMethods(clazz)) {
-			final fname = fn.name;
-			final rtype = patchRetType(cname, fname, fn.return_type ?? 'void');
 			try {
-				cls.fields.push({
-					pos: null,
-					name: fname,
-					kind: FFun({
-						args: patchArgs(cname, fname, fn.arguments).map(arg -> ({
-							name: 'p_${arg.name}',
-							type: makeGodotType(patchArgType(cname, fname, arg.name, arg.type)),
-							opt: arg.default_value != null,
-						} : FunctionArg)),
-						ret: makeGodotType(rtype),
-					})
-				});
+				final fname = fn.name;
+				final rtype = patchRetType(cname, fname, fn.return_type ?? 'void');
+				final rct = makeGodotType(rtype);
+				final args = patchArgs(cname, fname, fn.arguments);
+				final optArgCount = args.count(a -> a.default_value != null);
+				final fargs = args.map(arg -> ({
+					name: 'p_${arg.name}',
+					type: makeGodotType(patchArgType(cname, fname, arg.name, arg.type)),
+				} : FunctionArg));
+				for (i in 0...optArgCount + 1) {
+					cls.fields.push({
+						pos: null,
+						access: (optArgCount > 0 ? [AOverload] : []), // TODO .concat(fn.is_static ? [AStatic] : []),
+						name: fname,
+						kind: FFun({
+							args: fargs.slice(0, fargs.length - i),
+							ret: rct,
+						})
+					});
+				}
 			} catch (e) {}
 		}
 		// properties
@@ -352,10 +358,10 @@ class BuiltinClassBuilder extends Builder {
 
 		// methods
 		for (fn in getValidMethods(clazz)) {
-			final fname = fn.name;
-			final rtype = patchRetType(cname, fname, fn.return_type ?? 'void');
-
 			try {
+				final fname = fn.name;
+				final rtype = patchRetType(cname, fname, fn.return_type ?? 'void');
+
 				cls.fields.push({
 					pos: null,
 					access: isScriptExtern ? [] : [APublic],

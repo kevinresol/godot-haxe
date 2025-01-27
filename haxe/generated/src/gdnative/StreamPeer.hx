@@ -20,7 +20,8 @@ package gdnative;
 	function put_double(p_value:Float):Void;
 	function put_string(p_value:gdnative.String):Void;
 	function put_utf8_string(p_value:gdnative.String):Void;
-	function put_var(p_value:gdnative.Variant, ?p_full_objects:Bool):Void;
+	overload function put_var(p_value:gdnative.Variant, p_full_objects:Bool):Void;
+	overload function put_var(p_value:gdnative.Variant):Void;
 	function get_8():Int;
 	function get_u8():Int;
 	function get_16():Int;
@@ -31,9 +32,12 @@ package gdnative;
 	function get_u64():Int;
 	function get_float():Float;
 	function get_double():Float;
-	function get_string(?p_bytes:Int):gdnative.String;
-	function get_utf8_string(?p_bytes:Int):gdnative.String;
-	function get_var(?p_allow_objects:Bool):gdnative.Variant;
+	overload function get_string(p_bytes:Int):gdnative.String;
+	overload function get_string():gdnative.String;
+	overload function get_utf8_string(p_bytes:Int):gdnative.String;
+	overload function get_utf8_string():gdnative.String;
+	overload function get_var(p_allow_objects:Bool):gdnative.Variant;
+	overload function get_var():gdnative.Variant;
 }
 @:forward abstract StreamPeer(gdnative.Ref<StreamPeer_extern>) from gdnative.Ref<StreamPeer_extern> to gdnative.Ref<StreamPeer_extern> {
 	@:from

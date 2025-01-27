@@ -1,7 +1,9 @@
 package gdnative;
 @:include("godot_cpp/classes/packet_peer_udp.hpp") @:native("godot::PacketPeerUDP") @:structAccess extern class PacketPeerUDP_extern extends gdnative.PacketPeer.PacketPeer_extern {
 	extern static inline function __alloc():cpp.Pointer<PacketPeerUDP_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::PacketPeerUDP"));
-	function bind(p_port:Int, ?p_bind_address:gdnative.String, ?p_recv_buf_size:Int):gdnative.Error;
+	overload function bind(p_port:Int, p_bind_address:gdnative.String, p_recv_buf_size:Int):gdnative.Error;
+	overload function bind(p_port:Int, p_bind_address:gdnative.String):gdnative.Error;
+	overload function bind(p_port:Int):gdnative.Error;
 	function close():Void;
 	function wait():gdnative.Error;
 	function is_bound():Bool;

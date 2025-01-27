@@ -19,18 +19,23 @@ package gdnative;
 	function add_index(p_index:Int):Void;
 	function index():Void;
 	function deindex():Void;
-	function generate_normals(?p_flip:Bool):Void;
+	overload function generate_normals(p_flip:Bool):Void;
+	overload function generate_normals():Void;
 	function generate_tangents():Void;
 	function optimize_indices_for_cache():Void;
 	function get_aabb():gdnative.AABB;
-	function generate_lod(p_nd_threshold:Float, ?p_target_index_count:Int):gdnative.PackedInt32Array;
+	overload function generate_lod(p_nd_threshold:Float, p_target_index_count:Int):gdnative.PackedInt32Array;
+	overload function generate_lod(p_nd_threshold:Float):gdnative.PackedInt32Array;
 	function set_material(p_material:gdnative.Material):Void;
 	function get_primitive_type():gdnative.mesh.PrimitiveType;
 	function clear():Void;
 	function create_from(p_existing:gdnative.Mesh, p_surface:Int):Void;
-	function create_from_arrays(p_arrays:gdnative.Array, ?p_primitive_type:gdnative.mesh.PrimitiveType):Void;
+	overload function create_from_arrays(p_arrays:gdnative.Array, p_primitive_type:gdnative.mesh.PrimitiveType):Void;
+	overload function create_from_arrays(p_arrays:gdnative.Array):Void;
 	function create_from_blend_shape(p_existing:gdnative.Mesh, p_surface:Int, p_blend_shape:gdnative.String):Void;
-	function commit(?p_existing:gdnative.ArrayMesh, ?p_flags:Int):gdnative.ArrayMesh;
+	overload function commit(p_existing:gdnative.ArrayMesh, p_flags:Int):gdnative.ArrayMesh;
+	overload function commit(p_existing:gdnative.ArrayMesh):gdnative.ArrayMesh;
+	overload function commit():gdnative.ArrayMesh;
 	function commit_to_arrays():gdnative.Array;
 }
 @:forward abstract SurfaceTool(gdnative.Ref<SurfaceTool_extern>) from gdnative.Ref<SurfaceTool_extern> to gdnative.Ref<SurfaceTool_extern> {

@@ -4,7 +4,8 @@ package gdnative;
 	static function get_singleton():cpp.Pointer<ProjectSettings_extern>;
 	function has_setting(p_name:gdnative.String):Bool;
 	function set_setting(p_name:gdnative.String, p_value:gdnative.Variant):Void;
-	function get_setting(p_name:gdnative.String, ?p_default_value:gdnative.Variant):gdnative.Variant;
+	overload function get_setting(p_name:gdnative.String, p_default_value:gdnative.Variant):gdnative.Variant;
+	overload function get_setting(p_name:gdnative.String):gdnative.Variant;
 	function get_setting_with_override(p_name:gdnative.StringName):gdnative.Variant;
 	function set_order(p_name:gdnative.String, p_position:Int):Void;
 	function get_order(p_name:gdnative.String):Int;
@@ -17,7 +18,9 @@ package gdnative;
 	function localize_path(p_path:gdnative.String):gdnative.String;
 	function globalize_path(p_path:gdnative.String):gdnative.String;
 	function save():gdnative.Error;
-	function load_resource_pack(p_pack:gdnative.String, ?p_replace_files:Bool, ?p_offset:Int):Bool;
+	overload function load_resource_pack(p_pack:gdnative.String, p_replace_files:Bool, p_offset:Int):Bool;
+	overload function load_resource_pack(p_pack:gdnative.String, p_replace_files:Bool):Bool;
+	overload function load_resource_pack(p_pack:gdnative.String):Bool;
 	function save_custom(p_file:gdnative.String):gdnative.Error;
 }
 @:forward abstract ProjectSettings(cpp.Pointer<ProjectSettings_extern>) from cpp.Pointer<ProjectSettings_extern> to cpp.Pointer<ProjectSettings_extern> {

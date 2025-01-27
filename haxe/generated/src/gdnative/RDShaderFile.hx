@@ -1,8 +1,10 @@
 package gdnative;
 @:include("godot_cpp/classes/rd_shader_file.hpp") @:native("godot::RDShaderFile") @:structAccess extern class RDShaderFile_extern extends gdnative.Resource.Resource_extern {
 	extern static inline function __alloc():cpp.Pointer<RDShaderFile_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::RDShaderFile"));
-	function set_bytecode(p_bytecode:gdnative.RDShaderSPIRV, ?p_version:gdnative.StringName):Void;
-	function get_spirv(?p_version:gdnative.StringName):gdnative.RDShaderSPIRV;
+	overload function set_bytecode(p_bytecode:gdnative.RDShaderSPIRV, p_version:gdnative.StringName):Void;
+	overload function set_bytecode(p_bytecode:gdnative.RDShaderSPIRV):Void;
+	overload function get_spirv(p_version:gdnative.StringName):gdnative.RDShaderSPIRV;
+	overload function get_spirv():gdnative.RDShaderSPIRV;
 	function set_base_error(p_error:gdnative.String):Void;
 	function get_base_error():gdnative.String;
 }

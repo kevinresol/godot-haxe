@@ -1,7 +1,8 @@
 package gdnative;
 @:include("godot_cpp/classes/audio_stream_randomizer.hpp") @:native("godot::AudioStreamRandomizer") @:structAccess extern class AudioStreamRandomizer_extern extends gdnative.AudioStream.AudioStream_extern {
 	extern static inline function __alloc():cpp.Pointer<AudioStreamRandomizer_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::AudioStreamRandomizer"));
-	function add_stream(p_index:Int, p_stream:gdnative.AudioStream, ?p_weight:Float):Void;
+	overload function add_stream(p_index:Int, p_stream:gdnative.AudioStream, p_weight:Float):Void;
+	overload function add_stream(p_index:Int, p_stream:gdnative.AudioStream):Void;
 	function move_stream(p_index_from:Int, p_index_to:Int):Void;
 	function remove_stream(p_index:Int):Void;
 	function set_stream(p_index:Int, p_stream:gdnative.AudioStream):Void;

@@ -4,8 +4,10 @@ package gdnative;
 	static function get_singleton():cpp.Pointer<NavigationMeshGenerator_extern>;
 	function bake(p_navigation_mesh:gdnative.NavigationMesh, p_root_node:gdnative.Node):Void;
 	function clear(p_navigation_mesh:gdnative.NavigationMesh):Void;
-	function parse_source_geometry_data(p_navigation_mesh:gdnative.NavigationMesh, p_source_geometry_data:gdnative.NavigationMeshSourceGeometryData3D, p_root_node:gdnative.Node, ?p_callback:gdnative.Callable):Void;
-	function bake_from_source_geometry_data(p_navigation_mesh:gdnative.NavigationMesh, p_source_geometry_data:gdnative.NavigationMeshSourceGeometryData3D, ?p_callback:gdnative.Callable):Void;
+	overload function parse_source_geometry_data(p_navigation_mesh:gdnative.NavigationMesh, p_source_geometry_data:gdnative.NavigationMeshSourceGeometryData3D, p_root_node:gdnative.Node, p_callback:gdnative.Callable):Void;
+	overload function parse_source_geometry_data(p_navigation_mesh:gdnative.NavigationMesh, p_source_geometry_data:gdnative.NavigationMeshSourceGeometryData3D, p_root_node:gdnative.Node):Void;
+	overload function bake_from_source_geometry_data(p_navigation_mesh:gdnative.NavigationMesh, p_source_geometry_data:gdnative.NavigationMeshSourceGeometryData3D, p_callback:gdnative.Callable):Void;
+	overload function bake_from_source_geometry_data(p_navigation_mesh:gdnative.NavigationMesh, p_source_geometry_data:gdnative.NavigationMeshSourceGeometryData3D):Void;
 }
 @:forward abstract NavigationMeshGenerator(cpp.Pointer<NavigationMeshGenerator_extern>) from cpp.Pointer<NavigationMeshGenerator_extern> to cpp.Pointer<NavigationMeshGenerator_extern> {
 	@:from

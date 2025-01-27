@@ -6,8 +6,15 @@ package gdnative;
 	function get_noise_2dv(p_v:gdnative.Vector2):Float;
 	function get_noise_3d(p_x:Float, p_y:Float, p_z:Float):Float;
 	function get_noise_3dv(p_v:gdnative.Vector3):Float;
-	function get_image(p_width:Int, p_height:Int, ?p_invert:Bool, ?p_in_3d_space:Bool, ?p_normalize:Bool):gdnative.Image;
-	function get_seamless_image(p_width:Int, p_height:Int, ?p_invert:Bool, ?p_in_3d_space:Bool, ?p_skirt:Float, ?p_normalize:Bool):gdnative.Image;
+	overload function get_image(p_width:Int, p_height:Int, p_invert:Bool, p_in_3d_space:Bool, p_normalize:Bool):gdnative.Image;
+	overload function get_image(p_width:Int, p_height:Int, p_invert:Bool, p_in_3d_space:Bool):gdnative.Image;
+	overload function get_image(p_width:Int, p_height:Int, p_invert:Bool):gdnative.Image;
+	overload function get_image(p_width:Int, p_height:Int):gdnative.Image;
+	overload function get_seamless_image(p_width:Int, p_height:Int, p_invert:Bool, p_in_3d_space:Bool, p_skirt:Float, p_normalize:Bool):gdnative.Image;
+	overload function get_seamless_image(p_width:Int, p_height:Int, p_invert:Bool, p_in_3d_space:Bool, p_skirt:Float):gdnative.Image;
+	overload function get_seamless_image(p_width:Int, p_height:Int, p_invert:Bool, p_in_3d_space:Bool):gdnative.Image;
+	overload function get_seamless_image(p_width:Int, p_height:Int, p_invert:Bool):gdnative.Image;
+	overload function get_seamless_image(p_width:Int, p_height:Int):gdnative.Image;
 }
 @:forward abstract Noise(gdnative.Ref<Noise_extern>) from gdnative.Ref<Noise_extern> to gdnative.Ref<Noise_extern> {
 	@:from

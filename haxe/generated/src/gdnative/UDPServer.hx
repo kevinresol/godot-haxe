@@ -1,7 +1,8 @@
 package gdnative;
 @:include("godot_cpp/classes/udp_server.hpp") @:native("godot::UDPServer") @:structAccess extern class UDPServer_extern extends gdnative.RefCounted.RefCounted_extern {
 	extern static inline function __alloc():cpp.Pointer<UDPServer_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::UDPServer"));
-	function listen(p_port:Int, ?p_bind_address:gdnative.String):gdnative.Error;
+	overload function listen(p_port:Int, p_bind_address:gdnative.String):gdnative.Error;
+	overload function listen(p_port:Int):gdnative.Error;
 	function poll():gdnative.Error;
 	function is_connection_available():Bool;
 	function get_local_port():Int;

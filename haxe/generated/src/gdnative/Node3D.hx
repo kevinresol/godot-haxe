@@ -57,8 +57,12 @@ package gdnative;
 	function translate(p_offset:gdnative.Vector3):Void;
 	function orthonormalize():Void;
 	function set_identity():Void;
-	function look_at(p_target:gdnative.Vector3, ?p_up:gdnative.Vector3, ?p_use_model_front:Bool):Void;
-	function look_at_from_position(p_position:gdnative.Vector3, p_target:gdnative.Vector3, ?p_up:gdnative.Vector3, ?p_use_model_front:Bool):Void;
+	overload function look_at(p_target:gdnative.Vector3, p_up:gdnative.Vector3, p_use_model_front:Bool):Void;
+	overload function look_at(p_target:gdnative.Vector3, p_up:gdnative.Vector3):Void;
+	overload function look_at(p_target:gdnative.Vector3):Void;
+	overload function look_at_from_position(p_position:gdnative.Vector3, p_target:gdnative.Vector3, p_up:gdnative.Vector3, p_use_model_front:Bool):Void;
+	overload function look_at_from_position(p_position:gdnative.Vector3, p_target:gdnative.Vector3, p_up:gdnative.Vector3):Void;
+	overload function look_at_from_position(p_position:gdnative.Vector3, p_target:gdnative.Vector3):Void;
 	function to_local(p_global_point:gdnative.Vector3):gdnative.Vector3;
 	function to_global(p_local_point:gdnative.Vector3):gdnative.Vector3;
 }

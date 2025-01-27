@@ -1,7 +1,8 @@
 package gdnative;
 @:include("godot_cpp/classes/stream_peer_tcp.hpp") @:native("godot::StreamPeerTCP") @:structAccess extern class StreamPeerTCP_extern extends gdnative.StreamPeer.StreamPeer_extern {
 	extern static inline function __alloc():cpp.Pointer<StreamPeerTCP_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::StreamPeerTCP"));
-	function bind(p_port:Int, ?p_host:gdnative.String):gdnative.Error;
+	overload function bind(p_port:Int, p_host:gdnative.String):gdnative.Error;
+	overload function bind(p_port:Int):gdnative.Error;
 	function connect_to_host(p_host:gdnative.String, p_port:Int):gdnative.Error;
 	function poll():gdnative.Error;
 	function get_status():gdnative.streampeertcp.Status;

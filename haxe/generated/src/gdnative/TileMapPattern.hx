@@ -1,7 +1,10 @@
 package gdnative;
 @:include("godot_cpp/classes/tile_map_pattern.hpp") @:native("godot::TileMapPattern") @:structAccess extern class TileMapPattern_extern extends gdnative.Resource.Resource_extern {
 	extern static inline function __alloc():cpp.Pointer<TileMapPattern_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::TileMapPattern"));
-	function set_cell(p_coords:gdnative.Vector2i, ?p_source_id:Int, ?p_atlas_coords:gdnative.Vector2i, ?p_alternative_tile:Int):Void;
+	overload function set_cell(p_coords:gdnative.Vector2i, p_source_id:Int, p_atlas_coords:gdnative.Vector2i, p_alternative_tile:Int):Void;
+	overload function set_cell(p_coords:gdnative.Vector2i, p_source_id:Int, p_atlas_coords:gdnative.Vector2i):Void;
+	overload function set_cell(p_coords:gdnative.Vector2i, p_source_id:Int):Void;
+	overload function set_cell(p_coords:gdnative.Vector2i):Void;
 	function has_cell(p_coords:gdnative.Vector2i):Bool;
 	function remove_cell(p_coords:gdnative.Vector2i, p_update_size:Bool):Void;
 	function get_cell_source_id(p_coords:gdnative.Vector2i):Int;

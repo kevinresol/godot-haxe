@@ -4,9 +4,12 @@ package gdnative;
 	function get_mode():gdnative.shader.Mode;
 	function set_code(p_code:gdnative.String):Void;
 	function get_code():gdnative.String;
-	function set_default_texture_parameter(p_name:gdnative.StringName, p_texture:gdnative.Texture2D, ?p_index:Int):Void;
-	function get_default_texture_parameter(p_name:gdnative.StringName, ?p_index:Int):gdnative.Texture2D;
-	function get_shader_uniform_list(?p_get_groups:Bool):gdnative.Array;
+	overload function set_default_texture_parameter(p_name:gdnative.StringName, p_texture:gdnative.Texture2D, p_index:Int):Void;
+	overload function set_default_texture_parameter(p_name:gdnative.StringName, p_texture:gdnative.Texture2D):Void;
+	overload function get_default_texture_parameter(p_name:gdnative.StringName, p_index:Int):gdnative.Texture2D;
+	overload function get_default_texture_parameter(p_name:gdnative.StringName):gdnative.Texture2D;
+	overload function get_shader_uniform_list(p_get_groups:Bool):gdnative.Array;
+	overload function get_shader_uniform_list():gdnative.Array;
 }
 @:forward abstract Shader(gdnative.Ref<Shader_extern>) from gdnative.Ref<Shader_extern> to gdnative.Ref<Shader_extern> {
 	@:from

@@ -4,8 +4,10 @@ package gdnative;
 	function open(p_path:gdnative.String):gdnative.Error;
 	function close():gdnative.Error;
 	function get_files():gdnative.PackedStringArray;
-	function read_file(p_path:gdnative.String, ?p_case_sensitive:Bool):gdnative.PackedByteArray;
-	function file_exists(p_path:gdnative.String, ?p_case_sensitive:Bool):Bool;
+	overload function read_file(p_path:gdnative.String, p_case_sensitive:Bool):gdnative.PackedByteArray;
+	overload function read_file(p_path:gdnative.String):gdnative.PackedByteArray;
+	overload function file_exists(p_path:gdnative.String, p_case_sensitive:Bool):Bool;
+	overload function file_exists(p_path:gdnative.String):Bool;
 }
 @:forward abstract ZIPReader(gdnative.Ref<ZIPReader_extern>) from gdnative.Ref<ZIPReader_extern> to gdnative.Ref<ZIPReader_extern> {
 	@:from

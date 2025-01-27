@@ -5,9 +5,12 @@ package gdnative;
 	function get_group_count():Int;
 	function get_names():gdnative.Dictionary;
 	function get_strings():gdnative.PackedStringArray;
-	function get_string(?p_name:gdnative.Variant):gdnative.String;
-	function get_start(?p_name:gdnative.Variant):Int;
-	function get_end(?p_name:gdnative.Variant):Int;
+	overload function get_string(p_name:gdnative.Variant):gdnative.String;
+	overload function get_string():gdnative.String;
+	overload function get_start(p_name:gdnative.Variant):Int;
+	overload function get_start():Int;
+	overload function get_end(p_name:gdnative.Variant):Int;
+	overload function get_end():Int;
 }
 @:forward abstract RegExMatch(gdnative.Ref<RegExMatch_extern>) from gdnative.Ref<RegExMatch_extern> to gdnative.Ref<RegExMatch_extern> {
 	@:from
