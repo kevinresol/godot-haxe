@@ -3,11 +3,7 @@ class Node2D extends gd.CanvasItem {
 	public function new(?native:cpp.Pointer<gdnative.Node2D.Node2D_extern>) {
 		trace("Node2D", native);
 		if (native == null) {
-			{
-				final className = Type.getClassName(Type.getClass(this));
-				final isEngineClass = StringTools.startsWith(className, 'gd.') && gd.ClassDB.singleton.class_exists(className.substr(3));
-				if (!isEngineClass) trace(className + " is not a godot engine class (but extending the engine class Node2D), instantiating it without an owner will cause memory leak. Make sure you capture the owner argument in its constructor and pass it to super()");
-			};
+			gd.Utils.checkAndWarnForMissingOwner(this, "Node2D");
 			trace("Allocating Node2D");
 			native = gdnative.Node2D.Node2D_extern.__alloc();
 		};

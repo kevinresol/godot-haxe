@@ -3,11 +3,7 @@ class ClassDB extends gd.Object {
 	public function new(?native:cpp.Pointer<gdnative.ClassDB.ClassDB_extern>) {
 		trace("ClassDB", native);
 		if (native == null) {
-			{
-				final className = Type.getClassName(Type.getClass(this));
-				final isEngineClass = StringTools.startsWith(className, 'gd.') && gd.ClassDB.singleton.class_exists(className.substr(3));
-				if (!isEngineClass) trace(className + " is not a godot engine class (but extending the engine class ClassDB), instantiating it without an owner will cause memory leak. Make sure you capture the owner argument in its constructor and pass it to super()");
-			};
+			gd.Utils.checkAndWarnForMissingOwner(this, "ClassDB");
 			trace("Allocating ClassDB");
 			native = gdnative.ClassDB.ClassDB_extern.__alloc();
 		};

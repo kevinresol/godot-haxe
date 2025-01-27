@@ -3,11 +3,7 @@ class ResourceLoader extends gd.Object {
 	public function new(?native:cpp.Pointer<gdnative.ResourceLoader.ResourceLoader_extern>) {
 		trace("ResourceLoader", native);
 		if (native == null) {
-			{
-				final className = Type.getClassName(Type.getClass(this));
-				final isEngineClass = StringTools.startsWith(className, 'gd.') && gd.ClassDB.singleton.class_exists(className.substr(3));
-				if (!isEngineClass) trace(className + " is not a godot engine class (but extending the engine class ResourceLoader), instantiating it without an owner will cause memory leak. Make sure you capture the owner argument in its constructor and pass it to super()");
-			};
+			gd.Utils.checkAndWarnForMissingOwner(this, "ResourceLoader");
 			trace("Allocating ResourceLoader");
 			native = gdnative.ResourceLoader.ResourceLoader_extern.__alloc();
 		};

@@ -3,11 +3,7 @@ class CanvasItem extends gd.Node {
 	public function new(?native:cpp.Pointer<gdnative.CanvasItem.CanvasItem_extern>) {
 		trace("CanvasItem", native);
 		if (native == null) {
-			{
-				final className = Type.getClassName(Type.getClass(this));
-				final isEngineClass = StringTools.startsWith(className, 'gd.') && gd.ClassDB.singleton.class_exists(className.substr(3));
-				if (!isEngineClass) trace(className + " is not a godot engine class (but extending the engine class CanvasItem), instantiating it without an owner will cause memory leak. Make sure you capture the owner argument in its constructor and pass it to super()");
-			};
+			gd.Utils.checkAndWarnForMissingOwner(this, "CanvasItem");
 			trace("Allocating CanvasItem");
 			native = gdnative.CanvasItem.CanvasItem_extern.__alloc();
 		};

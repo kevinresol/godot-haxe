@@ -3,11 +3,7 @@ class Texture2D extends gd.Texture {
 	public function new(?native:cpp.Pointer<gdnative.Texture2D.Texture2D_extern>) {
 		trace("Texture2D", native);
 		if (native == null) {
-			{
-				final className = Type.getClassName(Type.getClass(this));
-				final isEngineClass = StringTools.startsWith(className, 'gd.') && gd.ClassDB.singleton.class_exists(className.substr(3));
-				if (!isEngineClass) trace(className + " is not a godot engine class (but extending the engine class Texture2D), instantiating it without an owner will cause memory leak. Make sure you capture the owner argument in its constructor and pass it to super()");
-			};
+			gd.Utils.checkAndWarnForMissingOwner(this, "Texture2D");
 			trace("Allocating Texture2D");
 			native = gdnative.Texture2D.Texture2D_extern.__alloc();
 		};
