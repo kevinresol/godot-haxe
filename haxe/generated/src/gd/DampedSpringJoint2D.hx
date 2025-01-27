@@ -29,8 +29,8 @@ class DampedSpringJoint2D extends gd.Joint2D {
 		return p_damping;
 	}
 	public function get_damping():Float return __dampedspringjoint2d_ptr().value.get_damping();
-	var length(get, set) : Float;
-	var rest_length(get, set) : Float;
-	var stiffness(get, set) : Float;
-	var damping(get, set) : Float;
+	public var length(get, set) : Float;
+	public var rest_length(get, set) : Float;
+	public var stiffness(get, set) : Float;
+	public var damping(get, set) : Float;
 }

@@ -14,5 +14,5 @@ class VisualShaderNodeComment extends gd.VisualShaderNodeFrame {
 		return p_description;
 	}
 	public function get_description():std.String return __visualshadernodecomment_ptr().value.get_description();
-	var description(get, set) : std.String;
+	public var description(get, set) : std.String;
 }

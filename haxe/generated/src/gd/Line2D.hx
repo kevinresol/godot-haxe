@@ -85,24 +85,24 @@ class Line2D extends gd.Node2D {
 		return p_antialiased;
 	}
 	public function get_antialiased():Bool return __line2d_ptr().value.get_antialiased();
-	var points(get, set) : gd.PackedVector2Array;
-	var closed(get, set) : Bool;
+	public var points(get, set) : gd.PackedVector2Array;
+	public var closed(get, set) : Bool;
 	function get_closed():Bool return is_closed();
-	var width(get, set) : Float;
-	var width_curve(get, set) : gd.Curve;
+	public var width(get, set) : Float;
+	public var width_curve(get, set) : gd.Curve;
 	function get_width_curve():gd.Curve return get_curve();
 	function set_width_curve(v:gd.Curve):gd.Curve {
 		set_curve(v);
 		return v;
 	}
-	var default_color(get, set) : gd.Color;
-	var gradient(get, set) : gd.Gradient;
-	var texture(get, set) : gd.Texture2D;
-	var texture_mode(get, set) : gd.line2d.LineTextureMode;
-	var joint_mode(get, set) : gd.line2d.LineJointMode;
-	var begin_cap_mode(get, set) : gd.line2d.LineCapMode;
-	var end_cap_mode(get, set) : gd.line2d.LineCapMode;
-	var sharp_limit(get, set) : Float;
-	var round_precision(get, set) : Int;
-	var antialiased(get, set) : Bool;
+	public var default_color(get, set) : gd.Color;
+	public var gradient(get, set) : gd.Gradient;
+	public var texture(get, set) : gd.Texture2D;
+	public var texture_mode(get, set) : gd.line2d.LineTextureMode;
+	public var joint_mode(get, set) : gd.line2d.LineJointMode;
+	public var begin_cap_mode(get, set) : gd.line2d.LineCapMode;
+	public var end_cap_mode(get, set) : gd.line2d.LineCapMode;
+	public var sharp_limit(get, set) : Float;
+	public var round_precision(get, set) : Int;
+	public var antialiased(get, set) : Bool;
 }

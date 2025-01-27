@@ -29,9 +29,9 @@ class VisualShaderNode extends gd.Resource {
 	public function get_default_input_values():gd.Array return __visualshadernode_ptr().value.get_default_input_values();
 	public function set_frame(p_frame:Int):Void __visualshadernode_ptr().value.set_frame(((p_frame : Int)));
 	public function get_frame():Int return __visualshadernode_ptr().value.get_frame();
-	var output_port_for_preview(get, set) : Int;
-	var default_input_values(get, set) : gd.Array;
-	var linked_parent_graph_frame(get, set) : Int;
+	public var output_port_for_preview(get, set) : Int;
+	public var default_input_values(get, set) : gd.Array;
+	public var linked_parent_graph_frame(get, set) : Int;
 	function get_linked_parent_graph_frame():Int return get_frame();
 	function set_linked_parent_graph_frame(v:Int):Int {
 		set_frame(v);

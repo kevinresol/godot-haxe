@@ -63,44 +63,44 @@ class Decal extends gd.VisualInstance3D {
 		return p_mask;
 	}
 	public function get_cull_mask():Int return __decal_ptr().value.get_cull_mask();
-	var size(get, set) : gd.Vector3;
-	var texture_albedo(get, set) : gd.Texture2D;
+	public var size(get, set) : gd.Vector3;
+	public var texture_albedo(get, set) : gd.Texture2D;
 	function get_texture_albedo():gd.Texture2D return get_texture(0);
 	function set_texture_albedo(v:gd.Texture2D):gd.Texture2D {
 		set_texture(0, v);
 		return v;
 	}
-	var texture_normal(get, set) : gd.Texture2D;
+	public var texture_normal(get, set) : gd.Texture2D;
 	function get_texture_normal():gd.Texture2D return get_texture(1);
 	function set_texture_normal(v:gd.Texture2D):gd.Texture2D {
 		set_texture(1, v);
 		return v;
 	}
-	var texture_orm(get, set) : gd.Texture2D;
+	public var texture_orm(get, set) : gd.Texture2D;
 	function get_texture_orm():gd.Texture2D return get_texture(2);
 	function set_texture_orm(v:gd.Texture2D):gd.Texture2D {
 		set_texture(2, v);
 		return v;
 	}
-	var texture_emission(get, set) : gd.Texture2D;
+	public var texture_emission(get, set) : gd.Texture2D;
 	function get_texture_emission():gd.Texture2D return get_texture(3);
 	function set_texture_emission(v:gd.Texture2D):gd.Texture2D {
 		set_texture(3, v);
 		return v;
 	}
-	var emission_energy(get, set) : Float;
-	var modulate(get, set) : gd.Color;
-	var albedo_mix(get, set) : Float;
-	var normal_fade(get, set) : Float;
-	var upper_fade(get, set) : Float;
-	var lower_fade(get, set) : Float;
-	var distance_fade_enabled(get, set) : Bool;
+	public var emission_energy(get, set) : Float;
+	public var modulate(get, set) : gd.Color;
+	public var albedo_mix(get, set) : Float;
+	public var normal_fade(get, set) : Float;
+	public var upper_fade(get, set) : Float;
+	public var lower_fade(get, set) : Float;
+	public var distance_fade_enabled(get, set) : Bool;
 	function get_distance_fade_enabled():Bool return is_distance_fade_enabled();
 	function set_distance_fade_enabled(v:Bool):Bool {
 		set_enable_distance_fade(v);
 		return v;
 	}
-	var distance_fade_begin(get, set) : Float;
-	var distance_fade_length(get, set) : Float;
-	var cull_mask(get, set) : Int;
+	public var distance_fade_begin(get, set) : Float;
+	public var distance_fade_length(get, set) : Float;
+	public var cull_mask(get, set) : Int;
 }

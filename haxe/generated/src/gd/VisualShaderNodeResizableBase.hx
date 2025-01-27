@@ -14,5 +14,5 @@ class VisualShaderNodeResizableBase extends gd.VisualShaderNode {
 		return p_size;
 	}
 	public function get_size():gd.Vector2 return __visualshadernoderesizablebase_ptr().value.get_size();
-	var size(get, set) : gd.Vector2;
+	public var size(get, set) : gd.Vector2;
 }

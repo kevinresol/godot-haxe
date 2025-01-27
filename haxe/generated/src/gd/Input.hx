@@ -113,11 +113,11 @@ class Input extends gd.Object {
 		return p_enable;
 	}
 	public function is_emulating_touch_from_mouse():Bool return __input_ptr().value.is_emulating_touch_from_mouse();
-	var mouse_mode(get, set) : gd.input.MouseMode;
-	var use_accumulated_input(get, set) : Bool;
+	public var mouse_mode(get, set) : gd.input.MouseMode;
+	public var use_accumulated_input(get, set) : Bool;
 	function get_use_accumulated_input():Bool return is_using_accumulated_input();
-	var emulate_mouse_from_touch(get, set) : Bool;
+	public var emulate_mouse_from_touch(get, set) : Bool;
 	function get_emulate_mouse_from_touch():Bool return is_emulating_mouse_from_touch();
-	var emulate_touch_from_mouse(get, set) : Bool;
+	public var emulate_touch_from_mouse(get, set) : Bool;
 	function get_emulate_touch_from_mouse():Bool return is_emulating_touch_from_mouse();
 }

@@ -39,13 +39,13 @@ class PhysicsRayQueryParameters2D extends gd.RefCounted {
 		return p_enable;
 	}
 	public function is_hit_from_inside_enabled():Bool return __physicsrayqueryparameters2d_ptr().value.is_hit_from_inside_enabled();
-	var from(get, set) : gd.Vector2;
-	var to(get, set) : gd.Vector2;
-	var collision_mask(get, set) : Int;
-	var collide_with_bodies(get, set) : Bool;
+	public var from(get, set) : gd.Vector2;
+	public var to(get, set) : gd.Vector2;
+	public var collision_mask(get, set) : Int;
+	public var collide_with_bodies(get, set) : Bool;
 	function get_collide_with_bodies():Bool return is_collide_with_bodies_enabled();
-	var collide_with_areas(get, set) : Bool;
+	public var collide_with_areas(get, set) : Bool;
 	function get_collide_with_areas():Bool return is_collide_with_areas_enabled();
-	var hit_from_inside(get, set) : Bool;
+	public var hit_from_inside(get, set) : Bool;
 	function get_hit_from_inside():Bool return is_hit_from_inside_enabled();
 }

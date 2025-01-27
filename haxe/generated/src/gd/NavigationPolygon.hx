@@ -75,14 +75,14 @@ class NavigationPolygon extends gd.Resource {
 	}
 	public function get_baking_rect_offset():gd.Vector2 return __navigationpolygon_ptr().value.get_baking_rect_offset();
 	public function clear():Void __navigationpolygon_ptr().value.clear();
-	var vertices(get, set) : gd.PackedVector2Array;
-	var parsed_geometry_type(get, set) : gd.navigationpolygon.ParsedGeometryType;
-	var parsed_collision_mask(get, set) : Int;
-	var source_geometry_mode(get, set) : gd.navigationpolygon.SourceGeometryMode;
-	var source_geometry_group_name(get, set) : std.String;
-	var cell_size(get, set) : Float;
-	var border_size(get, set) : Float;
-	var agent_radius(get, set) : Float;
-	var baking_rect(get, set) : gd.Rect2;
-	var baking_rect_offset(get, set) : gd.Vector2;
+	public var vertices(get, set) : gd.PackedVector2Array;
+	public var parsed_geometry_type(get, set) : gd.navigationpolygon.ParsedGeometryType;
+	public var parsed_collision_mask(get, set) : Int;
+	public var source_geometry_mode(get, set) : gd.navigationpolygon.SourceGeometryMode;
+	public var source_geometry_group_name(get, set) : std.String;
+	public var cell_size(get, set) : Float;
+	public var border_size(get, set) : Float;
+	public var agent_radius(get, set) : Float;
+	public var baking_rect(get, set) : gd.Rect2;
+	public var baking_rect_offset(get, set) : gd.Vector2;
 }

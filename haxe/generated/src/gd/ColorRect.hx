@@ -14,5 +14,5 @@ class ColorRect extends gd.Control {
 		return p_color;
 	}
 	public function get_color():gd.Color return __colorrect_ptr().value.get_color();
-	var color(get, set) : gd.Color;
+	public var color(get, set) : gd.Color;
 }

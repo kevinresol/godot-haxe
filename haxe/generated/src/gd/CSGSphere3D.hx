@@ -34,9 +34,9 @@ class CSGSphere3D extends gd.CSGPrimitive3D {
 		return p_material;
 	}
 	public function get_material():gd.Material return __csgsphere3d_ptr().value.get_material();
-	var radius(get, set) : Float;
-	var radial_segments(get, set) : Int;
-	var rings(get, set) : Int;
-	var smooth_faces(get, set) : Bool;
-	var material(get, set) : gd.Material;
+	public var radius(get, set) : Float;
+	public var radial_segments(get, set) : Int;
+	public var rings(get, set) : Int;
+	public var smooth_faces(get, set) : Bool;
+	public var material(get, set) : gd.Material;
 }

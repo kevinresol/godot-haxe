@@ -19,6 +19,6 @@ class VisualShaderNodeVarying extends gd.VisualShaderNode {
 		return p_type;
 	}
 	public function get_varying_type():gd.visualshader.VaryingType return __visualshadernodevarying_ptr().value.get_varying_type();
-	var varying_name(get, set) : std.String;
-	var varying_type(get, set) : gd.visualshader.VaryingType;
+	public var varying_name(get, set) : std.String;
+	public var varying_type(get, set) : gd.visualshader.VaryingType;
 }

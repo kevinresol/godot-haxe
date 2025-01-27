@@ -34,10 +34,10 @@ class StyleBoxLine extends gd.StyleBox {
 		return p_vertical;
 	}
 	public function is_vertical():Bool return __styleboxline_ptr().value.is_vertical();
-	var color(get, set) : gd.Color;
-	var grow_begin(get, set) : Float;
-	var grow_end(get, set) : Float;
-	var thickness(get, set) : Int;
-	var vertical(get, set) : Bool;
+	public var color(get, set) : gd.Color;
+	public var grow_begin(get, set) : Float;
+	public var grow_end(get, set) : Float;
+	public var thickness(get, set) : Int;
+	public var vertical(get, set) : Bool;
 	function get_vertical():Bool return is_vertical();
 }

@@ -34,9 +34,9 @@ class AudioEffectPhaser extends gd.AudioEffect {
 		return p_depth;
 	}
 	public function get_depth():Float return __audioeffectphaser_ptr().value.get_depth();
-	var range_min_hz(get, set) : Float;
-	var range_max_hz(get, set) : Float;
-	var rate_hz(get, set) : Float;
-	var feedback(get, set) : Float;
-	var depth(get, set) : Float;
+	public var range_min_hz(get, set) : Float;
+	public var range_max_hz(get, set) : Float;
+	public var rate_hz(get, set) : Float;
+	public var feedback(get, set) : Float;
+	public var depth(get, set) : Float;
 }

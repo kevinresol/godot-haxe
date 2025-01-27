@@ -14,5 +14,5 @@ class VisualShaderNodeSwitch extends gd.VisualShaderNode {
 		return p_type;
 	}
 	public function get_op_type():gd.visualshadernodeswitch.OpType return __visualshadernodeswitch_ptr().value.get_op_type();
-	var op_type(get, set) : gd.visualshadernodeswitch.OpType;
+	public var op_type(get, set) : gd.visualshadernodeswitch.OpType;
 }

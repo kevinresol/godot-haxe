@@ -37,35 +37,35 @@ class ScrollContainer extends gd.Container {
 	public function get_h_scroll_bar():gd.HScrollBar return __scrollcontainer_ptr().value.get_h_scroll_bar();
 	public function get_v_scroll_bar():gd.VScrollBar return __scrollcontainer_ptr().value.get_v_scroll_bar();
 	public function ensure_control_visible(p_control:gd.Control):Void __scrollcontainer_ptr().value.ensure_control_visible(((p_control : gd.Control)));
-	var follow_focus(get, set) : Bool;
+	public var follow_focus(get, set) : Bool;
 	function get_follow_focus():Bool return is_following_focus();
-	var scroll_horizontal(get, set) : Int;
+	public var scroll_horizontal(get, set) : Int;
 	function get_scroll_horizontal():Int return get_h_scroll();
 	function set_scroll_horizontal(v:Int):Int {
 		set_h_scroll(v);
 		return v;
 	}
-	var scroll_vertical(get, set) : Int;
+	public var scroll_vertical(get, set) : Int;
 	function get_scroll_vertical():Int return get_v_scroll();
 	function set_scroll_vertical(v:Int):Int {
 		set_v_scroll(v);
 		return v;
 	}
-	var scroll_horizontal_custom_step(get, set) : Float;
+	public var scroll_horizontal_custom_step(get, set) : Float;
 	function get_scroll_horizontal_custom_step():Float return get_horizontal_custom_step();
 	function set_scroll_horizontal_custom_step(v:Float):Float {
 		set_horizontal_custom_step(v);
 		return v;
 	}
-	var scroll_vertical_custom_step(get, set) : Float;
+	public var scroll_vertical_custom_step(get, set) : Float;
 	function get_scroll_vertical_custom_step():Float return get_vertical_custom_step();
 	function set_scroll_vertical_custom_step(v:Float):Float {
 		set_vertical_custom_step(v);
 		return v;
 	}
-	var horizontal_scroll_mode(get, set) : gd.scrollcontainer.ScrollMode;
-	var vertical_scroll_mode(get, set) : gd.scrollcontainer.ScrollMode;
-	var scroll_deadzone(get, set) : Int;
+	public var horizontal_scroll_mode(get, set) : gd.scrollcontainer.ScrollMode;
+	public var vertical_scroll_mode(get, set) : gd.scrollcontainer.ScrollMode;
+	public var scroll_deadzone(get, set) : Int;
 	function get_scroll_deadzone():Int return get_deadzone();
 	function set_scroll_deadzone(v:Int):Int {
 		set_deadzone(v);

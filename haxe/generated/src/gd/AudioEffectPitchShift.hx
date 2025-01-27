@@ -24,7 +24,7 @@ class AudioEffectPitchShift extends gd.AudioEffect {
 		return p_size;
 	}
 	public function get_fft_size():gd.audioeffectpitchshift.FFTSize return __audioeffectpitchshift_ptr().value.get_fft_size();
-	var pitch_scale(get, set) : Float;
-	var oversampling(get, set) : Int;
-	var fft_size(get, set) : gd.audioeffectpitchshift.FFTSize;
+	public var pitch_scale(get, set) : Float;
+	public var oversampling(get, set) : Int;
+	public var fft_size(get, set) : gd.audioeffectpitchshift.FFTSize;
 }

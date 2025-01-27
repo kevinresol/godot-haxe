@@ -54,13 +54,13 @@ class GLTFSkin extends gd.Resource {
 		__gltfskin_ptr().value.set_godot_skin(((p_godot_skin : gd.Skin)));
 		return p_godot_skin;
 	}
-	var skin_root(get, set) : Int;
-	var joints_original(get, set) : gd.PackedInt32Array;
-	var joints(get, set) : gd.PackedInt32Array;
-	var non_joints(get, set) : gd.PackedInt32Array;
-	var roots(get, set) : gd.PackedInt32Array;
-	var skeleton(get, set) : Int;
-	var joint_i_to_bone_i(get, set) : gd.Dictionary;
-	var joint_i_to_name(get, set) : gd.Dictionary;
-	var godot_skin(get, set) : gd.Skin;
+	public var skin_root(get, set) : Int;
+	public var joints_original(get, set) : gd.PackedInt32Array;
+	public var joints(get, set) : gd.PackedInt32Array;
+	public var non_joints(get, set) : gd.PackedInt32Array;
+	public var roots(get, set) : gd.PackedInt32Array;
+	public var skeleton(get, set) : Int;
+	public var joint_i_to_bone_i(get, set) : gd.Dictionary;
+	public var joint_i_to_name(get, set) : gd.Dictionary;
+	public var godot_skin(get, set) : gd.Skin;
 }

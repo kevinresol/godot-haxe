@@ -26,5 +26,5 @@ class WebRTCDataChannel extends gd.PacketPeer {
 	public function get_protocol():std.String return __webrtcdatachannel_ptr().value.get_protocol();
 	public function is_negotiated():Bool return __webrtcdatachannel_ptr().value.is_negotiated();
 	public function get_buffered_amount():Int return __webrtcdatachannel_ptr().value.get_buffered_amount();
-	var write_mode(get, set) : gd.webrtcdatachannel.WriteMode;
+	public var write_mode(get, set) : gd.webrtcdatachannel.WriteMode;
 }

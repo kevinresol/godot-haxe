@@ -39,8 +39,8 @@ class WebXRInterface extends gd.XRInterface {
 	public function get_display_refresh_rate():Float return __webxrinterface_ptr().value.get_display_refresh_rate();
 	public function set_display_refresh_rate(p_refresh_rate:Float):Void __webxrinterface_ptr().value.set_display_refresh_rate(((p_refresh_rate : Float)));
 	public function get_available_display_refresh_rates():gd.Array return __webxrinterface_ptr().value.get_available_display_refresh_rates();
-	var session_mode(get, set) : std.String;
-	var required_features(get, set) : std.String;
-	var optional_features(get, set) : std.String;
-	var requested_reference_space_types(get, set) : std.String;
+	public var session_mode(get, set) : std.String;
+	public var required_features(get, set) : std.String;
+	public var optional_features(get, set) : std.String;
+	public var requested_reference_space_types(get, set) : std.String;
 }

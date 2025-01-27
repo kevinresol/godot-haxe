@@ -26,8 +26,8 @@ class InputEventScreenTouch extends gd.InputEventFromWindow {
 		return p_double_tap;
 	}
 	public function is_double_tap():Bool return __inputeventscreentouch_ptr().value.is_double_tap();
-	var index(get, set) : Int;
-	var position(get, set) : gd.Vector2;
-	var double_tap(get, set) : Bool;
+	public var index(get, set) : Int;
+	public var position(get, set) : gd.Vector2;
+	public var double_tap(get, set) : Bool;
 	function get_double_tap():Bool return is_double_tap();
 }

@@ -79,17 +79,17 @@ class AudioStreamPlayer2D extends gd.Node2D {
 		return p_playback_type;
 	}
 	public function get_playback_type():gd.audioserver.PlaybackType return __audiostreamplayer2d_ptr().value.get_playback_type();
-	var stream(get, set) : gd.AudioStream;
-	var volume_db(get, set) : Float;
-	var pitch_scale(get, set) : Float;
-	var autoplay(get, set) : Bool;
+	public var stream(get, set) : gd.AudioStream;
+	public var volume_db(get, set) : Float;
+	public var pitch_scale(get, set) : Float;
+	public var autoplay(get, set) : Bool;
 	function get_autoplay():Bool return is_autoplay_enabled();
-	var stream_paused(get, set) : Bool;
-	var max_distance(get, set) : Float;
-	var attenuation(get, set) : Float;
-	var max_polyphony(get, set) : Int;
-	var panning_strength(get, set) : Float;
-	var bus(get, set) : std.String;
-	var area_mask(get, set) : Int;
-	var playback_type(get, set) : gd.audioserver.PlaybackType;
+	public var stream_paused(get, set) : Bool;
+	public var max_distance(get, set) : Float;
+	public var attenuation(get, set) : Float;
+	public var max_polyphony(get, set) : Int;
+	public var panning_strength(get, set) : Float;
+	public var bus(get, set) : std.String;
+	public var area_mask(get, set) : Int;
+	public var playback_type(get, set) : gd.audioserver.PlaybackType;
 }

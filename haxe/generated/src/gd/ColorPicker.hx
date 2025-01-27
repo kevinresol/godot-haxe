@@ -64,32 +64,32 @@ class ColorPicker extends gd.VBoxContainer {
 		return p_shape;
 	}
 	public function get_picker_shape():gd.colorpicker.PickerShapeType return __colorpicker_ptr().value.get_picker_shape();
-	var color(get, set) : gd.Color;
+	public var color(get, set) : gd.Color;
 	function get_color():gd.Color return get_pick_color();
 	function set_color(v:gd.Color):gd.Color {
 		set_pick_color(v);
 		return v;
 	}
-	var edit_alpha(get, set) : Bool;
+	public var edit_alpha(get, set) : Bool;
 	function get_edit_alpha():Bool return is_editing_alpha();
-	var color_mode(get, set) : gd.colorpicker.ColorModeType;
-	var deferred_mode(get, set) : Bool;
+	public var color_mode(get, set) : gd.colorpicker.ColorModeType;
+	public var deferred_mode(get, set) : Bool;
 	function get_deferred_mode():Bool return is_deferred_mode();
-	var picker_shape(get, set) : gd.colorpicker.PickerShapeType;
-	var can_add_swatches(get, set) : Bool;
+	public var picker_shape(get, set) : gd.colorpicker.PickerShapeType;
+	public var can_add_swatches(get, set) : Bool;
 	function get_can_add_swatches():Bool return are_swatches_enabled();
-	var sampler_visible(get, set) : Bool;
+	public var sampler_visible(get, set) : Bool;
 	function get_sampler_visible():Bool return is_sampler_visible();
-	var color_modes_visible(get, set) : Bool;
+	public var color_modes_visible(get, set) : Bool;
 	function get_color_modes_visible():Bool return are_modes_visible();
 	function set_color_modes_visible(v:Bool):Bool {
 		set_modes_visible(v);
 		return v;
 	}
-	var sliders_visible(get, set) : Bool;
+	public var sliders_visible(get, set) : Bool;
 	function get_sliders_visible():Bool return are_sliders_visible();
-	var hex_visible(get, set) : Bool;
+	public var hex_visible(get, set) : Bool;
 	function get_hex_visible():Bool return is_hex_visible();
-	var presets_visible(get, set) : Bool;
+	public var presets_visible(get, set) : Bool;
 	function get_presets_visible():Bool return are_presets_visible();
 }

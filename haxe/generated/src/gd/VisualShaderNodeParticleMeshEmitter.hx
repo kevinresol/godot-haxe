@@ -24,8 +24,8 @@ class VisualShaderNodeParticleMeshEmitter extends gd.VisualShaderNodeParticleEmi
 		return p_surface_index;
 	}
 	public function get_surface_index():Int return __visualshadernodeparticlemeshemitter_ptr().value.get_surface_index();
-	var mesh(get, set) : gd.Mesh;
-	var use_all_surfaces(get, set) : Bool;
+	public var mesh(get, set) : gd.Mesh;
+	public var use_all_surfaces(get, set) : Bool;
 	function get_use_all_surfaces():Bool return is_use_all_surfaces();
-	var surface_index(get, set) : Int;
+	public var surface_index(get, set) : Int;
 }

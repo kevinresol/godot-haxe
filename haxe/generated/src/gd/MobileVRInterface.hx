@@ -59,14 +59,14 @@ class MobileVRInterface extends gd.XRInterface {
 		__mobilevrinterface_ptr().value.set_vrs_strength(((p_strength : Float)));
 		return p_strength;
 	}
-	var eye_height(get, set) : Float;
-	var iod(get, set) : Float;
-	var display_width(get, set) : Float;
-	var display_to_lens(get, set) : Float;
-	var offset_rect(get, set) : gd.Rect2;
-	var oversample(get, set) : Float;
-	var k1(get, set) : Float;
-	var k2(get, set) : Float;
-	var vrs_min_radius(get, set) : Float;
-	var vrs_strength(get, set) : Float;
+	public var eye_height(get, set) : Float;
+	public var iod(get, set) : Float;
+	public var display_width(get, set) : Float;
+	public var display_to_lens(get, set) : Float;
+	public var offset_rect(get, set) : gd.Rect2;
+	public var oversample(get, set) : Float;
+	public var k1(get, set) : Float;
+	public var k2(get, set) : Float;
+	public var vrs_min_radius(get, set) : Float;
+	public var vrs_strength(get, set) : Float;
 }

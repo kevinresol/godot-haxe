@@ -24,7 +24,7 @@ class AudioEffectSpectrumAnalyzer extends gd.AudioEffect {
 		return p_size;
 	}
 	public function get_fft_size():gd.audioeffectspectrumanalyzer.FFTSize return __audioeffectspectrumanalyzer_ptr().value.get_fft_size();
-	var buffer_length(get, set) : Float;
-	var tap_back_pos(get, set) : Float;
-	var fft_size(get, set) : gd.audioeffectspectrumanalyzer.FFTSize;
+	public var buffer_length(get, set) : Float;
+	public var tap_back_pos(get, set) : Float;
+	public var fft_size(get, set) : gd.audioeffectspectrumanalyzer.FFTSize;
 }

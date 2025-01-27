@@ -64,15 +64,15 @@ class RDPipelineRasterizationState extends gd.RefCounted {
 		return p_p_member;
 	}
 	public function get_patch_control_points():Int return __rdpipelinerasterizationstate_ptr().value.get_patch_control_points();
-	var enable_depth_clamp(get, set) : Bool;
-	var discard_primitives(get, set) : Bool;
-	var wireframe(get, set) : Bool;
-	var cull_mode(get, set) : gd.renderingdevice.PolygonCullMode;
-	var front_face(get, set) : gd.renderingdevice.PolygonFrontFace;
-	var depth_bias_enabled(get, set) : Bool;
-	var depth_bias_constant_factor(get, set) : Float;
-	var depth_bias_clamp(get, set) : Float;
-	var depth_bias_slope_factor(get, set) : Float;
-	var line_width(get, set) : Float;
-	var patch_control_points(get, set) : Int;
+	public var enable_depth_clamp(get, set) : Bool;
+	public var discard_primitives(get, set) : Bool;
+	public var wireframe(get, set) : Bool;
+	public var cull_mode(get, set) : gd.renderingdevice.PolygonCullMode;
+	public var front_face(get, set) : gd.renderingdevice.PolygonFrontFace;
+	public var depth_bias_enabled(get, set) : Bool;
+	public var depth_bias_constant_factor(get, set) : Float;
+	public var depth_bias_clamp(get, set) : Float;
+	public var depth_bias_slope_factor(get, set) : Float;
+	public var line_width(get, set) : Float;
+	public var patch_control_points(get, set) : Int;
 }

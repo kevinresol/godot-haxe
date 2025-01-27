@@ -50,7 +50,7 @@ class GLTFDocument extends gd.Resource {
 		default:gdnative.GLTFDocument.GLTFDocument_extern.register_gltf_document_extension(((p_extension : gd.GLTFDocumentExtension)), ((p_first_priority : Bool)));
 	};
 	public static function unregister_gltf_document_extension(p_extension:gd.GLTFDocumentExtension):Void gdnative.GLTFDocument.GLTFDocument_extern.unregister_gltf_document_extension(((p_extension : gd.GLTFDocumentExtension)));
-	var image_format(get, set) : std.String;
-	var lossy_quality(get, set) : Float;
-	var root_node_mode(get, set) : gd.gltfdocument.RootNodeMode;
+	public var image_format(get, set) : std.String;
+	public var lossy_quality(get, set) : Float;
+	public var root_node_mode(get, set) : gd.gltfdocument.RootNodeMode;
 }

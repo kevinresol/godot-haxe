@@ -45,11 +45,11 @@ class CompositorEffect extends gd.Resource {
 		return p_enable;
 	}
 	public function get_needs_separate_specular():Bool return __compositoreffect_ptr().value.get_needs_separate_specular();
-	var enabled(get, set) : Bool;
-	var effect_callback_type(get, set) : gd.compositoreffect.EffectCallbackType;
-	var access_resolved_color(get, set) : Bool;
-	var access_resolved_depth(get, set) : Bool;
-	var needs_motion_vectors(get, set) : Bool;
-	var needs_normal_roughness(get, set) : Bool;
-	var needs_separate_specular(get, set) : Bool;
+	public var enabled(get, set) : Bool;
+	public var effect_callback_type(get, set) : gd.compositoreffect.EffectCallbackType;
+	public var access_resolved_color(get, set) : Bool;
+	public var access_resolved_depth(get, set) : Bool;
+	public var needs_motion_vectors(get, set) : Bool;
+	public var needs_normal_roughness(get, set) : Bool;
+	public var needs_separate_specular(get, set) : Bool;
 }

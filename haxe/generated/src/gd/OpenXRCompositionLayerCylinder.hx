@@ -29,8 +29,8 @@ class OpenXRCompositionLayerCylinder extends gd.OpenXRCompositionLayer {
 		return p_segments;
 	}
 	public function get_fallback_segments():Int return __openxrcompositionlayercylinder_ptr().value.get_fallback_segments();
-	var radius(get, set) : Float;
-	var aspect_ratio(get, set) : Float;
-	var central_angle(get, set) : Float;
-	var fallback_segments(get, set) : Int;
+	public var radius(get, set) : Float;
+	public var aspect_ratio(get, set) : Float;
+	public var central_angle(get, set) : Float;
+	public var fallback_segments(get, set) : Int;
 }

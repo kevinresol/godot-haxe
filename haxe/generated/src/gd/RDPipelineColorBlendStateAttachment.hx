@@ -65,15 +65,15 @@ class RDPipelineColorBlendStateAttachment extends gd.RefCounted {
 		return p_p_member;
 	}
 	public function get_write_a():Bool return __rdpipelinecolorblendstateattachment_ptr().value.get_write_a();
-	var enable_blend(get, set) : Bool;
-	var src_color_blend_factor(get, set) : gd.renderingdevice.BlendFactor;
-	var dst_color_blend_factor(get, set) : gd.renderingdevice.BlendFactor;
-	var color_blend_op(get, set) : gd.renderingdevice.BlendOperation;
-	var src_alpha_blend_factor(get, set) : gd.renderingdevice.BlendFactor;
-	var dst_alpha_blend_factor(get, set) : gd.renderingdevice.BlendFactor;
-	var alpha_blend_op(get, set) : gd.renderingdevice.BlendOperation;
-	var write_r(get, set) : Bool;
-	var write_g(get, set) : Bool;
-	var write_b(get, set) : Bool;
-	var write_a(get, set) : Bool;
+	public var enable_blend(get, set) : Bool;
+	public var src_color_blend_factor(get, set) : gd.renderingdevice.BlendFactor;
+	public var dst_color_blend_factor(get, set) : gd.renderingdevice.BlendFactor;
+	public var color_blend_op(get, set) : gd.renderingdevice.BlendOperation;
+	public var src_alpha_blend_factor(get, set) : gd.renderingdevice.BlendFactor;
+	public var dst_alpha_blend_factor(get, set) : gd.renderingdevice.BlendFactor;
+	public var alpha_blend_op(get, set) : gd.renderingdevice.BlendOperation;
+	public var write_r(get, set) : Bool;
+	public var write_g(get, set) : Bool;
+	public var write_b(get, set) : Bool;
+	public var write_a(get, set) : Bool;
 }

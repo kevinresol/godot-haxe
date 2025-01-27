@@ -14,5 +14,5 @@ class InputEventGesture extends gd.InputEventWithModifiers {
 		return p_position;
 	}
 	public function get_position():gd.Vector2 return __inputeventgesture_ptr().value.get_position();
-	var position(get, set) : gd.Vector2;
+	public var position(get, set) : gd.Vector2;
 }

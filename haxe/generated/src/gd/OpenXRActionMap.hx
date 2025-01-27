@@ -30,6 +30,6 @@ class OpenXRActionMap extends gd.Resource {
 	public function add_interaction_profile(p_interaction_profile:gd.OpenXRInteractionProfile):Void __openxractionmap_ptr().value.add_interaction_profile(((p_interaction_profile : gd.OpenXRInteractionProfile)));
 	public function remove_interaction_profile(p_interaction_profile:gd.OpenXRInteractionProfile):Void __openxractionmap_ptr().value.remove_interaction_profile(((p_interaction_profile : gd.OpenXRInteractionProfile)));
 	public function create_default_action_sets():Void __openxractionmap_ptr().value.create_default_action_sets();
-	var action_sets(get, set) : gd.Array;
-	var interaction_profiles(get, set) : gd.Array;
+	public var action_sets(get, set) : gd.Array;
+	public var interaction_profiles(get, set) : gd.Array;
 }

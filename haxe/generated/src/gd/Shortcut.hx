@@ -17,5 +17,5 @@ class Shortcut extends gd.Resource {
 	public function has_valid_event():Bool return __shortcut_ptr().value.has_valid_event();
 	public function matches_event(p_event:gd.InputEvent):Bool return __shortcut_ptr().value.matches_event(((p_event : gd.InputEvent)));
 	public function get_as_text():std.String return __shortcut_ptr().value.get_as_text();
-	var events(get, set) : gd.Array;
+	public var events(get, set) : gd.Array;
 }

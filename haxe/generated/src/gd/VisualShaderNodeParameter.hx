@@ -19,6 +19,6 @@ class VisualShaderNodeParameter extends gd.VisualShaderNode {
 		return p_qualifier;
 	}
 	public function get_qualifier():gd.visualshadernodeparameter.Qualifier return __visualshadernodeparameter_ptr().value.get_qualifier();
-	var parameter_name(get, set) : std.String;
-	var qualifier(get, set) : gd.visualshadernodeparameter.Qualifier;
+	public var parameter_name(get, set) : std.String;
+	public var qualifier(get, set) : gd.visualshadernodeparameter.Qualifier;
 }

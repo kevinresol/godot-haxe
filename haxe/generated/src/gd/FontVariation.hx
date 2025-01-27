@@ -36,9 +36,9 @@ class FontVariation extends gd.Font {
 		return p_baseline_offset;
 	}
 	public function get_baseline_offset():Float return __fontvariation_ptr().value.get_baseline_offset();
-	var base_font(get, set) : gd.Font;
-	var variation_opentype(get, set) : gd.Dictionary;
-	var variation_face_index(get, set) : Int;
-	var variation_embolden(get, set) : Float;
-	var baseline_offset(get, set) : Float;
+	public var base_font(get, set) : gd.Font;
+	public var variation_opentype(get, set) : gd.Dictionary;
+	public var variation_face_index(get, set) : Int;
+	public var variation_embolden(get, set) : Float;
+	public var baseline_offset(get, set) : Float;
 }

@@ -59,15 +59,15 @@ class Parallax2D extends gd.Node2D {
 		return p_ignore;
 	}
 	public function is_ignore_camera_scroll():Bool return __parallax2d_ptr().value.is_ignore_camera_scroll();
-	var scroll_scale(get, set) : gd.Vector2;
-	var scroll_offset(get, set) : gd.Vector2;
-	var repeat_size(get, set) : gd.Vector2;
-	var autoscroll(get, set) : gd.Vector2;
-	var repeat_times(get, set) : Int;
-	var limit_begin(get, set) : gd.Vector2;
-	var limit_end(get, set) : gd.Vector2;
-	var follow_viewport(get, set) : Bool;
-	var ignore_camera_scroll(get, set) : Bool;
+	public var scroll_scale(get, set) : gd.Vector2;
+	public var scroll_offset(get, set) : gd.Vector2;
+	public var repeat_size(get, set) : gd.Vector2;
+	public var autoscroll(get, set) : gd.Vector2;
+	public var repeat_times(get, set) : Int;
+	public var limit_begin(get, set) : gd.Vector2;
+	public var limit_end(get, set) : gd.Vector2;
+	public var follow_viewport(get, set) : Bool;
+	public var ignore_camera_scroll(get, set) : Bool;
 	function get_ignore_camera_scroll():Bool return is_ignore_camera_scroll();
-	var screen_offset(get, set) : gd.Vector2;
+	public var screen_offset(get, set) : gd.Vector2;
 }

@@ -15,7 +15,7 @@ class CameraFeed extends gd.RefCounted {
 	public function get_name():std.String return __camerafeed_ptr().value.get_name();
 	public function get_position():gd.camerafeed.FeedPosition return __camerafeed_ptr().value.get_position();
 	public function get_datatype():gd.camerafeed.FeedDataType return __camerafeed_ptr().value.get_datatype();
-	var feed_is_active(get, set) : Bool;
+	public var feed_is_active(get, set) : Bool;
 	function get_feed_is_active():Bool return is_active();
 	function set_feed_is_active(v:Bool):Bool {
 		set_active(v);

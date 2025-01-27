@@ -82,37 +82,37 @@ class GridMap extends gd.Node3D {
 		case [_, null]:__gridmap_ptr().value.make_baked_meshes(((p_gen_lightmap_uv : Bool)));
 		default:__gridmap_ptr().value.make_baked_meshes(((p_gen_lightmap_uv : Bool)), ((p_lightmap_uv_texel_size : Float)));
 	};
-	var mesh_library(get, set) : gd.MeshLibrary;
-	var physics_material(get, set) : gd.PhysicsMaterial;
-	var cell_size(get, set) : gd.Vector3;
-	var cell_octant_size(get, set) : Int;
+	public var mesh_library(get, set) : gd.MeshLibrary;
+	public var physics_material(get, set) : gd.PhysicsMaterial;
+	public var cell_size(get, set) : gd.Vector3;
+	public var cell_octant_size(get, set) : Int;
 	function get_cell_octant_size():Int return get_octant_size();
 	function set_cell_octant_size(v:Int):Int {
 		set_octant_size(v);
 		return v;
 	}
-	var cell_center_x(get, set) : Bool;
+	public var cell_center_x(get, set) : Bool;
 	function get_cell_center_x():Bool return get_center_x();
 	function set_cell_center_x(v:Bool):Bool {
 		set_center_x(v);
 		return v;
 	}
-	var cell_center_y(get, set) : Bool;
+	public var cell_center_y(get, set) : Bool;
 	function get_cell_center_y():Bool return get_center_y();
 	function set_cell_center_y(v:Bool):Bool {
 		set_center_y(v);
 		return v;
 	}
-	var cell_center_z(get, set) : Bool;
+	public var cell_center_z(get, set) : Bool;
 	function get_cell_center_z():Bool return get_center_z();
 	function set_cell_center_z(v:Bool):Bool {
 		set_center_z(v);
 		return v;
 	}
-	var cell_scale(get, set) : Float;
-	var collision_layer(get, set) : Int;
-	var collision_mask(get, set) : Int;
-	var collision_priority(get, set) : Float;
-	var bake_navigation(get, set) : Bool;
+	public var cell_scale(get, set) : Float;
+	public var collision_layer(get, set) : Int;
+	public var collision_mask(get, set) : Int;
+	public var collision_priority(get, set) : Float;
+	public var bake_navigation(get, set) : Bool;
 	function get_bake_navigation():Bool return is_baking_navigation();
 }

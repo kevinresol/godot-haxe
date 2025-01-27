@@ -21,37 +21,37 @@ class PhysicsBody3D extends gd.CollisionObject3D {
 	public function get_axis_lock(p_axis:gd.physicsserver3d.BodyAxis):Bool return __physicsbody3d_ptr().value.get_axis_lock(((p_axis : gd.physicsserver3d.BodyAxis)));
 	public function add_collision_exception_with(p_body:gd.Node):Void __physicsbody3d_ptr().value.add_collision_exception_with(((p_body : gd.Node)));
 	public function remove_collision_exception_with(p_body:gd.Node):Void __physicsbody3d_ptr().value.remove_collision_exception_with(((p_body : gd.Node)));
-	var axis_lock_linear_x(get, set) : Bool;
+	public var axis_lock_linear_x(get, set) : Bool;
 	function get_axis_lock_linear_x():Bool return get_axis_lock(1);
 	function set_axis_lock_linear_x(v:Bool):Bool {
 		set_axis_lock(1, v);
 		return v;
 	}
-	var axis_lock_linear_y(get, set) : Bool;
+	public var axis_lock_linear_y(get, set) : Bool;
 	function get_axis_lock_linear_y():Bool return get_axis_lock(2);
 	function set_axis_lock_linear_y(v:Bool):Bool {
 		set_axis_lock(2, v);
 		return v;
 	}
-	var axis_lock_linear_z(get, set) : Bool;
+	public var axis_lock_linear_z(get, set) : Bool;
 	function get_axis_lock_linear_z():Bool return get_axis_lock(4);
 	function set_axis_lock_linear_z(v:Bool):Bool {
 		set_axis_lock(4, v);
 		return v;
 	}
-	var axis_lock_angular_x(get, set) : Bool;
+	public var axis_lock_angular_x(get, set) : Bool;
 	function get_axis_lock_angular_x():Bool return get_axis_lock(8);
 	function set_axis_lock_angular_x(v:Bool):Bool {
 		set_axis_lock(8, v);
 		return v;
 	}
-	var axis_lock_angular_y(get, set) : Bool;
+	public var axis_lock_angular_y(get, set) : Bool;
 	function get_axis_lock_angular_y():Bool return get_axis_lock(16);
 	function set_axis_lock_angular_y(v:Bool):Bool {
 		set_axis_lock(16, v);
 		return v;
 	}
-	var axis_lock_angular_z(get, set) : Bool;
+	public var axis_lock_angular_z(get, set) : Bool;
 	function get_axis_lock_angular_z():Bool return get_axis_lock(32);
 	function set_axis_lock_angular_z(v:Bool):Bool {
 		set_axis_lock(32, v);

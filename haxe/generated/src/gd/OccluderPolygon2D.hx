@@ -24,8 +24,8 @@ class OccluderPolygon2D extends gd.Resource {
 		return p_polygon;
 	}
 	public function get_polygon():gd.PackedVector2Array return __occluderpolygon2d_ptr().value.get_polygon();
-	var closed(get, set) : Bool;
+	public var closed(get, set) : Bool;
 	function get_closed():Bool return is_closed();
-	var cull_mode(get, set) : gd.occluderpolygon2d.CullMode;
-	var polygon(get, set) : gd.PackedVector2Array;
+	public var cull_mode(get, set) : gd.occluderpolygon2d.CullMode;
+	public var polygon(get, set) : gd.PackedVector2Array;
 }

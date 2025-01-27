@@ -130,49 +130,49 @@ class NavigationMesh extends gd.Resource {
 	public function clear_polygons():Void __navigationmesh_ptr().value.clear_polygons();
 	public function create_from_mesh(p_mesh:gd.Mesh):Void __navigationmesh_ptr().value.create_from_mesh(((p_mesh : gd.Mesh)));
 	public function clear():Void __navigationmesh_ptr().value.clear();
-	var vertices(get, set) : gd.PackedVector3Array;
-	var sample_partition_type(get, set) : gd.navigationmesh.SamplePartitionType;
-	var geometry_parsed_geometry_type(get, set) : gd.navigationmesh.ParsedGeometryType;
+	public var vertices(get, set) : gd.PackedVector3Array;
+	public var sample_partition_type(get, set) : gd.navigationmesh.SamplePartitionType;
+	public var geometry_parsed_geometry_type(get, set) : gd.navigationmesh.ParsedGeometryType;
 	function get_geometry_parsed_geometry_type():gd.navigationmesh.ParsedGeometryType return get_parsed_geometry_type();
 	function set_geometry_parsed_geometry_type(v:gd.navigationmesh.ParsedGeometryType):gd.navigationmesh.ParsedGeometryType {
 		set_parsed_geometry_type(v);
 		return v;
 	}
-	var geometry_collision_mask(get, set) : Int;
+	public var geometry_collision_mask(get, set) : Int;
 	function get_geometry_collision_mask():Int return get_collision_mask();
 	function set_geometry_collision_mask(v:Int):Int {
 		set_collision_mask(v);
 		return v;
 	}
-	var geometry_source_geometry_mode(get, set) : gd.navigationmesh.SourceGeometryMode;
+	public var geometry_source_geometry_mode(get, set) : gd.navigationmesh.SourceGeometryMode;
 	function get_geometry_source_geometry_mode():gd.navigationmesh.SourceGeometryMode return get_source_geometry_mode();
 	function set_geometry_source_geometry_mode(v:gd.navigationmesh.SourceGeometryMode):gd.navigationmesh.SourceGeometryMode {
 		set_source_geometry_mode(v);
 		return v;
 	}
-	var geometry_source_group_name(get, set) : std.String;
+	public var geometry_source_group_name(get, set) : std.String;
 	function get_geometry_source_group_name():std.String return get_source_group_name();
 	function set_geometry_source_group_name(v:std.String):std.String {
 		set_source_group_name(v);
 		return v;
 	}
-	var cell_size(get, set) : Float;
-	var cell_height(get, set) : Float;
-	var border_size(get, set) : Float;
-	var agent_height(get, set) : Float;
-	var agent_radius(get, set) : Float;
-	var agent_max_climb(get, set) : Float;
-	var agent_max_slope(get, set) : Float;
-	var region_min_size(get, set) : Float;
-	var region_merge_size(get, set) : Float;
-	var edge_max_length(get, set) : Float;
-	var edge_max_error(get, set) : Float;
-	var vertices_per_polygon(get, set) : Float;
-	var detail_sample_distance(get, set) : Float;
-	var detail_sample_max_error(get, set) : Float;
-	var filter_low_hanging_obstacles(get, set) : Bool;
-	var filter_ledge_spans(get, set) : Bool;
-	var filter_walkable_low_height_spans(get, set) : Bool;
-	var filter_baking_aabb(get, set) : gd.AABB;
-	var filter_baking_aabb_offset(get, set) : gd.Vector3;
+	public var cell_size(get, set) : Float;
+	public var cell_height(get, set) : Float;
+	public var border_size(get, set) : Float;
+	public var agent_height(get, set) : Float;
+	public var agent_radius(get, set) : Float;
+	public var agent_max_climb(get, set) : Float;
+	public var agent_max_slope(get, set) : Float;
+	public var region_min_size(get, set) : Float;
+	public var region_merge_size(get, set) : Float;
+	public var edge_max_length(get, set) : Float;
+	public var edge_max_error(get, set) : Float;
+	public var vertices_per_polygon(get, set) : Float;
+	public var detail_sample_distance(get, set) : Float;
+	public var detail_sample_max_error(get, set) : Float;
+	public var filter_low_hanging_obstacles(get, set) : Bool;
+	public var filter_ledge_spans(get, set) : Bool;
+	public var filter_walkable_low_height_spans(get, set) : Bool;
+	public var filter_baking_aabb(get, set) : gd.AABB;
+	public var filter_baking_aabb_offset(get, set) : gd.Vector3;
 }

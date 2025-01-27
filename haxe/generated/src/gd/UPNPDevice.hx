@@ -52,10 +52,10 @@ class UPNPDevice extends gd.RefCounted {
 		return p_status;
 	}
 	public function get_igd_status():gd.upnpdevice.IGDStatus return __upnpdevice_ptr().value.get_igd_status();
-	var description_url(get, set) : std.String;
-	var service_type(get, set) : std.String;
-	var igd_control_url(get, set) : std.String;
-	var igd_service_type(get, set) : std.String;
-	var igd_our_addr(get, set) : std.String;
-	var igd_status(get, set) : gd.upnpdevice.IGDStatus;
+	public var description_url(get, set) : std.String;
+	public var service_type(get, set) : std.String;
+	public var igd_control_url(get, set) : std.String;
+	public var igd_service_type(get, set) : std.String;
+	public var igd_our_addr(get, set) : std.String;
+	public var igd_status(get, set) : gd.upnpdevice.IGDStatus;
 }

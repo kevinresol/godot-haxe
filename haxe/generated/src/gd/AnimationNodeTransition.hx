@@ -31,8 +31,8 @@ class AnimationNodeTransition extends gd.AnimationNodeSync {
 		return p_enable;
 	}
 	public function is_allow_transition_to_self():Bool return __animationnodetransition_ptr().value.is_allow_transition_to_self();
-	var xfade_time(get, set) : Float;
-	var xfade_curve(get, set) : gd.Curve;
-	var allow_transition_to_self(get, set) : Bool;
+	public var xfade_time(get, set) : Float;
+	public var xfade_curve(get, set) : gd.Curve;
+	public var allow_transition_to_self(get, set) : Bool;
 	function get_allow_transition_to_self():Bool return is_allow_transition_to_self();
 }

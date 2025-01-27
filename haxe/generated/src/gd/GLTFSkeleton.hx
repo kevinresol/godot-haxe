@@ -27,7 +27,7 @@ class GLTFSkeleton extends gd.Resource {
 	}
 	public function get_bone_attachment_count():Int return __gltfskeleton_ptr().value.get_bone_attachment_count();
 	public function get_bone_attachment(p_idx:Int):gd.BoneAttachment3D return __gltfskeleton_ptr().value.get_bone_attachment(((p_idx : Int)));
-	var joints(get, set) : gd.PackedInt32Array;
-	var roots(get, set) : gd.PackedInt32Array;
-	var godot_bone_node(get, set) : gd.Dictionary;
+	public var joints(get, set) : gd.PackedInt32Array;
+	public var roots(get, set) : gd.PackedInt32Array;
+	public var godot_bone_node(get, set) : gd.Dictionary;
 }

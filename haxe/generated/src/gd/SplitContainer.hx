@@ -30,10 +30,10 @@ class SplitContainer extends gd.Container {
 		return p_vertical;
 	}
 	public function is_vertical():Bool return __splitcontainer_ptr().value.is_vertical();
-	var split_offset(get, set) : Int;
-	var collapsed(get, set) : Bool;
+	public var split_offset(get, set) : Int;
+	public var collapsed(get, set) : Bool;
 	function get_collapsed():Bool return is_collapsed();
-	var dragger_visibility(get, set) : gd.splitcontainer.DraggerVisibility;
-	var vertical(get, set) : Bool;
+	public var dragger_visibility(get, set) : gd.splitcontainer.DraggerVisibility;
+	public var vertical(get, set) : Bool;
 	function get_vertical():Bool return is_vertical();
 }

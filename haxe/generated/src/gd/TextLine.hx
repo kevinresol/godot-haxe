@@ -89,18 +89,18 @@ class TextLine extends gd.RefCounted {
 		default:__textline_ptr().value.draw_outline(((p_canvas : gd.RID)), ((p_pos : gd.Vector2)), ((p_outline_size : Int)), ((p_color : gd.Color)));
 	};
 	public function hit_test(p_coords:Float):Int return __textline_ptr().value.hit_test(((p_coords : Float)));
-	var direction(get, set) : gd.textserver.Direction;
-	var orientation(get, set) : gd.textserver.Orientation;
-	var preserve_invalid(get, set) : Bool;
-	var preserve_control(get, set) : Bool;
-	var width(get, set) : Float;
-	var alignment(get, set) : gd.HorizontalAlignment;
+	public var direction(get, set) : gd.textserver.Direction;
+	public var orientation(get, set) : gd.textserver.Orientation;
+	public var preserve_invalid(get, set) : Bool;
+	public var preserve_control(get, set) : Bool;
+	public var width(get, set) : Float;
+	public var alignment(get, set) : gd.HorizontalAlignment;
 	function get_alignment():gd.HorizontalAlignment return get_horizontal_alignment();
 	function set_alignment(v:gd.HorizontalAlignment):gd.HorizontalAlignment {
 		set_horizontal_alignment(v);
 		return v;
 	}
-	var flags(get, set) : Int;
-	var text_overrun_behavior(get, set) : gd.textserver.OverrunBehavior;
-	var ellipsis_char(get, set) : std.String;
+	public var flags(get, set) : Int;
+	public var text_overrun_behavior(get, set) : gd.textserver.OverrunBehavior;
+	public var ellipsis_char(get, set) : std.String;
 }

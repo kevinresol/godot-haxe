@@ -14,5 +14,5 @@ class ConcavePolygonShape2D extends gd.Shape2D {
 		return p_segments;
 	}
 	public function get_segments():gd.PackedVector2Array return __concavepolygonshape2d_ptr().value.get_segments();
-	var segments(get, set) : gd.PackedVector2Array;
+	public var segments(get, set) : gd.PackedVector2Array;
 }

@@ -20,6 +20,6 @@ class InputEventJoypadButton extends gd.InputEvent {
 	}
 	public function get_pressure():Float return __inputeventjoypadbutton_ptr().value.get_pressure();
 	public function set_pressed(p_pressed:Bool):Void __inputeventjoypadbutton_ptr().value.set_pressed(((p_pressed : Bool)));
-	var button_index(get, set) : gd.JoyButton;
-	var pressure(get, set) : Float;
+	public var button_index(get, set) : gd.JoyButton;
+	public var pressure(get, set) : Float;
 }

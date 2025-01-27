@@ -19,6 +19,6 @@ class XRFaceModifier3D extends gd.Node3D {
 		return p_target;
 	}
 	public function get_target():std.String return __xrfacemodifier3d_ptr().value.get_target();
-	var face_tracker(get, set) : std.String;
-	var target(get, set) : std.String;
+	public var face_tracker(get, set) : std.String;
+	public var target(get, set) : std.String;
 }

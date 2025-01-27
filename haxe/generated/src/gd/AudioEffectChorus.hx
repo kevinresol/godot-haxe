@@ -36,7 +36,7 @@ class AudioEffectChorus extends gd.AudioEffect {
 		return p_amount;
 	}
 	public function get_dry():Float return __audioeffectchorus_ptr().value.get_dry();
-	var voice_count(get, set) : Int;
-	var dry(get, set) : Float;
-	var wet(get, set) : Float;
+	public var voice_count(get, set) : Int;
+	public var dry(get, set) : Float;
+	public var wet(get, set) : Float;
 }

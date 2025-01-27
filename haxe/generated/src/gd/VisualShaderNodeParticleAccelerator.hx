@@ -14,5 +14,5 @@ class VisualShaderNodeParticleAccelerator extends gd.VisualShaderNode {
 		return p_mode;
 	}
 	public function get_mode():gd.visualshadernodeparticleaccelerator.Mode return __visualshadernodeparticleaccelerator_ptr().value.get_mode();
-	var mode(get, set) : gd.visualshadernodeparticleaccelerator.Mode;
+	public var mode(get, set) : gd.visualshadernodeparticleaccelerator.Mode;
 }

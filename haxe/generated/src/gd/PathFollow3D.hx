@@ -51,21 +51,21 @@ class PathFollow3D extends gd.Node3D {
 		return p_enabled;
 	}
 	public function is_tilt_enabled():Bool return __pathfollow3d_ptr().value.is_tilt_enabled();
-	var progress(get, set) : Float;
-	var progress_ratio(get, set) : Float;
-	var h_offset(get, set) : Float;
-	var v_offset(get, set) : Float;
-	var rotation_mode(get, set) : gd.pathfollow3d.RotationMode;
-	var use_model_front(get, set) : Bool;
+	public var progress(get, set) : Float;
+	public var progress_ratio(get, set) : Float;
+	public var h_offset(get, set) : Float;
+	public var v_offset(get, set) : Float;
+	public var rotation_mode(get, set) : gd.pathfollow3d.RotationMode;
+	public var use_model_front(get, set) : Bool;
 	function get_use_model_front():Bool return is_using_model_front();
-	var cubic_interp(get, set) : Bool;
+	public var cubic_interp(get, set) : Bool;
 	function get_cubic_interp():Bool return get_cubic_interpolation();
 	function set_cubic_interp(v:Bool):Bool {
 		set_cubic_interpolation(v);
 		return v;
 	}
-	var loop(get, set) : Bool;
+	public var loop(get, set) : Bool;
 	function get_loop():Bool return has_loop();
-	var tilt_enabled(get, set) : Bool;
+	public var tilt_enabled(get, set) : Bool;
 	function get_tilt_enabled():Bool return is_tilt_enabled();
 }

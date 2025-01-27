@@ -44,12 +44,12 @@ class HTTPClient extends gd.RefCounted {
 	public function set_http_proxy(p_host:std.String, p_port:Int):Void __httpclient_ptr().value.set_http_proxy(((p_host : std.String)), ((p_port : Int)));
 	public function set_https_proxy(p_host:std.String, p_port:Int):Void __httpclient_ptr().value.set_https_proxy(((p_host : std.String)), ((p_port : Int)));
 	public function query_string_from_dict(p_fields:gd.Dictionary):std.String return __httpclient_ptr().value.query_string_from_dict(((p_fields : gd.Dictionary)));
-	var blocking_mode_enabled(get, set) : Bool;
+	public var blocking_mode_enabled(get, set) : Bool;
 	function get_blocking_mode_enabled():Bool return is_blocking_mode_enabled();
 	function set_blocking_mode_enabled(v:Bool):Bool {
 		set_blocking_mode(v);
 		return v;
 	}
-	var connection(get, set) : gd.StreamPeer;
-	var read_chunk_size(get, set) : Int;
+	public var connection(get, set) : gd.StreamPeer;
+	public var read_chunk_size(get, set) : Int;
 }

@@ -23,9 +23,9 @@ class AnimationTree extends gd.AnimationMixer {
 	public function get_animation_player():std.String return __animationtree_ptr().value.get_animation_player();
 	public function set_process_callback(p_mode:gd.animationtree.AnimationProcessCallback):Void __animationtree_ptr().value.set_process_callback(((p_mode : gd.animationtree.AnimationProcessCallback)));
 	public function get_process_callback():gd.animationtree.AnimationProcessCallback return __animationtree_ptr().value.get_process_callback();
-	var tree_root(get, set) : gd.AnimationRootNode;
-	var advance_expression_base_node(get, set) : std.String;
-	var anim_player(get, set) : std.String;
+	public var tree_root(get, set) : gd.AnimationRootNode;
+	public var advance_expression_base_node(get, set) : std.String;
+	public var anim_player(get, set) : std.String;
 	function get_anim_player():std.String return get_animation_player();
 	function set_anim_player(v:std.String):std.String {
 		set_animation_player(v);

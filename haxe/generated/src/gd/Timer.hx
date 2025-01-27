@@ -38,17 +38,17 @@ class Timer extends gd.Node {
 	public function get_time_left():Float return __timer_ptr().value.get_time_left();
 	public function set_timer_process_callback(p_callback:gd.timer.TimerProcessCallback):Void __timer_ptr().value.set_timer_process_callback(((p_callback : gd.timer.TimerProcessCallback)));
 	public function get_timer_process_callback():gd.timer.TimerProcessCallback return __timer_ptr().value.get_timer_process_callback();
-	var process_callback(get, set) : gd.timer.TimerProcessCallback;
+	public var process_callback(get, set) : gd.timer.TimerProcessCallback;
 	function get_process_callback():gd.timer.TimerProcessCallback return get_timer_process_callback();
 	function set_process_callback(v:gd.timer.TimerProcessCallback):gd.timer.TimerProcessCallback {
 		set_timer_process_callback(v);
 		return v;
 	}
-	var wait_time(get, set) : Float;
-	var one_shot(get, set) : Bool;
+	public var wait_time(get, set) : Float;
+	public var one_shot(get, set) : Bool;
 	function get_one_shot():Bool return is_one_shot();
-	var autostart(get, set) : Bool;
+	public var autostart(get, set) : Bool;
 	function get_autostart():Bool return has_autostart();
-	var paused(get, set) : Bool;
+	public var paused(get, set) : Bool;
 	function get_paused():Bool return is_paused();
 }

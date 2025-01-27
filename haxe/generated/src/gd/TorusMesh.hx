@@ -29,8 +29,8 @@ class TorusMesh extends gd.PrimitiveMesh {
 		return p_rings;
 	}
 	public function get_ring_segments():Int return __torusmesh_ptr().value.get_ring_segments();
-	var inner_radius(get, set) : Float;
-	var outer_radius(get, set) : Float;
-	var rings(get, set) : Int;
-	var ring_segments(get, set) : Int;
+	public var inner_radius(get, set) : Float;
+	public var outer_radius(get, set) : Float;
+	public var rings(get, set) : Int;
+	public var ring_segments(get, set) : Int;
 }

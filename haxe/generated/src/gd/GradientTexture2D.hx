@@ -41,11 +41,11 @@ class GradientTexture2D extends gd.Texture2D {
 		return p_repeat;
 	}
 	public function get_repeat():gd.gradienttexture2d.Repeat return __gradienttexture2d_ptr().value.get_repeat();
-	var gradient(get, set) : gd.Gradient;
-	var use_hdr(get, set) : Bool;
+	public var gradient(get, set) : gd.Gradient;
+	public var use_hdr(get, set) : Bool;
 	function get_use_hdr():Bool return is_using_hdr();
-	var fill(get, set) : gd.gradienttexture2d.Fill;
-	var fill_from(get, set) : gd.Vector2;
-	var fill_to(get, set) : gd.Vector2;
-	var repeat(get, set) : gd.gradienttexture2d.Repeat;
+	public var fill(get, set) : gd.gradienttexture2d.Fill;
+	public var fill_from(get, set) : gd.Vector2;
+	public var fill_to(get, set) : gd.Vector2;
+	public var repeat(get, set) : gd.gradienttexture2d.Repeat;
 }

@@ -16,5 +16,5 @@ class Shape2D extends gd.Resource {
 	public function get_custom_solver_bias():Float return __shape2d_ptr().value.get_custom_solver_bias();
 	public function draw(p_canvas_item:gd.RID, p_color:gd.Color):Void __shape2d_ptr().value.draw(((p_canvas_item : gd.RID)), ((p_color : gd.Color)));
 	public function get_rect():gd.Rect2 return __shape2d_ptr().value.get_rect();
-	var custom_solver_bias(get, set) : Float;
+	public var custom_solver_bias(get, set) : Float;
 }

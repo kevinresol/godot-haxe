@@ -26,13 +26,13 @@ class AudioEffectFilter extends gd.AudioEffect {
 		return p_amount;
 	}
 	public function get_db():gd.audioeffectfilter.FilterDB return __audioeffectfilter_ptr().value.get_db();
-	var cutoff_hz(get, set) : Float;
+	public var cutoff_hz(get, set) : Float;
 	function get_cutoff_hz():Float return get_cutoff();
 	function set_cutoff_hz(v:Float):Float {
 		set_cutoff(v);
 		return v;
 	}
-	var resonance(get, set) : Float;
-	var gain(get, set) : Float;
-	var db(get, set) : gd.audioeffectfilter.FilterDB;
+	public var resonance(get, set) : Float;
+	public var gain(get, set) : Float;
+	public var db(get, set) : gd.audioeffectfilter.FilterDB;
 }

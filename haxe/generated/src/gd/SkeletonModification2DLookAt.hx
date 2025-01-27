@@ -31,9 +31,9 @@ class SkeletonModification2DLookAt extends gd.SkeletonModification2D {
 	public function get_constraint_angle_max():Float return __skeletonmodification2dlookat_ptr().value.get_constraint_angle_max();
 	public function set_constraint_angle_invert(p_invert:Bool):Void __skeletonmodification2dlookat_ptr().value.set_constraint_angle_invert(((p_invert : Bool)));
 	public function get_constraint_angle_invert():Bool return __skeletonmodification2dlookat_ptr().value.get_constraint_angle_invert();
-	var bone_index(get, set) : Int;
-	var bone2d_node(get, set) : std.String;
-	var target_nodepath(get, set) : std.String;
+	public var bone_index(get, set) : Int;
+	public var bone2d_node(get, set) : std.String;
+	public var target_nodepath(get, set) : std.String;
 	function get_target_nodepath():std.String return get_target_node();
 	function set_target_nodepath(v:std.String):std.String {
 		set_target_node(v);

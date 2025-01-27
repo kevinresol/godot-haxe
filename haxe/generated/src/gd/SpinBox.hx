@@ -43,18 +43,18 @@ class SpinBox extends gd.Range {
 	public function is_select_all_on_focus():Bool return __spinbox_ptr().value.is_select_all_on_focus();
 	public function apply():Void __spinbox_ptr().value.apply();
 	public function get_line_edit():gd.LineEdit return __spinbox_ptr().value.get_line_edit();
-	var alignment(get, set) : gd.HorizontalAlignment;
+	public var alignment(get, set) : gd.HorizontalAlignment;
 	function get_alignment():gd.HorizontalAlignment return get_horizontal_alignment();
 	function set_alignment(v:gd.HorizontalAlignment):gd.HorizontalAlignment {
 		set_horizontal_alignment(v);
 		return v;
 	}
-	var editable(get, set) : Bool;
+	public var editable(get, set) : Bool;
 	function get_editable():Bool return is_editable();
-	var update_on_text_changed(get, set) : Bool;
-	var prefix(get, set) : std.String;
-	var suffix(get, set) : std.String;
-	var custom_arrow_step(get, set) : Float;
-	var select_all_on_focus(get, set) : Bool;
+	public var update_on_text_changed(get, set) : Bool;
+	public var prefix(get, set) : std.String;
+	public var suffix(get, set) : std.String;
+	public var custom_arrow_step(get, set) : Float;
+	public var select_all_on_focus(get, set) : Bool;
 	function get_select_all_on_focus():Bool return is_select_all_on_focus();
 }

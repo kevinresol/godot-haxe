@@ -14,5 +14,5 @@ class VisualShaderNodeStep extends gd.VisualShaderNode {
 		return p_op_type;
 	}
 	public function get_op_type():gd.visualshadernodestep.OpType return __visualshadernodestep_ptr().value.get_op_type();
-	var op_type(get, set) : gd.visualshadernodestep.OpType;
+	public var op_type(get, set) : gd.visualshadernodestep.OpType;
 }

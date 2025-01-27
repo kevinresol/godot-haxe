@@ -40,10 +40,10 @@ class GLTFBufferView extends gd.Resource {
 		__gltfbufferview_ptr().value.set_vertex_attributes(((p_is_attributes : Bool)));
 		return p_is_attributes;
 	}
-	var buffer(get, set) : Int;
-	var byte_offset(get, set) : Int;
-	var byte_length(get, set) : Int;
-	var byte_stride(get, set) : Int;
-	var indices(get, set) : Bool;
-	var vertex_attributes(get, set) : Bool;
+	public var buffer(get, set) : Int;
+	public var byte_offset(get, set) : Int;
+	public var byte_length(get, set) : Int;
+	public var byte_stride(get, set) : Int;
+	public var indices(get, set) : Bool;
+	public var vertex_attributes(get, set) : Bool;
 }

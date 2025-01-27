@@ -36,74 +36,74 @@ class StyleBoxTexture extends gd.StyleBox {
 	public function get_h_axis_stretch_mode():gd.styleboxtexture.AxisStretchMode return __styleboxtexture_ptr().value.get_h_axis_stretch_mode();
 	public function set_v_axis_stretch_mode(p_mode:gd.styleboxtexture.AxisStretchMode):Void __styleboxtexture_ptr().value.set_v_axis_stretch_mode(((p_mode : gd.styleboxtexture.AxisStretchMode)));
 	public function get_v_axis_stretch_mode():gd.styleboxtexture.AxisStretchMode return __styleboxtexture_ptr().value.get_v_axis_stretch_mode();
-	var texture(get, set) : gd.Texture2D;
-	var texture_margin_left(get, set) : Float;
+	public var texture(get, set) : gd.Texture2D;
+	public var texture_margin_left(get, set) : Float;
 	function get_texture_margin_left():Float return get_texture_margin(0);
 	function set_texture_margin_left(v:Float):Float {
 		set_texture_margin(0, v);
 		return v;
 	}
-	var texture_margin_top(get, set) : Float;
+	public var texture_margin_top(get, set) : Float;
 	function get_texture_margin_top():Float return get_texture_margin(1);
 	function set_texture_margin_top(v:Float):Float {
 		set_texture_margin(1, v);
 		return v;
 	}
-	var texture_margin_right(get, set) : Float;
+	public var texture_margin_right(get, set) : Float;
 	function get_texture_margin_right():Float return get_texture_margin(2);
 	function set_texture_margin_right(v:Float):Float {
 		set_texture_margin(2, v);
 		return v;
 	}
-	var texture_margin_bottom(get, set) : Float;
+	public var texture_margin_bottom(get, set) : Float;
 	function get_texture_margin_bottom():Float return get_texture_margin(3);
 	function set_texture_margin_bottom(v:Float):Float {
 		set_texture_margin(3, v);
 		return v;
 	}
-	var expand_margin_left(get, set) : Float;
+	public var expand_margin_left(get, set) : Float;
 	function get_expand_margin_left():Float return get_expand_margin(0);
 	function set_expand_margin_left(v:Float):Float {
 		set_expand_margin(0, v);
 		return v;
 	}
-	var expand_margin_top(get, set) : Float;
+	public var expand_margin_top(get, set) : Float;
 	function get_expand_margin_top():Float return get_expand_margin(1);
 	function set_expand_margin_top(v:Float):Float {
 		set_expand_margin(1, v);
 		return v;
 	}
-	var expand_margin_right(get, set) : Float;
+	public var expand_margin_right(get, set) : Float;
 	function get_expand_margin_right():Float return get_expand_margin(2);
 	function set_expand_margin_right(v:Float):Float {
 		set_expand_margin(2, v);
 		return v;
 	}
-	var expand_margin_bottom(get, set) : Float;
+	public var expand_margin_bottom(get, set) : Float;
 	function get_expand_margin_bottom():Float return get_expand_margin(3);
 	function set_expand_margin_bottom(v:Float):Float {
 		set_expand_margin(3, v);
 		return v;
 	}
-	var axis_stretch_horizontal(get, set) : gd.styleboxtexture.AxisStretchMode;
+	public var axis_stretch_horizontal(get, set) : gd.styleboxtexture.AxisStretchMode;
 	function get_axis_stretch_horizontal():gd.styleboxtexture.AxisStretchMode return get_h_axis_stretch_mode();
 	function set_axis_stretch_horizontal(v:gd.styleboxtexture.AxisStretchMode):gd.styleboxtexture.AxisStretchMode {
 		set_h_axis_stretch_mode(v);
 		return v;
 	}
-	var axis_stretch_vertical(get, set) : gd.styleboxtexture.AxisStretchMode;
+	public var axis_stretch_vertical(get, set) : gd.styleboxtexture.AxisStretchMode;
 	function get_axis_stretch_vertical():gd.styleboxtexture.AxisStretchMode return get_v_axis_stretch_mode();
 	function set_axis_stretch_vertical(v:gd.styleboxtexture.AxisStretchMode):gd.styleboxtexture.AxisStretchMode {
 		set_v_axis_stretch_mode(v);
 		return v;
 	}
-	var region_rect(get, set) : gd.Rect2;
-	var modulate_color(get, set) : gd.Color;
+	public var region_rect(get, set) : gd.Rect2;
+	public var modulate_color(get, set) : gd.Color;
 	function get_modulate_color():gd.Color return get_modulate();
 	function set_modulate_color(v:gd.Color):gd.Color {
 		set_modulate(v);
 		return v;
 	}
-	var draw_center(get, set) : Bool;
+	public var draw_center(get, set) : Bool;
 	function get_draw_center():Bool return is_draw_center_enabled();
 }

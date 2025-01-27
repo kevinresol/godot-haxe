@@ -21,5 +21,5 @@ class AudioEffectCapture extends gd.AudioEffect {
 	public function get_discarded_frames():Int return __audioeffectcapture_ptr().value.get_discarded_frames();
 	public function get_buffer_length_frames():Int return __audioeffectcapture_ptr().value.get_buffer_length_frames();
 	public function get_pushed_frames():Int return __audioeffectcapture_ptr().value.get_pushed_frames();
-	var buffer_length(get, set) : Float;
+	public var buffer_length(get, set) : Float;
 }

@@ -19,6 +19,6 @@ class CapsuleShape3D extends gd.Shape3D {
 		return p_height;
 	}
 	public function get_height():Float return __capsuleshape3d_ptr().value.get_height();
-	var radius(get, set) : Float;
-	var height(get, set) : Float;
+	public var radius(get, set) : Float;
+	public var height(get, set) : Float;
 }

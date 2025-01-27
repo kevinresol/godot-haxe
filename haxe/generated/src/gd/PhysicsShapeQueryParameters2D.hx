@@ -44,13 +44,13 @@ class PhysicsShapeQueryParameters2D extends gd.RefCounted {
 		return p_enable;
 	}
 	public function is_collide_with_areas_enabled():Bool return __physicsshapequeryparameters2d_ptr().value.is_collide_with_areas_enabled();
-	var collision_mask(get, set) : Int;
-	var margin(get, set) : Float;
-	var motion(get, set) : gd.Vector2;
-	var shape(get, set) : gd.Resource;
-	var shape_rid(get, set) : gd.RID;
-	var collide_with_bodies(get, set) : Bool;
+	public var collision_mask(get, set) : Int;
+	public var margin(get, set) : Float;
+	public var motion(get, set) : gd.Vector2;
+	public var shape(get, set) : gd.Resource;
+	public var shape_rid(get, set) : gd.RID;
+	public var collide_with_bodies(get, set) : Bool;
 	function get_collide_with_bodies():Bool return is_collide_with_bodies_enabled();
-	var collide_with_areas(get, set) : Bool;
+	public var collide_with_areas(get, set) : Bool;
 	function get_collide_with_areas():Bool return is_collide_with_areas_enabled();
 }

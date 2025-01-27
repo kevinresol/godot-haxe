@@ -75,20 +75,20 @@ class AnimationMixer extends gd.Node {
 	public function is_reset_on_save_enabled():Bool return __animationmixer_ptr().value.is_reset_on_save_enabled();
 	public function find_animation(p_animation:gd.Animation):std.String return __animationmixer_ptr().value.find_animation(((p_animation : gd.Animation)));
 	public function find_animation_library(p_animation:gd.Animation):std.String return __animationmixer_ptr().value.find_animation_library(((p_animation : gd.Animation)));
-	var active(get, set) : Bool;
+	public var active(get, set) : Bool;
 	function get_active():Bool return is_active();
-	var deterministic(get, set) : Bool;
+	public var deterministic(get, set) : Bool;
 	function get_deterministic():Bool return is_deterministic();
-	var reset_on_save(get, set) : Bool;
+	public var reset_on_save(get, set) : Bool;
 	function get_reset_on_save():Bool return is_reset_on_save_enabled();
 	function set_reset_on_save(v:Bool):Bool {
 		set_reset_on_save_enabled(v);
 		return v;
 	}
-	var root_node(get, set) : std.String;
-	var root_motion_track(get, set) : std.String;
-	var audio_max_polyphony(get, set) : Int;
-	var callback_mode_process(get, set) : gd.animationmixer.AnimationCallbackModeProcess;
-	var callback_mode_method(get, set) : gd.animationmixer.AnimationCallbackModeMethod;
-	var callback_mode_discrete(get, set) : gd.animationmixer.AnimationCallbackModeDiscrete;
+	public var root_node(get, set) : std.String;
+	public var root_motion_track(get, set) : std.String;
+	public var audio_max_polyphony(get, set) : Int;
+	public var callback_mode_process(get, set) : gd.animationmixer.AnimationCallbackModeProcess;
+	public var callback_mode_method(get, set) : gd.animationmixer.AnimationCallbackModeMethod;
+	public var callback_mode_discrete(get, set) : gd.animationmixer.AnimationCallbackModeDiscrete;
 }

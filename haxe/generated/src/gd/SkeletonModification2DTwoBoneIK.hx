@@ -34,13 +34,13 @@ class SkeletonModification2DTwoBoneIK extends gd.SkeletonModification2D {
 	public function get_joint_two_bone2d_node():std.String return __skeletonmodification2dtwoboneik_ptr().value.get_joint_two_bone2d_node();
 	public function set_joint_two_bone_idx(p_bone_idx:Int):Void __skeletonmodification2dtwoboneik_ptr().value.set_joint_two_bone_idx(((p_bone_idx : Int)));
 	public function get_joint_two_bone_idx():Int return __skeletonmodification2dtwoboneik_ptr().value.get_joint_two_bone_idx();
-	var target_nodepath(get, set) : std.String;
+	public var target_nodepath(get, set) : std.String;
 	function get_target_nodepath():std.String return get_target_node();
 	function set_target_nodepath(v:std.String):std.String {
 		set_target_node(v);
 		return v;
 	}
-	var target_minimum_distance(get, set) : Float;
-	var target_maximum_distance(get, set) : Float;
-	var flip_bend_direction(get, set) : Bool;
+	public var target_minimum_distance(get, set) : Float;
+	public var target_maximum_distance(get, set) : Float;
+	public var flip_bend_direction(get, set) : Bool;
 }

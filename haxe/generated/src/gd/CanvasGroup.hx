@@ -24,8 +24,8 @@ class CanvasGroup extends gd.Node2D {
 		return p_use_mipmaps;
 	}
 	public function is_using_mipmaps():Bool return __canvasgroup_ptr().value.is_using_mipmaps();
-	var fit_margin(get, set) : Float;
-	var clear_margin(get, set) : Float;
-	var use_mipmaps(get, set) : Bool;
+	public var fit_margin(get, set) : Float;
+	public var clear_margin(get, set) : Float;
+	public var use_mipmaps(get, set) : Bool;
 	function get_use_mipmaps():Bool return is_using_mipmaps();
 }

@@ -14,5 +14,5 @@ class VisualShaderNodeUIntConstant extends gd.VisualShaderNodeConstant {
 		return p_constant;
 	}
 	public function get_constant():Int return __visualshadernodeuintconstant_ptr().value.get_constant();
-	var constant(get, set) : Int;
+	public var constant(get, set) : Int;
 }

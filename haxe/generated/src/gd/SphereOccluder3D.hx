@@ -14,5 +14,5 @@ class SphereOccluder3D extends gd.Occluder3D {
 		return p_radius;
 	}
 	public function get_radius():Float return __sphereoccluder3d_ptr().value.get_radius();
-	var radius(get, set) : Float;
+	public var radius(get, set) : Float;
 }

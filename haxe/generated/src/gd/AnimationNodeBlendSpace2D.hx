@@ -63,14 +63,14 @@ class AnimationNodeBlendSpace2D extends gd.AnimationRootNode {
 	public function get_blend_mode():gd.animationnodeblendspace2d.BlendMode return __animationnodeblendspace2d_ptr().value.get_blend_mode();
 	public function set_use_sync(p_enable:Bool):Void __animationnodeblendspace2d_ptr().value.set_use_sync(((p_enable : Bool)));
 	public function is_using_sync():Bool return __animationnodeblendspace2d_ptr().value.is_using_sync();
-	var auto_triangles(get, set) : Bool;
-	var min_space(get, set) : gd.Vector2;
-	var max_space(get, set) : gd.Vector2;
-	var snap(get, set) : gd.Vector2;
-	var x_label(get, set) : std.String;
-	var y_label(get, set) : std.String;
-	var blend_mode(get, set) : gd.animationnodeblendspace2d.BlendMode;
-	var sync(get, set) : Bool;
+	public var auto_triangles(get, set) : Bool;
+	public var min_space(get, set) : gd.Vector2;
+	public var max_space(get, set) : gd.Vector2;
+	public var snap(get, set) : gd.Vector2;
+	public var x_label(get, set) : std.String;
+	public var y_label(get, set) : std.String;
+	public var blend_mode(get, set) : gd.animationnodeblendspace2d.BlendMode;
+	public var sync(get, set) : Bool;
 	function get_sync():Bool return is_using_sync();
 	function set_sync(v:Bool):Bool {
 		set_use_sync(v);

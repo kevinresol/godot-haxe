@@ -20,7 +20,7 @@ class BoxContainer extends gd.Container {
 		return p_vertical;
 	}
 	public function is_vertical():Bool return __boxcontainer_ptr().value.is_vertical();
-	var alignment(get, set) : gd.boxcontainer.AlignmentMode;
-	var vertical(get, set) : Bool;
+	public var alignment(get, set) : gd.boxcontainer.AlignmentMode;
+	public var vertical(get, set) : Bool;
 	function get_vertical():Bool return is_vertical();
 }

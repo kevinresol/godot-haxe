@@ -26,5 +26,5 @@ class AnimationNodeBlendTree extends gd.AnimationRootNode {
 		return p_offset;
 	}
 	public function get_graph_offset():gd.Vector2 return __animationnodeblendtree_ptr().value.get_graph_offset();
-	var graph_offset(get, set) : gd.Vector2;
+	public var graph_offset(get, set) : gd.Vector2;
 }

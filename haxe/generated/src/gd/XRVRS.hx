@@ -20,6 +20,6 @@ class XRVRS extends gd.Object {
 		return p_strength;
 	}
 	public function make_vrs_texture(p_target_size:gd.Vector2, p_eye_foci:gd.PackedVector2Array):gd.RID return __xrvrs_ptr().value.make_vrs_texture(((p_target_size : gd.Vector2)), ((p_eye_foci : gd.PackedVector2Array)));
-	var vrs_min_radius(get, set) : Float;
-	var vrs_strength(get, set) : Float;
+	public var vrs_min_radius(get, set) : Float;
+	public var vrs_strength(get, set) : Float;
 }

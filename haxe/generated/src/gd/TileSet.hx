@@ -137,10 +137,10 @@ class TileSet extends gd.Resource {
 	};
 	public function remove_pattern(p_index:Int):Void __tileset_ptr().value.remove_pattern(((p_index : Int)));
 	public function get_patterns_count():Int return __tileset_ptr().value.get_patterns_count();
-	var tile_shape(get, set) : gd.tileset.TileShape;
-	var tile_layout(get, set) : gd.tileset.TileLayout;
-	var tile_offset_axis(get, set) : gd.tileset.TileOffsetAxis;
-	var tile_size(get, set) : gd.Vector2i;
-	var uv_clipping(get, set) : Bool;
+	public var tile_shape(get, set) : gd.tileset.TileShape;
+	public var tile_layout(get, set) : gd.tileset.TileLayout;
+	public var tile_offset_axis(get, set) : gd.tileset.TileOffsetAxis;
+	public var tile_size(get, set) : gd.Vector2i;
+	public var uv_clipping(get, set) : Bool;
 	function get_uv_clipping():Bool return is_uv_clipping();
 }

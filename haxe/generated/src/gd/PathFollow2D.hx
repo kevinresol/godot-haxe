@@ -41,18 +41,18 @@ class PathFollow2D extends gd.Node2D {
 		return p_loop;
 	}
 	public function has_loop():Bool return __pathfollow2d_ptr().value.has_loop();
-	var progress(get, set) : Float;
-	var progress_ratio(get, set) : Float;
-	var h_offset(get, set) : Float;
-	var v_offset(get, set) : Float;
-	var rotates(get, set) : Bool;
+	public var progress(get, set) : Float;
+	public var progress_ratio(get, set) : Float;
+	public var h_offset(get, set) : Float;
+	public var v_offset(get, set) : Float;
+	public var rotates(get, set) : Bool;
 	function get_rotates():Bool return is_rotating();
-	var cubic_interp(get, set) : Bool;
+	public var cubic_interp(get, set) : Bool;
 	function get_cubic_interp():Bool return get_cubic_interpolation();
 	function set_cubic_interp(v:Bool):Bool {
 		set_cubic_interpolation(v);
 		return v;
 	}
-	var loop(get, set) : Bool;
+	public var loop(get, set) : Bool;
 	function get_loop():Bool return has_loop();
 }

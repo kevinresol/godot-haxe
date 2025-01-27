@@ -19,6 +19,6 @@ class MultiMeshInstance2D extends gd.Node2D {
 		return p_texture;
 	}
 	public function get_texture():gd.Texture2D return __multimeshinstance2d_ptr().value.get_texture();
-	var multimesh(get, set) : gd.MultiMesh;
-	var texture(get, set) : gd.Texture2D;
+	public var multimesh(get, set) : gd.MultiMesh;
+	public var texture(get, set) : gd.Texture2D;
 }

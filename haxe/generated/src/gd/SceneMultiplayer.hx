@@ -57,19 +57,19 @@ class SceneMultiplayer extends gd.MultiplayerAPI {
 		__scenemultiplayer_ptr().value.set_max_delta_packet_size(((p_size : Int)));
 		return p_size;
 	}
-	var root_path(get, set) : std.String;
-	var auth_callback(get, set) : gd.Callable;
-	var auth_timeout(get, set) : Float;
-	var allow_object_decoding(get, set) : Bool;
+	public var root_path(get, set) : std.String;
+	public var auth_callback(get, set) : gd.Callable;
+	public var auth_timeout(get, set) : Float;
+	public var allow_object_decoding(get, set) : Bool;
 	function get_allow_object_decoding():Bool return is_object_decoding_allowed();
-	var refuse_new_connections(get, set) : Bool;
+	public var refuse_new_connections(get, set) : Bool;
 	function get_refuse_new_connections():Bool return is_refusing_new_connections();
-	var server_relay(get, set) : Bool;
+	public var server_relay(get, set) : Bool;
 	function get_server_relay():Bool return is_server_relay_enabled();
 	function set_server_relay(v:Bool):Bool {
 		set_server_relay_enabled(v);
 		return v;
 	}
-	var max_sync_packet_size(get, set) : Int;
-	var max_delta_packet_size(get, set) : Int;
+	public var max_sync_packet_size(get, set) : Int;
+	public var max_delta_packet_size(get, set) : Int;
 }

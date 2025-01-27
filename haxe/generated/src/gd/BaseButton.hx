@@ -61,24 +61,24 @@ class BaseButton extends gd.Control {
 		return p_button_group;
 	}
 	public function get_button_group():gd.ButtonGroup return __basebutton_ptr().value.get_button_group();
-	var disabled(get, set) : Bool;
+	public var disabled(get, set) : Bool;
 	function get_disabled():Bool return is_disabled();
-	var toggle_mode(get, set) : Bool;
+	public var toggle_mode(get, set) : Bool;
 	function get_toggle_mode():Bool return is_toggle_mode();
-	var button_pressed(get, set) : Bool;
+	public var button_pressed(get, set) : Bool;
 	function get_button_pressed():Bool return is_pressed();
 	function set_button_pressed(v:Bool):Bool {
 		set_pressed(v);
 		return v;
 	}
-	var action_mode(get, set) : gd.basebutton.ActionMode;
-	var button_mask(get, set) : Int;
-	var keep_pressed_outside(get, set) : Bool;
+	public var action_mode(get, set) : gd.basebutton.ActionMode;
+	public var button_mask(get, set) : Int;
+	public var keep_pressed_outside(get, set) : Bool;
 	function get_keep_pressed_outside():Bool return is_keep_pressed_outside();
-	var button_group(get, set) : gd.ButtonGroup;
-	var shortcut(get, set) : gd.Shortcut;
-	var shortcut_feedback(get, set) : Bool;
+	public var button_group(get, set) : gd.ButtonGroup;
+	public var shortcut(get, set) : gd.Shortcut;
+	public var shortcut_feedback(get, set) : Bool;
 	function get_shortcut_feedback():Bool return is_shortcut_feedback();
-	var shortcut_in_tooltip(get, set) : Bool;
+	public var shortcut_in_tooltip(get, set) : Bool;
 	function get_shortcut_in_tooltip():Bool return is_shortcut_in_tooltip_enabled();
 }

@@ -14,5 +14,5 @@ class EditorScriptPicker extends gd.EditorResourcePicker {
 		return p_owner_node;
 	}
 	public function get_script_owner():gd.Node return __editorscriptpicker_ptr().value.get_script_owner();
-	var script_owner(get, set) : gd.Node;
+	public var script_owner(get, set) : gd.Node;
 }

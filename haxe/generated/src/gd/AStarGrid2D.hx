@@ -78,14 +78,14 @@ class AStarGrid2D extends gd.RefCounted {
 		case [_, _, null]:__astargrid2d_ptr().value.get_point_path(((p_from_id : gd.Vector2i)), ((p_to_id : gd.Vector2i)));
 		default:__astargrid2d_ptr().value.get_point_path(((p_from_id : gd.Vector2i)), ((p_to_id : gd.Vector2i)), ((p_allow_partial_path : Bool)));
 	};
-	var region(get, set) : gd.Rect2i;
-	var size(get, set) : gd.Vector2i;
-	var offset(get, set) : gd.Vector2;
-	var cell_size(get, set) : gd.Vector2;
-	var cell_shape(get, set) : gd.astargrid2d.CellShape;
-	var jumping_enabled(get, set) : Bool;
+	public var region(get, set) : gd.Rect2i;
+	public var size(get, set) : gd.Vector2i;
+	public var offset(get, set) : gd.Vector2;
+	public var cell_size(get, set) : gd.Vector2;
+	public var cell_shape(get, set) : gd.astargrid2d.CellShape;
+	public var jumping_enabled(get, set) : Bool;
 	function get_jumping_enabled():Bool return is_jumping_enabled();
-	var default_compute_heuristic(get, set) : gd.astargrid2d.Heuristic;
-	var default_estimate_heuristic(get, set) : gd.astargrid2d.Heuristic;
-	var diagonal_mode(get, set) : gd.astargrid2d.DiagonalMode;
+	public var default_compute_heuristic(get, set) : gd.astargrid2d.Heuristic;
+	public var default_estimate_heuristic(get, set) : gd.astargrid2d.Heuristic;
+	public var diagonal_mode(get, set) : gd.astargrid2d.DiagonalMode;
 }

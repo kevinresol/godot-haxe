@@ -100,25 +100,25 @@ class Camera3D extends gd.Node3D {
 	public function get_pyramid_shape_rid():gd.RID return __camera3d_ptr().value.get_pyramid_shape_rid();
 	public function set_cull_mask_value(p_layer_number:Int, p_value:Bool):Void __camera3d_ptr().value.set_cull_mask_value(((p_layer_number : Int)), ((p_value : Bool)));
 	public function get_cull_mask_value(p_layer_number:Int):Bool return __camera3d_ptr().value.get_cull_mask_value(((p_layer_number : Int)));
-	var keep_aspect(get, set) : gd.camera3d.KeepAspect;
+	public var keep_aspect(get, set) : gd.camera3d.KeepAspect;
 	function get_keep_aspect():gd.camera3d.KeepAspect return get_keep_aspect_mode();
 	function set_keep_aspect(v:gd.camera3d.KeepAspect):gd.camera3d.KeepAspect {
 		set_keep_aspect_mode(v);
 		return v;
 	}
-	var cull_mask(get, set) : Int;
-	var environment(get, set) : gd.Environment;
-	var attributes(get, set) : gd.CameraAttributes;
-	var compositor(get, set) : gd.Compositor;
-	var h_offset(get, set) : Float;
-	var v_offset(get, set) : Float;
-	var doppler_tracking(get, set) : gd.camera3d.DopplerTracking;
-	var projection(get, set) : gd.camera3d.ProjectionType;
-	var current(get, set) : Bool;
+	public var cull_mask(get, set) : Int;
+	public var environment(get, set) : gd.Environment;
+	public var attributes(get, set) : gd.CameraAttributes;
+	public var compositor(get, set) : gd.Compositor;
+	public var h_offset(get, set) : Float;
+	public var v_offset(get, set) : Float;
+	public var doppler_tracking(get, set) : gd.camera3d.DopplerTracking;
+	public var projection(get, set) : gd.camera3d.ProjectionType;
+	public var current(get, set) : Bool;
 	function get_current():Bool return is_current();
-	var fov(get, set) : Float;
-	var size(get, set) : Float;
-	var frustum_offset(get, set) : gd.Vector2;
-	var near(get, set) : Float;
-	var far(get, set) : Float;
+	public var fov(get, set) : Float;
+	public var size(get, set) : Float;
+	public var frustum_offset(get, set) : gd.Vector2;
+	public var near(get, set) : Float;
+	public var far(get, set) : Float;
 }

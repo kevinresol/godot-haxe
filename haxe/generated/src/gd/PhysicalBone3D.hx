@@ -85,24 +85,24 @@ class PhysicalBone3D extends gd.PhysicsBody3D {
 		return p_able_to_sleep;
 	}
 	public function is_able_to_sleep():Bool return __physicalbone3d_ptr().value.is_able_to_sleep();
-	var joint_type(get, set) : gd.physicalbone3d.JointType;
-	var joint_rotation(get, set) : gd.Vector3;
-	var mass(get, set) : Float;
-	var friction(get, set) : Float;
-	var bounce(get, set) : Float;
-	var gravity_scale(get, set) : Float;
-	var custom_integrator(get, set) : Bool;
+	public var joint_type(get, set) : gd.physicalbone3d.JointType;
+	public var joint_rotation(get, set) : gd.Vector3;
+	public var mass(get, set) : Float;
+	public var friction(get, set) : Float;
+	public var bounce(get, set) : Float;
+	public var gravity_scale(get, set) : Float;
+	public var custom_integrator(get, set) : Bool;
 	function get_custom_integrator():Bool return is_using_custom_integrator();
 	function set_custom_integrator(v:Bool):Bool {
 		set_use_custom_integrator(v);
 		return v;
 	}
-	var linear_damp_mode(get, set) : gd.physicalbone3d.DampMode;
-	var linear_damp(get, set) : Float;
-	var angular_damp_mode(get, set) : gd.physicalbone3d.DampMode;
-	var angular_damp(get, set) : Float;
-	var linear_velocity(get, set) : gd.Vector3;
-	var angular_velocity(get, set) : gd.Vector3;
-	var can_sleep(get, set) : Bool;
+	public var linear_damp_mode(get, set) : gd.physicalbone3d.DampMode;
+	public var linear_damp(get, set) : Float;
+	public var angular_damp_mode(get, set) : gd.physicalbone3d.DampMode;
+	public var angular_damp(get, set) : Float;
+	public var linear_velocity(get, set) : gd.Vector3;
+	public var angular_velocity(get, set) : gd.Vector3;
+	public var can_sleep(get, set) : Bool;
 	function get_can_sleep():Bool return is_able_to_sleep();
 }

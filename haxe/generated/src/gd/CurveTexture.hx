@@ -20,6 +20,6 @@ class CurveTexture extends gd.Texture2D {
 		return p_texture_mode;
 	}
 	public function get_texture_mode():gd.curvetexture.TextureMode return __curvetexture_ptr().value.get_texture_mode();
-	var texture_mode(get, set) : gd.curvetexture.TextureMode;
-	var curve(get, set) : gd.Curve;
+	public var texture_mode(get, set) : gd.curvetexture.TextureMode;
+	public var curve(get, set) : gd.Curve;
 }

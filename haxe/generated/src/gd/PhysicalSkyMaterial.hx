@@ -64,15 +64,15 @@ class PhysicalSkyMaterial extends gd.Material {
 		return p_night_sky;
 	}
 	public function get_night_sky():gd.Texture2D return __physicalskymaterial_ptr().value.get_night_sky();
-	var rayleigh_coefficient(get, set) : Float;
-	var rayleigh_color(get, set) : gd.Color;
-	var mie_coefficient(get, set) : Float;
-	var mie_eccentricity(get, set) : Float;
-	var mie_color(get, set) : gd.Color;
-	var turbidity(get, set) : Float;
-	var sun_disk_scale(get, set) : Float;
-	var ground_color(get, set) : gd.Color;
-	var energy_multiplier(get, set) : Float;
-	var use_debanding(get, set) : Bool;
-	var night_sky(get, set) : gd.Texture2D;
+	public var rayleigh_coefficient(get, set) : Float;
+	public var rayleigh_color(get, set) : gd.Color;
+	public var mie_coefficient(get, set) : Float;
+	public var mie_eccentricity(get, set) : Float;
+	public var mie_color(get, set) : gd.Color;
+	public var turbidity(get, set) : Float;
+	public var sun_disk_scale(get, set) : Float;
+	public var ground_color(get, set) : gd.Color;
+	public var energy_multiplier(get, set) : Float;
+	public var use_debanding(get, set) : Bool;
+	public var night_sky(get, set) : gd.Texture2D;
 }

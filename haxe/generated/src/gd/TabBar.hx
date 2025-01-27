@@ -105,16 +105,16 @@ class TabBar extends gd.Control {
 	}
 	public function get_deselect_enabled():Bool return __tabbar_ptr().value.get_deselect_enabled();
 	public function clear_tabs():Void __tabbar_ptr().value.clear_tabs();
-	var current_tab(get, set) : Int;
-	var tab_alignment(get, set) : gd.tabbar.AlignmentMode;
-	var clip_tabs(get, set) : Bool;
-	var tab_close_display_policy(get, set) : gd.tabbar.CloseButtonDisplayPolicy;
-	var max_tab_width(get, set) : Int;
-	var scrolling_enabled(get, set) : Bool;
-	var drag_to_rearrange_enabled(get, set) : Bool;
-	var tabs_rearrange_group(get, set) : Int;
-	var scroll_to_selected(get, set) : Bool;
-	var select_with_rmb(get, set) : Bool;
-	var deselect_enabled(get, set) : Bool;
-	var tab_count(get, set) : Int;
+	public var current_tab(get, set) : Int;
+	public var tab_alignment(get, set) : gd.tabbar.AlignmentMode;
+	public var clip_tabs(get, set) : Bool;
+	public var tab_close_display_policy(get, set) : gd.tabbar.CloseButtonDisplayPolicy;
+	public var max_tab_width(get, set) : Int;
+	public var scrolling_enabled(get, set) : Bool;
+	public var drag_to_rearrange_enabled(get, set) : Bool;
+	public var tabs_rearrange_group(get, set) : Int;
+	public var scroll_to_selected(get, set) : Bool;
+	public var select_with_rmb(get, set) : Bool;
+	public var deselect_enabled(get, set) : Bool;
+	public var tab_count(get, set) : Int;
 }

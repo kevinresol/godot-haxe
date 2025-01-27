@@ -56,10 +56,10 @@ class OpenXRInterface extends gd.XRInterface {
 		__openxrinterface_ptr().value.set_vrs_strength(((p_strength : Float)));
 		return p_strength;
 	}
-	var display_refresh_rate(get, set) : Float;
-	var render_target_size_multiplier(get, set) : Float;
-	var foveation_level(get, set) : Int;
-	var foveation_dynamic(get, set) : Bool;
-	var vrs_min_radius(get, set) : Float;
-	var vrs_strength(get, set) : Float;
+	public var display_refresh_rate(get, set) : Float;
+	public var render_target_size_multiplier(get, set) : Float;
+	public var foveation_level(get, set) : Int;
+	public var foveation_dynamic(get, set) : Bool;
+	public var vrs_min_radius(get, set) : Float;
+	public var vrs_strength(get, set) : Float;
 }

@@ -19,6 +19,6 @@ class GLTFTexture extends gd.Resource {
 		__gltftexture_ptr().value.set_sampler(((p_sampler : Int)));
 		return p_sampler;
 	}
-	var src_image(get, set) : Int;
-	var sampler(get, set) : Int;
+	public var src_image(get, set) : Int;
+	public var sampler(get, set) : Int;
 }

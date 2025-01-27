@@ -36,9 +36,9 @@ class GPUParticlesCollisionSDF3D extends gd.GPUParticlesCollision3D {
 	public function get_bake_mask():Int return __gpuparticlescollisionsdf3d_ptr().value.get_bake_mask();
 	public function set_bake_mask_value(p_layer_number:Int, p_value:Bool):Void __gpuparticlescollisionsdf3d_ptr().value.set_bake_mask_value(((p_layer_number : Int)), ((p_value : Bool)));
 	public function get_bake_mask_value(p_layer_number:Int):Bool return __gpuparticlescollisionsdf3d_ptr().value.get_bake_mask_value(((p_layer_number : Int)));
-	var size(get, set) : gd.Vector3;
-	var resolution(get, set) : gd.gpuparticlescollisionsdf3d.Resolution;
-	var thickness(get, set) : Float;
-	var bake_mask(get, set) : Int;
-	var texture(get, set) : gd.Texture3D;
+	public var size(get, set) : gd.Vector3;
+	public var resolution(get, set) : gd.gpuparticlescollisionsdf3d.Resolution;
+	public var thickness(get, set) : Float;
+	public var bake_mask(get, set) : Int;
+	public var texture(get, set) : gd.Texture3D;
 }

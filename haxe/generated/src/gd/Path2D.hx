@@ -14,5 +14,5 @@ class Path2D extends gd.Node2D {
 		return p_curve;
 	}
 	public function get_curve():gd.Curve2D return __path2d_ptr().value.get_curve();
-	var curve(get, set) : gd.Curve2D;
+	public var curve(get, set) : gd.Curve2D;
 }

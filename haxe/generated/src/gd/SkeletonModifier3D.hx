@@ -21,7 +21,7 @@ class SkeletonModifier3D extends gd.Node3D {
 		return p_influence;
 	}
 	public function get_influence():Float return __skeletonmodifier3d_ptr().value.get_influence();
-	var active(get, set) : Bool;
+	public var active(get, set) : Bool;
 	function get_active():Bool return is_active();
-	var influence(get, set) : Float;
+	public var influence(get, set) : Float;
 }

@@ -64,9 +64,9 @@ class Skeleton3D extends gd.Node3D {
 	public function physical_bones_stop_simulation():Void __skeleton3d_ptr().value.physical_bones_stop_simulation();
 	public function physical_bones_add_collision_exception(p_exception:gd.RID):Void __skeleton3d_ptr().value.physical_bones_add_collision_exception(((p_exception : gd.RID)));
 	public function physical_bones_remove_collision_exception(p_exception:gd.RID):Void __skeleton3d_ptr().value.physical_bones_remove_collision_exception(((p_exception : gd.RID)));
-	var motion_scale(get, set) : Float;
-	var show_rest_only(get, set) : Bool;
+	public var motion_scale(get, set) : Float;
+	public var show_rest_only(get, set) : Bool;
 	function get_show_rest_only():Bool return is_show_rest_only();
-	var modifier_callback_mode_process(get, set) : gd.skeleton3d.ModifierCallbackModeProcess;
-	var animate_physical_bones(get, set) : Bool;
+	public var modifier_callback_mode_process(get, set) : gd.skeleton3d.ModifierCallbackModeProcess;
+	public var animate_physical_bones(get, set) : Bool;
 }

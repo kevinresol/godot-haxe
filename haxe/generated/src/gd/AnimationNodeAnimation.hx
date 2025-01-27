@@ -44,13 +44,13 @@ class AnimationNodeAnimation extends gd.AnimationRootNode {
 		return p_loop_mode;
 	}
 	public function get_loop_mode():gd.animation.LoopMode return __animationnodeanimation_ptr().value.get_loop_mode();
-	var animation(get, set) : std.String;
-	var play_mode(get, set) : gd.animationnodeanimation.PlayMode;
-	var use_custom_timeline(get, set) : Bool;
+	public var animation(get, set) : std.String;
+	public var play_mode(get, set) : gd.animationnodeanimation.PlayMode;
+	public var use_custom_timeline(get, set) : Bool;
 	function get_use_custom_timeline():Bool return is_using_custom_timeline();
-	var timeline_length(get, set) : Float;
-	var stretch_time_scale(get, set) : Bool;
+	public var timeline_length(get, set) : Float;
+	public var stretch_time_scale(get, set) : Bool;
 	function get_stretch_time_scale():Bool return is_stretching_time_scale();
-	var start_offset(get, set) : Float;
-	var loop_mode(get, set) : gd.animation.LoopMode;
+	public var start_offset(get, set) : Float;
+	public var loop_mode(get, set) : gd.animation.LoopMode;
 }

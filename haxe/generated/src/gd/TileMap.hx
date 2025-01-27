@@ -98,15 +98,15 @@ class TileMap extends gd.Node2D {
 	public function map_to_local(p_map_position:gd.Vector2i):gd.Vector2 return __tilemap_ptr().value.map_to_local(((p_map_position : gd.Vector2i)));
 	public function local_to_map(p_local_position:gd.Vector2):gd.Vector2i return __tilemap_ptr().value.local_to_map(((p_local_position : gd.Vector2)));
 	public function get_neighbor_cell(p_coords:gd.Vector2i, p_neighbor:gd.tileset.CellNeighbor):gd.Vector2i return __tilemap_ptr().value.get_neighbor_cell(((p_coords : gd.Vector2i)), ((p_neighbor : gd.tileset.CellNeighbor)));
-	var tile_set(get, set) : gd.TileSet;
+	public var tile_set(get, set) : gd.TileSet;
 	function get_tile_set():gd.TileSet return get_tileset();
 	function set_tile_set(v:gd.TileSet):gd.TileSet {
 		set_tileset(v);
 		return v;
 	}
-	var rendering_quadrant_size(get, set) : Int;
-	var collision_animatable(get, set) : Bool;
+	public var rendering_quadrant_size(get, set) : Int;
+	public var collision_animatable(get, set) : Bool;
 	function get_collision_animatable():Bool return is_collision_animatable();
-	var collision_visibility_mode(get, set) : gd.tilemap.VisibilityMode;
-	var navigation_visibility_mode(get, set) : gd.tilemap.VisibilityMode;
+	public var collision_visibility_mode(get, set) : gd.tilemap.VisibilityMode;
+	public var navigation_visibility_mode(get, set) : gd.tilemap.VisibilityMode;
 }

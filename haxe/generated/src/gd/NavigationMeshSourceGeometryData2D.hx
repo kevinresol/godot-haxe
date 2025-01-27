@@ -21,5 +21,5 @@ class NavigationMeshSourceGeometryData2D extends gd.Resource {
 		return p_projected_obstructions;
 	}
 	public function get_projected_obstructions():gd.Array return __navigationmeshsourcegeometrydata2d_ptr().value.get_projected_obstructions();
-	var projected_obstructions(get, set) : gd.Array;
+	public var projected_obstructions(get, set) : gd.Array;
 }

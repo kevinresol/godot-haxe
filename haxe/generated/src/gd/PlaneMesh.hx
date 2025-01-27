@@ -34,9 +34,9 @@ class PlaneMesh extends gd.PrimitiveMesh {
 		return p_orientation;
 	}
 	public function get_orientation():gd.planemesh.Orientation return __planemesh_ptr().value.get_orientation();
-	var size(get, set) : gd.Vector2;
-	var subdivide_width(get, set) : Int;
-	var subdivide_depth(get, set) : Int;
-	var center_offset(get, set) : gd.Vector3;
-	var orientation(get, set) : gd.planemesh.Orientation;
+	public var size(get, set) : gd.Vector2;
+	public var subdivide_width(get, set) : Int;
+	public var subdivide_depth(get, set) : Int;
+	public var center_offset(get, set) : gd.Vector3;
+	public var orientation(get, set) : gd.planemesh.Orientation;
 }

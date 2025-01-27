@@ -125,9 +125,9 @@ class OS extends gd.Object {
 	public function request_permissions():Bool return __os_ptr().value.request_permissions();
 	public function get_granted_permissions():gd.PackedStringArray return __os_ptr().value.get_granted_permissions();
 	public function revoke_granted_permissions():Void __os_ptr().value.revoke_granted_permissions();
-	var low_processor_usage_mode(get, set) : Bool;
+	public var low_processor_usage_mode(get, set) : Bool;
 	function get_low_processor_usage_mode():Bool return is_in_low_processor_usage_mode();
-	var low_processor_usage_mode_sleep_usec(get, set) : Int;
-	var delta_smoothing(get, set) : Bool;
+	public var low_processor_usage_mode_sleep_usec(get, set) : Int;
+	public var delta_smoothing(get, set) : Bool;
 	function get_delta_smoothing():Bool return is_delta_smoothing_enabled();
 }

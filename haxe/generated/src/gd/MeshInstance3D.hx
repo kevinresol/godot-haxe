@@ -45,9 +45,9 @@ class MeshInstance3D extends gd.GeometryInstance3D {
 		case [null]:__meshinstance3d_ptr().value.bake_mesh_from_current_blend_shape_mix();
 		default:__meshinstance3d_ptr().value.bake_mesh_from_current_blend_shape_mix(((p_existing : gd.ArrayMesh)));
 	};
-	var mesh(get, set) : gd.Mesh;
-	var skin(get, set) : gd.Skin;
-	var skeleton(get, set) : std.String;
+	public var mesh(get, set) : gd.Mesh;
+	public var skin(get, set) : gd.Skin;
+	public var skeleton(get, set) : std.String;
 	function get_skeleton():std.String return get_skeleton_path();
 	function set_skeleton(v:std.String):std.String {
 		set_skeleton_path(v);

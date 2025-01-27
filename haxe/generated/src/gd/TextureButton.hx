@@ -56,21 +56,21 @@ class TextureButton extends gd.BaseButton {
 	public function get_click_mask():gd.BitMap return __texturebutton_ptr().value.get_click_mask();
 	public function get_ignore_texture_size():Bool return __texturebutton_ptr().value.get_ignore_texture_size();
 	public function get_stretch_mode():gd.texturebutton.StretchMode return __texturebutton_ptr().value.get_stretch_mode();
-	var texture_normal(get, set) : gd.Texture2D;
-	var texture_pressed(get, set) : gd.Texture2D;
-	var texture_hover(get, set) : gd.Texture2D;
-	var texture_disabled(get, set) : gd.Texture2D;
-	var texture_focused(get, set) : gd.Texture2D;
-	var texture_click_mask(get, set) : gd.BitMap;
+	public var texture_normal(get, set) : gd.Texture2D;
+	public var texture_pressed(get, set) : gd.Texture2D;
+	public var texture_hover(get, set) : gd.Texture2D;
+	public var texture_disabled(get, set) : gd.Texture2D;
+	public var texture_focused(get, set) : gd.Texture2D;
+	public var texture_click_mask(get, set) : gd.BitMap;
 	function get_texture_click_mask():gd.BitMap return get_click_mask();
 	function set_texture_click_mask(v:gd.BitMap):gd.BitMap {
 		set_click_mask(v);
 		return v;
 	}
-	var ignore_texture_size(get, set) : Bool;
-	var stretch_mode(get, set) : gd.texturebutton.StretchMode;
-	var flip_h(get, set) : Bool;
+	public var ignore_texture_size(get, set) : Bool;
+	public var stretch_mode(get, set) : gd.texturebutton.StretchMode;
+	public var flip_h(get, set) : Bool;
 	function get_flip_h():Bool return is_flipped_h();
-	var flip_v(get, set) : Bool;
+	public var flip_v(get, set) : Bool;
 	function get_flip_v():Bool return is_flipped_v();
 }

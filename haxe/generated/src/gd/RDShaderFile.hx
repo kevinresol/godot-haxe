@@ -22,5 +22,5 @@ class RDShaderFile extends gd.Resource {
 		return p_error;
 	}
 	public function get_base_error():std.String return __rdshaderfile_ptr().value.get_base_error();
-	var base_error(get, set) : std.String;
+	public var base_error(get, set) : std.String;
 }

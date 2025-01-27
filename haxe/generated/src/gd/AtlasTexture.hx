@@ -29,9 +29,9 @@ class AtlasTexture extends gd.Texture2D {
 		return p_enable;
 	}
 	public function has_filter_clip():Bool return __atlastexture_ptr().value.has_filter_clip();
-	var atlas(get, set) : gd.Texture2D;
-	var region(get, set) : gd.Rect2;
-	var margin(get, set) : gd.Rect2;
-	var filter_clip(get, set) : Bool;
+	public var atlas(get, set) : gd.Texture2D;
+	public var region(get, set) : gd.Rect2;
+	public var margin(get, set) : gd.Rect2;
+	public var filter_clip(get, set) : Bool;
 	function get_filter_clip():Bool return has_filter_clip();
 }

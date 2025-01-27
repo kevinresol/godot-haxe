@@ -29,8 +29,8 @@ class GLTFTextureSampler extends gd.Resource {
 		__gltftexturesampler_ptr().value.set_wrap_t(((p_wrap_mode : Int)));
 		return p_wrap_mode;
 	}
-	var mag_filter(get, set) : Int;
-	var min_filter(get, set) : Int;
-	var wrap_s(get, set) : Int;
-	var wrap_t(get, set) : Int;
+	public var mag_filter(get, set) : Int;
+	public var min_filter(get, set) : Int;
+	public var wrap_s(get, set) : Int;
+	public var wrap_t(get, set) : Int;
 }

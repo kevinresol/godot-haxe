@@ -39,12 +39,12 @@ class PinJoint2D extends gd.Joint2D {
 		return p_enabled;
 	}
 	public function is_angular_limit_enabled():Bool return __pinjoint2d_ptr().value.is_angular_limit_enabled();
-	var softness(get, set) : Float;
-	var angular_limit_enabled(get, set) : Bool;
+	public var softness(get, set) : Float;
+	public var angular_limit_enabled(get, set) : Bool;
 	function get_angular_limit_enabled():Bool return is_angular_limit_enabled();
-	var angular_limit_lower(get, set) : Float;
-	var angular_limit_upper(get, set) : Float;
-	var motor_enabled(get, set) : Bool;
+	public var angular_limit_lower(get, set) : Float;
+	public var angular_limit_upper(get, set) : Float;
+	public var motor_enabled(get, set) : Bool;
 	function get_motor_enabled():Bool return is_motor_enabled();
-	var motor_target_velocity(get, set) : Float;
+	public var motor_target_velocity(get, set) : Float;
 }

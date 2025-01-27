@@ -14,5 +14,5 @@ class RectangleShape2D extends gd.Shape2D {
 		return p_size;
 	}
 	public function get_size():gd.Vector2 return __rectangleshape2d_ptr().value.get_size();
-	var size(get, set) : gd.Vector2;
+	public var size(get, set) : gd.Vector2;
 }

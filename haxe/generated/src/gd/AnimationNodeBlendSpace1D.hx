@@ -46,12 +46,12 @@ class AnimationNodeBlendSpace1D extends gd.AnimationRootNode {
 	public function get_blend_mode():gd.animationnodeblendspace1d.BlendMode return __animationnodeblendspace1d_ptr().value.get_blend_mode();
 	public function set_use_sync(p_enable:Bool):Void __animationnodeblendspace1d_ptr().value.set_use_sync(((p_enable : Bool)));
 	public function is_using_sync():Bool return __animationnodeblendspace1d_ptr().value.is_using_sync();
-	var min_space(get, set) : Float;
-	var max_space(get, set) : Float;
-	var snap(get, set) : Float;
-	var value_label(get, set) : std.String;
-	var blend_mode(get, set) : gd.animationnodeblendspace1d.BlendMode;
-	var sync(get, set) : Bool;
+	public var min_space(get, set) : Float;
+	public var max_space(get, set) : Float;
+	public var snap(get, set) : Float;
+	public var value_label(get, set) : std.String;
+	public var blend_mode(get, set) : gd.animationnodeblendspace1d.BlendMode;
+	public var sync(get, set) : Bool;
 	function get_sync():Bool return is_using_sync();
 	function set_sync(v:Bool):Bool {
 		set_use_sync(v);

@@ -33,15 +33,15 @@ class VisualShaderNodeFrame extends gd.VisualShaderNodeResizableBase {
 		return p_attached_nodes;
 	}
 	public function get_attached_nodes():gd.PackedInt32Array return __visualshadernodeframe_ptr().value.get_attached_nodes();
-	var title(get, set) : std.String;
-	var tint_color_enabled(get, set) : Bool;
+	public var title(get, set) : std.String;
+	public var tint_color_enabled(get, set) : Bool;
 	function get_tint_color_enabled():Bool return is_tint_color_enabled();
-	var tint_color(get, set) : gd.Color;
-	var autoshrink(get, set) : Bool;
+	public var tint_color(get, set) : gd.Color;
+	public var autoshrink(get, set) : Bool;
 	function get_autoshrink():Bool return is_autoshrink_enabled();
 	function set_autoshrink(v:Bool):Bool {
 		set_autoshrink_enabled(v);
 		return v;
 	}
-	var attached_nodes(get, set) : gd.PackedInt32Array;
+	public var attached_nodes(get, set) : gd.PackedInt32Array;
 }

@@ -49,8 +49,8 @@ class UPNP extends gd.RefCounted {
 		return p_ipv6;
 	}
 	public function is_discover_ipv6():Bool return __upnp_ptr().value.is_discover_ipv6();
-	var discover_multicast_if(get, set) : std.String;
-	var discover_local_port(get, set) : Int;
-	var discover_ipv6(get, set) : Bool;
+	public var discover_multicast_if(get, set) : std.String;
+	public var discover_local_port(get, set) : Int;
+	public var discover_ipv6(get, set) : Bool;
 	function get_discover_ipv6():Bool return is_discover_ipv6();
 }

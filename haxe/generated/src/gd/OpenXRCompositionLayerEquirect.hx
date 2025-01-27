@@ -34,9 +34,9 @@ class OpenXRCompositionLayerEquirect extends gd.OpenXRCompositionLayer {
 		return p_segments;
 	}
 	public function get_fallback_segments():Int return __openxrcompositionlayerequirect_ptr().value.get_fallback_segments();
-	var radius(get, set) : Float;
-	var central_horizontal_angle(get, set) : Float;
-	var upper_vertical_angle(get, set) : Float;
-	var lower_vertical_angle(get, set) : Float;
-	var fallback_segments(get, set) : Int;
+	public var radius(get, set) : Float;
+	public var central_horizontal_angle(get, set) : Float;
+	public var upper_vertical_angle(get, set) : Float;
+	public var lower_vertical_angle(get, set) : Float;
+	public var fallback_segments(get, set) : Int;
 }

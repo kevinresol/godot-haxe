@@ -19,6 +19,6 @@ class CSGMesh3D extends gd.CSGPrimitive3D {
 		return p_material;
 	}
 	public function get_material():gd.Material return __csgmesh3d_ptr().value.get_material();
-	var mesh(get, set) : gd.Mesh;
-	var material(get, set) : gd.Material;
+	public var mesh(get, set) : gd.Mesh;
+	public var material(get, set) : gd.Material;
 }

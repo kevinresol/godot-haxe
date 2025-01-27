@@ -263,82 +263,82 @@ class Window extends gd.Viewport {
 		case [_, _, null]:__window_ptr().value.popup_exclusive_centered_clamped(((p_from_node : gd.Node)), ((p_minsize : gd.Vector2i)));
 		default:__window_ptr().value.popup_exclusive_centered_clamped(((p_from_node : gd.Node)), ((p_minsize : gd.Vector2i)), ((p_fallback_ratio : Float)));
 	};
-	var mode(get, set) : gd.window.Mode;
-	var title(get, set) : std.String;
-	var initial_position(get, set) : gd.window.WindowInitialPosition;
-	var position(get, set) : gd.Vector2i;
-	var size(get, set) : gd.Vector2i;
-	var current_screen(get, set) : Int;
-	var mouse_passthrough_polygon(get, set) : gd.PackedVector2Array;
-	var visible(get, set) : Bool;
+	public var mode(get, set) : gd.window.Mode;
+	public var title(get, set) : std.String;
+	public var initial_position(get, set) : gd.window.WindowInitialPosition;
+	public var position(get, set) : gd.Vector2i;
+	public var size(get, set) : gd.Vector2i;
+	public var current_screen(get, set) : Int;
+	public var mouse_passthrough_polygon(get, set) : gd.PackedVector2Array;
+	public var visible(get, set) : Bool;
 	function get_visible():Bool return is_visible();
-	var wrap_controls(get, set) : Bool;
+	public var wrap_controls(get, set) : Bool;
 	function get_wrap_controls():Bool return is_wrapping_controls();
-	var transient(get, set) : Bool;
+	public var transient(get, set) : Bool;
 	function get_transient():Bool return is_transient();
-	var transient_to_focused(get, set) : Bool;
+	public var transient_to_focused(get, set) : Bool;
 	function get_transient_to_focused():Bool return is_transient_to_focused();
-	var exclusive(get, set) : Bool;
+	public var exclusive(get, set) : Bool;
 	function get_exclusive():Bool return is_exclusive();
-	var unresizable(get, set) : Bool;
+	public var unresizable(get, set) : Bool;
 	function get_unresizable():Bool return get_flag(0);
 	function set_unresizable(v:Bool):Bool {
 		set_flag(0, v);
 		return v;
 	}
-	var borderless(get, set) : Bool;
+	public var borderless(get, set) : Bool;
 	function get_borderless():Bool return get_flag(1);
 	function set_borderless(v:Bool):Bool {
 		set_flag(1, v);
 		return v;
 	}
-	var always_on_top(get, set) : Bool;
+	public var always_on_top(get, set) : Bool;
 	function get_always_on_top():Bool return get_flag(2);
 	function set_always_on_top(v:Bool):Bool {
 		set_flag(2, v);
 		return v;
 	}
-	var transparent(get, set) : Bool;
+	public var transparent(get, set) : Bool;
 	function get_transparent():Bool return get_flag(3);
 	function set_transparent(v:Bool):Bool {
 		set_flag(3, v);
 		return v;
 	}
-	var unfocusable(get, set) : Bool;
+	public var unfocusable(get, set) : Bool;
 	function get_unfocusable():Bool return get_flag(4);
 	function set_unfocusable(v:Bool):Bool {
 		set_flag(4, v);
 		return v;
 	}
-	var popup_window(get, set) : Bool;
+	public var popup_window(get, set) : Bool;
 	function get_popup_window():Bool return get_flag(5);
 	function set_popup_window(v:Bool):Bool {
 		set_flag(5, v);
 		return v;
 	}
-	var extend_to_title(get, set) : Bool;
+	public var extend_to_title(get, set) : Bool;
 	function get_extend_to_title():Bool return get_flag(6);
 	function set_extend_to_title(v:Bool):Bool {
 		set_flag(6, v);
 		return v;
 	}
-	var mouse_passthrough(get, set) : Bool;
+	public var mouse_passthrough(get, set) : Bool;
 	function get_mouse_passthrough():Bool return get_flag(7);
 	function set_mouse_passthrough(v:Bool):Bool {
 		set_flag(7, v);
 		return v;
 	}
-	var force_native(get, set) : Bool;
-	var min_size(get, set) : gd.Vector2i;
-	var max_size(get, set) : gd.Vector2i;
-	var keep_title_visible(get, set) : Bool;
-	var content_scale_size(get, set) : gd.Vector2i;
-	var content_scale_mode(get, set) : gd.window.ContentScaleMode;
-	var content_scale_aspect(get, set) : gd.window.ContentScaleAspect;
-	var content_scale_stretch(get, set) : gd.window.ContentScaleStretch;
-	var content_scale_factor(get, set) : Float;
-	var auto_translate(get, set) : Bool;
+	public var force_native(get, set) : Bool;
+	public var min_size(get, set) : gd.Vector2i;
+	public var max_size(get, set) : gd.Vector2i;
+	public var keep_title_visible(get, set) : Bool;
+	public var content_scale_size(get, set) : gd.Vector2i;
+	public var content_scale_mode(get, set) : gd.window.ContentScaleMode;
+	public var content_scale_aspect(get, set) : gd.window.ContentScaleAspect;
+	public var content_scale_stretch(get, set) : gd.window.ContentScaleStretch;
+	public var content_scale_factor(get, set) : Float;
+	public var auto_translate(get, set) : Bool;
 	function get_auto_translate():Bool return is_auto_translating();
-	var theme(get, set) : gd.Theme;
-	var theme_type_variation(get, set) : std.String;
+	public var theme(get, set) : gd.Theme;
+	public var theme_type_variation(get, set) : std.String;
 }

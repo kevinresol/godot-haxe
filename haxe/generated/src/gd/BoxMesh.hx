@@ -29,8 +29,8 @@ class BoxMesh extends gd.PrimitiveMesh {
 		return p_divisions;
 	}
 	public function get_subdivide_depth():Int return __boxmesh_ptr().value.get_subdivide_depth();
-	var size(get, set) : gd.Vector3;
-	var subdivide_width(get, set) : Int;
-	var subdivide_height(get, set) : Int;
-	var subdivide_depth(get, set) : Int;
+	public var size(get, set) : gd.Vector3;
+	public var subdivide_width(get, set) : Int;
+	public var subdivide_height(get, set) : Int;
+	public var subdivide_depth(get, set) : Int;
 }

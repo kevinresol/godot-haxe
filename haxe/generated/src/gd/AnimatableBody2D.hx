@@ -14,6 +14,6 @@ class AnimatableBody2D extends gd.StaticBody2D {
 		return p_enable;
 	}
 	public function is_sync_to_physics_enabled():Bool return __animatablebody2d_ptr().value.is_sync_to_physics_enabled();
-	var sync_to_physics(get, set) : Bool;
+	public var sync_to_physics(get, set) : Bool;
 	function get_sync_to_physics():Bool return is_sync_to_physics_enabled();
 }

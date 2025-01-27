@@ -79,67 +79,67 @@ class SpriteBase3D extends gd.GeometryInstance3D {
 	public function get_texture_filter():gd.basematerial3d.TextureFilter return __spritebase3d_ptr().value.get_texture_filter();
 	public function get_item_rect():gd.Rect2 return __spritebase3d_ptr().value.get_item_rect();
 	public function generate_triangle_mesh():gd.TriangleMesh return __spritebase3d_ptr().value.generate_triangle_mesh();
-	var centered(get, set) : Bool;
+	public var centered(get, set) : Bool;
 	function get_centered():Bool return is_centered();
-	var offset(get, set) : gd.Vector2;
-	var flip_h(get, set) : Bool;
+	public var offset(get, set) : gd.Vector2;
+	public var flip_h(get, set) : Bool;
 	function get_flip_h():Bool return is_flipped_h();
-	var flip_v(get, set) : Bool;
+	public var flip_v(get, set) : Bool;
 	function get_flip_v():Bool return is_flipped_v();
-	var modulate(get, set) : gd.Color;
-	var pixel_size(get, set) : Float;
-	var axis(get, set) : gd.vector3.Axis;
-	var billboard(get, set) : gd.basematerial3d.BillboardMode;
+	public var modulate(get, set) : gd.Color;
+	public var pixel_size(get, set) : Float;
+	public var axis(get, set) : gd.vector3.Axis;
+	public var billboard(get, set) : gd.basematerial3d.BillboardMode;
 	function get_billboard():gd.basematerial3d.BillboardMode return get_billboard_mode();
 	function set_billboard(v:gd.basematerial3d.BillboardMode):gd.basematerial3d.BillboardMode {
 		set_billboard_mode(v);
 		return v;
 	}
-	var transparent(get, set) : Bool;
+	public var transparent(get, set) : Bool;
 	function get_transparent():Bool return get_draw_flag(0);
 	function set_transparent(v:Bool):Bool {
 		set_draw_flag(0, v);
 		return v;
 	}
-	var shaded(get, set) : Bool;
+	public var shaded(get, set) : Bool;
 	function get_shaded():Bool return get_draw_flag(1);
 	function set_shaded(v:Bool):Bool {
 		set_draw_flag(1, v);
 		return v;
 	}
-	var double_sided(get, set) : Bool;
+	public var double_sided(get, set) : Bool;
 	function get_double_sided():Bool return get_draw_flag(2);
 	function set_double_sided(v:Bool):Bool {
 		set_draw_flag(2, v);
 		return v;
 	}
-	var no_depth_test(get, set) : Bool;
+	public var no_depth_test(get, set) : Bool;
 	function get_no_depth_test():Bool return get_draw_flag(3);
 	function set_no_depth_test(v:Bool):Bool {
 		set_draw_flag(3, v);
 		return v;
 	}
-	var fixed_size(get, set) : Bool;
+	public var fixed_size(get, set) : Bool;
 	function get_fixed_size():Bool return get_draw_flag(4);
 	function set_fixed_size(v:Bool):Bool {
 		set_draw_flag(4, v);
 		return v;
 	}
-	var alpha_cut(get, set) : gd.spritebase3d.AlphaCutMode;
+	public var alpha_cut(get, set) : gd.spritebase3d.AlphaCutMode;
 	function get_alpha_cut():gd.spritebase3d.AlphaCutMode return get_alpha_cut_mode();
 	function set_alpha_cut(v:gd.spritebase3d.AlphaCutMode):gd.spritebase3d.AlphaCutMode {
 		set_alpha_cut_mode(v);
 		return v;
 	}
-	var alpha_scissor_threshold(get, set) : Float;
-	var alpha_hash_scale(get, set) : Float;
-	var alpha_antialiasing_mode(get, set) : gd.basematerial3d.AlphaAntiAliasing;
+	public var alpha_scissor_threshold(get, set) : Float;
+	public var alpha_hash_scale(get, set) : Float;
+	public var alpha_antialiasing_mode(get, set) : gd.basematerial3d.AlphaAntiAliasing;
 	function get_alpha_antialiasing_mode():gd.basematerial3d.AlphaAntiAliasing return get_alpha_antialiasing();
 	function set_alpha_antialiasing_mode(v:gd.basematerial3d.AlphaAntiAliasing):gd.basematerial3d.AlphaAntiAliasing {
 		set_alpha_antialiasing(v);
 		return v;
 	}
-	var alpha_antialiasing_edge(get, set) : Float;
-	var texture_filter(get, set) : gd.basematerial3d.TextureFilter;
-	var render_priority(get, set) : Int;
+	public var alpha_antialiasing_edge(get, set) : Float;
+	public var texture_filter(get, set) : gd.basematerial3d.TextureFilter;
+	public var render_priority(get, set) : Int;
 }

@@ -45,5 +45,5 @@ class UndoRedo extends gd.Object {
 	public function get_max_steps():Int return __undoredo_ptr().value.get_max_steps();
 	public function redo():Bool return __undoredo_ptr().value.redo();
 	public function undo():Bool return __undoredo_ptr().value.undo();
-	var max_steps(get, set) : Int;
+	public var max_steps(get, set) : Int;
 }

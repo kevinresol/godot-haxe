@@ -32,17 +32,17 @@ class SkeletonModification2DCCDIK extends gd.SkeletonModification2D {
 	public function get_ccdik_joint_constraint_angle_max(p_joint_idx:Int):Float return __skeletonmodification2dccdik_ptr().value.get_ccdik_joint_constraint_angle_max(((p_joint_idx : Int)));
 	public function set_ccdik_joint_constraint_angle_invert(p_joint_idx:Int, p_invert:Bool):Void __skeletonmodification2dccdik_ptr().value.set_ccdik_joint_constraint_angle_invert(((p_joint_idx : Int)), ((p_invert : Bool)));
 	public function get_ccdik_joint_constraint_angle_invert(p_joint_idx:Int):Bool return __skeletonmodification2dccdik_ptr().value.get_ccdik_joint_constraint_angle_invert(((p_joint_idx : Int)));
-	var target_nodepath(get, set) : std.String;
+	public var target_nodepath(get, set) : std.String;
 	function get_target_nodepath():std.String return get_target_node();
 	function set_target_nodepath(v:std.String):std.String {
 		set_target_node(v);
 		return v;
 	}
-	var tip_nodepath(get, set) : std.String;
+	public var tip_nodepath(get, set) : std.String;
 	function get_tip_nodepath():std.String return get_tip_node();
 	function set_tip_nodepath(v:std.String):std.String {
 		set_tip_node(v);
 		return v;
 	}
-	var ccdik_data_chain_length(get, set) : Int;
+	public var ccdik_data_chain_length(get, set) : Int;
 }

@@ -34,9 +34,9 @@ class RootMotionView extends gd.VisualInstance3D {
 		return p_enable;
 	}
 	public function get_zero_y():Bool return __rootmotionview_ptr().value.get_zero_y();
-	var animation_path(get, set) : std.String;
-	var color(get, set) : gd.Color;
-	var cell_size(get, set) : Float;
-	var radius(get, set) : Float;
-	var zero_y(get, set) : Bool;
+	public var animation_path(get, set) : std.String;
+	public var color(get, set) : gd.Color;
+	public var cell_size(get, set) : Float;
+	public var radius(get, set) : Float;
+	public var zero_y(get, set) : Bool;
 }

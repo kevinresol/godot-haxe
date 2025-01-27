@@ -41,7 +41,7 @@ class ArrayMesh extends gd.Mesh {
 		return p_mesh;
 	}
 	public function get_shadow_mesh():gd.ArrayMesh return __arraymesh_ptr().value.get_shadow_mesh();
-	var blend_shape_mode(get, set) : gd.mesh.BlendShapeMode;
-	var custom_aabb(get, set) : gd.AABB;
-	var shadow_mesh(get, set) : gd.ArrayMesh;
+	public var blend_shape_mode(get, set) : gd.mesh.BlendShapeMode;
+	public var custom_aabb(get, set) : gd.AABB;
+	public var shadow_mesh(get, set) : gd.ArrayMesh;
 }

@@ -60,9 +60,9 @@ class WebSocketPeer extends gd.PacketPeer {
 		return p_buffer_size;
 	}
 	public function get_max_queued_packets():Int return __websocketpeer_ptr().value.get_max_queued_packets();
-	var supported_protocols(get, set) : gd.PackedStringArray;
-	var handshake_headers(get, set) : gd.PackedStringArray;
-	var inbound_buffer_size(get, set) : Int;
-	var outbound_buffer_size(get, set) : Int;
-	var max_queued_packets(get, set) : Int;
+	public var supported_protocols(get, set) : gd.PackedStringArray;
+	public var handshake_headers(get, set) : gd.PackedStringArray;
+	public var inbound_buffer_size(get, set) : Int;
+	public var outbound_buffer_size(get, set) : Int;
+	public var max_queued_packets(get, set) : Int;
 }

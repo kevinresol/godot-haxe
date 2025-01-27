@@ -236,61 +236,61 @@ class RichTextLabel extends gd.Control {
 	public function get_menu():gd.PopupMenu return __richtextlabel_ptr().value.get_menu();
 	public function is_menu_visible():Bool return __richtextlabel_ptr().value.is_menu_visible();
 	public function menu_option(p_option:Int):Void __richtextlabel_ptr().value.menu_option(((p_option : Int)));
-	var bbcode_enabled(get, set) : Bool;
+	public var bbcode_enabled(get, set) : Bool;
 	function get_bbcode_enabled():Bool return is_using_bbcode();
 	function set_bbcode_enabled(v:Bool):Bool {
 		set_use_bbcode(v);
 		return v;
 	}
-	var text(get, set) : std.String;
-	var fit_content(get, set) : Bool;
+	public var text(get, set) : std.String;
+	public var fit_content(get, set) : Bool;
 	function get_fit_content():Bool return is_fit_content_enabled();
-	var scroll_active(get, set) : Bool;
+	public var scroll_active(get, set) : Bool;
 	function get_scroll_active():Bool return is_scroll_active();
-	var scroll_following(get, set) : Bool;
+	public var scroll_following(get, set) : Bool;
 	function get_scroll_following():Bool return is_scroll_following();
 	function set_scroll_following(v:Bool):Bool {
 		set_scroll_follow(v);
 		return v;
 	}
-	var autowrap_mode(get, set) : gd.textserver.AutowrapMode;
-	var tab_size(get, set) : Int;
-	var context_menu_enabled(get, set) : Bool;
+	public var autowrap_mode(get, set) : gd.textserver.AutowrapMode;
+	public var tab_size(get, set) : Int;
+	public var context_menu_enabled(get, set) : Bool;
 	function get_context_menu_enabled():Bool return is_context_menu_enabled();
-	var shortcut_keys_enabled(get, set) : Bool;
+	public var shortcut_keys_enabled(get, set) : Bool;
 	function get_shortcut_keys_enabled():Bool return is_shortcut_keys_enabled();
-	var custom_effects(get, set) : gd.Array;
+	public var custom_effects(get, set) : gd.Array;
 	function get_custom_effects():gd.Array return get_effects();
 	function set_custom_effects(v:gd.Array):gd.Array {
 		set_effects(v);
 		return v;
 	}
-	var meta_underlined(get, set) : Bool;
+	public var meta_underlined(get, set) : Bool;
 	function get_meta_underlined():Bool return is_meta_underlined();
 	function set_meta_underlined(v:Bool):Bool {
 		set_meta_underline(v);
 		return v;
 	}
-	var hint_underlined(get, set) : Bool;
+	public var hint_underlined(get, set) : Bool;
 	function get_hint_underlined():Bool return is_hint_underlined();
 	function set_hint_underlined(v:Bool):Bool {
 		set_hint_underline(v);
 		return v;
 	}
-	var threaded(get, set) : Bool;
+	public var threaded(get, set) : Bool;
 	function get_threaded():Bool return is_threaded();
-	var progress_bar_delay(get, set) : Int;
-	var selection_enabled(get, set) : Bool;
+	public var progress_bar_delay(get, set) : Int;
+	public var selection_enabled(get, set) : Bool;
 	function get_selection_enabled():Bool return is_selection_enabled();
-	var deselect_on_focus_loss_enabled(get, set) : Bool;
+	public var deselect_on_focus_loss_enabled(get, set) : Bool;
 	function get_deselect_on_focus_loss_enabled():Bool return is_deselect_on_focus_loss_enabled();
-	var drag_and_drop_selection_enabled(get, set) : Bool;
+	public var drag_and_drop_selection_enabled(get, set) : Bool;
 	function get_drag_and_drop_selection_enabled():Bool return is_drag_and_drop_selection_enabled();
-	var visible_characters(get, set) : Int;
-	var visible_characters_behavior(get, set) : gd.textserver.VisibleCharactersBehavior;
-	var visible_ratio(get, set) : Float;
-	var text_direction(get, set) : gd.control.TextDirection;
-	var language(get, set) : std.String;
-	var structured_text_bidi_override(get, set) : gd.textserver.StructuredTextParser;
-	var structured_text_bidi_override_options(get, set) : gd.Array;
+	public var visible_characters(get, set) : Int;
+	public var visible_characters_behavior(get, set) : gd.textserver.VisibleCharactersBehavior;
+	public var visible_ratio(get, set) : Float;
+	public var text_direction(get, set) : gd.control.TextDirection;
+	public var language(get, set) : std.String;
+	public var structured_text_bidi_override(get, set) : gd.textserver.StructuredTextParser;
+	public var structured_text_bidi_override_options(get, set) : gd.Array;
 }

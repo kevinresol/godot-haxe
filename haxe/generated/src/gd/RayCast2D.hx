@@ -55,20 +55,20 @@ class RayCast2D extends gd.Node2D {
 		return p_enable;
 	}
 	public function is_hit_from_inside_enabled():Bool return __raycast2d_ptr().value.is_hit_from_inside_enabled();
-	var enabled(get, set) : Bool;
+	public var enabled(get, set) : Bool;
 	function get_enabled():Bool return is_enabled();
-	var exclude_parent(get, set) : Bool;
+	public var exclude_parent(get, set) : Bool;
 	function get_exclude_parent():Bool return get_exclude_parent_body();
 	function set_exclude_parent(v:Bool):Bool {
 		set_exclude_parent_body(v);
 		return v;
 	}
-	var target_position(get, set) : gd.Vector2;
-	var collision_mask(get, set) : Int;
-	var hit_from_inside(get, set) : Bool;
+	public var target_position(get, set) : gd.Vector2;
+	public var collision_mask(get, set) : Int;
+	public var hit_from_inside(get, set) : Bool;
 	function get_hit_from_inside():Bool return is_hit_from_inside_enabled();
-	var collide_with_areas(get, set) : Bool;
+	public var collide_with_areas(get, set) : Bool;
 	function get_collide_with_areas():Bool return is_collide_with_areas_enabled();
-	var collide_with_bodies(get, set) : Bool;
+	public var collide_with_bodies(get, set) : Bool;
 	function get_collide_with_bodies():Bool return is_collide_with_bodies_enabled();
 }

@@ -74,17 +74,17 @@ class MeshConvexDecompositionSettings extends gd.RefCounted {
 		return p_project_hull_vertices;
 	}
 	public function get_project_hull_vertices():Bool return __meshconvexdecompositionsettings_ptr().value.get_project_hull_vertices();
-	var max_concavity(get, set) : Float;
-	var symmetry_planes_clipping_bias(get, set) : Float;
-	var revolution_axes_clipping_bias(get, set) : Float;
-	var min_volume_per_convex_hull(get, set) : Float;
-	var resolution(get, set) : Int;
-	var max_num_vertices_per_convex_hull(get, set) : Int;
-	var plane_downsampling(get, set) : Int;
-	var convex_hull_downsampling(get, set) : Int;
-	var normalize_mesh(get, set) : Bool;
-	var mode(get, set) : gd.meshconvexdecompositionsettings.Mode;
-	var convex_hull_approximation(get, set) : Bool;
-	var max_convex_hulls(get, set) : Int;
-	var project_hull_vertices(get, set) : Bool;
+	public var max_concavity(get, set) : Float;
+	public var symmetry_planes_clipping_bias(get, set) : Float;
+	public var revolution_axes_clipping_bias(get, set) : Float;
+	public var min_volume_per_convex_hull(get, set) : Float;
+	public var resolution(get, set) : Int;
+	public var max_num_vertices_per_convex_hull(get, set) : Int;
+	public var plane_downsampling(get, set) : Int;
+	public var convex_hull_downsampling(get, set) : Int;
+	public var normalize_mesh(get, set) : Bool;
+	public var mode(get, set) : gd.meshconvexdecompositionsettings.Mode;
+	public var convex_hull_approximation(get, set) : Bool;
+	public var max_convex_hulls(get, set) : Int;
+	public var project_hull_vertices(get, set) : Bool;
 }

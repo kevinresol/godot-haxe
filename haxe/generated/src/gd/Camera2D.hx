@@ -103,94 +103,94 @@ class Camera2D extends gd.Node2D {
 	public function is_limit_drawing_enabled():Bool return __camera2d_ptr().value.is_limit_drawing_enabled();
 	public function set_margin_drawing_enabled(p_margin_drawing_enabled:Bool):Void __camera2d_ptr().value.set_margin_drawing_enabled(((p_margin_drawing_enabled : Bool)));
 	public function is_margin_drawing_enabled():Bool return __camera2d_ptr().value.is_margin_drawing_enabled();
-	var offset(get, set) : gd.Vector2;
-	var anchor_mode(get, set) : gd.camera2d.AnchorMode;
-	var ignore_rotation(get, set) : Bool;
+	public var offset(get, set) : gd.Vector2;
+	public var anchor_mode(get, set) : gd.camera2d.AnchorMode;
+	public var ignore_rotation(get, set) : Bool;
 	function get_ignore_rotation():Bool return is_ignoring_rotation();
-	var enabled(get, set) : Bool;
+	public var enabled(get, set) : Bool;
 	function get_enabled():Bool return is_enabled();
-	var zoom(get, set) : gd.Vector2;
-	var custom_viewport(get, set) : gd.Node;
-	var process_callback(get, set) : gd.camera2d.Camera2DProcessCallback;
-	var limit_left(get, set) : Int;
+	public var zoom(get, set) : gd.Vector2;
+	public var custom_viewport(get, set) : gd.Node;
+	public var process_callback(get, set) : gd.camera2d.Camera2DProcessCallback;
+	public var limit_left(get, set) : Int;
 	function get_limit_left():Int return get_limit(0);
 	function set_limit_left(v:Int):Int {
 		set_limit(0, v);
 		return v;
 	}
-	var limit_top(get, set) : Int;
+	public var limit_top(get, set) : Int;
 	function get_limit_top():Int return get_limit(1);
 	function set_limit_top(v:Int):Int {
 		set_limit(1, v);
 		return v;
 	}
-	var limit_right(get, set) : Int;
+	public var limit_right(get, set) : Int;
 	function get_limit_right():Int return get_limit(2);
 	function set_limit_right(v:Int):Int {
 		set_limit(2, v);
 		return v;
 	}
-	var limit_bottom(get, set) : Int;
+	public var limit_bottom(get, set) : Int;
 	function get_limit_bottom():Int return get_limit(3);
 	function set_limit_bottom(v:Int):Int {
 		set_limit(3, v);
 		return v;
 	}
-	var limit_smoothed(get, set) : Bool;
+	public var limit_smoothed(get, set) : Bool;
 	function get_limit_smoothed():Bool return is_limit_smoothing_enabled();
 	function set_limit_smoothed(v:Bool):Bool {
 		set_limit_smoothing_enabled(v);
 		return v;
 	}
-	var position_smoothing_enabled(get, set) : Bool;
+	public var position_smoothing_enabled(get, set) : Bool;
 	function get_position_smoothing_enabled():Bool return is_position_smoothing_enabled();
-	var position_smoothing_speed(get, set) : Float;
-	var rotation_smoothing_enabled(get, set) : Bool;
+	public var position_smoothing_speed(get, set) : Float;
+	public var rotation_smoothing_enabled(get, set) : Bool;
 	function get_rotation_smoothing_enabled():Bool return is_rotation_smoothing_enabled();
-	var rotation_smoothing_speed(get, set) : Float;
-	var drag_horizontal_enabled(get, set) : Bool;
+	public var rotation_smoothing_speed(get, set) : Float;
+	public var drag_horizontal_enabled(get, set) : Bool;
 	function get_drag_horizontal_enabled():Bool return is_drag_horizontal_enabled();
-	var drag_vertical_enabled(get, set) : Bool;
+	public var drag_vertical_enabled(get, set) : Bool;
 	function get_drag_vertical_enabled():Bool return is_drag_vertical_enabled();
-	var drag_horizontal_offset(get, set) : Float;
-	var drag_vertical_offset(get, set) : Float;
-	var drag_left_margin(get, set) : Float;
+	public var drag_horizontal_offset(get, set) : Float;
+	public var drag_vertical_offset(get, set) : Float;
+	public var drag_left_margin(get, set) : Float;
 	function get_drag_left_margin():Float return get_drag_margin(0);
 	function set_drag_left_margin(v:Float):Float {
 		set_drag_margin(0, v);
 		return v;
 	}
-	var drag_top_margin(get, set) : Float;
+	public var drag_top_margin(get, set) : Float;
 	function get_drag_top_margin():Float return get_drag_margin(1);
 	function set_drag_top_margin(v:Float):Float {
 		set_drag_margin(1, v);
 		return v;
 	}
-	var drag_right_margin(get, set) : Float;
+	public var drag_right_margin(get, set) : Float;
 	function get_drag_right_margin():Float return get_drag_margin(2);
 	function set_drag_right_margin(v:Float):Float {
 		set_drag_margin(2, v);
 		return v;
 	}
-	var drag_bottom_margin(get, set) : Float;
+	public var drag_bottom_margin(get, set) : Float;
 	function get_drag_bottom_margin():Float return get_drag_margin(3);
 	function set_drag_bottom_margin(v:Float):Float {
 		set_drag_margin(3, v);
 		return v;
 	}
-	var editor_draw_screen(get, set) : Bool;
+	public var editor_draw_screen(get, set) : Bool;
 	function get_editor_draw_screen():Bool return is_screen_drawing_enabled();
 	function set_editor_draw_screen(v:Bool):Bool {
 		set_screen_drawing_enabled(v);
 		return v;
 	}
-	var editor_draw_limits(get, set) : Bool;
+	public var editor_draw_limits(get, set) : Bool;
 	function get_editor_draw_limits():Bool return is_limit_drawing_enabled();
 	function set_editor_draw_limits(v:Bool):Bool {
 		set_limit_drawing_enabled(v);
 		return v;
 	}
-	var editor_draw_drag_margin(get, set) : Bool;
+	public var editor_draw_drag_margin(get, set) : Bool;
 	function get_editor_draw_drag_margin():Bool return is_margin_drawing_enabled();
 	function set_editor_draw_drag_margin(v:Bool):Bool {
 		set_margin_drawing_enabled(v);

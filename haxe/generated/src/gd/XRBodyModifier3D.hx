@@ -24,7 +24,7 @@ class XRBodyModifier3D extends gd.SkeletonModifier3D {
 		return p_bone_update;
 	}
 	public function get_bone_update():gd.xrbodymodifier3d.BoneUpdate return __xrbodymodifier3d_ptr().value.get_bone_update();
-	var body_tracker(get, set) : std.String;
-	var body_update(get, set) : Int;
-	var bone_update(get, set) : gd.xrbodymodifier3d.BoneUpdate;
+	public var body_tracker(get, set) : std.String;
+	public var body_update(get, set) : Int;
+	public var bone_update(get, set) : gd.xrbodymodifier3d.BoneUpdate;
 }

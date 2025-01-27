@@ -20,6 +20,6 @@ class Shape3D extends gd.Resource {
 	}
 	public function get_margin():Float return __shape3d_ptr().value.get_margin();
 	public function get_debug_mesh():gd.ArrayMesh return __shape3d_ptr().value.get_debug_mesh();
-	var custom_solver_bias(get, set) : Float;
-	var margin(get, set) : Float;
+	public var custom_solver_bias(get, set) : Float;
+	public var margin(get, set) : Float;
 }

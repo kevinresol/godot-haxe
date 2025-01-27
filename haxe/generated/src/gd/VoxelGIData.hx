@@ -49,13 +49,13 @@ class VoxelGIData extends gd.Resource {
 		return p_enable;
 	}
 	public function is_using_two_bounces():Bool return __voxelgidata_ptr().value.is_using_two_bounces();
-	var dynamic_range(get, set) : Float;
-	var energy(get, set) : Float;
-	var bias(get, set) : Float;
-	var normal_bias(get, set) : Float;
-	var propagation(get, set) : Float;
-	var use_two_bounces(get, set) : Bool;
+	public var dynamic_range(get, set) : Float;
+	public var energy(get, set) : Float;
+	public var bias(get, set) : Float;
+	public var normal_bias(get, set) : Float;
+	public var propagation(get, set) : Float;
+	public var use_two_bounces(get, set) : Bool;
 	function get_use_two_bounces():Bool return is_using_two_bounces();
-	var interior(get, set) : Bool;
+	public var interior(get, set) : Bool;
 	function get_interior():Bool return is_interior();
 }

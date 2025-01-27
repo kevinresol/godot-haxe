@@ -14,5 +14,5 @@ class InputEventMagnifyGesture extends gd.InputEventGesture {
 		return p_factor;
 	}
 	public function get_factor():Float return __inputeventmagnifygesture_ptr().value.get_factor();
-	var factor(get, set) : Float;
+	public var factor(get, set) : Float;
 }

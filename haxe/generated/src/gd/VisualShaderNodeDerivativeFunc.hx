@@ -21,12 +21,12 @@ class VisualShaderNodeDerivativeFunc extends gd.VisualShaderNode {
 		return p_precision;
 	}
 	public function get_precision():gd.visualshadernodederivativefunc.Precision return __visualshadernodederivativefunc_ptr().value.get_precision();
-	var op_type(get, set) : gd.visualshadernodederivativefunc.OpType;
-	var function_(get, set) : gd.visualshadernodederivativefunc.Function;
+	public var op_type(get, set) : gd.visualshadernodederivativefunc.OpType;
+	public var function_(get, set) : gd.visualshadernodederivativefunc.Function;
 	function get_function_():gd.visualshadernodederivativefunc.Function return get_function();
 	function set_function_(v:gd.visualshadernodederivativefunc.Function):gd.visualshadernodederivativefunc.Function {
 		set_function(v);
 		return v;
 	}
-	var precision(get, set) : gd.visualshadernodederivativefunc.Precision;
+	public var precision(get, set) : gd.visualshadernodederivativefunc.Precision;
 }

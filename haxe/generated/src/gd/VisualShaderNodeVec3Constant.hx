@@ -14,5 +14,5 @@ class VisualShaderNodeVec3Constant extends gd.VisualShaderNodeConstant {
 		return p_constant;
 	}
 	public function get_constant():gd.Vector3 return __visualshadernodevec3constant_ptr().value.get_constant();
-	var constant(get, set) : gd.Vector3;
+	public var constant(get, set) : gd.Vector3;
 }

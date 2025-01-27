@@ -29,8 +29,8 @@ class GPUParticlesAttractor3D extends gd.VisualInstance3D {
 		return p_amount;
 	}
 	public function get_directionality():Float return __gpuparticlesattractor3d_ptr().value.get_directionality();
-	var strength(get, set) : Float;
-	var attenuation(get, set) : Float;
-	var directionality(get, set) : Float;
-	var cull_mask(get, set) : Int;
+	public var strength(get, set) : Float;
+	public var attenuation(get, set) : Float;
+	public var directionality(get, set) : Float;
+	public var cull_mask(get, set) : Int;
 }

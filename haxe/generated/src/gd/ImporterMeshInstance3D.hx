@@ -56,19 +56,19 @@ class ImporterMeshInstance3D extends gd.Node3D {
 		return p_mode;
 	}
 	public function get_visibility_range_fade_mode():gd.geometryinstance3d.VisibilityRangeFadeMode return __importermeshinstance3d_ptr().value.get_visibility_range_fade_mode();
-	var mesh(get, set) : gd.ImporterMesh;
-	var skin(get, set) : gd.Skin;
-	var skeleton_path(get, set) : std.String;
-	var layer_mask(get, set) : Int;
-	var cast_shadow(get, set) : gd.geometryinstance3d.ShadowCastingSetting;
+	public var mesh(get, set) : gd.ImporterMesh;
+	public var skin(get, set) : gd.Skin;
+	public var skeleton_path(get, set) : std.String;
+	public var layer_mask(get, set) : Int;
+	public var cast_shadow(get, set) : gd.geometryinstance3d.ShadowCastingSetting;
 	function get_cast_shadow():gd.geometryinstance3d.ShadowCastingSetting return get_cast_shadows_setting();
 	function set_cast_shadow(v:gd.geometryinstance3d.ShadowCastingSetting):gd.geometryinstance3d.ShadowCastingSetting {
 		set_cast_shadows_setting(v);
 		return v;
 	}
-	var visibility_range_begin(get, set) : Float;
-	var visibility_range_begin_margin(get, set) : Float;
-	var visibility_range_end(get, set) : Float;
-	var visibility_range_end_margin(get, set) : Float;
-	var visibility_range_fade_mode(get, set) : gd.geometryinstance3d.VisibilityRangeFadeMode;
+	public var visibility_range_begin(get, set) : Float;
+	public var visibility_range_begin_margin(get, set) : Float;
+	public var visibility_range_end(get, set) : Float;
+	public var visibility_range_end_margin(get, set) : Float;
+	public var visibility_range_fade_mode(get, set) : gd.geometryinstance3d.VisibilityRangeFadeMode;
 }

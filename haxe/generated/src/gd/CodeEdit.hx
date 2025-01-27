@@ -152,76 +152,76 @@ class CodeEdit extends gd.TextEdit {
 	public function delete_lines():Void __codeedit_ptr().value.delete_lines();
 	public function duplicate_selection():Void __codeedit_ptr().value.duplicate_selection();
 	public function duplicate_lines():Void __codeedit_ptr().value.duplicate_lines();
-	var symbol_lookup_on_click(get, set) : Bool;
+	public var symbol_lookup_on_click(get, set) : Bool;
 	function get_symbol_lookup_on_click():Bool return is_symbol_lookup_on_click_enabled();
 	function set_symbol_lookup_on_click(v:Bool):Bool {
 		set_symbol_lookup_on_click_enabled(v);
 		return v;
 	}
-	var line_folding(get, set) : Bool;
+	public var line_folding(get, set) : Bool;
 	function get_line_folding():Bool return is_line_folding_enabled();
 	function set_line_folding(v:Bool):Bool {
 		set_line_folding_enabled(v);
 		return v;
 	}
-	var gutters_draw_breakpoints_gutter(get, set) : Bool;
+	public var gutters_draw_breakpoints_gutter(get, set) : Bool;
 	function get_gutters_draw_breakpoints_gutter():Bool return is_drawing_breakpoints_gutter();
 	function set_gutters_draw_breakpoints_gutter(v:Bool):Bool {
 		set_draw_breakpoints_gutter(v);
 		return v;
 	}
-	var gutters_draw_bookmarks(get, set) : Bool;
+	public var gutters_draw_bookmarks(get, set) : Bool;
 	function get_gutters_draw_bookmarks():Bool return is_drawing_bookmarks_gutter();
 	function set_gutters_draw_bookmarks(v:Bool):Bool {
 		set_draw_bookmarks_gutter(v);
 		return v;
 	}
-	var gutters_draw_executing_lines(get, set) : Bool;
+	public var gutters_draw_executing_lines(get, set) : Bool;
 	function get_gutters_draw_executing_lines():Bool return is_drawing_executing_lines_gutter();
 	function set_gutters_draw_executing_lines(v:Bool):Bool {
 		set_draw_executing_lines_gutter(v);
 		return v;
 	}
-	var gutters_draw_line_numbers(get, set) : Bool;
+	public var gutters_draw_line_numbers(get, set) : Bool;
 	function get_gutters_draw_line_numbers():Bool return is_draw_line_numbers_enabled();
 	function set_gutters_draw_line_numbers(v:Bool):Bool {
 		set_draw_line_numbers(v);
 		return v;
 	}
-	var gutters_zero_pad_line_numbers(get, set) : Bool;
+	public var gutters_zero_pad_line_numbers(get, set) : Bool;
 	function get_gutters_zero_pad_line_numbers():Bool return is_line_numbers_zero_padded();
 	function set_gutters_zero_pad_line_numbers(v:Bool):Bool {
 		set_line_numbers_zero_padded(v);
 		return v;
 	}
-	var gutters_draw_fold_gutter(get, set) : Bool;
+	public var gutters_draw_fold_gutter(get, set) : Bool;
 	function get_gutters_draw_fold_gutter():Bool return is_drawing_fold_gutter();
 	function set_gutters_draw_fold_gutter(v:Bool):Bool {
 		set_draw_fold_gutter(v);
 		return v;
 	}
-	var code_completion_enabled(get, set) : Bool;
+	public var code_completion_enabled(get, set) : Bool;
 	function get_code_completion_enabled():Bool return is_code_completion_enabled();
-	var indent_size(get, set) : Int;
-	var indent_use_spaces(get, set) : Bool;
+	public var indent_size(get, set) : Int;
+	public var indent_use_spaces(get, set) : Bool;
 	function get_indent_use_spaces():Bool return is_indent_using_spaces();
 	function set_indent_use_spaces(v:Bool):Bool {
 		set_indent_using_spaces(v);
 		return v;
 	}
-	var indent_automatic(get, set) : Bool;
+	public var indent_automatic(get, set) : Bool;
 	function get_indent_automatic():Bool return is_auto_indent_enabled();
 	function set_indent_automatic(v:Bool):Bool {
 		set_auto_indent_enabled(v);
 		return v;
 	}
-	var auto_brace_completion_enabled(get, set) : Bool;
+	public var auto_brace_completion_enabled(get, set) : Bool;
 	function get_auto_brace_completion_enabled():Bool return is_auto_brace_completion_enabled();
-	var auto_brace_completion_highlight_matching(get, set) : Bool;
+	public var auto_brace_completion_highlight_matching(get, set) : Bool;
 	function get_auto_brace_completion_highlight_matching():Bool return is_highlight_matching_braces_enabled();
 	function set_auto_brace_completion_highlight_matching(v:Bool):Bool {
 		set_highlight_matching_braces_enabled(v);
 		return v;
 	}
-	var auto_brace_completion_pairs(get, set) : gd.Dictionary;
+	public var auto_brace_completion_pairs(get, set) : gd.Dictionary;
 }

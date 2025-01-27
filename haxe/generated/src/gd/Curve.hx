@@ -53,8 +53,8 @@ class Curve extends gd.Resource {
 		__curve_ptr().value.set_bake_resolution(((p_resolution : Int)));
 		return p_resolution;
 	}
-	var min_value(get, set) : Float;
-	var max_value(get, set) : Float;
-	var bake_resolution(get, set) : Int;
-	var point_count(get, set) : Int;
+	public var min_value(get, set) : Float;
+	public var max_value(get, set) : Float;
+	public var bake_resolution(get, set) : Int;
+	public var point_count(get, set) : Int;
 }

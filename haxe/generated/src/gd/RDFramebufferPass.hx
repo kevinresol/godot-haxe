@@ -34,9 +34,9 @@ class RDFramebufferPass extends gd.RefCounted {
 		return p_p_member;
 	}
 	public function get_depth_attachment():Int return __rdframebufferpass_ptr().value.get_depth_attachment();
-	var color_attachments(get, set) : gd.PackedInt32Array;
-	var input_attachments(get, set) : gd.PackedInt32Array;
-	var resolve_attachments(get, set) : gd.PackedInt32Array;
-	var preserve_attachments(get, set) : gd.PackedInt32Array;
-	var depth_attachment(get, set) : Int;
+	public var color_attachments(get, set) : gd.PackedInt32Array;
+	public var input_attachments(get, set) : gd.PackedInt32Array;
+	public var resolve_attachments(get, set) : gd.PackedInt32Array;
+	public var preserve_attachments(get, set) : gd.PackedInt32Array;
+	public var depth_attachment(get, set) : Int;
 }

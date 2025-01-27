@@ -14,5 +14,5 @@ class VisualShaderNodeVectorBase extends gd.VisualShaderNode {
 		return p_type;
 	}
 	public function get_op_type():gd.visualshadernodevectorbase.OpType return __visualshadernodevectorbase_ptr().value.get_op_type();
-	var op_type(get, set) : gd.visualshadernodevectorbase.OpType;
+	public var op_type(get, set) : gd.visualshadernodevectorbase.OpType;
 }

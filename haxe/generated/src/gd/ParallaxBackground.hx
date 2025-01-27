@@ -30,22 +30,22 @@ class ParallaxBackground extends gd.CanvasLayer {
 	public function get_limit_end():gd.Vector2 return __parallaxbackground_ptr().value.get_limit_end();
 	public function set_ignore_camera_zoom(p_ignore:Bool):Void __parallaxbackground_ptr().value.set_ignore_camera_zoom(((p_ignore : Bool)));
 	public function is_ignore_camera_zoom():Bool return __parallaxbackground_ptr().value.is_ignore_camera_zoom();
-	var scroll_offset(get, set) : gd.Vector2;
-	var scroll_base_offset(get, set) : gd.Vector2;
-	var scroll_base_scale(get, set) : gd.Vector2;
-	var scroll_limit_begin(get, set) : gd.Vector2;
+	public var scroll_offset(get, set) : gd.Vector2;
+	public var scroll_base_offset(get, set) : gd.Vector2;
+	public var scroll_base_scale(get, set) : gd.Vector2;
+	public var scroll_limit_begin(get, set) : gd.Vector2;
 	function get_scroll_limit_begin():gd.Vector2 return get_limit_begin();
 	function set_scroll_limit_begin(v:gd.Vector2):gd.Vector2 {
 		set_limit_begin(v);
 		return v;
 	}
-	var scroll_limit_end(get, set) : gd.Vector2;
+	public var scroll_limit_end(get, set) : gd.Vector2;
 	function get_scroll_limit_end():gd.Vector2 return get_limit_end();
 	function set_scroll_limit_end(v:gd.Vector2):gd.Vector2 {
 		set_limit_end(v);
 		return v;
 	}
-	var scroll_ignore_camera_zoom(get, set) : Bool;
+	public var scroll_ignore_camera_zoom(get, set) : Bool;
 	function get_scroll_ignore_camera_zoom():Bool return is_ignore_camera_zoom();
 	function set_scroll_ignore_camera_zoom(v:Bool):Bool {
 		set_ignore_camera_zoom(v);

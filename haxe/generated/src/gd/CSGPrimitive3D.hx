@@ -14,5 +14,5 @@ class CSGPrimitive3D extends gd.CSGShape3D {
 		return p_flip_faces;
 	}
 	public function get_flip_faces():Bool return __csgprimitive3d_ptr().value.get_flip_faces();
-	var flip_faces(get, set) : Bool;
+	public var flip_faces(get, set) : Bool;
 }

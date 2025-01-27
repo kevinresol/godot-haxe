@@ -15,5 +15,5 @@ class VisibleOnScreenNotifier2D extends gd.Node2D {
 	}
 	public function get_rect():gd.Rect2 return __visibleonscreennotifier2d_ptr().value.get_rect();
 	public function is_on_screen():Bool return __visibleonscreennotifier2d_ptr().value.is_on_screen();
-	var rect(get, set) : gd.Rect2;
+	public var rect(get, set) : gd.Rect2;
 }

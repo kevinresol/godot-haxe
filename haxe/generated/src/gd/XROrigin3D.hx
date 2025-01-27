@@ -19,7 +19,7 @@ class XROrigin3D extends gd.Node3D {
 		return p_enabled;
 	}
 	public function is_current():Bool return __xrorigin3d_ptr().value.is_current();
-	var world_scale(get, set) : Float;
-	var current(get, set) : Bool;
+	public var world_scale(get, set) : Float;
+	public var current(get, set) : Bool;
 	function get_current():Bool return is_current();
 }

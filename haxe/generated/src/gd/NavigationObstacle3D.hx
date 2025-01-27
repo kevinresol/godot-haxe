@@ -59,13 +59,13 @@ class NavigationObstacle3D extends gd.Node3D {
 		return p_enabled;
 	}
 	public function get_carve_navigation_mesh():Bool return __navigationobstacle3d_ptr().value.get_carve_navigation_mesh();
-	var radius(get, set) : Float;
-	var height(get, set) : Float;
-	var vertices(get, set) : gd.PackedVector3Array;
-	var affect_navigation_mesh(get, set) : Bool;
-	var carve_navigation_mesh(get, set) : Bool;
-	var avoidance_enabled(get, set) : Bool;
-	var velocity(get, set) : gd.Vector3;
-	var avoidance_layers(get, set) : Int;
-	var use_3d_avoidance(get, set) : Bool;
+	public var radius(get, set) : Float;
+	public var height(get, set) : Float;
+	public var vertices(get, set) : gd.PackedVector3Array;
+	public var affect_navigation_mesh(get, set) : Bool;
+	public var carve_navigation_mesh(get, set) : Bool;
+	public var avoidance_enabled(get, set) : Bool;
+	public var velocity(get, set) : gd.Vector3;
+	public var avoidance_layers(get, set) : Int;
+	public var use_3d_avoidance(get, set) : Bool;
 }

@@ -38,9 +38,9 @@ class AnimatedTexture extends gd.Texture2D {
 	public function get_frame_texture(p_frame:Int):gd.Texture2D return __animatedtexture_ptr().value.get_frame_texture(((p_frame : Int)));
 	public function set_frame_duration(p_frame:Int, p_duration:Float):Void __animatedtexture_ptr().value.set_frame_duration(((p_frame : Int)), ((p_duration : Float)));
 	public function get_frame_duration(p_frame:Int):Float return __animatedtexture_ptr().value.get_frame_duration(((p_frame : Int)));
-	var frames(get, set) : Int;
-	var current_frame(get, set) : Int;
-	var pause(get, set) : Bool;
-	var one_shot(get, set) : Bool;
-	var speed_scale(get, set) : Float;
+	public var frames(get, set) : Int;
+	public var current_frame(get, set) : Int;
+	public var pause(get, set) : Bool;
+	public var one_shot(get, set) : Bool;
+	public var speed_scale(get, set) : Float;
 }

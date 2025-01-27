@@ -25,7 +25,7 @@ class InputEventAction extends gd.InputEvent {
 		return p_index;
 	}
 	public function get_event_index():Int return __inputeventaction_ptr().value.get_event_index();
-	var action(get, set) : std.String;
-	var strength(get, set) : Float;
-	var event_index(get, set) : Int;
+	public var action(get, set) : std.String;
+	public var strength(get, set) : Float;
+	public var event_index(get, set) : Int;
 }

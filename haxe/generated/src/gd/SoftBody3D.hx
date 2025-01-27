@@ -77,16 +77,16 @@ class SoftBody3D extends gd.MeshInstance3D {
 		return p_ray_pickable;
 	}
 	public function is_ray_pickable():Bool return __softbody3d_ptr().value.is_ray_pickable();
-	var collision_layer(get, set) : Int;
-	var collision_mask(get, set) : Int;
-	var parent_collision_ignore(get, set) : std.String;
-	var simulation_precision(get, set) : Int;
-	var total_mass(get, set) : Float;
-	var linear_stiffness(get, set) : Float;
-	var pressure_coefficient(get, set) : Float;
-	var damping_coefficient(get, set) : Float;
-	var drag_coefficient(get, set) : Float;
-	var ray_pickable(get, set) : Bool;
+	public var collision_layer(get, set) : Int;
+	public var collision_mask(get, set) : Int;
+	public var parent_collision_ignore(get, set) : std.String;
+	public var simulation_precision(get, set) : Int;
+	public var total_mass(get, set) : Float;
+	public var linear_stiffness(get, set) : Float;
+	public var pressure_coefficient(get, set) : Float;
+	public var damping_coefficient(get, set) : Float;
+	public var drag_coefficient(get, set) : Float;
+	public var ray_pickable(get, set) : Bool;
 	function get_ray_pickable():Bool return is_ray_pickable();
-	var disable_mode(get, set) : gd.softbody3d.DisableMode;
+	public var disable_mode(get, set) : gd.softbody3d.DisableMode;
 }

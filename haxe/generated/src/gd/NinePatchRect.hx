@@ -30,41 +30,41 @@ class NinePatchRect extends gd.Control {
 	public function get_h_axis_stretch_mode():gd.ninepatchrect.AxisStretchMode return __ninepatchrect_ptr().value.get_h_axis_stretch_mode();
 	public function set_v_axis_stretch_mode(p_mode:gd.ninepatchrect.AxisStretchMode):Void __ninepatchrect_ptr().value.set_v_axis_stretch_mode(((p_mode : gd.ninepatchrect.AxisStretchMode)));
 	public function get_v_axis_stretch_mode():gd.ninepatchrect.AxisStretchMode return __ninepatchrect_ptr().value.get_v_axis_stretch_mode();
-	var texture(get, set) : gd.Texture2D;
-	var draw_center(get, set) : Bool;
+	public var texture(get, set) : gd.Texture2D;
+	public var draw_center(get, set) : Bool;
 	function get_draw_center():Bool return is_draw_center_enabled();
-	var region_rect(get, set) : gd.Rect2;
-	var patch_margin_left(get, set) : Int;
+	public var region_rect(get, set) : gd.Rect2;
+	public var patch_margin_left(get, set) : Int;
 	function get_patch_margin_left():Int return get_patch_margin(0);
 	function set_patch_margin_left(v:Int):Int {
 		set_patch_margin(0, v);
 		return v;
 	}
-	var patch_margin_top(get, set) : Int;
+	public var patch_margin_top(get, set) : Int;
 	function get_patch_margin_top():Int return get_patch_margin(1);
 	function set_patch_margin_top(v:Int):Int {
 		set_patch_margin(1, v);
 		return v;
 	}
-	var patch_margin_right(get, set) : Int;
+	public var patch_margin_right(get, set) : Int;
 	function get_patch_margin_right():Int return get_patch_margin(2);
 	function set_patch_margin_right(v:Int):Int {
 		set_patch_margin(2, v);
 		return v;
 	}
-	var patch_margin_bottom(get, set) : Int;
+	public var patch_margin_bottom(get, set) : Int;
 	function get_patch_margin_bottom():Int return get_patch_margin(3);
 	function set_patch_margin_bottom(v:Int):Int {
 		set_patch_margin(3, v);
 		return v;
 	}
-	var axis_stretch_horizontal(get, set) : gd.ninepatchrect.AxisStretchMode;
+	public var axis_stretch_horizontal(get, set) : gd.ninepatchrect.AxisStretchMode;
 	function get_axis_stretch_horizontal():gd.ninepatchrect.AxisStretchMode return get_h_axis_stretch_mode();
 	function set_axis_stretch_horizontal(v:gd.ninepatchrect.AxisStretchMode):gd.ninepatchrect.AxisStretchMode {
 		set_h_axis_stretch_mode(v);
 		return v;
 	}
-	var axis_stretch_vertical(get, set) : gd.ninepatchrect.AxisStretchMode;
+	public var axis_stretch_vertical(get, set) : gd.ninepatchrect.AxisStretchMode;
 	function get_axis_stretch_vertical():gd.ninepatchrect.AxisStretchMode return get_v_axis_stretch_mode();
 	function set_axis_stretch_vertical(v:gd.ninepatchrect.AxisStretchMode):gd.ninepatchrect.AxisStretchMode {
 		set_v_axis_stretch_mode(v);

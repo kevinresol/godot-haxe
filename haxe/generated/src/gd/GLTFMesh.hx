@@ -26,7 +26,7 @@ class GLTFMesh extends gd.Resource {
 	}
 	public function get_additional_data(p_extension_name:std.String):gd.Variant return __gltfmesh_ptr().value.get_additional_data(((p_extension_name : std.String)));
 	public function set_additional_data(p_extension_name:std.String, p_additional_data:gd.Variant):Void __gltfmesh_ptr().value.set_additional_data(((p_extension_name : std.String)), ((p_additional_data : gd.Variant)));
-	var original_name(get, set) : std.String;
-	var mesh(get, set) : gd.ImporterMesh;
-	var blend_weights(get, set) : gd.PackedFloat32Array;
+	public var original_name(get, set) : std.String;
+	public var mesh(get, set) : gd.ImporterMesh;
+	public var blend_weights(get, set) : gd.PackedFloat32Array;
 }

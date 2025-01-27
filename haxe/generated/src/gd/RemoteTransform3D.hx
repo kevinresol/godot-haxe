@@ -32,14 +32,14 @@ class RemoteTransform3D extends gd.Node3D {
 		return p_update_remote_scale;
 	}
 	public function get_update_scale():Bool return __remotetransform3d_ptr().value.get_update_scale();
-	var remote_path(get, set) : std.String;
+	public var remote_path(get, set) : std.String;
 	function get_remote_path():std.String return get_remote_node();
 	function set_remote_path(v:std.String):std.String {
 		set_remote_node(v);
 		return v;
 	}
-	var use_global_coordinates(get, set) : Bool;
-	var update_position(get, set) : Bool;
-	var update_rotation(get, set) : Bool;
-	var update_scale(get, set) : Bool;
+	public var use_global_coordinates(get, set) : Bool;
+	public var update_position(get, set) : Bool;
+	public var update_rotation(get, set) : Bool;
+	public var update_scale(get, set) : Bool;
 }

@@ -48,6 +48,6 @@ class AnimationNode extends gd.Resource {
 	};
 	public function set_parameter(p_name:std.String, p_value:gd.Variant):Void __animationnode_ptr().value.set_parameter(((p_name : std.String)), ((p_value : gd.Variant)));
 	public function get_parameter(p_name:std.String):gd.Variant return __animationnode_ptr().value.get_parameter(((p_name : std.String)));
-	var filter_enabled(get, set) : Bool;
+	public var filter_enabled(get, set) : Bool;
 	function get_filter_enabled():Bool return is_filter_enabled();
 }

@@ -44,13 +44,13 @@ class CylinderMesh extends gd.PrimitiveMesh {
 		return p_cap_bottom;
 	}
 	public function is_cap_bottom():Bool return __cylindermesh_ptr().value.is_cap_bottom();
-	var top_radius(get, set) : Float;
-	var bottom_radius(get, set) : Float;
-	var height(get, set) : Float;
-	var radial_segments(get, set) : Int;
-	var rings(get, set) : Int;
-	var cap_top(get, set) : Bool;
+	public var top_radius(get, set) : Float;
+	public var bottom_radius(get, set) : Float;
+	public var height(get, set) : Float;
+	public var radial_segments(get, set) : Int;
+	public var rings(get, set) : Int;
+	public var cap_top(get, set) : Bool;
 	function get_cap_top():Bool return is_cap_top();
-	var cap_bottom(get, set) : Bool;
+	public var cap_bottom(get, set) : Bool;
 	function get_cap_bottom():Bool return is_cap_bottom();
 }

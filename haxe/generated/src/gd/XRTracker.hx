@@ -15,19 +15,19 @@ class XRTracker extends gd.RefCounted {
 	public function set_tracker_name(p_name:std.String):Void __xrtracker_ptr().value.set_tracker_name(((p_name : std.String)));
 	public function get_tracker_desc():std.String return __xrtracker_ptr().value.get_tracker_desc();
 	public function set_tracker_desc(p_description:std.String):Void __xrtracker_ptr().value.set_tracker_desc(((p_description : std.String)));
-	var type(get, set) : gd.xrserver.TrackerType;
+	public var type(get, set) : gd.xrserver.TrackerType;
 	function get_type():gd.xrserver.TrackerType return get_tracker_type();
 	function set_type(v:gd.xrserver.TrackerType):gd.xrserver.TrackerType {
 		set_tracker_type(v);
 		return v;
 	}
-	var name(get, set) : std.String;
+	public var name(get, set) : std.String;
 	function get_name():std.String return get_tracker_name();
 	function set_name(v:std.String):std.String {
 		set_tracker_name(v);
 		return v;
 	}
-	var description(get, set) : std.String;
+	public var description(get, set) : std.String;
 	function get_description():std.String return get_tracker_desc();
 	function set_description(v:std.String):std.String {
 		set_tracker_desc(v);

@@ -225,8 +225,7 @@ class ClassBuilder extends EnumBuilder {
 		for (fn in methods) {
 			final fname = fn.name;
 			final rtype = fn.return_value?.type ?? 'void';
-			final args = (fn.arguments ?? []).filter(arg -> arg.type != 'enum::Node.InternalMode'
-				&& arg.type != 'enum::ResourceLoader.CacheMode');
+			final args = (fn.arguments ?? []);
 			final optArgCount = args.count(a -> a.default_value != null);
 			try {
 				cls.fields.push({
@@ -316,6 +315,7 @@ class ClassBuilder extends EnumBuilder {
 
 				cls.fields.push({
 					pos: null,
+					access: isScriptExtern ? [] : [APublic],
 					name: pname,
 					kind: FProp('get', prop.setter == null ? 'never' : 'set', ptype)
 				});

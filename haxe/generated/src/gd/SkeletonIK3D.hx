@@ -58,20 +58,20 @@ class SkeletonIK3D extends gd.SkeletonModifier3D {
 		return p_interpolation;
 	}
 	public function get_interpolation():Float return __skeletonik3d_ptr().value.get_interpolation();
-	var root_bone(get, set) : std.String;
-	var tip_bone(get, set) : std.String;
-	var override_tip_basis(get, set) : Bool;
+	public var root_bone(get, set) : std.String;
+	public var tip_bone(get, set) : std.String;
+	public var override_tip_basis(get, set) : Bool;
 	function get_override_tip_basis():Bool return is_override_tip_basis();
-	var use_magnet(get, set) : Bool;
+	public var use_magnet(get, set) : Bool;
 	function get_use_magnet():Bool return is_using_magnet();
-	var magnet(get, set) : gd.Vector3;
+	public var magnet(get, set) : gd.Vector3;
 	function get_magnet():gd.Vector3 return get_magnet_position();
 	function set_magnet(v:gd.Vector3):gd.Vector3 {
 		set_magnet_position(v);
 		return v;
 	}
-	var target_node(get, set) : std.String;
-	var min_distance(get, set) : Float;
-	var max_iterations(get, set) : Int;
-	var interpolation(get, set) : Float;
+	public var target_node(get, set) : std.String;
+	public var min_distance(get, set) : Float;
+	public var max_iterations(get, set) : Int;
+	public var interpolation(get, set) : Float;
 }

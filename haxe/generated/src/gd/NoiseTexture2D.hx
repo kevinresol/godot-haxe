@@ -61,18 +61,18 @@ class NoiseTexture2D extends gd.Texture2D {
 		return p_noise;
 	}
 	public function get_noise():gd.Noise return __noisetexture2d_ptr().value.get_noise();
-	var invert(get, set) : Bool;
-	var in_3d_space(get, set) : Bool;
+	public var invert(get, set) : Bool;
+	public var in_3d_space(get, set) : Bool;
 	function get_in_3d_space():Bool return is_in_3d_space();
-	var generate_mipmaps(get, set) : Bool;
+	public var generate_mipmaps(get, set) : Bool;
 	function get_generate_mipmaps():Bool return is_generating_mipmaps();
-	var seamless(get, set) : Bool;
-	var seamless_blend_skirt(get, set) : Float;
-	var as_normal_map(get, set) : Bool;
+	public var seamless(get, set) : Bool;
+	public var seamless_blend_skirt(get, set) : Float;
+	public var as_normal_map(get, set) : Bool;
 	function get_as_normal_map():Bool return is_normal_map();
-	var bump_strength(get, set) : Float;
-	var normalize(get, set) : Bool;
+	public var bump_strength(get, set) : Float;
+	public var normalize(get, set) : Bool;
 	function get_normalize():Bool return is_normalized();
-	var color_ramp(get, set) : gd.Gradient;
-	var noise(get, set) : gd.Noise;
+	public var color_ramp(get, set) : gd.Gradient;
+	public var noise(get, set) : gd.Noise;
 }

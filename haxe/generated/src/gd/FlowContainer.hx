@@ -30,10 +30,10 @@ class FlowContainer extends gd.Container {
 		return p_reverse_fill;
 	}
 	public function is_reverse_fill():Bool return __flowcontainer_ptr().value.is_reverse_fill();
-	var alignment(get, set) : gd.flowcontainer.AlignmentMode;
-	var last_wrap_alignment(get, set) : gd.flowcontainer.LastWrapAlignmentMode;
-	var vertical(get, set) : Bool;
+	public var alignment(get, set) : gd.flowcontainer.AlignmentMode;
+	public var last_wrap_alignment(get, set) : gd.flowcontainer.LastWrapAlignmentMode;
+	public var vertical(get, set) : Bool;
 	function get_vertical():Bool return is_vertical();
-	var reverse_fill(get, set) : Bool;
+	public var reverse_fill(get, set) : Bool;
 	function get_reverse_fill():Bool return is_reverse_fill();
 }

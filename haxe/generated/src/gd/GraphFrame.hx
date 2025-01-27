@@ -40,12 +40,12 @@ class GraphFrame extends gd.GraphElement {
 		return p_color;
 	}
 	public function get_tint_color():gd.Color return __graphframe_ptr().value.get_tint_color();
-	var title(get, set) : std.String;
-	var autoshrink_enabled(get, set) : Bool;
+	public var title(get, set) : std.String;
+	public var autoshrink_enabled(get, set) : Bool;
 	function get_autoshrink_enabled():Bool return is_autoshrink_enabled();
-	var autoshrink_margin(get, set) : Int;
-	var drag_margin(get, set) : Int;
-	var tint_color_enabled(get, set) : Bool;
+	public var autoshrink_margin(get, set) : Int;
+	public var drag_margin(get, set) : Int;
+	public var tint_color_enabled(get, set) : Bool;
 	function get_tint_color_enabled():Bool return is_tint_color_enabled();
-	var tint_color(get, set) : gd.Color;
+	public var tint_color(get, set) : gd.Color;
 }

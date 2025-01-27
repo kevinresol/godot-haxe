@@ -36,14 +36,14 @@ class InputEventWithModifiers extends gd.InputEventFromWindow {
 	}
 	public function is_meta_pressed():Bool return __inputeventwithmodifiers_ptr().value.is_meta_pressed();
 	public function get_modifiers_mask():Int return __inputeventwithmodifiers_ptr().value.get_modifiers_mask();
-	var command_or_control_autoremap(get, set) : Bool;
+	public var command_or_control_autoremap(get, set) : Bool;
 	function get_command_or_control_autoremap():Bool return is_command_or_control_autoremap();
-	var alt_pressed(get, set) : Bool;
+	public var alt_pressed(get, set) : Bool;
 	function get_alt_pressed():Bool return is_alt_pressed();
-	var shift_pressed(get, set) : Bool;
+	public var shift_pressed(get, set) : Bool;
 	function get_shift_pressed():Bool return is_shift_pressed();
-	var ctrl_pressed(get, set) : Bool;
+	public var ctrl_pressed(get, set) : Bool;
 	function get_ctrl_pressed():Bool return is_ctrl_pressed();
-	var meta_pressed(get, set) : Bool;
+	public var meta_pressed(get, set) : Bool;
 	function get_meta_pressed():Bool return is_meta_pressed();
 }

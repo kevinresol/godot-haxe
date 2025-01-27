@@ -81,17 +81,17 @@ class FileDialog extends gd.ConfirmationDialog {
 	public function get_use_native_dialog():Bool return __filedialog_ptr().value.get_use_native_dialog();
 	public function deselect_all():Void __filedialog_ptr().value.deselect_all();
 	public function invalidate():Void __filedialog_ptr().value.invalidate();
-	var mode_overrides_title(get, set) : Bool;
+	public var mode_overrides_title(get, set) : Bool;
 	function get_mode_overrides_title():Bool return is_mode_overriding_title();
-	var file_mode(get, set) : gd.filedialog.FileMode;
-	var access(get, set) : gd.filedialog.Access;
-	var root_subfolder(get, set) : std.String;
-	var filters(get, set) : gd.PackedStringArray;
-	var option_count(get, set) : Int;
-	var show_hidden_files(get, set) : Bool;
+	public var file_mode(get, set) : gd.filedialog.FileMode;
+	public var access(get, set) : gd.filedialog.Access;
+	public var root_subfolder(get, set) : std.String;
+	public var filters(get, set) : gd.PackedStringArray;
+	public var option_count(get, set) : Int;
+	public var show_hidden_files(get, set) : Bool;
 	function get_show_hidden_files():Bool return is_showing_hidden_files();
-	var use_native_dialog(get, set) : Bool;
-	var current_dir(get, set) : std.String;
-	var current_file(get, set) : std.String;
-	var current_path(get, set) : std.String;
+	public var use_native_dialog(get, set) : Bool;
+	public var current_dir(get, set) : std.String;
+	public var current_file(get, set) : std.String;
+	public var current_path(get, set) : std.String;
 }

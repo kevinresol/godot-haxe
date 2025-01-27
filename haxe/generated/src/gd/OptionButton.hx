@@ -64,8 +64,8 @@ class OptionButton extends gd.Button {
 	}
 	public function get_allow_reselect():Bool return __optionbutton_ptr().value.get_allow_reselect();
 	public function set_disable_shortcuts(p_disabled:Bool):Void __optionbutton_ptr().value.set_disable_shortcuts(((p_disabled : Bool)));
-	var fit_to_longest_item(get, set) : Bool;
+	public var fit_to_longest_item(get, set) : Bool;
 	function get_fit_to_longest_item():Bool return is_fit_to_longest_item();
-	var allow_reselect(get, set) : Bool;
-	var item_count(get, set) : Int;
+	public var allow_reselect(get, set) : Bool;
+	public var item_count(get, set) : Int;
 }

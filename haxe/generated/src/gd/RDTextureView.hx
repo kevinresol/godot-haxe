@@ -34,9 +34,9 @@ class RDTextureView extends gd.RefCounted {
 		return p_p_member;
 	}
 	public function get_swizzle_a():gd.renderingdevice.TextureSwizzle return __rdtextureview_ptr().value.get_swizzle_a();
-	var format_override(get, set) : gd.renderingdevice.DataFormat;
-	var swizzle_r(get, set) : gd.renderingdevice.TextureSwizzle;
-	var swizzle_g(get, set) : gd.renderingdevice.TextureSwizzle;
-	var swizzle_b(get, set) : gd.renderingdevice.TextureSwizzle;
-	var swizzle_a(get, set) : gd.renderingdevice.TextureSwizzle;
+	public var format_override(get, set) : gd.renderingdevice.DataFormat;
+	public var swizzle_r(get, set) : gd.renderingdevice.TextureSwizzle;
+	public var swizzle_g(get, set) : gd.renderingdevice.TextureSwizzle;
+	public var swizzle_b(get, set) : gd.renderingdevice.TextureSwizzle;
+	public var swizzle_a(get, set) : gd.renderingdevice.TextureSwizzle;
 }

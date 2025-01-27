@@ -34,9 +34,9 @@ class VisualShaderNodeTextureParameter extends gd.VisualShaderNodeParameter {
 		return p_source;
 	}
 	public function get_texture_source():gd.visualshadernodetextureparameter.TextureSource return __visualshadernodetextureparameter_ptr().value.get_texture_source();
-	var texture_type(get, set) : gd.visualshadernodetextureparameter.TextureType;
-	var color_default(get, set) : gd.visualshadernodetextureparameter.ColorDefault;
-	var texture_filter(get, set) : gd.visualshadernodetextureparameter.TextureFilter;
-	var texture_repeat(get, set) : gd.visualshadernodetextureparameter.TextureRepeat;
-	var texture_source(get, set) : gd.visualshadernodetextureparameter.TextureSource;
+	public var texture_type(get, set) : gd.visualshadernodetextureparameter.TextureType;
+	public var color_default(get, set) : gd.visualshadernodetextureparameter.ColorDefault;
+	public var texture_filter(get, set) : gd.visualshadernodetextureparameter.TextureFilter;
+	public var texture_repeat(get, set) : gd.visualshadernodetextureparameter.TextureRepeat;
+	public var texture_source(get, set) : gd.visualshadernodetextureparameter.TextureSource;
 }

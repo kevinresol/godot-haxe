@@ -50,11 +50,11 @@ class NavigationRegion3D extends gd.Node3D {
 		default:__navigationregion3d_ptr().value.bake_navigation_mesh(((p_on_thread : Bool)));
 	};
 	public function is_baking():Bool return __navigationregion3d_ptr().value.is_baking();
-	var navigation_mesh(get, set) : gd.NavigationMesh;
-	var enabled(get, set) : Bool;
+	public var navigation_mesh(get, set) : gd.NavigationMesh;
+	public var enabled(get, set) : Bool;
 	function get_enabled():Bool return is_enabled();
-	var use_edge_connections(get, set) : Bool;
-	var navigation_layers(get, set) : Int;
-	var enter_cost(get, set) : Float;
-	var travel_cost(get, set) : Float;
+	public var use_edge_connections(get, set) : Bool;
+	public var navigation_layers(get, set) : Int;
+	public var enter_cost(get, set) : Float;
+	public var travel_cost(get, set) : Float;
 }

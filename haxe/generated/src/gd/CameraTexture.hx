@@ -21,9 +21,9 @@ class CameraTexture extends gd.Texture2D {
 	public function get_which_feed():gd.cameraserver.FeedImage return __cameratexture_ptr().value.get_which_feed();
 	public function set_camera_active(p_active:Bool):Void __cameratexture_ptr().value.set_camera_active(((p_active : Bool)));
 	public function get_camera_active():Bool return __cameratexture_ptr().value.get_camera_active();
-	var camera_feed_id(get, set) : Int;
-	var which_feed(get, set) : gd.cameraserver.FeedImage;
-	var camera_is_active(get, set) : Bool;
+	public var camera_feed_id(get, set) : Int;
+	public var which_feed(get, set) : gd.cameraserver.FeedImage;
+	public var camera_is_active(get, set) : Bool;
 	function get_camera_is_active():Bool return get_camera_active();
 	function set_camera_is_active(v:Bool):Bool {
 		set_camera_active(v);

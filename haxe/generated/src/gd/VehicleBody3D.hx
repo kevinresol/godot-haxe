@@ -24,7 +24,7 @@ class VehicleBody3D extends gd.RigidBody3D {
 		return p_steering;
 	}
 	public function get_steering():Float return __vehiclebody3d_ptr().value.get_steering();
-	var engine_force(get, set) : Float;
-	var brake(get, set) : Float;
-	var steering(get, set) : Float;
+	public var engine_force(get, set) : Float;
+	public var brake(get, set) : Float;
+	public var steering(get, set) : Float;
 }

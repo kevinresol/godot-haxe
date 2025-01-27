@@ -11,7 +11,7 @@ class VisualShaderNodeIntOp extends gd.VisualShaderNode {
 	extern inline function __visualshadernodeintop_ptr():cpp.Pointer<gdnative.VisualShaderNodeIntOp.VisualShaderNodeIntOp_extern> return cast __gd.ptr;
 	public function set_operator(p_op:gd.visualshadernodeintop.Operator):Void __visualshadernodeintop_ptr().value.set_operator(((p_op : gd.visualshadernodeintop.Operator)));
 	public function get_operator():gd.visualshadernodeintop.Operator return __visualshadernodeintop_ptr().value.get_operator();
-	var operator_(get, set) : gd.visualshadernodeintop.Operator;
+	public var operator_(get, set) : gd.visualshadernodeintop.Operator;
 	function get_operator_():gd.visualshadernodeintop.Operator return get_operator();
 	function set_operator_(v:gd.visualshadernodeintop.Operator):gd.visualshadernodeintop.Operator {
 		set_operator(v);

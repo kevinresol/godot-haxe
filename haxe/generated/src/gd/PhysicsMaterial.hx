@@ -29,10 +29,10 @@ class PhysicsMaterial extends gd.Resource {
 		return p_absorbent;
 	}
 	public function is_absorbent():Bool return __physicsmaterial_ptr().value.is_absorbent();
-	var friction(get, set) : Float;
-	var rough(get, set) : Bool;
+	public var friction(get, set) : Float;
+	public var rough(get, set) : Bool;
 	function get_rough():Bool return is_rough();
-	var bounce(get, set) : Float;
-	var absorbent(get, set) : Bool;
+	public var bounce(get, set) : Float;
+	public var absorbent(get, set) : Bool;
 	function get_absorbent():Bool return is_absorbent();
 }

@@ -75,9 +75,9 @@ class PhysicsDirectBodyState3D extends gd.Object {
 	public function get_step():Float return __physicsdirectbodystate3d_ptr().value.get_step();
 	public function integrate_forces():Void __physicsdirectbodystate3d_ptr().value.integrate_forces();
 	public function get_space_state():gd.PhysicsDirectSpaceState3D return __physicsdirectbodystate3d_ptr().value.get_space_state();
-	var angular_velocity(get, set) : gd.Vector3;
-	var linear_velocity(get, set) : gd.Vector3;
-	var sleeping(get, set) : Bool;
+	public var angular_velocity(get, set) : gd.Vector3;
+	public var linear_velocity(get, set) : gd.Vector3;
+	public var sleeping(get, set) : Bool;
 	function get_sleeping():Bool return is_sleeping();
 	function set_sleeping(v:Bool):Bool {
 		set_sleep_state(v);

@@ -140,20 +140,20 @@ class ItemList extends gd.Control {
 	}
 	public function get_text_overrun_behavior():gd.textserver.OverrunBehavior return __itemlist_ptr().value.get_text_overrun_behavior();
 	public function force_update_list_size():Void __itemlist_ptr().value.force_update_list_size();
-	var select_mode(get, set) : gd.itemlist.SelectMode;
-	var allow_reselect(get, set) : Bool;
-	var allow_rmb_select(get, set) : Bool;
-	var allow_search(get, set) : Bool;
-	var max_text_lines(get, set) : Int;
-	var auto_height(get, set) : Bool;
+	public var select_mode(get, set) : gd.itemlist.SelectMode;
+	public var allow_reselect(get, set) : Bool;
+	public var allow_rmb_select(get, set) : Bool;
+	public var allow_search(get, set) : Bool;
+	public var max_text_lines(get, set) : Int;
+	public var auto_height(get, set) : Bool;
 	function get_auto_height():Bool return has_auto_height();
-	var text_overrun_behavior(get, set) : gd.textserver.OverrunBehavior;
-	var item_count(get, set) : Int;
-	var max_columns(get, set) : Int;
-	var same_column_width(get, set) : Bool;
+	public var text_overrun_behavior(get, set) : gd.textserver.OverrunBehavior;
+	public var item_count(get, set) : Int;
+	public var max_columns(get, set) : Int;
+	public var same_column_width(get, set) : Bool;
 	function get_same_column_width():Bool return is_same_column_width();
-	var fixed_column_width(get, set) : Int;
-	var icon_mode(get, set) : gd.itemlist.IconMode;
-	var icon_scale(get, set) : Float;
-	var fixed_icon_size(get, set) : gd.Vector2i;
+	public var fixed_column_width(get, set) : Int;
+	public var icon_mode(get, set) : gd.itemlist.IconMode;
+	public var icon_scale(get, set) : Float;
+	public var fixed_icon_size(get, set) : gd.Vector2i;
 }

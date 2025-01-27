@@ -143,72 +143,72 @@ class Label3D extends gd.GeometryInstance3D {
 	}
 	public function get_texture_filter():gd.basematerial3d.TextureFilter return __label3d_ptr().value.get_texture_filter();
 	public function generate_triangle_mesh():gd.TriangleMesh return __label3d_ptr().value.generate_triangle_mesh();
-	var pixel_size(get, set) : Float;
-	var offset(get, set) : gd.Vector2;
-	var billboard(get, set) : gd.basematerial3d.BillboardMode;
+	public var pixel_size(get, set) : Float;
+	public var offset(get, set) : gd.Vector2;
+	public var billboard(get, set) : gd.basematerial3d.BillboardMode;
 	function get_billboard():gd.basematerial3d.BillboardMode return get_billboard_mode();
 	function set_billboard(v:gd.basematerial3d.BillboardMode):gd.basematerial3d.BillboardMode {
 		set_billboard_mode(v);
 		return v;
 	}
-	var shaded(get, set) : Bool;
+	public var shaded(get, set) : Bool;
 	function get_shaded():Bool return get_draw_flag(0);
 	function set_shaded(v:Bool):Bool {
 		set_draw_flag(0, v);
 		return v;
 	}
-	var double_sided(get, set) : Bool;
+	public var double_sided(get, set) : Bool;
 	function get_double_sided():Bool return get_draw_flag(1);
 	function set_double_sided(v:Bool):Bool {
 		set_draw_flag(1, v);
 		return v;
 	}
-	var no_depth_test(get, set) : Bool;
+	public var no_depth_test(get, set) : Bool;
 	function get_no_depth_test():Bool return get_draw_flag(2);
 	function set_no_depth_test(v:Bool):Bool {
 		set_draw_flag(2, v);
 		return v;
 	}
-	var fixed_size(get, set) : Bool;
+	public var fixed_size(get, set) : Bool;
 	function get_fixed_size():Bool return get_draw_flag(3);
 	function set_fixed_size(v:Bool):Bool {
 		set_draw_flag(3, v);
 		return v;
 	}
-	var alpha_cut(get, set) : gd.label3d.AlphaCutMode;
+	public var alpha_cut(get, set) : gd.label3d.AlphaCutMode;
 	function get_alpha_cut():gd.label3d.AlphaCutMode return get_alpha_cut_mode();
 	function set_alpha_cut(v:gd.label3d.AlphaCutMode):gd.label3d.AlphaCutMode {
 		set_alpha_cut_mode(v);
 		return v;
 	}
-	var alpha_scissor_threshold(get, set) : Float;
-	var alpha_hash_scale(get, set) : Float;
-	var alpha_antialiasing_mode(get, set) : gd.basematerial3d.AlphaAntiAliasing;
+	public var alpha_scissor_threshold(get, set) : Float;
+	public var alpha_hash_scale(get, set) : Float;
+	public var alpha_antialiasing_mode(get, set) : gd.basematerial3d.AlphaAntiAliasing;
 	function get_alpha_antialiasing_mode():gd.basematerial3d.AlphaAntiAliasing return get_alpha_antialiasing();
 	function set_alpha_antialiasing_mode(v:gd.basematerial3d.AlphaAntiAliasing):gd.basematerial3d.AlphaAntiAliasing {
 		set_alpha_antialiasing(v);
 		return v;
 	}
-	var alpha_antialiasing_edge(get, set) : Float;
-	var texture_filter(get, set) : gd.basematerial3d.TextureFilter;
-	var render_priority(get, set) : Int;
-	var outline_render_priority(get, set) : Int;
-	var modulate(get, set) : gd.Color;
-	var outline_modulate(get, set) : gd.Color;
-	var text(get, set) : std.String;
-	var font(get, set) : gd.Font;
-	var font_size(get, set) : Int;
-	var outline_size(get, set) : Int;
-	var horizontal_alignment(get, set) : gd.HorizontalAlignment;
-	var vertical_alignment(get, set) : gd.VerticalAlignment;
-	var uppercase(get, set) : Bool;
+	public var alpha_antialiasing_edge(get, set) : Float;
+	public var texture_filter(get, set) : gd.basematerial3d.TextureFilter;
+	public var render_priority(get, set) : Int;
+	public var outline_render_priority(get, set) : Int;
+	public var modulate(get, set) : gd.Color;
+	public var outline_modulate(get, set) : gd.Color;
+	public var text(get, set) : std.String;
+	public var font(get, set) : gd.Font;
+	public var font_size(get, set) : Int;
+	public var outline_size(get, set) : Int;
+	public var horizontal_alignment(get, set) : gd.HorizontalAlignment;
+	public var vertical_alignment(get, set) : gd.VerticalAlignment;
+	public var uppercase(get, set) : Bool;
 	function get_uppercase():Bool return is_uppercase();
-	var line_spacing(get, set) : Float;
-	var autowrap_mode(get, set) : gd.textserver.AutowrapMode;
-	var justification_flags(get, set) : Int;
-	var width(get, set) : Float;
-	var text_direction(get, set) : gd.textserver.Direction;
-	var language(get, set) : std.String;
-	var structured_text_bidi_override(get, set) : gd.textserver.StructuredTextParser;
-	var structured_text_bidi_override_options(get, set) : gd.Array;
+	public var line_spacing(get, set) : Float;
+	public var autowrap_mode(get, set) : gd.textserver.AutowrapMode;
+	public var justification_flags(get, set) : Int;
+	public var width(get, set) : Float;
+	public var text_direction(get, set) : gd.textserver.Direction;
+	public var language(get, set) : std.String;
+	public var structured_text_bidi_override(get, set) : gd.textserver.StructuredTextParser;
+	public var structured_text_bidi_override_options(get, set) : gd.Array;
 }

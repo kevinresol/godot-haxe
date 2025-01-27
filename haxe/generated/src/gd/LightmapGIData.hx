@@ -23,7 +23,7 @@ class LightmapGIData extends gd.Resource {
 		return p_light_texture;
 	}
 	public function get_light_texture():gd.TextureLayered return __lightmapgidata_ptr().value.get_light_texture();
-	var uses_spherical_harmonics(get, set) : Bool;
+	public var uses_spherical_harmonics(get, set) : Bool;
 	function get_uses_spherical_harmonics():Bool return is_using_spherical_harmonics();
-	var light_texture(get, set) : gd.TextureLayered;
+	public var light_texture(get, set) : gd.TextureLayered;
 }

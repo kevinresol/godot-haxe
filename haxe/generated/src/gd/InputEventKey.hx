@@ -43,9 +43,9 @@ class InputEventKey extends gd.InputEventWithModifiers {
 	public function as_text_physical_keycode():std.String return __inputeventkey_ptr().value.as_text_physical_keycode();
 	public function as_text_key_label():std.String return __inputeventkey_ptr().value.as_text_key_label();
 	public function as_text_location():std.String return __inputeventkey_ptr().value.as_text_location();
-	var keycode(get, set) : gd.Key;
-	var physical_keycode(get, set) : gd.Key;
-	var key_label(get, set) : gd.Key;
-	var unicode(get, set) : Int;
-	var location(get, set) : gd.KeyLocation;
+	public var keycode(get, set) : gd.Key;
+	public var physical_keycode(get, set) : gd.Key;
+	public var key_label(get, set) : gd.Key;
+	public var unicode(get, set) : Int;
+	public var location(get, set) : gd.KeyLocation;
 }

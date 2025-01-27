@@ -18,13 +18,13 @@ class XRPositionalTracker extends gd.XRTracker {
 	public function invalidate_pose(p_name:std.String):Void __xrpositionaltracker_ptr().value.invalidate_pose(((p_name : std.String)));
 	public function get_input(p_name:std.String):gd.Variant return __xrpositionaltracker_ptr().value.get_input(((p_name : std.String)));
 	public function set_input(p_name:std.String, p_value:gd.Variant):Void __xrpositionaltracker_ptr().value.set_input(((p_name : std.String)), ((p_value : gd.Variant)));
-	var profile(get, set) : std.String;
+	public var profile(get, set) : std.String;
 	function get_profile():std.String return get_tracker_profile();
 	function set_profile(v:std.String):std.String {
 		set_tracker_profile(v);
 		return v;
 	}
-	var hand(get, set) : gd.xrpositionaltracker.TrackerHand;
+	public var hand(get, set) : gd.xrpositionaltracker.TrackerHand;
 	function get_hand():gd.xrpositionaltracker.TrackerHand return get_tracker_hand();
 	function set_hand(v:gd.xrpositionaltracker.TrackerHand):gd.xrpositionaltracker.TrackerHand {
 		set_tracker_hand(v);

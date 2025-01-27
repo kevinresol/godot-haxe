@@ -37,9 +37,9 @@ class ThemeDB extends gd.Object {
 		return p_stylebox;
 	}
 	public function get_fallback_stylebox():gd.StyleBox return __themedb_ptr().value.get_fallback_stylebox();
-	var fallback_base_scale(get, set) : Float;
-	var fallback_font(get, set) : gd.Font;
-	var fallback_font_size(get, set) : Int;
-	var fallback_icon(get, set) : gd.Texture2D;
-	var fallback_stylebox(get, set) : gd.StyleBox;
+	public var fallback_base_scale(get, set) : Float;
+	public var fallback_font(get, set) : gd.Font;
+	public var fallback_font_size(get, set) : Int;
+	public var fallback_icon(get, set) : gd.Texture2D;
+	public var fallback_stylebox(get, set) : gd.StyleBox;
 }

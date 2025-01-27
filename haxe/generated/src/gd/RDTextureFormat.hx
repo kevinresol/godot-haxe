@@ -56,13 +56,13 @@ class RDTextureFormat extends gd.RefCounted {
 	public function get_usage_bits():Int return __rdtextureformat_ptr().value.get_usage_bits();
 	public function add_shareable_format(p_format:gd.renderingdevice.DataFormat):Void __rdtextureformat_ptr().value.add_shareable_format(((p_format : gd.renderingdevice.DataFormat)));
 	public function remove_shareable_format(p_format:gd.renderingdevice.DataFormat):Void __rdtextureformat_ptr().value.remove_shareable_format(((p_format : gd.renderingdevice.DataFormat)));
-	var format(get, set) : gd.renderingdevice.DataFormat;
-	var width(get, set) : Int;
-	var height(get, set) : Int;
-	var depth(get, set) : Int;
-	var array_layers(get, set) : Int;
-	var mipmaps(get, set) : Int;
-	var texture_type(get, set) : gd.renderingdevice.TextureType;
-	var samples(get, set) : gd.renderingdevice.TextureSamples;
-	var usage_bits(get, set) : Int;
+	public var format(get, set) : gd.renderingdevice.DataFormat;
+	public var width(get, set) : Int;
+	public var height(get, set) : Int;
+	public var depth(get, set) : Int;
+	public var array_layers(get, set) : Int;
+	public var mipmaps(get, set) : Int;
+	public var texture_type(get, set) : gd.renderingdevice.TextureType;
+	public var samples(get, set) : gd.renderingdevice.TextureSamples;
+	public var usage_bits(get, set) : Int;
 }

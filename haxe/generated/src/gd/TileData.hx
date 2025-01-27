@@ -99,15 +99,15 @@ class TileData extends gd.Object {
 	public function get_custom_data(p_layer_name:std.String):gd.Variant return __tiledata_ptr().value.get_custom_data(((p_layer_name : std.String)));
 	public function set_custom_data_by_layer_id(p_layer_id:Int, p_value:gd.Variant):Void __tiledata_ptr().value.set_custom_data_by_layer_id(((p_layer_id : Int)), ((p_value : gd.Variant)));
 	public function get_custom_data_by_layer_id(p_layer_id:Int):gd.Variant return __tiledata_ptr().value.get_custom_data_by_layer_id(((p_layer_id : Int)));
-	var flip_h(get, set) : Bool;
-	var flip_v(get, set) : Bool;
-	var transpose(get, set) : Bool;
-	var texture_origin(get, set) : gd.Vector2i;
-	var modulate(get, set) : gd.Color;
-	var material(get, set) : gd.Material;
-	var z_index(get, set) : Int;
-	var y_sort_origin(get, set) : Int;
-	var terrain_set(get, set) : Int;
-	var terrain(get, set) : Int;
-	var probability(get, set) : Float;
+	public var flip_h(get, set) : Bool;
+	public var flip_v(get, set) : Bool;
+	public var transpose(get, set) : Bool;
+	public var texture_origin(get, set) : gd.Vector2i;
+	public var modulate(get, set) : gd.Color;
+	public var material(get, set) : gd.Material;
+	public var z_index(get, set) : Int;
+	public var y_sort_origin(get, set) : Int;
+	public var terrain_set(get, set) : Int;
+	public var terrain(get, set) : Int;
+	public var probability(get, set) : Float;
 }

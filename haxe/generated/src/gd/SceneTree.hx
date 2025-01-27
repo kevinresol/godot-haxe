@@ -86,31 +86,31 @@ class SceneTree extends gd.MainLoop {
 	};
 	public function set_multiplayer_poll_enabled(p_enabled:Bool):Void __scenetree_ptr().value.set_multiplayer_poll_enabled(((p_enabled : Bool)));
 	public function is_multiplayer_poll_enabled():Bool return __scenetree_ptr().value.is_multiplayer_poll_enabled();
-	var auto_accept_quit(get, set) : Bool;
+	public var auto_accept_quit(get, set) : Bool;
 	function get_auto_accept_quit():Bool return is_auto_accept_quit();
-	var quit_on_go_back(get, set) : Bool;
+	public var quit_on_go_back(get, set) : Bool;
 	function get_quit_on_go_back():Bool return is_quit_on_go_back();
-	var debug_collisions_hint(get, set) : Bool;
+	public var debug_collisions_hint(get, set) : Bool;
 	function get_debug_collisions_hint():Bool return is_debugging_collisions_hint();
-	var debug_paths_hint(get, set) : Bool;
+	public var debug_paths_hint(get, set) : Bool;
 	function get_debug_paths_hint():Bool return is_debugging_paths_hint();
-	var debug_navigation_hint(get, set) : Bool;
+	public var debug_navigation_hint(get, set) : Bool;
 	function get_debug_navigation_hint():Bool return is_debugging_navigation_hint();
-	var paused(get, set) : Bool;
+	public var paused(get, set) : Bool;
 	function get_paused():Bool return is_paused();
 	function set_paused(v:Bool):Bool {
 		set_pause(v);
 		return v;
 	}
-	var edited_scene_root(get, set) : gd.Node;
-	var current_scene(get, set) : gd.Node;
-	var multiplayer_poll(get, set) : Bool;
+	public var edited_scene_root(get, set) : gd.Node;
+	public var current_scene(get, set) : gd.Node;
+	public var multiplayer_poll(get, set) : Bool;
 	function get_multiplayer_poll():Bool return is_multiplayer_poll_enabled();
 	function set_multiplayer_poll(v:Bool):Bool {
 		set_multiplayer_poll_enabled(v);
 		return v;
 	}
-	var physics_interpolation(get, set) : Bool;
+	public var physics_interpolation(get, set) : Bool;
 	function get_physics_interpolation():Bool return is_physics_interpolation_enabled();
 	function set_physics_interpolation(v:Bool):Bool {
 		set_physics_interpolation_enabled(v);

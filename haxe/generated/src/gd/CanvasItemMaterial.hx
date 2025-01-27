@@ -39,10 +39,10 @@ class CanvasItemMaterial extends gd.Material {
 		return p_loop;
 	}
 	public function get_particles_anim_loop():Bool return __canvasitemmaterial_ptr().value.get_particles_anim_loop();
-	var blend_mode(get, set) : gd.canvasitemmaterial.BlendMode;
-	var light_mode(get, set) : gd.canvasitemmaterial.LightMode;
-	var particles_animation(get, set) : Bool;
-	var particles_anim_h_frames(get, set) : Int;
-	var particles_anim_v_frames(get, set) : Int;
-	var particles_anim_loop(get, set) : Bool;
+	public var blend_mode(get, set) : gd.canvasitemmaterial.BlendMode;
+	public var light_mode(get, set) : gd.canvasitemmaterial.LightMode;
+	public var particles_animation(get, set) : Bool;
+	public var particles_anim_h_frames(get, set) : Int;
+	public var particles_anim_v_frames(get, set) : Int;
+	public var particles_anim_loop(get, set) : Bool;
 }

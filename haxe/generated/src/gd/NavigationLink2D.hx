@@ -51,13 +51,13 @@ class NavigationLink2D extends gd.Node2D {
 		return p_travel_cost;
 	}
 	public function get_travel_cost():Float return __navigationlink2d_ptr().value.get_travel_cost();
-	var enabled(get, set) : Bool;
+	public var enabled(get, set) : Bool;
 	function get_enabled():Bool return is_enabled();
-	var bidirectional(get, set) : Bool;
+	public var bidirectional(get, set) : Bool;
 	function get_bidirectional():Bool return is_bidirectional();
-	var navigation_layers(get, set) : Int;
-	var start_position(get, set) : gd.Vector2;
-	var end_position(get, set) : gd.Vector2;
-	var enter_cost(get, set) : Float;
-	var travel_cost(get, set) : Float;
+	public var navigation_layers(get, set) : Int;
+	public var start_position(get, set) : gd.Vector2;
+	public var end_position(get, set) : gd.Vector2;
+	public var enter_cost(get, set) : Float;
+	public var travel_cost(get, set) : Float;
 }

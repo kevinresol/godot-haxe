@@ -14,5 +14,5 @@ class DirectionalLight2D extends gd.Light2D {
 		return p_pixels;
 	}
 	public function get_max_distance():Float return __directionallight2d_ptr().value.get_max_distance();
-	var max_distance(get, set) : Float;
+	public var max_distance(get, set) : Float;
 }

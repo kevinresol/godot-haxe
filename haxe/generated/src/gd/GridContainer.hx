@@ -14,5 +14,5 @@ class GridContainer extends gd.Container {
 		return p_columns;
 	}
 	public function get_columns():Int return __gridcontainer_ptr().value.get_columns();
-	var columns(get, set) : Int;
+	public var columns(get, set) : Int;
 }

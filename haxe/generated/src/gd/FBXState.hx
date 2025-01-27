@@ -14,5 +14,5 @@ class FBXState extends gd.GLTFState {
 		__fbxstate_ptr().value.set_allow_geometry_helper_nodes(((p_allow : Bool)));
 		return p_allow;
 	}
-	var allow_geometry_helper_nodes(get, set) : Bool;
+	public var allow_geometry_helper_nodes(get, set) : Bool;
 }

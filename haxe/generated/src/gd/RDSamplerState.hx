@@ -84,19 +84,19 @@ class RDSamplerState extends gd.RefCounted {
 		return p_p_member;
 	}
 	public function get_unnormalized_uvw():Bool return __rdsamplerstate_ptr().value.get_unnormalized_uvw();
-	var mag_filter(get, set) : gd.renderingdevice.SamplerFilter;
-	var min_filter(get, set) : gd.renderingdevice.SamplerFilter;
-	var mip_filter(get, set) : gd.renderingdevice.SamplerFilter;
-	var repeat_u(get, set) : gd.renderingdevice.SamplerRepeatMode;
-	var repeat_v(get, set) : gd.renderingdevice.SamplerRepeatMode;
-	var repeat_w(get, set) : gd.renderingdevice.SamplerRepeatMode;
-	var lod_bias(get, set) : Float;
-	var use_anisotropy(get, set) : Bool;
-	var anisotropy_max(get, set) : Float;
-	var enable_compare(get, set) : Bool;
-	var compare_op(get, set) : gd.renderingdevice.CompareOperator;
-	var min_lod(get, set) : Float;
-	var max_lod(get, set) : Float;
-	var border_color(get, set) : gd.renderingdevice.SamplerBorderColor;
-	var unnormalized_uvw(get, set) : Bool;
+	public var mag_filter(get, set) : gd.renderingdevice.SamplerFilter;
+	public var min_filter(get, set) : gd.renderingdevice.SamplerFilter;
+	public var mip_filter(get, set) : gd.renderingdevice.SamplerFilter;
+	public var repeat_u(get, set) : gd.renderingdevice.SamplerRepeatMode;
+	public var repeat_v(get, set) : gd.renderingdevice.SamplerRepeatMode;
+	public var repeat_w(get, set) : gd.renderingdevice.SamplerRepeatMode;
+	public var lod_bias(get, set) : Float;
+	public var use_anisotropy(get, set) : Bool;
+	public var anisotropy_max(get, set) : Float;
+	public var enable_compare(get, set) : Bool;
+	public var compare_op(get, set) : gd.renderingdevice.CompareOperator;
+	public var min_lod(get, set) : Float;
+	public var max_lod(get, set) : Float;
+	public var border_color(get, set) : gd.renderingdevice.SamplerBorderColor;
+	public var unnormalized_uvw(get, set) : Bool;
 }

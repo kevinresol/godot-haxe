@@ -50,13 +50,13 @@ class CSGShape3D extends gd.GeometryInstance3D {
 	}
 	public function is_calculating_tangents():Bool return __csgshape3d_ptr().value.is_calculating_tangents();
 	public function get_meshes():gd.Array return __csgshape3d_ptr().value.get_meshes();
-	var operation(get, set) : gd.csgshape3d.Operation;
-	var snap(get, set) : Float;
-	var calculate_tangents(get, set) : Bool;
+	public var operation(get, set) : gd.csgshape3d.Operation;
+	public var snap(get, set) : Float;
+	public var calculate_tangents(get, set) : Bool;
 	function get_calculate_tangents():Bool return is_calculating_tangents();
-	var use_collision(get, set) : Bool;
+	public var use_collision(get, set) : Bool;
 	function get_use_collision():Bool return is_using_collision();
-	var collision_layer(get, set) : Int;
-	var collision_mask(get, set) : Int;
-	var collision_priority(get, set) : Float;
+	public var collision_layer(get, set) : Int;
+	public var collision_mask(get, set) : Int;
+	public var collision_priority(get, set) : Float;
 }

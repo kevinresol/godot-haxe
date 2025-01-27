@@ -61,11 +61,11 @@ class CodeHighlighter extends gd.SyntaxHighlighter {
 		return p_color;
 	}
 	public function get_member_variable_color():gd.Color return __codehighlighter_ptr().value.get_member_variable_color();
-	var number_color(get, set) : gd.Color;
-	var symbol_color(get, set) : gd.Color;
-	var function_color(get, set) : gd.Color;
-	var member_variable_color(get, set) : gd.Color;
-	var keyword_colors(get, set) : gd.Dictionary;
-	var member_keyword_colors(get, set) : gd.Dictionary;
-	var color_regions(get, set) : gd.Dictionary;
+	public var number_color(get, set) : gd.Color;
+	public var symbol_color(get, set) : gd.Color;
+	public var function_color(get, set) : gd.Color;
+	public var member_variable_color(get, set) : gd.Color;
+	public var keyword_colors(get, set) : gd.Dictionary;
+	public var member_keyword_colors(get, set) : gd.Dictionary;
+	public var color_regions(get, set) : gd.Dictionary;
 }

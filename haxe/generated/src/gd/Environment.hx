@@ -430,167 +430,167 @@ class Environment extends gd.Resource {
 		return p_color_correction;
 	}
 	public function get_adjustment_color_correction():gd.Texture return __environment_ptr().value.get_adjustment_color_correction();
-	var background_mode(get, set) : gd.environment.BGMode;
+	public var background_mode(get, set) : gd.environment.BGMode;
 	function get_background_mode():gd.environment.BGMode return get_background();
 	function set_background_mode(v:gd.environment.BGMode):gd.environment.BGMode {
 		set_background(v);
 		return v;
 	}
-	var background_color(get, set) : gd.Color;
+	public var background_color(get, set) : gd.Color;
 	function get_background_color():gd.Color return get_bg_color();
 	function set_background_color(v:gd.Color):gd.Color {
 		set_bg_color(v);
 		return v;
 	}
-	var background_energy_multiplier(get, set) : Float;
+	public var background_energy_multiplier(get, set) : Float;
 	function get_background_energy_multiplier():Float return get_bg_energy_multiplier();
 	function set_background_energy_multiplier(v:Float):Float {
 		set_bg_energy_multiplier(v);
 		return v;
 	}
-	var background_intensity(get, set) : Float;
+	public var background_intensity(get, set) : Float;
 	function get_background_intensity():Float return get_bg_intensity();
 	function set_background_intensity(v:Float):Float {
 		set_bg_intensity(v);
 		return v;
 	}
-	var background_canvas_max_layer(get, set) : Int;
+	public var background_canvas_max_layer(get, set) : Int;
 	function get_background_canvas_max_layer():Int return get_canvas_max_layer();
 	function set_background_canvas_max_layer(v:Int):Int {
 		set_canvas_max_layer(v);
 		return v;
 	}
-	var background_camera_feed_id(get, set) : Int;
+	public var background_camera_feed_id(get, set) : Int;
 	function get_background_camera_feed_id():Int return get_camera_feed_id();
 	function set_background_camera_feed_id(v:Int):Int {
 		set_camera_feed_id(v);
 		return v;
 	}
-	var sky(get, set) : gd.Sky;
-	var sky_custom_fov(get, set) : Float;
-	var sky_rotation(get, set) : gd.Vector3;
-	var ambient_light_source(get, set) : gd.environment.AmbientSource;
+	public var sky(get, set) : gd.Sky;
+	public var sky_custom_fov(get, set) : Float;
+	public var sky_rotation(get, set) : gd.Vector3;
+	public var ambient_light_source(get, set) : gd.environment.AmbientSource;
 	function get_ambient_light_source():gd.environment.AmbientSource return get_ambient_source();
 	function set_ambient_light_source(v:gd.environment.AmbientSource):gd.environment.AmbientSource {
 		set_ambient_source(v);
 		return v;
 	}
-	var ambient_light_color(get, set) : gd.Color;
-	var ambient_light_sky_contribution(get, set) : Float;
-	var ambient_light_energy(get, set) : Float;
-	var reflected_light_source(get, set) : gd.environment.ReflectionSource;
+	public var ambient_light_color(get, set) : gd.Color;
+	public var ambient_light_sky_contribution(get, set) : Float;
+	public var ambient_light_energy(get, set) : Float;
+	public var reflected_light_source(get, set) : gd.environment.ReflectionSource;
 	function get_reflected_light_source():gd.environment.ReflectionSource return get_reflection_source();
 	function set_reflected_light_source(v:gd.environment.ReflectionSource):gd.environment.ReflectionSource {
 		set_reflection_source(v);
 		return v;
 	}
-	var tonemap_mode(get, set) : gd.environment.ToneMapper;
+	public var tonemap_mode(get, set) : gd.environment.ToneMapper;
 	function get_tonemap_mode():gd.environment.ToneMapper return get_tonemapper();
 	function set_tonemap_mode(v:gd.environment.ToneMapper):gd.environment.ToneMapper {
 		set_tonemapper(v);
 		return v;
 	}
-	var tonemap_exposure(get, set) : Float;
-	var tonemap_white(get, set) : Float;
-	var ssr_enabled(get, set) : Bool;
+	public var tonemap_exposure(get, set) : Float;
+	public var tonemap_white(get, set) : Float;
+	public var ssr_enabled(get, set) : Bool;
 	function get_ssr_enabled():Bool return is_ssr_enabled();
-	var ssr_max_steps(get, set) : Int;
-	var ssr_fade_in(get, set) : Float;
-	var ssr_fade_out(get, set) : Float;
-	var ssr_depth_tolerance(get, set) : Float;
-	var ssao_enabled(get, set) : Bool;
+	public var ssr_max_steps(get, set) : Int;
+	public var ssr_fade_in(get, set) : Float;
+	public var ssr_fade_out(get, set) : Float;
+	public var ssr_depth_tolerance(get, set) : Float;
+	public var ssao_enabled(get, set) : Bool;
 	function get_ssao_enabled():Bool return is_ssao_enabled();
-	var ssao_radius(get, set) : Float;
-	var ssao_intensity(get, set) : Float;
-	var ssao_power(get, set) : Float;
-	var ssao_detail(get, set) : Float;
-	var ssao_horizon(get, set) : Float;
-	var ssao_sharpness(get, set) : Float;
-	var ssao_light_affect(get, set) : Float;
+	public var ssao_radius(get, set) : Float;
+	public var ssao_intensity(get, set) : Float;
+	public var ssao_power(get, set) : Float;
+	public var ssao_detail(get, set) : Float;
+	public var ssao_horizon(get, set) : Float;
+	public var ssao_sharpness(get, set) : Float;
+	public var ssao_light_affect(get, set) : Float;
 	function get_ssao_light_affect():Float return get_ssao_direct_light_affect();
 	function set_ssao_light_affect(v:Float):Float {
 		set_ssao_direct_light_affect(v);
 		return v;
 	}
-	var ssao_ao_channel_affect(get, set) : Float;
-	var ssil_enabled(get, set) : Bool;
+	public var ssao_ao_channel_affect(get, set) : Float;
+	public var ssil_enabled(get, set) : Bool;
 	function get_ssil_enabled():Bool return is_ssil_enabled();
-	var ssil_radius(get, set) : Float;
-	var ssil_intensity(get, set) : Float;
-	var ssil_sharpness(get, set) : Float;
-	var ssil_normal_rejection(get, set) : Float;
-	var sdfgi_enabled(get, set) : Bool;
+	public var ssil_radius(get, set) : Float;
+	public var ssil_intensity(get, set) : Float;
+	public var ssil_sharpness(get, set) : Float;
+	public var ssil_normal_rejection(get, set) : Float;
+	public var sdfgi_enabled(get, set) : Bool;
 	function get_sdfgi_enabled():Bool return is_sdfgi_enabled();
-	var sdfgi_use_occlusion(get, set) : Bool;
+	public var sdfgi_use_occlusion(get, set) : Bool;
 	function get_sdfgi_use_occlusion():Bool return is_sdfgi_using_occlusion();
-	var sdfgi_read_sky_light(get, set) : Bool;
+	public var sdfgi_read_sky_light(get, set) : Bool;
 	function get_sdfgi_read_sky_light():Bool return is_sdfgi_reading_sky_light();
-	var sdfgi_bounce_feedback(get, set) : Float;
-	var sdfgi_cascades(get, set) : Int;
-	var sdfgi_min_cell_size(get, set) : Float;
-	var sdfgi_cascade0_distance(get, set) : Float;
-	var sdfgi_max_distance(get, set) : Float;
-	var sdfgi_y_scale(get, set) : gd.environment.SDFGIYScale;
-	var sdfgi_energy(get, set) : Float;
-	var sdfgi_normal_bias(get, set) : Float;
-	var sdfgi_probe_bias(get, set) : Float;
-	var glow_enabled(get, set) : Bool;
+	public var sdfgi_bounce_feedback(get, set) : Float;
+	public var sdfgi_cascades(get, set) : Int;
+	public var sdfgi_min_cell_size(get, set) : Float;
+	public var sdfgi_cascade0_distance(get, set) : Float;
+	public var sdfgi_max_distance(get, set) : Float;
+	public var sdfgi_y_scale(get, set) : gd.environment.SDFGIYScale;
+	public var sdfgi_energy(get, set) : Float;
+	public var sdfgi_normal_bias(get, set) : Float;
+	public var sdfgi_probe_bias(get, set) : Float;
+	public var glow_enabled(get, set) : Bool;
 	function get_glow_enabled():Bool return is_glow_enabled();
-	var glow_normalized(get, set) : Bool;
+	public var glow_normalized(get, set) : Bool;
 	function get_glow_normalized():Bool return is_glow_normalized();
-	var glow_intensity(get, set) : Float;
-	var glow_strength(get, set) : Float;
-	var glow_mix(get, set) : Float;
-	var glow_bloom(get, set) : Float;
-	var glow_blend_mode(get, set) : gd.environment.GlowBlendMode;
-	var glow_hdr_threshold(get, set) : Float;
+	public var glow_intensity(get, set) : Float;
+	public var glow_strength(get, set) : Float;
+	public var glow_mix(get, set) : Float;
+	public var glow_bloom(get, set) : Float;
+	public var glow_blend_mode(get, set) : gd.environment.GlowBlendMode;
+	public var glow_hdr_threshold(get, set) : Float;
 	function get_glow_hdr_threshold():Float return get_glow_hdr_bleed_threshold();
 	function set_glow_hdr_threshold(v:Float):Float {
 		set_glow_hdr_bleed_threshold(v);
 		return v;
 	}
-	var glow_hdr_scale(get, set) : Float;
+	public var glow_hdr_scale(get, set) : Float;
 	function get_glow_hdr_scale():Float return get_glow_hdr_bleed_scale();
 	function set_glow_hdr_scale(v:Float):Float {
 		set_glow_hdr_bleed_scale(v);
 		return v;
 	}
-	var glow_hdr_luminance_cap(get, set) : Float;
-	var glow_map_strength(get, set) : Float;
-	var glow_map(get, set) : gd.Texture;
-	var fog_enabled(get, set) : Bool;
+	public var glow_hdr_luminance_cap(get, set) : Float;
+	public var glow_map_strength(get, set) : Float;
+	public var glow_map(get, set) : gd.Texture;
+	public var fog_enabled(get, set) : Bool;
 	function get_fog_enabled():Bool return is_fog_enabled();
-	var fog_mode(get, set) : gd.environment.FogMode;
-	var fog_light_color(get, set) : gd.Color;
-	var fog_light_energy(get, set) : Float;
-	var fog_sun_scatter(get, set) : Float;
-	var fog_density(get, set) : Float;
-	var fog_aerial_perspective(get, set) : Float;
-	var fog_sky_affect(get, set) : Float;
-	var fog_height(get, set) : Float;
-	var fog_height_density(get, set) : Float;
-	var fog_depth_curve(get, set) : Float;
-	var fog_depth_begin(get, set) : Float;
-	var fog_depth_end(get, set) : Float;
-	var volumetric_fog_enabled(get, set) : Bool;
+	public var fog_mode(get, set) : gd.environment.FogMode;
+	public var fog_light_color(get, set) : gd.Color;
+	public var fog_light_energy(get, set) : Float;
+	public var fog_sun_scatter(get, set) : Float;
+	public var fog_density(get, set) : Float;
+	public var fog_aerial_perspective(get, set) : Float;
+	public var fog_sky_affect(get, set) : Float;
+	public var fog_height(get, set) : Float;
+	public var fog_height_density(get, set) : Float;
+	public var fog_depth_curve(get, set) : Float;
+	public var fog_depth_begin(get, set) : Float;
+	public var fog_depth_end(get, set) : Float;
+	public var volumetric_fog_enabled(get, set) : Bool;
 	function get_volumetric_fog_enabled():Bool return is_volumetric_fog_enabled();
-	var volumetric_fog_density(get, set) : Float;
-	var volumetric_fog_albedo(get, set) : gd.Color;
-	var volumetric_fog_emission(get, set) : gd.Color;
-	var volumetric_fog_emission_energy(get, set) : Float;
-	var volumetric_fog_gi_inject(get, set) : Float;
-	var volumetric_fog_anisotropy(get, set) : Float;
-	var volumetric_fog_length(get, set) : Float;
-	var volumetric_fog_detail_spread(get, set) : Float;
-	var volumetric_fog_ambient_inject(get, set) : Float;
-	var volumetric_fog_sky_affect(get, set) : Float;
-	var volumetric_fog_temporal_reprojection_enabled(get, set) : Bool;
+	public var volumetric_fog_density(get, set) : Float;
+	public var volumetric_fog_albedo(get, set) : gd.Color;
+	public var volumetric_fog_emission(get, set) : gd.Color;
+	public var volumetric_fog_emission_energy(get, set) : Float;
+	public var volumetric_fog_gi_inject(get, set) : Float;
+	public var volumetric_fog_anisotropy(get, set) : Float;
+	public var volumetric_fog_length(get, set) : Float;
+	public var volumetric_fog_detail_spread(get, set) : Float;
+	public var volumetric_fog_ambient_inject(get, set) : Float;
+	public var volumetric_fog_sky_affect(get, set) : Float;
+	public var volumetric_fog_temporal_reprojection_enabled(get, set) : Bool;
 	function get_volumetric_fog_temporal_reprojection_enabled():Bool return is_volumetric_fog_temporal_reprojection_enabled();
-	var volumetric_fog_temporal_reprojection_amount(get, set) : Float;
-	var adjustment_enabled(get, set) : Bool;
+	public var volumetric_fog_temporal_reprojection_amount(get, set) : Float;
+	public var adjustment_enabled(get, set) : Bool;
 	function get_adjustment_enabled():Bool return is_adjustment_enabled();
-	var adjustment_brightness(get, set) : Float;
-	var adjustment_contrast(get, set) : Float;
-	var adjustment_saturation(get, set) : Float;
-	var adjustment_color_correction(get, set) : gd.Texture;
+	public var adjustment_brightness(get, set) : Float;
+	public var adjustment_contrast(get, set) : Float;
+	public var adjustment_saturation(get, set) : Float;
+	public var adjustment_color_correction(get, set) : gd.Texture;
 }

@@ -63,28 +63,28 @@ class Button extends gd.BaseButton {
 		return p_enabled;
 	}
 	public function is_expand_icon():Bool return __button_ptr().value.is_expand_icon();
-	var text(get, set) : std.String;
-	var icon(get, set) : gd.Texture2D;
+	public var text(get, set) : std.String;
+	public var icon(get, set) : gd.Texture2D;
 	function get_icon():gd.Texture2D return get_button_icon();
 	function set_icon(v:gd.Texture2D):gd.Texture2D {
 		set_button_icon(v);
 		return v;
 	}
-	var flat(get, set) : Bool;
+	public var flat(get, set) : Bool;
 	function get_flat():Bool return is_flat();
-	var alignment(get, set) : gd.HorizontalAlignment;
+	public var alignment(get, set) : gd.HorizontalAlignment;
 	function get_alignment():gd.HorizontalAlignment return get_text_alignment();
 	function set_alignment(v:gd.HorizontalAlignment):gd.HorizontalAlignment {
 		set_text_alignment(v);
 		return v;
 	}
-	var text_overrun_behavior(get, set) : gd.textserver.OverrunBehavior;
-	var autowrap_mode(get, set) : gd.textserver.AutowrapMode;
-	var clip_text(get, set) : Bool;
-	var icon_alignment(get, set) : gd.HorizontalAlignment;
-	var vertical_icon_alignment(get, set) : gd.VerticalAlignment;
-	var expand_icon(get, set) : Bool;
+	public var text_overrun_behavior(get, set) : gd.textserver.OverrunBehavior;
+	public var autowrap_mode(get, set) : gd.textserver.AutowrapMode;
+	public var clip_text(get, set) : Bool;
+	public var icon_alignment(get, set) : gd.HorizontalAlignment;
+	public var vertical_icon_alignment(get, set) : gd.VerticalAlignment;
+	public var expand_icon(get, set) : Bool;
 	function get_expand_icon():Bool return is_expand_icon();
-	var text_direction(get, set) : gd.control.TextDirection;
-	var language(get, set) : std.String;
+	public var text_direction(get, set) : gd.control.TextDirection;
+	public var language(get, set) : std.String;
 }

@@ -41,16 +41,16 @@ class LinkButton extends gd.BaseButton {
 		return p_args;
 	}
 	public function get_structured_text_bidi_override_options():gd.Array return __linkbutton_ptr().value.get_structured_text_bidi_override_options();
-	var text(get, set) : std.String;
-	var underline(get, set) : gd.linkbutton.UnderlineMode;
+	public var text(get, set) : std.String;
+	public var underline(get, set) : gd.linkbutton.UnderlineMode;
 	function get_underline():gd.linkbutton.UnderlineMode return get_underline_mode();
 	function set_underline(v:gd.linkbutton.UnderlineMode):gd.linkbutton.UnderlineMode {
 		set_underline_mode(v);
 		return v;
 	}
-	var uri(get, set) : std.String;
-	var text_direction(get, set) : gd.control.TextDirection;
-	var language(get, set) : std.String;
-	var structured_text_bidi_override(get, set) : gd.textserver.StructuredTextParser;
-	var structured_text_bidi_override_options(get, set) : gd.Array;
+	public var uri(get, set) : std.String;
+	public var text_direction(get, set) : gd.control.TextDirection;
+	public var language(get, set) : std.String;
+	public var structured_text_bidi_override(get, set) : gd.textserver.StructuredTextParser;
+	public var structured_text_bidi_override_options(get, set) : gd.Array;
 }

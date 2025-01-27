@@ -14,5 +14,5 @@ class CanvasModulate extends gd.Node2D {
 		return p_color;
 	}
 	public function get_color():gd.Color return __canvasmodulate_ptr().value.get_color();
-	var color(get, set) : gd.Color;
+	public var color(get, set) : gd.Color;
 }

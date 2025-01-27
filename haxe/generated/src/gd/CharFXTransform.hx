@@ -63,27 +63,27 @@ class CharFXTransform extends gd.RefCounted {
 		__charfxtransform_ptr().value.set_font(((p_font : gd.RID)));
 		return p_font;
 	}
-	var range(get, set) : gd.Vector2i;
-	var elapsed_time(get, set) : Float;
-	var visible(get, set) : Bool;
+	public var range(get, set) : gd.Vector2i;
+	public var elapsed_time(get, set) : Float;
+	public var visible(get, set) : Bool;
 	function get_visible():Bool return is_visible();
 	function set_visible(v:Bool):Bool {
 		set_visibility(v);
 		return v;
 	}
-	var outline(get, set) : Bool;
+	public var outline(get, set) : Bool;
 	function get_outline():Bool return is_outline();
-	var offset(get, set) : gd.Vector2;
-	var color(get, set) : gd.Color;
-	var env(get, set) : gd.Dictionary;
+	public var offset(get, set) : gd.Vector2;
+	public var color(get, set) : gd.Color;
+	public var env(get, set) : gd.Dictionary;
 	function get_env():gd.Dictionary return get_environment();
 	function set_env(v:gd.Dictionary):gd.Dictionary {
 		set_environment(v);
 		return v;
 	}
-	var glyph_index(get, set) : Int;
-	var glyph_count(get, set) : Int;
-	var glyph_flags(get, set) : Int;
-	var relative_index(get, set) : Int;
-	var font(get, set) : gd.RID;
+	public var glyph_index(get, set) : Int;
+	public var glyph_count(get, set) : Int;
+	public var glyph_flags(get, set) : Int;
+	public var relative_index(get, set) : Int;
+	public var font(get, set) : gd.RID;
 }

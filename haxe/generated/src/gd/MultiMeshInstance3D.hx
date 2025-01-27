@@ -14,5 +14,5 @@ class MultiMeshInstance3D extends gd.GeometryInstance3D {
 		return p_multimesh;
 	}
 	public function get_multimesh():gd.MultiMesh return __multimeshinstance3d_ptr().value.get_multimesh();
-	var multimesh(get, set) : gd.MultiMesh;
+	public var multimesh(get, set) : gd.MultiMesh;
 }

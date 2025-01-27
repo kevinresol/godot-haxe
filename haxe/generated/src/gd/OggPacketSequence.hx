@@ -17,11 +17,11 @@ class OggPacketSequence extends gd.Resource {
 	}
 	public function get_sampling_rate():Float return __oggpacketsequence_ptr().value.get_sampling_rate();
 	public function get_length():Float return __oggpacketsequence_ptr().value.get_length();
-	var granule_positions(get, set) : gd.PackedInt64Array;
+	public var granule_positions(get, set) : gd.PackedInt64Array;
 	function get_granule_positions():gd.PackedInt64Array return get_packet_granule_positions();
 	function set_granule_positions(v:gd.PackedInt64Array):gd.PackedInt64Array {
 		set_packet_granule_positions(v);
 		return v;
 	}
-	var sampling_rate(get, set) : Float;
+	public var sampling_rate(get, set) : Float;
 }

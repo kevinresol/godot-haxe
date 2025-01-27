@@ -44,11 +44,11 @@ class CanvasTexture extends gd.Texture2D {
 		return p_repeat;
 	}
 	public function get_texture_repeat():gd.canvasitem.TextureRepeat return __canvastexture_ptr().value.get_texture_repeat();
-	var diffuse_texture(get, set) : gd.Texture2D;
-	var normal_texture(get, set) : gd.Texture2D;
-	var specular_texture(get, set) : gd.Texture2D;
-	var specular_color(get, set) : gd.Color;
-	var specular_shininess(get, set) : Float;
-	var texture_filter(get, set) : gd.canvasitem.TextureFilter;
-	var texture_repeat(get, set) : gd.canvasitem.TextureRepeat;
+	public var diffuse_texture(get, set) : gd.Texture2D;
+	public var normal_texture(get, set) : gd.Texture2D;
+	public var specular_texture(get, set) : gd.Texture2D;
+	public var specular_color(get, set) : gd.Color;
+	public var specular_shininess(get, set) : Float;
+	public var texture_filter(get, set) : gd.canvasitem.TextureFilter;
+	public var texture_repeat(get, set) : gd.canvasitem.TextureRepeat;
 }

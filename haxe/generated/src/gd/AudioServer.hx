@@ -80,8 +80,8 @@ class AudioServer extends gd.Object {
 	public function set_enable_tagging_used_audio_streams(p_enable:Bool):Void __audioserver_ptr().value.set_enable_tagging_used_audio_streams(((p_enable : Bool)));
 	public function is_stream_registered_as_sample(p_stream:gd.AudioStream):Bool return __audioserver_ptr().value.is_stream_registered_as_sample(((p_stream : gd.AudioStream)));
 	public function register_stream_as_sample(p_stream:gd.AudioStream):Void __audioserver_ptr().value.register_stream_as_sample(((p_stream : gd.AudioStream)));
-	var bus_count(get, set) : Int;
-	var output_device(get, set) : std.String;
-	var input_device(get, set) : std.String;
-	var playback_speed_scale(get, set) : Float;
+	public var bus_count(get, set) : Int;
+	public var output_device(get, set) : std.String;
+	public var input_device(get, set) : std.String;
+	public var playback_speed_scale(get, set) : Float;
 }

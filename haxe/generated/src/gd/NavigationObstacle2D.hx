@@ -49,11 +49,11 @@ class NavigationObstacle2D extends gd.Node2D {
 		return p_enabled;
 	}
 	public function get_carve_navigation_mesh():Bool return __navigationobstacle2d_ptr().value.get_carve_navigation_mesh();
-	var radius(get, set) : Float;
-	var vertices(get, set) : gd.PackedVector2Array;
-	var affect_navigation_mesh(get, set) : Bool;
-	var carve_navigation_mesh(get, set) : Bool;
-	var avoidance_enabled(get, set) : Bool;
-	var velocity(get, set) : gd.Vector2;
-	var avoidance_layers(get, set) : Int;
+	public var radius(get, set) : Float;
+	public var vertices(get, set) : gd.PackedVector2Array;
+	public var affect_navigation_mesh(get, set) : Bool;
+	public var carve_navigation_mesh(get, set) : Bool;
+	public var avoidance_enabled(get, set) : Bool;
+	public var velocity(get, set) : gd.Vector2;
+	public var avoidance_layers(get, set) : Int;
 }

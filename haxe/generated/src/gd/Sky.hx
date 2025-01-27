@@ -21,12 +21,12 @@ class Sky extends gd.Resource {
 	public function get_process_mode():gd.sky.ProcessMode return __sky_ptr().value.get_process_mode();
 	public function set_material(p_material:gd.Material):Void __sky_ptr().value.set_material(((p_material : gd.Material)));
 	public function get_material():gd.Material return __sky_ptr().value.get_material();
-	var sky_material(get, set) : gd.Material;
+	public var sky_material(get, set) : gd.Material;
 	function get_sky_material():gd.Material return get_material();
 	function set_sky_material(v:gd.Material):gd.Material {
 		set_material(v);
 		return v;
 	}
-	var process_mode(get, set) : gd.sky.ProcessMode;
-	var radiance_size(get, set) : gd.sky.RadianceSize;
+	public var process_mode(get, set) : gd.sky.ProcessMode;
+	public var radiance_size(get, set) : gd.sky.RadianceSize;
 }

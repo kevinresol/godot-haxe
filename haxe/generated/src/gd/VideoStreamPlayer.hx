@@ -70,19 +70,19 @@ class VideoStreamPlayer extends gd.Control {
 	}
 	public function get_bus():std.String return __videostreamplayer_ptr().value.get_bus();
 	public function get_video_texture():gd.Texture2D return __videostreamplayer_ptr().value.get_video_texture();
-	var audio_track(get, set) : Int;
-	var stream(get, set) : gd.VideoStream;
-	var volume_db(get, set) : Float;
-	var volume(get, set) : Float;
-	var autoplay(get, set) : Bool;
+	public var audio_track(get, set) : Int;
+	public var stream(get, set) : gd.VideoStream;
+	public var volume_db(get, set) : Float;
+	public var volume(get, set) : Float;
+	public var autoplay(get, set) : Bool;
 	function get_autoplay():Bool return has_autoplay();
-	var paused(get, set) : Bool;
+	public var paused(get, set) : Bool;
 	function get_paused():Bool return is_paused();
-	var expand(get, set) : Bool;
+	public var expand(get, set) : Bool;
 	function get_expand():Bool return has_expand();
-	var loop(get, set) : Bool;
+	public var loop(get, set) : Bool;
 	function get_loop():Bool return has_loop();
-	var buffering_msec(get, set) : Int;
-	var stream_position(get, set) : Float;
-	var bus(get, set) : std.String;
+	public var buffering_msec(get, set) : Int;
+	public var stream_position(get, set) : Float;
+	public var bus(get, set) : std.String;
 }

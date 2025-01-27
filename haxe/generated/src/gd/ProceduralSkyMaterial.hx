@@ -79,18 +79,18 @@ class ProceduralSkyMaterial extends gd.Material {
 		return p_multiplier;
 	}
 	public function get_energy_multiplier():Float return __proceduralskymaterial_ptr().value.get_energy_multiplier();
-	var sky_top_color(get, set) : gd.Color;
-	var sky_horizon_color(get, set) : gd.Color;
-	var sky_curve(get, set) : Float;
-	var sky_energy_multiplier(get, set) : Float;
-	var sky_cover(get, set) : gd.Texture2D;
-	var sky_cover_modulate(get, set) : gd.Color;
-	var ground_bottom_color(get, set) : gd.Color;
-	var ground_horizon_color(get, set) : gd.Color;
-	var ground_curve(get, set) : Float;
-	var ground_energy_multiplier(get, set) : Float;
-	var sun_angle_max(get, set) : Float;
-	var sun_curve(get, set) : Float;
-	var use_debanding(get, set) : Bool;
-	var energy_multiplier(get, set) : Float;
+	public var sky_top_color(get, set) : gd.Color;
+	public var sky_horizon_color(get, set) : gd.Color;
+	public var sky_curve(get, set) : Float;
+	public var sky_energy_multiplier(get, set) : Float;
+	public var sky_cover(get, set) : gd.Texture2D;
+	public var sky_cover_modulate(get, set) : gd.Color;
+	public var ground_bottom_color(get, set) : gd.Color;
+	public var ground_horizon_color(get, set) : gd.Color;
+	public var ground_curve(get, set) : Float;
+	public var ground_energy_multiplier(get, set) : Float;
+	public var sun_angle_max(get, set) : Float;
+	public var sun_curve(get, set) : Float;
+	public var use_debanding(get, set) : Bool;
+	public var energy_multiplier(get, set) : Float;
 }

@@ -26,7 +26,7 @@ class OccluderInstance3D extends gd.VisualInstance3D {
 		return p_occluder;
 	}
 	public function get_occluder():gd.Occluder3D return __occluderinstance3d_ptr().value.get_occluder();
-	var occluder(get, set) : gd.Occluder3D;
-	var bake_mask(get, set) : Int;
-	var bake_simplification_distance(get, set) : Float;
+	public var occluder(get, set) : gd.Occluder3D;
+	public var bake_mask(get, set) : Int;
+	public var bake_simplification_distance(get, set) : Float;
 }

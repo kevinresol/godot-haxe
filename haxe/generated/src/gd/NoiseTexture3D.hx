@@ -42,11 +42,11 @@ class NoiseTexture3D extends gd.Texture3D {
 		return p_noise;
 	}
 	public function get_noise():gd.Noise return __noisetexture3d_ptr().value.get_noise();
-	var invert(get, set) : Bool;
-	var seamless(get, set) : Bool;
-	var seamless_blend_skirt(get, set) : Float;
-	var normalize(get, set) : Bool;
+	public var invert(get, set) : Bool;
+	public var seamless(get, set) : Bool;
+	public var seamless_blend_skirt(get, set) : Float;
+	public var normalize(get, set) : Bool;
 	function get_normalize():Bool return is_normalized();
-	var color_ramp(get, set) : gd.Gradient;
-	var noise(get, set) : gd.Noise;
+	public var color_ramp(get, set) : gd.Gradient;
+	public var noise(get, set) : gd.Noise;
 }

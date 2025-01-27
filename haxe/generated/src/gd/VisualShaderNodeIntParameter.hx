@@ -39,11 +39,11 @@ class VisualShaderNodeIntParameter extends gd.VisualShaderNodeParameter {
 		return p_value;
 	}
 	public function get_default_value():Int return __visualshadernodeintparameter_ptr().value.get_default_value();
-	var hint(get, set) : gd.visualshadernodeintparameter.Hint;
-	var min(get, set) : Int;
-	var max(get, set) : Int;
-	var step(get, set) : Int;
-	var default_value_enabled(get, set) : Bool;
+	public var hint(get, set) : gd.visualshadernodeintparameter.Hint;
+	public var min(get, set) : Int;
+	public var max(get, set) : Int;
+	public var step(get, set) : Int;
+	public var default_value_enabled(get, set) : Bool;
 	function get_default_value_enabled():Bool return is_default_value_enabled();
-	var default_value(get, set) : Int;
+	public var default_value(get, set) : Int;
 }

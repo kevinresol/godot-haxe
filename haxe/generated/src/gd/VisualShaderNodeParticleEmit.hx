@@ -14,5 +14,5 @@ class VisualShaderNodeParticleEmit extends gd.VisualShaderNode {
 		return p_flags;
 	}
 	public function get_flags():gd.visualshadernodeparticleemit.EmitFlags return __visualshadernodeparticleemit_ptr().value.get_flags();
-	var flags(get, set) : gd.visualshadernodeparticleemit.EmitFlags;
+	public var flags(get, set) : gd.visualshadernodeparticleemit.EmitFlags;
 }

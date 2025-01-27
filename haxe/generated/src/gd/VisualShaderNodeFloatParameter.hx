@@ -39,11 +39,11 @@ class VisualShaderNodeFloatParameter extends gd.VisualShaderNodeParameter {
 		return p_value;
 	}
 	public function get_default_value():Float return __visualshadernodefloatparameter_ptr().value.get_default_value();
-	var hint(get, set) : gd.visualshadernodefloatparameter.Hint;
-	var min(get, set) : Float;
-	var max(get, set) : Float;
-	var step(get, set) : Float;
-	var default_value_enabled(get, set) : Bool;
+	public var hint(get, set) : gd.visualshadernodefloatparameter.Hint;
+	public var min(get, set) : Float;
+	public var max(get, set) : Float;
+	public var step(get, set) : Float;
+	public var default_value_enabled(get, set) : Bool;
 	function get_default_value_enabled():Bool return is_default_value_enabled();
-	var default_value(get, set) : Float;
+	public var default_value(get, set) : Float;
 }

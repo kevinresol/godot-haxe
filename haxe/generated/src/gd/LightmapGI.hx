@@ -98,37 +98,37 @@ class LightmapGI extends gd.VisualInstance3D {
 		return p_camera_attributes;
 	}
 	public function get_camera_attributes():gd.CameraAttributes return __lightmapgi_ptr().value.get_camera_attributes();
-	var quality(get, set) : gd.lightmapgi.BakeQuality;
+	public var quality(get, set) : gd.lightmapgi.BakeQuality;
 	function get_quality():gd.lightmapgi.BakeQuality return get_bake_quality();
 	function set_quality(v:gd.lightmapgi.BakeQuality):gd.lightmapgi.BakeQuality {
 		set_bake_quality(v);
 		return v;
 	}
-	var bounces(get, set) : Int;
-	var bounce_indirect_energy(get, set) : Float;
-	var directional(get, set) : Bool;
+	public var bounces(get, set) : Int;
+	public var bounce_indirect_energy(get, set) : Float;
+	public var directional(get, set) : Bool;
 	function get_directional():Bool return is_directional();
-	var use_texture_for_bounces(get, set) : Bool;
+	public var use_texture_for_bounces(get, set) : Bool;
 	function get_use_texture_for_bounces():Bool return is_using_texture_for_bounces();
-	var interior(get, set) : Bool;
+	public var interior(get, set) : Bool;
 	function get_interior():Bool return is_interior();
-	var use_denoiser(get, set) : Bool;
+	public var use_denoiser(get, set) : Bool;
 	function get_use_denoiser():Bool return is_using_denoiser();
-	var denoiser_strength(get, set) : Float;
-	var denoiser_range(get, set) : Int;
-	var bias(get, set) : Float;
-	var texel_scale(get, set) : Float;
-	var max_texture_size(get, set) : Int;
-	var environment_mode(get, set) : gd.lightmapgi.EnvironmentMode;
-	var environment_custom_sky(get, set) : gd.Sky;
-	var environment_custom_color(get, set) : gd.Color;
-	var environment_custom_energy(get, set) : Float;
-	var camera_attributes(get, set) : gd.CameraAttributes;
-	var generate_probes_subdiv(get, set) : gd.lightmapgi.GenerateProbes;
+	public var denoiser_strength(get, set) : Float;
+	public var denoiser_range(get, set) : Int;
+	public var bias(get, set) : Float;
+	public var texel_scale(get, set) : Float;
+	public var max_texture_size(get, set) : Int;
+	public var environment_mode(get, set) : gd.lightmapgi.EnvironmentMode;
+	public var environment_custom_sky(get, set) : gd.Sky;
+	public var environment_custom_color(get, set) : gd.Color;
+	public var environment_custom_energy(get, set) : Float;
+	public var camera_attributes(get, set) : gd.CameraAttributes;
+	public var generate_probes_subdiv(get, set) : gd.lightmapgi.GenerateProbes;
 	function get_generate_probes_subdiv():gd.lightmapgi.GenerateProbes return get_generate_probes();
 	function set_generate_probes_subdiv(v:gd.lightmapgi.GenerateProbes):gd.lightmapgi.GenerateProbes {
 		set_generate_probes(v);
 		return v;
 	}
-	var light_data(get, set) : gd.LightmapGIData;
+	public var light_data(get, set) : gd.LightmapGIData;
 }

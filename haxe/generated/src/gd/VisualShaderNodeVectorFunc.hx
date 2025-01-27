@@ -11,7 +11,7 @@ class VisualShaderNodeVectorFunc extends gd.VisualShaderNodeVectorBase {
 	extern inline function __visualshadernodevectorfunc_ptr():cpp.Pointer<gdnative.VisualShaderNodeVectorFunc.VisualShaderNodeVectorFunc_extern> return cast __gd.ptr;
 	public function set_function(p_func:gd.visualshadernodevectorfunc.Function):Void __visualshadernodevectorfunc_ptr().value.set_function(((p_func : gd.visualshadernodevectorfunc.Function)));
 	public function get_function():gd.visualshadernodevectorfunc.Function return __visualshadernodevectorfunc_ptr().value.get_function();
-	var function_(get, set) : gd.visualshadernodevectorfunc.Function;
+	public var function_(get, set) : gd.visualshadernodevectorfunc.Function;
 	function get_function_():gd.visualshadernodevectorfunc.Function return get_function();
 	function set_function_(v:gd.visualshadernodevectorfunc.Function):gd.visualshadernodevectorfunc.Function {
 		set_function(v);

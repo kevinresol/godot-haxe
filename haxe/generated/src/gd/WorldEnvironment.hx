@@ -24,7 +24,7 @@ class WorldEnvironment extends gd.Node {
 		return p_compositor;
 	}
 	public function get_compositor():gd.Compositor return __worldenvironment_ptr().value.get_compositor();
-	var environment(get, set) : gd.Environment;
-	var camera_attributes(get, set) : gd.CameraAttributes;
-	var compositor(get, set) : gd.Compositor;
+	public var environment(get, set) : gd.Environment;
+	public var camera_attributes(get, set) : gd.CameraAttributes;
+	public var compositor(get, set) : gd.Compositor;
 }

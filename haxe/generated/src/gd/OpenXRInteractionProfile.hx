@@ -21,6 +21,6 @@ class OpenXRInteractionProfile extends gd.Resource {
 		return p_bindings;
 	}
 	public function get_bindings():gd.Array return __openxrinteractionprofile_ptr().value.get_bindings();
-	var interaction_profile_path(get, set) : std.String;
-	var bindings(get, set) : gd.Array;
+	public var interaction_profile_path(get, set) : std.String;
+	public var bindings(get, set) : gd.Array;
 }

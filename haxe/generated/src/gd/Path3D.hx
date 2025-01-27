@@ -14,5 +14,5 @@ class Path3D extends gd.Node3D {
 		return p_curve;
 	}
 	public function get_curve():gd.Curve3D return __path3d_ptr().value.get_curve();
-	var curve(get, set) : gd.Curve3D;
+	public var curve(get, set) : gd.Curve3D;
 }

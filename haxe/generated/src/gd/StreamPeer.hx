@@ -57,6 +57,6 @@ class StreamPeer extends gd.RefCounted {
 		case [null]:__streampeer_ptr().value.get_var();
 		default:__streampeer_ptr().value.get_var(((p_allow_objects : Bool)));
 	};
-	var big_endian(get, set) : Bool;
+	public var big_endian(get, set) : Bool;
 	function get_big_endian():Bool return is_big_endian_enabled();
 }

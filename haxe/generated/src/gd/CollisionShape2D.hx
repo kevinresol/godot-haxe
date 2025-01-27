@@ -34,11 +34,11 @@ class CollisionShape2D extends gd.Node2D {
 		return p_color;
 	}
 	public function get_debug_color():gd.Color return __collisionshape2d_ptr().value.get_debug_color();
-	var shape(get, set) : gd.Shape2D;
-	var disabled(get, set) : Bool;
+	public var shape(get, set) : gd.Shape2D;
+	public var disabled(get, set) : Bool;
 	function get_disabled():Bool return is_disabled();
-	var one_way_collision(get, set) : Bool;
+	public var one_way_collision(get, set) : Bool;
 	function get_one_way_collision():Bool return is_one_way_collision_enabled();
-	var one_way_collision_margin(get, set) : Float;
-	var debug_color(get, set) : gd.Color;
+	public var one_way_collision_margin(get, set) : Float;
+	public var debug_color(get, set) : gd.Color;
 }

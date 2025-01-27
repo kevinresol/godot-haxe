@@ -19,6 +19,6 @@ class RDPipelineSpecializationConstant extends gd.RefCounted {
 		return p_constant_id;
 	}
 	public function get_constant_id():Int return __rdpipelinespecializationconstant_ptr().value.get_constant_id();
-	var value(get, set) : gd.Variant;
-	var constant_id(get, set) : Int;
+	public var value(get, set) : gd.Variant;
+	public var constant_id(get, set) : Int;
 }

@@ -65,54 +65,54 @@ class Light2D extends gd.Node2D {
 	public function get_blend_mode():gd.light2d.BlendMode return __light2d_ptr().value.get_blend_mode();
 	public function set_height(p_height:Float):Void __light2d_ptr().value.set_height(((p_height : Float)));
 	public function get_height():Float return __light2d_ptr().value.get_height();
-	var enabled(get, set) : Bool;
+	public var enabled(get, set) : Bool;
 	function get_enabled():Bool return is_enabled();
-	var editor_only(get, set) : Bool;
+	public var editor_only(get, set) : Bool;
 	function get_editor_only():Bool return is_editor_only();
-	var color(get, set) : gd.Color;
-	var energy(get, set) : Float;
-	var blend_mode(get, set) : gd.light2d.BlendMode;
-	var range_z_min(get, set) : Int;
+	public var color(get, set) : gd.Color;
+	public var energy(get, set) : Float;
+	public var blend_mode(get, set) : gd.light2d.BlendMode;
+	public var range_z_min(get, set) : Int;
 	function get_range_z_min():Int return get_z_range_min();
 	function set_range_z_min(v:Int):Int {
 		set_z_range_min(v);
 		return v;
 	}
-	var range_z_max(get, set) : Int;
+	public var range_z_max(get, set) : Int;
 	function get_range_z_max():Int return get_z_range_max();
 	function set_range_z_max(v:Int):Int {
 		set_z_range_max(v);
 		return v;
 	}
-	var range_layer_min(get, set) : Int;
+	public var range_layer_min(get, set) : Int;
 	function get_range_layer_min():Int return get_layer_range_min();
 	function set_range_layer_min(v:Int):Int {
 		set_layer_range_min(v);
 		return v;
 	}
-	var range_layer_max(get, set) : Int;
+	public var range_layer_max(get, set) : Int;
 	function get_range_layer_max():Int return get_layer_range_max();
 	function set_range_layer_max(v:Int):Int {
 		set_layer_range_max(v);
 		return v;
 	}
-	var range_item_cull_mask(get, set) : Int;
+	public var range_item_cull_mask(get, set) : Int;
 	function get_range_item_cull_mask():Int return get_item_cull_mask();
 	function set_range_item_cull_mask(v:Int):Int {
 		set_item_cull_mask(v);
 		return v;
 	}
-	var shadow_enabled(get, set) : Bool;
+	public var shadow_enabled(get, set) : Bool;
 	function get_shadow_enabled():Bool return is_shadow_enabled();
-	var shadow_color(get, set) : gd.Color;
-	var shadow_filter(get, set) : gd.light2d.ShadowFilter;
-	var shadow_filter_smooth(get, set) : Float;
+	public var shadow_color(get, set) : gd.Color;
+	public var shadow_filter(get, set) : gd.light2d.ShadowFilter;
+	public var shadow_filter_smooth(get, set) : Float;
 	function get_shadow_filter_smooth():Float return get_shadow_smooth();
 	function set_shadow_filter_smooth(v:Float):Float {
 		set_shadow_smooth(v);
 		return v;
 	}
-	var shadow_item_cull_mask(get, set) : Int;
+	public var shadow_item_cull_mask(get, set) : Int;
 	function get_shadow_item_cull_mask():Int return get_item_shadow_cull_mask();
 	function set_shadow_item_cull_mask(v:Int):Int {
 		set_item_shadow_cull_mask(v);

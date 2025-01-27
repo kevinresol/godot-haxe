@@ -26,15 +26,15 @@ class Slider extends gd.Range {
 		return p_scrollable;
 	}
 	public function is_scrollable():Bool return __slider_ptr().value.is_scrollable();
-	var editable(get, set) : Bool;
+	public var editable(get, set) : Bool;
 	function get_editable():Bool return is_editable();
-	var scrollable(get, set) : Bool;
+	public var scrollable(get, set) : Bool;
 	function get_scrollable():Bool return is_scrollable();
-	var tick_count(get, set) : Int;
+	public var tick_count(get, set) : Int;
 	function get_tick_count():Int return get_ticks();
 	function set_tick_count(v:Int):Int {
 		set_ticks(v);
 		return v;
 	}
-	var ticks_on_borders(get, set) : Bool;
+	public var ticks_on_borders(get, set) : Bool;
 }

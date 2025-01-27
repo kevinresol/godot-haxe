@@ -19,6 +19,6 @@ class BackBufferCopy extends gd.Node2D {
 		return p_copy_mode;
 	}
 	public function get_copy_mode():gd.backbuffercopy.CopyMode return __backbuffercopy_ptr().value.get_copy_mode();
-	var copy_mode(get, set) : gd.backbuffercopy.CopyMode;
-	var rect(get, set) : gd.Rect2;
+	public var copy_mode(get, set) : gd.backbuffercopy.CopyMode;
+	public var rect(get, set) : gd.Rect2;
 }

@@ -191,21 +191,21 @@ class PopupMenu extends gd.Popup {
 	public function is_system_menu():Bool return __popupmenu_ptr().value.is_system_menu();
 	public function set_system_menu(p_system_menu_id:gd.nativemenu.SystemMenus):Void __popupmenu_ptr().value.set_system_menu(((p_system_menu_id : gd.nativemenu.SystemMenus)));
 	public function get_system_menu():gd.nativemenu.SystemMenus return __popupmenu_ptr().value.get_system_menu();
-	var hide_on_item_selection(get, set) : Bool;
+	public var hide_on_item_selection(get, set) : Bool;
 	function get_hide_on_item_selection():Bool return is_hide_on_item_selection();
-	var hide_on_checkable_item_selection(get, set) : Bool;
+	public var hide_on_checkable_item_selection(get, set) : Bool;
 	function get_hide_on_checkable_item_selection():Bool return is_hide_on_checkable_item_selection();
-	var hide_on_state_item_selection(get, set) : Bool;
+	public var hide_on_state_item_selection(get, set) : Bool;
 	function get_hide_on_state_item_selection():Bool return is_hide_on_state_item_selection();
-	var submenu_popup_delay(get, set) : Float;
-	var allow_search(get, set) : Bool;
-	var system_menu_id(get, set) : gd.nativemenu.SystemMenus;
+	public var submenu_popup_delay(get, set) : Float;
+	public var allow_search(get, set) : Bool;
+	public var system_menu_id(get, set) : gd.nativemenu.SystemMenus;
 	function get_system_menu_id():gd.nativemenu.SystemMenus return get_system_menu();
 	function set_system_menu_id(v:gd.nativemenu.SystemMenus):gd.nativemenu.SystemMenus {
 		set_system_menu(v);
 		return v;
 	}
-	var prefer_native_menu(get, set) : Bool;
+	public var prefer_native_menu(get, set) : Bool;
 	function get_prefer_native_menu():Bool return is_prefer_native_menu();
-	var item_count(get, set) : Int;
+	public var item_count(get, set) : Int;
 }

@@ -34,9 +34,9 @@ class PrismMesh extends gd.PrimitiveMesh {
 		return p_segments;
 	}
 	public function get_subdivide_depth():Int return __prismmesh_ptr().value.get_subdivide_depth();
-	var left_to_right(get, set) : Float;
-	var size(get, set) : gd.Vector3;
-	var subdivide_width(get, set) : Int;
-	var subdivide_height(get, set) : Int;
-	var subdivide_depth(get, set) : Int;
+	public var left_to_right(get, set) : Float;
+	public var size(get, set) : gd.Vector3;
+	public var subdivide_width(get, set) : Int;
+	public var subdivide_height(get, set) : Int;
+	public var subdivide_depth(get, set) : Int;
 }

@@ -54,13 +54,13 @@ class RenderSceneBuffersConfiguration extends gd.RefCounted {
 		__renderscenebuffersconfiguration_ptr().value.set_texture_mipmap_bias(((p_texture_mipmap_bias : Float)));
 		return p_texture_mipmap_bias;
 	}
-	var render_target(get, set) : gd.RID;
-	var internal_size(get, set) : gd.Vector2i;
-	var target_size(get, set) : gd.Vector2i;
-	var view_count(get, set) : Int;
-	var scaling_3d_mode(get, set) : gd.renderingserver.ViewportScaling3DMode;
-	var msaa_3d(get, set) : gd.renderingserver.ViewportMSAA;
-	var screen_space_aa(get, set) : gd.renderingserver.ViewportScreenSpaceAA;
-	var fsr_sharpness(get, set) : Float;
-	var texture_mipmap_bias(get, set) : Float;
+	public var render_target(get, set) : gd.RID;
+	public var internal_size(get, set) : gd.Vector2i;
+	public var target_size(get, set) : gd.Vector2i;
+	public var view_count(get, set) : Int;
+	public var scaling_3d_mode(get, set) : gd.renderingserver.ViewportScaling3DMode;
+	public var msaa_3d(get, set) : gd.renderingserver.ViewportMSAA;
+	public var screen_space_aa(get, set) : gd.renderingserver.ViewportScreenSpaceAA;
+	public var fsr_sharpness(get, set) : Float;
+	public var texture_mipmap_bias(get, set) : Float;
 }

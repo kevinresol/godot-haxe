@@ -19,6 +19,6 @@ class AudioStreamGenerator extends gd.AudioStream {
 		return p_seconds;
 	}
 	public function get_buffer_length():Float return __audiostreamgenerator_ptr().value.get_buffer_length();
-	var mix_rate(get, set) : Float;
-	var buffer_length(get, set) : Float;
+	public var mix_rate(get, set) : Float;
+	public var buffer_length(get, set) : Float;
 }

@@ -19,6 +19,6 @@ class XRHandModifier3D extends gd.SkeletonModifier3D {
 		return p_bone_update;
 	}
 	public function get_bone_update():gd.xrhandmodifier3d.BoneUpdate return __xrhandmodifier3d_ptr().value.get_bone_update();
-	var hand_tracker(get, set) : std.String;
-	var bone_update(get, set) : gd.xrhandmodifier3d.BoneUpdate;
+	public var hand_tracker(get, set) : std.String;
+	public var bone_update(get, set) : gd.xrhandmodifier3d.BoneUpdate;
 }

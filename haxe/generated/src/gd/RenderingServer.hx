@@ -590,6 +590,6 @@ class RenderingServer extends gd.Object {
 	public function is_on_render_thread():Bool return __renderingserver_ptr().value.is_on_render_thread();
 	public function call_on_render_thread(p_callable:gd.Callable):Void __renderingserver_ptr().value.call_on_render_thread(((p_callable : gd.Callable)));
 	public function has_feature(p_feature:gd.renderingserver.Features):Bool return __renderingserver_ptr().value.has_feature(((p_feature : gd.renderingserver.Features)));
-	var render_loop_enabled(get, set) : Bool;
+	public var render_loop_enabled(get, set) : Bool;
 	function get_render_loop_enabled():Bool return is_render_loop_enabled();
 }

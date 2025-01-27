@@ -42,5 +42,5 @@ class InputEvent extends gd.Resource {
 	};
 	public function is_action_type():Bool return __inputevent_ptr().value.is_action_type();
 	public function accumulate(p_with_event:gd.InputEvent):Bool return __inputevent_ptr().value.accumulate(((p_with_event : gd.InputEvent)));
-	var device(get, set) : Int;
+	public var device(get, set) : Int;
 }

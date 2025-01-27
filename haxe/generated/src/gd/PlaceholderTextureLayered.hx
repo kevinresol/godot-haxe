@@ -15,5 +15,5 @@ class PlaceholderTextureLayered extends gd.TextureLayered {
 	}
 	public function get_size():gd.Vector2i return __placeholdertexturelayered_ptr().value.get_size();
 	public function set_layers(p_layers:Int):Void __placeholdertexturelayered_ptr().value.set_layers(((p_layers : Int)));
-	var size(get, set) : gd.Vector2i;
+	public var size(get, set) : gd.Vector2i;
 }

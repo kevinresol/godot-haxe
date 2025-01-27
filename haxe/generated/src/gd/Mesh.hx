@@ -42,5 +42,5 @@ class Mesh extends gd.Resource {
 	};
 	public function create_outline(p_margin:Float):gd.Mesh return __mesh_ptr().value.create_outline(((p_margin : Float)));
 	public function generate_triangle_mesh():gd.TriangleMesh return __mesh_ptr().value.generate_triangle_mesh();
-	var lightmap_size_hint(get, set) : gd.Vector2i;
+	public var lightmap_size_hint(get, set) : gd.Vector2i;
 }

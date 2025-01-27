@@ -23,6 +23,6 @@ class OpenXRIPBinding extends gd.Resource {
 	public function has_path(p_path:std.String):Bool return __openxripbinding_ptr().value.has_path(((p_path : std.String)));
 	public function add_path(p_path:std.String):Void __openxripbinding_ptr().value.add_path(((p_path : std.String)));
 	public function remove_path(p_path:std.String):Void __openxripbinding_ptr().value.remove_path(((p_path : std.String)));
-	var action(get, set) : gd.OpenXRAction;
-	var paths(get, set) : gd.PackedStringArray;
+	public var action(get, set) : gd.OpenXRAction;
+	public var paths(get, set) : gd.PackedStringArray;
 }

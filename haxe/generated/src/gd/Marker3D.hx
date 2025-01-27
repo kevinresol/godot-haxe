@@ -14,5 +14,5 @@ class Marker3D extends gd.Node3D {
 		return p_extents;
 	}
 	public function get_gizmo_extents():Float return __marker3d_ptr().value.get_gizmo_extents();
-	var gizmo_extents(get, set) : Float;
+	public var gizmo_extents(get, set) : Float;
 }

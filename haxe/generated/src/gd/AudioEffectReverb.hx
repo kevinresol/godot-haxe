@@ -46,17 +46,17 @@ class AudioEffectReverb extends gd.AudioEffect {
 	public function get_wet():Float return __audioeffectreverb_ptr().value.get_wet();
 	public function set_hpf(p_amount:Float):Void __audioeffectreverb_ptr().value.set_hpf(((p_amount : Float)));
 	public function get_hpf():Float return __audioeffectreverb_ptr().value.get_hpf();
-	var predelay_msec(get, set) : Float;
-	var predelay_feedback(get, set) : Float;
-	var room_size(get, set) : Float;
-	var damping(get, set) : Float;
-	var spread(get, set) : Float;
-	var hipass(get, set) : Float;
+	public var predelay_msec(get, set) : Float;
+	public var predelay_feedback(get, set) : Float;
+	public var room_size(get, set) : Float;
+	public var damping(get, set) : Float;
+	public var spread(get, set) : Float;
+	public var hipass(get, set) : Float;
 	function get_hipass():Float return get_hpf();
 	function set_hipass(v:Float):Float {
 		set_hpf(v);
 		return v;
 	}
-	var dry(get, set) : Float;
-	var wet(get, set) : Float;
+	public var dry(get, set) : Float;
+	public var wet(get, set) : Float;
 }

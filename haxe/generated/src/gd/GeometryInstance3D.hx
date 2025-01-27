@@ -80,30 +80,30 @@ class GeometryInstance3D extends gd.VisualInstance3D {
 		return p_aabb;
 	}
 	public function get_custom_aabb():gd.AABB return __geometryinstance3d_ptr().value.get_custom_aabb();
-	var material_override(get, set) : gd.Material;
-	var material_overlay(get, set) : gd.Material;
-	var transparency(get, set) : Float;
-	var cast_shadow(get, set) : gd.geometryinstance3d.ShadowCastingSetting;
+	public var material_override(get, set) : gd.Material;
+	public var material_overlay(get, set) : gd.Material;
+	public var transparency(get, set) : Float;
+	public var cast_shadow(get, set) : gd.geometryinstance3d.ShadowCastingSetting;
 	function get_cast_shadow():gd.geometryinstance3d.ShadowCastingSetting return get_cast_shadows_setting();
 	function set_cast_shadow(v:gd.geometryinstance3d.ShadowCastingSetting):gd.geometryinstance3d.ShadowCastingSetting {
 		set_cast_shadows_setting(v);
 		return v;
 	}
-	var extra_cull_margin(get, set) : Float;
-	var custom_aabb(get, set) : gd.AABB;
-	var lod_bias(get, set) : Float;
-	var ignore_occlusion_culling(get, set) : Bool;
+	public var extra_cull_margin(get, set) : Float;
+	public var custom_aabb(get, set) : gd.AABB;
+	public var lod_bias(get, set) : Float;
+	public var ignore_occlusion_culling(get, set) : Bool;
 	function get_ignore_occlusion_culling():Bool return is_ignoring_occlusion_culling();
-	var gi_mode(get, set) : gd.geometryinstance3d.GIMode;
-	var gi_lightmap_scale(get, set) : gd.geometryinstance3d.LightmapScale;
+	public var gi_mode(get, set) : gd.geometryinstance3d.GIMode;
+	public var gi_lightmap_scale(get, set) : gd.geometryinstance3d.LightmapScale;
 	function get_gi_lightmap_scale():gd.geometryinstance3d.LightmapScale return get_lightmap_scale();
 	function set_gi_lightmap_scale(v:gd.geometryinstance3d.LightmapScale):gd.geometryinstance3d.LightmapScale {
 		set_lightmap_scale(v);
 		return v;
 	}
-	var visibility_range_begin(get, set) : Float;
-	var visibility_range_begin_margin(get, set) : Float;
-	var visibility_range_end(get, set) : Float;
-	var visibility_range_end_margin(get, set) : Float;
-	var visibility_range_fade_mode(get, set) : gd.geometryinstance3d.VisibilityRangeFadeMode;
+	public var visibility_range_begin(get, set) : Float;
+	public var visibility_range_begin_margin(get, set) : Float;
+	public var visibility_range_end(get, set) : Float;
+	public var visibility_range_end_margin(get, set) : Float;
+	public var visibility_range_fade_mode(get, set) : gd.geometryinstance3d.VisibilityRangeFadeMode;
 }

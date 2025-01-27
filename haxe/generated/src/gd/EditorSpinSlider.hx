@@ -34,12 +34,12 @@ class EditorSpinSlider extends gd.Range {
 		return p_hide_slider;
 	}
 	public function is_hiding_slider():Bool return __editorspinslider_ptr().value.is_hiding_slider();
-	var label(get, set) : std.String;
-	var suffix(get, set) : std.String;
-	var read_only(get, set) : Bool;
+	public var label(get, set) : std.String;
+	public var suffix(get, set) : std.String;
+	public var read_only(get, set) : Bool;
 	function get_read_only():Bool return is_read_only();
-	var flat(get, set) : Bool;
+	public var flat(get, set) : Bool;
 	function get_flat():Bool return is_flat();
-	var hide_slider(get, set) : Bool;
+	public var hide_slider(get, set) : Bool;
 	function get_hide_slider():Bool return is_hiding_slider();
 }

@@ -71,16 +71,16 @@ class GLTFNode extends gd.Resource {
 	}
 	public function get_additional_data(p_extension_name:std.String):gd.Variant return __gltfnode_ptr().value.get_additional_data(((p_extension_name : std.String)));
 	public function set_additional_data(p_extension_name:std.String, p_additional_data:gd.Variant):Void __gltfnode_ptr().value.set_additional_data(((p_extension_name : std.String)), ((p_additional_data : gd.Variant)));
-	var original_name(get, set) : std.String;
-	var parent(get, set) : Int;
-	var height(get, set) : Int;
-	var mesh(get, set) : Int;
-	var camera(get, set) : Int;
-	var skin(get, set) : Int;
-	var skeleton(get, set) : Int;
-	var position(get, set) : gd.Vector3;
-	var rotation(get, set) : gd.Quaternion;
-	var scale(get, set) : gd.Vector3;
-	var children(get, set) : gd.PackedInt32Array;
-	var light(get, set) : Int;
+	public var original_name(get, set) : std.String;
+	public var parent(get, set) : Int;
+	public var height(get, set) : Int;
+	public var mesh(get, set) : Int;
+	public var camera(get, set) : Int;
+	public var skin(get, set) : Int;
+	public var skeleton(get, set) : Int;
+	public var position(get, set) : gd.Vector3;
+	public var rotation(get, set) : gd.Quaternion;
+	public var scale(get, set) : gd.Vector3;
+	public var children(get, set) : gd.PackedInt32Array;
+	public var light(get, set) : Int;
 }

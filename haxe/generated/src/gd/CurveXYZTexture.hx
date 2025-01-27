@@ -25,7 +25,7 @@ class CurveXYZTexture extends gd.Texture2D {
 		return p_curve;
 	}
 	public function get_curve_z():gd.Curve return __curvexyztexture_ptr().value.get_curve_z();
-	var curve_x(get, set) : gd.Curve;
-	var curve_y(get, set) : gd.Curve;
-	var curve_z(get, set) : gd.Curve;
+	public var curve_x(get, set) : gd.Curve;
+	public var curve_y(get, set) : gd.Curve;
+	public var curve_z(get, set) : gd.Curve;
 }

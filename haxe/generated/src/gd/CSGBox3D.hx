@@ -19,6 +19,6 @@ class CSGBox3D extends gd.CSGPrimitive3D {
 		return p_material;
 	}
 	public function get_material():gd.Material return __csgbox3d_ptr().value.get_material();
-	var size(get, set) : gd.Vector3;
-	var material(get, set) : gd.Material;
+	public var size(get, set) : gd.Vector3;
+	public var material(get, set) : gd.Material;
 }

@@ -26,5 +26,5 @@ class PacketPeer extends gd.RefCounted {
 		__packetpeer_ptr().value.set_encode_buffer_max_size(((p_max_size : Int)));
 		return p_max_size;
 	}
-	var encode_buffer_max_size(get, set) : Int;
+	public var encode_buffer_max_size(get, set) : Int;
 }

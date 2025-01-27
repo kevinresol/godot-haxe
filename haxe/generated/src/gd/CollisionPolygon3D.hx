@@ -29,9 +29,9 @@ class CollisionPolygon3D extends gd.Node3D {
 		return p_margin;
 	}
 	public function get_margin():Float return __collisionpolygon3d_ptr().value.get_margin();
-	var depth(get, set) : Float;
-	var disabled(get, set) : Bool;
+	public var depth(get, set) : Float;
+	public var disabled(get, set) : Bool;
 	function get_disabled():Bool return is_disabled();
-	var polygon(get, set) : gd.PackedVector2Array;
-	var margin(get, set) : Float;
+	public var polygon(get, set) : gd.PackedVector2Array;
+	public var margin(get, set) : Float;
 }

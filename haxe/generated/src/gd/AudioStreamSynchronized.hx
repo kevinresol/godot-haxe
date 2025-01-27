@@ -18,5 +18,5 @@ class AudioStreamSynchronized extends gd.AudioStream {
 	public function get_sync_stream(p_stream_index:Int):gd.AudioStream return __audiostreamsynchronized_ptr().value.get_sync_stream(((p_stream_index : Int)));
 	public function set_sync_stream_volume(p_stream_index:Int, p_volume_db:Float):Void __audiostreamsynchronized_ptr().value.set_sync_stream_volume(((p_stream_index : Int)), ((p_volume_db : Float)));
 	public function get_sync_stream_volume(p_stream_index:Int):Float return __audiostreamsynchronized_ptr().value.get_sync_stream_volume(((p_stream_index : Int)));
-	var stream_count(get, set) : Int;
+	public var stream_count(get, set) : Int;
 }

@@ -57,7 +57,7 @@ class GraphNode extends gd.GraphElement {
 	public function get_output_port_type(p_port_idx:Int):Int return __graphnode_ptr().value.get_output_port_type(((p_port_idx : Int)));
 	public function get_output_port_color(p_port_idx:Int):gd.Color return __graphnode_ptr().value.get_output_port_color(((p_port_idx : Int)));
 	public function get_output_port_slot(p_port_idx:Int):Int return __graphnode_ptr().value.get_output_port_slot(((p_port_idx : Int)));
-	var title(get, set) : std.String;
-	var ignore_invalid_connection_type(get, set) : Bool;
+	public var title(get, set) : std.String;
+	public var ignore_invalid_connection_type(get, set) : Bool;
 	function get_ignore_invalid_connection_type():Bool return is_ignoring_valid_connection_type();
 }

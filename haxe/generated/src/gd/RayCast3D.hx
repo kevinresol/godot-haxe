@@ -71,24 +71,24 @@ class RayCast3D extends gd.Node3D {
 		return p_debug_shape_thickness;
 	}
 	public function get_debug_shape_thickness():Int return __raycast3d_ptr().value.get_debug_shape_thickness();
-	var enabled(get, set) : Bool;
+	public var enabled(get, set) : Bool;
 	function get_enabled():Bool return is_enabled();
-	var exclude_parent(get, set) : Bool;
+	public var exclude_parent(get, set) : Bool;
 	function get_exclude_parent():Bool return get_exclude_parent_body();
 	function set_exclude_parent(v:Bool):Bool {
 		set_exclude_parent_body(v);
 		return v;
 	}
-	var target_position(get, set) : gd.Vector3;
-	var collision_mask(get, set) : Int;
-	var hit_from_inside(get, set) : Bool;
+	public var target_position(get, set) : gd.Vector3;
+	public var collision_mask(get, set) : Int;
+	public var hit_from_inside(get, set) : Bool;
 	function get_hit_from_inside():Bool return is_hit_from_inside_enabled();
-	var hit_back_faces(get, set) : Bool;
+	public var hit_back_faces(get, set) : Bool;
 	function get_hit_back_faces():Bool return is_hit_back_faces_enabled();
-	var collide_with_areas(get, set) : Bool;
+	public var collide_with_areas(get, set) : Bool;
 	function get_collide_with_areas():Bool return is_collide_with_areas_enabled();
-	var collide_with_bodies(get, set) : Bool;
+	public var collide_with_bodies(get, set) : Bool;
 	function get_collide_with_bodies():Bool return is_collide_with_bodies_enabled();
-	var debug_shape_custom_color(get, set) : gd.Color;
-	var debug_shape_thickness(get, set) : Int;
+	public var debug_shape_custom_color(get, set) : gd.Color;
+	public var debug_shape_thickness(get, set) : Int;
 }

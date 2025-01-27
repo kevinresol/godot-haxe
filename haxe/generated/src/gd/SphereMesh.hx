@@ -34,9 +34,9 @@ class SphereMesh extends gd.PrimitiveMesh {
 		return p_is_hemisphere;
 	}
 	public function get_is_hemisphere():Bool return __spheremesh_ptr().value.get_is_hemisphere();
-	var radius(get, set) : Float;
-	var height(get, set) : Float;
-	var radial_segments(get, set) : Int;
-	var rings(get, set) : Int;
-	var is_hemisphere(get, set) : Bool;
+	public var radius(get, set) : Float;
+	public var height(get, set) : Float;
+	public var radial_segments(get, set) : Int;
+	public var rings(get, set) : Int;
+	public var is_hemisphere(get, set) : Bool;
 }

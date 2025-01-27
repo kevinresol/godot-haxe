@@ -16,5 +16,5 @@ class XRFaceTracker extends gd.XRTracker {
 		__xrfacetracker_ptr().value.set_blend_shapes(((p_weights : gd.PackedFloat32Array)));
 		return p_weights;
 	}
-	var blend_shapes(get, set) : gd.PackedFloat32Array;
+	public var blend_shapes(get, set) : gd.PackedFloat32Array;
 }

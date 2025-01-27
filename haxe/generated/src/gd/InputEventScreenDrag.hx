@@ -54,13 +54,13 @@ class InputEventScreenDrag extends gd.InputEventFromWindow {
 		return p_velocity;
 	}
 	public function get_screen_velocity():gd.Vector2 return __inputeventscreendrag_ptr().value.get_screen_velocity();
-	var index(get, set) : Int;
-	var tilt(get, set) : gd.Vector2;
-	var pressure(get, set) : Float;
-	var pen_inverted(get, set) : Bool;
-	var position(get, set) : gd.Vector2;
-	var relative(get, set) : gd.Vector2;
-	var screen_relative(get, set) : gd.Vector2;
-	var velocity(get, set) : gd.Vector2;
-	var screen_velocity(get, set) : gd.Vector2;
+	public var index(get, set) : Int;
+	public var tilt(get, set) : gd.Vector2;
+	public var pressure(get, set) : Float;
+	public var pen_inverted(get, set) : Bool;
+	public var position(get, set) : gd.Vector2;
+	public var relative(get, set) : gd.Vector2;
+	public var screen_relative(get, set) : gd.Vector2;
+	public var velocity(get, set) : gd.Vector2;
+	public var screen_velocity(get, set) : gd.Vector2;
 }

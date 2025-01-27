@@ -18,17 +18,17 @@ class DirectionalLight3D extends gd.Light3D {
 		return p_mode;
 	}
 	public function get_sky_mode():gd.directionallight3d.SkyMode return __directionallight3d_ptr().value.get_sky_mode();
-	var directional_shadow_mode(get, set) : gd.directionallight3d.ShadowMode;
+	public var directional_shadow_mode(get, set) : gd.directionallight3d.ShadowMode;
 	function get_directional_shadow_mode():gd.directionallight3d.ShadowMode return get_shadow_mode();
 	function set_directional_shadow_mode(v:gd.directionallight3d.ShadowMode):gd.directionallight3d.ShadowMode {
 		set_shadow_mode(v);
 		return v;
 	}
-	var directional_shadow_blend_splits(get, set) : Bool;
+	public var directional_shadow_blend_splits(get, set) : Bool;
 	function get_directional_shadow_blend_splits():Bool return is_blend_splits_enabled();
 	function set_directional_shadow_blend_splits(v:Bool):Bool {
 		set_blend_splits(v);
 		return v;
 	}
-	var sky_mode(get, set) : gd.directionallight3d.SkyMode;
+	public var sky_mode(get, set) : gd.directionallight3d.SkyMode;
 }

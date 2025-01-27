@@ -24,7 +24,7 @@ class RDPipelineColorBlendState extends gd.RefCounted {
 		return p_p_member;
 	}
 	public function get_blend_constant():gd.Color return __rdpipelinecolorblendstate_ptr().value.get_blend_constant();
-	var enable_logic_op(get, set) : Bool;
-	var logic_op(get, set) : gd.renderingdevice.LogicOperation;
-	var blend_constant(get, set) : gd.Color;
+	public var enable_logic_op(get, set) : Bool;
+	public var logic_op(get, set) : gd.renderingdevice.LogicOperation;
+	public var blend_constant(get, set) : gd.Color;
 }

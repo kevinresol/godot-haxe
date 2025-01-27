@@ -28,13 +28,13 @@ class VisualInstance3D extends gd.Node3D {
 	}
 	public function is_sorting_use_aabb_center():Bool return __visualinstance3d_ptr().value.is_sorting_use_aabb_center();
 	public function get_aabb():gd.AABB return __visualinstance3d_ptr().value.get_aabb();
-	var layers(get, set) : Int;
+	public var layers(get, set) : Int;
 	function get_layers():Int return get_layer_mask();
 	function set_layers(v:Int):Int {
 		set_layer_mask(v);
 		return v;
 	}
-	var sorting_offset(get, set) : Float;
-	var sorting_use_aabb_center(get, set) : Bool;
+	public var sorting_offset(get, set) : Float;
+	public var sorting_use_aabb_center(get, set) : Bool;
 	function get_sorting_use_aabb_center():Bool return is_sorting_use_aabb_center();
 }

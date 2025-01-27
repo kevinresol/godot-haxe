@@ -33,7 +33,7 @@ class SkeletonModificationStack2D extends gd.Resource {
 	}
 	public function get_strength():Float return __skeletonmodificationstack2d_ptr().value.get_strength();
 	public function get_skeleton():gd.Skeleton2D return __skeletonmodificationstack2d_ptr().value.get_skeleton();
-	var enabled(get, set) : Bool;
-	var strength(get, set) : Float;
-	var modification_count(get, set) : Int;
+	public var enabled(get, set) : Bool;
+	public var strength(get, set) : Float;
+	public var modification_count(get, set) : Int;
 }

@@ -19,6 +19,6 @@ class GPUParticlesAttractorVectorField3D extends gd.GPUParticlesAttractor3D {
 		return p_texture;
 	}
 	public function get_texture():gd.Texture3D return __gpuparticlesattractorvectorfield3d_ptr().value.get_texture();
-	var size(get, set) : gd.Vector3;
-	var texture(get, set) : gd.Texture3D;
+	public var size(get, set) : gd.Vector3;
+	public var texture(get, set) : gd.Texture3D;
 }

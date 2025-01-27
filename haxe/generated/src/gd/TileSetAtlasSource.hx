@@ -81,9 +81,9 @@ class TileSetAtlasSource extends gd.TileSetSource {
 	};
 	public function get_runtime_texture():gd.Texture2D return __tilesetatlassource_ptr().value.get_runtime_texture();
 	public function get_runtime_tile_texture_region(p_atlas_coords:gd.Vector2i, p_frame:Int):gd.Rect2i return __tilesetatlassource_ptr().value.get_runtime_tile_texture_region(((p_atlas_coords : gd.Vector2i)), ((p_frame : Int)));
-	var texture(get, set) : gd.Texture2D;
-	var margins(get, set) : gd.Vector2i;
-	var separation(get, set) : gd.Vector2i;
-	var texture_region_size(get, set) : gd.Vector2i;
-	var use_texture_padding(get, set) : Bool;
+	public var texture(get, set) : gd.Texture2D;
+	public var margins(get, set) : gd.Vector2i;
+	public var separation(get, set) : gd.Vector2i;
+	public var texture_region_size(get, set) : gd.Vector2i;
+	public var use_texture_padding(get, set) : Bool;
 }

@@ -113,23 +113,23 @@ class Node3D extends gd.Node {
 	};
 	public function to_local(p_global_point:gd.Vector3):gd.Vector3 return __node3d_ptr().value.to_local(((p_global_point : gd.Vector3)));
 	public function to_global(p_local_point:gd.Vector3):gd.Vector3 return __node3d_ptr().value.to_global(((p_local_point : gd.Vector3)));
-	var position(get, set) : gd.Vector3;
-	var rotation(get, set) : gd.Vector3;
-	var rotation_degrees(get, set) : gd.Vector3;
-	var quaternion(get, set) : gd.Quaternion;
-	var scale(get, set) : gd.Vector3;
-	var rotation_edit_mode(get, set) : gd.node3d.RotationEditMode;
-	var rotation_order(get, set) : gd.EulerOrder;
-	var top_level(get, set) : Bool;
+	public var position(get, set) : gd.Vector3;
+	public var rotation(get, set) : gd.Vector3;
+	public var rotation_degrees(get, set) : gd.Vector3;
+	public var quaternion(get, set) : gd.Quaternion;
+	public var scale(get, set) : gd.Vector3;
+	public var rotation_edit_mode(get, set) : gd.node3d.RotationEditMode;
+	public var rotation_order(get, set) : gd.EulerOrder;
+	public var top_level(get, set) : Bool;
 	function get_top_level():Bool return is_set_as_top_level();
 	function set_top_level(v:Bool):Bool {
 		set_as_top_level(v);
 		return v;
 	}
-	var global_position(get, set) : gd.Vector3;
-	var global_rotation(get, set) : gd.Vector3;
-	var global_rotation_degrees(get, set) : gd.Vector3;
-	var visible(get, set) : Bool;
+	public var global_position(get, set) : gd.Vector3;
+	public var global_rotation(get, set) : gd.Vector3;
+	public var global_rotation_degrees(get, set) : gd.Vector3;
+	public var visible(get, set) : Bool;
 	function get_visible():Bool return is_visible();
-	var visibility_parent(get, set) : std.String;
+	public var visibility_parent(get, set) : std.String;
 }

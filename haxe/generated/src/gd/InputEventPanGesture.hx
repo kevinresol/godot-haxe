@@ -14,5 +14,5 @@ class InputEventPanGesture extends gd.InputEventGesture {
 		return p_delta;
 	}
 	public function get_delta():gd.Vector2 return __inputeventpangesture_ptr().value.get_delta();
-	var delta(get, set) : gd.Vector2;
+	public var delta(get, set) : gd.Vector2;
 }

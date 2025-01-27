@@ -50,11 +50,11 @@ class NavigationRegion2D extends gd.Node2D {
 		default:__navigationregion2d_ptr().value.bake_navigation_polygon(((p_on_thread : Bool)));
 	};
 	public function is_baking():Bool return __navigationregion2d_ptr().value.is_baking();
-	var navigation_polygon(get, set) : gd.NavigationPolygon;
-	var enabled(get, set) : Bool;
+	public var navigation_polygon(get, set) : gd.NavigationPolygon;
+	public var enabled(get, set) : Bool;
 	function get_enabled():Bool return is_enabled();
-	var use_edge_connections(get, set) : Bool;
-	var navigation_layers(get, set) : Int;
-	var enter_cost(get, set) : Float;
-	var travel_cost(get, set) : Float;
+	public var use_edge_connections(get, set) : Bool;
+	public var navigation_layers(get, set) : Int;
+	public var enter_cost(get, set) : Float;
+	public var travel_cost(get, set) : Float;
 }

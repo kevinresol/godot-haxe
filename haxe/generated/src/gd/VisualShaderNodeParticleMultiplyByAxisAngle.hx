@@ -14,6 +14,6 @@ class VisualShaderNodeParticleMultiplyByAxisAngle extends gd.VisualShaderNode {
 		return p_enabled;
 	}
 	public function is_degrees_mode():Bool return __visualshadernodeparticlemultiplybyaxisangle_ptr().value.is_degrees_mode();
-	var degrees_mode(get, set) : Bool;
+	public var degrees_mode(get, set) : Bool;
 	function get_degrees_mode():Bool return is_degrees_mode();
 }

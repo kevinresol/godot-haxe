@@ -24,7 +24,7 @@ class AudioEffectHardLimiter extends gd.AudioEffect {
 		return p_p_release;
 	}
 	public function get_release():Float return __audioeffecthardlimiter_ptr().value.get_release();
-	var pre_gain_db(get, set) : Float;
-	var ceiling_db(get, set) : Float;
-	var release(get, set) : Float;
+	public var pre_gain_db(get, set) : Float;
+	public var ceiling_db(get, set) : Float;
+	public var release(get, set) : Float;
 }

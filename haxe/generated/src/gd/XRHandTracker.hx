@@ -27,6 +27,6 @@ class XRHandTracker extends gd.XRPositionalTracker {
 	public function get_hand_joint_linear_velocity(p_joint:gd.xrhandtracker.HandJoint):gd.Vector3 return __xrhandtracker_ptr().value.get_hand_joint_linear_velocity(((p_joint : gd.xrhandtracker.HandJoint)));
 	public function set_hand_joint_angular_velocity(p_joint:gd.xrhandtracker.HandJoint, p_angular_velocity:gd.Vector3):Void __xrhandtracker_ptr().value.set_hand_joint_angular_velocity(((p_joint : gd.xrhandtracker.HandJoint)), ((p_angular_velocity : gd.Vector3)));
 	public function get_hand_joint_angular_velocity(p_joint:gd.xrhandtracker.HandJoint):gd.Vector3 return __xrhandtracker_ptr().value.get_hand_joint_angular_velocity(((p_joint : gd.xrhandtracker.HandJoint)));
-	var has_tracking_data(get, set) : Bool;
-	var hand_tracking_source(get, set) : gd.xrhandtracker.HandTrackingSource;
+	public var has_tracking_data(get, set) : Bool;
+	public var hand_tracking_source(get, set) : gd.xrhandtracker.HandTrackingSource;
 }

@@ -137,7 +137,7 @@ class Animation extends gd.Resource {
 		default:__animation_ptr().value.compress(((p_page_size : Int)), ((p_fps : Int)), ((p_split_tolerance : Float)));
 	};
 	public function is_capture_included():Bool return __animation_ptr().value.is_capture_included();
-	var length(get, set) : Float;
-	var loop_mode(get, set) : gd.animation.LoopMode;
-	var step(get, set) : Float;
+	public var length(get, set) : Float;
+	public var loop_mode(get, set) : gd.animation.LoopMode;
+	public var step(get, set) : Float;
 }

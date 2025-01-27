@@ -38,8 +38,8 @@ class Gradient extends gd.Resource {
 		return p_interpolation_color_space;
 	}
 	public function get_interpolation_color_space():gd.gradient.ColorSpace return __gradient_ptr().value.get_interpolation_color_space();
-	var interpolation_mode(get, set) : gd.gradient.InterpolationMode;
-	var interpolation_color_space(get, set) : gd.gradient.ColorSpace;
-	var offsets(get, set) : gd.PackedFloat32Array;
-	var colors(get, set) : gd.PackedColorArray;
+	public var interpolation_mode(get, set) : gd.gradient.InterpolationMode;
+	public var interpolation_color_space(get, set) : gd.gradient.ColorSpace;
+	public var offsets(get, set) : gd.PackedFloat32Array;
+	public var colors(get, set) : gd.PackedColorArray;
 }

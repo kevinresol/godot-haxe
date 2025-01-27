@@ -19,6 +19,6 @@ class WorldBoundaryShape2D extends gd.Shape2D {
 		return p_distance;
 	}
 	public function get_distance():Float return __worldboundaryshape2d_ptr().value.get_distance();
-	var normal(get, set) : gd.Vector2;
-	var distance(get, set) : Float;
+	public var normal(get, set) : gd.Vector2;
+	public var distance(get, set) : Float;
 }

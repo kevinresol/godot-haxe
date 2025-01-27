@@ -15,7 +15,7 @@ extern class Node extends gd.Object {
 	function add_sibling(p_sibling:gd.Node, ?p_force_readable_name:Bool):Void;
 	function set_name(p_name:std.String):std.String;
 	function get_name():std.String;
-	function add_child(p_node:gd.Node, ?p_force_readable_name:Bool):Void;
+	function add_child(p_node:gd.Node, ?p_force_readable_name:Bool, ?p_internal:gd.node.InternalMode):Void;
 	function remove_child(p_node:gd.Node):Void;
 	function reparent(p_new_parent:gd.Node, ?p_keep_global_transform:Bool):Void;
 	function get_child_count(?p_include_internal:Bool):Int;

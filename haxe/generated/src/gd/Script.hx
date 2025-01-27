@@ -29,5 +29,5 @@ class Script extends gd.Resource {
 	public function get_property_default_value(p_property:std.String):gd.Variant return __script_ptr().value.get_property_default_value(((p_property : std.String)));
 	public function is_tool():Bool return __script_ptr().value.is_tool();
 	public function is_abstract():Bool return __script_ptr().value.is_abstract();
-	var source_code(get, set) : std.String;
+	public var source_code(get, set) : std.String;
 }

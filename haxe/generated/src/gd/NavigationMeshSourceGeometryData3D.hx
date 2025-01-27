@@ -30,7 +30,7 @@ class NavigationMeshSourceGeometryData3D extends gd.Resource {
 		return p_projected_obstructions;
 	}
 	public function get_projected_obstructions():gd.Array return __navigationmeshsourcegeometrydata3d_ptr().value.get_projected_obstructions();
-	var vertices(get, set) : gd.PackedFloat32Array;
-	var indices(get, set) : gd.PackedInt32Array;
-	var projected_obstructions(get, set) : gd.Array;
+	public var vertices(get, set) : gd.PackedFloat32Array;
+	public var indices(get, set) : gd.PackedInt32Array;
+	public var projected_obstructions(get, set) : gd.Array;
 }

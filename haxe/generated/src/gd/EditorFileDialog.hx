@@ -80,16 +80,16 @@ class EditorFileDialog extends gd.ConfirmationDialog {
 	};
 	public function popup_file_dialog():Void __editorfiledialog_ptr().value.popup_file_dialog();
 	public function invalidate():Void __editorfiledialog_ptr().value.invalidate();
-	var access(get, set) : gd.editorfiledialog.Access;
-	var display_mode(get, set) : gd.editorfiledialog.DisplayMode;
-	var file_mode(get, set) : gd.editorfiledialog.FileMode;
-	var current_dir(get, set) : std.String;
-	var current_file(get, set) : std.String;
-	var current_path(get, set) : std.String;
-	var filters(get, set) : gd.PackedStringArray;
-	var option_count(get, set) : Int;
-	var show_hidden_files(get, set) : Bool;
+	public var access(get, set) : gd.editorfiledialog.Access;
+	public var display_mode(get, set) : gd.editorfiledialog.DisplayMode;
+	public var file_mode(get, set) : gd.editorfiledialog.FileMode;
+	public var current_dir(get, set) : std.String;
+	public var current_file(get, set) : std.String;
+	public var current_path(get, set) : std.String;
+	public var filters(get, set) : gd.PackedStringArray;
+	public var option_count(get, set) : Int;
+	public var show_hidden_files(get, set) : Bool;
 	function get_show_hidden_files():Bool return is_showing_hidden_files();
-	var disable_overwrite_warning(get, set) : Bool;
+	public var disable_overwrite_warning(get, set) : Bool;
 	function get_disable_overwrite_warning():Bool return is_overwrite_warning_disabled();
 }

@@ -20,5 +20,5 @@ class StreamPeerBuffer extends gd.StreamPeer {
 	public function get_data_array():gd.PackedByteArray return __streampeerbuffer_ptr().value.get_data_array();
 	public function clear():Void __streampeerbuffer_ptr().value.clear();
 	public function duplicate():gd.StreamPeerBuffer return __streampeerbuffer_ptr().value.duplicate();
-	var data_array(get, set) : gd.PackedByteArray;
+	public var data_array(get, set) : gd.PackedByteArray;
 }

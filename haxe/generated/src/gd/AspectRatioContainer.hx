@@ -29,8 +29,8 @@ class AspectRatioContainer extends gd.Container {
 		return p_alignment_vertical;
 	}
 	public function get_alignment_vertical():gd.aspectratiocontainer.AlignmentMode return __aspectratiocontainer_ptr().value.get_alignment_vertical();
-	var ratio(get, set) : Float;
-	var stretch_mode(get, set) : gd.aspectratiocontainer.StretchMode;
-	var alignment_horizontal(get, set) : gd.aspectratiocontainer.AlignmentMode;
-	var alignment_vertical(get, set) : gd.aspectratiocontainer.AlignmentMode;
+	public var ratio(get, set) : Float;
+	public var stretch_mode(get, set) : gd.aspectratiocontainer.StretchMode;
+	public var alignment_horizontal(get, set) : gd.aspectratiocontainer.AlignmentMode;
+	public var alignment_vertical(get, set) : gd.aspectratiocontainer.AlignmentMode;
 }

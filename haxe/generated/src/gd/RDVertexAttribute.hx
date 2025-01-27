@@ -34,9 +34,9 @@ class RDVertexAttribute extends gd.RefCounted {
 		return p_p_member;
 	}
 	public function get_frequency():gd.renderingdevice.VertexFrequency return __rdvertexattribute_ptr().value.get_frequency();
-	var location(get, set) : Int;
-	var offset(get, set) : Int;
-	var format(get, set) : gd.renderingdevice.DataFormat;
-	var stride(get, set) : Int;
-	var frequency(get, set) : gd.renderingdevice.VertexFrequency;
+	public var location(get, set) : Int;
+	public var offset(get, set) : Int;
+	public var format(get, set) : gd.renderingdevice.DataFormat;
+	public var stride(get, set) : Int;
+	public var frequency(get, set) : gd.renderingdevice.VertexFrequency;
 }

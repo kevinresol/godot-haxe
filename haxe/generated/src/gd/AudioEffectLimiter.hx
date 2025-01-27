@@ -29,8 +29,8 @@ class AudioEffectLimiter extends gd.AudioEffect {
 		return p_soft_clip;
 	}
 	public function get_soft_clip_ratio():Float return __audioeffectlimiter_ptr().value.get_soft_clip_ratio();
-	var ceiling_db(get, set) : Float;
-	var threshold_db(get, set) : Float;
-	var soft_clip_db(get, set) : Float;
-	var soft_clip_ratio(get, set) : Float;
+	public var ceiling_db(get, set) : Float;
+	public var threshold_db(get, set) : Float;
+	public var soft_clip_db(get, set) : Float;
+	public var soft_clip_ratio(get, set) : Float;
 }

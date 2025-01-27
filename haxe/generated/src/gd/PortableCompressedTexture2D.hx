@@ -28,7 +28,7 @@ class PortableCompressedTexture2D extends gd.Texture2D {
 	public function is_keeping_compressed_buffer():Bool return __portablecompressedtexture2d_ptr().value.is_keeping_compressed_buffer();
 	public static function set_keep_all_compressed_buffers(p_keep:Bool):Void gdnative.PortableCompressedTexture2D.PortableCompressedTexture2D_extern.set_keep_all_compressed_buffers(((p_keep : Bool)));
 	public static function is_keeping_all_compressed_buffers():Bool return gdnative.PortableCompressedTexture2D.PortableCompressedTexture2D_extern.is_keeping_all_compressed_buffers();
-	var size_override(get, set) : gd.Vector2;
-	var keep_compressed_buffer(get, set) : Bool;
+	public var size_override(get, set) : gd.Vector2;
+	public var keep_compressed_buffer(get, set) : Bool;
 	function get_keep_compressed_buffer():Bool return is_keeping_compressed_buffer();
 }

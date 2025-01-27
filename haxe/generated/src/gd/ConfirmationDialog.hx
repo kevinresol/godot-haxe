@@ -15,5 +15,5 @@ class ConfirmationDialog extends gd.AcceptDialog {
 		return p_text;
 	}
 	public function get_cancel_button_text():std.String return __confirmationdialog_ptr().value.get_cancel_button_text();
-	var cancel_button_text(get, set) : std.String;
+	public var cancel_button_text(get, set) : std.String;
 }

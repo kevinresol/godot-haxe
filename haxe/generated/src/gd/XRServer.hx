@@ -31,6 +31,6 @@ class XRServer extends gd.Object {
 		__xrserver_ptr().value.set_primary_interface(((p_interface : gd.XRInterface)));
 		return p_interface;
 	}
-	var world_scale(get, set) : Float;
-	var primary_interface(get, set) : gd.XRInterface;
+	public var world_scale(get, set) : Float;
+	public var primary_interface(get, set) : gd.XRInterface;
 }

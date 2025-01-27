@@ -14,5 +14,5 @@ class PolygonOccluder3D extends gd.Occluder3D {
 		return p_polygon;
 	}
 	public function get_polygon():gd.PackedVector2Array return __polygonoccluder3d_ptr().value.get_polygon();
-	var polygon(get, set) : gd.PackedVector2Array;
+	public var polygon(get, set) : gd.PackedVector2Array;
 }

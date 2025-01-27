@@ -21,6 +21,6 @@ class RDUniform extends gd.RefCounted {
 	public function get_binding():Int return __rduniform_ptr().value.get_binding();
 	public function add_id(p_id:gd.RID):Void __rduniform_ptr().value.add_id(((p_id : gd.RID)));
 	public function clear_ids():Void __rduniform_ptr().value.clear_ids();
-	var uniform_type(get, set) : gd.renderingdevice.UniformType;
-	var binding(get, set) : Int;
+	public var uniform_type(get, set) : gd.renderingdevice.UniformType;
+	public var binding(get, set) : Int;
 }

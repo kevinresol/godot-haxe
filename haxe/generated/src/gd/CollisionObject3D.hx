@@ -54,17 +54,17 @@ class CollisionObject3D extends gd.Node3D {
 	public function shape_owner_remove_shape(p_owner_id:Int, p_shape_id:Int):Void __collisionobject3d_ptr().value.shape_owner_remove_shape(((p_owner_id : Int)), ((p_shape_id : Int)));
 	public function shape_owner_clear_shapes(p_owner_id:Int):Void __collisionobject3d_ptr().value.shape_owner_clear_shapes(((p_owner_id : Int)));
 	public function shape_find_owner(p_shape_index:Int):Int return __collisionobject3d_ptr().value.shape_find_owner(((p_shape_index : Int)));
-	var disable_mode(get, set) : gd.collisionobject3d.DisableMode;
-	var collision_layer(get, set) : Int;
-	var collision_mask(get, set) : Int;
-	var collision_priority(get, set) : Float;
-	var input_ray_pickable(get, set) : Bool;
+	public var disable_mode(get, set) : gd.collisionobject3d.DisableMode;
+	public var collision_layer(get, set) : Int;
+	public var collision_mask(get, set) : Int;
+	public var collision_priority(get, set) : Float;
+	public var input_ray_pickable(get, set) : Bool;
 	function get_input_ray_pickable():Bool return is_ray_pickable();
 	function set_input_ray_pickable(v:Bool):Bool {
 		set_ray_pickable(v);
 		return v;
 	}
-	var input_capture_on_drag(get, set) : Bool;
+	public var input_capture_on_drag(get, set) : Bool;
 	function get_input_capture_on_drag():Bool return get_capture_input_on_drag();
 	function set_input_capture_on_drag(v:Bool):Bool {
 		set_capture_input_on_drag(v);

@@ -30,8 +30,8 @@ class Joint3D extends gd.Node3D {
 	}
 	public function get_exclude_nodes_from_collision():Bool return __joint3d_ptr().value.get_exclude_nodes_from_collision();
 	public function get_rid():gd.RID return __joint3d_ptr().value.get_rid();
-	var node_a(get, set) : std.String;
-	var node_b(get, set) : std.String;
-	var solver_priority(get, set) : Int;
-	var exclude_nodes_from_collision(get, set) : Bool;
+	public var node_a(get, set) : std.String;
+	public var node_b(get, set) : std.String;
+	public var solver_priority(get, set) : Int;
+	public var exclude_nodes_from_collision(get, set) : Bool;
 }

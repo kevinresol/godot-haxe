@@ -34,9 +34,9 @@ class GLTFSpecGloss extends gd.Resource {
 		__gltfspecgloss_ptr().value.set_spec_gloss_img(((p_spec_gloss_img : gd.Image)));
 		return p_spec_gloss_img;
 	}
-	var diffuse_img(get, set) : gd.Image;
-	var diffuse_factor(get, set) : gd.Color;
-	var gloss_factor(get, set) : Float;
-	var specular_factor(get, set) : gd.Color;
-	var spec_gloss_img(get, set) : gd.Image;
+	public var diffuse_img(get, set) : gd.Image;
+	public var diffuse_factor(get, set) : gd.Color;
+	public var gloss_factor(get, set) : Float;
+	public var specular_factor(get, set) : gd.Color;
+	public var spec_gloss_img(get, set) : gd.Image;
 }

@@ -18,12 +18,12 @@ class ColorPickerButton extends gd.Button {
 		return p_show;
 	}
 	public function is_editing_alpha():Bool return __colorpickerbutton_ptr().value.is_editing_alpha();
-	var color(get, set) : gd.Color;
+	public var color(get, set) : gd.Color;
 	function get_color():gd.Color return get_pick_color();
 	function set_color(v:gd.Color):gd.Color {
 		set_pick_color(v);
 		return v;
 	}
-	var edit_alpha(get, set) : Bool;
+	public var edit_alpha(get, set) : Bool;
 	function get_edit_alpha():Bool return is_editing_alpha();
 }

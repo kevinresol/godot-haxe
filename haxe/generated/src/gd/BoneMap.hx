@@ -17,5 +17,5 @@ class BoneMap extends gd.Resource {
 	public function get_skeleton_bone_name(p_profile_bone_name:std.String):std.String return __bonemap_ptr().value.get_skeleton_bone_name(((p_profile_bone_name : std.String)));
 	public function set_skeleton_bone_name(p_profile_bone_name:std.String, p_skeleton_bone_name:std.String):Void __bonemap_ptr().value.set_skeleton_bone_name(((p_profile_bone_name : std.String)), ((p_skeleton_bone_name : std.String)));
 	public function find_profile_bone_name(p_skeleton_bone_name:std.String):std.String return __bonemap_ptr().value.find_profile_bone_name(((p_skeleton_bone_name : std.String)));
-	var profile(get, set) : gd.SkeletonProfile;
+	public var profile(get, set) : gd.SkeletonProfile;
 }

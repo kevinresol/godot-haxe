@@ -29,9 +29,10 @@ class Node extends gd.Object {
 		return p_name;
 	}
 	public function get_name():std.String return __node_ptr().value.get_name();
-	public function add_child(p_node:gd.Node, ?p_force_readable_name:Bool):Void switch [p_node, p_force_readable_name] {
-		case [_, null]:__node_ptr().value.add_child(((p_node : gd.Node)));
-		default:__node_ptr().value.add_child(((p_node : gd.Node)), ((p_force_readable_name : Bool)));
+	public function add_child(p_node:gd.Node, ?p_force_readable_name:Bool, ?p_internal:gd.node.InternalMode):Void switch [p_node, p_force_readable_name, p_internal] {
+		case [_, null, _]:__node_ptr().value.add_child(((p_node : gd.Node)));
+		case [_, _, null]:__node_ptr().value.add_child(((p_node : gd.Node)), ((p_force_readable_name : Bool)));
+		default:__node_ptr().value.add_child(((p_node : gd.Node)), ((p_force_readable_name : Bool)), ((p_internal : gd.node.InternalMode)));
 	};
 	public function remove_child(p_node:gd.Node):Void __node_ptr().value.remove_child(((p_node : gd.Node)));
 	public function reparent(p_new_parent:gd.Node, ?p_keep_global_transform:Bool):Void switch [p_new_parent, p_keep_global_transform] {
@@ -214,23 +215,23 @@ class Node extends gd.Object {
 	public function call_thread_safe(p_method:std.String):gd.Variant return __node_ptr().value.call_thread_safe(((p_method : std.String)));
 	public function set_thread_safe(p_property:std.String, p_value:gd.Variant):Void __node_ptr().value.set_thread_safe(((p_property : std.String)), ((p_value : gd.Variant)));
 	public function notify_thread_safe(p_what:Int):Void __node_ptr().value.notify_thread_safe(((p_what : Int)));
-	var name(get, set) : std.String;
-	var unique_name_in_owner(get, set) : Bool;
+	public var name(get, set) : std.String;
+	public var unique_name_in_owner(get, set) : Bool;
 	function get_unique_name_in_owner():Bool return is_unique_name_in_owner();
-	var scene_file_path(get, set) : std.String;
-	var owner(get, set) : gd.Node;
-	var process_mode(get, set) : gd.node.ProcessMode;
-	var process_priority(get, set) : Int;
-	var process_physics_priority(get, set) : Int;
+	public var scene_file_path(get, set) : std.String;
+	public var owner(get, set) : gd.Node;
+	public var process_mode(get, set) : gd.node.ProcessMode;
+	public var process_priority(get, set) : Int;
+	public var process_physics_priority(get, set) : Int;
 	function get_process_physics_priority():Int return get_physics_process_priority();
 	function set_process_physics_priority(v:Int):Int {
 		set_physics_process_priority(v);
 		return v;
 	}
-	var process_thread_group(get, set) : gd.node.ProcessThreadGroup;
-	var process_thread_group_order(get, set) : Int;
-	var process_thread_messages(get, set) : Int;
-	var physics_interpolation_mode(get, set) : gd.node.PhysicsInterpolationMode;
-	var auto_translate_mode(get, set) : gd.node.AutoTranslateMode;
-	var editor_description(get, set) : std.String;
+	public var process_thread_group(get, set) : gd.node.ProcessThreadGroup;
+	public var process_thread_group_order(get, set) : Int;
+	public var process_thread_messages(get, set) : Int;
+	public var physics_interpolation_mode(get, set) : gd.node.PhysicsInterpolationMode;
+	public var auto_translate_mode(get, set) : gd.node.AutoTranslateMode;
+	public var editor_description(get, set) : std.String;
 }

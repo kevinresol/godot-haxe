@@ -15,5 +15,5 @@ class VisualShaderNodeInput extends gd.VisualShaderNode {
 	}
 	public function get_input_name():std.String return __visualshadernodeinput_ptr().value.get_input_name();
 	public function get_input_real_name():std.String return __visualshadernodeinput_ptr().value.get_input_real_name();
-	var input_name(get, set) : std.String;
+	public var input_name(get, set) : std.String;
 }

@@ -25,6 +25,6 @@ class Material extends gd.Resource {
 	public function get_render_priority():Int return __material_ptr().value.get_render_priority();
 	public function inspect_native_shader_code():Void __material_ptr().value.inspect_native_shader_code();
 	public function create_placeholder():gd.Resource return __material_ptr().value.create_placeholder();
-	var render_priority(get, set) : Int;
-	var next_pass(get, set) : gd.Material;
+	public var render_priority(get, set) : Int;
+	public var next_pass(get, set) : gd.Material;
 }

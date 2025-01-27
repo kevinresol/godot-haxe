@@ -54,15 +54,15 @@ class CameraAttributesPractical extends gd.CameraAttributes {
 		return p_min_sensitivity;
 	}
 	public function get_auto_exposure_min_sensitivity():Float return __cameraattributespractical_ptr().value.get_auto_exposure_min_sensitivity();
-	var dof_blur_far_enabled(get, set) : Bool;
+	public var dof_blur_far_enabled(get, set) : Bool;
 	function get_dof_blur_far_enabled():Bool return is_dof_blur_far_enabled();
-	var dof_blur_far_distance(get, set) : Float;
-	var dof_blur_far_transition(get, set) : Float;
-	var dof_blur_near_enabled(get, set) : Bool;
+	public var dof_blur_far_distance(get, set) : Float;
+	public var dof_blur_far_transition(get, set) : Float;
+	public var dof_blur_near_enabled(get, set) : Bool;
 	function get_dof_blur_near_enabled():Bool return is_dof_blur_near_enabled();
-	var dof_blur_near_distance(get, set) : Float;
-	var dof_blur_near_transition(get, set) : Float;
-	var dof_blur_amount(get, set) : Float;
-	var auto_exposure_min_sensitivity(get, set) : Float;
-	var auto_exposure_max_sensitivity(get, set) : Float;
+	public var dof_blur_near_distance(get, set) : Float;
+	public var dof_blur_near_transition(get, set) : Float;
+	public var dof_blur_amount(get, set) : Float;
+	public var auto_exposure_min_sensitivity(get, set) : Float;
+	public var auto_exposure_max_sensitivity(get, set) : Float;
 }

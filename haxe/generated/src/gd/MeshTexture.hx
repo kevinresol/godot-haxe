@@ -24,7 +24,7 @@ class MeshTexture extends gd.Texture2D {
 		return p_texture;
 	}
 	public function get_base_texture():gd.Texture2D return __meshtexture_ptr().value.get_base_texture();
-	var mesh(get, set) : gd.Mesh;
-	var base_texture(get, set) : gd.Texture2D;
-	var image_size(get, set) : gd.Vector2;
+	public var mesh(get, set) : gd.Mesh;
+	public var base_texture(get, set) : gd.Texture2D;
+	public var image_size(get, set) : gd.Vector2;
 }

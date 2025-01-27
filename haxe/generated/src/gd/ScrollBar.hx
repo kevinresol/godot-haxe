@@ -14,5 +14,5 @@ class ScrollBar extends gd.Range {
 		return p_step;
 	}
 	public function get_custom_step():Float return __scrollbar_ptr().value.get_custom_step();
-	var custom_step(get, set) : Float;
+	public var custom_step(get, set) : Float;
 }

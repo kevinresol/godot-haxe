@@ -68,95 +68,95 @@ class StyleBoxFlat extends gd.StyleBox {
 		return p_detail;
 	}
 	public function get_corner_detail():Int return __styleboxflat_ptr().value.get_corner_detail();
-	var bg_color(get, set) : gd.Color;
-	var draw_center(get, set) : Bool;
+	public var bg_color(get, set) : gd.Color;
+	public var draw_center(get, set) : Bool;
 	function get_draw_center():Bool return is_draw_center_enabled();
-	var skew(get, set) : gd.Vector2;
-	var border_width_left(get, set) : Int;
+	public var skew(get, set) : gd.Vector2;
+	public var border_width_left(get, set) : Int;
 	function get_border_width_left():Int return get_border_width(0);
 	function set_border_width_left(v:Int):Int {
 		set_border_width(0, v);
 		return v;
 	}
-	var border_width_top(get, set) : Int;
+	public var border_width_top(get, set) : Int;
 	function get_border_width_top():Int return get_border_width(1);
 	function set_border_width_top(v:Int):Int {
 		set_border_width(1, v);
 		return v;
 	}
-	var border_width_right(get, set) : Int;
+	public var border_width_right(get, set) : Int;
 	function get_border_width_right():Int return get_border_width(2);
 	function set_border_width_right(v:Int):Int {
 		set_border_width(2, v);
 		return v;
 	}
-	var border_width_bottom(get, set) : Int;
+	public var border_width_bottom(get, set) : Int;
 	function get_border_width_bottom():Int return get_border_width(3);
 	function set_border_width_bottom(v:Int):Int {
 		set_border_width(3, v);
 		return v;
 	}
-	var border_color(get, set) : gd.Color;
-	var border_blend(get, set) : Bool;
-	var corner_radius_top_left(get, set) : Int;
+	public var border_color(get, set) : gd.Color;
+	public var border_blend(get, set) : Bool;
+	public var corner_radius_top_left(get, set) : Int;
 	function get_corner_radius_top_left():Int return get_corner_radius(0);
 	function set_corner_radius_top_left(v:Int):Int {
 		set_corner_radius(0, v);
 		return v;
 	}
-	var corner_radius_top_right(get, set) : Int;
+	public var corner_radius_top_right(get, set) : Int;
 	function get_corner_radius_top_right():Int return get_corner_radius(1);
 	function set_corner_radius_top_right(v:Int):Int {
 		set_corner_radius(1, v);
 		return v;
 	}
-	var corner_radius_bottom_right(get, set) : Int;
+	public var corner_radius_bottom_right(get, set) : Int;
 	function get_corner_radius_bottom_right():Int return get_corner_radius(2);
 	function set_corner_radius_bottom_right(v:Int):Int {
 		set_corner_radius(2, v);
 		return v;
 	}
-	var corner_radius_bottom_left(get, set) : Int;
+	public var corner_radius_bottom_left(get, set) : Int;
 	function get_corner_radius_bottom_left():Int return get_corner_radius(3);
 	function set_corner_radius_bottom_left(v:Int):Int {
 		set_corner_radius(3, v);
 		return v;
 	}
-	var corner_detail(get, set) : Int;
-	var expand_margin_left(get, set) : Float;
+	public var corner_detail(get, set) : Int;
+	public var expand_margin_left(get, set) : Float;
 	function get_expand_margin_left():Float return get_expand_margin(0);
 	function set_expand_margin_left(v:Float):Float {
 		set_expand_margin(0, v);
 		return v;
 	}
-	var expand_margin_top(get, set) : Float;
+	public var expand_margin_top(get, set) : Float;
 	function get_expand_margin_top():Float return get_expand_margin(1);
 	function set_expand_margin_top(v:Float):Float {
 		set_expand_margin(1, v);
 		return v;
 	}
-	var expand_margin_right(get, set) : Float;
+	public var expand_margin_right(get, set) : Float;
 	function get_expand_margin_right():Float return get_expand_margin(2);
 	function set_expand_margin_right(v:Float):Float {
 		set_expand_margin(2, v);
 		return v;
 	}
-	var expand_margin_bottom(get, set) : Float;
+	public var expand_margin_bottom(get, set) : Float;
 	function get_expand_margin_bottom():Float return get_expand_margin(3);
 	function set_expand_margin_bottom(v:Float):Float {
 		set_expand_margin(3, v);
 		return v;
 	}
-	var shadow_color(get, set) : gd.Color;
-	var shadow_size(get, set) : Int;
-	var shadow_offset(get, set) : gd.Vector2;
-	var anti_aliasing(get, set) : Bool;
+	public var shadow_color(get, set) : gd.Color;
+	public var shadow_size(get, set) : Int;
+	public var shadow_offset(get, set) : gd.Vector2;
+	public var anti_aliasing(get, set) : Bool;
 	function get_anti_aliasing():Bool return is_anti_aliased();
 	function set_anti_aliasing(v:Bool):Bool {
 		set_anti_aliased(v);
 		return v;
 	}
-	var anti_aliasing_size(get, set) : Float;
+	public var anti_aliasing_size(get, set) : Float;
 	function get_anti_aliasing_size():Float return get_aa_size();
 	function set_anti_aliasing_size(v:Float):Float {
 		set_aa_size(v);

@@ -14,5 +14,5 @@ class OpenXRCompositionLayerQuad extends gd.OpenXRCompositionLayer {
 		return p_size;
 	}
 	public function get_quad_size():gd.Vector2 return __openxrcompositionlayerquad_ptr().value.get_quad_size();
-	var quad_size(get, set) : gd.Vector2;
+	public var quad_size(get, set) : gd.Vector2;
 }

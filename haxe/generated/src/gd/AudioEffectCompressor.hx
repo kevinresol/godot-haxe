@@ -44,11 +44,11 @@ class AudioEffectCompressor extends gd.AudioEffect {
 		return p_sidechain;
 	}
 	public function get_sidechain():std.String return __audioeffectcompressor_ptr().value.get_sidechain();
-	var threshold(get, set) : Float;
-	var ratio(get, set) : Float;
-	var gain(get, set) : Float;
-	var attack_us(get, set) : Float;
-	var release_ms(get, set) : Float;
-	var mix(get, set) : Float;
-	var sidechain(get, set) : std.String;
+	public var threshold(get, set) : Float;
+	public var ratio(get, set) : Float;
+	public var gain(get, set) : Float;
+	public var attack_us(get, set) : Float;
+	public var release_ms(get, set) : Float;
+	public var mix(get, set) : Float;
+	public var sidechain(get, set) : std.String;
 }

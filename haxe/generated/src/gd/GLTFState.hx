@@ -87,18 +87,18 @@ class GLTFState extends gd.Resource {
 		return p_value;
 	}
 	public function get_bake_fps():Float return __gltfstate_ptr().value.get_bake_fps();
-	var json(get, set) : gd.Dictionary;
-	var major_version(get, set) : Int;
-	var minor_version(get, set) : Int;
-	var copyright(get, set) : std.String;
-	var glb_data(get, set) : gd.PackedByteArray;
-	var use_named_skin_binds(get, set) : Bool;
-	var scene_name(get, set) : std.String;
-	var base_path(get, set) : std.String;
-	var filename(get, set) : std.String;
-	var root_nodes(get, set) : gd.PackedInt32Array;
-	var create_animations(get, set) : Bool;
-	var import_as_skeleton_bones(get, set) : Bool;
-	var handle_binary_image(get, set) : Int;
-	var bake_fps(get, set) : Float;
+	public var json(get, set) : gd.Dictionary;
+	public var major_version(get, set) : Int;
+	public var minor_version(get, set) : Int;
+	public var copyright(get, set) : std.String;
+	public var glb_data(get, set) : gd.PackedByteArray;
+	public var use_named_skin_binds(get, set) : Bool;
+	public var scene_name(get, set) : std.String;
+	public var base_path(get, set) : std.String;
+	public var filename(get, set) : std.String;
+	public var root_nodes(get, set) : gd.PackedInt32Array;
+	public var create_animations(get, set) : Bool;
+	public var import_as_skeleton_bones(get, set) : Bool;
+	public var handle_binary_image(get, set) : Int;
+	public var bake_fps(get, set) : Float;
 }

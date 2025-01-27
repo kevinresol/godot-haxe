@@ -14,5 +14,5 @@ class VisualShaderNodeCurveTexture extends gd.VisualShaderNodeResizableBase {
 		return p_texture;
 	}
 	public function get_texture():gd.CurveTexture return __visualshadernodecurvetexture_ptr().value.get_texture();
-	var texture(get, set) : gd.CurveTexture;
+	public var texture(get, set) : gd.CurveTexture;
 }

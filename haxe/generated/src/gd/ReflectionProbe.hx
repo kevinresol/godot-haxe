@@ -73,29 +73,29 @@ class ReflectionProbe extends gd.VisualInstance3D {
 		return p_mode;
 	}
 	public function get_update_mode():gd.reflectionprobe.UpdateMode return __reflectionprobe_ptr().value.get_update_mode();
-	var update_mode(get, set) : gd.reflectionprobe.UpdateMode;
-	var intensity(get, set) : Float;
-	var max_distance(get, set) : Float;
-	var size(get, set) : gd.Vector3;
-	var origin_offset(get, set) : gd.Vector3;
-	var box_projection(get, set) : Bool;
+	public var update_mode(get, set) : gd.reflectionprobe.UpdateMode;
+	public var intensity(get, set) : Float;
+	public var max_distance(get, set) : Float;
+	public var size(get, set) : gd.Vector3;
+	public var origin_offset(get, set) : gd.Vector3;
+	public var box_projection(get, set) : Bool;
 	function get_box_projection():Bool return is_box_projection_enabled();
 	function set_box_projection(v:Bool):Bool {
 		set_enable_box_projection(v);
 		return v;
 	}
-	var interior(get, set) : Bool;
+	public var interior(get, set) : Bool;
 	function get_interior():Bool return is_set_as_interior();
 	function set_interior(v:Bool):Bool {
 		set_as_interior(v);
 		return v;
 	}
-	var enable_shadows(get, set) : Bool;
+	public var enable_shadows(get, set) : Bool;
 	function get_enable_shadows():Bool return are_shadows_enabled();
-	var cull_mask(get, set) : Int;
-	var reflection_mask(get, set) : Int;
-	var mesh_lod_threshold(get, set) : Float;
-	var ambient_mode(get, set) : gd.reflectionprobe.AmbientMode;
-	var ambient_color(get, set) : gd.Color;
-	var ambient_color_energy(get, set) : Float;
+	public var cull_mask(get, set) : Int;
+	public var reflection_mask(get, set) : Int;
+	public var mesh_lod_threshold(get, set) : Float;
+	public var ambient_mode(get, set) : gd.reflectionprobe.AmbientMode;
+	public var ambient_color(get, set) : gd.Color;
+	public var ambient_color_energy(get, set) : Float;
 }

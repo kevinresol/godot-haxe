@@ -71,40 +71,40 @@ class VehicleWheel3D extends gd.Node3D {
 		return p_steering;
 	}
 	public function get_steering():Float return __vehiclewheel3d_ptr().value.get_steering();
-	var engine_force(get, set) : Float;
-	var brake(get, set) : Float;
-	var steering(get, set) : Float;
-	var use_as_traction(get, set) : Bool;
+	public var engine_force(get, set) : Float;
+	public var brake(get, set) : Float;
+	public var steering(get, set) : Float;
+	public var use_as_traction(get, set) : Bool;
 	function get_use_as_traction():Bool return is_used_as_traction();
-	var use_as_steering(get, set) : Bool;
+	public var use_as_steering(get, set) : Bool;
 	function get_use_as_steering():Bool return is_used_as_steering();
-	var wheel_roll_influence(get, set) : Float;
+	public var wheel_roll_influence(get, set) : Float;
 	function get_wheel_roll_influence():Float return get_roll_influence();
 	function set_wheel_roll_influence(v:Float):Float {
 		set_roll_influence(v);
 		return v;
 	}
-	var wheel_radius(get, set) : Float;
+	public var wheel_radius(get, set) : Float;
 	function get_wheel_radius():Float return get_radius();
 	function set_wheel_radius(v:Float):Float {
 		set_radius(v);
 		return v;
 	}
-	var wheel_rest_length(get, set) : Float;
+	public var wheel_rest_length(get, set) : Float;
 	function get_wheel_rest_length():Float return get_suspension_rest_length();
 	function set_wheel_rest_length(v:Float):Float {
 		set_suspension_rest_length(v);
 		return v;
 	}
-	var wheel_friction_slip(get, set) : Float;
+	public var wheel_friction_slip(get, set) : Float;
 	function get_wheel_friction_slip():Float return get_friction_slip();
 	function set_wheel_friction_slip(v:Float):Float {
 		set_friction_slip(v);
 		return v;
 	}
-	var suspension_travel(get, set) : Float;
-	var suspension_stiffness(get, set) : Float;
-	var suspension_max_force(get, set) : Float;
-	var damping_compression(get, set) : Float;
-	var damping_relaxation(get, set) : Float;
+	public var suspension_travel(get, set) : Float;
+	public var suspension_stiffness(get, set) : Float;
+	public var suspension_max_force(get, set) : Float;
+	public var damping_compression(get, set) : Float;
+	public var damping_relaxation(get, set) : Float;
 }

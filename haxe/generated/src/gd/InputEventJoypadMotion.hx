@@ -19,6 +19,6 @@ class InputEventJoypadMotion extends gd.InputEvent {
 		return p_axis_value;
 	}
 	public function get_axis_value():Float return __inputeventjoypadmotion_ptr().value.get_axis_value();
-	var axis(get, set) : gd.JoyAxis;
-	var axis_value(get, set) : Float;
+	public var axis(get, set) : gd.JoyAxis;
+	public var axis_value(get, set) : Float;
 }

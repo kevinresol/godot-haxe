@@ -76,20 +76,20 @@ class SystemFont extends gd.Font {
 	}
 	public function set_font_weight(p_weight:Int):Void __systemfont_ptr().value.set_font_weight(((p_weight : Int)));
 	public function set_font_stretch(p_stretch:Int):Void __systemfont_ptr().value.set_font_stretch(((p_stretch : Int)));
-	var font_names(get, set) : gd.PackedStringArray;
-	var font_italic(get, set) : Bool;
-	var antialiasing(get, set) : gd.textserver.FontAntialiasing;
-	var generate_mipmaps(get, set) : Bool;
-	var disable_embedded_bitmaps(get, set) : Bool;
-	var allow_system_fallback(get, set) : Bool;
+	public var font_names(get, set) : gd.PackedStringArray;
+	public var font_italic(get, set) : Bool;
+	public var antialiasing(get, set) : gd.textserver.FontAntialiasing;
+	public var generate_mipmaps(get, set) : Bool;
+	public var disable_embedded_bitmaps(get, set) : Bool;
+	public var allow_system_fallback(get, set) : Bool;
 	function get_allow_system_fallback():Bool return is_allow_system_fallback();
-	var force_autohinter(get, set) : Bool;
+	public var force_autohinter(get, set) : Bool;
 	function get_force_autohinter():Bool return is_force_autohinter();
-	var hinting(get, set) : gd.textserver.Hinting;
-	var subpixel_positioning(get, set) : gd.textserver.SubpixelPositioning;
-	var multichannel_signed_distance_field(get, set) : Bool;
+	public var hinting(get, set) : gd.textserver.Hinting;
+	public var subpixel_positioning(get, set) : gd.textserver.SubpixelPositioning;
+	public var multichannel_signed_distance_field(get, set) : Bool;
 	function get_multichannel_signed_distance_field():Bool return is_multichannel_signed_distance_field();
-	var msdf_pixel_range(get, set) : Int;
-	var msdf_size(get, set) : Int;
-	var oversampling(get, set) : Float;
+	public var msdf_pixel_range(get, set) : Int;
+	public var msdf_size(get, set) : Int;
+	public var oversampling(get, set) : Float;
 }

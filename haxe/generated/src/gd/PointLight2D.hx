@@ -21,12 +21,12 @@ class PointLight2D extends gd.Light2D {
 		return p_texture_scale;
 	}
 	public function get_texture_scale():Float return __pointlight2d_ptr().value.get_texture_scale();
-	var texture(get, set) : gd.Texture2D;
-	var offset(get, set) : gd.Vector2;
+	public var texture(get, set) : gd.Texture2D;
+	public var offset(get, set) : gd.Vector2;
 	function get_offset():gd.Vector2 return get_texture_offset();
 	function set_offset(v:gd.Vector2):gd.Vector2 {
 		set_texture_offset(v);
 		return v;
 	}
-	var texture_scale(get, set) : Float;
+	public var texture_scale(get, set) : Float;
 }

@@ -163,11 +163,11 @@ class TreeItem extends gd.Object {
 	public function move_before(p_item:gd.TreeItem):Void __treeitem_ptr().value.move_before(((p_item : gd.TreeItem)));
 	public function move_after(p_item:gd.TreeItem):Void __treeitem_ptr().value.move_after(((p_item : gd.TreeItem)));
 	public function call_recursive(p_method:std.String):Void __treeitem_ptr().value.call_recursive(((p_method : std.String)));
-	var collapsed(get, set) : Bool;
+	public var collapsed(get, set) : Bool;
 	function get_collapsed():Bool return is_collapsed();
-	var visible(get, set) : Bool;
+	public var visible(get, set) : Bool;
 	function get_visible():Bool return is_visible();
-	var disable_folding(get, set) : Bool;
+	public var disable_folding(get, set) : Bool;
 	function get_disable_folding():Bool return is_folding_disabled();
-	var custom_minimum_height(get, set) : Int;
+	public var custom_minimum_height(get, set) : Int;
 }

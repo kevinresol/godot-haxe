@@ -14,5 +14,5 @@ class VisualShaderNodeBooleanConstant extends gd.VisualShaderNodeConstant {
 		return p_constant;
 	}
 	public function get_constant():Bool return __visualshadernodebooleanconstant_ptr().value.get_constant();
-	var constant(get, set) : Bool;
+	public var constant(get, set) : Bool;
 }

@@ -49,14 +49,14 @@ class TubeTrailMesh extends gd.PrimitiveMesh {
 		return p_curve;
 	}
 	public function get_curve():gd.Curve return __tubetrailmesh_ptr().value.get_curve();
-	var radius(get, set) : Float;
-	var radial_steps(get, set) : Int;
-	var sections(get, set) : Int;
-	var section_length(get, set) : Float;
-	var section_rings(get, set) : Int;
-	var cap_top(get, set) : Bool;
+	public var radius(get, set) : Float;
+	public var radial_steps(get, set) : Int;
+	public var sections(get, set) : Int;
+	public var section_length(get, set) : Float;
+	public var section_rings(get, set) : Int;
+	public var cap_top(get, set) : Bool;
 	function get_cap_top():Bool return is_cap_top();
-	var cap_bottom(get, set) : Bool;
+	public var cap_bottom(get, set) : Bool;
 	function get_cap_bottom():Bool return is_cap_bottom();
-	var curve(get, set) : gd.Curve;
+	public var curve(get, set) : gd.Curve;
 }

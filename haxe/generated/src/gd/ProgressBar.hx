@@ -29,11 +29,11 @@ class ProgressBar extends gd.Range {
 		return p_preview_indeterminate;
 	}
 	public function is_editor_preview_indeterminate_enabled():Bool return __progressbar_ptr().value.is_editor_preview_indeterminate_enabled();
-	var fill_mode(get, set) : Int;
-	var show_percentage(get, set) : Bool;
+	public var fill_mode(get, set) : Int;
+	public var show_percentage(get, set) : Bool;
 	function get_show_percentage():Bool return is_percentage_shown();
-	var indeterminate(get, set) : Bool;
+	public var indeterminate(get, set) : Bool;
 	function get_indeterminate():Bool return is_indeterminate();
-	var editor_preview_indeterminate(get, set) : Bool;
+	public var editor_preview_indeterminate(get, set) : Bool;
 	function get_editor_preview_indeterminate():Bool return is_editor_preview_indeterminate_enabled();
 }

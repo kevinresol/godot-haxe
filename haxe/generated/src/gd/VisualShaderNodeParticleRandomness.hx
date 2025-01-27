@@ -14,5 +14,5 @@ class VisualShaderNodeParticleRandomness extends gd.VisualShaderNode {
 		return p_type;
 	}
 	public function get_op_type():gd.visualshadernodeparticlerandomness.OpType return __visualshadernodeparticlerandomness_ptr().value.get_op_type();
-	var op_type(get, set) : gd.visualshadernodeparticlerandomness.OpType;
+	public var op_type(get, set) : gd.visualshadernodeparticlerandomness.OpType;
 }

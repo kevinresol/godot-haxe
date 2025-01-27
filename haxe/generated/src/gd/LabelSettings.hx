@@ -54,13 +54,13 @@ class LabelSettings extends gd.Resource {
 		return p_offset;
 	}
 	public function get_shadow_offset():gd.Vector2 return __labelsettings_ptr().value.get_shadow_offset();
-	var line_spacing(get, set) : Float;
-	var font(get, set) : gd.Font;
-	var font_size(get, set) : Int;
-	var font_color(get, set) : gd.Color;
-	var outline_size(get, set) : Int;
-	var outline_color(get, set) : gd.Color;
-	var shadow_size(get, set) : Int;
-	var shadow_color(get, set) : gd.Color;
-	var shadow_offset(get, set) : gd.Vector2;
+	public var line_spacing(get, set) : Float;
+	public var font(get, set) : gd.Font;
+	public var font_size(get, set) : Int;
+	public var font_color(get, set) : gd.Color;
+	public var outline_size(get, set) : Int;
+	public var outline_color(get, set) : gd.Color;
+	public var shadow_size(get, set) : Int;
+	public var shadow_color(get, set) : gd.Color;
+	public var shadow_offset(get, set) : gd.Vector2;
 }

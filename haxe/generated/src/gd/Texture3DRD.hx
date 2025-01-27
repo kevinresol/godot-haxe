@@ -14,5 +14,5 @@ class Texture3DRD extends gd.Texture3D {
 		return p_texture_rd_rid;
 	}
 	public function get_texture_rd_rid():gd.RID return __texture3drd_ptr().value.get_texture_rd_rid();
-	var texture_rd_rid(get, set) : gd.RID;
+	public var texture_rd_rid(get, set) : gd.RID;
 }

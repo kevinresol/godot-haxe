@@ -255,37 +255,37 @@ class CanvasItem extends gd.Node {
 	public function get_texture_repeat():gd.canvasitem.TextureRepeat return __canvasitem_ptr().value.get_texture_repeat();
 	public function set_clip_children_mode(p_mode:gd.canvasitem.ClipChildrenMode):Void __canvasitem_ptr().value.set_clip_children_mode(((p_mode : gd.canvasitem.ClipChildrenMode)));
 	public function get_clip_children_mode():gd.canvasitem.ClipChildrenMode return __canvasitem_ptr().value.get_clip_children_mode();
-	var visible(get, set) : Bool;
+	public var visible(get, set) : Bool;
 	function get_visible():Bool return is_visible();
-	var modulate(get, set) : gd.Color;
-	var self_modulate(get, set) : gd.Color;
-	var show_behind_parent(get, set) : Bool;
+	public var modulate(get, set) : gd.Color;
+	public var self_modulate(get, set) : gd.Color;
+	public var show_behind_parent(get, set) : Bool;
 	function get_show_behind_parent():Bool return is_draw_behind_parent_enabled();
 	function set_show_behind_parent(v:Bool):Bool {
 		set_draw_behind_parent(v);
 		return v;
 	}
-	var top_level(get, set) : Bool;
+	public var top_level(get, set) : Bool;
 	function get_top_level():Bool return is_set_as_top_level();
 	function set_top_level(v:Bool):Bool {
 		set_as_top_level(v);
 		return v;
 	}
-	var clip_children(get, set) : gd.canvasitem.ClipChildrenMode;
+	public var clip_children(get, set) : gd.canvasitem.ClipChildrenMode;
 	function get_clip_children():gd.canvasitem.ClipChildrenMode return get_clip_children_mode();
 	function set_clip_children(v:gd.canvasitem.ClipChildrenMode):gd.canvasitem.ClipChildrenMode {
 		set_clip_children_mode(v);
 		return v;
 	}
-	var light_mask(get, set) : Int;
-	var visibility_layer(get, set) : Int;
-	var z_index(get, set) : Int;
-	var z_as_relative(get, set) : Bool;
+	public var light_mask(get, set) : Int;
+	public var visibility_layer(get, set) : Int;
+	public var z_index(get, set) : Int;
+	public var z_as_relative(get, set) : Bool;
 	function get_z_as_relative():Bool return is_z_relative();
-	var y_sort_enabled(get, set) : Bool;
+	public var y_sort_enabled(get, set) : Bool;
 	function get_y_sort_enabled():Bool return is_y_sort_enabled();
-	var texture_filter(get, set) : gd.canvasitem.TextureFilter;
-	var texture_repeat(get, set) : gd.canvasitem.TextureRepeat;
-	var material(get, set) : gd.Material;
-	var use_parent_material(get, set) : Bool;
+	public var texture_filter(get, set) : gd.canvasitem.TextureFilter;
+	public var texture_repeat(get, set) : gd.canvasitem.TextureRepeat;
+	public var material(get, set) : gd.Material;
+	public var use_parent_material(get, set) : Bool;
 }

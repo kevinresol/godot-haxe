@@ -31,8 +31,8 @@ class OpenXRCompositionLayer extends gd.Node3D {
 	public function get_alpha_blend():Bool return __openxrcompositionlayer_ptr().value.get_alpha_blend();
 	public function is_natively_supported():Bool return __openxrcompositionlayer_ptr().value.is_natively_supported();
 	public function intersects_ray(p_origin:gd.Vector3, p_direction:gd.Vector3):gd.Vector2 return __openxrcompositionlayer_ptr().value.intersects_ray(((p_origin : gd.Vector3)), ((p_direction : gd.Vector3)));
-	var layer_viewport(get, set) : gd.SubViewport;
-	var sort_order(get, set) : Int;
-	var alpha_blend(get, set) : Bool;
-	var enable_hole_punch(get, set) : Bool;
+	public var layer_viewport(get, set) : gd.SubViewport;
+	public var sort_order(get, set) : Int;
+	public var alpha_blend(get, set) : Bool;
+	public var enable_hole_punch(get, set) : Bool;
 }

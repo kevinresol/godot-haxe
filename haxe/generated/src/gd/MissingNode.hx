@@ -24,8 +24,8 @@ class MissingNode extends gd.Node {
 		return p_enable;
 	}
 	public function is_recording_properties():Bool return __missingnode_ptr().value.is_recording_properties();
-	var original_class(get, set) : std.String;
-	var original_scene(get, set) : std.String;
-	var recording_properties(get, set) : Bool;
+	public var original_class(get, set) : std.String;
+	public var original_scene(get, set) : std.String;
+	public var recording_properties(get, set) : Bool;
 	function get_recording_properties():Bool return is_recording_properties();
 }

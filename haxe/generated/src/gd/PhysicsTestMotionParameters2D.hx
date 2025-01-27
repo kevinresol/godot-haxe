@@ -23,15 +23,15 @@ class PhysicsTestMotionParameters2D extends gd.RefCounted {
 	public function set_collide_separation_ray_enabled(p_enabled:Bool):Void __physicstestmotionparameters2d_ptr().value.set_collide_separation_ray_enabled(((p_enabled : Bool)));
 	public function is_recovery_as_collision_enabled():Bool return __physicstestmotionparameters2d_ptr().value.is_recovery_as_collision_enabled();
 	public function set_recovery_as_collision_enabled(p_enabled:Bool):Void __physicstestmotionparameters2d_ptr().value.set_recovery_as_collision_enabled(((p_enabled : Bool)));
-	var motion(get, set) : gd.Vector2;
-	var margin(get, set) : Float;
-	var collide_separation_ray(get, set) : Bool;
+	public var motion(get, set) : gd.Vector2;
+	public var margin(get, set) : Float;
+	public var collide_separation_ray(get, set) : Bool;
 	function get_collide_separation_ray():Bool return is_collide_separation_ray_enabled();
 	function set_collide_separation_ray(v:Bool):Bool {
 		set_collide_separation_ray_enabled(v);
 		return v;
 	}
-	var recovery_as_collision(get, set) : Bool;
+	public var recovery_as_collision(get, set) : Bool;
 	function get_recovery_as_collision():Bool return is_recovery_as_collision_enabled();
 	function set_recovery_as_collision(v:Bool):Bool {
 		set_recovery_as_collision_enabled(v);

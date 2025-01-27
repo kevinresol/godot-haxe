@@ -39,10 +39,10 @@ class FogMaterial extends gd.Material {
 		return p_density_texture;
 	}
 	public function get_density_texture():gd.Texture3D return __fogmaterial_ptr().value.get_density_texture();
-	var density(get, set) : Float;
-	var albedo(get, set) : gd.Color;
-	var emission(get, set) : gd.Color;
-	var height_falloff(get, set) : Float;
-	var edge_fade(get, set) : Float;
-	var density_texture(get, set) : gd.Texture3D;
+	public var density(get, set) : Float;
+	public var albedo(get, set) : gd.Color;
+	public var emission(get, set) : gd.Color;
+	public var height_falloff(get, set) : Float;
+	public var edge_fade(get, set) : Float;
+	public var density_texture(get, set) : gd.Texture3D;
 }

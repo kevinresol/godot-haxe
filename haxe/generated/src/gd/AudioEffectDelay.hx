@@ -74,20 +74,20 @@ class AudioEffectDelay extends gd.AudioEffect {
 		return p_amount;
 	}
 	public function get_feedback_lowpass():Float return __audioeffectdelay_ptr().value.get_feedback_lowpass();
-	var dry(get, set) : Float;
-	var tap1_active(get, set) : Bool;
+	public var dry(get, set) : Float;
+	public var tap1_active(get, set) : Bool;
 	function get_tap1_active():Bool return is_tap1_active();
-	var tap1_delay_ms(get, set) : Float;
-	var tap1_level_db(get, set) : Float;
-	var tap1_pan(get, set) : Float;
-	var tap2_active(get, set) : Bool;
+	public var tap1_delay_ms(get, set) : Float;
+	public var tap1_level_db(get, set) : Float;
+	public var tap1_pan(get, set) : Float;
+	public var tap2_active(get, set) : Bool;
 	function get_tap2_active():Bool return is_tap2_active();
-	var tap2_delay_ms(get, set) : Float;
-	var tap2_level_db(get, set) : Float;
-	var tap2_pan(get, set) : Float;
-	var feedback_active(get, set) : Bool;
+	public var tap2_delay_ms(get, set) : Float;
+	public var tap2_level_db(get, set) : Float;
+	public var tap2_pan(get, set) : Float;
+	public var feedback_active(get, set) : Bool;
 	function get_feedback_active():Bool return is_feedback_active();
-	var feedback_delay_ms(get, set) : Float;
-	var feedback_level_db(get, set) : Float;
-	var feedback_lowpass(get, set) : Float;
+	public var feedback_delay_ms(get, set) : Float;
+	public var feedback_level_db(get, set) : Float;
+	public var feedback_lowpass(get, set) : Float;
 }

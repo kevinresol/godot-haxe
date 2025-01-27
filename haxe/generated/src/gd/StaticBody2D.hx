@@ -24,7 +24,7 @@ class StaticBody2D extends gd.PhysicsBody2D {
 		return p_physics_material_override;
 	}
 	public function get_physics_material_override():gd.PhysicsMaterial return __staticbody2d_ptr().value.get_physics_material_override();
-	var physics_material_override(get, set) : gd.PhysicsMaterial;
-	var constant_linear_velocity(get, set) : gd.Vector2;
-	var constant_angular_velocity(get, set) : Float;
+	public var physics_material_override(get, set) : gd.PhysicsMaterial;
+	public var constant_linear_velocity(get, set) : gd.Vector2;
+	public var constant_angular_velocity(get, set) : Float;
 }

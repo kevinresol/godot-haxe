@@ -14,5 +14,5 @@ class CircleShape2D extends gd.Shape2D {
 		return p_radius;
 	}
 	public function get_radius():Float return __circleshape2d_ptr().value.get_radius();
-	var radius(get, set) : Float;
+	public var radius(get, set) : Float;
 }

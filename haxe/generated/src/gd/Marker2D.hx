@@ -14,5 +14,5 @@ class Marker2D extends gd.Node2D {
 		return p_extents;
 	}
 	public function get_gizmo_extents():Float return __marker2d_ptr().value.get_gizmo_extents();
-	var gizmo_extents(get, set) : Float;
+	public var gizmo_extents(get, set) : Float;
 }

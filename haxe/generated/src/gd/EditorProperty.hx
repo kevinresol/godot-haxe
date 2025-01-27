@@ -56,17 +56,17 @@ class EditorProperty extends gd.Container {
 		case [_, _, _, null]:__editorproperty_ptr().value.emit_changed(((p_property : std.String)), ((p_value : gd.Variant)), ((p_field : std.String)));
 		default:__editorproperty_ptr().value.emit_changed(((p_property : std.String)), ((p_value : gd.Variant)), ((p_field : std.String)), ((p_changing : Bool)));
 	};
-	var label(get, set) : std.String;
-	var read_only(get, set) : Bool;
+	public var label(get, set) : std.String;
+	public var read_only(get, set) : Bool;
 	function get_read_only():Bool return is_read_only();
-	var checkable(get, set) : Bool;
+	public var checkable(get, set) : Bool;
 	function get_checkable():Bool return is_checkable();
-	var checked(get, set) : Bool;
+	public var checked(get, set) : Bool;
 	function get_checked():Bool return is_checked();
-	var draw_warning(get, set) : Bool;
+	public var draw_warning(get, set) : Bool;
 	function get_draw_warning():Bool return is_draw_warning();
-	var keying(get, set) : Bool;
+	public var keying(get, set) : Bool;
 	function get_keying():Bool return is_keying();
-	var deletable(get, set) : Bool;
+	public var deletable(get, set) : Bool;
 	function get_deletable():Bool return is_deletable();
 }

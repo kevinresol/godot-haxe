@@ -11,7 +11,7 @@ class CompressedTextureLayered extends gd.TextureLayered {
 	extern inline function __compressedtexturelayered_ptr():cpp.Pointer<gdnative.CompressedTextureLayered.CompressedTextureLayered_extern> return cast __gd.ptr;
 	public function load(p_path:std.String):gd.Error return __compressedtexturelayered_ptr().value.load(((p_path : std.String)));
 	public function get_load_path():std.String return __compressedtexturelayered_ptr().value.get_load_path();
-	var load_path(get, set) : std.String;
+	public var load_path(get, set) : std.String;
 	function set_load_path(v:std.String):std.String {
 		load(v);
 		return v;

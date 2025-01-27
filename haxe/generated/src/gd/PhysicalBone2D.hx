@@ -36,9 +36,9 @@ class PhysicalBone2D extends gd.RigidBody2D {
 		return p_follow_bone;
 	}
 	public function get_follow_bone_when_simulating():Bool return __physicalbone2d_ptr().value.get_follow_bone_when_simulating();
-	var bone2d_nodepath(get, set) : std.String;
-	var bone2d_index(get, set) : Int;
-	var auto_configure_joint(get, set) : Bool;
-	var simulate_physics(get, set) : Bool;
-	var follow_bone_when_simulating(get, set) : Bool;
+	public var bone2d_nodepath(get, set) : std.String;
+	public var bone2d_index(get, set) : Int;
+	public var auto_configure_joint(get, set) : Bool;
+	public var simulate_physics(get, set) : Bool;
+	public var follow_bone_when_simulating(get, set) : Bool;
 }

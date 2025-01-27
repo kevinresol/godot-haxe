@@ -14,5 +14,5 @@ class VisualShaderNodeTexture2DArray extends gd.VisualShaderNodeSample3D {
 		return p_value;
 	}
 	public function get_texture_array():gd.Texture2DArray return __visualshadernodetexture2darray_ptr().value.get_texture_array();
-	var texture_array(get, set) : gd.Texture2DArray;
+	public var texture_array(get, set) : gd.Texture2DArray;
 }

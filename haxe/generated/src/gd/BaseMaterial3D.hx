@@ -286,467 +286,467 @@ class BaseMaterial3D extends gd.Material {
 		return p_distance;
 	}
 	public function get_distance_fade_min_distance():Float return __basematerial3d_ptr().value.get_distance_fade_min_distance();
-	var transparency(get, set) : gd.basematerial3d.Transparency;
-	var alpha_scissor_threshold(get, set) : Float;
-	var alpha_hash_scale(get, set) : Float;
-	var alpha_antialiasing_mode(get, set) : gd.basematerial3d.AlphaAntiAliasing;
+	public var transparency(get, set) : gd.basematerial3d.Transparency;
+	public var alpha_scissor_threshold(get, set) : Float;
+	public var alpha_hash_scale(get, set) : Float;
+	public var alpha_antialiasing_mode(get, set) : gd.basematerial3d.AlphaAntiAliasing;
 	function get_alpha_antialiasing_mode():gd.basematerial3d.AlphaAntiAliasing return get_alpha_antialiasing();
 	function set_alpha_antialiasing_mode(v:gd.basematerial3d.AlphaAntiAliasing):gd.basematerial3d.AlphaAntiAliasing {
 		set_alpha_antialiasing(v);
 		return v;
 	}
-	var alpha_antialiasing_edge(get, set) : Float;
-	var blend_mode(get, set) : gd.basematerial3d.BlendMode;
-	var cull_mode(get, set) : gd.basematerial3d.CullMode;
-	var depth_draw_mode(get, set) : gd.basematerial3d.DepthDrawMode;
-	var no_depth_test(get, set) : Bool;
+	public var alpha_antialiasing_edge(get, set) : Float;
+	public var blend_mode(get, set) : gd.basematerial3d.BlendMode;
+	public var cull_mode(get, set) : gd.basematerial3d.CullMode;
+	public var depth_draw_mode(get, set) : gd.basematerial3d.DepthDrawMode;
+	public var no_depth_test(get, set) : Bool;
 	function get_no_depth_test():Bool return get_flag(0);
 	function set_no_depth_test(v:Bool):Bool {
 		set_flag(0, v);
 		return v;
 	}
-	var shading_mode(get, set) : gd.basematerial3d.ShadingMode;
-	var diffuse_mode(get, set) : gd.basematerial3d.DiffuseMode;
-	var specular_mode(get, set) : gd.basematerial3d.SpecularMode;
-	var disable_ambient_light(get, set) : Bool;
+	public var shading_mode(get, set) : gd.basematerial3d.ShadingMode;
+	public var diffuse_mode(get, set) : gd.basematerial3d.DiffuseMode;
+	public var specular_mode(get, set) : gd.basematerial3d.SpecularMode;
+	public var disable_ambient_light(get, set) : Bool;
 	function get_disable_ambient_light():Bool return get_flag(14);
 	function set_disable_ambient_light(v:Bool):Bool {
 		set_flag(14, v);
 		return v;
 	}
-	var disable_fog(get, set) : Bool;
+	public var disable_fog(get, set) : Bool;
 	function get_disable_fog():Bool return get_flag(21);
 	function set_disable_fog(v:Bool):Bool {
 		set_flag(21, v);
 		return v;
 	}
-	var vertex_color_use_as_albedo(get, set) : Bool;
+	public var vertex_color_use_as_albedo(get, set) : Bool;
 	function get_vertex_color_use_as_albedo():Bool return get_flag(1);
 	function set_vertex_color_use_as_albedo(v:Bool):Bool {
 		set_flag(1, v);
 		return v;
 	}
-	var vertex_color_is_srgb(get, set) : Bool;
+	public var vertex_color_is_srgb(get, set) : Bool;
 	function get_vertex_color_is_srgb():Bool return get_flag(2);
 	function set_vertex_color_is_srgb(v:Bool):Bool {
 		set_flag(2, v);
 		return v;
 	}
-	var albedo_color(get, set) : gd.Color;
+	public var albedo_color(get, set) : gd.Color;
 	function get_albedo_color():gd.Color return get_albedo();
 	function set_albedo_color(v:gd.Color):gd.Color {
 		set_albedo(v);
 		return v;
 	}
-	var albedo_texture(get, set) : gd.Texture2D;
+	public var albedo_texture(get, set) : gd.Texture2D;
 	function get_albedo_texture():gd.Texture2D return get_texture(0);
 	function set_albedo_texture(v:gd.Texture2D):gd.Texture2D {
 		set_texture(0, v);
 		return v;
 	}
-	var albedo_texture_force_srgb(get, set) : Bool;
+	public var albedo_texture_force_srgb(get, set) : Bool;
 	function get_albedo_texture_force_srgb():Bool return get_flag(12);
 	function set_albedo_texture_force_srgb(v:Bool):Bool {
 		set_flag(12, v);
 		return v;
 	}
-	var albedo_texture_msdf(get, set) : Bool;
+	public var albedo_texture_msdf(get, set) : Bool;
 	function get_albedo_texture_msdf():Bool return get_flag(20);
 	function set_albedo_texture_msdf(v:Bool):Bool {
 		set_flag(20, v);
 		return v;
 	}
-	var orm_texture(get, set) : gd.Texture2D;
+	public var orm_texture(get, set) : gd.Texture2D;
 	function get_orm_texture():gd.Texture2D return get_texture(17);
 	function set_orm_texture(v:gd.Texture2D):gd.Texture2D {
 		set_texture(17, v);
 		return v;
 	}
-	var metallic(get, set) : Float;
-	var metallic_specular(get, set) : Float;
+	public var metallic(get, set) : Float;
+	public var metallic_specular(get, set) : Float;
 	function get_metallic_specular():Float return get_specular();
 	function set_metallic_specular(v:Float):Float {
 		set_specular(v);
 		return v;
 	}
-	var metallic_texture(get, set) : gd.Texture2D;
+	public var metallic_texture(get, set) : gd.Texture2D;
 	function get_metallic_texture():gd.Texture2D return get_texture(1);
 	function set_metallic_texture(v:gd.Texture2D):gd.Texture2D {
 		set_texture(1, v);
 		return v;
 	}
-	var metallic_texture_channel(get, set) : gd.basematerial3d.TextureChannel;
-	var roughness(get, set) : Float;
-	var roughness_texture(get, set) : gd.Texture2D;
+	public var metallic_texture_channel(get, set) : gd.basematerial3d.TextureChannel;
+	public var roughness(get, set) : Float;
+	public var roughness_texture(get, set) : gd.Texture2D;
 	function get_roughness_texture():gd.Texture2D return get_texture(2);
 	function set_roughness_texture(v:gd.Texture2D):gd.Texture2D {
 		set_texture(2, v);
 		return v;
 	}
-	var roughness_texture_channel(get, set) : gd.basematerial3d.TextureChannel;
-	var emission_enabled(get, set) : Bool;
+	public var roughness_texture_channel(get, set) : gd.basematerial3d.TextureChannel;
+	public var emission_enabled(get, set) : Bool;
 	function get_emission_enabled():Bool return get_feature(0);
 	function set_emission_enabled(v:Bool):Bool {
 		set_feature(0, v);
 		return v;
 	}
-	var emission(get, set) : gd.Color;
-	var emission_energy_multiplier(get, set) : Float;
-	var emission_intensity(get, set) : Float;
-	var emission_operator(get, set) : gd.basematerial3d.EmissionOperator;
-	var emission_on_uv2(get, set) : Bool;
+	public var emission(get, set) : gd.Color;
+	public var emission_energy_multiplier(get, set) : Float;
+	public var emission_intensity(get, set) : Float;
+	public var emission_operator(get, set) : gd.basematerial3d.EmissionOperator;
+	public var emission_on_uv2(get, set) : Bool;
 	function get_emission_on_uv2():Bool return get_flag(11);
 	function set_emission_on_uv2(v:Bool):Bool {
 		set_flag(11, v);
 		return v;
 	}
-	var emission_texture(get, set) : gd.Texture2D;
+	public var emission_texture(get, set) : gd.Texture2D;
 	function get_emission_texture():gd.Texture2D return get_texture(3);
 	function set_emission_texture(v:gd.Texture2D):gd.Texture2D {
 		set_texture(3, v);
 		return v;
 	}
-	var normal_enabled(get, set) : Bool;
+	public var normal_enabled(get, set) : Bool;
 	function get_normal_enabled():Bool return get_feature(1);
 	function set_normal_enabled(v:Bool):Bool {
 		set_feature(1, v);
 		return v;
 	}
-	var normal_scale(get, set) : Float;
-	var normal_texture(get, set) : gd.Texture2D;
+	public var normal_scale(get, set) : Float;
+	public var normal_texture(get, set) : gd.Texture2D;
 	function get_normal_texture():gd.Texture2D return get_texture(4);
 	function set_normal_texture(v:gd.Texture2D):gd.Texture2D {
 		set_texture(4, v);
 		return v;
 	}
-	var rim_enabled(get, set) : Bool;
+	public var rim_enabled(get, set) : Bool;
 	function get_rim_enabled():Bool return get_feature(2);
 	function set_rim_enabled(v:Bool):Bool {
 		set_feature(2, v);
 		return v;
 	}
-	var rim(get, set) : Float;
-	var rim_tint(get, set) : Float;
-	var rim_texture(get, set) : gd.Texture2D;
+	public var rim(get, set) : Float;
+	public var rim_tint(get, set) : Float;
+	public var rim_texture(get, set) : gd.Texture2D;
 	function get_rim_texture():gd.Texture2D return get_texture(5);
 	function set_rim_texture(v:gd.Texture2D):gd.Texture2D {
 		set_texture(5, v);
 		return v;
 	}
-	var clearcoat_enabled(get, set) : Bool;
+	public var clearcoat_enabled(get, set) : Bool;
 	function get_clearcoat_enabled():Bool return get_feature(3);
 	function set_clearcoat_enabled(v:Bool):Bool {
 		set_feature(3, v);
 		return v;
 	}
-	var clearcoat(get, set) : Float;
-	var clearcoat_roughness(get, set) : Float;
-	var clearcoat_texture(get, set) : gd.Texture2D;
+	public var clearcoat(get, set) : Float;
+	public var clearcoat_roughness(get, set) : Float;
+	public var clearcoat_texture(get, set) : gd.Texture2D;
 	function get_clearcoat_texture():gd.Texture2D return get_texture(6);
 	function set_clearcoat_texture(v:gd.Texture2D):gd.Texture2D {
 		set_texture(6, v);
 		return v;
 	}
-	var anisotropy_enabled(get, set) : Bool;
+	public var anisotropy_enabled(get, set) : Bool;
 	function get_anisotropy_enabled():Bool return get_feature(4);
 	function set_anisotropy_enabled(v:Bool):Bool {
 		set_feature(4, v);
 		return v;
 	}
-	var anisotropy(get, set) : Float;
-	var anisotropy_flowmap(get, set) : gd.Texture2D;
+	public var anisotropy(get, set) : Float;
+	public var anisotropy_flowmap(get, set) : gd.Texture2D;
 	function get_anisotropy_flowmap():gd.Texture2D return get_texture(7);
 	function set_anisotropy_flowmap(v:gd.Texture2D):gd.Texture2D {
 		set_texture(7, v);
 		return v;
 	}
-	var ao_enabled(get, set) : Bool;
+	public var ao_enabled(get, set) : Bool;
 	function get_ao_enabled():Bool return get_feature(5);
 	function set_ao_enabled(v:Bool):Bool {
 		set_feature(5, v);
 		return v;
 	}
-	var ao_light_affect(get, set) : Float;
-	var ao_texture(get, set) : gd.Texture2D;
+	public var ao_light_affect(get, set) : Float;
+	public var ao_texture(get, set) : gd.Texture2D;
 	function get_ao_texture():gd.Texture2D return get_texture(8);
 	function set_ao_texture(v:gd.Texture2D):gd.Texture2D {
 		set_texture(8, v);
 		return v;
 	}
-	var ao_on_uv2(get, set) : Bool;
+	public var ao_on_uv2(get, set) : Bool;
 	function get_ao_on_uv2():Bool return get_flag(10);
 	function set_ao_on_uv2(v:Bool):Bool {
 		set_flag(10, v);
 		return v;
 	}
-	var ao_texture_channel(get, set) : gd.basematerial3d.TextureChannel;
-	var heightmap_enabled(get, set) : Bool;
+	public var ao_texture_channel(get, set) : gd.basematerial3d.TextureChannel;
+	public var heightmap_enabled(get, set) : Bool;
 	function get_heightmap_enabled():Bool return get_feature(6);
 	function set_heightmap_enabled(v:Bool):Bool {
 		set_feature(6, v);
 		return v;
 	}
-	var heightmap_scale(get, set) : Float;
-	var heightmap_deep_parallax(get, set) : Bool;
+	public var heightmap_scale(get, set) : Float;
+	public var heightmap_deep_parallax(get, set) : Bool;
 	function get_heightmap_deep_parallax():Bool return is_heightmap_deep_parallax_enabled();
-	var heightmap_min_layers(get, set) : Int;
+	public var heightmap_min_layers(get, set) : Int;
 	function get_heightmap_min_layers():Int return get_heightmap_deep_parallax_min_layers();
 	function set_heightmap_min_layers(v:Int):Int {
 		set_heightmap_deep_parallax_min_layers(v);
 		return v;
 	}
-	var heightmap_max_layers(get, set) : Int;
+	public var heightmap_max_layers(get, set) : Int;
 	function get_heightmap_max_layers():Int return get_heightmap_deep_parallax_max_layers();
 	function set_heightmap_max_layers(v:Int):Int {
 		set_heightmap_deep_parallax_max_layers(v);
 		return v;
 	}
-	var heightmap_flip_tangent(get, set) : Bool;
+	public var heightmap_flip_tangent(get, set) : Bool;
 	function get_heightmap_flip_tangent():Bool return get_heightmap_deep_parallax_flip_tangent();
 	function set_heightmap_flip_tangent(v:Bool):Bool {
 		set_heightmap_deep_parallax_flip_tangent(v);
 		return v;
 	}
-	var heightmap_flip_binormal(get, set) : Bool;
+	public var heightmap_flip_binormal(get, set) : Bool;
 	function get_heightmap_flip_binormal():Bool return get_heightmap_deep_parallax_flip_binormal();
 	function set_heightmap_flip_binormal(v:Bool):Bool {
 		set_heightmap_deep_parallax_flip_binormal(v);
 		return v;
 	}
-	var heightmap_texture(get, set) : gd.Texture2D;
+	public var heightmap_texture(get, set) : gd.Texture2D;
 	function get_heightmap_texture():gd.Texture2D return get_texture(9);
 	function set_heightmap_texture(v:gd.Texture2D):gd.Texture2D {
 		set_texture(9, v);
 		return v;
 	}
-	var heightmap_flip_texture(get, set) : Bool;
+	public var heightmap_flip_texture(get, set) : Bool;
 	function get_heightmap_flip_texture():Bool return get_flag(17);
 	function set_heightmap_flip_texture(v:Bool):Bool {
 		set_flag(17, v);
 		return v;
 	}
-	var subsurf_scatter_enabled(get, set) : Bool;
+	public var subsurf_scatter_enabled(get, set) : Bool;
 	function get_subsurf_scatter_enabled():Bool return get_feature(7);
 	function set_subsurf_scatter_enabled(v:Bool):Bool {
 		set_feature(7, v);
 		return v;
 	}
-	var subsurf_scatter_strength(get, set) : Float;
+	public var subsurf_scatter_strength(get, set) : Float;
 	function get_subsurf_scatter_strength():Float return get_subsurface_scattering_strength();
 	function set_subsurf_scatter_strength(v:Float):Float {
 		set_subsurface_scattering_strength(v);
 		return v;
 	}
-	var subsurf_scatter_skin_mode(get, set) : Bool;
+	public var subsurf_scatter_skin_mode(get, set) : Bool;
 	function get_subsurf_scatter_skin_mode():Bool return get_flag(18);
 	function set_subsurf_scatter_skin_mode(v:Bool):Bool {
 		set_flag(18, v);
 		return v;
 	}
-	var subsurf_scatter_texture(get, set) : gd.Texture2D;
+	public var subsurf_scatter_texture(get, set) : gd.Texture2D;
 	function get_subsurf_scatter_texture():gd.Texture2D return get_texture(10);
 	function set_subsurf_scatter_texture(v:gd.Texture2D):gd.Texture2D {
 		set_texture(10, v);
 		return v;
 	}
-	var subsurf_scatter_transmittance_enabled(get, set) : Bool;
+	public var subsurf_scatter_transmittance_enabled(get, set) : Bool;
 	function get_subsurf_scatter_transmittance_enabled():Bool return get_feature(8);
 	function set_subsurf_scatter_transmittance_enabled(v:Bool):Bool {
 		set_feature(8, v);
 		return v;
 	}
-	var subsurf_scatter_transmittance_color(get, set) : gd.Color;
+	public var subsurf_scatter_transmittance_color(get, set) : gd.Color;
 	function get_subsurf_scatter_transmittance_color():gd.Color return get_transmittance_color();
 	function set_subsurf_scatter_transmittance_color(v:gd.Color):gd.Color {
 		set_transmittance_color(v);
 		return v;
 	}
-	var subsurf_scatter_transmittance_texture(get, set) : gd.Texture2D;
+	public var subsurf_scatter_transmittance_texture(get, set) : gd.Texture2D;
 	function get_subsurf_scatter_transmittance_texture():gd.Texture2D return get_texture(11);
 	function set_subsurf_scatter_transmittance_texture(v:gd.Texture2D):gd.Texture2D {
 		set_texture(11, v);
 		return v;
 	}
-	var subsurf_scatter_transmittance_depth(get, set) : Float;
+	public var subsurf_scatter_transmittance_depth(get, set) : Float;
 	function get_subsurf_scatter_transmittance_depth():Float return get_transmittance_depth();
 	function set_subsurf_scatter_transmittance_depth(v:Float):Float {
 		set_transmittance_depth(v);
 		return v;
 	}
-	var subsurf_scatter_transmittance_boost(get, set) : Float;
+	public var subsurf_scatter_transmittance_boost(get, set) : Float;
 	function get_subsurf_scatter_transmittance_boost():Float return get_transmittance_boost();
 	function set_subsurf_scatter_transmittance_boost(v:Float):Float {
 		set_transmittance_boost(v);
 		return v;
 	}
-	var backlight_enabled(get, set) : Bool;
+	public var backlight_enabled(get, set) : Bool;
 	function get_backlight_enabled():Bool return get_feature(9);
 	function set_backlight_enabled(v:Bool):Bool {
 		set_feature(9, v);
 		return v;
 	}
-	var backlight(get, set) : gd.Color;
-	var backlight_texture(get, set) : gd.Texture2D;
+	public var backlight(get, set) : gd.Color;
+	public var backlight_texture(get, set) : gd.Texture2D;
 	function get_backlight_texture():gd.Texture2D return get_texture(12);
 	function set_backlight_texture(v:gd.Texture2D):gd.Texture2D {
 		set_texture(12, v);
 		return v;
 	}
-	var refraction_enabled(get, set) : Bool;
+	public var refraction_enabled(get, set) : Bool;
 	function get_refraction_enabled():Bool return get_feature(10);
 	function set_refraction_enabled(v:Bool):Bool {
 		set_feature(10, v);
 		return v;
 	}
-	var refraction_scale(get, set) : Float;
+	public var refraction_scale(get, set) : Float;
 	function get_refraction_scale():Float return get_refraction();
 	function set_refraction_scale(v:Float):Float {
 		set_refraction(v);
 		return v;
 	}
-	var refraction_texture(get, set) : gd.Texture2D;
+	public var refraction_texture(get, set) : gd.Texture2D;
 	function get_refraction_texture():gd.Texture2D return get_texture(13);
 	function set_refraction_texture(v:gd.Texture2D):gd.Texture2D {
 		set_texture(13, v);
 		return v;
 	}
-	var refraction_texture_channel(get, set) : gd.basematerial3d.TextureChannel;
-	var detail_enabled(get, set) : Bool;
+	public var refraction_texture_channel(get, set) : gd.basematerial3d.TextureChannel;
+	public var detail_enabled(get, set) : Bool;
 	function get_detail_enabled():Bool return get_feature(11);
 	function set_detail_enabled(v:Bool):Bool {
 		set_feature(11, v);
 		return v;
 	}
-	var detail_mask(get, set) : gd.Texture2D;
+	public var detail_mask(get, set) : gd.Texture2D;
 	function get_detail_mask():gd.Texture2D return get_texture(14);
 	function set_detail_mask(v:gd.Texture2D):gd.Texture2D {
 		set_texture(14, v);
 		return v;
 	}
-	var detail_blend_mode(get, set) : gd.basematerial3d.BlendMode;
-	var detail_uv_layer(get, set) : gd.basematerial3d.DetailUV;
+	public var detail_blend_mode(get, set) : gd.basematerial3d.BlendMode;
+	public var detail_uv_layer(get, set) : gd.basematerial3d.DetailUV;
 	function get_detail_uv_layer():gd.basematerial3d.DetailUV return get_detail_uv();
 	function set_detail_uv_layer(v:gd.basematerial3d.DetailUV):gd.basematerial3d.DetailUV {
 		set_detail_uv(v);
 		return v;
 	}
-	var detail_albedo(get, set) : gd.Texture2D;
+	public var detail_albedo(get, set) : gd.Texture2D;
 	function get_detail_albedo():gd.Texture2D return get_texture(15);
 	function set_detail_albedo(v:gd.Texture2D):gd.Texture2D {
 		set_texture(15, v);
 		return v;
 	}
-	var detail_normal(get, set) : gd.Texture2D;
+	public var detail_normal(get, set) : gd.Texture2D;
 	function get_detail_normal():gd.Texture2D return get_texture(16);
 	function set_detail_normal(v:gd.Texture2D):gd.Texture2D {
 		set_texture(16, v);
 		return v;
 	}
-	var uv1_scale(get, set) : gd.Vector3;
-	var uv1_offset(get, set) : gd.Vector3;
-	var uv1_triplanar(get, set) : Bool;
+	public var uv1_scale(get, set) : gd.Vector3;
+	public var uv1_offset(get, set) : gd.Vector3;
+	public var uv1_triplanar(get, set) : Bool;
 	function get_uv1_triplanar():Bool return get_flag(6);
 	function set_uv1_triplanar(v:Bool):Bool {
 		set_flag(6, v);
 		return v;
 	}
-	var uv1_triplanar_sharpness(get, set) : Float;
+	public var uv1_triplanar_sharpness(get, set) : Float;
 	function get_uv1_triplanar_sharpness():Float return get_uv1_triplanar_blend_sharpness();
 	function set_uv1_triplanar_sharpness(v:Float):Float {
 		set_uv1_triplanar_blend_sharpness(v);
 		return v;
 	}
-	var uv1_world_triplanar(get, set) : Bool;
+	public var uv1_world_triplanar(get, set) : Bool;
 	function get_uv1_world_triplanar():Bool return get_flag(8);
 	function set_uv1_world_triplanar(v:Bool):Bool {
 		set_flag(8, v);
 		return v;
 	}
-	var uv2_scale(get, set) : gd.Vector3;
-	var uv2_offset(get, set) : gd.Vector3;
-	var uv2_triplanar(get, set) : Bool;
+	public var uv2_scale(get, set) : gd.Vector3;
+	public var uv2_offset(get, set) : gd.Vector3;
+	public var uv2_triplanar(get, set) : Bool;
 	function get_uv2_triplanar():Bool return get_flag(7);
 	function set_uv2_triplanar(v:Bool):Bool {
 		set_flag(7, v);
 		return v;
 	}
-	var uv2_triplanar_sharpness(get, set) : Float;
+	public var uv2_triplanar_sharpness(get, set) : Float;
 	function get_uv2_triplanar_sharpness():Float return get_uv2_triplanar_blend_sharpness();
 	function set_uv2_triplanar_sharpness(v:Float):Float {
 		set_uv2_triplanar_blend_sharpness(v);
 		return v;
 	}
-	var uv2_world_triplanar(get, set) : Bool;
+	public var uv2_world_triplanar(get, set) : Bool;
 	function get_uv2_world_triplanar():Bool return get_flag(9);
 	function set_uv2_world_triplanar(v:Bool):Bool {
 		set_flag(9, v);
 		return v;
 	}
-	var texture_filter(get, set) : gd.basematerial3d.TextureFilter;
-	var texture_repeat(get, set) : Bool;
+	public var texture_filter(get, set) : gd.basematerial3d.TextureFilter;
+	public var texture_repeat(get, set) : Bool;
 	function get_texture_repeat():Bool return get_flag(16);
 	function set_texture_repeat(v:Bool):Bool {
 		set_flag(16, v);
 		return v;
 	}
-	var disable_receive_shadows(get, set) : Bool;
+	public var disable_receive_shadows(get, set) : Bool;
 	function get_disable_receive_shadows():Bool return get_flag(13);
 	function set_disable_receive_shadows(v:Bool):Bool {
 		set_flag(13, v);
 		return v;
 	}
-	var shadow_to_opacity(get, set) : Bool;
+	public var shadow_to_opacity(get, set) : Bool;
 	function get_shadow_to_opacity():Bool return get_flag(15);
 	function set_shadow_to_opacity(v:Bool):Bool {
 		set_flag(15, v);
 		return v;
 	}
-	var billboard_mode(get, set) : gd.basematerial3d.BillboardMode;
-	var billboard_keep_scale(get, set) : Bool;
+	public var billboard_mode(get, set) : gd.basematerial3d.BillboardMode;
+	public var billboard_keep_scale(get, set) : Bool;
 	function get_billboard_keep_scale():Bool return get_flag(5);
 	function set_billboard_keep_scale(v:Bool):Bool {
 		set_flag(5, v);
 		return v;
 	}
-	var particles_anim_h_frames(get, set) : Int;
-	var particles_anim_v_frames(get, set) : Int;
-	var particles_anim_loop(get, set) : Bool;
-	var grow_amount(get, set) : Float;
+	public var particles_anim_h_frames(get, set) : Int;
+	public var particles_anim_v_frames(get, set) : Int;
+	public var particles_anim_loop(get, set) : Bool;
+	public var grow_amount(get, set) : Float;
 	function get_grow_amount():Float return get_grow();
 	function set_grow_amount(v:Float):Float {
 		set_grow(v);
 		return v;
 	}
-	var fixed_size(get, set) : Bool;
+	public var fixed_size(get, set) : Bool;
 	function get_fixed_size():Bool return get_flag(4);
 	function set_fixed_size(v:Bool):Bool {
 		set_flag(4, v);
 		return v;
 	}
-	var use_point_size(get, set) : Bool;
+	public var use_point_size(get, set) : Bool;
 	function get_use_point_size():Bool return get_flag(3);
 	function set_use_point_size(v:Bool):Bool {
 		set_flag(3, v);
 		return v;
 	}
-	var point_size(get, set) : Float;
-	var use_particle_trails(get, set) : Bool;
+	public var point_size(get, set) : Float;
+	public var use_particle_trails(get, set) : Bool;
 	function get_use_particle_trails():Bool return get_flag(19);
 	function set_use_particle_trails(v:Bool):Bool {
 		set_flag(19, v);
 		return v;
 	}
-	var proximity_fade_enabled(get, set) : Bool;
+	public var proximity_fade_enabled(get, set) : Bool;
 	function get_proximity_fade_enabled():Bool return is_proximity_fade_enabled();
-	var proximity_fade_distance(get, set) : Float;
-	var msdf_pixel_range(get, set) : Float;
-	var msdf_outline_size(get, set) : Float;
-	var distance_fade_mode(get, set) : gd.basematerial3d.DistanceFadeMode;
+	public var proximity_fade_distance(get, set) : Float;
+	public var msdf_pixel_range(get, set) : Float;
+	public var msdf_outline_size(get, set) : Float;
+	public var distance_fade_mode(get, set) : gd.basematerial3d.DistanceFadeMode;
 	function get_distance_fade_mode():gd.basematerial3d.DistanceFadeMode return get_distance_fade();
 	function set_distance_fade_mode(v:gd.basematerial3d.DistanceFadeMode):gd.basematerial3d.DistanceFadeMode {
 		set_distance_fade(v);
 		return v;
 	}
-	var distance_fade_min_distance(get, set) : Float;
-	var distance_fade_max_distance(get, set) : Float;
+	public var distance_fade_min_distance(get, set) : Float;
+	public var distance_fade_max_distance(get, set) : Float;
 }

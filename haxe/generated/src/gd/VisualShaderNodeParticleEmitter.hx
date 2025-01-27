@@ -14,6 +14,6 @@ class VisualShaderNodeParticleEmitter extends gd.VisualShaderNode {
 		return p_enabled;
 	}
 	public function is_mode_2d():Bool return __visualshadernodeparticleemitter_ptr().value.is_mode_2d();
-	var mode_2d(get, set) : Bool;
+	public var mode_2d(get, set) : Bool;
 	function get_mode_2d():Bool return is_mode_2d();
 }

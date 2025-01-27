@@ -11,7 +11,7 @@ class VisualShaderNodeColorOp extends gd.VisualShaderNode {
 	extern inline function __visualshadernodecolorop_ptr():cpp.Pointer<gdnative.VisualShaderNodeColorOp.VisualShaderNodeColorOp_extern> return cast __gd.ptr;
 	public function set_operator(p_op:gd.visualshadernodecolorop.Operator):Void __visualshadernodecolorop_ptr().value.set_operator(((p_op : gd.visualshadernodecolorop.Operator)));
 	public function get_operator():gd.visualshadernodecolorop.Operator return __visualshadernodecolorop_ptr().value.get_operator();
-	var operator_(get, set) : gd.visualshadernodecolorop.Operator;
+	public var operator_(get, set) : gd.visualshadernodecolorop.Operator;
 	function get_operator_():gd.visualshadernodecolorop.Operator return get_operator();
 	function set_operator_(v:gd.visualshadernodecolorop.Operator):gd.visualshadernodecolorop.Operator {
 		set_operator(v);

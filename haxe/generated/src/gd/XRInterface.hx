@@ -35,19 +35,19 @@ class XRInterface extends gd.RefCounted {
 	public function get_supported_environment_blend_modes():gd.Array return __xrinterface_ptr().value.get_supported_environment_blend_modes();
 	public function set_environment_blend_mode(p_mode:gd.xrinterface.EnvironmentBlendMode):Bool return __xrinterface_ptr().value.set_environment_blend_mode(((p_mode : gd.xrinterface.EnvironmentBlendMode)));
 	public function get_environment_blend_mode():gd.xrinterface.EnvironmentBlendMode return __xrinterface_ptr().value.get_environment_blend_mode();
-	var interface_is_primary(get, set) : Bool;
+	public var interface_is_primary(get, set) : Bool;
 	function get_interface_is_primary():Bool return is_primary();
 	function set_interface_is_primary(v:Bool):Bool {
 		set_primary(v);
 		return v;
 	}
-	var xr_play_area_mode(get, set) : gd.xrinterface.PlayAreaMode;
+	public var xr_play_area_mode(get, set) : gd.xrinterface.PlayAreaMode;
 	function get_xr_play_area_mode():gd.xrinterface.PlayAreaMode return get_play_area_mode();
 	function set_xr_play_area_mode(v:gd.xrinterface.PlayAreaMode):gd.xrinterface.PlayAreaMode {
 		set_play_area_mode(v);
 		return v;
 	}
-	var ar_is_anchor_detection_enabled(get, set) : Bool;
+	public var ar_is_anchor_detection_enabled(get, set) : Bool;
 	function get_ar_is_anchor_detection_enabled():Bool return get_anchor_detection_is_enabled();
 	function set_ar_is_anchor_detection_enabled(v:Bool):Bool {
 		set_anchor_detection_is_enabled(v);

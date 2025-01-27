@@ -14,5 +14,5 @@ class TextureLayeredRD extends gd.TextureLayered {
 		return p_texture_rd_rid;
 	}
 	public function get_texture_rd_rid():gd.RID return __texturelayeredrd_ptr().value.get_texture_rd_rid();
-	var texture_rd_rid(get, set) : gd.RID;
+	public var texture_rd_rid(get, set) : gd.RID;
 }

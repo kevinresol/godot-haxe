@@ -19,6 +19,6 @@ class VisibleOnScreenEnabler3D extends gd.VisibleOnScreenNotifier3D {
 		return p_path;
 	}
 	public function get_enable_node_path():std.String return __visibleonscreenenabler3d_ptr().value.get_enable_node_path();
-	var enable_mode(get, set) : gd.visibleonscreenenabler3d.EnableMode;
-	var enable_node_path(get, set) : std.String;
+	public var enable_mode(get, set) : gd.visibleonscreenenabler3d.EnableMode;
+	public var enable_node_path(get, set) : std.String;
 }

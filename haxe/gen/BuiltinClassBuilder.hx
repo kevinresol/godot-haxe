@@ -220,7 +220,7 @@ class BuiltinClassBuilder extends Builder {
 
 					@:from
 					extern static inline function fromHaxe(v:std.String):String {
-						// TODO: does this make a copy? if not it might become invalid when the haxe string is gc'd
+						// godot will make a copy of the string
 						return untyped __cpp__('godot::String({0})', cpp.NativeString.c_str(v));
 					}
 				}).fields.concat(abs.fields);
@@ -234,7 +234,7 @@ class BuiltinClassBuilder extends Builder {
 
 					@:from
 					extern static inline function fromHaxe(v:std.String):StringName {
-						// TODO: does this make a copy? if not it might become invalid when the haxe string is gc'd
+						// godot will make a copy of the string
 						return untyped __cpp__('godot::StringName({0})', cpp.NativeString.c_str(v));
 					}
 				}).fields.concat(abs.fields);
@@ -248,7 +248,7 @@ class BuiltinClassBuilder extends Builder {
 
 					@:from
 					extern static inline function fromHaxe(v:std.String):NodePath {
-						// TODO: does this make a copy? if not it might become invalid when the haxe string is gc'd
+						// godot will make a copy of the string
 						return untyped __cpp__('godot::NodePath({0})', cpp.NativeString.c_str(v));
 					}
 				}).fields.concat(abs.fields);

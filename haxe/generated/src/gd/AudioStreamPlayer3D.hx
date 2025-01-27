@@ -116,31 +116,31 @@ class AudioStreamPlayer3D extends gd.Node3D {
 		return p_playback_type;
 	}
 	public function get_playback_type():gd.audioserver.PlaybackType return __audiostreamplayer3d_ptr().value.get_playback_type();
-	var stream(get, set) : gd.AudioStream;
-	var attenuation_model(get, set) : gd.audiostreamplayer3d.AttenuationModel;
-	var volume_db(get, set) : Float;
-	var unit_size(get, set) : Float;
-	var max_db(get, set) : Float;
-	var pitch_scale(get, set) : Float;
-	var autoplay(get, set) : Bool;
+	public var stream(get, set) : gd.AudioStream;
+	public var attenuation_model(get, set) : gd.audiostreamplayer3d.AttenuationModel;
+	public var volume_db(get, set) : Float;
+	public var unit_size(get, set) : Float;
+	public var max_db(get, set) : Float;
+	public var pitch_scale(get, set) : Float;
+	public var autoplay(get, set) : Bool;
 	function get_autoplay():Bool return is_autoplay_enabled();
-	var stream_paused(get, set) : Bool;
-	var max_distance(get, set) : Float;
-	var max_polyphony(get, set) : Int;
-	var panning_strength(get, set) : Float;
-	var bus(get, set) : std.String;
-	var area_mask(get, set) : Int;
-	var playback_type(get, set) : gd.audioserver.PlaybackType;
-	var emission_angle_enabled(get, set) : Bool;
+	public var stream_paused(get, set) : Bool;
+	public var max_distance(get, set) : Float;
+	public var max_polyphony(get, set) : Int;
+	public var panning_strength(get, set) : Float;
+	public var bus(get, set) : std.String;
+	public var area_mask(get, set) : Int;
+	public var playback_type(get, set) : gd.audioserver.PlaybackType;
+	public var emission_angle_enabled(get, set) : Bool;
 	function get_emission_angle_enabled():Bool return is_emission_angle_enabled();
-	var emission_angle_degrees(get, set) : Float;
+	public var emission_angle_degrees(get, set) : Float;
 	function get_emission_angle_degrees():Float return get_emission_angle();
 	function set_emission_angle_degrees(v:Float):Float {
 		set_emission_angle(v);
 		return v;
 	}
-	var emission_angle_filter_attenuation_db(get, set) : Float;
-	var attenuation_filter_cutoff_hz(get, set) : Float;
-	var attenuation_filter_db(get, set) : Float;
-	var doppler_tracking(get, set) : gd.audiostreamplayer3d.DopplerTracking;
+	public var emission_angle_filter_attenuation_db(get, set) : Float;
+	public var attenuation_filter_cutoff_hz(get, set) : Float;
+	public var attenuation_filter_db(get, set) : Float;
+	public var doppler_tracking(get, set) : gd.audiostreamplayer3d.DopplerTracking;
 }

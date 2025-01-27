@@ -14,5 +14,5 @@ class AudioEffectAmplify extends gd.AudioEffect {
 		return p_volume;
 	}
 	public function get_volume_db():Float return __audioeffectamplify_ptr().value.get_volume_db();
-	var volume_db(get, set) : Float;
+	public var volume_db(get, set) : Float;
 }

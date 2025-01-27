@@ -25,6 +25,6 @@ class XRNode3D extends gd.Node3D {
 	public function get_has_tracking_data():Bool return __xrnode3d_ptr().value.get_has_tracking_data();
 	public function get_pose():gd.XRPose return __xrnode3d_ptr().value.get_pose();
 	public function trigger_haptic_pulse(p_action_name:std.String, p_frequency:Float, p_amplitude:Float, p_duration_sec:Float, p_delay_sec:Float):Void __xrnode3d_ptr().value.trigger_haptic_pulse(((p_action_name : std.String)), ((p_frequency : Float)), ((p_amplitude : Float)), ((p_duration_sec : Float)), ((p_delay_sec : Float)));
-	var tracker(get, set) : std.String;
-	var show_when_tracked(get, set) : Bool;
+	public var tracker(get, set) : std.String;
+	public var show_when_tracked(get, set) : Bool;
 }

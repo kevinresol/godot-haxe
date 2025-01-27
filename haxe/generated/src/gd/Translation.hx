@@ -39,5 +39,5 @@ class Translation extends gd.Resource {
 	public function get_message_list():gd.PackedStringArray return __translation_ptr().value.get_message_list();
 	public function get_translated_message_list():gd.PackedStringArray return __translation_ptr().value.get_translated_message_list();
 	public function get_message_count():Int return __translation_ptr().value.get_message_count();
-	var locale(get, set) : std.String;
+	public var locale(get, set) : std.String;
 }

@@ -21,12 +21,12 @@ class PanoramaSkyMaterial extends gd.Material {
 		return p_multiplier;
 	}
 	public function get_energy_multiplier():Float return __panoramaskymaterial_ptr().value.get_energy_multiplier();
-	var panorama(get, set) : gd.Texture2D;
-	var filter(get, set) : Bool;
+	public var panorama(get, set) : gd.Texture2D;
+	public var filter(get, set) : Bool;
 	function get_filter():Bool return is_filtering_enabled();
 	function set_filter(v:Bool):Bool {
 		set_filtering_enabled(v);
 		return v;
 	}
-	var energy_multiplier(get, set) : Float;
+	public var energy_multiplier(get, set) : Float;
 }

@@ -14,5 +14,5 @@ class ConvexPolygonShape3D extends gd.Shape3D {
 		return p_points;
 	}
 	public function get_points():gd.PackedVector3Array return __convexpolygonshape3d_ptr().value.get_points();
-	var points(get, set) : gd.PackedVector3Array;
+	public var points(get, set) : gd.PackedVector3Array;
 }

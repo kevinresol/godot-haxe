@@ -14,5 +14,5 @@ class GPUParticlesAttractorSphere3D extends gd.GPUParticlesAttractor3D {
 		return p_radius;
 	}
 	public function get_radius():Float return __gpuparticlesattractorsphere3d_ptr().value.get_radius();
-	var radius(get, set) : Float;
+	public var radius(get, set) : Float;
 }

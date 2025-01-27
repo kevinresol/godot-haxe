@@ -14,5 +14,5 @@ class AudioStreamPolyphonic extends gd.AudioStream {
 		return p_voices;
 	}
 	public function get_polyphony():Int return __audiostreampolyphonic_ptr().value.get_polyphony();
-	var polyphony(get, set) : Int;
+	public var polyphony(get, set) : Int;
 }

@@ -34,9 +34,9 @@ class OpenXRHand extends gd.Node3D {
 		return p_bone_update;
 	}
 	public function get_bone_update():gd.openxrhand.BoneUpdate return __openxrhand_ptr().value.get_bone_update();
-	var hand(get, set) : gd.openxrhand.Hands;
-	var motion_range(get, set) : gd.openxrhand.MotionRange;
-	var hand_skeleton(get, set) : std.String;
-	var skeleton_rig(get, set) : gd.openxrhand.SkeletonRig;
-	var bone_update(get, set) : gd.openxrhand.BoneUpdate;
+	public var hand(get, set) : gd.openxrhand.Hands;
+	public var motion_range(get, set) : gd.openxrhand.MotionRange;
+	public var hand_skeleton(get, set) : std.String;
+	public var skeleton_rig(get, set) : gd.openxrhand.SkeletonRig;
+	public var bone_update(get, set) : gd.openxrhand.BoneUpdate;
 }

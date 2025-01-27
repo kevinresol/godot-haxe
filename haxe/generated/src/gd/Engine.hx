@@ -64,11 +64,11 @@ class Engine extends gd.Object {
 		return p_enabled;
 	}
 	public function is_printing_error_messages():Bool return __engine_ptr().value.is_printing_error_messages();
-	var print_error_messages(get, set) : Bool;
+	public var print_error_messages(get, set) : Bool;
 	function get_print_error_messages():Bool return is_printing_error_messages();
-	var physics_ticks_per_second(get, set) : Int;
-	var max_physics_steps_per_frame(get, set) : Int;
-	var max_fps(get, set) : Int;
-	var time_scale(get, set) : Float;
-	var physics_jitter_fix(get, set) : Float;
+	public var physics_ticks_per_second(get, set) : Int;
+	public var max_physics_steps_per_frame(get, set) : Int;
+	public var max_fps(get, set) : Int;
+	public var time_scale(get, set) : Float;
+	public var physics_jitter_fix(get, set) : Float;
 }

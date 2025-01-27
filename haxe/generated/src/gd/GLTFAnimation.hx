@@ -21,6 +21,6 @@ class GLTFAnimation extends gd.Resource {
 	}
 	public function get_additional_data(p_extension_name:std.String):gd.Variant return __gltfanimation_ptr().value.get_additional_data(((p_extension_name : std.String)));
 	public function set_additional_data(p_extension_name:std.String, p_additional_data:gd.Variant):Void __gltfanimation_ptr().value.set_additional_data(((p_extension_name : std.String)), ((p_additional_data : gd.Variant)));
-	var original_name(get, set) : std.String;
-	var loop(get, set) : Bool;
+	public var original_name(get, set) : std.String;
+	public var loop(get, set) : Bool;
 }

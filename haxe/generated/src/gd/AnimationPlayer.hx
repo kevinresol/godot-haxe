@@ -90,41 +90,41 @@ class AnimationPlayer extends gd.AnimationMixer {
 	public function get_method_call_mode():gd.animationplayer.AnimationMethodCallMode return __animationplayer_ptr().value.get_method_call_mode();
 	public function set_root(p_path:std.String):Void __animationplayer_ptr().value.set_root(((p_path : std.String)));
 	public function get_root():std.String return __animationplayer_ptr().value.get_root();
-	var current_animation(get, set) : std.String;
-	var assigned_animation(get, set) : std.String;
-	var autoplay(get, set) : std.String;
-	var playback_auto_capture(get, set) : Bool;
+	public var current_animation(get, set) : std.String;
+	public var assigned_animation(get, set) : std.String;
+	public var autoplay(get, set) : std.String;
+	public var playback_auto_capture(get, set) : Bool;
 	function get_playback_auto_capture():Bool return is_auto_capture();
 	function set_playback_auto_capture(v:Bool):Bool {
 		set_auto_capture(v);
 		return v;
 	}
-	var playback_auto_capture_duration(get, set) : Float;
+	public var playback_auto_capture_duration(get, set) : Float;
 	function get_playback_auto_capture_duration():Float return get_auto_capture_duration();
 	function set_playback_auto_capture_duration(v:Float):Float {
 		set_auto_capture_duration(v);
 		return v;
 	}
-	var playback_auto_capture_transition_type(get, set) : gd.tween.TransitionType;
+	public var playback_auto_capture_transition_type(get, set) : gd.tween.TransitionType;
 	function get_playback_auto_capture_transition_type():gd.tween.TransitionType return get_auto_capture_transition_type();
 	function set_playback_auto_capture_transition_type(v:gd.tween.TransitionType):gd.tween.TransitionType {
 		set_auto_capture_transition_type(v);
 		return v;
 	}
-	var playback_auto_capture_ease_type(get, set) : gd.tween.EaseType;
+	public var playback_auto_capture_ease_type(get, set) : gd.tween.EaseType;
 	function get_playback_auto_capture_ease_type():gd.tween.EaseType return get_auto_capture_ease_type();
 	function set_playback_auto_capture_ease_type(v:gd.tween.EaseType):gd.tween.EaseType {
 		set_auto_capture_ease_type(v);
 		return v;
 	}
-	var playback_default_blend_time(get, set) : Float;
+	public var playback_default_blend_time(get, set) : Float;
 	function get_playback_default_blend_time():Float return get_default_blend_time();
 	function set_playback_default_blend_time(v:Float):Float {
 		set_default_blend_time(v);
 		return v;
 	}
-	var speed_scale(get, set) : Float;
-	var movie_quit_on_finish(get, set) : Bool;
+	public var speed_scale(get, set) : Float;
+	public var movie_quit_on_finish(get, set) : Bool;
 	function get_movie_quit_on_finish():Bool return is_movie_quit_on_finish_enabled();
 	function set_movie_quit_on_finish(v:Bool):Bool {
 		set_movie_quit_on_finish_enabled(v);

@@ -32,26 +32,26 @@ class AcceptDialog extends gd.Window {
 		return p_text;
 	}
 	public function get_ok_button_text():std.String return __acceptdialog_ptr().value.get_ok_button_text();
-	var ok_button_text(get, set) : std.String;
-	var dialog_text(get, set) : std.String;
+	public var ok_button_text(get, set) : std.String;
+	public var dialog_text(get, set) : std.String;
 	function get_dialog_text():std.String return get_text();
 	function set_dialog_text(v:std.String):std.String {
 		set_text(v);
 		return v;
 	}
-	var dialog_hide_on_ok(get, set) : Bool;
+	public var dialog_hide_on_ok(get, set) : Bool;
 	function get_dialog_hide_on_ok():Bool return get_hide_on_ok();
 	function set_dialog_hide_on_ok(v:Bool):Bool {
 		set_hide_on_ok(v);
 		return v;
 	}
-	var dialog_close_on_escape(get, set) : Bool;
+	public var dialog_close_on_escape(get, set) : Bool;
 	function get_dialog_close_on_escape():Bool return get_close_on_escape();
 	function set_dialog_close_on_escape(v:Bool):Bool {
 		set_close_on_escape(v);
 		return v;
 	}
-	var dialog_autowrap(get, set) : Bool;
+	public var dialog_autowrap(get, set) : Bool;
 	function get_dialog_autowrap():Bool return has_autowrap();
 	function set_dialog_autowrap(v:Bool):Bool {
 		set_autowrap(v);

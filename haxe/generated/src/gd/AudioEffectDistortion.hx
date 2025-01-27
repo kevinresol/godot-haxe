@@ -34,9 +34,9 @@ class AudioEffectDistortion extends gd.AudioEffect {
 		return p_post_gain;
 	}
 	public function get_post_gain():Float return __audioeffectdistortion_ptr().value.get_post_gain();
-	var mode(get, set) : gd.audioeffectdistortion.Mode;
-	var pre_gain(get, set) : Float;
-	var keep_hf_hz(get, set) : Float;
-	var drive(get, set) : Float;
-	var post_gain(get, set) : Float;
+	public var mode(get, set) : gd.audioeffectdistortion.Mode;
+	public var pre_gain(get, set) : Float;
+	public var keep_hf_hz(get, set) : Float;
+	public var drive(get, set) : Float;
+	public var post_gain(get, set) : Float;
 }

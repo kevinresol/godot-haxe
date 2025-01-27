@@ -14,5 +14,5 @@ class SceneTreeTimer extends gd.RefCounted {
 		return p_time;
 	}
 	public function get_time_left():Float return __scenetreetimer_ptr().value.get_time_left();
-	var time_left(get, set) : Float;
+	public var time_left(get, set) : Float;
 }

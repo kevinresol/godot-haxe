@@ -90,6 +90,6 @@ class FileAccess extends gd.RefCounted {
 	public static function set_hidden_attribute(p_file:std.String, p_hidden:Bool):gd.Error return gdnative.FileAccess.FileAccess_extern.set_hidden_attribute(((p_file : std.String)), ((p_hidden : Bool)));
 	public static function set_read_only_attribute(p_file:std.String, p_ro:Bool):gd.Error return gdnative.FileAccess.FileAccess_extern.set_read_only_attribute(((p_file : std.String)), ((p_ro : Bool)));
 	public static function get_read_only_attribute(p_file:std.String):Bool return gdnative.FileAccess.FileAccess_extern.get_read_only_attribute(((p_file : std.String)));
-	var big_endian(get, set) : Bool;
+	public var big_endian(get, set) : Bool;
 	function get_big_endian():Bool return is_big_endian();
 }

@@ -14,5 +14,5 @@ class VisualShaderNodeColorConstant extends gd.VisualShaderNodeConstant {
 		return p_constant;
 	}
 	public function get_constant():gd.Color return __visualshadernodecolorconstant_ptr().value.get_constant();
-	var constant(get, set) : gd.Color;
+	public var constant(get, set) : gd.Color;
 }

@@ -33,10 +33,10 @@ class EditorResourcePicker extends gd.HBoxContainer {
 		return p_enable;
 	}
 	public function is_editable():Bool return __editorresourcepicker_ptr().value.is_editable();
-	var base_type(get, set) : std.String;
-	var edited_resource(get, set) : gd.Resource;
-	var editable(get, set) : Bool;
+	public var base_type(get, set) : std.String;
+	public var edited_resource(get, set) : gd.Resource;
+	public var editable(get, set) : Bool;
 	function get_editable():Bool return is_editable();
-	var toggle_mode(get, set) : Bool;
+	public var toggle_mode(get, set) : Bool;
 	function get_toggle_mode():Bool return is_toggle_mode();
 }

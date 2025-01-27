@@ -49,12 +49,12 @@ class InputEventMIDI extends gd.InputEvent {
 		return p_controller_value;
 	}
 	public function get_controller_value():Int return __inputeventmidi_ptr().value.get_controller_value();
-	var channel(get, set) : Int;
-	var message(get, set) : gd.MIDIMessage;
-	var pitch(get, set) : Int;
-	var velocity(get, set) : Int;
-	var instrument(get, set) : Int;
-	var pressure(get, set) : Int;
-	var controller_number(get, set) : Int;
-	var controller_value(get, set) : Int;
+	public var channel(get, set) : Int;
+	public var message(get, set) : gd.MIDIMessage;
+	public var pitch(get, set) : Int;
+	public var velocity(get, set) : Int;
+	public var instrument(get, set) : Int;
+	public var pressure(get, set) : Int;
+	public var controller_number(get, set) : Int;
+	public var controller_value(get, set) : Int;
 }

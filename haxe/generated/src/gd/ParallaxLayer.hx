@@ -21,9 +21,9 @@ class ParallaxLayer extends gd.Node2D {
 	public function get_motion_offset():gd.Vector2 return __parallaxlayer_ptr().value.get_motion_offset();
 	public function set_mirroring(p_mirror:gd.Vector2):Void __parallaxlayer_ptr().value.set_mirroring(((p_mirror : gd.Vector2)));
 	public function get_mirroring():gd.Vector2 return __parallaxlayer_ptr().value.get_mirroring();
-	var motion_scale(get, set) : gd.Vector2;
-	var motion_offset(get, set) : gd.Vector2;
-	var motion_mirroring(get, set) : gd.Vector2;
+	public var motion_scale(get, set) : gd.Vector2;
+	public var motion_offset(get, set) : gd.Vector2;
+	public var motion_mirroring(get, set) : gd.Vector2;
 	function get_motion_mirroring():gd.Vector2 return get_mirroring();
 	function set_motion_mirroring(v:gd.Vector2):gd.Vector2 {
 		set_mirroring(v);

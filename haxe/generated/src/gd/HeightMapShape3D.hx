@@ -27,7 +27,7 @@ class HeightMapShape3D extends gd.Shape3D {
 	public function get_min_height():Float return __heightmapshape3d_ptr().value.get_min_height();
 	public function get_max_height():Float return __heightmapshape3d_ptr().value.get_max_height();
 	public function update_map_data_from_image(p_image:gd.Image, p_height_min:Float, p_height_max:Float):Void __heightmapshape3d_ptr().value.update_map_data_from_image(((p_image : gd.Image)), ((p_height_min : Float)), ((p_height_max : Float)));
-	var map_width(get, set) : Int;
-	var map_depth(get, set) : Int;
-	var map_data(get, set) : gd.PackedFloat32Array;
+	public var map_width(get, set) : Int;
+	public var map_depth(get, set) : Int;
+	public var map_data(get, set) : gd.PackedFloat32Array;
 }

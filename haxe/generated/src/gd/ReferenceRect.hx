@@ -24,7 +24,7 @@ class ReferenceRect extends gd.Control {
 		__referencerect_ptr().value.set_editor_only(((p_enabled : Bool)));
 		return p_enabled;
 	}
-	var border_color(get, set) : gd.Color;
-	var border_width(get, set) : Float;
-	var editor_only(get, set) : Bool;
+	public var border_color(get, set) : gd.Color;
+	public var border_width(get, set) : Float;
+	public var editor_only(get, set) : Bool;
 }

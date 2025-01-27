@@ -45,12 +45,12 @@ class AudioStreamWAV extends gd.AudioStream {
 	}
 	public function is_stereo():Bool return __audiostreamwav_ptr().value.is_stereo();
 	public function save_to_wav(p_path:std.String):gd.Error return __audiostreamwav_ptr().value.save_to_wav(((p_path : std.String)));
-	var data(get, set) : gd.PackedByteArray;
-	var format(get, set) : gd.audiostreamwav.Format;
-	var loop_mode(get, set) : gd.audiostreamwav.LoopMode;
-	var loop_begin(get, set) : Int;
-	var loop_end(get, set) : Int;
-	var mix_rate(get, set) : Int;
-	var stereo(get, set) : Bool;
+	public var data(get, set) : gd.PackedByteArray;
+	public var format(get, set) : gd.audiostreamwav.Format;
+	public var loop_mode(get, set) : gd.audiostreamwav.LoopMode;
+	public var loop_begin(get, set) : Int;
+	public var loop_end(get, set) : Int;
+	public var mix_rate(get, set) : Int;
+	public var stereo(get, set) : Bool;
 	function get_stereo():Bool return is_stereo();
 }

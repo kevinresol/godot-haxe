@@ -21,12 +21,12 @@ class AudioEffectStereoEnhance extends gd.AudioEffect {
 		return p_amount;
 	}
 	public function get_surround():Float return __audioeffectstereoenhance_ptr().value.get_surround();
-	var pan_pullout(get, set) : Float;
-	var time_pullout_ms(get, set) : Float;
+	public var pan_pullout(get, set) : Float;
+	public var time_pullout_ms(get, set) : Float;
 	function get_time_pullout_ms():Float return get_time_pullout();
 	function set_time_pullout_ms(v:Float):Float {
 		set_time_pullout(v);
 		return v;
 	}
-	var surround(get, set) : Float;
+	public var surround(get, set) : Float;
 }

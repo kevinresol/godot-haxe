@@ -48,8 +48,8 @@ class SkeletonProfile extends gd.Resource {
 	public function set_group(p_bone_idx:Int, p_group:std.String):Void __skeletonprofile_ptr().value.set_group(((p_bone_idx : Int)), ((p_group : std.String)));
 	public function is_required(p_bone_idx:Int):Bool return __skeletonprofile_ptr().value.is_required(((p_bone_idx : Int)));
 	public function set_required(p_bone_idx:Int, p_required:Bool):Void __skeletonprofile_ptr().value.set_required(((p_bone_idx : Int)), ((p_required : Bool)));
-	var root_bone(get, set) : std.String;
-	var scale_base_bone(get, set) : std.String;
-	var group_size(get, set) : Int;
-	var bone_size(get, set) : Int;
+	public var root_bone(get, set) : std.String;
+	public var scale_base_bone(get, set) : std.String;
+	public var group_size(get, set) : Int;
+	public var bone_size(get, set) : Int;
 }

@@ -24,7 +24,7 @@ class OpenXRAction extends gd.Resource {
 		return p_toplevel_paths;
 	}
 	public function get_toplevel_paths():gd.PackedStringArray return __openxraction_ptr().value.get_toplevel_paths();
-	var localized_name(get, set) : std.String;
-	var action_type(get, set) : gd.openxraction.ActionType;
-	var toplevel_paths(get, set) : gd.PackedStringArray;
+	public var localized_name(get, set) : std.String;
+	public var action_type(get, set) : gd.openxraction.ActionType;
+	public var toplevel_paths(get, set) : gd.PackedStringArray;
 }

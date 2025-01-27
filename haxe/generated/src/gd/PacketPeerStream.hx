@@ -24,7 +24,7 @@ class PacketPeerStream extends gd.PacketPeer {
 	}
 	public function get_input_buffer_max_size():Int return __packetpeerstream_ptr().value.get_input_buffer_max_size();
 	public function get_output_buffer_max_size():Int return __packetpeerstream_ptr().value.get_output_buffer_max_size();
-	var input_buffer_max_size(get, set) : Int;
-	var output_buffer_max_size(get, set) : Int;
-	var stream_peer(get, set) : gd.StreamPeer;
+	public var input_buffer_max_size(get, set) : Int;
+	public var output_buffer_max_size(get, set) : Int;
+	public var stream_peer(get, set) : gd.StreamPeer;
 }

@@ -54,10 +54,10 @@ class AnimatedSprite3D extends gd.SpriteBase3D {
 	}
 	public function get_speed_scale():Float return __animatedsprite3d_ptr().value.get_speed_scale();
 	public function get_playing_speed():Float return __animatedsprite3d_ptr().value.get_playing_speed();
-	var sprite_frames(get, set) : gd.SpriteFrames;
-	var animation(get, set) : std.String;
-	var autoplay(get, set) : std.String;
-	var frame(get, set) : Int;
-	var frame_progress(get, set) : Float;
-	var speed_scale(get, set) : Float;
+	public var sprite_frames(get, set) : gd.SpriteFrames;
+	public var animation(get, set) : std.String;
+	public var autoplay(get, set) : std.String;
+	public var frame(get, set) : Int;
+	public var frame_progress(get, set) : Float;
+	public var speed_scale(get, set) : Float;
 }

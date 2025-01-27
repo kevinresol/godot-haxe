@@ -16,5 +16,5 @@ class ShaderMaterial extends gd.Material {
 	public function get_shader():gd.Shader return __shadermaterial_ptr().value.get_shader();
 	public function set_shader_parameter(p_param:std.String, p_value:gd.Variant):Void __shadermaterial_ptr().value.set_shader_parameter(((p_param : std.String)), ((p_value : gd.Variant)));
 	public function get_shader_parameter(p_param:std.String):gd.Variant return __shadermaterial_ptr().value.get_shader_parameter(((p_param : std.String)));
-	var shader(get, set) : gd.Shader;
+	public var shader(get, set) : gd.Shader;
 }

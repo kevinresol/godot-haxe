@@ -76,42 +76,42 @@ class Area2D extends gd.CollisionObject2D {
 		return p_enable;
 	}
 	public function is_overriding_audio_bus():Bool return __area2d_ptr().value.is_overriding_audio_bus();
-	var monitoring(get, set) : Bool;
+	public var monitoring(get, set) : Bool;
 	function get_monitoring():Bool return is_monitoring();
-	var monitorable(get, set) : Bool;
+	public var monitorable(get, set) : Bool;
 	function get_monitorable():Bool return is_monitorable();
-	var priority(get, set) : Int;
-	var gravity_space_override(get, set) : gd.area2d.SpaceOverride;
+	public var priority(get, set) : Int;
+	public var gravity_space_override(get, set) : gd.area2d.SpaceOverride;
 	function get_gravity_space_override():gd.area2d.SpaceOverride return get_gravity_space_override_mode();
 	function set_gravity_space_override(v:gd.area2d.SpaceOverride):gd.area2d.SpaceOverride {
 		set_gravity_space_override_mode(v);
 		return v;
 	}
-	var gravity_point(get, set) : Bool;
+	public var gravity_point(get, set) : Bool;
 	function get_gravity_point():Bool return is_gravity_a_point();
 	function set_gravity_point(v:Bool):Bool {
 		set_gravity_is_point(v);
 		return v;
 	}
-	var gravity_point_unit_distance(get, set) : Float;
-	var gravity_point_center(get, set) : gd.Vector2;
-	var gravity_direction(get, set) : gd.Vector2;
-	var gravity(get, set) : Float;
-	var linear_damp_space_override(get, set) : gd.area2d.SpaceOverride;
+	public var gravity_point_unit_distance(get, set) : Float;
+	public var gravity_point_center(get, set) : gd.Vector2;
+	public var gravity_direction(get, set) : gd.Vector2;
+	public var gravity(get, set) : Float;
+	public var linear_damp_space_override(get, set) : gd.area2d.SpaceOverride;
 	function get_linear_damp_space_override():gd.area2d.SpaceOverride return get_linear_damp_space_override_mode();
 	function set_linear_damp_space_override(v:gd.area2d.SpaceOverride):gd.area2d.SpaceOverride {
 		set_linear_damp_space_override_mode(v);
 		return v;
 	}
-	var linear_damp(get, set) : Float;
-	var angular_damp_space_override(get, set) : gd.area2d.SpaceOverride;
+	public var linear_damp(get, set) : Float;
+	public var angular_damp_space_override(get, set) : gd.area2d.SpaceOverride;
 	function get_angular_damp_space_override():gd.area2d.SpaceOverride return get_angular_damp_space_override_mode();
 	function set_angular_damp_space_override(v:gd.area2d.SpaceOverride):gd.area2d.SpaceOverride {
 		set_angular_damp_space_override_mode(v);
 		return v;
 	}
-	var angular_damp(get, set) : Float;
-	var audio_bus_override(get, set) : Bool;
+	public var angular_damp(get, set) : Float;
+	public var audio_bus_override(get, set) : Bool;
 	function get_audio_bus_override():Bool return is_overriding_audio_bus();
-	var audio_bus_name(get, set) : std.String;
+	public var audio_bus_name(get, set) : std.String;
 }

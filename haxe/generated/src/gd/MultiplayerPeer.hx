@@ -38,8 +38,8 @@ class MultiplayerPeer extends gd.PacketPeer {
 	}
 	public function is_refusing_new_connections():Bool return __multiplayerpeer_ptr().value.is_refusing_new_connections();
 	public function is_server_relay_supported():Bool return __multiplayerpeer_ptr().value.is_server_relay_supported();
-	var refuse_new_connections(get, set) : Bool;
+	public var refuse_new_connections(get, set) : Bool;
 	function get_refuse_new_connections():Bool return is_refusing_new_connections();
-	var transfer_mode(get, set) : gd.multiplayerpeer.TransferMode;
-	var transfer_channel(get, set) : Int;
+	public var transfer_mode(get, set) : gd.multiplayerpeer.TransferMode;
+	public var transfer_channel(get, set) : Int;
 }

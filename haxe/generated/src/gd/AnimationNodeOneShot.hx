@@ -54,15 +54,15 @@ class AnimationNodeOneShot extends gd.AnimationNodeSync {
 		return p_mode;
 	}
 	public function get_mix_mode():gd.animationnodeoneshot.MixMode return __animationnodeoneshot_ptr().value.get_mix_mode();
-	var mix_mode(get, set) : gd.animationnodeoneshot.MixMode;
-	var fadein_time(get, set) : Float;
-	var fadein_curve(get, set) : gd.Curve;
-	var fadeout_time(get, set) : Float;
-	var fadeout_curve(get, set) : gd.Curve;
-	var break_loop_at_end(get, set) : Bool;
+	public var mix_mode(get, set) : gd.animationnodeoneshot.MixMode;
+	public var fadein_time(get, set) : Float;
+	public var fadein_curve(get, set) : gd.Curve;
+	public var fadeout_time(get, set) : Float;
+	public var fadeout_curve(get, set) : gd.Curve;
+	public var break_loop_at_end(get, set) : Bool;
 	function get_break_loop_at_end():Bool return is_loop_broken_at_end();
-	var autorestart(get, set) : Bool;
+	public var autorestart(get, set) : Bool;
 	function get_autorestart():Bool return has_autorestart();
-	var autorestart_delay(get, set) : Float;
-	var autorestart_random_delay(get, set) : Float;
+	public var autorestart_delay(get, set) : Float;
+	public var autorestart_random_delay(get, set) : Float;
 }

@@ -34,11 +34,11 @@ class TextureRect extends gd.Control {
 		return p_stretch_mode;
 	}
 	public function get_stretch_mode():gd.texturerect.StretchMode return __texturerect_ptr().value.get_stretch_mode();
-	var texture(get, set) : gd.Texture2D;
-	var expand_mode(get, set) : gd.texturerect.ExpandMode;
-	var stretch_mode(get, set) : gd.texturerect.StretchMode;
-	var flip_h(get, set) : Bool;
+	public var texture(get, set) : gd.Texture2D;
+	public var expand_mode(get, set) : gd.texturerect.ExpandMode;
+	public var stretch_mode(get, set) : gd.texturerect.StretchMode;
+	public var flip_h(get, set) : Bool;
 	function get_flip_h():Bool return is_flipped_h();
-	var flip_v(get, set) : Bool;
+	public var flip_v(get, set) : Bool;
 	function get_flip_v():Bool return is_flipped_v();
 }

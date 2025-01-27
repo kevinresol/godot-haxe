@@ -28,7 +28,7 @@ class World3D extends gd.Resource {
 	}
 	public function get_camera_attributes():gd.CameraAttributes return __world3d_ptr().value.get_camera_attributes();
 	public function get_direct_space_state():gd.PhysicsDirectSpaceState3D return __world3d_ptr().value.get_direct_space_state();
-	var environment(get, set) : gd.Environment;
-	var fallback_environment(get, set) : gd.Environment;
-	var camera_attributes(get, set) : gd.CameraAttributes;
+	public var environment(get, set) : gd.Environment;
+	public var fallback_environment(get, set) : gd.Environment;
+	public var camera_attributes(get, set) : gd.CameraAttributes;
 }

@@ -34,9 +34,9 @@ class RDPipelineMultisampleState extends gd.RefCounted {
 		return p_p_member;
 	}
 	public function get_enable_alpha_to_one():Bool return __rdpipelinemultisamplestate_ptr().value.get_enable_alpha_to_one();
-	var sample_count(get, set) : gd.renderingdevice.TextureSamples;
-	var enable_sample_shading(get, set) : Bool;
-	var min_sample_shading(get, set) : Float;
-	var enable_alpha_to_coverage(get, set) : Bool;
-	var enable_alpha_to_one(get, set) : Bool;
+	public var sample_count(get, set) : gd.renderingdevice.TextureSamples;
+	public var enable_sample_shading(get, set) : Bool;
+	public var min_sample_shading(get, set) : Float;
+	public var enable_alpha_to_coverage(get, set) : Bool;
+	public var enable_alpha_to_one(get, set) : Bool;
 }

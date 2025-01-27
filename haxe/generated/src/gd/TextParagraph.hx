@@ -141,16 +141,16 @@ class TextParagraph extends gd.RefCounted {
 		default:__textparagraph_ptr().value.draw_dropcap_outline(((p_canvas : gd.RID)), ((p_pos : gd.Vector2)), ((p_outline_size : Int)), ((p_color : gd.Color)));
 	};
 	public function hit_test(p_coords:gd.Vector2):Int return __textparagraph_ptr().value.hit_test(((p_coords : gd.Vector2)));
-	var direction(get, set) : gd.textserver.Direction;
-	var custom_punctuation(get, set) : std.String;
-	var orientation(get, set) : gd.textserver.Orientation;
-	var preserve_invalid(get, set) : Bool;
-	var preserve_control(get, set) : Bool;
-	var alignment(get, set) : gd.HorizontalAlignment;
-	var break_flags(get, set) : Int;
-	var justification_flags(get, set) : Int;
-	var text_overrun_behavior(get, set) : gd.textserver.OverrunBehavior;
-	var ellipsis_char(get, set) : std.String;
-	var width(get, set) : Float;
-	var max_lines_visible(get, set) : Int;
+	public var direction(get, set) : gd.textserver.Direction;
+	public var custom_punctuation(get, set) : std.String;
+	public var orientation(get, set) : gd.textserver.Orientation;
+	public var preserve_invalid(get, set) : Bool;
+	public var preserve_control(get, set) : Bool;
+	public var alignment(get, set) : gd.HorizontalAlignment;
+	public var break_flags(get, set) : Int;
+	public var justification_flags(get, set) : Int;
+	public var text_overrun_behavior(get, set) : gd.textserver.OverrunBehavior;
+	public var ellipsis_char(get, set) : std.String;
+	public var width(get, set) : Float;
+	public var max_lines_visible(get, set) : Int;
 }

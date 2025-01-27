@@ -32,7 +32,7 @@ class MultiplayerSpawner extends gd.Node {
 		__multiplayerspawner_ptr().value.set_spawn_function(((p_spawn_function : gd.Callable)));
 		return p_spawn_function;
 	}
-	var spawn_path(get, set) : std.String;
-	var spawn_limit(get, set) : Int;
-	var spawn_function(get, set) : gd.Callable;
+	public var spawn_path(get, set) : std.String;
+	public var spawn_limit(get, set) : Int;
+	public var spawn_function(get, set) : gd.Callable;
 }

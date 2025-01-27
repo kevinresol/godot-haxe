@@ -20,7 +20,7 @@ class SubViewportContainer extends gd.Container {
 		return p_amount;
 	}
 	public function get_stretch_shrink():Int return __subviewportcontainer_ptr().value.get_stretch_shrink();
-	var stretch(get, set) : Bool;
+	public var stretch(get, set) : Bool;
 	function get_stretch():Bool return is_stretch_enabled();
-	var stretch_shrink(get, set) : Int;
+	public var stretch_shrink(get, set) : Int;
 }

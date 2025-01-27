@@ -58,11 +58,11 @@ class CollisionObject2D extends gd.Node2D {
 	public function shape_owner_remove_shape(p_owner_id:Int, p_shape_id:Int):Void __collisionobject2d_ptr().value.shape_owner_remove_shape(((p_owner_id : Int)), ((p_shape_id : Int)));
 	public function shape_owner_clear_shapes(p_owner_id:Int):Void __collisionobject2d_ptr().value.shape_owner_clear_shapes(((p_owner_id : Int)));
 	public function shape_find_owner(p_shape_index:Int):Int return __collisionobject2d_ptr().value.shape_find_owner(((p_shape_index : Int)));
-	var disable_mode(get, set) : gd.collisionobject2d.DisableMode;
-	var collision_layer(get, set) : Int;
-	var collision_mask(get, set) : Int;
-	var collision_priority(get, set) : Float;
-	var input_pickable(get, set) : Bool;
+	public var disable_mode(get, set) : gd.collisionobject2d.DisableMode;
+	public var collision_layer(get, set) : Int;
+	public var collision_mask(get, set) : Int;
+	public var collision_priority(get, set) : Float;
+	public var input_pickable(get, set) : Bool;
 	function get_input_pickable():Bool return is_pickable();
 	function set_input_pickable(v:Bool):Bool {
 		set_pickable(v);

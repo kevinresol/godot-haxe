@@ -14,5 +14,5 @@ class GPUParticlesCollision3D extends gd.VisualInstance3D {
 		return p_mask;
 	}
 	public function get_cull_mask():Int return __gpuparticlescollision3d_ptr().value.get_cull_mask();
-	var cull_mask(get, set) : Int;
+	public var cull_mask(get, set) : Int;
 }

@@ -14,5 +14,5 @@ class VisualShaderNodeSmoothStep extends gd.VisualShaderNode {
 		return p_op_type;
 	}
 	public function get_op_type():gd.visualshadernodesmoothstep.OpType return __visualshadernodesmoothstep_ptr().value.get_op_type();
-	var op_type(get, set) : gd.visualshadernodesmoothstep.OpType;
+	public var op_type(get, set) : gd.visualshadernodesmoothstep.OpType;
 }

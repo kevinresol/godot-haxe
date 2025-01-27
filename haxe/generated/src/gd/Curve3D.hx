@@ -67,8 +67,8 @@ class Curve3D extends gd.Resource {
 		case [_, null]:__curve3d_ptr().value.tessellate_even_length(((p_max_stages : Int)));
 		default:__curve3d_ptr().value.tessellate_even_length(((p_max_stages : Int)), ((p_tolerance_length : Float)));
 	};
-	var bake_interval(get, set) : Float;
-	var point_count(get, set) : Int;
-	var up_vector_enabled(get, set) : Bool;
+	public var bake_interval(get, set) : Float;
+	public var point_count(get, set) : Int;
+	public var up_vector_enabled(get, set) : Bool;
 	function get_up_vector_enabled():Bool return is_up_vector_enabled();
 }

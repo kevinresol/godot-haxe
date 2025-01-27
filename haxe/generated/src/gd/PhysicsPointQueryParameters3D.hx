@@ -29,10 +29,10 @@ class PhysicsPointQueryParameters3D extends gd.RefCounted {
 		return p_enable;
 	}
 	public function is_collide_with_areas_enabled():Bool return __physicspointqueryparameters3d_ptr().value.is_collide_with_areas_enabled();
-	var position(get, set) : gd.Vector3;
-	var collision_mask(get, set) : Int;
-	var collide_with_bodies(get, set) : Bool;
+	public var position(get, set) : gd.Vector3;
+	public var collision_mask(get, set) : Int;
+	public var collide_with_bodies(get, set) : Bool;
 	function get_collide_with_bodies():Bool return is_collide_with_bodies_enabled();
-	var collide_with_areas(get, set) : Bool;
+	public var collide_with_areas(get, set) : Bool;
 	function get_collide_with_areas():Bool return is_collide_with_areas_enabled();
 }

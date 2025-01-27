@@ -43,6 +43,6 @@ class AudioStreamInteractive extends gd.AudioStream {
 	public function is_transition_using_filler_clip(p_from_clip:Int, p_to_clip:Int):Bool return __audiostreaminteractive_ptr().value.is_transition_using_filler_clip(((p_from_clip : Int)), ((p_to_clip : Int)));
 	public function get_transition_filler_clip(p_from_clip:Int, p_to_clip:Int):Int return __audiostreaminteractive_ptr().value.get_transition_filler_clip(((p_from_clip : Int)), ((p_to_clip : Int)));
 	public function is_transition_holding_previous(p_from_clip:Int, p_to_clip:Int):Bool return __audiostreaminteractive_ptr().value.is_transition_holding_previous(((p_from_clip : Int)), ((p_to_clip : Int)));
-	var initial_clip(get, set) : Int;
-	var clip_count(get, set) : Int;
+	public var initial_clip(get, set) : Int;
+	public var clip_count(get, set) : Int;
 }

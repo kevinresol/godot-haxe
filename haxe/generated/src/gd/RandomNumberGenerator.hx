@@ -30,6 +30,6 @@ class RandomNumberGenerator extends gd.RefCounted {
 	public function randi_range(p_from:Int, p_to:Int):Int return __randomnumbergenerator_ptr().value.randi_range(((p_from : Int)), ((p_to : Int)));
 	public function rand_weighted(p_weights:gd.PackedFloat32Array):Int return __randomnumbergenerator_ptr().value.rand_weighted(((p_weights : gd.PackedFloat32Array)));
 	public function randomize():Void __randomnumbergenerator_ptr().value.randomize();
-	var seed(get, set) : Int;
-	var state(get, set) : Int;
+	public var seed(get, set) : Int;
+	public var state(get, set) : Int;
 }

@@ -15,6 +15,6 @@ class ButtonGroup extends gd.Resource {
 		return p_enabled;
 	}
 	public function is_allow_unpress():Bool return __buttongroup_ptr().value.is_allow_unpress();
-	var allow_unpress(get, set) : Bool;
+	public var allow_unpress(get, set) : Bool;
 	function get_allow_unpress():Bool return is_allow_unpress();
 }

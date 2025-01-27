@@ -29,7 +29,7 @@ class BoneAttachment3D extends gd.Node3D {
 	public function get_use_external_skeleton():Bool return __boneattachment3d_ptr().value.get_use_external_skeleton();
 	public function set_external_skeleton(p_external_skeleton:std.String):Void __boneattachment3d_ptr().value.set_external_skeleton(((p_external_skeleton : std.String)));
 	public function get_external_skeleton():std.String return __boneattachment3d_ptr().value.get_external_skeleton();
-	var bone_name(get, set) : std.String;
-	var bone_idx(get, set) : Int;
-	var override_pose(get, set) : Bool;
+	public var bone_name(get, set) : std.String;
+	public var bone_idx(get, set) : Int;
+	public var override_pose(get, set) : Bool;
 }

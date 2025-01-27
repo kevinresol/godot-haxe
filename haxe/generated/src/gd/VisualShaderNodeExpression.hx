@@ -14,5 +14,5 @@ class VisualShaderNodeExpression extends gd.VisualShaderNodeGroupBase {
 		return p_expression;
 	}
 	public function get_expression():std.String return __visualshadernodeexpression_ptr().value.get_expression();
-	var expression(get, set) : std.String;
+	public var expression(get, set) : std.String;
 }

@@ -44,12 +44,12 @@ class Sprite3D extends gd.SpriteBase3D {
 		return p_hframes;
 	}
 	public function get_hframes():Int return __sprite3d_ptr().value.get_hframes();
-	var texture(get, set) : gd.Texture2D;
-	var hframes(get, set) : Int;
-	var vframes(get, set) : Int;
-	var frame(get, set) : Int;
-	var frame_coords(get, set) : gd.Vector2i;
-	var region_enabled(get, set) : Bool;
+	public var texture(get, set) : gd.Texture2D;
+	public var hframes(get, set) : Int;
+	public var vframes(get, set) : Int;
+	public var frame(get, set) : Int;
+	public var frame_coords(get, set) : gd.Vector2i;
+	public var region_enabled(get, set) : Bool;
 	function get_region_enabled():Bool return is_region_enabled();
-	var region_rect(get, set) : gd.Rect2;
+	public var region_rect(get, set) : gd.Rect2;
 }

@@ -34,9 +34,9 @@ class XRPose extends gd.RefCounted {
 		return p_tracking_confidence;
 	}
 	public function get_tracking_confidence():gd.xrpose.TrackingConfidence return __xrpose_ptr().value.get_tracking_confidence();
-	var has_tracking_data(get, set) : Bool;
-	var name(get, set) : std.String;
-	var linear_velocity(get, set) : gd.Vector3;
-	var angular_velocity(get, set) : gd.Vector3;
-	var tracking_confidence(get, set) : gd.xrpose.TrackingConfidence;
+	public var has_tracking_data(get, set) : Bool;
+	public var name(get, set) : std.String;
+	public var linear_velocity(get, set) : gd.Vector3;
+	public var angular_velocity(get, set) : gd.Vector3;
+	public var tracking_confidence(get, set) : gd.xrpose.TrackingConfidence;
 }

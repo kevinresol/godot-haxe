@@ -92,19 +92,19 @@ class Polygon2D extends gd.Node2D {
 		return p_internal_vertex_count;
 	}
 	public function get_internal_vertex_count():Int return __polygon2d_ptr().value.get_internal_vertex_count();
-	var color(get, set) : gd.Color;
-	var offset(get, set) : gd.Vector2;
-	var antialiased(get, set) : Bool;
-	var texture(get, set) : gd.Texture2D;
-	var texture_offset(get, set) : gd.Vector2;
-	var texture_scale(get, set) : gd.Vector2;
-	var texture_rotation(get, set) : Float;
-	var skeleton(get, set) : std.String;
-	var invert_enabled(get, set) : Bool;
-	var invert_border(get, set) : Float;
-	var polygon(get, set) : gd.PackedVector2Array;
-	var uv(get, set) : gd.PackedVector2Array;
-	var vertex_colors(get, set) : gd.PackedColorArray;
-	var polygons(get, set) : gd.Array;
-	var internal_vertex_count(get, set) : Int;
+	public var color(get, set) : gd.Color;
+	public var offset(get, set) : gd.Vector2;
+	public var antialiased(get, set) : Bool;
+	public var texture(get, set) : gd.Texture2D;
+	public var texture_offset(get, set) : gd.Vector2;
+	public var texture_scale(get, set) : gd.Vector2;
+	public var texture_rotation(get, set) : Float;
+	public var skeleton(get, set) : std.String;
+	public var invert_enabled(get, set) : Bool;
+	public var invert_border(get, set) : Float;
+	public var polygon(get, set) : gd.PackedVector2Array;
+	public var uv(get, set) : gd.PackedVector2Array;
+	public var vertex_colors(get, set) : gd.PackedColorArray;
+	public var polygons(get, set) : gd.Array;
+	public var internal_vertex_count(get, set) : Int;
 }

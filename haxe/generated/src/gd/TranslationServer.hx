@@ -42,6 +42,6 @@ class TranslationServer extends gd.Object {
 	}
 	public function reload_pseudolocalization():Void __translationserver_ptr().value.reload_pseudolocalization();
 	public function pseudolocalize(p_message:std.String):std.String return __translationserver_ptr().value.pseudolocalize(((p_message : std.String)));
-	var pseudolocalization_enabled(get, set) : Bool;
+	public var pseudolocalization_enabled(get, set) : Bool;
 	function get_pseudolocalization_enabled():Bool return is_pseudolocalization_enabled();
 }

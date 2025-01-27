@@ -14,5 +14,5 @@ class WorldBoundaryShape3D extends gd.Shape3D {
 		return p_plane;
 	}
 	public function get_plane():gd.Plane return __worldboundaryshape3d_ptr().value.get_plane();
-	var plane(get, set) : gd.Plane;
+	public var plane(get, set) : gd.Plane;
 }

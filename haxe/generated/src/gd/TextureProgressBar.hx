@@ -59,60 +59,60 @@ class TextureProgressBar extends gd.Range {
 		return p_stretch;
 	}
 	public function get_nine_patch_stretch():Bool return __textureprogressbar_ptr().value.get_nine_patch_stretch();
-	var fill_mode(get, set) : Int;
-	var radial_initial_angle(get, set) : Float;
-	var radial_fill_degrees(get, set) : Float;
+	public var fill_mode(get, set) : Int;
+	public var radial_initial_angle(get, set) : Float;
+	public var radial_fill_degrees(get, set) : Float;
 	function get_radial_fill_degrees():Float return get_fill_degrees();
 	function set_radial_fill_degrees(v:Float):Float {
 		set_fill_degrees(v);
 		return v;
 	}
-	var radial_center_offset(get, set) : gd.Vector2;
-	var nine_patch_stretch(get, set) : Bool;
-	var stretch_margin_left(get, set) : Int;
+	public var radial_center_offset(get, set) : gd.Vector2;
+	public var nine_patch_stretch(get, set) : Bool;
+	public var stretch_margin_left(get, set) : Int;
 	function get_stretch_margin_left():Int return get_stretch_margin(0);
 	function set_stretch_margin_left(v:Int):Int {
 		set_stretch_margin(0, v);
 		return v;
 	}
-	var stretch_margin_top(get, set) : Int;
+	public var stretch_margin_top(get, set) : Int;
 	function get_stretch_margin_top():Int return get_stretch_margin(1);
 	function set_stretch_margin_top(v:Int):Int {
 		set_stretch_margin(1, v);
 		return v;
 	}
-	var stretch_margin_right(get, set) : Int;
+	public var stretch_margin_right(get, set) : Int;
 	function get_stretch_margin_right():Int return get_stretch_margin(2);
 	function set_stretch_margin_right(v:Int):Int {
 		set_stretch_margin(2, v);
 		return v;
 	}
-	var stretch_margin_bottom(get, set) : Int;
+	public var stretch_margin_bottom(get, set) : Int;
 	function get_stretch_margin_bottom():Int return get_stretch_margin(3);
 	function set_stretch_margin_bottom(v:Int):Int {
 		set_stretch_margin(3, v);
 		return v;
 	}
-	var texture_under(get, set) : gd.Texture2D;
+	public var texture_under(get, set) : gd.Texture2D;
 	function get_texture_under():gd.Texture2D return get_under_texture();
 	function set_texture_under(v:gd.Texture2D):gd.Texture2D {
 		set_under_texture(v);
 		return v;
 	}
-	var texture_over(get, set) : gd.Texture2D;
+	public var texture_over(get, set) : gd.Texture2D;
 	function get_texture_over():gd.Texture2D return get_over_texture();
 	function set_texture_over(v:gd.Texture2D):gd.Texture2D {
 		set_over_texture(v);
 		return v;
 	}
-	var texture_progress(get, set) : gd.Texture2D;
+	public var texture_progress(get, set) : gd.Texture2D;
 	function get_texture_progress():gd.Texture2D return get_progress_texture();
 	function set_texture_progress(v:gd.Texture2D):gd.Texture2D {
 		set_progress_texture(v);
 		return v;
 	}
-	var texture_progress_offset(get, set) : gd.Vector2;
-	var tint_under(get, set) : gd.Color;
-	var tint_over(get, set) : gd.Color;
-	var tint_progress(get, set) : gd.Color;
+	public var texture_progress_offset(get, set) : gd.Vector2;
+	public var tint_under(get, set) : gd.Color;
+	public var tint_over(get, set) : gd.Color;
+	public var tint_progress(get, set) : gd.Color;
 }

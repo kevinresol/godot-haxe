@@ -20,7 +20,7 @@ class GradientTexture1D extends gd.Texture2D {
 		return p_enabled;
 	}
 	public function is_using_hdr():Bool return __gradienttexture1d_ptr().value.is_using_hdr();
-	var gradient(get, set) : gd.Gradient;
-	var use_hdr(get, set) : Bool;
+	public var gradient(get, set) : gd.Gradient;
+	public var use_hdr(get, set) : Bool;
 	function get_use_hdr():Bool return is_using_hdr();
 }

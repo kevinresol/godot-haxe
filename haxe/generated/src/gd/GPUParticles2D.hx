@@ -117,55 +117,55 @@ class GPUParticles2D extends gd.Node2D {
 		return p_ratio;
 	}
 	public function get_amount_ratio():Float return __gpuparticles2d_ptr().value.get_amount_ratio();
-	var emitting(get, set) : Bool;
+	public var emitting(get, set) : Bool;
 	function get_emitting():Bool return is_emitting();
-	var amount(get, set) : Int;
-	var amount_ratio(get, set) : Float;
-	var sub_emitter(get, set) : std.String;
-	var process_material(get, set) : gd.Material;
-	var texture(get, set) : gd.Texture2D;
-	var lifetime(get, set) : Float;
-	var one_shot(get, set) : Bool;
-	var preprocess(get, set) : Float;
+	public var amount(get, set) : Int;
+	public var amount_ratio(get, set) : Float;
+	public var sub_emitter(get, set) : std.String;
+	public var process_material(get, set) : gd.Material;
+	public var texture(get, set) : gd.Texture2D;
+	public var lifetime(get, set) : Float;
+	public var one_shot(get, set) : Bool;
+	public var preprocess(get, set) : Float;
 	function get_preprocess():Float return get_pre_process_time();
 	function set_preprocess(v:Float):Float {
 		set_pre_process_time(v);
 		return v;
 	}
-	var speed_scale(get, set) : Float;
-	var explosiveness(get, set) : Float;
+	public var speed_scale(get, set) : Float;
+	public var explosiveness(get, set) : Float;
 	function get_explosiveness():Float return get_explosiveness_ratio();
 	function set_explosiveness(v:Float):Float {
 		set_explosiveness_ratio(v);
 		return v;
 	}
-	var randomness(get, set) : Float;
+	public var randomness(get, set) : Float;
 	function get_randomness():Float return get_randomness_ratio();
 	function set_randomness(v:Float):Float {
 		set_randomness_ratio(v);
 		return v;
 	}
-	var fixed_fps(get, set) : Int;
-	var interpolate(get, set) : Bool;
-	var fract_delta(get, set) : Bool;
+	public var fixed_fps(get, set) : Int;
+	public var interpolate(get, set) : Bool;
+	public var fract_delta(get, set) : Bool;
 	function get_fract_delta():Bool return get_fractional_delta();
 	function set_fract_delta(v:Bool):Bool {
 		set_fractional_delta(v);
 		return v;
 	}
-	var interp_to_end(get, set) : Float;
-	var collision_base_size(get, set) : Float;
-	var visibility_rect(get, set) : gd.Rect2;
-	var local_coords(get, set) : Bool;
+	public var interp_to_end(get, set) : Float;
+	public var collision_base_size(get, set) : Float;
+	public var visibility_rect(get, set) : gd.Rect2;
+	public var local_coords(get, set) : Bool;
 	function get_local_coords():Bool return get_use_local_coordinates();
 	function set_local_coords(v:Bool):Bool {
 		set_use_local_coordinates(v);
 		return v;
 	}
-	var draw_order(get, set) : gd.gpuparticles2d.DrawOrder;
-	var trail_enabled(get, set) : Bool;
+	public var draw_order(get, set) : gd.gpuparticles2d.DrawOrder;
+	public var trail_enabled(get, set) : Bool;
 	function get_trail_enabled():Bool return is_trail_enabled();
-	var trail_lifetime(get, set) : Float;
-	var trail_sections(get, set) : Int;
-	var trail_section_subdivisions(get, set) : Int;
+	public var trail_lifetime(get, set) : Float;
+	public var trail_sections(get, set) : Int;
+	public var trail_section_subdivisions(get, set) : Int;
 }

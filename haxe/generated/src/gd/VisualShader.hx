@@ -33,5 +33,5 @@ class VisualShader extends gd.Shader {
 	public function add_varying(p_name:std.String, p_mode:gd.visualshader.VaryingMode, p_type:gd.visualshader.VaryingType):Void __visualshader_ptr().value.add_varying(((p_name : std.String)), ((p_mode : gd.visualshader.VaryingMode)), ((p_type : gd.visualshader.VaryingType)));
 	public function remove_varying(p_name:std.String):Void __visualshader_ptr().value.remove_varying(((p_name : std.String)));
 	public function has_varying(p_name:std.String):Bool return __visualshader_ptr().value.has_varying(((p_name : std.String)));
-	var graph_offset(get, set) : gd.Vector2;
+	public var graph_offset(get, set) : gd.Vector2;
 }

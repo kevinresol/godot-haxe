@@ -133,50 +133,50 @@ class RigidBody3D extends gd.PhysicsBody3D {
 		return p_freeze_mode;
 	}
 	public function get_freeze_mode():gd.rigidbody3d.FreezeMode return __rigidbody3d_ptr().value.get_freeze_mode();
-	var mass(get, set) : Float;
-	var physics_material_override(get, set) : gd.PhysicsMaterial;
-	var gravity_scale(get, set) : Float;
-	var center_of_mass_mode(get, set) : gd.rigidbody3d.CenterOfMassMode;
-	var center_of_mass(get, set) : gd.Vector3;
-	var inertia(get, set) : gd.Vector3;
-	var sleeping(get, set) : Bool;
+	public var mass(get, set) : Float;
+	public var physics_material_override(get, set) : gd.PhysicsMaterial;
+	public var gravity_scale(get, set) : Float;
+	public var center_of_mass_mode(get, set) : gd.rigidbody3d.CenterOfMassMode;
+	public var center_of_mass(get, set) : gd.Vector3;
+	public var inertia(get, set) : gd.Vector3;
+	public var sleeping(get, set) : Bool;
 	function get_sleeping():Bool return is_sleeping();
-	var can_sleep(get, set) : Bool;
+	public var can_sleep(get, set) : Bool;
 	function get_can_sleep():Bool return is_able_to_sleep();
-	var lock_rotation(get, set) : Bool;
+	public var lock_rotation(get, set) : Bool;
 	function get_lock_rotation():Bool return is_lock_rotation_enabled();
 	function set_lock_rotation(v:Bool):Bool {
 		set_lock_rotation_enabled(v);
 		return v;
 	}
-	var freeze(get, set) : Bool;
+	public var freeze(get, set) : Bool;
 	function get_freeze():Bool return is_freeze_enabled();
 	function set_freeze(v:Bool):Bool {
 		set_freeze_enabled(v);
 		return v;
 	}
-	var freeze_mode(get, set) : gd.rigidbody3d.FreezeMode;
-	var custom_integrator(get, set) : Bool;
+	public var freeze_mode(get, set) : gd.rigidbody3d.FreezeMode;
+	public var custom_integrator(get, set) : Bool;
 	function get_custom_integrator():Bool return is_using_custom_integrator();
 	function set_custom_integrator(v:Bool):Bool {
 		set_use_custom_integrator(v);
 		return v;
 	}
-	var continuous_cd(get, set) : Bool;
+	public var continuous_cd(get, set) : Bool;
 	function get_continuous_cd():Bool return is_using_continuous_collision_detection();
 	function set_continuous_cd(v:Bool):Bool {
 		set_use_continuous_collision_detection(v);
 		return v;
 	}
-	var contact_monitor(get, set) : Bool;
+	public var contact_monitor(get, set) : Bool;
 	function get_contact_monitor():Bool return is_contact_monitor_enabled();
-	var max_contacts_reported(get, set) : Int;
-	var linear_velocity(get, set) : gd.Vector3;
-	var linear_damp_mode(get, set) : gd.rigidbody3d.DampMode;
-	var linear_damp(get, set) : Float;
-	var angular_velocity(get, set) : gd.Vector3;
-	var angular_damp_mode(get, set) : gd.rigidbody3d.DampMode;
-	var angular_damp(get, set) : Float;
-	var constant_force(get, set) : gd.Vector3;
-	var constant_torque(get, set) : gd.Vector3;
+	public var max_contacts_reported(get, set) : Int;
+	public var linear_velocity(get, set) : gd.Vector3;
+	public var linear_damp_mode(get, set) : gd.rigidbody3d.DampMode;
+	public var linear_damp(get, set) : Float;
+	public var angular_velocity(get, set) : gd.Vector3;
+	public var angular_damp_mode(get, set) : gd.rigidbody3d.DampMode;
+	public var angular_damp(get, set) : Float;
+	public var constant_force(get, set) : gd.Vector3;
+	public var constant_torque(get, set) : gd.Vector3;
 }

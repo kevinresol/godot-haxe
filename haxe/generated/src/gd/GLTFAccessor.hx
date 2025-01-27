@@ -84,19 +84,19 @@ class GLTFAccessor extends gd.Resource {
 		__gltfaccessor_ptr().value.set_sparse_values_byte_offset(((p_sparse_values_byte_offset : Int)));
 		return p_sparse_values_byte_offset;
 	}
-	var buffer_view(get, set) : Int;
-	var byte_offset(get, set) : Int;
-	var component_type(get, set) : Int;
-	var normalized(get, set) : Bool;
-	var count(get, set) : Int;
-	var accessor_type(get, set) : gd.gltfaccessor.GLTFAccessorType;
-	var type(get, set) : Int;
-	var min(get, set) : gd.PackedFloat64Array;
-	var max(get, set) : gd.PackedFloat64Array;
-	var sparse_count(get, set) : Int;
-	var sparse_indices_buffer_view(get, set) : Int;
-	var sparse_indices_byte_offset(get, set) : Int;
-	var sparse_indices_component_type(get, set) : Int;
-	var sparse_values_buffer_view(get, set) : Int;
-	var sparse_values_byte_offset(get, set) : Int;
+	public var buffer_view(get, set) : Int;
+	public var byte_offset(get, set) : Int;
+	public var component_type(get, set) : Int;
+	public var normalized(get, set) : Bool;
+	public var count(get, set) : Int;
+	public var accessor_type(get, set) : gd.gltfaccessor.GLTFAccessorType;
+	public var type(get, set) : Int;
+	public var min(get, set) : gd.PackedFloat64Array;
+	public var max(get, set) : gd.PackedFloat64Array;
+	public var sparse_count(get, set) : Int;
+	public var sparse_indices_buffer_view(get, set) : Int;
+	public var sparse_indices_byte_offset(get, set) : Int;
+	public var sparse_indices_component_type(get, set) : Int;
+	public var sparse_values_buffer_view(get, set) : Int;
+	public var sparse_values_byte_offset(get, set) : Int;
 }

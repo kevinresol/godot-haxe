@@ -24,7 +24,7 @@ class FogVolume extends gd.VisualInstance3D {
 		return p_material;
 	}
 	public function get_material():gd.Material return __fogvolume_ptr().value.get_material();
-	var size(get, set) : gd.Vector3;
-	var shape(get, set) : gd.renderingserver.FogVolumeShape;
-	var material(get, set) : gd.Material;
+	public var size(get, set) : gd.Vector3;
+	public var shape(get, set) : gd.renderingserver.FogVolumeShape;
+	public var material(get, set) : gd.Material;
 }

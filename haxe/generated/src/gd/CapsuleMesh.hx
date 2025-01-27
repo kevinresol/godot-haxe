@@ -29,8 +29,8 @@ class CapsuleMesh extends gd.PrimitiveMesh {
 		return p_rings;
 	}
 	public function get_rings():Int return __capsulemesh_ptr().value.get_rings();
-	var radius(get, set) : Float;
-	var height(get, set) : Float;
-	var radial_segments(get, set) : Int;
-	var rings(get, set) : Int;
+	public var radius(get, set) : Float;
+	public var height(get, set) : Float;
+	public var radial_segments(get, set) : Int;
+	public var rings(get, set) : Int;
 }

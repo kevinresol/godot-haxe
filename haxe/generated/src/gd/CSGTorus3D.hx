@@ -39,10 +39,10 @@ class CSGTorus3D extends gd.CSGPrimitive3D {
 		return p_smooth_faces;
 	}
 	public function get_smooth_faces():Bool return __csgtorus3d_ptr().value.get_smooth_faces();
-	var inner_radius(get, set) : Float;
-	var outer_radius(get, set) : Float;
-	var sides(get, set) : Int;
-	var ring_sides(get, set) : Int;
-	var smooth_faces(get, set) : Bool;
-	var material(get, set) : gd.Material;
+	public var inner_radius(get, set) : Float;
+	public var outer_radius(get, set) : Float;
+	public var sides(get, set) : Int;
+	public var ring_sides(get, set) : Int;
+	public var smooth_faces(get, set) : Bool;
+	public var material(get, set) : gd.Material;
 }

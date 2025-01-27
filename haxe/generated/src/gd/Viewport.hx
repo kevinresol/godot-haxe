@@ -214,122 +214,122 @@ class Viewport extends gd.Node {
 		return p_texture;
 	}
 	public function get_vrs_texture():gd.Texture2D return __viewport_ptr().value.get_vrs_texture();
-	var disable_3d(get, set) : Bool;
+	public var disable_3d(get, set) : Bool;
 	function get_disable_3d():Bool return is_3d_disabled();
-	var use_xr(get, set) : Bool;
+	public var use_xr(get, set) : Bool;
 	function get_use_xr():Bool return is_using_xr();
-	var own_world_3d(get, set) : Bool;
+	public var own_world_3d(get, set) : Bool;
 	function get_own_world_3d():Bool return is_using_own_world_3d();
 	function set_own_world_3d(v:Bool):Bool {
 		set_use_own_world_3d(v);
 		return v;
 	}
-	var world_3d(get, set) : gd.World3D;
-	var world_2d(get, set) : gd.World2D;
-	var transparent_bg(get, set) : Bool;
+	public var world_3d(get, set) : gd.World3D;
+	public var world_2d(get, set) : gd.World2D;
+	public var transparent_bg(get, set) : Bool;
 	function get_transparent_bg():Bool return has_transparent_background();
 	function set_transparent_bg(v:Bool):Bool {
 		set_transparent_background(v);
 		return v;
 	}
-	var handle_input_locally(get, set) : Bool;
+	public var handle_input_locally(get, set) : Bool;
 	function get_handle_input_locally():Bool return is_handling_input_locally();
-	var snap_2d_transforms_to_pixel(get, set) : Bool;
+	public var snap_2d_transforms_to_pixel(get, set) : Bool;
 	function get_snap_2d_transforms_to_pixel():Bool return is_snap_2d_transforms_to_pixel_enabled();
-	var snap_2d_vertices_to_pixel(get, set) : Bool;
+	public var snap_2d_vertices_to_pixel(get, set) : Bool;
 	function get_snap_2d_vertices_to_pixel():Bool return is_snap_2d_vertices_to_pixel_enabled();
-	var msaa_2d(get, set) : gd.viewport.MSAA;
-	var msaa_3d(get, set) : gd.viewport.MSAA;
-	var screen_space_aa(get, set) : gd.viewport.ScreenSpaceAA;
-	var use_taa(get, set) : Bool;
+	public var msaa_2d(get, set) : gd.viewport.MSAA;
+	public var msaa_3d(get, set) : gd.viewport.MSAA;
+	public var screen_space_aa(get, set) : gd.viewport.ScreenSpaceAA;
+	public var use_taa(get, set) : Bool;
 	function get_use_taa():Bool return is_using_taa();
-	var use_debanding(get, set) : Bool;
+	public var use_debanding(get, set) : Bool;
 	function get_use_debanding():Bool return is_using_debanding();
-	var use_occlusion_culling(get, set) : Bool;
+	public var use_occlusion_culling(get, set) : Bool;
 	function get_use_occlusion_culling():Bool return is_using_occlusion_culling();
-	var mesh_lod_threshold(get, set) : Float;
-	var debug_draw(get, set) : gd.viewport.DebugDraw;
-	var use_hdr_2d(get, set) : Bool;
+	public var mesh_lod_threshold(get, set) : Float;
+	public var debug_draw(get, set) : gd.viewport.DebugDraw;
+	public var use_hdr_2d(get, set) : Bool;
 	function get_use_hdr_2d():Bool return is_using_hdr_2d();
-	var scaling_3d_mode(get, set) : gd.viewport.Scaling3DMode;
-	var scaling_3d_scale(get, set) : Float;
-	var texture_mipmap_bias(get, set) : Float;
-	var fsr_sharpness(get, set) : Float;
-	var vrs_mode(get, set) : gd.viewport.VRSMode;
-	var vrs_update_mode(get, set) : gd.viewport.VRSUpdateMode;
-	var vrs_texture(get, set) : gd.Texture2D;
-	var canvas_item_default_texture_filter(get, set) : gd.viewport.DefaultCanvasItemTextureFilter;
+	public var scaling_3d_mode(get, set) : gd.viewport.Scaling3DMode;
+	public var scaling_3d_scale(get, set) : Float;
+	public var texture_mipmap_bias(get, set) : Float;
+	public var fsr_sharpness(get, set) : Float;
+	public var vrs_mode(get, set) : gd.viewport.VRSMode;
+	public var vrs_update_mode(get, set) : gd.viewport.VRSUpdateMode;
+	public var vrs_texture(get, set) : gd.Texture2D;
+	public var canvas_item_default_texture_filter(get, set) : gd.viewport.DefaultCanvasItemTextureFilter;
 	function get_canvas_item_default_texture_filter():gd.viewport.DefaultCanvasItemTextureFilter return get_default_canvas_item_texture_filter();
 	function set_canvas_item_default_texture_filter(v:gd.viewport.DefaultCanvasItemTextureFilter):gd.viewport.DefaultCanvasItemTextureFilter {
 		set_default_canvas_item_texture_filter(v);
 		return v;
 	}
-	var canvas_item_default_texture_repeat(get, set) : gd.viewport.DefaultCanvasItemTextureRepeat;
+	public var canvas_item_default_texture_repeat(get, set) : gd.viewport.DefaultCanvasItemTextureRepeat;
 	function get_canvas_item_default_texture_repeat():gd.viewport.DefaultCanvasItemTextureRepeat return get_default_canvas_item_texture_repeat();
 	function set_canvas_item_default_texture_repeat(v:gd.viewport.DefaultCanvasItemTextureRepeat):gd.viewport.DefaultCanvasItemTextureRepeat {
 		set_default_canvas_item_texture_repeat(v);
 		return v;
 	}
-	var audio_listener_enable_2d(get, set) : Bool;
+	public var audio_listener_enable_2d(get, set) : Bool;
 	function get_audio_listener_enable_2d():Bool return is_audio_listener_2d();
 	function set_audio_listener_enable_2d(v:Bool):Bool {
 		set_as_audio_listener_2d(v);
 		return v;
 	}
-	var audio_listener_enable_3d(get, set) : Bool;
+	public var audio_listener_enable_3d(get, set) : Bool;
 	function get_audio_listener_enable_3d():Bool return is_audio_listener_3d();
 	function set_audio_listener_enable_3d(v:Bool):Bool {
 		set_as_audio_listener_3d(v);
 		return v;
 	}
-	var physics_object_picking(get, set) : Bool;
-	var physics_object_picking_sort(get, set) : Bool;
-	var physics_object_picking_first_only(get, set) : Bool;
-	var gui_disable_input(get, set) : Bool;
+	public var physics_object_picking(get, set) : Bool;
+	public var physics_object_picking_sort(get, set) : Bool;
+	public var physics_object_picking_first_only(get, set) : Bool;
+	public var gui_disable_input(get, set) : Bool;
 	function get_gui_disable_input():Bool return is_input_disabled();
 	function set_gui_disable_input(v:Bool):Bool {
 		set_disable_input(v);
 		return v;
 	}
-	var gui_snap_controls_to_pixels(get, set) : Bool;
+	public var gui_snap_controls_to_pixels(get, set) : Bool;
 	function get_gui_snap_controls_to_pixels():Bool return is_snap_controls_to_pixels_enabled();
 	function set_gui_snap_controls_to_pixels(v:Bool):Bool {
 		set_snap_controls_to_pixels(v);
 		return v;
 	}
-	var gui_embed_subwindows(get, set) : Bool;
+	public var gui_embed_subwindows(get, set) : Bool;
 	function get_gui_embed_subwindows():Bool return is_embedding_subwindows();
 	function set_gui_embed_subwindows(v:Bool):Bool {
 		set_embedding_subwindows(v);
 		return v;
 	}
-	var sdf_oversize(get, set) : gd.viewport.SDFOversize;
-	var sdf_scale(get, set) : gd.viewport.SDFScale;
-	var positional_shadow_atlas_size(get, set) : Int;
-	var positional_shadow_atlas_16_bits(get, set) : Bool;
-	var positional_shadow_atlas_quad_0(get, set) : gd.viewport.PositionalShadowAtlasQuadrantSubdiv;
+	public var sdf_oversize(get, set) : gd.viewport.SDFOversize;
+	public var sdf_scale(get, set) : gd.viewport.SDFScale;
+	public var positional_shadow_atlas_size(get, set) : Int;
+	public var positional_shadow_atlas_16_bits(get, set) : Bool;
+	public var positional_shadow_atlas_quad_0(get, set) : gd.viewport.PositionalShadowAtlasQuadrantSubdiv;
 	function get_positional_shadow_atlas_quad_0():gd.viewport.PositionalShadowAtlasQuadrantSubdiv return get_positional_shadow_atlas_quadrant_subdiv(0);
 	function set_positional_shadow_atlas_quad_0(v:gd.viewport.PositionalShadowAtlasQuadrantSubdiv):gd.viewport.PositionalShadowAtlasQuadrantSubdiv {
 		set_positional_shadow_atlas_quadrant_subdiv(0, v);
 		return v;
 	}
-	var positional_shadow_atlas_quad_1(get, set) : gd.viewport.PositionalShadowAtlasQuadrantSubdiv;
+	public var positional_shadow_atlas_quad_1(get, set) : gd.viewport.PositionalShadowAtlasQuadrantSubdiv;
 	function get_positional_shadow_atlas_quad_1():gd.viewport.PositionalShadowAtlasQuadrantSubdiv return get_positional_shadow_atlas_quadrant_subdiv(1);
 	function set_positional_shadow_atlas_quad_1(v:gd.viewport.PositionalShadowAtlasQuadrantSubdiv):gd.viewport.PositionalShadowAtlasQuadrantSubdiv {
 		set_positional_shadow_atlas_quadrant_subdiv(1, v);
 		return v;
 	}
-	var positional_shadow_atlas_quad_2(get, set) : gd.viewport.PositionalShadowAtlasQuadrantSubdiv;
+	public var positional_shadow_atlas_quad_2(get, set) : gd.viewport.PositionalShadowAtlasQuadrantSubdiv;
 	function get_positional_shadow_atlas_quad_2():gd.viewport.PositionalShadowAtlasQuadrantSubdiv return get_positional_shadow_atlas_quadrant_subdiv(2);
 	function set_positional_shadow_atlas_quad_2(v:gd.viewport.PositionalShadowAtlasQuadrantSubdiv):gd.viewport.PositionalShadowAtlasQuadrantSubdiv {
 		set_positional_shadow_atlas_quadrant_subdiv(2, v);
 		return v;
 	}
-	var positional_shadow_atlas_quad_3(get, set) : gd.viewport.PositionalShadowAtlasQuadrantSubdiv;
+	public var positional_shadow_atlas_quad_3(get, set) : gd.viewport.PositionalShadowAtlasQuadrantSubdiv;
 	function get_positional_shadow_atlas_quad_3():gd.viewport.PositionalShadowAtlasQuadrantSubdiv return get_positional_shadow_atlas_quadrant_subdiv(3);
 	function set_positional_shadow_atlas_quad_3(v:gd.viewport.PositionalShadowAtlasQuadrantSubdiv):gd.viewport.PositionalShadowAtlasQuadrantSubdiv {
 		set_positional_shadow_atlas_quadrant_subdiv(3, v);
 		return v;
 	}
-	var canvas_cull_mask(get, set) : Int;
+	public var canvas_cull_mask(get, set) : Int;
 }

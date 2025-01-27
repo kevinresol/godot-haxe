@@ -54,13 +54,13 @@ class NavigationPathQueryParameters3D extends gd.RefCounted {
 		return p_epsilon;
 	}
 	public function get_simplify_epsilon():Float return __navigationpathqueryparameters3d_ptr().value.get_simplify_epsilon();
-	var map(get, set) : gd.RID;
-	var start_position(get, set) : gd.Vector3;
-	var target_position(get, set) : gd.Vector3;
-	var navigation_layers(get, set) : Int;
-	var pathfinding_algorithm(get, set) : gd.navigationpathqueryparameters3d.PathfindingAlgorithm;
-	var path_postprocessing(get, set) : gd.navigationpathqueryparameters3d.PathPostProcessing;
-	var metadata_flags(get, set) : Int;
-	var simplify_path(get, set) : Bool;
-	var simplify_epsilon(get, set) : Float;
+	public var map(get, set) : gd.RID;
+	public var start_position(get, set) : gd.Vector3;
+	public var target_position(get, set) : gd.Vector3;
+	public var navigation_layers(get, set) : Int;
+	public var pathfinding_algorithm(get, set) : gd.navigationpathqueryparameters3d.PathfindingAlgorithm;
+	public var path_postprocessing(get, set) : gd.navigationpathqueryparameters3d.PathPostProcessing;
+	public var metadata_flags(get, set) : Int;
+	public var simplify_path(get, set) : Bool;
+	public var simplify_epsilon(get, set) : Float;
 }

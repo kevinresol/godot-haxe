@@ -32,10 +32,10 @@ class VoxelGI extends gd.VisualInstance3D {
 		default:__voxelgi_ptr().value.bake(((p_from_node : gd.Node)), ((p_create_visual_debug : Bool)));
 	};
 	public function debug_bake():Void __voxelgi_ptr().value.debug_bake();
-	var subdiv(get, set) : gd.voxelgi.Subdiv;
-	var size(get, set) : gd.Vector3;
-	var camera_attributes(get, set) : gd.CameraAttributes;
-	var data(get, set) : gd.VoxelGIData;
+	public var subdiv(get, set) : gd.voxelgi.Subdiv;
+	public var size(get, set) : gd.Vector3;
+	public var camera_attributes(get, set) : gd.CameraAttributes;
+	public var data(get, set) : gd.VoxelGIData;
 	function get_data():gd.VoxelGIData return get_probe_data();
 	function set_data(v:gd.VoxelGIData):gd.VoxelGIData {
 		set_probe_data(v);

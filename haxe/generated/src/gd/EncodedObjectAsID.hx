@@ -14,5 +14,5 @@ class EncodedObjectAsID extends gd.RefCounted {
 		return p_id;
 	}
 	public function get_object_id():Int return __encodedobjectasid_ptr().value.get_object_id();
-	var object_id(get, set) : Int;
+	public var object_id(get, set) : Int;
 }

@@ -14,5 +14,5 @@ class VisualShaderNodeParameterRef extends gd.VisualShaderNode {
 		return p_name;
 	}
 	public function get_parameter_name():std.String return __visualshadernodeparameterref_ptr().value.get_parameter_name();
-	var parameter_name(get, set) : std.String;
+	public var parameter_name(get, set) : std.String;
 }

@@ -16,35 +16,35 @@ class RDShaderSource extends gd.RefCounted {
 		return p_language;
 	}
 	public function get_language():gd.renderingdevice.ShaderLanguage return __rdshadersource_ptr().value.get_language();
-	var source_vertex(get, set) : std.String;
+	public var source_vertex(get, set) : std.String;
 	function get_source_vertex():std.String return get_stage_source(0);
 	function set_source_vertex(v:std.String):std.String {
 		set_stage_source(0, v);
 		return v;
 	}
-	var source_fragment(get, set) : std.String;
+	public var source_fragment(get, set) : std.String;
 	function get_source_fragment():std.String return get_stage_source(1);
 	function set_source_fragment(v:std.String):std.String {
 		set_stage_source(1, v);
 		return v;
 	}
-	var source_tesselation_control(get, set) : std.String;
+	public var source_tesselation_control(get, set) : std.String;
 	function get_source_tesselation_control():std.String return get_stage_source(2);
 	function set_source_tesselation_control(v:std.String):std.String {
 		set_stage_source(2, v);
 		return v;
 	}
-	var source_tesselation_evaluation(get, set) : std.String;
+	public var source_tesselation_evaluation(get, set) : std.String;
 	function get_source_tesselation_evaluation():std.String return get_stage_source(3);
 	function set_source_tesselation_evaluation(v:std.String):std.String {
 		set_stage_source(3, v);
 		return v;
 	}
-	var source_compute(get, set) : std.String;
+	public var source_compute(get, set) : std.String;
 	function get_source_compute():std.String return get_stage_source(4);
 	function set_source_compute(v:std.String):std.String {
 		set_stage_source(4, v);
 		return v;
 	}
-	var language(get, set) : gd.renderingdevice.ShaderLanguage;
+	public var language(get, set) : gd.renderingdevice.ShaderLanguage;
 }

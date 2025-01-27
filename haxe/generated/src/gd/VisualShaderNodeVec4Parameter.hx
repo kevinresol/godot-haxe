@@ -19,7 +19,7 @@ class VisualShaderNodeVec4Parameter extends gd.VisualShaderNodeParameter {
 		return p_value;
 	}
 	public function get_default_value():gd.Vector4 return __visualshadernodevec4parameter_ptr().value.get_default_value();
-	var default_value_enabled(get, set) : Bool;
+	public var default_value_enabled(get, set) : Bool;
 	function get_default_value_enabled():Bool return is_default_value_enabled();
-	var default_value(get, set) : gd.Vector4;
+	public var default_value(get, set) : gd.Vector4;
 }

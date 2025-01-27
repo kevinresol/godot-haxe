@@ -14,5 +14,5 @@ class VisualShaderNodeMultiplyAdd extends gd.VisualShaderNode {
 		return p_type;
 	}
 	public function get_op_type():gd.visualshadernodemultiplyadd.OpType return __visualshadernodemultiplyadd_ptr().value.get_op_type();
-	var op_type(get, set) : gd.visualshadernodemultiplyadd.OpType;
+	public var op_type(get, set) : gd.visualshadernodemultiplyadd.OpType;
 }

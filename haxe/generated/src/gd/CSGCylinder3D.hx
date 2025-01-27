@@ -39,11 +39,11 @@ class CSGCylinder3D extends gd.CSGPrimitive3D {
 		return p_smooth_faces;
 	}
 	public function get_smooth_faces():Bool return __csgcylinder3d_ptr().value.get_smooth_faces();
-	var radius(get, set) : Float;
-	var height(get, set) : Float;
-	var sides(get, set) : Int;
-	var cone(get, set) : Bool;
+	public var radius(get, set) : Float;
+	public var height(get, set) : Float;
+	public var sides(get, set) : Int;
+	public var cone(get, set) : Bool;
 	function get_cone():Bool return is_cone();
-	var smooth_faces(get, set) : Bool;
-	var material(get, set) : gd.Material;
+	public var smooth_faces(get, set) : Bool;
+	public var material(get, set) : gd.Material;
 }

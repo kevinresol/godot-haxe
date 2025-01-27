@@ -15,5 +15,5 @@ class ConvexPolygonShape2D extends gd.Shape2D {
 		return p_points;
 	}
 	public function get_points():gd.PackedVector2Array return __convexpolygonshape2d_ptr().value.get_points();
-	var points(get, set) : gd.PackedVector2Array;
+	public var points(get, set) : gd.PackedVector2Array;
 }

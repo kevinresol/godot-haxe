@@ -24,7 +24,7 @@ class RDAttachmentFormat extends gd.RefCounted {
 		return p_p_member;
 	}
 	public function get_usage_flags():Int return __rdattachmentformat_ptr().value.get_usage_flags();
-	var format(get, set) : gd.renderingdevice.DataFormat;
-	var samples(get, set) : gd.renderingdevice.TextureSamples;
-	var usage_flags(get, set) : Int;
+	public var format(get, set) : gd.renderingdevice.DataFormat;
+	public var samples(get, set) : gd.renderingdevice.TextureSamples;
+	public var usage_flags(get, set) : Int;
 }

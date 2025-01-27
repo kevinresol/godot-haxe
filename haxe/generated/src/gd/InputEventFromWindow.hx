@@ -14,5 +14,5 @@ class InputEventFromWindow extends gd.InputEvent {
 		return p_id;
 	}
 	public function get_window_id():Int return __inputeventfromwindow_ptr().value.get_window_id();
-	var window_id(get, set) : Int;
+	public var window_id(get, set) : Int;
 }

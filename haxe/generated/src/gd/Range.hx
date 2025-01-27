@@ -48,41 +48,41 @@ class Range extends gd.Control {
 	public function is_lesser_allowed():Bool return __range_ptr().value.is_lesser_allowed();
 	public function share(p_with:gd.Node):Void __range_ptr().value.share(((p_with : gd.Node)));
 	public function unshare():Void __range_ptr().value.unshare();
-	var min_value(get, set) : Float;
+	public var min_value(get, set) : Float;
 	function get_min_value():Float return get_min();
 	function set_min_value(v:Float):Float {
 		set_min(v);
 		return v;
 	}
-	var max_value(get, set) : Float;
+	public var max_value(get, set) : Float;
 	function get_max_value():Float return get_max();
 	function set_max_value(v:Float):Float {
 		set_max(v);
 		return v;
 	}
-	var step(get, set) : Float;
-	var page(get, set) : Float;
-	var value(get, set) : Float;
-	var ratio(get, set) : Float;
+	public var step(get, set) : Float;
+	public var page(get, set) : Float;
+	public var value(get, set) : Float;
+	public var ratio(get, set) : Float;
 	function get_ratio():Float return get_as_ratio();
 	function set_ratio(v:Float):Float {
 		set_as_ratio(v);
 		return v;
 	}
-	var exp_edit(get, set) : Bool;
+	public var exp_edit(get, set) : Bool;
 	function get_exp_edit():Bool return is_ratio_exp();
 	function set_exp_edit(v:Bool):Bool {
 		set_exp_ratio(v);
 		return v;
 	}
-	var rounded(get, set) : Bool;
+	public var rounded(get, set) : Bool;
 	function get_rounded():Bool return is_using_rounded_values();
 	function set_rounded(v:Bool):Bool {
 		set_use_rounded_values(v);
 		return v;
 	}
-	var allow_greater(get, set) : Bool;
+	public var allow_greater(get, set) : Bool;
 	function get_allow_greater():Bool return is_greater_allowed();
-	var allow_lesser(get, set) : Bool;
+	public var allow_lesser(get, set) : Bool;
 	function get_allow_lesser():Bool return is_lesser_allowed();
 }

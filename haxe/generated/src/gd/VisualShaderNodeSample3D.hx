@@ -14,5 +14,5 @@ class VisualShaderNodeSample3D extends gd.VisualShaderNode {
 		return p_value;
 	}
 	public function get_source():gd.visualshadernodesample3d.Source return __visualshadernodesample3d_ptr().value.get_source();
-	var source(get, set) : gd.visualshadernodesample3d.Source;
+	public var source(get, set) : gd.visualshadernodesample3d.Source;
 }

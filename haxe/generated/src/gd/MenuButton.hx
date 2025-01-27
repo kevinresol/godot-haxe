@@ -22,7 +22,7 @@ class MenuButton extends gd.Button {
 		return p_count;
 	}
 	public function get_item_count():Int return __menubutton_ptr().value.get_item_count();
-	var switch_on_hover(get, set) : Bool;
+	public var switch_on_hover(get, set) : Bool;
 	function get_switch_on_hover():Bool return is_switch_on_hover();
-	var item_count(get, set) : Int;
+	public var item_count(get, set) : Int;
 }

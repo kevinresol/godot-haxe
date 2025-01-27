@@ -86,7 +86,7 @@ class Theme extends gd.Resource {
 	public function get_type_list():gd.PackedStringArray return __theme_ptr().value.get_type_list();
 	public function merge_with(p_other:gd.Theme):Void __theme_ptr().value.merge_with(((p_other : gd.Theme)));
 	public function clear():Void __theme_ptr().value.clear();
-	var default_base_scale(get, set) : Float;
-	var default_font(get, set) : gd.Font;
-	var default_font_size(get, set) : Int;
+	public var default_base_scale(get, set) : Float;
+	public var default_font(get, set) : gd.Font;
+	public var default_font_size(get, set) : Int;
 }

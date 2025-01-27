@@ -14,5 +14,5 @@ class VisualShaderNodeVec4Constant extends gd.VisualShaderNodeConstant {
 		return p_constant;
 	}
 	public function get_constant():gd.Quaternion return __visualshadernodevec4constant_ptr().value.get_constant();
-	var constant(get, set) : gd.Quaternion;
+	public var constant(get, set) : gd.Quaternion;
 }

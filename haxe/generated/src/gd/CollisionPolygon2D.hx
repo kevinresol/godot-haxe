@@ -34,11 +34,11 @@ class CollisionPolygon2D extends gd.Node2D {
 		return p_margin;
 	}
 	public function get_one_way_collision_margin():Float return __collisionpolygon2d_ptr().value.get_one_way_collision_margin();
-	var build_mode(get, set) : gd.collisionpolygon2d.BuildMode;
-	var polygon(get, set) : gd.PackedVector2Array;
-	var disabled(get, set) : Bool;
+	public var build_mode(get, set) : gd.collisionpolygon2d.BuildMode;
+	public var polygon(get, set) : gd.PackedVector2Array;
+	public var disabled(get, set) : Bool;
 	function get_disabled():Bool return is_disabled();
-	var one_way_collision(get, set) : Bool;
+	public var one_way_collision(get, set) : Bool;
 	function get_one_way_collision():Bool return is_one_way_collision_enabled();
-	var one_way_collision_margin(get, set) : Float;
+	public var one_way_collision_margin(get, set) : Float;
 }

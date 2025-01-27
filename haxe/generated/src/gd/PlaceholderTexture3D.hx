@@ -14,5 +14,5 @@ class PlaceholderTexture3D extends gd.Texture3D {
 		return p_size;
 	}
 	public function get_size():gd.Vector3i return __placeholdertexture3d_ptr().value.get_size();
-	var size(get, set) : gd.Vector3i;
+	public var size(get, set) : gd.Vector3i;
 }

@@ -30,13 +30,13 @@ class SpringArm3D extends gd.Node3D {
 		return p_margin;
 	}
 	public function get_margin():Float return __springarm3d_ptr().value.get_margin();
-	var collision_mask(get, set) : Int;
-	var shape(get, set) : gd.Shape3D;
-	var spring_length(get, set) : Float;
+	public var collision_mask(get, set) : Int;
+	public var shape(get, set) : gd.Shape3D;
+	public var spring_length(get, set) : Float;
 	function get_spring_length():Float return get_length();
 	function set_spring_length(v:Float):Float {
 		set_length(v);
 		return v;
 	}
-	var margin(get, set) : Float;
+	public var margin(get, set) : Float;
 }

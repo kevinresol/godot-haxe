@@ -54,15 +54,15 @@ class AnimationNodeStateMachineTransition extends gd.Resource {
 		return p_text;
 	}
 	public function get_advance_expression():std.String return __animationnodestatemachinetransition_ptr().value.get_advance_expression();
-	var xfade_time(get, set) : Float;
-	var xfade_curve(get, set) : gd.Curve;
-	var break_loop_at_end(get, set) : Bool;
+	public var xfade_time(get, set) : Float;
+	public var xfade_curve(get, set) : gd.Curve;
+	public var break_loop_at_end(get, set) : Bool;
 	function get_break_loop_at_end():Bool return is_loop_broken_at_end();
-	var reset(get, set) : Bool;
+	public var reset(get, set) : Bool;
 	function get_reset():Bool return is_reset();
-	var priority(get, set) : Int;
-	var switch_mode(get, set) : gd.animationnodestatemachinetransition.SwitchMode;
-	var advance_mode(get, set) : gd.animationnodestatemachinetransition.AdvanceMode;
-	var advance_condition(get, set) : std.String;
-	var advance_expression(get, set) : std.String;
+	public var priority(get, set) : Int;
+	public var switch_mode(get, set) : gd.animationnodestatemachinetransition.SwitchMode;
+	public var advance_mode(get, set) : gd.animationnodestatemachinetransition.AdvanceMode;
+	public var advance_condition(get, set) : std.String;
+	public var advance_expression(get, set) : std.String;
 }

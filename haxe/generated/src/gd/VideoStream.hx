@@ -15,5 +15,5 @@ class VideoStream extends gd.Resource {
 		return p_file;
 	}
 	public function get_file():std.String return __videostream_ptr().value.get_file();
-	var file(get, set) : std.String;
+	public var file(get, set) : std.String;
 }

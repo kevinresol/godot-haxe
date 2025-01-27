@@ -24,7 +24,7 @@ class VisualShaderNodeTexture extends gd.VisualShaderNode {
 		return p_value;
 	}
 	public function get_texture_type():gd.visualshadernodetexture.TextureType return __visualshadernodetexture_ptr().value.get_texture_type();
-	var source(get, set) : gd.visualshadernodetexture.Source;
-	var texture(get, set) : gd.Texture2D;
-	var texture_type(get, set) : gd.visualshadernodetexture.TextureType;
+	public var source(get, set) : gd.visualshadernodetexture.Source;
+	public var texture(get, set) : gd.Texture2D;
+	public var texture_type(get, set) : gd.visualshadernodetexture.TextureType;
 }

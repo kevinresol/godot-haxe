@@ -27,7 +27,7 @@ class OpenXRActionSet extends gd.Resource {
 	public function get_actions():gd.Array return __openxractionset_ptr().value.get_actions();
 	public function add_action(p_action:gd.OpenXRAction):Void __openxractionset_ptr().value.add_action(((p_action : gd.OpenXRAction)));
 	public function remove_action(p_action:gd.OpenXRAction):Void __openxractionset_ptr().value.remove_action(((p_action : gd.OpenXRAction)));
-	var localized_name(get, set) : std.String;
-	var priority(get, set) : Int;
-	var actions(get, set) : gd.Array;
+	public var localized_name(get, set) : std.String;
+	public var priority(get, set) : Int;
+	public var actions(get, set) : gd.Array;
 }

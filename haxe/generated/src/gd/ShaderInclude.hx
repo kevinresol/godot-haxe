@@ -14,5 +14,5 @@ class ShaderInclude extends gd.Resource {
 		return p_code;
 	}
 	public function get_code():std.String return __shaderinclude_ptr().value.get_code();
-	var code(get, set) : std.String;
+	public var code(get, set) : std.String;
 }

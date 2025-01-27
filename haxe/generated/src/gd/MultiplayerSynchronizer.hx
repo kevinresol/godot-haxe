@@ -44,12 +44,12 @@ class MultiplayerSynchronizer extends gd.Node {
 	public function remove_visibility_filter(p_filter:gd.Callable):Void __multiplayersynchronizer_ptr().value.remove_visibility_filter(((p_filter : gd.Callable)));
 	public function set_visibility_for(p_peer:Int, p_visible:Bool):Void __multiplayersynchronizer_ptr().value.set_visibility_for(((p_peer : Int)), ((p_visible : Bool)));
 	public function get_visibility_for(p_peer:Int):Bool return __multiplayersynchronizer_ptr().value.get_visibility_for(((p_peer : Int)));
-	var root_path(get, set) : std.String;
-	var replication_interval(get, set) : Float;
-	var delta_interval(get, set) : Float;
-	var replication_config(get, set) : gd.SceneReplicationConfig;
-	var visibility_update_mode(get, set) : gd.multiplayersynchronizer.VisibilityUpdateMode;
-	var public_visibility(get, set) : Bool;
+	public var root_path(get, set) : std.String;
+	public var replication_interval(get, set) : Float;
+	public var delta_interval(get, set) : Float;
+	public var replication_config(get, set) : gd.SceneReplicationConfig;
+	public var visibility_update_mode(get, set) : gd.multiplayersynchronizer.VisibilityUpdateMode;
+	public var public_visibility(get, set) : Bool;
 	function get_public_visibility():Bool return is_visibility_public();
 	function set_public_visibility(v:Bool):Bool {
 		set_visibility_public(v);

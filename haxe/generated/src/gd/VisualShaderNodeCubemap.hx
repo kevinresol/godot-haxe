@@ -24,7 +24,7 @@ class VisualShaderNodeCubemap extends gd.VisualShaderNode {
 		return p_value;
 	}
 	public function get_texture_type():gd.visualshadernodecubemap.TextureType return __visualshadernodecubemap_ptr().value.get_texture_type();
-	var source(get, set) : gd.visualshadernodecubemap.Source;
-	var cube_map(get, set) : gd.Cubemap;
-	var texture_type(get, set) : gd.visualshadernodecubemap.TextureType;
+	public var source(get, set) : gd.visualshadernodecubemap.Source;
+	public var cube_map(get, set) : gd.Cubemap;
+	public var texture_type(get, set) : gd.visualshadernodecubemap.TextureType;
 }

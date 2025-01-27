@@ -103,8 +103,8 @@ class EditorInterface extends gd.Object {
 		return p_enabled;
 	}
 	public function is_movie_maker_enabled():Bool return __editorinterface_ptr().value.is_movie_maker_enabled();
-	var distraction_free_mode(get, set) : Bool;
+	public var distraction_free_mode(get, set) : Bool;
 	function get_distraction_free_mode():Bool return is_distraction_free_mode_enabled();
-	var movie_maker_enabled(get, set) : Bool;
+	public var movie_maker_enabled(get, set) : Bool;
 	function get_movie_maker_enabled():Bool return is_movie_maker_enabled();
 }

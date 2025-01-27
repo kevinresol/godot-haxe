@@ -21,7 +21,7 @@ class CollisionShape3D extends gd.Node3D {
 	}
 	public function is_disabled():Bool return __collisionshape3d_ptr().value.is_disabled();
 	public function make_convex_from_siblings():Void __collisionshape3d_ptr().value.make_convex_from_siblings();
-	var shape(get, set) : gd.Shape3D;
-	var disabled(get, set) : Bool;
+	public var shape(get, set) : gd.Shape3D;
+	public var disabled(get, set) : Bool;
 	function get_disabled():Bool return is_disabled();
 }

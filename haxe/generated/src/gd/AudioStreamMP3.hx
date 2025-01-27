@@ -39,11 +39,11 @@ class AudioStreamMP3 extends gd.AudioStream {
 		return p_count;
 	}
 	public function get_bar_beats():Int return __audiostreammp3_ptr().value.get_bar_beats();
-	var data(get, set) : gd.PackedByteArray;
-	var bpm(get, set) : Float;
-	var beat_count(get, set) : Int;
-	var bar_beats(get, set) : Int;
-	var loop(get, set) : Bool;
+	public var data(get, set) : gd.PackedByteArray;
+	public var bpm(get, set) : Float;
+	public var beat_count(get, set) : Int;
+	public var bar_beats(get, set) : Int;
+	public var loop(get, set) : Bool;
 	function get_loop():Bool return has_loop();
-	var loop_offset(get, set) : Float;
+	public var loop_offset(get, set) : Float;
 }

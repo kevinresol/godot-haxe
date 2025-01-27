@@ -55,16 +55,16 @@ class TouchScreenButton extends gd.Node2D {
 	}
 	public function is_passby_press_enabled():Bool return __touchscreenbutton_ptr().value.is_passby_press_enabled();
 	public function is_pressed():Bool return __touchscreenbutton_ptr().value.is_pressed();
-	var texture_normal(get, set) : gd.Texture2D;
-	var texture_pressed(get, set) : gd.Texture2D;
-	var bitmask(get, set) : gd.BitMap;
-	var shape(get, set) : gd.Shape2D;
-	var shape_centered(get, set) : Bool;
+	public var texture_normal(get, set) : gd.Texture2D;
+	public var texture_pressed(get, set) : gd.Texture2D;
+	public var bitmask(get, set) : gd.BitMap;
+	public var shape(get, set) : gd.Shape2D;
+	public var shape_centered(get, set) : Bool;
 	function get_shape_centered():Bool return is_shape_centered();
-	var shape_visible(get, set) : Bool;
+	public var shape_visible(get, set) : Bool;
 	function get_shape_visible():Bool return is_shape_visible();
-	var passby_press(get, set) : Bool;
+	public var passby_press(get, set) : Bool;
 	function get_passby_press():Bool return is_passby_press_enabled();
-	var action(get, set) : std.String;
-	var visibility_mode(get, set) : gd.touchscreenbutton.VisibilityMode;
+	public var action(get, set) : std.String;
+	public var visibility_mode(get, set) : gd.touchscreenbutton.VisibilityMode;
 }

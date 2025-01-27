@@ -14,5 +14,5 @@ class QuadOccluder3D extends gd.Occluder3D {
 		return p_size;
 	}
 	public function get_size():gd.Vector2 return __quadoccluder3d_ptr().value.get_size();
-	var size(get, set) : gd.Vector2;
+	public var size(get, set) : gd.Vector2;
 }

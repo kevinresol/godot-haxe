@@ -49,18 +49,18 @@ class CanvasLayer extends gd.Node {
 	}
 	public function get_custom_viewport():gd.Node return __canvaslayer_ptr().value.get_custom_viewport();
 	public function get_canvas():gd.RID return __canvaslayer_ptr().value.get_canvas();
-	var layer(get, set) : Int;
-	var visible(get, set) : Bool;
+	public var layer(get, set) : Int;
+	public var visible(get, set) : Bool;
 	function get_visible():Bool return is_visible();
-	var offset(get, set) : gd.Vector2;
-	var rotation(get, set) : Float;
-	var scale(get, set) : gd.Vector2;
-	var custom_viewport(get, set) : gd.Node;
-	var follow_viewport_enabled(get, set) : Bool;
+	public var offset(get, set) : gd.Vector2;
+	public var rotation(get, set) : Float;
+	public var scale(get, set) : gd.Vector2;
+	public var custom_viewport(get, set) : gd.Node;
+	public var follow_viewport_enabled(get, set) : Bool;
 	function get_follow_viewport_enabled():Bool return is_following_viewport();
 	function set_follow_viewport_enabled(v:Bool):Bool {
 		set_follow_viewport(v);
 		return v;
 	}
-	var follow_viewport_scale(get, set) : Float;
+	public var follow_viewport_scale(get, set) : Float;
 }

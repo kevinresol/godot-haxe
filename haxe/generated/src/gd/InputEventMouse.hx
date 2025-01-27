@@ -24,7 +24,7 @@ class InputEventMouse extends gd.InputEventWithModifiers {
 		return p_global_position;
 	}
 	public function get_global_position():gd.Vector2 return __inputeventmouse_ptr().value.get_global_position();
-	var button_mask(get, set) : Int;
-	var position(get, set) : gd.Vector2;
-	var global_position(get, set) : gd.Vector2;
+	public var button_mask(get, set) : Int;
+	public var position(get, set) : gd.Vector2;
+	public var global_position(get, set) : gd.Vector2;
 }

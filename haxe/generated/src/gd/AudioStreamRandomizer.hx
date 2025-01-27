@@ -39,8 +39,8 @@ class AudioStreamRandomizer extends gd.AudioStream {
 		return p_mode;
 	}
 	public function get_playback_mode():gd.audiostreamrandomizer.PlaybackMode return __audiostreamrandomizer_ptr().value.get_playback_mode();
-	var playback_mode(get, set) : gd.audiostreamrandomizer.PlaybackMode;
-	var random_pitch(get, set) : Float;
-	var random_volume_offset_db(get, set) : Float;
-	var streams_count(get, set) : Int;
+	public var playback_mode(get, set) : gd.audiostreamrandomizer.PlaybackMode;
+	public var random_pitch(get, set) : Float;
+	public var random_volume_offset_db(get, set) : Float;
+	public var streams_count(get, set) : Int;
 }

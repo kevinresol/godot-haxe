@@ -14,6 +14,6 @@ class CenterContainer extends gd.Container {
 		return p_enable;
 	}
 	public function is_using_top_left():Bool return __centercontainer_ptr().value.is_using_top_left();
-	var use_top_left(get, set) : Bool;
+	public var use_top_left(get, set) : Bool;
 	function get_use_top_left():Bool return is_using_top_left();
 }

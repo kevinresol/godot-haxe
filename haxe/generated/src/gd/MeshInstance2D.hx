@@ -19,6 +19,6 @@ class MeshInstance2D extends gd.Node2D {
 		return p_texture;
 	}
 	public function get_texture():gd.Texture2D return __meshinstance2d_ptr().value.get_texture();
-	var mesh(get, set) : gd.Mesh;
-	var texture(get, set) : gd.Texture2D;
+	public var mesh(get, set) : gd.Mesh;
+	public var texture(get, set) : gd.Texture2D;
 }

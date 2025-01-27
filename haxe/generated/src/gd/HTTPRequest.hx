@@ -63,13 +63,13 @@ class HTTPRequest extends gd.Node {
 	public function get_download_chunk_size():Int return __httprequest_ptr().value.get_download_chunk_size();
 	public function set_http_proxy(p_host:std.String, p_port:Int):Void __httprequest_ptr().value.set_http_proxy(((p_host : std.String)), ((p_port : Int)));
 	public function set_https_proxy(p_host:std.String, p_port:Int):Void __httprequest_ptr().value.set_https_proxy(((p_host : std.String)), ((p_port : Int)));
-	var download_file(get, set) : std.String;
-	var download_chunk_size(get, set) : Int;
-	var use_threads(get, set) : Bool;
+	public var download_file(get, set) : std.String;
+	public var download_chunk_size(get, set) : Int;
+	public var use_threads(get, set) : Bool;
 	function get_use_threads():Bool return is_using_threads();
-	var accept_gzip(get, set) : Bool;
+	public var accept_gzip(get, set) : Bool;
 	function get_accept_gzip():Bool return is_accepting_gzip();
-	var body_size_limit(get, set) : Int;
-	var max_redirects(get, set) : Int;
-	var timeout(get, set) : Float;
+	public var body_size_limit(get, set) : Int;
+	public var max_redirects(get, set) : Int;
+	public var timeout(get, set) : Float;
 }

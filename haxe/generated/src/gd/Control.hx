@@ -265,114 +265,114 @@ class Control extends gd.CanvasItem {
 		return p_enable;
 	}
 	public function is_localizing_numeral_system():Bool return __control_ptr().value.is_localizing_numeral_system();
-	var clip_contents(get, set) : Bool;
+	public var clip_contents(get, set) : Bool;
 	function get_clip_contents():Bool return is_clipping_contents();
-	var custom_minimum_size(get, set) : gd.Vector2;
-	var layout_direction(get, set) : gd.control.LayoutDirection;
-	var offset_left(get, set) : Float;
+	public var custom_minimum_size(get, set) : gd.Vector2;
+	public var layout_direction(get, set) : gd.control.LayoutDirection;
+	public var offset_left(get, set) : Float;
 	function get_offset_left():Float return get_offset(0);
 	function set_offset_left(v:Float):Float {
 		set_offset(0, v);
 		return v;
 	}
-	var offset_top(get, set) : Float;
+	public var offset_top(get, set) : Float;
 	function get_offset_top():Float return get_offset(1);
 	function set_offset_top(v:Float):Float {
 		set_offset(1, v);
 		return v;
 	}
-	var offset_right(get, set) : Float;
+	public var offset_right(get, set) : Float;
 	function get_offset_right():Float return get_offset(2);
 	function set_offset_right(v:Float):Float {
 		set_offset(2, v);
 		return v;
 	}
-	var offset_bottom(get, set) : Float;
+	public var offset_bottom(get, set) : Float;
 	function get_offset_bottom():Float return get_offset(3);
 	function set_offset_bottom(v:Float):Float {
 		set_offset(3, v);
 		return v;
 	}
-	var grow_horizontal(get, set) : gd.control.GrowDirection;
+	public var grow_horizontal(get, set) : gd.control.GrowDirection;
 	function get_grow_horizontal():gd.control.GrowDirection return get_h_grow_direction();
 	function set_grow_horizontal(v:gd.control.GrowDirection):gd.control.GrowDirection {
 		set_h_grow_direction(v);
 		return v;
 	}
-	var grow_vertical(get, set) : gd.control.GrowDirection;
+	public var grow_vertical(get, set) : gd.control.GrowDirection;
 	function get_grow_vertical():gd.control.GrowDirection return get_v_grow_direction();
 	function set_grow_vertical(v:gd.control.GrowDirection):gd.control.GrowDirection {
 		set_v_grow_direction(v);
 		return v;
 	}
-	var rotation(get, set) : Float;
-	var rotation_degrees(get, set) : Float;
-	var scale(get, set) : gd.Vector2;
-	var pivot_offset(get, set) : gd.Vector2;
-	var size_flags_horizontal(get, set) : Int;
+	public var rotation(get, set) : Float;
+	public var rotation_degrees(get, set) : Float;
+	public var scale(get, set) : gd.Vector2;
+	public var pivot_offset(get, set) : gd.Vector2;
+	public var size_flags_horizontal(get, set) : Int;
 	function get_size_flags_horizontal():Int return get_h_size_flags();
 	function set_size_flags_horizontal(v:Int):Int {
 		set_h_size_flags(v);
 		return v;
 	}
-	var size_flags_vertical(get, set) : Int;
+	public var size_flags_vertical(get, set) : Int;
 	function get_size_flags_vertical():Int return get_v_size_flags();
 	function set_size_flags_vertical(v:Int):Int {
 		set_v_size_flags(v);
 		return v;
 	}
-	var size_flags_stretch_ratio(get, set) : Float;
+	public var size_flags_stretch_ratio(get, set) : Float;
 	function get_size_flags_stretch_ratio():Float return get_stretch_ratio();
 	function set_size_flags_stretch_ratio(v:Float):Float {
 		set_stretch_ratio(v);
 		return v;
 	}
-	var localize_numeral_system(get, set) : Bool;
+	public var localize_numeral_system(get, set) : Bool;
 	function get_localize_numeral_system():Bool return is_localizing_numeral_system();
-	var auto_translate(get, set) : Bool;
+	public var auto_translate(get, set) : Bool;
 	function get_auto_translate():Bool return is_auto_translating();
-	var tooltip_text(get, set) : std.String;
-	var focus_neighbor_left(get, set) : std.String;
+	public var tooltip_text(get, set) : std.String;
+	public var focus_neighbor_left(get, set) : std.String;
 	function get_focus_neighbor_left():std.String return get_focus_neighbor(0);
 	function set_focus_neighbor_left(v:std.String):std.String {
 		set_focus_neighbor(0, v);
 		return v;
 	}
-	var focus_neighbor_top(get, set) : std.String;
+	public var focus_neighbor_top(get, set) : std.String;
 	function get_focus_neighbor_top():std.String return get_focus_neighbor(1);
 	function set_focus_neighbor_top(v:std.String):std.String {
 		set_focus_neighbor(1, v);
 		return v;
 	}
-	var focus_neighbor_right(get, set) : std.String;
+	public var focus_neighbor_right(get, set) : std.String;
 	function get_focus_neighbor_right():std.String return get_focus_neighbor(2);
 	function set_focus_neighbor_right(v:std.String):std.String {
 		set_focus_neighbor(2, v);
 		return v;
 	}
-	var focus_neighbor_bottom(get, set) : std.String;
+	public var focus_neighbor_bottom(get, set) : std.String;
 	function get_focus_neighbor_bottom():std.String return get_focus_neighbor(3);
 	function set_focus_neighbor_bottom(v:std.String):std.String {
 		set_focus_neighbor(3, v);
 		return v;
 	}
-	var focus_next(get, set) : std.String;
-	var focus_previous(get, set) : std.String;
-	var focus_mode(get, set) : gd.control.FocusMode;
-	var mouse_filter(get, set) : gd.control.MouseFilter;
-	var mouse_force_pass_scroll_events(get, set) : Bool;
+	public var focus_next(get, set) : std.String;
+	public var focus_previous(get, set) : std.String;
+	public var focus_mode(get, set) : gd.control.FocusMode;
+	public var mouse_filter(get, set) : gd.control.MouseFilter;
+	public var mouse_force_pass_scroll_events(get, set) : Bool;
 	function get_mouse_force_pass_scroll_events():Bool return is_force_pass_scroll_events();
 	function set_mouse_force_pass_scroll_events(v:Bool):Bool {
 		set_force_pass_scroll_events(v);
 		return v;
 	}
-	var mouse_default_cursor_shape(get, set) : gd.control.CursorShape;
+	public var mouse_default_cursor_shape(get, set) : gd.control.CursorShape;
 	function get_mouse_default_cursor_shape():gd.control.CursorShape return get_default_cursor_shape();
 	function set_mouse_default_cursor_shape(v:gd.control.CursorShape):gd.control.CursorShape {
 		set_default_cursor_shape(v);
 		return v;
 	}
-	var shortcut_context(get, set) : gd.Node;
-	var theme(get, set) : gd.Theme;
-	var theme_type_variation(get, set) : std.String;
+	public var shortcut_context(get, set) : gd.Node;
+	public var theme(get, set) : gd.Theme;
+	public var theme_type_variation(get, set) : std.String;
 }

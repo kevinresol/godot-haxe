@@ -91,17 +91,17 @@ class TabContainer extends gd.Container {
 		return p_enabled;
 	}
 	public function get_deselect_enabled():Bool return __tabcontainer_ptr().value.get_deselect_enabled();
-	var tab_alignment(get, set) : gd.tabbar.AlignmentMode;
-	var current_tab(get, set) : Int;
-	var tabs_position(get, set) : gd.tabcontainer.TabPosition;
-	var clip_tabs(get, set) : Bool;
-	var tabs_visible(get, set) : Bool;
+	public var tab_alignment(get, set) : gd.tabbar.AlignmentMode;
+	public var current_tab(get, set) : Int;
+	public var tabs_position(get, set) : gd.tabcontainer.TabPosition;
+	public var clip_tabs(get, set) : Bool;
+	public var tabs_visible(get, set) : Bool;
 	function get_tabs_visible():Bool return are_tabs_visible();
-	var all_tabs_in_front(get, set) : Bool;
+	public var all_tabs_in_front(get, set) : Bool;
 	function get_all_tabs_in_front():Bool return is_all_tabs_in_front();
-	var drag_to_rearrange_enabled(get, set) : Bool;
-	var tabs_rearrange_group(get, set) : Int;
-	var use_hidden_tabs_for_min_size(get, set) : Bool;
-	var tab_focus_mode(get, set) : gd.control.FocusMode;
-	var deselect_enabled(get, set) : Bool;
+	public var drag_to_rearrange_enabled(get, set) : Bool;
+	public var tabs_rearrange_group(get, set) : Int;
+	public var use_hidden_tabs_for_min_size(get, set) : Bool;
+	public var tab_focus_mode(get, set) : gd.control.FocusMode;
+	public var deselect_enabled(get, set) : Bool;
 }

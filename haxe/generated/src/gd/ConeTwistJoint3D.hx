@@ -11,31 +11,31 @@ class ConeTwistJoint3D extends gd.Joint3D {
 	extern inline function __conetwistjoint3d_ptr():cpp.Pointer<gdnative.ConeTwistJoint3D.ConeTwistJoint3D_extern> return cast __gd.ptr;
 	public function set_param(p_param:gd.conetwistjoint3d.Param, p_value:Float):Void __conetwistjoint3d_ptr().value.set_param(((p_param : gd.conetwistjoint3d.Param)), ((p_value : Float)));
 	public function get_param(p_param:gd.conetwistjoint3d.Param):Float return __conetwistjoint3d_ptr().value.get_param(((p_param : gd.conetwistjoint3d.Param)));
-	var swing_span(get, set) : Float;
+	public var swing_span(get, set) : Float;
 	function get_swing_span():Float return get_param(0);
 	function set_swing_span(v:Float):Float {
 		set_param(0, v);
 		return v;
 	}
-	var twist_span(get, set) : Float;
+	public var twist_span(get, set) : Float;
 	function get_twist_span():Float return get_param(1);
 	function set_twist_span(v:Float):Float {
 		set_param(1, v);
 		return v;
 	}
-	var bias(get, set) : Float;
+	public var bias(get, set) : Float;
 	function get_bias():Float return get_param(2);
 	function set_bias(v:Float):Float {
 		set_param(2, v);
 		return v;
 	}
-	var softness(get, set) : Float;
+	public var softness(get, set) : Float;
 	function get_softness():Float return get_param(3);
 	function set_softness(v:Float):Float {
 		set_param(3, v);
 		return v;
 	}
-	var relaxation(get, set) : Float;
+	public var relaxation(get, set) : Float;
 	function get_relaxation():Float return get_param(4);
 	function set_relaxation(v:Float):Float {
 		set_param(4, v);

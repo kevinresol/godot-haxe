@@ -19,6 +19,6 @@ class SegmentShape2D extends gd.Shape2D {
 		return p_b;
 	}
 	public function get_b():gd.Vector2 return __segmentshape2d_ptr().value.get_b();
-	var a(get, set) : gd.Vector2;
-	var b(get, set) : gd.Vector2;
+	public var a(get, set) : gd.Vector2;
+	public var b(get, set) : gd.Vector2;
 }

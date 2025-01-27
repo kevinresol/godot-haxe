@@ -45,10 +45,10 @@ class GLTFLight extends gd.Resource {
 	}
 	public function get_additional_data(p_extension_name:std.String):gd.Variant return __gltflight_ptr().value.get_additional_data(((p_extension_name : std.String)));
 	public function set_additional_data(p_extension_name:std.String, p_additional_data:gd.Variant):Void __gltflight_ptr().value.set_additional_data(((p_extension_name : std.String)), ((p_additional_data : gd.Variant)));
-	var color(get, set) : gd.Color;
-	var intensity(get, set) : Float;
-	var light_type(get, set) : std.String;
-	var range(get, set) : Float;
-	var inner_cone_angle(get, set) : Float;
-	var outer_cone_angle(get, set) : Float;
+	public var color(get, set) : gd.Color;
+	public var intensity(get, set) : Float;
+	public var light_type(get, set) : std.String;
+	public var range(get, set) : Float;
+	public var inner_cone_angle(get, set) : Float;
+	public var outer_cone_angle(get, set) : Float;
 }

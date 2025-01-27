@@ -149,272 +149,272 @@ class CPUParticles2D extends gd.Node2D {
 		return p_scale_curve;
 	}
 	public function convert_from_particles(p_particles:gd.Node):Void __cpuparticles2d_ptr().value.convert_from_particles(((p_particles : gd.Node)));
-	var emitting(get, set) : Bool;
+	public var emitting(get, set) : Bool;
 	function get_emitting():Bool return is_emitting();
-	var amount(get, set) : Int;
-	var lifetime(get, set) : Float;
-	var one_shot(get, set) : Bool;
-	var preprocess(get, set) : Float;
+	public var amount(get, set) : Int;
+	public var lifetime(get, set) : Float;
+	public var one_shot(get, set) : Bool;
+	public var preprocess(get, set) : Float;
 	function get_preprocess():Float return get_pre_process_time();
 	function set_preprocess(v:Float):Float {
 		set_pre_process_time(v);
 		return v;
 	}
-	var speed_scale(get, set) : Float;
-	var explosiveness(get, set) : Float;
+	public var speed_scale(get, set) : Float;
+	public var explosiveness(get, set) : Float;
 	function get_explosiveness():Float return get_explosiveness_ratio();
 	function set_explosiveness(v:Float):Float {
 		set_explosiveness_ratio(v);
 		return v;
 	}
-	var randomness(get, set) : Float;
+	public var randomness(get, set) : Float;
 	function get_randomness():Float return get_randomness_ratio();
 	function set_randomness(v:Float):Float {
 		set_randomness_ratio(v);
 		return v;
 	}
-	var lifetime_randomness(get, set) : Float;
-	var fixed_fps(get, set) : Int;
-	var fract_delta(get, set) : Bool;
+	public var lifetime_randomness(get, set) : Float;
+	public var fixed_fps(get, set) : Int;
+	public var fract_delta(get, set) : Bool;
 	function get_fract_delta():Bool return get_fractional_delta();
 	function set_fract_delta(v:Bool):Bool {
 		set_fractional_delta(v);
 		return v;
 	}
-	var local_coords(get, set) : Bool;
+	public var local_coords(get, set) : Bool;
 	function get_local_coords():Bool return get_use_local_coordinates();
 	function set_local_coords(v:Bool):Bool {
 		set_use_local_coordinates(v);
 		return v;
 	}
-	var draw_order(get, set) : gd.cpuparticles2d.DrawOrder;
-	var texture(get, set) : gd.Texture2D;
-	var emission_shape(get, set) : gd.cpuparticles2d.EmissionShape;
-	var emission_sphere_radius(get, set) : Float;
-	var emission_rect_extents(get, set) : gd.Vector2;
-	var emission_points(get, set) : gd.PackedVector2Array;
-	var emission_normals(get, set) : gd.PackedVector2Array;
-	var emission_colors(get, set) : gd.PackedColorArray;
-	var particle_flag_align_y(get, set) : Bool;
+	public var draw_order(get, set) : gd.cpuparticles2d.DrawOrder;
+	public var texture(get, set) : gd.Texture2D;
+	public var emission_shape(get, set) : gd.cpuparticles2d.EmissionShape;
+	public var emission_sphere_radius(get, set) : Float;
+	public var emission_rect_extents(get, set) : gd.Vector2;
+	public var emission_points(get, set) : gd.PackedVector2Array;
+	public var emission_normals(get, set) : gd.PackedVector2Array;
+	public var emission_colors(get, set) : gd.PackedColorArray;
+	public var particle_flag_align_y(get, set) : Bool;
 	function get_particle_flag_align_y():Bool return get_particle_flag(0);
 	function set_particle_flag_align_y(v:Bool):Bool {
 		set_particle_flag(0, v);
 		return v;
 	}
-	var direction(get, set) : gd.Vector2;
-	var spread(get, set) : Float;
-	var gravity(get, set) : gd.Vector2;
-	var initial_velocity_min(get, set) : Float;
+	public var direction(get, set) : gd.Vector2;
+	public var spread(get, set) : Float;
+	public var gravity(get, set) : gd.Vector2;
+	public var initial_velocity_min(get, set) : Float;
 	function get_initial_velocity_min():Float return get_param_min(0);
 	function set_initial_velocity_min(v:Float):Float {
 		set_param_min(0, v);
 		return v;
 	}
-	var initial_velocity_max(get, set) : Float;
+	public var initial_velocity_max(get, set) : Float;
 	function get_initial_velocity_max():Float return get_param_max(0);
 	function set_initial_velocity_max(v:Float):Float {
 		set_param_max(0, v);
 		return v;
 	}
-	var angular_velocity_min(get, set) : Float;
+	public var angular_velocity_min(get, set) : Float;
 	function get_angular_velocity_min():Float return get_param_min(1);
 	function set_angular_velocity_min(v:Float):Float {
 		set_param_min(1, v);
 		return v;
 	}
-	var angular_velocity_max(get, set) : Float;
+	public var angular_velocity_max(get, set) : Float;
 	function get_angular_velocity_max():Float return get_param_max(1);
 	function set_angular_velocity_max(v:Float):Float {
 		set_param_max(1, v);
 		return v;
 	}
-	var angular_velocity_curve(get, set) : gd.Curve;
+	public var angular_velocity_curve(get, set) : gd.Curve;
 	function get_angular_velocity_curve():gd.Curve return get_param_curve(1);
 	function set_angular_velocity_curve(v:gd.Curve):gd.Curve {
 		set_param_curve(1, v);
 		return v;
 	}
-	var orbit_velocity_min(get, set) : Float;
+	public var orbit_velocity_min(get, set) : Float;
 	function get_orbit_velocity_min():Float return get_param_min(2);
 	function set_orbit_velocity_min(v:Float):Float {
 		set_param_min(2, v);
 		return v;
 	}
-	var orbit_velocity_max(get, set) : Float;
+	public var orbit_velocity_max(get, set) : Float;
 	function get_orbit_velocity_max():Float return get_param_max(2);
 	function set_orbit_velocity_max(v:Float):Float {
 		set_param_max(2, v);
 		return v;
 	}
-	var orbit_velocity_curve(get, set) : gd.Curve;
+	public var orbit_velocity_curve(get, set) : gd.Curve;
 	function get_orbit_velocity_curve():gd.Curve return get_param_curve(2);
 	function set_orbit_velocity_curve(v:gd.Curve):gd.Curve {
 		set_param_curve(2, v);
 		return v;
 	}
-	var linear_accel_min(get, set) : Float;
+	public var linear_accel_min(get, set) : Float;
 	function get_linear_accel_min():Float return get_param_min(3);
 	function set_linear_accel_min(v:Float):Float {
 		set_param_min(3, v);
 		return v;
 	}
-	var linear_accel_max(get, set) : Float;
+	public var linear_accel_max(get, set) : Float;
 	function get_linear_accel_max():Float return get_param_max(3);
 	function set_linear_accel_max(v:Float):Float {
 		set_param_max(3, v);
 		return v;
 	}
-	var linear_accel_curve(get, set) : gd.Curve;
+	public var linear_accel_curve(get, set) : gd.Curve;
 	function get_linear_accel_curve():gd.Curve return get_param_curve(3);
 	function set_linear_accel_curve(v:gd.Curve):gd.Curve {
 		set_param_curve(3, v);
 		return v;
 	}
-	var radial_accel_min(get, set) : Float;
+	public var radial_accel_min(get, set) : Float;
 	function get_radial_accel_min():Float return get_param_min(4);
 	function set_radial_accel_min(v:Float):Float {
 		set_param_min(4, v);
 		return v;
 	}
-	var radial_accel_max(get, set) : Float;
+	public var radial_accel_max(get, set) : Float;
 	function get_radial_accel_max():Float return get_param_max(4);
 	function set_radial_accel_max(v:Float):Float {
 		set_param_max(4, v);
 		return v;
 	}
-	var radial_accel_curve(get, set) : gd.Curve;
+	public var radial_accel_curve(get, set) : gd.Curve;
 	function get_radial_accel_curve():gd.Curve return get_param_curve(4);
 	function set_radial_accel_curve(v:gd.Curve):gd.Curve {
 		set_param_curve(4, v);
 		return v;
 	}
-	var tangential_accel_min(get, set) : Float;
+	public var tangential_accel_min(get, set) : Float;
 	function get_tangential_accel_min():Float return get_param_min(5);
 	function set_tangential_accel_min(v:Float):Float {
 		set_param_min(5, v);
 		return v;
 	}
-	var tangential_accel_max(get, set) : Float;
+	public var tangential_accel_max(get, set) : Float;
 	function get_tangential_accel_max():Float return get_param_max(5);
 	function set_tangential_accel_max(v:Float):Float {
 		set_param_max(5, v);
 		return v;
 	}
-	var tangential_accel_curve(get, set) : gd.Curve;
+	public var tangential_accel_curve(get, set) : gd.Curve;
 	function get_tangential_accel_curve():gd.Curve return get_param_curve(5);
 	function set_tangential_accel_curve(v:gd.Curve):gd.Curve {
 		set_param_curve(5, v);
 		return v;
 	}
-	var damping_min(get, set) : Float;
+	public var damping_min(get, set) : Float;
 	function get_damping_min():Float return get_param_min(6);
 	function set_damping_min(v:Float):Float {
 		set_param_min(6, v);
 		return v;
 	}
-	var damping_max(get, set) : Float;
+	public var damping_max(get, set) : Float;
 	function get_damping_max():Float return get_param_max(6);
 	function set_damping_max(v:Float):Float {
 		set_param_max(6, v);
 		return v;
 	}
-	var damping_curve(get, set) : gd.Curve;
+	public var damping_curve(get, set) : gd.Curve;
 	function get_damping_curve():gd.Curve return get_param_curve(6);
 	function set_damping_curve(v:gd.Curve):gd.Curve {
 		set_param_curve(6, v);
 		return v;
 	}
-	var angle_min(get, set) : Float;
+	public var angle_min(get, set) : Float;
 	function get_angle_min():Float return get_param_min(7);
 	function set_angle_min(v:Float):Float {
 		set_param_min(7, v);
 		return v;
 	}
-	var angle_max(get, set) : Float;
+	public var angle_max(get, set) : Float;
 	function get_angle_max():Float return get_param_max(7);
 	function set_angle_max(v:Float):Float {
 		set_param_max(7, v);
 		return v;
 	}
-	var angle_curve(get, set) : gd.Curve;
+	public var angle_curve(get, set) : gd.Curve;
 	function get_angle_curve():gd.Curve return get_param_curve(7);
 	function set_angle_curve(v:gd.Curve):gd.Curve {
 		set_param_curve(7, v);
 		return v;
 	}
-	var scale_amount_min(get, set) : Float;
+	public var scale_amount_min(get, set) : Float;
 	function get_scale_amount_min():Float return get_param_min(8);
 	function set_scale_amount_min(v:Float):Float {
 		set_param_min(8, v);
 		return v;
 	}
-	var scale_amount_max(get, set) : Float;
+	public var scale_amount_max(get, set) : Float;
 	function get_scale_amount_max():Float return get_param_max(8);
 	function set_scale_amount_max(v:Float):Float {
 		set_param_max(8, v);
 		return v;
 	}
-	var scale_amount_curve(get, set) : gd.Curve;
+	public var scale_amount_curve(get, set) : gd.Curve;
 	function get_scale_amount_curve():gd.Curve return get_param_curve(8);
 	function set_scale_amount_curve(v:gd.Curve):gd.Curve {
 		set_param_curve(8, v);
 		return v;
 	}
-	var split_scale(get, set) : Bool;
-	var scale_curve_x(get, set) : gd.Curve;
-	var scale_curve_y(get, set) : gd.Curve;
-	var color(get, set) : gd.Color;
-	var color_ramp(get, set) : gd.Gradient;
-	var color_initial_ramp(get, set) : gd.Gradient;
-	var hue_variation_min(get, set) : Float;
+	public var split_scale(get, set) : Bool;
+	public var scale_curve_x(get, set) : gd.Curve;
+	public var scale_curve_y(get, set) : gd.Curve;
+	public var color(get, set) : gd.Color;
+	public var color_ramp(get, set) : gd.Gradient;
+	public var color_initial_ramp(get, set) : gd.Gradient;
+	public var hue_variation_min(get, set) : Float;
 	function get_hue_variation_min():Float return get_param_min(9);
 	function set_hue_variation_min(v:Float):Float {
 		set_param_min(9, v);
 		return v;
 	}
-	var hue_variation_max(get, set) : Float;
+	public var hue_variation_max(get, set) : Float;
 	function get_hue_variation_max():Float return get_param_max(9);
 	function set_hue_variation_max(v:Float):Float {
 		set_param_max(9, v);
 		return v;
 	}
-	var hue_variation_curve(get, set) : gd.Curve;
+	public var hue_variation_curve(get, set) : gd.Curve;
 	function get_hue_variation_curve():gd.Curve return get_param_curve(9);
 	function set_hue_variation_curve(v:gd.Curve):gd.Curve {
 		set_param_curve(9, v);
 		return v;
 	}
-	var anim_speed_min(get, set) : Float;
+	public var anim_speed_min(get, set) : Float;
 	function get_anim_speed_min():Float return get_param_min(10);
 	function set_anim_speed_min(v:Float):Float {
 		set_param_min(10, v);
 		return v;
 	}
-	var anim_speed_max(get, set) : Float;
+	public var anim_speed_max(get, set) : Float;
 	function get_anim_speed_max():Float return get_param_max(10);
 	function set_anim_speed_max(v:Float):Float {
 		set_param_max(10, v);
 		return v;
 	}
-	var anim_speed_curve(get, set) : gd.Curve;
+	public var anim_speed_curve(get, set) : gd.Curve;
 	function get_anim_speed_curve():gd.Curve return get_param_curve(10);
 	function set_anim_speed_curve(v:gd.Curve):gd.Curve {
 		set_param_curve(10, v);
 		return v;
 	}
-	var anim_offset_min(get, set) : Float;
+	public var anim_offset_min(get, set) : Float;
 	function get_anim_offset_min():Float return get_param_min(11);
 	function set_anim_offset_min(v:Float):Float {
 		set_param_min(11, v);
 		return v;
 	}
-	var anim_offset_max(get, set) : Float;
+	public var anim_offset_max(get, set) : Float;
 	function get_anim_offset_max():Float return get_param_max(11);
 	function set_anim_offset_max(v:Float):Float {
 		set_param_max(11, v);
 		return v;
 	}
-	var anim_offset_curve(get, set) : gd.Curve;
+	public var anim_offset_curve(get, set) : gd.Curve;
 	function get_anim_offset_curve():gd.Curve return get_param_curve(11);
 	function set_anim_offset_curve(v:gd.Curve):gd.Curve {
 		set_param_curve(11, v);

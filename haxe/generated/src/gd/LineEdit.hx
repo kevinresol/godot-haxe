@@ -163,72 +163,72 @@ class LineEdit extends gd.Control {
 		return p_enabled;
 	}
 	public function is_select_all_on_focus():Bool return __lineedit_ptr().value.is_select_all_on_focus();
-	var text(get, set) : std.String;
-	var placeholder_text(get, set) : std.String;
+	public var text(get, set) : std.String;
+	public var placeholder_text(get, set) : std.String;
 	function get_placeholder_text():std.String return get_placeholder();
 	function set_placeholder_text(v:std.String):std.String {
 		set_placeholder(v);
 		return v;
 	}
-	var alignment(get, set) : gd.HorizontalAlignment;
+	public var alignment(get, set) : gd.HorizontalAlignment;
 	function get_alignment():gd.HorizontalAlignment return get_horizontal_alignment();
 	function set_alignment(v:gd.HorizontalAlignment):gd.HorizontalAlignment {
 		set_horizontal_alignment(v);
 		return v;
 	}
-	var max_length(get, set) : Int;
-	var editable(get, set) : Bool;
+	public var max_length(get, set) : Int;
+	public var editable(get, set) : Bool;
 	function get_editable():Bool return is_editable();
-	var expand_to_text_length(get, set) : Bool;
+	public var expand_to_text_length(get, set) : Bool;
 	function get_expand_to_text_length():Bool return is_expand_to_text_length_enabled();
 	function set_expand_to_text_length(v:Bool):Bool {
 		set_expand_to_text_length_enabled(v);
 		return v;
 	}
-	var context_menu_enabled(get, set) : Bool;
+	public var context_menu_enabled(get, set) : Bool;
 	function get_context_menu_enabled():Bool return is_context_menu_enabled();
-	var virtual_keyboard_enabled(get, set) : Bool;
+	public var virtual_keyboard_enabled(get, set) : Bool;
 	function get_virtual_keyboard_enabled():Bool return is_virtual_keyboard_enabled();
-	var virtual_keyboard_type(get, set) : gd.lineedit.VirtualKeyboardType;
-	var clear_button_enabled(get, set) : Bool;
+	public var virtual_keyboard_type(get, set) : gd.lineedit.VirtualKeyboardType;
+	public var clear_button_enabled(get, set) : Bool;
 	function get_clear_button_enabled():Bool return is_clear_button_enabled();
-	var shortcut_keys_enabled(get, set) : Bool;
+	public var shortcut_keys_enabled(get, set) : Bool;
 	function get_shortcut_keys_enabled():Bool return is_shortcut_keys_enabled();
-	var middle_mouse_paste_enabled(get, set) : Bool;
+	public var middle_mouse_paste_enabled(get, set) : Bool;
 	function get_middle_mouse_paste_enabled():Bool return is_middle_mouse_paste_enabled();
-	var selecting_enabled(get, set) : Bool;
+	public var selecting_enabled(get, set) : Bool;
 	function get_selecting_enabled():Bool return is_selecting_enabled();
-	var deselect_on_focus_loss_enabled(get, set) : Bool;
+	public var deselect_on_focus_loss_enabled(get, set) : Bool;
 	function get_deselect_on_focus_loss_enabled():Bool return is_deselect_on_focus_loss_enabled();
-	var drag_and_drop_selection_enabled(get, set) : Bool;
+	public var drag_and_drop_selection_enabled(get, set) : Bool;
 	function get_drag_and_drop_selection_enabled():Bool return is_drag_and_drop_selection_enabled();
-	var right_icon(get, set) : gd.Texture2D;
-	var flat(get, set) : Bool;
+	public var right_icon(get, set) : gd.Texture2D;
+	public var flat(get, set) : Bool;
 	function get_flat():Bool return is_flat();
-	var draw_control_chars(get, set) : Bool;
-	var select_all_on_focus(get, set) : Bool;
+	public var draw_control_chars(get, set) : Bool;
+	public var select_all_on_focus(get, set) : Bool;
 	function get_select_all_on_focus():Bool return is_select_all_on_focus();
-	var caret_blink(get, set) : Bool;
+	public var caret_blink(get, set) : Bool;
 	function get_caret_blink():Bool return is_caret_blink_enabled();
 	function set_caret_blink(v:Bool):Bool {
 		set_caret_blink_enabled(v);
 		return v;
 	}
-	var caret_blink_interval(get, set) : Float;
-	var caret_column(get, set) : Int;
-	var caret_force_displayed(get, set) : Bool;
+	public var caret_blink_interval(get, set) : Float;
+	public var caret_column(get, set) : Int;
+	public var caret_force_displayed(get, set) : Bool;
 	function get_caret_force_displayed():Bool return is_caret_force_displayed();
-	var caret_mid_grapheme(get, set) : Bool;
+	public var caret_mid_grapheme(get, set) : Bool;
 	function get_caret_mid_grapheme():Bool return is_caret_mid_grapheme_enabled();
 	function set_caret_mid_grapheme(v:Bool):Bool {
 		set_caret_mid_grapheme_enabled(v);
 		return v;
 	}
-	var secret(get, set) : Bool;
+	public var secret(get, set) : Bool;
 	function get_secret():Bool return is_secret();
-	var secret_character(get, set) : std.String;
-	var text_direction(get, set) : gd.control.TextDirection;
-	var language(get, set) : std.String;
-	var structured_text_bidi_override(get, set) : gd.textserver.StructuredTextParser;
-	var structured_text_bidi_override_options(get, set) : gd.Array;
+	public var secret_character(get, set) : std.String;
+	public var text_direction(get, set) : gd.control.TextDirection;
+	public var language(get, set) : std.String;
+	public var structured_text_bidi_override(get, set) : gd.textserver.StructuredTextParser;
+	public var structured_text_bidi_override_options(get, set) : gd.Array;
 }

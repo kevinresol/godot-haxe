@@ -88,25 +88,25 @@ class TileMapLayer extends gd.Node2D {
 		return p_show_navigation;
 	}
 	public function get_navigation_visibility_mode():gd.tilemaplayer.DebugVisibilityMode return __tilemaplayer_ptr().value.get_navigation_visibility_mode();
-	var tile_map_data(get, set) : gd.PackedByteArray;
+	public var tile_map_data(get, set) : gd.PackedByteArray;
 	function get_tile_map_data():gd.PackedByteArray return get_tile_map_data_as_array();
 	function set_tile_map_data(v:gd.PackedByteArray):gd.PackedByteArray {
 		set_tile_map_data_from_array(v);
 		return v;
 	}
-	var enabled(get, set) : Bool;
+	public var enabled(get, set) : Bool;
 	function get_enabled():Bool return is_enabled();
-	var tile_set(get, set) : gd.TileSet;
-	var y_sort_origin(get, set) : Int;
-	var x_draw_order_reversed(get, set) : Bool;
+	public var tile_set(get, set) : gd.TileSet;
+	public var y_sort_origin(get, set) : Int;
+	public var x_draw_order_reversed(get, set) : Bool;
 	function get_x_draw_order_reversed():Bool return is_x_draw_order_reversed();
-	var rendering_quadrant_size(get, set) : Int;
-	var collision_enabled(get, set) : Bool;
+	public var rendering_quadrant_size(get, set) : Int;
+	public var collision_enabled(get, set) : Bool;
 	function get_collision_enabled():Bool return is_collision_enabled();
-	var use_kinematic_bodies(get, set) : Bool;
+	public var use_kinematic_bodies(get, set) : Bool;
 	function get_use_kinematic_bodies():Bool return is_using_kinematic_bodies();
-	var collision_visibility_mode(get, set) : gd.tilemaplayer.DebugVisibilityMode;
-	var navigation_enabled(get, set) : Bool;
+	public var collision_visibility_mode(get, set) : gd.tilemaplayer.DebugVisibilityMode;
+	public var navigation_enabled(get, set) : Bool;
 	function get_navigation_enabled():Bool return is_navigation_enabled();
-	var navigation_visibility_mode(get, set) : gd.tilemaplayer.DebugVisibilityMode;
+	public var navigation_visibility_mode(get, set) : gd.tilemaplayer.DebugVisibilityMode;
 }

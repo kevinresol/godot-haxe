@@ -27,5 +27,5 @@ class Shader extends gd.Resource {
 		case [null]:__shader_ptr().value.get_shader_uniform_list();
 		default:__shader_ptr().value.get_shader_uniform_list(((p_get_groups : Bool)));
 	};
-	var code(get, set) : std.String;
+	public var code(get, set) : std.String;
 }

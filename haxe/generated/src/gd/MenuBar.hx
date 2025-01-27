@@ -51,13 +51,13 @@ class MenuBar extends gd.Control {
 	public function set_menu_hidden(p_menu:Int, p_hidden:Bool):Void __menubar_ptr().value.set_menu_hidden(((p_menu : Int)), ((p_hidden : Bool)));
 	public function is_menu_hidden(p_menu:Int):Bool return __menubar_ptr().value.is_menu_hidden(((p_menu : Int)));
 	public function get_menu_popup(p_menu:Int):gd.PopupMenu return __menubar_ptr().value.get_menu_popup(((p_menu : Int)));
-	var flat(get, set) : Bool;
+	public var flat(get, set) : Bool;
 	function get_flat():Bool return is_flat();
-	var start_index(get, set) : Int;
-	var switch_on_hover(get, set) : Bool;
+	public var start_index(get, set) : Int;
+	public var switch_on_hover(get, set) : Bool;
 	function get_switch_on_hover():Bool return is_switch_on_hover();
-	var prefer_global_menu(get, set) : Bool;
+	public var prefer_global_menu(get, set) : Bool;
 	function get_prefer_global_menu():Bool return is_prefer_global_menu();
-	var text_direction(get, set) : gd.control.TextDirection;
-	var language(get, set) : std.String;
+	public var text_direction(get, set) : gd.control.TextDirection;
+	public var language(get, set) : std.String;
 }

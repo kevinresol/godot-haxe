@@ -30,9 +30,9 @@ class StatusIndicator extends gd.Node {
 	}
 	public function get_menu():std.String return __statusindicator_ptr().value.get_menu();
 	public function get_rect():gd.Rect2 return __statusindicator_ptr().value.get_rect();
-	var tooltip(get, set) : std.String;
-	var icon(get, set) : gd.Texture2D;
-	var menu(get, set) : std.String;
-	var visible(get, set) : Bool;
+	public var tooltip(get, set) : std.String;
+	public var icon(get, set) : gd.Texture2D;
+	public var menu(get, set) : std.String;
+	public var visible(get, set) : Bool;
 	function get_visible():Bool return is_visible();
 }

@@ -37,9 +37,9 @@ class PrimitiveMesh extends gd.Mesh {
 	}
 	public function get_uv2_padding():Float return __primitivemesh_ptr().value.get_uv2_padding();
 	public function request_update():Void __primitivemesh_ptr().value.request_update();
-	var material(get, set) : gd.Material;
-	var custom_aabb(get, set) : gd.AABB;
-	var flip_faces(get, set) : Bool;
-	var add_uv2(get, set) : Bool;
-	var uv2_padding(get, set) : Float;
+	public var material(get, set) : gd.Material;
+	public var custom_aabb(get, set) : gd.AABB;
+	public var flip_faces(get, set) : Bool;
+	public var add_uv2(get, set) : Bool;
+	public var uv2_padding(get, set) : Float;
 }

@@ -34,13 +34,13 @@ class GraphElement extends gd.Container {
 		return p_offset;
 	}
 	public function get_position_offset():gd.Vector2 return __graphelement_ptr().value.get_position_offset();
-	var position_offset(get, set) : gd.Vector2;
-	var resizable(get, set) : Bool;
+	public var position_offset(get, set) : gd.Vector2;
+	public var resizable(get, set) : Bool;
 	function get_resizable():Bool return is_resizable();
-	var draggable(get, set) : Bool;
+	public var draggable(get, set) : Bool;
 	function get_draggable():Bool return is_draggable();
-	var selectable(get, set) : Bool;
+	public var selectable(get, set) : Bool;
 	function get_selectable():Bool return is_selectable();
-	var selected(get, set) : Bool;
+	public var selected(get, set) : Bool;
 	function get_selected():Bool return is_selected();
 }

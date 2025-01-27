@@ -114,27 +114,27 @@ class Tree extends gd.Control {
 		return p_allow;
 	}
 	public function get_allow_search():Bool return __tree_ptr().value.get_allow_search();
-	var columns(get, set) : Int;
-	var column_titles_visible(get, set) : Bool;
+	public var columns(get, set) : Int;
+	public var column_titles_visible(get, set) : Bool;
 	function get_column_titles_visible():Bool return are_column_titles_visible();
-	var allow_reselect(get, set) : Bool;
-	var allow_rmb_select(get, set) : Bool;
-	var allow_search(get, set) : Bool;
-	var hide_folding(get, set) : Bool;
+	public var allow_reselect(get, set) : Bool;
+	public var allow_rmb_select(get, set) : Bool;
+	public var allow_search(get, set) : Bool;
+	public var hide_folding(get, set) : Bool;
 	function get_hide_folding():Bool return is_folding_hidden();
-	var enable_recursive_folding(get, set) : Bool;
+	public var enable_recursive_folding(get, set) : Bool;
 	function get_enable_recursive_folding():Bool return is_recursive_folding_enabled();
-	var hide_root(get, set) : Bool;
+	public var hide_root(get, set) : Bool;
 	function get_hide_root():Bool return is_root_hidden();
-	var drop_mode_flags(get, set) : Int;
-	var select_mode(get, set) : gd.tree.SelectMode;
-	var scroll_horizontal_enabled(get, set) : Bool;
+	public var drop_mode_flags(get, set) : Int;
+	public var select_mode(get, set) : gd.tree.SelectMode;
+	public var scroll_horizontal_enabled(get, set) : Bool;
 	function get_scroll_horizontal_enabled():Bool return is_h_scroll_enabled();
 	function set_scroll_horizontal_enabled(v:Bool):Bool {
 		set_h_scroll_enabled(v);
 		return v;
 	}
-	var scroll_vertical_enabled(get, set) : Bool;
+	public var scroll_vertical_enabled(get, set) : Bool;
 	function get_scroll_vertical_enabled():Bool return is_v_scroll_enabled();
 	function set_scroll_vertical_enabled(v:Bool):Bool {
 		set_v_scroll_enabled(v);

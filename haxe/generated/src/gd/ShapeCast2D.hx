@@ -68,21 +68,21 @@ class ShapeCast2D extends gd.Node2D {
 		return p_enable;
 	}
 	public function is_collide_with_bodies_enabled():Bool return __shapecast2d_ptr().value.is_collide_with_bodies_enabled();
-	var enabled(get, set) : Bool;
+	public var enabled(get, set) : Bool;
 	function get_enabled():Bool return is_enabled();
-	var shape(get, set) : gd.Shape2D;
-	var exclude_parent(get, set) : Bool;
+	public var shape(get, set) : gd.Shape2D;
+	public var exclude_parent(get, set) : Bool;
 	function get_exclude_parent():Bool return get_exclude_parent_body();
 	function set_exclude_parent(v:Bool):Bool {
 		set_exclude_parent_body(v);
 		return v;
 	}
-	var target_position(get, set) : gd.Vector2;
-	var margin(get, set) : Float;
-	var max_results(get, set) : Int;
-	var collision_mask(get, set) : Int;
-	var collide_with_areas(get, set) : Bool;
+	public var target_position(get, set) : gd.Vector2;
+	public var margin(get, set) : Float;
+	public var max_results(get, set) : Int;
+	public var collision_mask(get, set) : Int;
+	public var collide_with_areas(get, set) : Bool;
 	function get_collide_with_areas():Bool return is_collide_with_areas_enabled();
-	var collide_with_bodies(get, set) : Bool;
+	public var collide_with_bodies(get, set) : Bool;
 	function get_collide_with_bodies():Bool return is_collide_with_bodies_enabled();
 }

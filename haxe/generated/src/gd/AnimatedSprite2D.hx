@@ -74,17 +74,17 @@ class AnimatedSprite2D extends gd.Node2D {
 	}
 	public function get_speed_scale():Float return __animatedsprite2d_ptr().value.get_speed_scale();
 	public function get_playing_speed():Float return __animatedsprite2d_ptr().value.get_playing_speed();
-	var sprite_frames(get, set) : gd.SpriteFrames;
-	var animation(get, set) : std.String;
-	var autoplay(get, set) : std.String;
-	var frame(get, set) : Int;
-	var frame_progress(get, set) : Float;
-	var speed_scale(get, set) : Float;
-	var centered(get, set) : Bool;
+	public var sprite_frames(get, set) : gd.SpriteFrames;
+	public var animation(get, set) : std.String;
+	public var autoplay(get, set) : std.String;
+	public var frame(get, set) : Int;
+	public var frame_progress(get, set) : Float;
+	public var speed_scale(get, set) : Float;
+	public var centered(get, set) : Bool;
 	function get_centered():Bool return is_centered();
-	var offset(get, set) : gd.Vector2;
-	var flip_h(get, set) : Bool;
+	public var offset(get, set) : gd.Vector2;
+	public var flip_h(get, set) : Bool;
 	function get_flip_h():Bool return is_flipped_h();
-	var flip_v(get, set) : Bool;
+	public var flip_v(get, set) : Bool;
 	function get_flip_v():Bool return is_flipped_v();
 }

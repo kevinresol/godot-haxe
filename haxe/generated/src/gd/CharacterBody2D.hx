@@ -93,39 +93,39 @@ class CharacterBody2D extends gd.PhysicsBody2D {
 	public function get_slide_collision_count():Int return __characterbody2d_ptr().value.get_slide_collision_count();
 	public function get_slide_collision(p_slide_idx:Int):gd.KinematicCollision2D return __characterbody2d_ptr().value.get_slide_collision(((p_slide_idx : Int)));
 	public function get_last_slide_collision():gd.KinematicCollision2D return __characterbody2d_ptr().value.get_last_slide_collision();
-	var motion_mode(get, set) : gd.characterbody2d.MotionMode;
-	var up_direction(get, set) : gd.Vector2;
-	var velocity(get, set) : gd.Vector2;
-	var slide_on_ceiling(get, set) : Bool;
+	public var motion_mode(get, set) : gd.characterbody2d.MotionMode;
+	public var up_direction(get, set) : gd.Vector2;
+	public var velocity(get, set) : gd.Vector2;
+	public var slide_on_ceiling(get, set) : Bool;
 	function get_slide_on_ceiling():Bool return is_slide_on_ceiling_enabled();
 	function set_slide_on_ceiling(v:Bool):Bool {
 		set_slide_on_ceiling_enabled(v);
 		return v;
 	}
-	var max_slides(get, set) : Int;
-	var wall_min_slide_angle(get, set) : Float;
-	var floor_stop_on_slope(get, set) : Bool;
+	public var max_slides(get, set) : Int;
+	public var wall_min_slide_angle(get, set) : Float;
+	public var floor_stop_on_slope(get, set) : Bool;
 	function get_floor_stop_on_slope():Bool return is_floor_stop_on_slope_enabled();
 	function set_floor_stop_on_slope(v:Bool):Bool {
 		set_floor_stop_on_slope_enabled(v);
 		return v;
 	}
-	var floor_constant_speed(get, set) : Bool;
+	public var floor_constant_speed(get, set) : Bool;
 	function get_floor_constant_speed():Bool return is_floor_constant_speed_enabled();
 	function set_floor_constant_speed(v:Bool):Bool {
 		set_floor_constant_speed_enabled(v);
 		return v;
 	}
-	var floor_block_on_wall(get, set) : Bool;
+	public var floor_block_on_wall(get, set) : Bool;
 	function get_floor_block_on_wall():Bool return is_floor_block_on_wall_enabled();
 	function set_floor_block_on_wall(v:Bool):Bool {
 		set_floor_block_on_wall_enabled(v);
 		return v;
 	}
-	var floor_max_angle(get, set) : Float;
-	var floor_snap_length(get, set) : Float;
-	var platform_on_leave(get, set) : gd.characterbody2d.PlatformOnLeave;
-	var platform_floor_layers(get, set) : Int;
-	var platform_wall_layers(get, set) : Int;
-	var safe_margin(get, set) : Float;
+	public var floor_max_angle(get, set) : Float;
+	public var floor_snap_length(get, set) : Float;
+	public var platform_on_leave(get, set) : gd.characterbody2d.PlatformOnLeave;
+	public var platform_floor_layers(get, set) : Int;
+	public var platform_wall_layers(get, set) : Int;
+	public var safe_margin(get, set) : Float;
 }

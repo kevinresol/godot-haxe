@@ -61,16 +61,16 @@ class SkeletonModification2DJiggle extends gd.SkeletonModification2D {
 	public function get_jiggle_joint_use_gravity(p_joint_idx:Int):Bool return __skeletonmodification2djiggle_ptr().value.get_jiggle_joint_use_gravity(((p_joint_idx : Int)));
 	public function set_jiggle_joint_gravity(p_joint_idx:Int, p_gravity:gd.Vector2):Void __skeletonmodification2djiggle_ptr().value.set_jiggle_joint_gravity(((p_joint_idx : Int)), ((p_gravity : gd.Vector2)));
 	public function get_jiggle_joint_gravity(p_joint_idx:Int):gd.Vector2 return __skeletonmodification2djiggle_ptr().value.get_jiggle_joint_gravity(((p_joint_idx : Int)));
-	var target_nodepath(get, set) : std.String;
+	public var target_nodepath(get, set) : std.String;
 	function get_target_nodepath():std.String return get_target_node();
 	function set_target_nodepath(v:std.String):std.String {
 		set_target_node(v);
 		return v;
 	}
-	var jiggle_data_chain_length(get, set) : Int;
-	var stiffness(get, set) : Float;
-	var mass(get, set) : Float;
-	var damping(get, set) : Float;
-	var use_gravity(get, set) : Bool;
-	var gravity(get, set) : gd.Vector2;
+	public var jiggle_data_chain_length(get, set) : Int;
+	public var stiffness(get, set) : Float;
+	public var mass(get, set) : Float;
+	public var damping(get, set) : Float;
+	public var use_gravity(get, set) : Bool;
+	public var gravity(get, set) : gd.Vector2;
 }

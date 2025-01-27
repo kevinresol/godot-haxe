@@ -54,6 +54,6 @@ class Curve2D extends gd.Resource {
 		case [_, null]:__curve2d_ptr().value.tessellate_even_length(((p_max_stages : Int)));
 		default:__curve2d_ptr().value.tessellate_even_length(((p_max_stages : Int)), ((p_tolerance_length : Float)));
 	};
-	var bake_interval(get, set) : Float;
-	var point_count(get, set) : Int;
+	public var bake_interval(get, set) : Float;
+	public var point_count(get, set) : Int;
 }

@@ -24,11 +24,11 @@ class SkeletonModification2DFABRIK extends gd.SkeletonModification2D {
 	public function get_fabrik_joint_magnet_position(p_joint_idx:Int):gd.Vector2 return __skeletonmodification2dfabrik_ptr().value.get_fabrik_joint_magnet_position(((p_joint_idx : Int)));
 	public function set_fabrik_joint_use_target_rotation(p_joint_idx:Int, p_use_target_rotation:Bool):Void __skeletonmodification2dfabrik_ptr().value.set_fabrik_joint_use_target_rotation(((p_joint_idx : Int)), ((p_use_target_rotation : Bool)));
 	public function get_fabrik_joint_use_target_rotation(p_joint_idx:Int):Bool return __skeletonmodification2dfabrik_ptr().value.get_fabrik_joint_use_target_rotation(((p_joint_idx : Int)));
-	var target_nodepath(get, set) : std.String;
+	public var target_nodepath(get, set) : std.String;
 	function get_target_nodepath():std.String return get_target_node();
 	function set_target_nodepath(v:std.String):std.String {
 		set_target_node(v);
 		return v;
 	}
-	var fabrik_data_chain_length(get, set) : Int;
+	public var fabrik_data_chain_length(get, set) : Int;
 }

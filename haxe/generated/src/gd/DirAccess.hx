@@ -61,6 +61,6 @@ class DirAccess extends gd.RefCounted {
 	}
 	public function get_include_hidden():Bool return __diraccess_ptr().value.get_include_hidden();
 	public function is_case_sensitive(p_path:std.String):Bool return __diraccess_ptr().value.is_case_sensitive(((p_path : std.String)));
-	var include_navigational(get, set) : Bool;
-	var include_hidden(get, set) : Bool;
+	public var include_navigational(get, set) : Bool;
+	public var include_hidden(get, set) : Bool;
 }

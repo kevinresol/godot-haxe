@@ -13,13 +13,13 @@ class ConcavePolygonShape3D extends gd.Shape3D {
 	public function get_faces():gd.PackedVector3Array return __concavepolygonshape3d_ptr().value.get_faces();
 	public function set_backface_collision_enabled(p_enabled:Bool):Void __concavepolygonshape3d_ptr().value.set_backface_collision_enabled(((p_enabled : Bool)));
 	public function is_backface_collision_enabled():Bool return __concavepolygonshape3d_ptr().value.is_backface_collision_enabled();
-	var data(get, set) : gd.PackedVector3Array;
+	public var data(get, set) : gd.PackedVector3Array;
 	function get_data():gd.PackedVector3Array return get_faces();
 	function set_data(v:gd.PackedVector3Array):gd.PackedVector3Array {
 		set_faces(v);
 		return v;
 	}
-	var backface_collision(get, set) : Bool;
+	public var backface_collision(get, set) : Bool;
 	function get_backface_collision():Bool return is_backface_collision_enabled();
 	function set_backface_collision(v:Bool):Bool {
 		set_backface_collision_enabled(v);

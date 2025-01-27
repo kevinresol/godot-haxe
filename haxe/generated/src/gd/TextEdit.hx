@@ -474,130 +474,130 @@ class TextEdit extends gd.Control {
 		case [null]:__textedit_ptr().value.get_selection_column();
 		default:__textedit_ptr().value.get_selection_column(((p_caret_index : Int)));
 	};
-	var text(get, set) : std.String;
-	var placeholder_text(get, set) : std.String;
+	public var text(get, set) : std.String;
+	public var placeholder_text(get, set) : std.String;
 	function get_placeholder_text():std.String return get_placeholder();
 	function set_placeholder_text(v:std.String):std.String {
 		set_placeholder(v);
 		return v;
 	}
-	var editable(get, set) : Bool;
+	public var editable(get, set) : Bool;
 	function get_editable():Bool return is_editable();
-	var context_menu_enabled(get, set) : Bool;
+	public var context_menu_enabled(get, set) : Bool;
 	function get_context_menu_enabled():Bool return is_context_menu_enabled();
-	var shortcut_keys_enabled(get, set) : Bool;
+	public var shortcut_keys_enabled(get, set) : Bool;
 	function get_shortcut_keys_enabled():Bool return is_shortcut_keys_enabled();
-	var selecting_enabled(get, set) : Bool;
+	public var selecting_enabled(get, set) : Bool;
 	function get_selecting_enabled():Bool return is_selecting_enabled();
-	var deselect_on_focus_loss_enabled(get, set) : Bool;
+	public var deselect_on_focus_loss_enabled(get, set) : Bool;
 	function get_deselect_on_focus_loss_enabled():Bool return is_deselect_on_focus_loss_enabled();
-	var drag_and_drop_selection_enabled(get, set) : Bool;
+	public var drag_and_drop_selection_enabled(get, set) : Bool;
 	function get_drag_and_drop_selection_enabled():Bool return is_drag_and_drop_selection_enabled();
-	var virtual_keyboard_enabled(get, set) : Bool;
+	public var virtual_keyboard_enabled(get, set) : Bool;
 	function get_virtual_keyboard_enabled():Bool return is_virtual_keyboard_enabled();
-	var middle_mouse_paste_enabled(get, set) : Bool;
+	public var middle_mouse_paste_enabled(get, set) : Bool;
 	function get_middle_mouse_paste_enabled():Bool return is_middle_mouse_paste_enabled();
-	var wrap_mode(get, set) : gd.textedit.LineWrappingMode;
+	public var wrap_mode(get, set) : gd.textedit.LineWrappingMode;
 	function get_wrap_mode():gd.textedit.LineWrappingMode return get_line_wrapping_mode();
 	function set_wrap_mode(v:gd.textedit.LineWrappingMode):gd.textedit.LineWrappingMode {
 		set_line_wrapping_mode(v);
 		return v;
 	}
-	var autowrap_mode(get, set) : gd.textserver.AutowrapMode;
-	var indent_wrapped_lines(get, set) : Bool;
+	public var autowrap_mode(get, set) : gd.textserver.AutowrapMode;
+	public var indent_wrapped_lines(get, set) : Bool;
 	function get_indent_wrapped_lines():Bool return is_indent_wrapped_lines();
-	var scroll_smooth(get, set) : Bool;
+	public var scroll_smooth(get, set) : Bool;
 	function get_scroll_smooth():Bool return is_smooth_scroll_enabled();
 	function set_scroll_smooth(v:Bool):Bool {
 		set_smooth_scroll_enabled(v);
 		return v;
 	}
-	var scroll_v_scroll_speed(get, set) : Float;
+	public var scroll_v_scroll_speed(get, set) : Float;
 	function get_scroll_v_scroll_speed():Float return get_v_scroll_speed();
 	function set_scroll_v_scroll_speed(v:Float):Float {
 		set_v_scroll_speed(v);
 		return v;
 	}
-	var scroll_past_end_of_file(get, set) : Bool;
+	public var scroll_past_end_of_file(get, set) : Bool;
 	function get_scroll_past_end_of_file():Bool return is_scroll_past_end_of_file_enabled();
 	function set_scroll_past_end_of_file(v:Bool):Bool {
 		set_scroll_past_end_of_file_enabled(v);
 		return v;
 	}
-	var scroll_vertical(get, set) : Float;
+	public var scroll_vertical(get, set) : Float;
 	function get_scroll_vertical():Float return get_v_scroll();
 	function set_scroll_vertical(v:Float):Float {
 		set_v_scroll(v);
 		return v;
 	}
-	var scroll_horizontal(get, set) : Int;
+	public var scroll_horizontal(get, set) : Int;
 	function get_scroll_horizontal():Int return get_h_scroll();
 	function set_scroll_horizontal(v:Int):Int {
 		set_h_scroll(v);
 		return v;
 	}
-	var scroll_fit_content_height(get, set) : Bool;
+	public var scroll_fit_content_height(get, set) : Bool;
 	function get_scroll_fit_content_height():Bool return is_fit_content_height_enabled();
 	function set_scroll_fit_content_height(v:Bool):Bool {
 		set_fit_content_height_enabled(v);
 		return v;
 	}
-	var minimap_draw(get, set) : Bool;
+	public var minimap_draw(get, set) : Bool;
 	function get_minimap_draw():Bool return is_drawing_minimap();
 	function set_minimap_draw(v:Bool):Bool {
 		set_draw_minimap(v);
 		return v;
 	}
-	var minimap_width(get, set) : Int;
-	var caret_type(get, set) : gd.textedit.CaretType;
-	var caret_blink(get, set) : Bool;
+	public var minimap_width(get, set) : Int;
+	public var caret_type(get, set) : gd.textedit.CaretType;
+	public var caret_blink(get, set) : Bool;
 	function get_caret_blink():Bool return is_caret_blink_enabled();
 	function set_caret_blink(v:Bool):Bool {
 		set_caret_blink_enabled(v);
 		return v;
 	}
-	var caret_blink_interval(get, set) : Float;
-	var caret_draw_when_editable_disabled(get, set) : Bool;
+	public var caret_blink_interval(get, set) : Float;
+	public var caret_draw_when_editable_disabled(get, set) : Bool;
 	function get_caret_draw_when_editable_disabled():Bool return is_drawing_caret_when_editable_disabled();
 	function set_caret_draw_when_editable_disabled(v:Bool):Bool {
 		set_draw_caret_when_editable_disabled(v);
 		return v;
 	}
-	var caret_move_on_right_click(get, set) : Bool;
+	public var caret_move_on_right_click(get, set) : Bool;
 	function get_caret_move_on_right_click():Bool return is_move_caret_on_right_click_enabled();
 	function set_caret_move_on_right_click(v:Bool):Bool {
 		set_move_caret_on_right_click_enabled(v);
 		return v;
 	}
-	var caret_mid_grapheme(get, set) : Bool;
+	public var caret_mid_grapheme(get, set) : Bool;
 	function get_caret_mid_grapheme():Bool return is_caret_mid_grapheme_enabled();
 	function set_caret_mid_grapheme(v:Bool):Bool {
 		set_caret_mid_grapheme_enabled(v);
 		return v;
 	}
-	var caret_multiple(get, set) : Bool;
+	public var caret_multiple(get, set) : Bool;
 	function get_caret_multiple():Bool return is_multiple_carets_enabled();
 	function set_caret_multiple(v:Bool):Bool {
 		set_multiple_carets_enabled(v);
 		return v;
 	}
-	var use_default_word_separators(get, set) : Bool;
+	public var use_default_word_separators(get, set) : Bool;
 	function get_use_default_word_separators():Bool return is_default_word_separators_enabled();
-	var use_custom_word_separators(get, set) : Bool;
+	public var use_custom_word_separators(get, set) : Bool;
 	function get_use_custom_word_separators():Bool return is_custom_word_separators_enabled();
-	var custom_word_separators(get, set) : std.String;
-	var syntax_highlighter(get, set) : gd.SyntaxHighlighter;
-	var highlight_all_occurrences(get, set) : Bool;
+	public var custom_word_separators(get, set) : std.String;
+	public var syntax_highlighter(get, set) : gd.SyntaxHighlighter;
+	public var highlight_all_occurrences(get, set) : Bool;
 	function get_highlight_all_occurrences():Bool return is_highlight_all_occurrences_enabled();
-	var highlight_current_line(get, set) : Bool;
+	public var highlight_current_line(get, set) : Bool;
 	function get_highlight_current_line():Bool return is_highlight_current_line_enabled();
-	var draw_control_chars(get, set) : Bool;
-	var draw_tabs(get, set) : Bool;
+	public var draw_control_chars(get, set) : Bool;
+	public var draw_tabs(get, set) : Bool;
 	function get_draw_tabs():Bool return is_drawing_tabs();
-	var draw_spaces(get, set) : Bool;
+	public var draw_spaces(get, set) : Bool;
 	function get_draw_spaces():Bool return is_drawing_spaces();
-	var text_direction(get, set) : gd.control.TextDirection;
-	var language(get, set) : std.String;
-	var structured_text_bidi_override(get, set) : gd.textserver.StructuredTextParser;
-	var structured_text_bidi_override_options(get, set) : gd.Array;
+	public var text_direction(get, set) : gd.control.TextDirection;
+	public var language(get, set) : std.String;
+	public var structured_text_bidi_override(get, set) : gd.textserver.StructuredTextParser;
+	public var structured_text_bidi_override_options(get, set) : gd.Array;
 }

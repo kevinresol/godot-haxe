@@ -54,14 +54,14 @@ class MultiMesh extends gd.Resource {
 		__multimesh_ptr().value.set_buffer(((p_buffer : gd.PackedFloat32Array)));
 		return p_buffer;
 	}
-	var transform_format(get, set) : gd.multimesh.TransformFormat;
-	var use_colors(get, set) : Bool;
+	public var transform_format(get, set) : gd.multimesh.TransformFormat;
+	public var use_colors(get, set) : Bool;
 	function get_use_colors():Bool return is_using_colors();
-	var use_custom_data(get, set) : Bool;
+	public var use_custom_data(get, set) : Bool;
 	function get_use_custom_data():Bool return is_using_custom_data();
-	var custom_aabb(get, set) : gd.AABB;
-	var instance_count(get, set) : Int;
-	var visible_instance_count(get, set) : Int;
-	var mesh(get, set) : gd.Mesh;
-	var buffer(get, set) : gd.PackedFloat32Array;
+	public var custom_aabb(get, set) : gd.AABB;
+	public var instance_count(get, set) : Int;
+	public var visible_instance_count(get, set) : Int;
+	public var mesh(get, set) : gd.Mesh;
+	public var buffer(get, set) : gd.PackedFloat32Array;
 }

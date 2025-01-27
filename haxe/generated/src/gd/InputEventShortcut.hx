@@ -14,5 +14,5 @@ class InputEventShortcut extends gd.InputEvent {
 		return p_shortcut;
 	}
 	public function get_shortcut():gd.Shortcut return __inputeventshortcut_ptr().value.get_shortcut();
-	var shortcut(get, set) : gd.Shortcut;
+	public var shortcut(get, set) : gd.Shortcut;
 }

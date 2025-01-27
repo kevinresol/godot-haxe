@@ -102,61 +102,61 @@ class Area3D extends gd.CollisionObject3D {
 	public function get_reverb_amount():Float return __area3d_ptr().value.get_reverb_amount();
 	public function set_reverb_uniformity(p_amount:Float):Void __area3d_ptr().value.set_reverb_uniformity(((p_amount : Float)));
 	public function get_reverb_uniformity():Float return __area3d_ptr().value.get_reverb_uniformity();
-	var monitoring(get, set) : Bool;
+	public var monitoring(get, set) : Bool;
 	function get_monitoring():Bool return is_monitoring();
-	var monitorable(get, set) : Bool;
+	public var monitorable(get, set) : Bool;
 	function get_monitorable():Bool return is_monitorable();
-	var priority(get, set) : Int;
-	var gravity_space_override(get, set) : gd.area3d.SpaceOverride;
+	public var priority(get, set) : Int;
+	public var gravity_space_override(get, set) : gd.area3d.SpaceOverride;
 	function get_gravity_space_override():gd.area3d.SpaceOverride return get_gravity_space_override_mode();
 	function set_gravity_space_override(v:gd.area3d.SpaceOverride):gd.area3d.SpaceOverride {
 		set_gravity_space_override_mode(v);
 		return v;
 	}
-	var gravity_point(get, set) : Bool;
+	public var gravity_point(get, set) : Bool;
 	function get_gravity_point():Bool return is_gravity_a_point();
 	function set_gravity_point(v:Bool):Bool {
 		set_gravity_is_point(v);
 		return v;
 	}
-	var gravity_point_unit_distance(get, set) : Float;
-	var gravity_point_center(get, set) : gd.Vector3;
-	var gravity_direction(get, set) : gd.Vector3;
-	var gravity(get, set) : Float;
-	var linear_damp_space_override(get, set) : gd.area3d.SpaceOverride;
+	public var gravity_point_unit_distance(get, set) : Float;
+	public var gravity_point_center(get, set) : gd.Vector3;
+	public var gravity_direction(get, set) : gd.Vector3;
+	public var gravity(get, set) : Float;
+	public var linear_damp_space_override(get, set) : gd.area3d.SpaceOverride;
 	function get_linear_damp_space_override():gd.area3d.SpaceOverride return get_linear_damp_space_override_mode();
 	function set_linear_damp_space_override(v:gd.area3d.SpaceOverride):gd.area3d.SpaceOverride {
 		set_linear_damp_space_override_mode(v);
 		return v;
 	}
-	var linear_damp(get, set) : Float;
-	var angular_damp_space_override(get, set) : gd.area3d.SpaceOverride;
+	public var linear_damp(get, set) : Float;
+	public var angular_damp_space_override(get, set) : gd.area3d.SpaceOverride;
 	function get_angular_damp_space_override():gd.area3d.SpaceOverride return get_angular_damp_space_override_mode();
 	function set_angular_damp_space_override(v:gd.area3d.SpaceOverride):gd.area3d.SpaceOverride {
 		set_angular_damp_space_override_mode(v);
 		return v;
 	}
-	var angular_damp(get, set) : Float;
-	var wind_force_magnitude(get, set) : Float;
-	var wind_attenuation_factor(get, set) : Float;
-	var wind_source_path(get, set) : std.String;
-	var audio_bus_override(get, set) : Bool;
+	public var angular_damp(get, set) : Float;
+	public var wind_force_magnitude(get, set) : Float;
+	public var wind_attenuation_factor(get, set) : Float;
+	public var wind_source_path(get, set) : std.String;
+	public var audio_bus_override(get, set) : Bool;
 	function get_audio_bus_override():Bool return is_overriding_audio_bus();
-	var audio_bus_name(get, set) : std.String;
-	var reverb_bus_enabled(get, set) : Bool;
+	public var audio_bus_name(get, set) : std.String;
+	public var reverb_bus_enabled(get, set) : Bool;
 	function get_reverb_bus_enabled():Bool return is_using_reverb_bus();
 	function set_reverb_bus_enabled(v:Bool):Bool {
 		set_use_reverb_bus(v);
 		return v;
 	}
-	var reverb_bus_name(get, set) : std.String;
-	var reverb_bus_amount(get, set) : Float;
+	public var reverb_bus_name(get, set) : std.String;
+	public var reverb_bus_amount(get, set) : Float;
 	function get_reverb_bus_amount():Float return get_reverb_amount();
 	function set_reverb_bus_amount(v:Float):Float {
 		set_reverb_amount(v);
 		return v;
 	}
-	var reverb_bus_uniformity(get, set) : Float;
+	public var reverb_bus_uniformity(get, set) : Float;
 	function get_reverb_bus_uniformity():Float return get_reverb_uniformity();
 	function set_reverb_bus_uniformity(v:Float):Float {
 		set_reverb_uniformity(v);

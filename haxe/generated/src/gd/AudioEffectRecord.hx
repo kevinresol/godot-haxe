@@ -17,5 +17,5 @@ class AudioEffectRecord extends gd.AudioEffect {
 	}
 	public function get_format():gd.audiostreamwav.Format return __audioeffectrecord_ptr().value.get_format();
 	public function get_recording():gd.AudioStreamWAV return __audioeffectrecord_ptr().value.get_recording();
-	var format(get, set) : gd.audiostreamwav.Format;
+	public var format(get, set) : gd.audiostreamwav.Format;
 }

@@ -14,5 +14,5 @@ class VisualShaderNodeMix extends gd.VisualShaderNode {
 		return p_op_type;
 	}
 	public function get_op_type():gd.visualshadernodemix.OpType return __visualshadernodemix_ptr().value.get_op_type();
-	var op_type(get, set) : gd.visualshadernodemix.OpType;
+	public var op_type(get, set) : gd.visualshadernodemix.OpType;
 }

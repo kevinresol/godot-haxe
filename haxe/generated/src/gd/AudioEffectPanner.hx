@@ -14,5 +14,5 @@ class AudioEffectPanner extends gd.AudioEffect {
 		return p_cpanume;
 	}
 	public function get_pan():Float return __audioeffectpanner_ptr().value.get_pan();
-	var pan(get, set) : Float;
+	public var pan(get, set) : Float;
 }

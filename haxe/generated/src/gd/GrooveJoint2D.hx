@@ -19,6 +19,6 @@ class GrooveJoint2D extends gd.Joint2D {
 		return p_offset;
 	}
 	public function get_initial_offset():Float return __groovejoint2d_ptr().value.get_initial_offset();
-	var length(get, set) : Float;
-	var initial_offset(get, set) : Float;
+	public var length(get, set) : Float;
+	public var initial_offset(get, set) : Float;
 }

@@ -14,5 +14,5 @@ class VisualShaderNodeTexture3D extends gd.VisualShaderNodeSample3D {
 		return p_value;
 	}
 	public function get_texture():gd.Texture3D return __visualshadernodetexture3d_ptr().value.get_texture();
-	var texture(get, set) : gd.Texture3D;
+	public var texture(get, set) : gd.Texture3D;
 }

@@ -38,9 +38,9 @@ class GLTFCamera extends gd.Resource {
 		__gltfcamera_ptr().value.set_depth_near(((p_zdepth_near : Float)));
 		return p_zdepth_near;
 	}
-	var perspective(get, set) : Bool;
-	var fov(get, set) : Float;
-	var size_mag(get, set) : Float;
-	var depth_far(get, set) : Float;
-	var depth_near(get, set) : Float;
+	public var perspective(get, set) : Bool;
+	public var fov(get, set) : Float;
+	public var size_mag(get, set) : Float;
+	public var depth_far(get, set) : Float;
+	public var depth_near(get, set) : Float;
 }

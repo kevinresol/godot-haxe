@@ -18,17 +18,17 @@ class VisualShaderNodeCompare extends gd.VisualShaderNode {
 		return p_condition;
 	}
 	public function get_condition():gd.visualshadernodecompare.Condition return __visualshadernodecompare_ptr().value.get_condition();
-	var type(get, set) : gd.visualshadernodecompare.ComparisonType;
+	public var type(get, set) : gd.visualshadernodecompare.ComparisonType;
 	function get_type():gd.visualshadernodecompare.ComparisonType return get_comparison_type();
 	function set_type(v:gd.visualshadernodecompare.ComparisonType):gd.visualshadernodecompare.ComparisonType {
 		set_comparison_type(v);
 		return v;
 	}
-	var function_(get, set) : gd.visualshadernodecompare.Function;
+	public var function_(get, set) : gd.visualshadernodecompare.Function;
 	function get_function_():gd.visualshadernodecompare.Function return get_function();
 	function set_function_(v:gd.visualshadernodecompare.Function):gd.visualshadernodecompare.Function {
 		set_function(v);
 		return v;
 	}
-	var condition(get, set) : gd.visualshadernodecompare.Condition;
+	public var condition(get, set) : gd.visualshadernodecompare.Condition;
 }

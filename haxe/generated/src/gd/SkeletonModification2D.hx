@@ -28,6 +28,6 @@ class SkeletonModification2D extends gd.Resource {
 	public function clamp_angle(p_angle:Float, p_min:Float, p_max:Float, p_invert:Bool):Float return __skeletonmodification2d_ptr().value.clamp_angle(((p_angle : Float)), ((p_min : Float)), ((p_max : Float)), ((p_invert : Bool)));
 	public function set_editor_draw_gizmo(p_draw_gizmo:Bool):Void __skeletonmodification2d_ptr().value.set_editor_draw_gizmo(((p_draw_gizmo : Bool)));
 	public function get_editor_draw_gizmo():Bool return __skeletonmodification2d_ptr().value.get_editor_draw_gizmo();
-	var enabled(get, set) : Bool;
-	var execution_mode(get, set) : Int;
+	public var enabled(get, set) : Bool;
+	public var execution_mode(get, set) : Int;
 }

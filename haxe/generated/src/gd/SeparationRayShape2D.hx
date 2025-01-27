@@ -19,6 +19,6 @@ class SeparationRayShape2D extends gd.Shape2D {
 		return p_active;
 	}
 	public function get_slide_on_slope():Bool return __separationrayshape2d_ptr().value.get_slide_on_slope();
-	var length(get, set) : Float;
-	var slide_on_slope(get, set) : Bool;
+	public var length(get, set) : Float;
+	public var slide_on_slope(get, set) : Bool;
 }

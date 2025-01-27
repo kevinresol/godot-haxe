@@ -53,136 +53,136 @@ class Light3D extends gd.VisualInstance3D {
 	public function set_temperature(p_temperature:Float):Void __light3d_ptr().value.set_temperature(((p_temperature : Float)));
 	public function get_temperature():Float return __light3d_ptr().value.get_temperature();
 	public function get_correlated_color():gd.Color return __light3d_ptr().value.get_correlated_color();
-	var light_intensity_lumens(get, set) : Float;
+	public var light_intensity_lumens(get, set) : Float;
 	function get_light_intensity_lumens():Float return get_param(20);
 	function set_light_intensity_lumens(v:Float):Float {
 		set_param(20, v);
 		return v;
 	}
-	var light_intensity_lux(get, set) : Float;
+	public var light_intensity_lux(get, set) : Float;
 	function get_light_intensity_lux():Float return get_param(20);
 	function set_light_intensity_lux(v:Float):Float {
 		set_param(20, v);
 		return v;
 	}
-	var light_temperature(get, set) : Float;
+	public var light_temperature(get, set) : Float;
 	function get_light_temperature():Float return get_temperature();
 	function set_light_temperature(v:Float):Float {
 		set_temperature(v);
 		return v;
 	}
-	var light_color(get, set) : gd.Color;
+	public var light_color(get, set) : gd.Color;
 	function get_light_color():gd.Color return get_color();
 	function set_light_color(v:gd.Color):gd.Color {
 		set_color(v);
 		return v;
 	}
-	var light_energy(get, set) : Float;
+	public var light_energy(get, set) : Float;
 	function get_light_energy():Float return get_param(0);
 	function set_light_energy(v:Float):Float {
 		set_param(0, v);
 		return v;
 	}
-	var light_indirect_energy(get, set) : Float;
+	public var light_indirect_energy(get, set) : Float;
 	function get_light_indirect_energy():Float return get_param(1);
 	function set_light_indirect_energy(v:Float):Float {
 		set_param(1, v);
 		return v;
 	}
-	var light_volumetric_fog_energy(get, set) : Float;
+	public var light_volumetric_fog_energy(get, set) : Float;
 	function get_light_volumetric_fog_energy():Float return get_param(2);
 	function set_light_volumetric_fog_energy(v:Float):Float {
 		set_param(2, v);
 		return v;
 	}
-	var light_projector(get, set) : gd.Texture2D;
+	public var light_projector(get, set) : gd.Texture2D;
 	function get_light_projector():gd.Texture2D return get_projector();
 	function set_light_projector(v:gd.Texture2D):gd.Texture2D {
 		set_projector(v);
 		return v;
 	}
-	var light_size(get, set) : Float;
+	public var light_size(get, set) : Float;
 	function get_light_size():Float return get_param(5);
 	function set_light_size(v:Float):Float {
 		set_param(5, v);
 		return v;
 	}
-	var light_angular_distance(get, set) : Float;
+	public var light_angular_distance(get, set) : Float;
 	function get_light_angular_distance():Float return get_param(5);
 	function set_light_angular_distance(v:Float):Float {
 		set_param(5, v);
 		return v;
 	}
-	var light_negative(get, set) : Bool;
+	public var light_negative(get, set) : Bool;
 	function get_light_negative():Bool return is_negative();
 	function set_light_negative(v:Bool):Bool {
 		set_negative(v);
 		return v;
 	}
-	var light_specular(get, set) : Float;
+	public var light_specular(get, set) : Float;
 	function get_light_specular():Float return get_param(3);
 	function set_light_specular(v:Float):Float {
 		set_param(3, v);
 		return v;
 	}
-	var light_bake_mode(get, set) : gd.light3d.BakeMode;
+	public var light_bake_mode(get, set) : gd.light3d.BakeMode;
 	function get_light_bake_mode():gd.light3d.BakeMode return get_bake_mode();
 	function set_light_bake_mode(v:gd.light3d.BakeMode):gd.light3d.BakeMode {
 		set_bake_mode(v);
 		return v;
 	}
-	var light_cull_mask(get, set) : Int;
+	public var light_cull_mask(get, set) : Int;
 	function get_light_cull_mask():Int return get_cull_mask();
 	function set_light_cull_mask(v:Int):Int {
 		set_cull_mask(v);
 		return v;
 	}
-	var shadow_enabled(get, set) : Bool;
+	public var shadow_enabled(get, set) : Bool;
 	function get_shadow_enabled():Bool return has_shadow();
 	function set_shadow_enabled(v:Bool):Bool {
 		set_shadow(v);
 		return v;
 	}
-	var shadow_bias(get, set) : Float;
+	public var shadow_bias(get, set) : Float;
 	function get_shadow_bias():Float return get_param(15);
 	function set_shadow_bias(v:Float):Float {
 		set_param(15, v);
 		return v;
 	}
-	var shadow_normal_bias(get, set) : Float;
+	public var shadow_normal_bias(get, set) : Float;
 	function get_shadow_normal_bias():Float return get_param(14);
 	function set_shadow_normal_bias(v:Float):Float {
 		set_param(14, v);
 		return v;
 	}
-	var shadow_reverse_cull_face(get, set) : Bool;
-	var shadow_transmittance_bias(get, set) : Float;
+	public var shadow_reverse_cull_face(get, set) : Bool;
+	public var shadow_transmittance_bias(get, set) : Float;
 	function get_shadow_transmittance_bias():Float return get_param(19);
 	function set_shadow_transmittance_bias(v:Float):Float {
 		set_param(19, v);
 		return v;
 	}
-	var shadow_opacity(get, set) : Float;
+	public var shadow_opacity(get, set) : Float;
 	function get_shadow_opacity():Float return get_param(17);
 	function set_shadow_opacity(v:Float):Float {
 		set_param(17, v);
 		return v;
 	}
-	var shadow_blur(get, set) : Float;
+	public var shadow_blur(get, set) : Float;
 	function get_shadow_blur():Float return get_param(18);
 	function set_shadow_blur(v:Float):Float {
 		set_param(18, v);
 		return v;
 	}
-	var distance_fade_enabled(get, set) : Bool;
+	public var distance_fade_enabled(get, set) : Bool;
 	function get_distance_fade_enabled():Bool return is_distance_fade_enabled();
 	function set_distance_fade_enabled(v:Bool):Bool {
 		set_enable_distance_fade(v);
 		return v;
 	}
-	var distance_fade_begin(get, set) : Float;
-	var distance_fade_shadow(get, set) : Float;
-	var distance_fade_length(get, set) : Float;
-	var editor_only(get, set) : Bool;
+	public var distance_fade_begin(get, set) : Float;
+	public var distance_fade_shadow(get, set) : Float;
+	public var distance_fade_length(get, set) : Float;
+	public var editor_only(get, set) : Bool;
 	function get_editor_only():Bool return is_editor_only();
 }

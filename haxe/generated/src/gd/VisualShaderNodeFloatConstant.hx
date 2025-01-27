@@ -14,5 +14,5 @@ class VisualShaderNodeFloatConstant extends gd.VisualShaderNodeConstant {
 		return p_constant;
 	}
 	public function get_constant():Float return __visualshadernodefloatconstant_ptr().value.get_constant();
-	var constant(get, set) : Float;
+	public var constant(get, set) : Float;
 }

@@ -56,11 +56,11 @@ class GLTFPhysicsShape extends gd.Resource {
 		__gltfphysicsshape_ptr().value.set_importer_mesh(((p_importer_mesh : gd.ImporterMesh)));
 		return p_importer_mesh;
 	}
-	var shape_type(get, set) : std.String;
-	var size(get, set) : gd.Vector3;
-	var radius(get, set) : Float;
-	var height(get, set) : Float;
-	var is_trigger(get, set) : Bool;
-	var mesh_index(get, set) : Int;
-	var importer_mesh(get, set) : gd.ImporterMesh;
+	public var shape_type(get, set) : std.String;
+	public var size(get, set) : gd.Vector3;
+	public var radius(get, set) : Float;
+	public var height(get, set) : Float;
+	public var is_trigger(get, set) : Bool;
+	public var mesh_index(get, set) : Int;
+	public var importer_mesh(get, set) : gd.ImporterMesh;
 }

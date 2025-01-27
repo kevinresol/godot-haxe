@@ -71,21 +71,21 @@ class Sprite2D extends gd.Node2D {
 	}
 	public function get_hframes():Int return __sprite2d_ptr().value.get_hframes();
 	public function get_rect():gd.Rect2 return __sprite2d_ptr().value.get_rect();
-	var texture(get, set) : gd.Texture2D;
-	var centered(get, set) : Bool;
+	public var texture(get, set) : gd.Texture2D;
+	public var centered(get, set) : Bool;
 	function get_centered():Bool return is_centered();
-	var offset(get, set) : gd.Vector2;
-	var flip_h(get, set) : Bool;
+	public var offset(get, set) : gd.Vector2;
+	public var flip_h(get, set) : Bool;
 	function get_flip_h():Bool return is_flipped_h();
-	var flip_v(get, set) : Bool;
+	public var flip_v(get, set) : Bool;
 	function get_flip_v():Bool return is_flipped_v();
-	var hframes(get, set) : Int;
-	var vframes(get, set) : Int;
-	var frame(get, set) : Int;
-	var frame_coords(get, set) : gd.Vector2i;
-	var region_enabled(get, set) : Bool;
+	public var hframes(get, set) : Int;
+	public var vframes(get, set) : Int;
+	public var frame(get, set) : Int;
+	public var frame_coords(get, set) : gd.Vector2i;
+	public var region_enabled(get, set) : Bool;
 	function get_region_enabled():Bool return is_region_enabled();
-	var region_rect(get, set) : gd.Rect2;
-	var region_filter_clip_enabled(get, set) : Bool;
+	public var region_rect(get, set) : gd.Rect2;
+	public var region_filter_clip_enabled(get, set) : Bool;
 	function get_region_filter_clip_enabled():Bool return is_region_filter_clip_enabled();
 }

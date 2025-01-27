@@ -26,8 +26,8 @@ class InputEventMouseButton extends gd.InputEventMouse {
 		return p_double_click;
 	}
 	public function is_double_click():Bool return __inputeventmousebutton_ptr().value.is_double_click();
-	var factor(get, set) : Float;
-	var button_index(get, set) : gd.MouseButton;
-	var double_click(get, set) : Bool;
+	public var factor(get, set) : Float;
+	public var button_index(get, set) : gd.MouseButton;
+	public var double_click(get, set) : Bool;
 	function get_double_click():Bool return is_double_click();
 }

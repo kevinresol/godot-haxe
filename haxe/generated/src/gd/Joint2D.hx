@@ -27,10 +27,10 @@ class Joint2D extends gd.Node2D {
 	public function set_exclude_nodes_from_collision(p_enable:Bool):Void __joint2d_ptr().value.set_exclude_nodes_from_collision(((p_enable : Bool)));
 	public function get_exclude_nodes_from_collision():Bool return __joint2d_ptr().value.get_exclude_nodes_from_collision();
 	public function get_rid():gd.RID return __joint2d_ptr().value.get_rid();
-	var node_a(get, set) : std.String;
-	var node_b(get, set) : std.String;
-	var bias(get, set) : Float;
-	var disable_collision(get, set) : Bool;
+	public var node_a(get, set) : std.String;
+	public var node_b(get, set) : std.String;
+	public var bias(get, set) : Float;
+	public var disable_collision(get, set) : Bool;
 	function get_disable_collision():Bool return get_exclude_nodes_from_collision();
 	function set_disable_collision(v:Bool):Bool {
 		set_exclude_nodes_from_collision(v);

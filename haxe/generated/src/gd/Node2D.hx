@@ -75,14 +75,14 @@ class Node2D extends gd.CanvasItem {
 	public function get_angle_to(p_point:gd.Vector2):Float return __node2d_ptr().value.get_angle_to(((p_point : gd.Vector2)));
 	public function to_local(p_global_point:gd.Vector2):gd.Vector2 return __node2d_ptr().value.to_local(((p_global_point : gd.Vector2)));
 	public function to_global(p_local_point:gd.Vector2):gd.Vector2 return __node2d_ptr().value.to_global(((p_local_point : gd.Vector2)));
-	var position(get, set) : gd.Vector2;
-	var rotation(get, set) : Float;
-	var rotation_degrees(get, set) : Float;
-	var scale(get, set) : gd.Vector2;
-	var skew(get, set) : Float;
-	var global_position(get, set) : gd.Vector2;
-	var global_rotation(get, set) : Float;
-	var global_rotation_degrees(get, set) : Float;
-	var global_scale(get, set) : gd.Vector2;
-	var global_skew(get, set) : Float;
+	public var position(get, set) : gd.Vector2;
+	public var rotation(get, set) : Float;
+	public var rotation_degrees(get, set) : Float;
+	public var scale(get, set) : gd.Vector2;
+	public var skew(get, set) : Float;
+	public var global_position(get, set) : gd.Vector2;
+	public var global_rotation(get, set) : Float;
+	public var global_rotation_degrees(get, set) : Float;
+	public var global_scale(get, set) : gd.Vector2;
+	public var global_skew(get, set) : Float;
 }

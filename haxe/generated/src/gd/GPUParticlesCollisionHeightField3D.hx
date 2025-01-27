@@ -29,9 +29,9 @@ class GPUParticlesCollisionHeightField3D extends gd.GPUParticlesCollision3D {
 		return p_enabled;
 	}
 	public function is_follow_camera_enabled():Bool return __gpuparticlescollisionheightfield3d_ptr().value.is_follow_camera_enabled();
-	var size(get, set) : gd.Vector3;
-	var resolution(get, set) : gd.gpuparticlescollisionheightfield3d.Resolution;
-	var update_mode(get, set) : gd.gpuparticlescollisionheightfield3d.UpdateMode;
-	var follow_camera_enabled(get, set) : Bool;
+	public var size(get, set) : gd.Vector3;
+	public var resolution(get, set) : gd.gpuparticlescollisionheightfield3d.Resolution;
+	public var update_mode(get, set) : gd.gpuparticlescollisionheightfield3d.UpdateMode;
+	public var follow_camera_enabled(get, set) : Bool;
 	function get_follow_camera_enabled():Bool return is_follow_camera_enabled();
 }

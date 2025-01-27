@@ -46,9 +46,9 @@ class AnimationNodeStateMachine extends gd.AnimationRootNode {
 		return p_enable;
 	}
 	public function are_ends_reset():Bool return __animationnodestatemachine_ptr().value.are_ends_reset();
-	var state_machine_type(get, set) : gd.animationnodestatemachine.StateMachineType;
-	var allow_transition_to_self(get, set) : Bool;
+	public var state_machine_type(get, set) : gd.animationnodestatemachine.StateMachineType;
+	public var allow_transition_to_self(get, set) : Bool;
 	function get_allow_transition_to_self():Bool return is_allow_transition_to_self();
-	var reset_ends(get, set) : Bool;
+	public var reset_ends(get, set) : Bool;
 	function get_reset_ends():Bool return are_ends_reset();
 }

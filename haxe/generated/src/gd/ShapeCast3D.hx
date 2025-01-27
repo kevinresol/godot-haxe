@@ -74,22 +74,22 @@ class ShapeCast3D extends gd.Node3D {
 		return p_debug_shape_custom_color;
 	}
 	public function get_debug_shape_custom_color():gd.Color return __shapecast3d_ptr().value.get_debug_shape_custom_color();
-	var enabled(get, set) : Bool;
+	public var enabled(get, set) : Bool;
 	function get_enabled():Bool return is_enabled();
-	var shape(get, set) : gd.Shape3D;
-	var exclude_parent(get, set) : Bool;
+	public var shape(get, set) : gd.Shape3D;
+	public var exclude_parent(get, set) : Bool;
 	function get_exclude_parent():Bool return get_exclude_parent_body();
 	function set_exclude_parent(v:Bool):Bool {
 		set_exclude_parent_body(v);
 		return v;
 	}
-	var target_position(get, set) : gd.Vector3;
-	var margin(get, set) : Float;
-	var max_results(get, set) : Int;
-	var collision_mask(get, set) : Int;
-	var collide_with_areas(get, set) : Bool;
+	public var target_position(get, set) : gd.Vector3;
+	public var margin(get, set) : Float;
+	public var max_results(get, set) : Int;
+	public var collision_mask(get, set) : Int;
+	public var collide_with_areas(get, set) : Bool;
 	function get_collide_with_areas():Bool return is_collide_with_areas_enabled();
-	var collide_with_bodies(get, set) : Bool;
+	public var collide_with_bodies(get, set) : Bool;
 	function get_collide_with_bodies():Bool return is_collide_with_bodies_enabled();
-	var debug_shape_custom_color(get, set) : gd.Color;
+	public var debug_shape_custom_color(get, set) : gd.Color;
 }

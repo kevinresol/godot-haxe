@@ -29,5 +29,5 @@ class MultiplayerAPI extends gd.RefCounted {
 	public static function set_default_interface(p_interface_name:std.String):Void gdnative.MultiplayerAPI.MultiplayerAPI_extern.set_default_interface(((p_interface_name : std.String)));
 	public static function get_default_interface():std.String return gdnative.MultiplayerAPI.MultiplayerAPI_extern.get_default_interface();
 	public static function create_default_interface():gd.MultiplayerAPI return gdnative.MultiplayerAPI.MultiplayerAPI_extern.create_default_interface();
-	var multiplayer_peer(get, set) : gd.MultiplayerPeer;
+	public var multiplayer_peer(get, set) : gd.MultiplayerPeer;
 }

@@ -25,7 +25,7 @@ class NavigationPathQueryResult2D extends gd.RefCounted {
 	}
 	public function get_path_owner_ids():gd.PackedInt64Array return __navigationpathqueryresult2d_ptr().value.get_path_owner_ids();
 	public function reset():Void __navigationpathqueryresult2d_ptr().value.reset();
-	var path(get, set) : gd.PackedVector2Array;
-	var path_types(get, set) : gd.PackedInt32Array;
-	var path_owner_ids(get, set) : gd.PackedInt64Array;
+	public var path(get, set) : gd.PackedVector2Array;
+	public var path_types(get, set) : gd.PackedInt32Array;
+	public var path_owner_ids(get, set) : gd.PackedInt64Array;
 }

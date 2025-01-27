@@ -24,5 +24,5 @@ class UDPServer extends gd.RefCounted {
 		return p_max_pending_connections;
 	}
 	public function get_max_pending_connections():Int return __udpserver_ptr().value.get_max_pending_connections();
-	var max_pending_connections(get, set) : Int;
+	public var max_pending_connections(get, set) : Int;
 }

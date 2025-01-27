@@ -39,10 +39,10 @@ class RibbonTrailMesh extends gd.PrimitiveMesh {
 		return p_shape;
 	}
 	public function get_shape():gd.ribbontrailmesh.Shape return __ribbontrailmesh_ptr().value.get_shape();
-	var shape(get, set) : gd.ribbontrailmesh.Shape;
-	var size(get, set) : Float;
-	var sections(get, set) : Int;
-	var section_length(get, set) : Float;
-	var section_segments(get, set) : Int;
-	var curve(get, set) : gd.Curve;
+	public var shape(get, set) : gd.ribbontrailmesh.Shape;
+	public var size(get, set) : Float;
+	public var sections(get, set) : Int;
+	public var section_length(get, set) : Float;
+	public var section_segments(get, set) : Int;
+	public var curve(get, set) : gd.Curve;
 }
