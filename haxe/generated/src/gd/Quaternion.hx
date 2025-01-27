@@ -4,6 +4,7 @@ class Quaternion_wrapper {
 	public function new(value:gdnative.Quaternion) __gd = value;
 	static function _new0():Quaternion_wrapper return new Quaternion_wrapper(new gdnative.Quaternion());
 	static function _new1(p_from:gd.Quaternion):Quaternion_wrapper return new Quaternion_wrapper(new gdnative.Quaternion(p_from));
+	static function _new2(p_from:gd.Basis):Quaternion_wrapper return new Quaternion_wrapper(new gdnative.Quaternion(p_from));
 	static function _new3(p_axis:gd.Vector3, p_angle:Float):Quaternion_wrapper return new Quaternion_wrapper(new gdnative.Quaternion(p_axis, p_angle));
 	static function _new4(p_arc_from:gd.Vector3, p_arc_to:gd.Vector3):Quaternion_wrapper return new Quaternion_wrapper(new gdnative.Quaternion(p_arc_from, p_arc_to));
 	static function _new5(p_x:Float, p_y:Float, p_z:Float, p_w:Float):Quaternion_wrapper return new Quaternion_wrapper(new gdnative.Quaternion(p_x, p_y, p_z, p_w));
@@ -43,6 +44,7 @@ class Quaternion_wrapper {
 @:forward @:forwardStatics abstract Quaternion(Quaternion_wrapper) from Quaternion_wrapper to Quaternion_wrapper {
 	public extern overload inline function new() this = @:privateAccess Quaternion_wrapper._new0();
 	public extern overload inline function new(p_from:gd.Quaternion) this = @:privateAccess Quaternion_wrapper._new1(p_from);
+	public extern overload inline function new(p_from:gd.Basis) this = @:privateAccess Quaternion_wrapper._new2(p_from);
 	public extern overload inline function new(p_axis:gd.Vector3, p_angle:Float) this = @:privateAccess Quaternion_wrapper._new3(p_axis, p_angle);
 	public extern overload inline function new(p_arc_from:gd.Vector3, p_arc_to:gd.Vector3) this = @:privateAccess Quaternion_wrapper._new4(p_arc_from, p_arc_to);
 	public extern overload inline function new(p_x:Float, p_y:Float, p_z:Float, p_w:Float) this = @:privateAccess Quaternion_wrapper._new5(p_x, p_y, p_z, p_w);

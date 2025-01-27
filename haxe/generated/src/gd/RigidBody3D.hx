@@ -45,6 +45,7 @@ class RigidBody3D extends gd.PhysicsBody3D {
 		return p_angular_velocity;
 	}
 	public function get_angular_velocity():gd.Vector3 return __rigidbody3d_ptr().value.get_angular_velocity();
+	public function get_inverse_inertia_tensor():gd.Basis return __rigidbody3d_ptr().value.get_inverse_inertia_tensor();
 	public function set_gravity_scale(p_gravity_scale:Float):Float {
 		__rigidbody3d_ptr().value.set_gravity_scale(((p_gravity_scale : Float)));
 		return p_gravity_scale;

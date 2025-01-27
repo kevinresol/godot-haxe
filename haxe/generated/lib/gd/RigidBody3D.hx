@@ -16,6 +16,7 @@ extern class RigidBody3D extends gd.PhysicsBody3D {
 	function get_linear_velocity():gd.Vector3;
 	function set_angular_velocity(p_angular_velocity:gd.Vector3):gd.Vector3;
 	function get_angular_velocity():gd.Vector3;
+	function get_inverse_inertia_tensor():gd.Basis;
 	function set_gravity_scale(p_gravity_scale:Float):Float;
 	function get_gravity_scale():Float;
 	function set_linear_damp_mode(p_linear_damp_mode:gd.rigidbody3d.DampMode):gd.rigidbody3d.DampMode;

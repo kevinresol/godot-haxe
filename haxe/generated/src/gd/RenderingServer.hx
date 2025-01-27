@@ -316,6 +316,7 @@ class RenderingServer extends gd.Object {
 	public function environment_set_background(p_env:gd.RID, p_bg:gd.renderingserver.EnvironmentBG):Void __renderingserver_ptr().value.environment_set_background(((p_env : gd.RID)), ((p_bg : gd.renderingserver.EnvironmentBG)));
 	public function environment_set_sky(p_env:gd.RID, p_sky:gd.RID):Void __renderingserver_ptr().value.environment_set_sky(((p_env : gd.RID)), ((p_sky : gd.RID)));
 	public function environment_set_sky_custom_fov(p_env:gd.RID, p_scale:Float):Void __renderingserver_ptr().value.environment_set_sky_custom_fov(((p_env : gd.RID)), ((p_scale : Float)));
+	public function environment_set_sky_orientation(p_env:gd.RID, p_orientation:gd.Basis):Void __renderingserver_ptr().value.environment_set_sky_orientation(((p_env : gd.RID)), ((p_orientation : gd.Basis)));
 	public function environment_set_bg_color(p_env:gd.RID, p_color:gd.Color):Void __renderingserver_ptr().value.environment_set_bg_color(((p_env : gd.RID)), ((p_color : gd.Color)));
 	public function environment_set_bg_energy(p_env:gd.RID, p_multiplier:Float, p_exposure_value:Float):Void __renderingserver_ptr().value.environment_set_bg_energy(((p_env : gd.RID)), ((p_multiplier : Float)), ((p_exposure_value : Float)));
 	public function environment_set_canvas_max_layer(p_env:gd.RID, p_max_layer:Int):Void __renderingserver_ptr().value.environment_set_canvas_max_layer(((p_env : gd.RID)), ((p_max_layer : Int)));

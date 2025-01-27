@@ -15,8 +15,12 @@ extern class Node3D extends gd.Node {
 	function get_scale():gd.Vector3;
 	function set_quaternion(p_quaternion:gd.Quaternion):gd.Quaternion;
 	function get_quaternion():gd.Quaternion;
+	function set_basis(p_basis:gd.Basis):gd.Basis;
+	function get_basis():gd.Basis;
 	function set_global_position(p_position:gd.Vector3):gd.Vector3;
 	function get_global_position():gd.Vector3;
+	function set_global_basis(p_basis:gd.Basis):gd.Basis;
+	function get_global_basis():gd.Basis;
 	function set_global_rotation(p_euler_radians:gd.Vector3):gd.Vector3;
 	function get_global_rotation():gd.Vector3;
 	function set_global_rotation_degrees(p_euler_degrees:gd.Vector3):gd.Vector3;
@@ -65,6 +69,7 @@ extern class Node3D extends gd.Node {
 	var rotation(get, set) : gd.Vector3;
 	var rotation_degrees(get, set) : gd.Vector3;
 	var quaternion(get, set) : gd.Quaternion;
+	var basis(get, set) : gd.Basis;
 	var scale(get, set) : gd.Vector3;
 	var rotation_edit_mode(get, set) : gd.node3d.RotationEditMode;
 	var rotation_order(get, set) : gd.EulerOrder;
@@ -72,6 +77,7 @@ extern class Node3D extends gd.Node {
 	function get_top_level():Bool;
 	function set_top_level(v:Bool):Bool;
 	var global_position(get, set) : gd.Vector3;
+	var global_basis(get, set) : gd.Basis;
 	var global_rotation(get, set) : gd.Vector3;
 	var global_rotation_degrees(get, set) : gd.Vector3;
 	var visible(get, set) : Bool;

@@ -19,6 +19,8 @@ extern class GLTFPhysicsBody extends gd.Resource {
 	function set_inertia_diagonal(p_inertia_diagonal:gd.Vector3):gd.Vector3;
 	function get_inertia_orientation():gd.Quaternion;
 	function set_inertia_orientation(p_inertia_orientation:gd.Quaternion):gd.Quaternion;
+	function get_inertia_tensor():gd.Basis;
+	function set_inertia_tensor(p_inertia_tensor:gd.Basis):gd.Basis;
 	var body_type(get, set) : std.String;
 	var mass(get, set) : Float;
 	var linear_velocity(get, set) : gd.Vector3;
@@ -26,4 +28,5 @@ extern class GLTFPhysicsBody extends gd.Resource {
 	var center_of_mass(get, set) : gd.Vector3;
 	var inertia_diagonal(get, set) : gd.Vector3;
 	var inertia_orientation(get, set) : gd.Quaternion;
+	var inertia_tensor(get, set) : gd.Basis;
 }

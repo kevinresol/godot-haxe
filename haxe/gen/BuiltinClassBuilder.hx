@@ -18,7 +18,7 @@ class BuiltinClassBuilder extends Builder {
 			final hppExists = sys.FileSystem.exists(Path.join([Sys.programPath().directory(), '../godot-cpp/include', hpp]))
 				|| sys.FileSystem.exists(Path.join([Sys.programPath().directory(), '../godot-cpp/gen/include', hpp]));
 			if (hppExists) {
-				if (clazz.name != 'Basis' && clazz.name != 'Transform2D' && clazz.name != 'Transform3D' && clazz.name != 'Projection') {
+				if (/* clazz.name != 'Basis' && */ clazz.name != 'Transform2D' && clazz.name != 'Transform3D' && clazz.name != 'Projection') {
 					generateClassExtern(clazz, hpp);
 					generateClassWrapper(clazz, false);
 					generateClassWrapper(clazz, true);
@@ -65,43 +65,43 @@ class BuiltinClassBuilder extends Builder {
 		abs.kind = TDAbstract(struct, [AbFrom(struct), AbTo(struct)]);
 		abs.meta = [{pos: null, name: ':forward'},];
 
-		if (clazz.constructors.length > 0) {
-			final ctor = {
-				pos: null,
-				name: 'new',
-				kind: FFun({
-					args: (clazz.constructors[0].arguments ?? []).map(arg -> ({
-						name: 'p_${arg.name}',
-						type: makeGodotType(arg.type),
-					} : FunctionArg)),
-				}),
-				meta: [],
-			}
-			cls.fields.push(ctor);
+		// constructor
+		final ctors = getConstructors(clazz);
+		final ctor = {
+			pos: null,
+			name: 'new',
+			kind: FFun({
+				args: (ctors[0].arguments ?? []).map(arg -> ({
+					name: 'p_${arg.name}',
+					type: makeGodotType(arg.type),
+				} : FunctionArg)),
+			}),
+			meta: [],
+		}
+		cls.fields.push(ctor);
 
-			// overloads
-			if (clazz.constructors.length > 1) {
-				for (i in 1...clazz.constructors.length) {
-					try {
-						ctor.meta.push({
-							pos: null,
-							name: ':overload',
-							params: [
-								{
-									pos: null,
-									expr: EFunction(FAnonymous, {
-										args: (clazz.constructors[i].arguments ?? []).map(arg -> ({
-											name: 'p_${arg.name}',
-											type: makeGodotType(arg.type),
-										} : FunctionArg)),
-										ret: macro :Void,
-										expr: macro {}
-									})
-								}
-							],
-						});
-					} catch (e) {}
-				}
+		// constructor overloads
+		if (ctors.length > 1) {
+			for (i in 1...ctors.length) {
+				try {
+					ctor.meta.push({
+						pos: null,
+						name: ':overload',
+						params: [
+							{
+								pos: null,
+								expr: EFunction(FAnonymous, {
+									args: (ctors[i].arguments ?? []).map(arg -> ({
+										name: 'p_${arg.name}',
+										type: makeGodotType(arg.type),
+									} : FunctionArg)),
+									ret: macro :Void,
+									expr: macro {}
+								})
+							}
+						],
+					});
+				} catch (e) {}
 			}
 		}
 
@@ -177,12 +177,16 @@ class BuiltinClassBuilder extends Builder {
 					pos: null,
 					name: prop.name,
 					kind: FVar(makeGodotType(prop.type)),
+					meta: switch getMemberNative(cname, prop.name) {
+						case null: [];
+						case v: [{pos: null, name: ':native', params: [macro $v{v}]}];
+					}
 				});
 			} catch (e) {}
 		}
 
 		final absctors = new Map<String, Bool>();
-		for (ctor in clazz.constructors) {
+		for (ctor in ctors) {
 			final tp = {pack: [], name: cname};
 			try {
 				final argTypes = (ctor.arguments ?? []).map(arg -> new haxe.macro.Printer().printComplexType(makeHaxeType(arg.type))).join(', ');
@@ -305,7 +309,7 @@ class BuiltinClassBuilder extends Builder {
 
 		// constructors
 		final absctors = new Map<String, Bool>();
-		for (i => ctor in clazz.constructors) {
+		for (i => ctor in getConstructors(clazz)) {
 			final wtp = {pack: [], name: wname};
 			try {
 				cls.fields.push({
@@ -478,6 +482,8 @@ class BuiltinClassBuilder extends Builder {
 			case 'AABB':
 				// TODO: intersects functions use pointer to hold return value
 				clazz.methods.filter(m -> !['intersects_segment', 'intersects_ray'].contains(m.name));
+			case 'Basis':
+				clazz.methods.filter(m -> !['is_conformal'].contains(m.name));
 			default:
 				clazz.methods;
 		}
@@ -505,6 +511,33 @@ class BuiltinClassBuilder extends Builder {
 		}
 	}
 
+	function getMemberNative(cls:String, member:String):Null<String> {
+		return switch [cls, member] {
+			case ['Basis', 'x']:
+				'rows[0]';
+			case ['Basis', 'y']:
+				'rows[1]';
+			case ['Basis', 'z']:
+				'rows[2]';
+			default:
+				null;
+		}
+	}
+
+	function getConstructors(clazz:BuiltinClass):Array<Constructor> {
+		return switch clazz.name {
+			case 'Basis':
+				clazz.constructors.concat([
+					{
+						index: clazz.constructors.length,
+						arguments: ['xx', 'xy', 'xz', 'yx', 'yy', 'yz', 'zx', 'zy', 'zz'].map(n -> {name: n, type: 'float'})
+					}
+				]);
+			default:
+				clazz.constructors;
+		}
+	}
+
 	function patchArgs(cls:String, fn:String, args:Null<Array<BuiltinClassMethodArgument>>):Array<BuiltinClassMethodArgument> {
 		return if (args == null) [] else switch [cls, fn] {
 			case ['Quaternion', 'get_euler']:
@@ -518,6 +551,8 @@ class BuiltinClassBuilder extends Builder {
 		return switch [cls, fn, argName] {
 			case ['Rect2' | 'Rect2i', 'grow_side', 'side']:
 				'enum::Side';
+			case ['Basis', 'get_euler' | 'from_euler', 'order']:
+				'enum::EulerOrder';
 			default:
 				argType;
 		}

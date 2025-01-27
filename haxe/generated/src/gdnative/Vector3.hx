@@ -34,6 +34,7 @@ package gdnative;
 	function move_toward(p_to:gdnative.Vector3, p_delta:Float):gdnative.Vector3;
 	function dot(p_with:gdnative.Vector3):Float;
 	function cross(p_with:gdnative.Vector3):gdnative.Vector3;
+	function outer(p_with:gdnative.Vector3):gdnative.Basis;
 	function abs():gdnative.Vector3;
 	function floor():gdnative.Vector3;
 	function ceil():gdnative.Vector3;

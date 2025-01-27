@@ -14,8 +14,10 @@ class PhysicsDirectBodyState3D extends gd.Object {
 	public function get_total_angular_damp():Float return __physicsdirectbodystate3d_ptr().value.get_total_angular_damp();
 	public function get_center_of_mass():gd.Vector3 return __physicsdirectbodystate3d_ptr().value.get_center_of_mass();
 	public function get_center_of_mass_local():gd.Vector3 return __physicsdirectbodystate3d_ptr().value.get_center_of_mass_local();
+	public function get_principal_inertia_axes():gd.Basis return __physicsdirectbodystate3d_ptr().value.get_principal_inertia_axes();
 	public function get_inverse_mass():Float return __physicsdirectbodystate3d_ptr().value.get_inverse_mass();
 	public function get_inverse_inertia():gd.Vector3 return __physicsdirectbodystate3d_ptr().value.get_inverse_inertia();
+	public function get_inverse_inertia_tensor():gd.Basis return __physicsdirectbodystate3d_ptr().value.get_inverse_inertia_tensor();
 	public function set_linear_velocity(p_velocity:gd.Vector3):gd.Vector3 {
 		__physicsdirectbodystate3d_ptr().value.set_linear_velocity(((p_velocity : gd.Vector3)));
 		return p_velocity;

@@ -28,6 +28,9 @@ extern class GridMap extends gd.Node3D {
 	function set_cell_item(p_position:gd.Vector3i, p_item:Int, ?p_orientation:Int):Void;
 	function get_cell_item(p_position:gd.Vector3i):Int;
 	function get_cell_item_orientation(p_position:gd.Vector3i):Int;
+	function get_cell_item_basis(p_position:gd.Vector3i):gd.Basis;
+	function get_basis_with_orthogonal_index(p_index:Int):gd.Basis;
+	function get_orthogonal_index_from_basis(p_basis:gd.Basis):Int;
 	function local_to_map(p_local_position:gd.Vector3):gd.Vector3i;
 	function map_to_local(p_map_position:gd.Vector3i):gd.Vector3;
 	function resource_changed(p_resource:gd.Resource):Void;

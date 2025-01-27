@@ -2,6 +2,7 @@ package gd;
 extern class Quaternion_wrapper {
 	static function _new0():Quaternion_wrapper;
 	static function _new1(p_from:gd.Quaternion):Quaternion_wrapper;
+	static function _new2(p_from:gd.Basis):Quaternion_wrapper;
 	static function _new3(p_axis:gd.Vector3, p_angle:Float):Quaternion_wrapper;
 	static function _new4(p_arc_from:gd.Vector3, p_arc_to:gd.Vector3):Quaternion_wrapper;
 	static function _new5(p_x:Float, p_y:Float, p_z:Float, p_w:Float):Quaternion_wrapper;
@@ -33,6 +34,7 @@ extern class Quaternion_wrapper {
 @:forward @:forwardStatics abstract Quaternion(Quaternion_wrapper) from Quaternion_wrapper to Quaternion_wrapper {
 	public extern overload inline function new() this = Quaternion_wrapper._new0();
 	public extern overload inline function new(p_from:gd.Quaternion) this = Quaternion_wrapper._new1(p_from);
+	public extern overload inline function new(p_from:gd.Basis) this = Quaternion_wrapper._new2(p_from);
 	public extern overload inline function new(p_axis:gd.Vector3, p_angle:Float) this = Quaternion_wrapper._new3(p_axis, p_angle);
 	public extern overload inline function new(p_arc_from:gd.Vector3, p_arc_to:gd.Vector3) this = Quaternion_wrapper._new4(p_arc_from, p_arc_to);
 	public extern overload inline function new(p_x:Float, p_y:Float, p_z:Float, p_w:Float) this = Quaternion_wrapper._new5(p_x, p_y, p_z, p_w);

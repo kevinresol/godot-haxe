@@ -19,6 +19,8 @@ package gdnative;
 	function set_inertia_diagonal(p_inertia_diagonal:gdnative.Vector3):Void;
 	function get_inertia_orientation():gdnative.Quaternion;
 	function set_inertia_orientation(p_inertia_orientation:gdnative.Quaternion):Void;
+	function get_inertia_tensor():gdnative.Basis;
+	function set_inertia_tensor(p_inertia_tensor:gdnative.Basis):Void;
 }
 @:forward abstract GLTFPhysicsBody(gdnative.Ref<GLTFPhysicsBody_extern>) from gdnative.Ref<GLTFPhysicsBody_extern> to gdnative.Ref<GLTFPhysicsBody_extern> {
 	@:from

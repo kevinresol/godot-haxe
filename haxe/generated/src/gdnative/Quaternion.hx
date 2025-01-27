@@ -1,6 +1,7 @@
 package gdnative;
 @:include("godot_cpp/variant/quaternion.hpp") @:native("godot::Quaternion") @:structAccess extern class Quaternion_extern {
 	@:overload(function(p_from:gdnative.Quaternion):Void { })
+	@:overload(function(p_from:gdnative.Basis):Void { })
 	@:overload(function(p_axis:gdnative.Vector3, p_angle:Float):Void { })
 	@:overload(function(p_arc_from:gdnative.Vector3, p_arc_to:gdnative.Vector3):Void { })
 	@:overload(function(p_x:Float, p_y:Float, p_z:Float, p_w:Float):Void { })
@@ -40,6 +41,7 @@ package gdnative;
 	inline function toWrapperInternal():gd.Quaternion.Quaternion_wrapper return new gd.Quaternion.Quaternion_wrapper(this);
 	public extern overload inline function new() this = new gdnative.Quaternion.Quaternion_extern();
 	public extern overload inline function new(p_from:gd.Quaternion) this = new gdnative.Quaternion.Quaternion_extern(p_from);
+	public extern overload inline function new(p_from:gd.Basis) this = new gdnative.Quaternion.Quaternion_extern(p_from);
 	public extern overload inline function new(p_axis:gd.Vector3, p_angle:Float) this = new gdnative.Quaternion.Quaternion_extern(p_axis, p_angle);
 	public extern overload inline function new(p_arc_from:gd.Vector3, p_arc_to:gd.Vector3) this = new gdnative.Quaternion.Quaternion_extern(p_arc_from, p_arc_to);
 	public extern overload inline function new(p_x:Float, p_y:Float, p_z:Float, p_w:Float) this = new gdnative.Quaternion.Quaternion_extern(p_x, p_y, p_z, p_w);

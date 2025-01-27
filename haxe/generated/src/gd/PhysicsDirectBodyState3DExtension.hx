@@ -14,8 +14,10 @@ class PhysicsDirectBodyState3DExtension extends gd.PhysicsDirectBodyState3D {
 	public function _get_total_angular_damp():Float return __physicsdirectbodystate3dextension_ptr().value._get_total_angular_damp();
 	public function _get_center_of_mass():gd.Vector3 return __physicsdirectbodystate3dextension_ptr().value._get_center_of_mass();
 	public function _get_center_of_mass_local():gd.Vector3 return __physicsdirectbodystate3dextension_ptr().value._get_center_of_mass_local();
+	public function _get_principal_inertia_axes():gd.Basis return __physicsdirectbodystate3dextension_ptr().value._get_principal_inertia_axes();
 	public function _get_inverse_mass():Float return __physicsdirectbodystate3dextension_ptr().value._get_inverse_mass();
 	public function _get_inverse_inertia():gd.Vector3 return __physicsdirectbodystate3dextension_ptr().value._get_inverse_inertia();
+	public function _get_inverse_inertia_tensor():gd.Basis return __physicsdirectbodystate3dextension_ptr().value._get_inverse_inertia_tensor();
 	public function _set_linear_velocity(p_velocity:gd.Vector3):Void __physicsdirectbodystate3dextension_ptr().value._set_linear_velocity(((p_velocity : gd.Vector3)));
 	public function _get_linear_velocity():gd.Vector3 return __physicsdirectbodystate3dextension_ptr().value._get_linear_velocity();
 	public function _set_angular_velocity(p_velocity:gd.Vector3):Void __physicsdirectbodystate3dextension_ptr().value._set_angular_velocity(((p_velocity : gd.Vector3)));

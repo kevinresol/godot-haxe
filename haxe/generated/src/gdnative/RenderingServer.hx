@@ -288,6 +288,7 @@ package gdnative;
 	function environment_set_background(p_env:gdnative.RID, p_bg:gdnative.renderingserver.EnvironmentBG):Void;
 	function environment_set_sky(p_env:gdnative.RID, p_sky:gdnative.RID):Void;
 	function environment_set_sky_custom_fov(p_env:gdnative.RID, p_scale:Float):Void;
+	function environment_set_sky_orientation(p_env:gdnative.RID, p_orientation:gdnative.Basis):Void;
 	function environment_set_bg_color(p_env:gdnative.RID, p_color:gdnative.Color):Void;
 	function environment_set_bg_energy(p_env:gdnative.RID, p_multiplier:Float, p_exposure_value:Float):Void;
 	function environment_set_canvas_max_layer(p_env:gdnative.RID, p_max_layer:Int):Void;

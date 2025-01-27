@@ -44,11 +44,21 @@ class Node3D extends gd.Node {
 		return p_quaternion;
 	}
 	public function get_quaternion():gd.Quaternion return __node3d_ptr().value.get_quaternion();
+	public function set_basis(p_basis:gd.Basis):gd.Basis {
+		__node3d_ptr().value.set_basis(((p_basis : gd.Basis)));
+		return p_basis;
+	}
+	public function get_basis():gd.Basis return __node3d_ptr().value.get_basis();
 	public function set_global_position(p_position:gd.Vector3):gd.Vector3 {
 		__node3d_ptr().value.set_global_position(((p_position : gd.Vector3)));
 		return p_position;
 	}
 	public function get_global_position():gd.Vector3 return __node3d_ptr().value.get_global_position();
+	public function set_global_basis(p_basis:gd.Basis):gd.Basis {
+		__node3d_ptr().value.set_global_basis(((p_basis : gd.Basis)));
+		return p_basis;
+	}
+	public function get_global_basis():gd.Basis return __node3d_ptr().value.get_global_basis();
 	public function set_global_rotation(p_euler_radians:gd.Vector3):gd.Vector3 {
 		__node3d_ptr().value.set_global_rotation(((p_euler_radians : gd.Vector3)));
 		return p_euler_radians;
@@ -117,6 +127,7 @@ class Node3D extends gd.Node {
 	public var rotation(get, set) : gd.Vector3;
 	public var rotation_degrees(get, set) : gd.Vector3;
 	public var quaternion(get, set) : gd.Quaternion;
+	public var basis(get, set) : gd.Basis;
 	public var scale(get, set) : gd.Vector3;
 	public var rotation_edit_mode(get, set) : gd.node3d.RotationEditMode;
 	public var rotation_order(get, set) : gd.EulerOrder;
@@ -127,6 +138,7 @@ class Node3D extends gd.Node {
 		return v;
 	}
 	public var global_position(get, set) : gd.Vector3;
+	public var global_basis(get, set) : gd.Basis;
 	public var global_rotation(get, set) : gd.Vector3;
 	public var global_rotation_degrees(get, set) : gd.Vector3;
 	public var visible(get, set) : Bool;

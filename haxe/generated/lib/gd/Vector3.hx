@@ -33,6 +33,7 @@ extern class Vector3_wrapper {
 	function move_toward(p_to:gd.Vector3, p_delta:Float):gd.Vector3;
 	function dot(p_with:gd.Vector3):Float;
 	function cross(p_with:gd.Vector3):gd.Vector3;
+	function outer(p_with:gd.Vector3):gd.Basis;
 	function abs():gd.Vector3;
 	function floor():gd.Vector3;
 	function ceil():gd.Vector3;

@@ -48,6 +48,11 @@ class GLTFPhysicsBody extends gd.Resource {
 		__gltfphysicsbody_ptr().value.set_inertia_orientation(((p_inertia_orientation : gd.Quaternion)));
 		return p_inertia_orientation;
 	}
+	public function get_inertia_tensor():gd.Basis return __gltfphysicsbody_ptr().value.get_inertia_tensor();
+	public function set_inertia_tensor(p_inertia_tensor:gd.Basis):gd.Basis {
+		__gltfphysicsbody_ptr().value.set_inertia_tensor(((p_inertia_tensor : gd.Basis)));
+		return p_inertia_tensor;
+	}
 	public var body_type(get, set) : std.String;
 	public var mass(get, set) : Float;
 	public var linear_velocity(get, set) : gd.Vector3;
@@ -55,4 +60,5 @@ class GLTFPhysicsBody extends gd.Resource {
 	public var center_of_mass(get, set) : gd.Vector3;
 	public var inertia_diagonal(get, set) : gd.Vector3;
 	public var inertia_orientation(get, set) : gd.Quaternion;
+	public var inertia_tensor(get, set) : gd.Basis;
 }

@@ -16,6 +16,7 @@ package gdnative;
 	function get_linear_velocity():gdnative.Vector3;
 	function set_angular_velocity(p_angular_velocity:gdnative.Vector3):Void;
 	function get_angular_velocity():gdnative.Vector3;
+	function get_inverse_inertia_tensor():gdnative.Basis;
 	function set_gravity_scale(p_gravity_scale:Float):Void;
 	function get_gravity_scale():Float;
 	function set_linear_damp_mode(p_linear_damp_mode:gdnative.rigidbody3d.DampMode):Void;

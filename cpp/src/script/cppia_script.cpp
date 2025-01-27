@@ -37,9 +37,10 @@ String CppiaScript::_get_source_code() const { return source; }
 bool CppiaScript::_has_source_code() const { return !source.is_empty(); }
 
 bool CppiaScript::_can_instantiate() const {
-  bool ret = _is_tool() || !Engine::get_singleton()->is_editor_hint();
-  printf("CppiaScript::_can_instantiate %d\n", ret);
-  return ret;
+  // bool ret = _is_tool() || !Engine::get_singleton()->is_editor_hint();
+  printf("CppiaScript::_can_instantiate \n");
+  // return ret;
+  return true;
 }
 
 bool CppiaScript::_has_method(const StringName &method) const {

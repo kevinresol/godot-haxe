@@ -6,8 +6,10 @@ extern class PhysicsDirectBodyState3DExtension extends gd.PhysicsDirectBodyState
 	function _get_total_angular_damp():Float;
 	function _get_center_of_mass():gd.Vector3;
 	function _get_center_of_mass_local():gd.Vector3;
+	function _get_principal_inertia_axes():gd.Basis;
 	function _get_inverse_mass():Float;
 	function _get_inverse_inertia():gd.Vector3;
+	function _get_inverse_inertia_tensor():gd.Basis;
 	function _set_linear_velocity(p_velocity:gd.Vector3):Void;
 	function _get_linear_velocity():gd.Vector3;
 	function _set_angular_velocity(p_velocity:gd.Vector3):Void;

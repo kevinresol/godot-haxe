@@ -35,6 +35,7 @@ class Vector3_wrapper {
 	public function move_toward(p_to:gd.Vector3, p_delta:Float):gd.Vector3 return __gd.move_toward(p_to, p_delta);
 	public function dot(p_with:gd.Vector3):Float return __gd.dot(p_with);
 	public function cross(p_with:gd.Vector3):gd.Vector3 return __gd.cross(p_with);
+	public function outer(p_with:gd.Vector3):gd.Basis return __gd.outer(p_with);
 	public function abs():gd.Vector3 return __gd.abs();
 	public function floor():gd.Vector3 return __gd.floor();
 	public function ceil():gd.Vector3 return __gd.ceil();

@@ -120,7 +120,12 @@ class Main extends Base {
 		UtilityFunctions.print(texture.get_height());
 		UtilityFunctions.print(texture.get_reference_count());
 
-		trace(haxe.CallStack.toString(haxe.CallStack.callStack()));
+		final sub = ResourceLoader.singleton.load("res://sub.tscn").cast_to(PackedScene);
+		UtilityFunctions.print(sub);
+		UtilityFunctions.print(sub.can_instantiate());
+		final scn = sub.instantiate();
+		UtilityFunctions.print(scn);
+		add_child(scn);
 	}
 
 	function _on_timer_timeout() {

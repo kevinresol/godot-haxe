@@ -274,6 +274,7 @@ extern class RenderingServer extends gd.Object {
 	function environment_set_background(p_env:gd.RID, p_bg:gd.renderingserver.EnvironmentBG):Void;
 	function environment_set_sky(p_env:gd.RID, p_sky:gd.RID):Void;
 	function environment_set_sky_custom_fov(p_env:gd.RID, p_scale:Float):Void;
+	function environment_set_sky_orientation(p_env:gd.RID, p_orientation:gd.Basis):Void;
 	function environment_set_bg_color(p_env:gd.RID, p_color:gd.Color):Void;
 	function environment_set_bg_energy(p_env:gd.RID, p_multiplier:Float, p_exposure_value:Float):Void;
 	function environment_set_canvas_max_layer(p_env:gd.RID, p_max_layer:Int):Void;
