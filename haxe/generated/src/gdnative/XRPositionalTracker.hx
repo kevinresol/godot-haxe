@@ -8,6 +8,7 @@ package gdnative;
 	function has_pose(p_name:gdnative.StringName):Bool;
 	function get_pose(p_name:gdnative.StringName):gdnative.XRPose;
 	function invalidate_pose(p_name:gdnative.StringName):Void;
+	function set_pose(p_name:gdnative.StringName, p_transform:gdnative.Transform3D, p_linear_velocity:gdnative.Vector3, p_angular_velocity:gdnative.Vector3, p_tracking_confidence:gdnative.xrpose.TrackingConfidence):Void;
 	function get_input(p_name:gdnative.StringName):gdnative.Variant;
 	function set_input(p_name:gdnative.StringName, p_value:gdnative.Variant):Void;
 }

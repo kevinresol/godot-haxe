@@ -12,6 +12,8 @@ extern class PhysicsDirectBodyState2D extends gd.Object {
 	function get_linear_velocity():gd.Vector2;
 	function set_angular_velocity(p_velocity:Float):Float;
 	function get_angular_velocity():Float;
+	function set_transform(p_transform:gd.Transform2D):gd.Transform2D;
+	function get_transform():gd.Transform2D;
 	function get_velocity_at_local_position(p_local_position:gd.Vector2):gd.Vector2;
 	function apply_central_impulse(p_impulse:gd.Vector2):Void;
 	function apply_torque_impulse(p_impulse:Float):Void;
@@ -48,4 +50,5 @@ extern class PhysicsDirectBodyState2D extends gd.Object {
 	var sleeping(get, set) : Bool;
 	function get_sleeping():Bool;
 	function set_sleeping(v:Bool):Bool;
+	var transform(get, set) : gd.Transform2D;
 }

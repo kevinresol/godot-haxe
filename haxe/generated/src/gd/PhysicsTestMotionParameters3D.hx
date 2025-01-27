@@ -9,6 +9,11 @@ class PhysicsTestMotionParameters3D extends gd.RefCounted {
 		super(native.reinterpret());
 	}
 	extern inline function __physicstestmotionparameters3d_ptr():cpp.Pointer<gdnative.PhysicsTestMotionParameters3D.PhysicsTestMotionParameters3D_extern> return cast __gd.ptr;
+	public function get_from():gd.Transform3D return __physicstestmotionparameters3d_ptr().value.get_from();
+	public function set_from(p_from:gd.Transform3D):gd.Transform3D {
+		__physicstestmotionparameters3d_ptr().value.set_from(((p_from : gd.Transform3D)));
+		return p_from;
+	}
 	public function get_motion():gd.Vector3 return __physicstestmotionparameters3d_ptr().value.get_motion();
 	public function set_motion(p_motion:gd.Vector3):gd.Vector3 {
 		__physicstestmotionparameters3d_ptr().value.set_motion(((p_motion : gd.Vector3)));
@@ -28,6 +33,7 @@ class PhysicsTestMotionParameters3D extends gd.RefCounted {
 	public function set_collide_separation_ray_enabled(p_enabled:Bool):Void __physicstestmotionparameters3d_ptr().value.set_collide_separation_ray_enabled(((p_enabled : Bool)));
 	public function is_recovery_as_collision_enabled():Bool return __physicstestmotionparameters3d_ptr().value.is_recovery_as_collision_enabled();
 	public function set_recovery_as_collision_enabled(p_enabled:Bool):Void __physicstestmotionparameters3d_ptr().value.set_recovery_as_collision_enabled(((p_enabled : Bool)));
+	public var from(get, set) : gd.Transform3D;
 	public var motion(get, set) : gd.Vector3;
 	public var margin(get, set) : Float;
 	public var max_collisions(get, set) : Int;

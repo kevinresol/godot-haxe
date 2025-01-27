@@ -9,6 +9,8 @@ package gdnative;
 	function get_variation_embolden():Float;
 	function set_variation_face_index(p_face_index:Int):Void;
 	function get_variation_face_index():Int;
+	function set_variation_transform(p_transform:gdnative.Transform2D):Void;
+	function get_variation_transform():gdnative.Transform2D;
 	function set_opentype_features(p_features:gdnative.Dictionary):Void;
 	function set_spacing(p_spacing:gdnative.textserver.SpacingType, p_value:Int):Void;
 	function set_baseline_offset(p_baseline_offset:Float):Void;

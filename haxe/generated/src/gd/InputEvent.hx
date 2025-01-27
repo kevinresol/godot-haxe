@@ -42,5 +42,9 @@ class InputEvent extends gd.Resource {
 	};
 	public function is_action_type():Bool return __inputevent_ptr().value.is_action_type();
 	public function accumulate(p_with_event:gd.InputEvent):Bool return __inputevent_ptr().value.accumulate(((p_with_event : gd.InputEvent)));
+	public function xformed_by(p_xform:gd.Transform2D, ?p_local_ofs:gd.Vector2):gd.InputEvent return switch [p_xform, p_local_ofs] {
+		case [_, null]:__inputevent_ptr().value.xformed_by(((p_xform : gd.Transform2D)));
+		default:__inputevent_ptr().value.xformed_by(((p_xform : gd.Transform2D)), ((p_local_ofs : gd.Vector2)));
+	};
 	public var device(get, set) : Int;
 }

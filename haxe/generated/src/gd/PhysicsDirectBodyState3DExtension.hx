@@ -22,6 +22,8 @@ class PhysicsDirectBodyState3DExtension extends gd.PhysicsDirectBodyState3D {
 	public function _get_linear_velocity():gd.Vector3 return __physicsdirectbodystate3dextension_ptr().value._get_linear_velocity();
 	public function _set_angular_velocity(p_velocity:gd.Vector3):Void __physicsdirectbodystate3dextension_ptr().value._set_angular_velocity(((p_velocity : gd.Vector3)));
 	public function _get_angular_velocity():gd.Vector3 return __physicsdirectbodystate3dextension_ptr().value._get_angular_velocity();
+	public function _set_transform(p_transform:gd.Transform3D):Void __physicsdirectbodystate3dextension_ptr().value._set_transform(((p_transform : gd.Transform3D)));
+	public function _get_transform():gd.Transform3D return __physicsdirectbodystate3dextension_ptr().value._get_transform();
 	public function _get_velocity_at_local_position(p_local_position:gd.Vector3):gd.Vector3 return __physicsdirectbodystate3dextension_ptr().value._get_velocity_at_local_position(((p_local_position : gd.Vector3)));
 	public function _apply_central_impulse(p_impulse:gd.Vector3):Void __physicsdirectbodystate3dextension_ptr().value._apply_central_impulse(((p_impulse : gd.Vector3)));
 	public function _apply_impulse(p_impulse:gd.Vector3, p_position:gd.Vector3):Void __physicsdirectbodystate3dextension_ptr().value._apply_impulse(((p_impulse : gd.Vector3)), ((p_position : gd.Vector3)));

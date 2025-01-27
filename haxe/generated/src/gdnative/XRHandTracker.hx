@@ -7,6 +7,8 @@ package gdnative;
 	function get_hand_tracking_source():gdnative.xrhandtracker.HandTrackingSource;
 	function set_hand_joint_flags(p_joint:gdnative.xrhandtracker.HandJoint, p_flags:Int):Void;
 	function get_hand_joint_flags(p_joint:gdnative.xrhandtracker.HandJoint):Int;
+	function set_hand_joint_transform(p_joint:gdnative.xrhandtracker.HandJoint, p_transform:gdnative.Transform3D):Void;
+	function get_hand_joint_transform(p_joint:gdnative.xrhandtracker.HandJoint):gdnative.Transform3D;
 	function set_hand_joint_radius(p_joint:gdnative.xrhandtracker.HandJoint, p_radius:Float):Void;
 	function get_hand_joint_radius(p_joint:gdnative.xrhandtracker.HandJoint):Float;
 	function set_hand_joint_linear_velocity(p_joint:gdnative.xrhandtracker.HandJoint, p_linear_velocity:gdnative.Vector3):Void;

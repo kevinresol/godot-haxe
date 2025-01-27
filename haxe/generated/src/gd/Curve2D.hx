@@ -41,6 +41,11 @@ class Curve2D extends gd.Resource {
 		case [_, null]:__curve2d_ptr().value.sample_baked(((p_offset : Float)));
 		default:__curve2d_ptr().value.sample_baked(((p_offset : Float)), ((p_cubic : Bool)));
 	};
+	public function sample_baked_with_rotation(?p_offset:Float, ?p_cubic:Bool):gd.Transform2D return switch [p_offset, p_cubic] {
+		case [null, _]:__curve2d_ptr().value.sample_baked_with_rotation();
+		case [_, null]:__curve2d_ptr().value.sample_baked_with_rotation(((p_offset : Float)));
+		default:__curve2d_ptr().value.sample_baked_with_rotation(((p_offset : Float)), ((p_cubic : Bool)));
+	};
 	public function get_baked_points():gd.PackedVector2Array return __curve2d_ptr().value.get_baked_points();
 	public function get_closest_point(p_to_point:gd.Vector2):gd.Vector2 return __curve2d_ptr().value.get_closest_point(((p_to_point : gd.Vector2)));
 	public function get_closest_offset(p_to_point:gd.Vector2):Float return __curve2d_ptr().value.get_closest_offset(((p_to_point : gd.Vector2)));

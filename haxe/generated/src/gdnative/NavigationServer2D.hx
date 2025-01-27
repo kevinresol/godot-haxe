@@ -37,6 +37,8 @@ package gdnative;
 	function region_get_map(p_region:gdnative.RID):gdnative.RID;
 	function region_set_navigation_layers(p_region:gdnative.RID, p_navigation_layers:Int):Void;
 	function region_get_navigation_layers(p_region:gdnative.RID):Int;
+	function region_set_transform(p_region:gdnative.RID, p_transform:gdnative.Transform2D):Void;
+	function region_get_transform(p_region:gdnative.RID):gdnative.Transform2D;
 	function region_set_navigation_polygon(p_region:gdnative.RID, p_navigation_polygon:gdnative.NavigationPolygon):Void;
 	function region_get_connections_count(p_region:gdnative.RID):Int;
 	function region_get_connection_pathway_start(p_region:gdnative.RID, p_connection:Int):gdnative.Vector2;

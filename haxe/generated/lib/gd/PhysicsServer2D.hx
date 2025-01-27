@@ -22,10 +22,13 @@ extern class PhysicsServer2D extends gd.Object {
 	function area_create():gd.RID;
 	function area_set_space(p_area:gd.RID, p_space:gd.RID):Void;
 	function area_get_space(p_area:gd.RID):gd.RID;
+	function area_add_shape(p_area:gd.RID, p_shape:gd.RID, ?p_transform:gd.Transform2D, ?p_disabled:Bool):Void;
 	function area_set_shape(p_area:gd.RID, p_shape_idx:Int, p_shape:gd.RID):Void;
+	function area_set_shape_transform(p_area:gd.RID, p_shape_idx:Int, p_transform:gd.Transform2D):Void;
 	function area_set_shape_disabled(p_area:gd.RID, p_shape_idx:Int, p_disabled:Bool):Void;
 	function area_get_shape_count(p_area:gd.RID):Int;
 	function area_get_shape(p_area:gd.RID, p_shape_idx:Int):gd.RID;
+	function area_get_shape_transform(p_area:gd.RID, p_shape_idx:Int):gd.Transform2D;
 	function area_remove_shape(p_area:gd.RID, p_shape_idx:Int):Void;
 	function area_clear_shapes(p_area:gd.RID):Void;
 	function area_set_collision_layer(p_area:gd.RID, p_layer:Int):Void;
@@ -33,7 +36,9 @@ extern class PhysicsServer2D extends gd.Object {
 	function area_set_collision_mask(p_area:gd.RID, p_mask:Int):Void;
 	function area_get_collision_mask(p_area:gd.RID):Int;
 	function area_set_param(p_area:gd.RID, p_param:gd.physicsserver2d.AreaParameter, p_value:gd.Variant):Void;
+	function area_set_transform(p_area:gd.RID, p_transform:gd.Transform2D):Void;
 	function area_get_param(p_area:gd.RID, p_param:gd.physicsserver2d.AreaParameter):gd.Variant;
+	function area_get_transform(p_area:gd.RID):gd.Transform2D;
 	function area_attach_object_instance_id(p_area:gd.RID, p_id:Int):Void;
 	function area_get_object_instance_id(p_area:gd.RID):Int;
 	function area_attach_canvas_instance_id(p_area:gd.RID, p_id:Int):Void;
@@ -46,9 +51,12 @@ extern class PhysicsServer2D extends gd.Object {
 	function body_get_space(p_body:gd.RID):gd.RID;
 	function body_set_mode(p_body:gd.RID, p_mode:gd.physicsserver2d.BodyMode):Void;
 	function body_get_mode(p_body:gd.RID):gd.physicsserver2d.BodyMode;
+	function body_add_shape(p_body:gd.RID, p_shape:gd.RID, ?p_transform:gd.Transform2D, ?p_disabled:Bool):Void;
 	function body_set_shape(p_body:gd.RID, p_shape_idx:Int, p_shape:gd.RID):Void;
+	function body_set_shape_transform(p_body:gd.RID, p_shape_idx:Int, p_transform:gd.Transform2D):Void;
 	function body_get_shape_count(p_body:gd.RID):Int;
 	function body_get_shape(p_body:gd.RID, p_shape_idx:Int):gd.RID;
+	function body_get_shape_transform(p_body:gd.RID, p_shape_idx:Int):gd.Transform2D;
 	function body_remove_shape(p_body:gd.RID, p_shape_idx:Int):Void;
 	function body_clear_shapes(p_body:gd.RID):Void;
 	function body_set_shape_disabled(p_body:gd.RID, p_shape_idx:Int, p_disabled:Bool):Void;

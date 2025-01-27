@@ -19,6 +19,8 @@ class SkeletonIK3D extends gd.SkeletonModifier3D {
 		return p_tip_bone;
 	}
 	public function get_tip_bone():std.String return __skeletonik3d_ptr().value.get_tip_bone();
+	public function set_target_transform(p_target:gd.Transform3D):Void __skeletonik3d_ptr().value.set_target_transform(((p_target : gd.Transform3D)));
+	public function get_target_transform():gd.Transform3D return __skeletonik3d_ptr().value.get_target_transform();
 	public function set_target_node(p_node:std.String):std.String {
 		__skeletonik3d_ptr().value.set_target_node(((p_node : std.String)));
 		return p_node;
@@ -60,6 +62,12 @@ class SkeletonIK3D extends gd.SkeletonModifier3D {
 	public function get_interpolation():Float return __skeletonik3d_ptr().value.get_interpolation();
 	public var root_bone(get, set) : std.String;
 	public var tip_bone(get, set) : std.String;
+	public var target(get, set) : gd.Transform3D;
+	function get_target():gd.Transform3D return get_target_transform();
+	function set_target(v:gd.Transform3D):gd.Transform3D {
+		set_target_transform(v);
+		return v;
+	}
 	public var override_tip_basis(get, set) : Bool;
 	function get_override_tip_basis():Bool return is_override_tip_basis();
 	public var use_magnet(get, set) : Bool;

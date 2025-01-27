@@ -45,6 +45,8 @@ extern class FontFile extends gd.Font {
 	function get_variation_coordinates(p_cache_index:Int):gd.Dictionary;
 	function set_embolden(p_cache_index:Int, p_strength:Float):Void;
 	function get_embolden(p_cache_index:Int):Float;
+	function set_transform(p_cache_index:Int, p_transform:gd.Transform2D):Void;
+	function get_transform(p_cache_index:Int):gd.Transform2D;
 	function set_extra_spacing(p_cache_index:Int, p_spacing:gd.textserver.SpacingType, p_value:Int):Void;
 	function get_extra_spacing(p_cache_index:Int, p_spacing:gd.textserver.SpacingType):Int;
 	function set_extra_baseline_offset(p_cache_index:Int, p_baseline_offset:Float):Void;

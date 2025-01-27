@@ -14,6 +14,8 @@ extern class PhysicsDirectBodyState3D extends gd.Object {
 	function get_linear_velocity():gd.Vector3;
 	function set_angular_velocity(p_velocity:gd.Vector3):gd.Vector3;
 	function get_angular_velocity():gd.Vector3;
+	function set_transform(p_transform:gd.Transform3D):gd.Transform3D;
+	function get_transform():gd.Transform3D;
 	function get_velocity_at_local_position(p_local_position:gd.Vector3):gd.Vector3;
 	function apply_central_impulse(?p_impulse:gd.Vector3):Void;
 	function apply_impulse(p_impulse:gd.Vector3, ?p_position:gd.Vector3):Void;
@@ -50,4 +52,5 @@ extern class PhysicsDirectBodyState3D extends gd.Object {
 	var sleeping(get, set) : Bool;
 	function get_sleeping():Bool;
 	function set_sleeping(v:Bool):Bool;
+	var transform(get, set) : gd.Transform3D;
 }

@@ -22,6 +22,8 @@ package gdnative;
 	function set_tail_direction(p_bone_idx:Int, p_tail_direction:gdnative.skeletonprofile.TailDirection):Void;
 	function get_bone_tail(p_bone_idx:Int):gdnative.StringName;
 	function set_bone_tail(p_bone_idx:Int, p_bone_tail:gdnative.StringName):Void;
+	function get_reference_pose(p_bone_idx:Int):gdnative.Transform3D;
+	function set_reference_pose(p_bone_idx:Int, p_bone_name:gdnative.Transform3D):Void;
 	function get_handle_offset(p_bone_idx:Int):gdnative.Vector2;
 	function set_handle_offset(p_bone_idx:Int, p_handle_offset:gdnative.Vector2):Void;
 	function get_group(p_bone_idx:Int):gdnative.StringName;

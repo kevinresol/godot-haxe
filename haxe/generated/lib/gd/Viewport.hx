@@ -4,6 +4,12 @@ extern class Viewport extends gd.Node {
 	function set_world_2d(p_world_2d:gd.World2D):gd.World2D;
 	function get_world_2d():gd.World2D;
 	function find_world_2d():gd.World2D;
+	function set_canvas_transform(p_xform:gd.Transform2D):gd.Transform2D;
+	function get_canvas_transform():gd.Transform2D;
+	function set_global_canvas_transform(p_xform:gd.Transform2D):gd.Transform2D;
+	function get_global_canvas_transform():gd.Transform2D;
+	function get_final_transform():gd.Transform2D;
+	function get_screen_transform():gd.Transform2D;
 	function get_visible_rect():gd.Rect2;
 	function set_transparent_background(p_enable:Bool):Void;
 	function has_transparent_background():Bool;
@@ -185,5 +191,7 @@ extern class Viewport extends gd.Node {
 	var positional_shadow_atlas_quad_3(get, set) : gd.viewport.PositionalShadowAtlasQuadrantSubdiv;
 	function get_positional_shadow_atlas_quad_3():gd.viewport.PositionalShadowAtlasQuadrantSubdiv;
 	function set_positional_shadow_atlas_quad_3(v:gd.viewport.PositionalShadowAtlasQuadrantSubdiv):gd.viewport.PositionalShadowAtlasQuadrantSubdiv;
+	var canvas_transform(get, set) : gd.Transform2D;
+	var global_canvas_transform(get, set) : gd.Transform2D;
 	var canvas_cull_mask(get, set) : Int;
 }

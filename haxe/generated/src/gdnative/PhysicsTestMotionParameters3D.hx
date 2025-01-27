@@ -1,6 +1,8 @@
 package gdnative;
 @:include("godot_cpp/classes/physics_test_motion_parameters3d.hpp") @:native("godot::PhysicsTestMotionParameters3D") @:structAccess extern class PhysicsTestMotionParameters3D_extern extends gdnative.RefCounted.RefCounted_extern {
 	extern static inline function __alloc():cpp.Pointer<PhysicsTestMotionParameters3D_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::PhysicsTestMotionParameters3D"));
+	function get_from():gdnative.Transform3D;
+	function set_from(p_from:gdnative.Transform3D):Void;
 	function get_motion():gdnative.Vector3;
 	function set_motion(p_motion:gdnative.Vector3):Void;
 	function get_margin():Float;

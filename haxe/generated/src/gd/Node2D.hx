@@ -71,10 +71,13 @@ class Node2D extends gd.CanvasItem {
 		return p_scale;
 	}
 	public function get_global_scale():gd.Vector2 return __node2d_ptr().value.get_global_scale();
+	public function set_transform(p_xform:gd.Transform2D):Void __node2d_ptr().value.set_transform(((p_xform : gd.Transform2D)));
+	public function set_global_transform(p_xform:gd.Transform2D):Void __node2d_ptr().value.set_global_transform(((p_xform : gd.Transform2D)));
 	public function look_at(p_point:gd.Vector2):Void __node2d_ptr().value.look_at(((p_point : gd.Vector2)));
 	public function get_angle_to(p_point:gd.Vector2):Float return __node2d_ptr().value.get_angle_to(((p_point : gd.Vector2)));
 	public function to_local(p_global_point:gd.Vector2):gd.Vector2 return __node2d_ptr().value.to_local(((p_global_point : gd.Vector2)));
 	public function to_global(p_local_point:gd.Vector2):gd.Vector2 return __node2d_ptr().value.to_global(((p_local_point : gd.Vector2)));
+	public function get_relative_transform_to_parent(p_parent:gd.Node):gd.Transform2D return __node2d_ptr().value.get_relative_transform_to_parent(((p_parent : gd.Node)));
 	public var position(get, set) : gd.Vector2;
 	public var rotation(get, set) : Float;
 	public var rotation_degrees(get, set) : Float;

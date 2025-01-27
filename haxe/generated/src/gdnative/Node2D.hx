@@ -29,10 +29,13 @@ package gdnative;
 	function get_global_skew():Float;
 	function set_global_scale(p_scale:gdnative.Vector2):Void;
 	function get_global_scale():gdnative.Vector2;
+	function set_transform(p_xform:gdnative.Transform2D):Void;
+	function set_global_transform(p_xform:gdnative.Transform2D):Void;
 	function look_at(p_point:gdnative.Vector2):Void;
 	function get_angle_to(p_point:gdnative.Vector2):Float;
 	function to_local(p_global_point:gdnative.Vector2):gdnative.Vector2;
 	function to_global(p_local_point:gdnative.Vector2):gdnative.Vector2;
+	function get_relative_transform_to_parent(p_parent:gdnative.Node):gdnative.Transform2D;
 }
 @:forward abstract Node2D(cpp.Pointer<Node2D_extern>) from cpp.Pointer<Node2D_extern> to cpp.Pointer<Node2D_extern> {
 	@:from

@@ -15,8 +15,15 @@ class XRServer extends gd.Object {
 		__xrserver_ptr().value.set_world_scale(((p_scale : Float)));
 		return p_scale;
 	}
+	public function get_world_origin():gd.Transform3D return __xrserver_ptr().value.get_world_origin();
+	public function set_world_origin(p_world_origin:gd.Transform3D):gd.Transform3D {
+		__xrserver_ptr().value.set_world_origin(((p_world_origin : gd.Transform3D)));
+		return p_world_origin;
+	}
+	public function get_reference_frame():gd.Transform3D return __xrserver_ptr().value.get_reference_frame();
 	public function clear_reference_frame():Void __xrserver_ptr().value.clear_reference_frame();
 	public function center_on_hmd(p_rotation_mode:gd.xrserver.RotationMode, p_keep_height:Bool):Void __xrserver_ptr().value.center_on_hmd(((p_rotation_mode : gd.xrserver.RotationMode)), ((p_keep_height : Bool)));
+	public function get_hmd_transform():gd.Transform3D return __xrserver_ptr().value.get_hmd_transform();
 	public function add_interface(p_interface:gd.XRInterface):Void __xrserver_ptr().value.add_interface(((p_interface : gd.XRInterface)));
 	public function get_interface_count():Int return __xrserver_ptr().value.get_interface_count();
 	public function remove_interface(p_interface:gd.XRInterface):Void __xrserver_ptr().value.remove_interface(((p_interface : gd.XRInterface)));
@@ -32,5 +39,6 @@ class XRServer extends gd.Object {
 		return p_interface;
 	}
 	public var world_scale(get, set) : Float;
+	public var world_origin(get, set) : gd.Transform3D;
 	public var primary_interface(get, set) : gd.XRInterface;
 }

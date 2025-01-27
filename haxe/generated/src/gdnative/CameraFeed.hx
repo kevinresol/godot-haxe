@@ -6,6 +6,8 @@ package gdnative;
 	function set_active(p_active:Bool):Void;
 	function get_name():gdnative.String;
 	function get_position():gdnative.camerafeed.FeedPosition;
+	function get_transform():gdnative.Transform2D;
+	function set_transform(p_transform:gdnative.Transform2D):Void;
 	function get_datatype():gdnative.camerafeed.FeedDataType;
 }
 @:forward abstract CameraFeed(gdnative.Ref<CameraFeed_extern>) from gdnative.Ref<CameraFeed_extern> to gdnative.Ref<CameraFeed_extern> {

@@ -7,6 +7,8 @@ package gdnative;
 	function get_body_flags():Int;
 	function set_joint_flags(p_joint:gdnative.xrbodytracker.Joint, p_flags:Int):Void;
 	function get_joint_flags(p_joint:gdnative.xrbodytracker.Joint):Int;
+	function set_joint_transform(p_joint:gdnative.xrbodytracker.Joint, p_transform:gdnative.Transform3D):Void;
+	function get_joint_transform(p_joint:gdnative.xrbodytracker.Joint):gdnative.Transform3D;
 }
 @:forward abstract XRBodyTracker(gdnative.Ref<XRBodyTracker_extern>) from gdnative.Ref<XRBodyTracker_extern> to gdnative.Ref<XRBodyTracker_extern> {
 	@:from

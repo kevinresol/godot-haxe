@@ -7,6 +7,9 @@ extern class CanvasLayer extends gd.Node {
 	function is_visible():Bool;
 	function show():Void;
 	function hide():Void;
+	function set_transform(p_transform:gd.Transform2D):gd.Transform2D;
+	function get_transform():gd.Transform2D;
+	function get_final_transform():gd.Transform2D;
 	function set_offset(p_offset:gd.Vector2):gd.Vector2;
 	function get_offset():gd.Vector2;
 	function set_rotation(p_radians:Float):Float;
@@ -26,6 +29,7 @@ extern class CanvasLayer extends gd.Node {
 	var offset(get, set) : gd.Vector2;
 	var rotation(get, set) : Float;
 	var scale(get, set) : gd.Vector2;
+	var transform(get, set) : gd.Transform2D;
 	var custom_viewport(get, set) : gd.Node;
 	var follow_viewport_enabled(get, set) : Bool;
 	function get_follow_viewport_enabled():Bool;

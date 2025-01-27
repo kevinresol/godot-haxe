@@ -1,6 +1,8 @@
 package gd;
 extern class CharFXTransform extends gd.RefCounted {
 	function new(?owner:Dynamic);
+	function get_transform():gd.Transform2D;
+	function set_transform(p_transform:gd.Transform2D):gd.Transform2D;
 	function get_range():gd.Vector2i;
 	function set_range(p_range:gd.Vector2i):gd.Vector2i;
 	function get_elapsed_time():Float;
@@ -25,6 +27,7 @@ extern class CharFXTransform extends gd.RefCounted {
 	function set_glyph_flags(p_glyph_flags:Int):Int;
 	function get_font():gd.RID;
 	function set_font(p_font:gd.RID):gd.RID;
+	var transform(get, set) : gd.Transform2D;
 	var range(get, set) : gd.Vector2i;
 	var elapsed_time(get, set) : Float;
 	var visible(get, set) : Bool;

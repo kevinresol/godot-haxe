@@ -8,6 +8,7 @@ extern class Plane_wrapper {
 	static function _new5(p_point1:gd.Vector3, p_point2:gd.Vector3, p_point3:gd.Vector3):Plane_wrapper;
 	static function _new6(p_a:Float, p_b:Float, p_c:Float, p_d:Float):Plane_wrapper;
 	function normalized():gd.Plane;
+	function get_center():gd.Vector3;
 	function is_equal_approx(p_to_plane:gd.Plane):Bool;
 	function is_finite():Bool;
 	function is_point_over(p_point:gd.Vector3):Bool;

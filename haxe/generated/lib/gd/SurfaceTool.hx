@@ -30,6 +30,7 @@ extern class SurfaceTool extends gd.RefCounted {
 	function create_from(p_existing:gd.Mesh, p_surface:Int):Void;
 	function create_from_arrays(p_arrays:gd.Array, ?p_primitive_type:gd.mesh.PrimitiveType):Void;
 	function create_from_blend_shape(p_existing:gd.Mesh, p_surface:Int, p_blend_shape:std.String):Void;
+	function append_from(p_existing:gd.Mesh, p_surface:Int, p_transform:gd.Transform3D):Void;
 	function commit(?p_existing:gd.ArrayMesh, ?p_flags:Int):gd.ArrayMesh;
 	function commit_to_arrays():gd.Array;
 }

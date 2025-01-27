@@ -18,6 +18,7 @@ extern class Curve2D extends gd.Resource {
 	function get_bake_interval():Float;
 	function get_baked_length():Float;
 	function sample_baked(?p_offset:Float, ?p_cubic:Bool):gd.Vector2;
+	function sample_baked_with_rotation(?p_offset:Float, ?p_cubic:Bool):gd.Transform2D;
 	function get_baked_points():gd.PackedVector2Array;
 	function get_closest_point(p_to_point:gd.Vector2):gd.Vector2;
 	function get_closest_offset(p_to_point:gd.Vector2):Float;

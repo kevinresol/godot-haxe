@@ -9,6 +9,11 @@ class CharFXTransform extends gd.RefCounted {
 		super(native.reinterpret());
 	}
 	extern inline function __charfxtransform_ptr():cpp.Pointer<gdnative.CharFXTransform.CharFXTransform_extern> return cast __gd.ptr;
+	public function get_transform():gd.Transform2D return __charfxtransform_ptr().value.get_transform();
+	public function set_transform(p_transform:gd.Transform2D):gd.Transform2D {
+		__charfxtransform_ptr().value.set_transform(((p_transform : gd.Transform2D)));
+		return p_transform;
+	}
 	public function get_range():gd.Vector2i return __charfxtransform_ptr().value.get_range();
 	public function set_range(p_range:gd.Vector2i):gd.Vector2i {
 		__charfxtransform_ptr().value.set_range(((p_range : gd.Vector2i)));
@@ -63,6 +68,7 @@ class CharFXTransform extends gd.RefCounted {
 		__charfxtransform_ptr().value.set_font(((p_font : gd.RID)));
 		return p_font;
 	}
+	public var transform(get, set) : gd.Transform2D;
 	public var range(get, set) : gd.Vector2i;
 	public var elapsed_time(get, set) : Float;
 	public var visible(get, set) : Bool;

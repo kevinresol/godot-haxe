@@ -51,6 +51,7 @@ class PathFollow3D extends gd.Node3D {
 		return p_enabled;
 	}
 	public function is_tilt_enabled():Bool return __pathfollow3d_ptr().value.is_tilt_enabled();
+	public static function correct_posture(p_transform:gd.Transform3D, p_rotation_mode:gd.pathfollow3d.RotationMode):gd.Transform3D return gdnative.PathFollow3D.PathFollow3D_extern.correct_posture(((p_transform : gd.Transform3D)), ((p_rotation_mode : gd.pathfollow3d.RotationMode)));
 	public var progress(get, set) : Float;
 	public var progress_ratio(get, set) : Float;
 	public var h_offset(get, set) : Float;

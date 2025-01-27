@@ -20,11 +20,21 @@ class PhysicalBone3D extends gd.PhysicsBody3D {
 		return p_joint_type;
 	}
 	public function get_joint_type():gd.physicalbone3d.JointType return __physicalbone3d_ptr().value.get_joint_type();
+	public function set_joint_offset(p_offset:gd.Transform3D):gd.Transform3D {
+		__physicalbone3d_ptr().value.set_joint_offset(((p_offset : gd.Transform3D)));
+		return p_offset;
+	}
+	public function get_joint_offset():gd.Transform3D return __physicalbone3d_ptr().value.get_joint_offset();
 	public function set_joint_rotation(p_euler:gd.Vector3):gd.Vector3 {
 		__physicalbone3d_ptr().value.set_joint_rotation(((p_euler : gd.Vector3)));
 		return p_euler;
 	}
 	public function get_joint_rotation():gd.Vector3 return __physicalbone3d_ptr().value.get_joint_rotation();
+	public function set_body_offset(p_offset:gd.Transform3D):gd.Transform3D {
+		__physicalbone3d_ptr().value.set_body_offset(((p_offset : gd.Transform3D)));
+		return p_offset;
+	}
+	public function get_body_offset():gd.Transform3D return __physicalbone3d_ptr().value.get_body_offset();
 	public function get_simulate_physics():Bool return __physicalbone3d_ptr().value.get_simulate_physics();
 	public function is_simulating_physics():Bool return __physicalbone3d_ptr().value.is_simulating_physics();
 	public function get_bone_id():Int return __physicalbone3d_ptr().value.get_bone_id();
@@ -86,7 +96,9 @@ class PhysicalBone3D extends gd.PhysicsBody3D {
 	}
 	public function is_able_to_sleep():Bool return __physicalbone3d_ptr().value.is_able_to_sleep();
 	public var joint_type(get, set) : gd.physicalbone3d.JointType;
+	public var joint_offset(get, set) : gd.Transform3D;
 	public var joint_rotation(get, set) : gd.Vector3;
+	public var body_offset(get, set) : gd.Transform3D;
 	public var mass(get, set) : Float;
 	public var friction(get, set) : Float;
 	public var bounce(get, set) : Float;

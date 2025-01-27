@@ -46,6 +46,8 @@ package gdnative;
 	function region_get_map(p_region:gdnative.RID):gdnative.RID;
 	function region_set_navigation_layers(p_region:gdnative.RID, p_navigation_layers:Int):Void;
 	function region_get_navigation_layers(p_region:gdnative.RID):Int;
+	function region_set_transform(p_region:gdnative.RID, p_transform:gdnative.Transform3D):Void;
+	function region_get_transform(p_region:gdnative.RID):gdnative.Transform3D;
 	function region_set_navigation_mesh(p_region:gdnative.RID, p_navigation_mesh:gdnative.NavigationMesh):Void;
 	function region_bake_navigation_mesh(p_navigation_mesh:gdnative.NavigationMesh, p_root_node:gdnative.Node):Void;
 	function region_get_connections_count(p_region:gdnative.RID):Int;

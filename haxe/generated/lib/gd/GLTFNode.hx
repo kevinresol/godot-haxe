@@ -7,6 +7,8 @@ extern class GLTFNode extends gd.Resource {
 	function set_parent(p_parent:Int):Int;
 	function get_height():Int;
 	function set_height(p_height:Int):Int;
+	function get_xform():gd.Transform3D;
+	function set_xform(p_xform:gd.Transform3D):gd.Transform3D;
 	function get_mesh():Int;
 	function set_mesh(p_mesh:Int):Int;
 	function get_camera():Int;
@@ -30,6 +32,7 @@ extern class GLTFNode extends gd.Resource {
 	var original_name(get, set) : std.String;
 	var parent(get, set) : Int;
 	var height(get, set) : Int;
+	var xform(get, set) : gd.Transform3D;
 	var mesh(get, set) : Int;
 	var camera(get, set) : Int;
 	var skin(get, set) : Int;

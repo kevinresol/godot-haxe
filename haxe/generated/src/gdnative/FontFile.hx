@@ -45,6 +45,8 @@ package gdnative;
 	function get_variation_coordinates(p_cache_index:Int):gdnative.Dictionary;
 	function set_embolden(p_cache_index:Int, p_strength:Float):Void;
 	function get_embolden(p_cache_index:Int):Float;
+	function set_transform(p_cache_index:Int, p_transform:gdnative.Transform2D):Void;
+	function get_transform(p_cache_index:Int):gdnative.Transform2D;
 	function set_extra_spacing(p_cache_index:Int, p_spacing:gdnative.textserver.SpacingType, p_value:Int):Void;
 	function get_extra_spacing(p_cache_index:Int, p_spacing:gdnative.textserver.SpacingType):Int;
 	function set_extra_baseline_offset(p_cache_index:Int, p_baseline_offset:Float):Void;

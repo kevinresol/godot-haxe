@@ -15,4 +15,6 @@ class Skeleton2D extends gd.Node2D {
 	public function set_modification_stack(p_modification_stack:gd.SkeletonModificationStack2D):Void __skeleton2d_ptr().value.set_modification_stack(((p_modification_stack : gd.SkeletonModificationStack2D)));
 	public function get_modification_stack():gd.SkeletonModificationStack2D return __skeleton2d_ptr().value.get_modification_stack();
 	public function execute_modifications(p_delta:Float, p_execution_mode:Int):Void __skeleton2d_ptr().value.execute_modifications(((p_delta : Float)), ((p_execution_mode : Int)));
+	public function set_bone_local_pose_override(p_bone_idx:Int, p_override_pose:gd.Transform2D, p_strength:Float, p_persistent:Bool):Void __skeleton2d_ptr().value.set_bone_local_pose_override(((p_bone_idx : Int)), ((p_override_pose : gd.Transform2D)), ((p_strength : Float)), ((p_persistent : Bool)));
+	public function get_bone_local_pose_override(p_bone_idx:Int):gd.Transform2D return __skeleton2d_ptr().value.get_bone_local_pose_override(((p_bone_idx : Int)));
 }

@@ -5,6 +5,8 @@ package gdnative;
 	function get_root_bone():gdnative.StringName;
 	function set_tip_bone(p_tip_bone:gdnative.StringName):Void;
 	function get_tip_bone():gdnative.StringName;
+	function set_target_transform(p_target:gdnative.Transform3D):Void;
+	function get_target_transform():gdnative.Transform3D;
 	function set_target_node(p_node:gdnative.NodePath):Void;
 	function get_target_node():gdnative.NodePath;
 	function set_override_tip_basis(p_override:Bool):Void;

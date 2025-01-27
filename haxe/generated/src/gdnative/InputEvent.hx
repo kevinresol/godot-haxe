@@ -21,6 +21,8 @@ package gdnative;
 	overload function is_match(p_event:gdnative.InputEvent, p_exact_match:Bool):Bool;
 	function is_action_type():Bool;
 	function accumulate(p_with_event:gdnative.InputEvent):Bool;
+	overload function xformed_by(p_xform:gdnative.Transform2D):gdnative.InputEvent;
+	overload function xformed_by(p_xform:gdnative.Transform2D, p_local_ofs:gdnative.Vector2):gdnative.InputEvent;
 }
 @:forward abstract InputEvent(gdnative.Ref<InputEvent_extern>) from gdnative.Ref<InputEvent_extern> to gdnative.Ref<InputEvent_extern> {
 	@:from

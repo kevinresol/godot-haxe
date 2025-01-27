@@ -41,6 +41,7 @@ package gdnative;
 	function restart():Void;
 	function set_sub_emitter(p_path:gdnative.NodePath):Void;
 	function get_sub_emitter():gdnative.NodePath;
+	function emit_particle(p_xform:gdnative.Transform2D, p_velocity:gdnative.Vector2, p_color:gdnative.Color, p_custom:gdnative.Color, p_flags:Int):Void;
 	function set_trail_enabled(p_enabled:Bool):Void;
 	function set_trail_lifetime(p_secs:Float):Void;
 	function is_trail_enabled():Bool;

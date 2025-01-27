@@ -3,6 +3,8 @@ package gdnative;
 	extern static inline function __alloc():cpp.Pointer<VisualShaderNodeTransformParameter_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::VisualShaderNodeTransformParameter"));
 	function set_default_value_enabled(p_enabled:Bool):Void;
 	function is_default_value_enabled():Bool;
+	function set_default_value(p_value:gdnative.Transform3D):Void;
+	function get_default_value():gdnative.Transform3D;
 }
 @:forward abstract VisualShaderNodeTransformParameter(gdnative.Ref<VisualShaderNodeTransformParameter_extern>) from gdnative.Ref<VisualShaderNodeTransformParameter_extern> to gdnative.Ref<VisualShaderNodeTransformParameter_extern> {
 	@:from

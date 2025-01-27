@@ -1,8 +1,10 @@
 package gd;
 extern class VoxelGIData extends gd.Resource {
 	function new(?owner:Dynamic);
+	function allocate(p_to_cell_xform:gd.Transform3D, p_aabb:gd.AABB, p_octree_size:gd.Vector3, p_octree_cells:gd.PackedByteArray, p_data_cells:gd.PackedByteArray, p_distance_field:gd.PackedByteArray, p_level_counts:gd.PackedInt32Array):Void;
 	function get_bounds():gd.AABB;
 	function get_octree_size():gd.Vector3;
+	function get_to_cell_xform():gd.Transform3D;
 	function get_octree_cells():gd.PackedByteArray;
 	function get_data_cells():gd.PackedByteArray;
 	function get_level_counts():gd.PackedInt32Array;

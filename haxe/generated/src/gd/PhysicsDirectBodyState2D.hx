@@ -26,6 +26,11 @@ class PhysicsDirectBodyState2D extends gd.Object {
 		return p_velocity;
 	}
 	public function get_angular_velocity():Float return __physicsdirectbodystate2d_ptr().value.get_angular_velocity();
+	public function set_transform(p_transform:gd.Transform2D):gd.Transform2D {
+		__physicsdirectbodystate2d_ptr().value.set_transform(((p_transform : gd.Transform2D)));
+		return p_transform;
+	}
+	public function get_transform():gd.Transform2D return __physicsdirectbodystate2d_ptr().value.get_transform();
 	public function get_velocity_at_local_position(p_local_position:gd.Vector2):gd.Vector2 return __physicsdirectbodystate2d_ptr().value.get_velocity_at_local_position(((p_local_position : gd.Vector2)));
 	public function apply_central_impulse(p_impulse:gd.Vector2):Void __physicsdirectbodystate2d_ptr().value.apply_central_impulse(((p_impulse : gd.Vector2)));
 	public function apply_torque_impulse(p_impulse:Float):Void __physicsdirectbodystate2d_ptr().value.apply_torque_impulse(((p_impulse : Float)));
@@ -80,4 +85,5 @@ class PhysicsDirectBodyState2D extends gd.Object {
 		set_sleep_state(v);
 		return v;
 	}
+	public var transform(get, set) : gd.Transform2D;
 }

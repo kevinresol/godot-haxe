@@ -1,8 +1,10 @@
 package gdnative;
 @:include("godot_cpp/classes/voxel_gi_data.hpp") @:native("godot::VoxelGIData") @:structAccess extern class VoxelGIData_extern extends gdnative.Resource.Resource_extern {
 	extern static inline function __alloc():cpp.Pointer<VoxelGIData_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::VoxelGIData"));
+	function allocate(p_to_cell_xform:gdnative.Transform3D, p_aabb:gdnative.AABB, p_octree_size:gdnative.Vector3, p_octree_cells:gdnative.PackedByteArray, p_data_cells:gdnative.PackedByteArray, p_distance_field:gdnative.PackedByteArray, p_level_counts:gdnative.PackedInt32Array):Void;
 	function get_bounds():gdnative.AABB;
 	function get_octree_size():gdnative.Vector3;
+	function get_to_cell_xform():gdnative.Transform3D;
 	function get_octree_cells():gdnative.PackedByteArray;
 	function get_data_cells():gdnative.PackedByteArray;
 	function get_level_counts():gdnative.PackedInt32Array;

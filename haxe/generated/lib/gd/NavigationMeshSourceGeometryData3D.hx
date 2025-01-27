@@ -8,6 +8,9 @@ extern class NavigationMeshSourceGeometryData3D extends gd.Resource {
 	function append_arrays(p_vertices:gd.PackedFloat32Array, p_indices:gd.PackedInt32Array):Void;
 	function clear():Void;
 	function has_data():Bool;
+	function add_mesh(p_mesh:gd.Mesh, p_xform:gd.Transform3D):Void;
+	function add_mesh_array(p_mesh_array:gd.Array, p_xform:gd.Transform3D):Void;
+	function add_faces(p_faces:gd.PackedVector3Array, p_xform:gd.Transform3D):Void;
 	function merge(p_other_geometry:gd.NavigationMeshSourceGeometryData3D):Void;
 	function add_projected_obstruction(p_vertices:gd.PackedVector3Array, p_elevation:Float, p_height:Float, p_carve:Bool):Void;
 	function clear_projected_obstructions():Void;

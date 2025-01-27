@@ -22,6 +22,8 @@ extern class SkeletonProfile extends gd.Resource {
 	function set_tail_direction(p_bone_idx:Int, p_tail_direction:gd.skeletonprofile.TailDirection):Void;
 	function get_bone_tail(p_bone_idx:Int):std.String;
 	function set_bone_tail(p_bone_idx:Int, p_bone_tail:std.String):Void;
+	function get_reference_pose(p_bone_idx:Int):gd.Transform3D;
+	function set_reference_pose(p_bone_idx:Int, p_bone_name:gd.Transform3D):Void;
 	function get_handle_offset(p_bone_idx:Int):gd.Vector2;
 	function set_handle_offset(p_bone_idx:Int, p_handle_offset:gd.Vector2):Void;
 	function get_group(p_bone_idx:Int):std.String;

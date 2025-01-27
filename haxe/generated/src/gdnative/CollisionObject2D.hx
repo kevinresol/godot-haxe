@@ -24,6 +24,8 @@ package gdnative;
 	function create_shape_owner(p_owner:gdnative.Object):Int;
 	function remove_shape_owner(p_owner_id:Int):Void;
 	function get_shape_owners():gdnative.PackedInt32Array;
+	function shape_owner_set_transform(p_owner_id:Int, p_transform:gdnative.Transform2D):Void;
+	function shape_owner_get_transform(p_owner_id:Int):gdnative.Transform2D;
 	function shape_owner_get_owner(p_owner_id:Int):gdnative.Object;
 	function shape_owner_set_disabled(p_owner_id:Int, p_disabled:Bool):Void;
 	function is_shape_owner_disabled(p_owner_id:Int):Bool;

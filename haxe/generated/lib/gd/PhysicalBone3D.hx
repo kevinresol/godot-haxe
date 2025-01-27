@@ -6,8 +6,12 @@ extern class PhysicalBone3D extends gd.PhysicsBody3D {
 	function apply_impulse(p_impulse:gd.Vector3, ?p_position:gd.Vector3):Void;
 	function set_joint_type(p_joint_type:gd.physicalbone3d.JointType):gd.physicalbone3d.JointType;
 	function get_joint_type():gd.physicalbone3d.JointType;
+	function set_joint_offset(p_offset:gd.Transform3D):gd.Transform3D;
+	function get_joint_offset():gd.Transform3D;
 	function set_joint_rotation(p_euler:gd.Vector3):gd.Vector3;
 	function get_joint_rotation():gd.Vector3;
+	function set_body_offset(p_offset:gd.Transform3D):gd.Transform3D;
+	function get_body_offset():gd.Transform3D;
 	function get_simulate_physics():Bool;
 	function is_simulating_physics():Bool;
 	function get_bone_id():Int;
@@ -36,7 +40,9 @@ extern class PhysicalBone3D extends gd.PhysicsBody3D {
 	function set_can_sleep(p_able_to_sleep:Bool):Bool;
 	function is_able_to_sleep():Bool;
 	var joint_type(get, set) : gd.physicalbone3d.JointType;
+	var joint_offset(get, set) : gd.Transform3D;
 	var joint_rotation(get, set) : gd.Vector3;
+	var body_offset(get, set) : gd.Transform3D;
 	var mass(get, set) : Float;
 	var friction(get, set) : Float;
 	var bounce(get, set) : Float;

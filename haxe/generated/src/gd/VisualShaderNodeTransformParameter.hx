@@ -14,6 +14,12 @@ class VisualShaderNodeTransformParameter extends gd.VisualShaderNodeParameter {
 		return p_enabled;
 	}
 	public function is_default_value_enabled():Bool return __visualshadernodetransformparameter_ptr().value.is_default_value_enabled();
+	public function set_default_value(p_value:gd.Transform3D):gd.Transform3D {
+		__visualshadernodetransformparameter_ptr().value.set_default_value(((p_value : gd.Transform3D)));
+		return p_value;
+	}
+	public function get_default_value():gd.Transform3D return __visualshadernodetransformparameter_ptr().value.get_default_value();
 	public var default_value_enabled(get, set) : Bool;
 	function get_default_value_enabled():Bool return is_default_value_enabled();
+	public var default_value(get, set) : gd.Transform3D;
 }

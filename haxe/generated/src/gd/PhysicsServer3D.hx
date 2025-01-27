@@ -34,10 +34,17 @@ class PhysicsServer3D extends gd.Object {
 	public function area_create():gd.RID return __physicsserver3d_ptr().value.area_create();
 	public function area_set_space(p_area:gd.RID, p_space:gd.RID):Void __physicsserver3d_ptr().value.area_set_space(((p_area : gd.RID)), ((p_space : gd.RID)));
 	public function area_get_space(p_area:gd.RID):gd.RID return __physicsserver3d_ptr().value.area_get_space(((p_area : gd.RID)));
+	public function area_add_shape(p_area:gd.RID, p_shape:gd.RID, ?p_transform:gd.Transform3D, ?p_disabled:Bool):Void switch [p_area, p_shape, p_transform, p_disabled] {
+		case [_, _, null, _]:__physicsserver3d_ptr().value.area_add_shape(((p_area : gd.RID)), ((p_shape : gd.RID)));
+		case [_, _, _, null]:__physicsserver3d_ptr().value.area_add_shape(((p_area : gd.RID)), ((p_shape : gd.RID)), ((p_transform : gd.Transform3D)));
+		default:__physicsserver3d_ptr().value.area_add_shape(((p_area : gd.RID)), ((p_shape : gd.RID)), ((p_transform : gd.Transform3D)), ((p_disabled : Bool)));
+	};
 	public function area_set_shape(p_area:gd.RID, p_shape_idx:Int, p_shape:gd.RID):Void __physicsserver3d_ptr().value.area_set_shape(((p_area : gd.RID)), ((p_shape_idx : Int)), ((p_shape : gd.RID)));
+	public function area_set_shape_transform(p_area:gd.RID, p_shape_idx:Int, p_transform:gd.Transform3D):Void __physicsserver3d_ptr().value.area_set_shape_transform(((p_area : gd.RID)), ((p_shape_idx : Int)), ((p_transform : gd.Transform3D)));
 	public function area_set_shape_disabled(p_area:gd.RID, p_shape_idx:Int, p_disabled:Bool):Void __physicsserver3d_ptr().value.area_set_shape_disabled(((p_area : gd.RID)), ((p_shape_idx : Int)), ((p_disabled : Bool)));
 	public function area_get_shape_count(p_area:gd.RID):Int return __physicsserver3d_ptr().value.area_get_shape_count(((p_area : gd.RID)));
 	public function area_get_shape(p_area:gd.RID, p_shape_idx:Int):gd.RID return __physicsserver3d_ptr().value.area_get_shape(((p_area : gd.RID)), ((p_shape_idx : Int)));
+	public function area_get_shape_transform(p_area:gd.RID, p_shape_idx:Int):gd.Transform3D return __physicsserver3d_ptr().value.area_get_shape_transform(((p_area : gd.RID)), ((p_shape_idx : Int)));
 	public function area_remove_shape(p_area:gd.RID, p_shape_idx:Int):Void __physicsserver3d_ptr().value.area_remove_shape(((p_area : gd.RID)), ((p_shape_idx : Int)));
 	public function area_clear_shapes(p_area:gd.RID):Void __physicsserver3d_ptr().value.area_clear_shapes(((p_area : gd.RID)));
 	public function area_set_collision_layer(p_area:gd.RID, p_layer:Int):Void __physicsserver3d_ptr().value.area_set_collision_layer(((p_area : gd.RID)), ((p_layer : Int)));
@@ -45,7 +52,9 @@ class PhysicsServer3D extends gd.Object {
 	public function area_set_collision_mask(p_area:gd.RID, p_mask:Int):Void __physicsserver3d_ptr().value.area_set_collision_mask(((p_area : gd.RID)), ((p_mask : Int)));
 	public function area_get_collision_mask(p_area:gd.RID):Int return __physicsserver3d_ptr().value.area_get_collision_mask(((p_area : gd.RID)));
 	public function area_set_param(p_area:gd.RID, p_param:gd.physicsserver3d.AreaParameter, p_value:gd.Variant):Void __physicsserver3d_ptr().value.area_set_param(((p_area : gd.RID)), ((p_param : gd.physicsserver3d.AreaParameter)), ((p_value : gd.Variant)));
+	public function area_set_transform(p_area:gd.RID, p_transform:gd.Transform3D):Void __physicsserver3d_ptr().value.area_set_transform(((p_area : gd.RID)), ((p_transform : gd.Transform3D)));
 	public function area_get_param(p_area:gd.RID, p_param:gd.physicsserver3d.AreaParameter):gd.Variant return __physicsserver3d_ptr().value.area_get_param(((p_area : gd.RID)), ((p_param : gd.physicsserver3d.AreaParameter)));
+	public function area_get_transform(p_area:gd.RID):gd.Transform3D return __physicsserver3d_ptr().value.area_get_transform(((p_area : gd.RID)));
 	public function area_attach_object_instance_id(p_area:gd.RID, p_id:Int):Void __physicsserver3d_ptr().value.area_attach_object_instance_id(((p_area : gd.RID)), ((p_id : Int)));
 	public function area_get_object_instance_id(p_area:gd.RID):Int return __physicsserver3d_ptr().value.area_get_object_instance_id(((p_area : gd.RID)));
 	public function area_set_monitor_callback(p_area:gd.RID, p_callback:gd.Callable):Void __physicsserver3d_ptr().value.area_set_monitor_callback(((p_area : gd.RID)), ((p_callback : gd.Callable)));
@@ -63,10 +72,17 @@ class PhysicsServer3D extends gd.Object {
 	public function body_get_collision_mask(p_body:gd.RID):Int return __physicsserver3d_ptr().value.body_get_collision_mask(((p_body : gd.RID)));
 	public function body_set_collision_priority(p_body:gd.RID, p_priority:Float):Void __physicsserver3d_ptr().value.body_set_collision_priority(((p_body : gd.RID)), ((p_priority : Float)));
 	public function body_get_collision_priority(p_body:gd.RID):Float return __physicsserver3d_ptr().value.body_get_collision_priority(((p_body : gd.RID)));
+	public function body_add_shape(p_body:gd.RID, p_shape:gd.RID, ?p_transform:gd.Transform3D, ?p_disabled:Bool):Void switch [p_body, p_shape, p_transform, p_disabled] {
+		case [_, _, null, _]:__physicsserver3d_ptr().value.body_add_shape(((p_body : gd.RID)), ((p_shape : gd.RID)));
+		case [_, _, _, null]:__physicsserver3d_ptr().value.body_add_shape(((p_body : gd.RID)), ((p_shape : gd.RID)), ((p_transform : gd.Transform3D)));
+		default:__physicsserver3d_ptr().value.body_add_shape(((p_body : gd.RID)), ((p_shape : gd.RID)), ((p_transform : gd.Transform3D)), ((p_disabled : Bool)));
+	};
 	public function body_set_shape(p_body:gd.RID, p_shape_idx:Int, p_shape:gd.RID):Void __physicsserver3d_ptr().value.body_set_shape(((p_body : gd.RID)), ((p_shape_idx : Int)), ((p_shape : gd.RID)));
+	public function body_set_shape_transform(p_body:gd.RID, p_shape_idx:Int, p_transform:gd.Transform3D):Void __physicsserver3d_ptr().value.body_set_shape_transform(((p_body : gd.RID)), ((p_shape_idx : Int)), ((p_transform : gd.Transform3D)));
 	public function body_set_shape_disabled(p_body:gd.RID, p_shape_idx:Int, p_disabled:Bool):Void __physicsserver3d_ptr().value.body_set_shape_disabled(((p_body : gd.RID)), ((p_shape_idx : Int)), ((p_disabled : Bool)));
 	public function body_get_shape_count(p_body:gd.RID):Int return __physicsserver3d_ptr().value.body_get_shape_count(((p_body : gd.RID)));
 	public function body_get_shape(p_body:gd.RID, p_shape_idx:Int):gd.RID return __physicsserver3d_ptr().value.body_get_shape(((p_body : gd.RID)), ((p_shape_idx : Int)));
+	public function body_get_shape_transform(p_body:gd.RID, p_shape_idx:Int):gd.Transform3D return __physicsserver3d_ptr().value.body_get_shape_transform(((p_body : gd.RID)), ((p_shape_idx : Int)));
 	public function body_remove_shape(p_body:gd.RID, p_shape_idx:Int):Void __physicsserver3d_ptr().value.body_remove_shape(((p_body : gd.RID)), ((p_shape_idx : Int)));
 	public function body_clear_shapes(p_body:gd.RID):Void __physicsserver3d_ptr().value.body_clear_shapes(((p_body : gd.RID)));
 	public function body_attach_object_instance_id(p_body:gd.RID, p_id:Int):Void __physicsserver3d_ptr().value.body_attach_object_instance_id(((p_body : gd.RID)), ((p_id : Int)));
@@ -134,6 +150,7 @@ class PhysicsServer3D extends gd.Object {
 	public function soft_body_remove_collision_exception(p_body:gd.RID, p_body_b:gd.RID):Void __physicsserver3d_ptr().value.soft_body_remove_collision_exception(((p_body : gd.RID)), ((p_body_b : gd.RID)));
 	public function soft_body_set_state(p_body:gd.RID, p_state:gd.physicsserver3d.BodyState, p_variant:gd.Variant):Void __physicsserver3d_ptr().value.soft_body_set_state(((p_body : gd.RID)), ((p_state : gd.physicsserver3d.BodyState)), ((p_variant : gd.Variant)));
 	public function soft_body_get_state(p_body:gd.RID, p_state:gd.physicsserver3d.BodyState):gd.Variant return __physicsserver3d_ptr().value.soft_body_get_state(((p_body : gd.RID)), ((p_state : gd.physicsserver3d.BodyState)));
+	public function soft_body_set_transform(p_body:gd.RID, p_transform:gd.Transform3D):Void __physicsserver3d_ptr().value.soft_body_set_transform(((p_body : gd.RID)), ((p_transform : gd.Transform3D)));
 	public function soft_body_set_ray_pickable(p_body:gd.RID, p_enable:Bool):Void __physicsserver3d_ptr().value.soft_body_set_ray_pickable(((p_body : gd.RID)), ((p_enable : Bool)));
 	public function soft_body_set_simulation_precision(p_body:gd.RID, p_simulation_precision:Int):Void __physicsserver3d_ptr().value.soft_body_set_simulation_precision(((p_body : gd.RID)), ((p_simulation_precision : Int)));
 	public function soft_body_get_simulation_precision(p_body:gd.RID):Int return __physicsserver3d_ptr().value.soft_body_get_simulation_precision(((p_body : gd.RID)));
@@ -161,12 +178,15 @@ class PhysicsServer3D extends gd.Object {
 	public function pin_joint_get_local_a(p_joint:gd.RID):gd.Vector3 return __physicsserver3d_ptr().value.pin_joint_get_local_a(((p_joint : gd.RID)));
 	public function pin_joint_set_local_b(p_joint:gd.RID, p_local_B:gd.Vector3):Void __physicsserver3d_ptr().value.pin_joint_set_local_b(((p_joint : gd.RID)), ((p_local_B : gd.Vector3)));
 	public function pin_joint_get_local_b(p_joint:gd.RID):gd.Vector3 return __physicsserver3d_ptr().value.pin_joint_get_local_b(((p_joint : gd.RID)));
+	public function joint_make_hinge(p_joint:gd.RID, p_body_A:gd.RID, p_hinge_A:gd.Transform3D, p_body_B:gd.RID, p_hinge_B:gd.Transform3D):Void __physicsserver3d_ptr().value.joint_make_hinge(((p_joint : gd.RID)), ((p_body_A : gd.RID)), ((p_hinge_A : gd.Transform3D)), ((p_body_B : gd.RID)), ((p_hinge_B : gd.Transform3D)));
 	public function hinge_joint_set_param(p_joint:gd.RID, p_param:gd.physicsserver3d.HingeJointParam, p_value:Float):Void __physicsserver3d_ptr().value.hinge_joint_set_param(((p_joint : gd.RID)), ((p_param : gd.physicsserver3d.HingeJointParam)), ((p_value : Float)));
 	public function hinge_joint_get_param(p_joint:gd.RID, p_param:gd.physicsserver3d.HingeJointParam):Float return __physicsserver3d_ptr().value.hinge_joint_get_param(((p_joint : gd.RID)), ((p_param : gd.physicsserver3d.HingeJointParam)));
 	public function hinge_joint_set_flag(p_joint:gd.RID, p_flag:gd.physicsserver3d.HingeJointFlag, p_enabled:Bool):Void __physicsserver3d_ptr().value.hinge_joint_set_flag(((p_joint : gd.RID)), ((p_flag : gd.physicsserver3d.HingeJointFlag)), ((p_enabled : Bool)));
 	public function hinge_joint_get_flag(p_joint:gd.RID, p_flag:gd.physicsserver3d.HingeJointFlag):Bool return __physicsserver3d_ptr().value.hinge_joint_get_flag(((p_joint : gd.RID)), ((p_flag : gd.physicsserver3d.HingeJointFlag)));
+	public function joint_make_slider(p_joint:gd.RID, p_body_A:gd.RID, p_local_ref_A:gd.Transform3D, p_body_B:gd.RID, p_local_ref_B:gd.Transform3D):Void __physicsserver3d_ptr().value.joint_make_slider(((p_joint : gd.RID)), ((p_body_A : gd.RID)), ((p_local_ref_A : gd.Transform3D)), ((p_body_B : gd.RID)), ((p_local_ref_B : gd.Transform3D)));
 	public function slider_joint_set_param(p_joint:gd.RID, p_param:gd.physicsserver3d.SliderJointParam, p_value:Float):Void __physicsserver3d_ptr().value.slider_joint_set_param(((p_joint : gd.RID)), ((p_param : gd.physicsserver3d.SliderJointParam)), ((p_value : Float)));
 	public function slider_joint_get_param(p_joint:gd.RID, p_param:gd.physicsserver3d.SliderJointParam):Float return __physicsserver3d_ptr().value.slider_joint_get_param(((p_joint : gd.RID)), ((p_param : gd.physicsserver3d.SliderJointParam)));
+	public function joint_make_cone_twist(p_joint:gd.RID, p_body_A:gd.RID, p_local_ref_A:gd.Transform3D, p_body_B:gd.RID, p_local_ref_B:gd.Transform3D):Void __physicsserver3d_ptr().value.joint_make_cone_twist(((p_joint : gd.RID)), ((p_body_A : gd.RID)), ((p_local_ref_A : gd.Transform3D)), ((p_body_B : gd.RID)), ((p_local_ref_B : gd.Transform3D)));
 	public function cone_twist_joint_set_param(p_joint:gd.RID, p_param:gd.physicsserver3d.ConeTwistJointParam, p_value:Float):Void __physicsserver3d_ptr().value.cone_twist_joint_set_param(((p_joint : gd.RID)), ((p_param : gd.physicsserver3d.ConeTwistJointParam)), ((p_value : Float)));
 	public function cone_twist_joint_get_param(p_joint:gd.RID, p_param:gd.physicsserver3d.ConeTwistJointParam):Float return __physicsserver3d_ptr().value.cone_twist_joint_get_param(((p_joint : gd.RID)), ((p_param : gd.physicsserver3d.ConeTwistJointParam)));
 	public function joint_get_type(p_joint:gd.RID):gd.physicsserver3d.JointType return __physicsserver3d_ptr().value.joint_get_type(((p_joint : gd.RID)));
@@ -174,6 +194,7 @@ class PhysicsServer3D extends gd.Object {
 	public function joint_get_solver_priority(p_joint:gd.RID):Int return __physicsserver3d_ptr().value.joint_get_solver_priority(((p_joint : gd.RID)));
 	public function joint_disable_collisions_between_bodies(p_joint:gd.RID, p_disable:Bool):Void __physicsserver3d_ptr().value.joint_disable_collisions_between_bodies(((p_joint : gd.RID)), ((p_disable : Bool)));
 	public function joint_is_disabled_collisions_between_bodies(p_joint:gd.RID):Bool return __physicsserver3d_ptr().value.joint_is_disabled_collisions_between_bodies(((p_joint : gd.RID)));
+	public function joint_make_generic_6dof(p_joint:gd.RID, p_body_A:gd.RID, p_local_ref_A:gd.Transform3D, p_body_B:gd.RID, p_local_ref_B:gd.Transform3D):Void __physicsserver3d_ptr().value.joint_make_generic_6dof(((p_joint : gd.RID)), ((p_body_A : gd.RID)), ((p_local_ref_A : gd.Transform3D)), ((p_body_B : gd.RID)), ((p_local_ref_B : gd.Transform3D)));
 	public function generic_6dof_joint_set_param(p_joint:gd.RID, p_axis:gd.vector3.Axis, p_param:gd.physicsserver3d.G6DOFJointAxisParam, p_value:Float):Void __physicsserver3d_ptr().value.generic_6dof_joint_set_param(((p_joint : gd.RID)), ((p_axis : gd.vector3.Axis)), ((p_param : gd.physicsserver3d.G6DOFJointAxisParam)), ((p_value : Float)));
 	public function generic_6dof_joint_get_param(p_joint:gd.RID, p_axis:gd.vector3.Axis, p_param:gd.physicsserver3d.G6DOFJointAxisParam):Float return __physicsserver3d_ptr().value.generic_6dof_joint_get_param(((p_joint : gd.RID)), ((p_axis : gd.vector3.Axis)), ((p_param : gd.physicsserver3d.G6DOFJointAxisParam)));
 	public function generic_6dof_joint_set_flag(p_joint:gd.RID, p_axis:gd.vector3.Axis, p_flag:gd.physicsserver3d.G6DOFJointAxisFlag, p_enable:Bool):Void __physicsserver3d_ptr().value.generic_6dof_joint_set_flag(((p_joint : gd.RID)), ((p_axis : gd.vector3.Axis)), ((p_flag : gd.physicsserver3d.G6DOFJointAxisFlag)), ((p_enable : Bool)));

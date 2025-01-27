@@ -5,6 +5,8 @@ extern class PhysicsShapeQueryParameters2D extends gd.RefCounted {
 	function get_shape():gd.Resource;
 	function set_shape_rid(p_shape:gd.RID):gd.RID;
 	function get_shape_rid():gd.RID;
+	function set_transform(p_transform:gd.Transform2D):gd.Transform2D;
+	function get_transform():gd.Transform2D;
 	function set_motion(p_motion:gd.Vector2):gd.Vector2;
 	function get_motion():gd.Vector2;
 	function set_margin(p_margin:Float):Float;
@@ -20,6 +22,7 @@ extern class PhysicsShapeQueryParameters2D extends gd.RefCounted {
 	var motion(get, set) : gd.Vector2;
 	var shape(get, set) : gd.Resource;
 	var shape_rid(get, set) : gd.RID;
+	var transform(get, set) : gd.Transform2D;
 	var collide_with_bodies(get, set) : Bool;
 	function get_collide_with_bodies():Bool;
 	var collide_with_areas(get, set) : Bool;

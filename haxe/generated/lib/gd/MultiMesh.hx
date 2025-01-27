@@ -13,6 +13,10 @@ extern class MultiMesh extends gd.Resource {
 	function get_instance_count():Int;
 	function set_visible_instance_count(p_count:Int):Int;
 	function get_visible_instance_count():Int;
+	function set_instance_transform(p_instance:Int, p_transform:gd.Transform3D):Void;
+	function set_instance_transform_2d(p_instance:Int, p_transform:gd.Transform2D):Void;
+	function get_instance_transform(p_instance:Int):gd.Transform3D;
+	function get_instance_transform_2d(p_instance:Int):gd.Transform2D;
 	function set_instance_color(p_instance:Int, p_color:gd.Color):Void;
 	function get_instance_color(p_instance:Int):gd.Color;
 	function set_instance_custom_data(p_instance:Int, p_custom_data:gd.Color):Void;

@@ -5,6 +5,8 @@ package gdnative;
 	function get_shape():gdnative.Resource;
 	function set_shape_rid(p_shape:gdnative.RID):Void;
 	function get_shape_rid():gdnative.RID;
+	function set_transform(p_transform:gdnative.Transform2D):Void;
+	function get_transform():gdnative.Transform2D;
 	function set_motion(p_motion:gdnative.Vector2):Void;
 	function get_motion():gdnative.Vector2;
 	function set_margin(p_margin:Float):Void;

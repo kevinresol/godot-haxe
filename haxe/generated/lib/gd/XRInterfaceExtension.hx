@@ -13,6 +13,8 @@ extern class XRInterfaceExtension extends gd.XRInterface {
 	function _get_play_area():gd.PackedVector3Array;
 	function _get_render_target_size():gd.Vector2;
 	function _get_view_count():Int;
+	function _get_camera_transform():gd.Transform3D;
+	function _get_transform_for_view(p_view:Int, p_cam_transform:gd.Transform3D):gd.Transform3D;
 	function _get_projection_for_view(p_view:Int, p_aspect:Float, p_z_near:Float, p_z_far:Float):gd.PackedFloat64Array;
 	function _get_vrs_texture():gd.RID;
 	function _process():Void;

@@ -1,6 +1,8 @@
 package gdnative;
 @:include("godot_cpp/classes/node3d.hpp") @:native("godot::Node3D") @:structAccess extern class Node3D_extern extends gdnative.Node.Node_extern {
 	extern static inline function __alloc():cpp.Pointer<Node3D_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::Node3D"));
+	function set_transform(p_local:gdnative.Transform3D):Void;
+	function get_transform():gdnative.Transform3D;
 	function set_position(p_position:gdnative.Vector3):Void;
 	function get_position():gdnative.Vector3;
 	function set_rotation(p_euler_radians:gdnative.Vector3):Void;
@@ -17,6 +19,8 @@ package gdnative;
 	function get_quaternion():gdnative.Quaternion;
 	function set_basis(p_basis:gdnative.Basis):Void;
 	function get_basis():gdnative.Basis;
+	function set_global_transform(p_global:gdnative.Transform3D):Void;
+	function get_global_transform():gdnative.Transform3D;
 	function set_global_position(p_position:gdnative.Vector3):Void;
 	function get_global_position():gdnative.Vector3;
 	function set_global_basis(p_basis:gdnative.Basis):Void;
@@ -38,6 +42,7 @@ package gdnative;
 	function update_gizmos():Void;
 	function add_gizmo(p_gizmo:gdnative.Node3DGizmo):Void;
 	function clear_gizmos():Void;
+	function set_subgizmo_selection(p_gizmo:gdnative.Node3DGizmo, p_id:Int, p_transform:gdnative.Transform3D):Void;
 	function clear_subgizmo_selection():Void;
 	function set_visible(p_visible:Bool):Void;
 	function is_visible():Bool;

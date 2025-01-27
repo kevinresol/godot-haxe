@@ -33,6 +33,7 @@ package gdnative;
 	overload function create_from_arrays(p_arrays:gdnative.Array):Void;
 	overload function create_from_arrays(p_arrays:gdnative.Array, p_primitive_type:gdnative.mesh.PrimitiveType):Void;
 	function create_from_blend_shape(p_existing:gdnative.Mesh, p_surface:Int, p_blend_shape:gdnative.String):Void;
+	function append_from(p_existing:gdnative.Mesh, p_surface:Int, p_transform:gdnative.Transform3D):Void;
 	overload function commit():gdnative.ArrayMesh;
 	overload function commit(p_existing:gdnative.ArrayMesh):gdnative.ArrayMesh;
 	overload function commit(p_existing:gdnative.ArrayMesh, p_flags:Int):gdnative.ArrayMesh;

@@ -22,6 +22,7 @@ extern class Curve3D extends gd.Resource {
 	function is_up_vector_enabled():Bool;
 	function get_baked_length():Float;
 	function sample_baked(?p_offset:Float, ?p_cubic:Bool):gd.Vector3;
+	function sample_baked_with_rotation(?p_offset:Float, ?p_cubic:Bool, ?p_apply_tilt:Bool):gd.Transform3D;
 	function sample_baked_up_vector(p_offset:Float, ?p_apply_tilt:Bool):gd.Vector3;
 	function get_baked_points():gd.PackedVector3Array;
 	function get_baked_tilts():gd.PackedFloat32Array;

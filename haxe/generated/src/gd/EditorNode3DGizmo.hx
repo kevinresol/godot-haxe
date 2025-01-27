@@ -17,10 +17,18 @@ class EditorNode3DGizmo extends gd.Node3DGizmo {
 	public function _set_handle(p_id:Int, p_secondary:Bool, p_camera:gd.Camera3D, p_point:gd.Vector2):Void __editornode3dgizmo_ptr().value._set_handle(((p_id : Int)), ((p_secondary : Bool)), ((p_camera : gd.Camera3D)), ((p_point : gd.Vector2)));
 	public function _commit_handle(p_id:Int, p_secondary:Bool, p_restore:gd.Variant, p_cancel:Bool):Void __editornode3dgizmo_ptr().value._commit_handle(((p_id : Int)), ((p_secondary : Bool)), ((p_restore : gd.Variant)), ((p_cancel : Bool)));
 	public function _subgizmos_intersect_ray(p_camera:gd.Camera3D, p_point:gd.Vector2):Int return __editornode3dgizmo_ptr().value._subgizmos_intersect_ray(((p_camera : gd.Camera3D)), ((p_point : gd.Vector2)));
+	public function _set_subgizmo_transform(p_id:Int, p_transform:gd.Transform3D):Void __editornode3dgizmo_ptr().value._set_subgizmo_transform(((p_id : Int)), ((p_transform : gd.Transform3D)));
+	public function _get_subgizmo_transform(p_id:Int):gd.Transform3D return __editornode3dgizmo_ptr().value._get_subgizmo_transform(((p_id : Int)));
 	public function add_lines(p_lines:gd.PackedVector3Array, p_material:gd.Material, ?p_billboard:Bool, ?p_modulate:gd.Color):Void switch [p_lines, p_material, p_billboard, p_modulate] {
 		case [_, _, null, _]:__editornode3dgizmo_ptr().value.add_lines(((p_lines : gd.PackedVector3Array)), ((p_material : gd.Material)));
 		case [_, _, _, null]:__editornode3dgizmo_ptr().value.add_lines(((p_lines : gd.PackedVector3Array)), ((p_material : gd.Material)), ((p_billboard : Bool)));
 		default:__editornode3dgizmo_ptr().value.add_lines(((p_lines : gd.PackedVector3Array)), ((p_material : gd.Material)), ((p_billboard : Bool)), ((p_modulate : gd.Color)));
+	};
+	public function add_mesh(p_mesh:gd.Mesh, ?p_material:gd.Material, ?p_transform:gd.Transform3D, ?p_skeleton:gd.SkinReference):Void switch [p_mesh, p_material, p_transform, p_skeleton] {
+		case [_, null, _, _]:__editornode3dgizmo_ptr().value.add_mesh(((p_mesh : gd.Mesh)));
+		case [_, _, null, _]:__editornode3dgizmo_ptr().value.add_mesh(((p_mesh : gd.Mesh)), ((p_material : gd.Material)));
+		case [_, _, _, null]:__editornode3dgizmo_ptr().value.add_mesh(((p_mesh : gd.Mesh)), ((p_material : gd.Material)), ((p_transform : gd.Transform3D)));
+		default:__editornode3dgizmo_ptr().value.add_mesh(((p_mesh : gd.Mesh)), ((p_material : gd.Material)), ((p_transform : gd.Transform3D)), ((p_skeleton : gd.SkinReference)));
 	};
 	public function add_collision_segments(p_segments:gd.PackedVector3Array):Void __editornode3dgizmo_ptr().value.add_collision_segments(((p_segments : gd.PackedVector3Array)));
 	public function add_collision_triangles(p_triangles:gd.TriangleMesh):Void __editornode3dgizmo_ptr().value.add_collision_triangles(((p_triangles : gd.TriangleMesh)));

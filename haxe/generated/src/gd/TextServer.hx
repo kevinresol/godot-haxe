@@ -68,6 +68,8 @@ class TextServer extends gd.RefCounted {
 	public function font_get_spacing(p_font_rid:gd.RID, p_spacing:gd.textserver.SpacingType):Int return __textserver_ptr().value.font_get_spacing(((p_font_rid : gd.RID)), ((p_spacing : gd.textserver.SpacingType)));
 	public function font_set_baseline_offset(p_font_rid:gd.RID, p_baseline_offset:Float):Void __textserver_ptr().value.font_set_baseline_offset(((p_font_rid : gd.RID)), ((p_baseline_offset : Float)));
 	public function font_get_baseline_offset(p_font_rid:gd.RID):Float return __textserver_ptr().value.font_get_baseline_offset(((p_font_rid : gd.RID)));
+	public function font_set_transform(p_font_rid:gd.RID, p_transform:gd.Transform2D):Void __textserver_ptr().value.font_set_transform(((p_font_rid : gd.RID)), ((p_transform : gd.Transform2D)));
+	public function font_get_transform(p_font_rid:gd.RID):gd.Transform2D return __textserver_ptr().value.font_get_transform(((p_font_rid : gd.RID)));
 	public function font_set_variation_coordinates(p_font_rid:gd.RID, p_variation_coordinates:gd.Dictionary):Void __textserver_ptr().value.font_set_variation_coordinates(((p_font_rid : gd.RID)), ((p_variation_coordinates : gd.Dictionary)));
 	public function font_get_variation_coordinates(p_font_rid:gd.RID):gd.Dictionary return __textserver_ptr().value.font_get_variation_coordinates(((p_font_rid : gd.RID)));
 	public function font_set_oversampling(p_font_rid:gd.RID, p_oversampling:Float):Void __textserver_ptr().value.font_set_oversampling(((p_font_rid : gd.RID)), ((p_oversampling : Float)));

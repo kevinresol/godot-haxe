@@ -20,6 +20,7 @@ package gdnative;
 	function surface_set_name(p_surf_idx:Int, p_name:gdnative.String):Void;
 	function surface_get_name(p_surf_idx:Int):gdnative.String;
 	function regen_normal_maps():Void;
+	function lightmap_unwrap(p_transform:gdnative.Transform3D, p_texel_size:Float):gdnative.Error;
 	function set_custom_aabb(p_aabb:gdnative.AABB):Void;
 	function get_custom_aabb():gdnative.AABB;
 	function set_shadow_mesh(p_mesh:gdnative.ArrayMesh):Void;

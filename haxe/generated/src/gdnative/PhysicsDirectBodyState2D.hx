@@ -12,6 +12,8 @@ package gdnative;
 	function get_linear_velocity():gdnative.Vector2;
 	function set_angular_velocity(p_velocity:Float):Void;
 	function get_angular_velocity():Float;
+	function set_transform(p_transform:gdnative.Transform2D):Void;
+	function get_transform():gdnative.Transform2D;
 	function get_velocity_at_local_position(p_local_position:gdnative.Vector2):gdnative.Vector2;
 	function apply_central_impulse(p_impulse:gdnative.Vector2):Void;
 	function apply_torque_impulse(p_impulse:Float):Void;

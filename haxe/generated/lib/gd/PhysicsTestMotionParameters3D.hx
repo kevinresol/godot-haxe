@@ -1,6 +1,8 @@
 package gd;
 extern class PhysicsTestMotionParameters3D extends gd.RefCounted {
 	function new(?owner:Dynamic);
+	function get_from():gd.Transform3D;
+	function set_from(p_from:gd.Transform3D):gd.Transform3D;
 	function get_motion():gd.Vector3;
 	function set_motion(p_motion:gd.Vector3):gd.Vector3;
 	function get_margin():Float;
@@ -11,6 +13,7 @@ extern class PhysicsTestMotionParameters3D extends gd.RefCounted {
 	function set_collide_separation_ray_enabled(p_enabled:Bool):Void;
 	function is_recovery_as_collision_enabled():Bool;
 	function set_recovery_as_collision_enabled(p_enabled:Bool):Void;
+	var from(get, set) : gd.Transform3D;
 	var motion(get, set) : gd.Vector3;
 	var margin(get, set) : Float;
 	var max_collisions(get, set) : Int;

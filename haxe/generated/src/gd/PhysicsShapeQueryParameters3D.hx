@@ -19,6 +19,11 @@ class PhysicsShapeQueryParameters3D extends gd.RefCounted {
 		return p_shape;
 	}
 	public function get_shape_rid():gd.RID return __physicsshapequeryparameters3d_ptr().value.get_shape_rid();
+	public function set_transform(p_transform:gd.Transform3D):gd.Transform3D {
+		__physicsshapequeryparameters3d_ptr().value.set_transform(((p_transform : gd.Transform3D)));
+		return p_transform;
+	}
+	public function get_transform():gd.Transform3D return __physicsshapequeryparameters3d_ptr().value.get_transform();
 	public function set_motion(p_motion:gd.Vector3):gd.Vector3 {
 		__physicsshapequeryparameters3d_ptr().value.set_motion(((p_motion : gd.Vector3)));
 		return p_motion;
@@ -49,6 +54,7 @@ class PhysicsShapeQueryParameters3D extends gd.RefCounted {
 	public var motion(get, set) : gd.Vector3;
 	public var shape(get, set) : gd.Resource;
 	public var shape_rid(get, set) : gd.RID;
+	public var transform(get, set) : gd.Transform3D;
 	public var collide_with_bodies(get, set) : Bool;
 	function get_collide_with_bodies():Bool return is_collide_with_bodies_enabled();
 	public var collide_with_areas(get, set) : Bool;

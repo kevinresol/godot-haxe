@@ -202,18 +202,30 @@ class CanvasItem extends gd.Node {
 		case [_, _, _, _, _, null]:__canvasitem_ptr().value.draw_char_outline(((p_font : gd.Font)), ((p_pos : gd.Vector2)), ((p_char : std.String)), ((p_font_size : Int)), ((p_size : Int)));
 		default:__canvasitem_ptr().value.draw_char_outline(((p_font : gd.Font)), ((p_pos : gd.Vector2)), ((p_char : std.String)), ((p_font_size : Int)), ((p_size : Int)), ((p_modulate : gd.Color)));
 	};
+	public function draw_mesh(p_mesh:gd.Mesh, p_texture:gd.Texture2D, ?p_transform:gd.Transform2D, ?p_modulate:gd.Color):Void switch [p_mesh, p_texture, p_transform, p_modulate] {
+		case [_, _, null, _]:__canvasitem_ptr().value.draw_mesh(((p_mesh : gd.Mesh)), ((p_texture : gd.Texture2D)));
+		case [_, _, _, null]:__canvasitem_ptr().value.draw_mesh(((p_mesh : gd.Mesh)), ((p_texture : gd.Texture2D)), ((p_transform : gd.Transform2D)));
+		default:__canvasitem_ptr().value.draw_mesh(((p_mesh : gd.Mesh)), ((p_texture : gd.Texture2D)), ((p_transform : gd.Transform2D)), ((p_modulate : gd.Color)));
+	};
 	public function draw_multimesh(p_multimesh:gd.MultiMesh, p_texture:gd.Texture2D):Void __canvasitem_ptr().value.draw_multimesh(((p_multimesh : gd.MultiMesh)), ((p_texture : gd.Texture2D)));
 	public function draw_set_transform(p_position:gd.Vector2, ?p_rotation:Float, ?p_scale:gd.Vector2):Void switch [p_position, p_rotation, p_scale] {
 		case [_, null, _]:__canvasitem_ptr().value.draw_set_transform(((p_position : gd.Vector2)));
 		case [_, _, null]:__canvasitem_ptr().value.draw_set_transform(((p_position : gd.Vector2)), ((p_rotation : Float)));
 		default:__canvasitem_ptr().value.draw_set_transform(((p_position : gd.Vector2)), ((p_rotation : Float)), ((p_scale : gd.Vector2)));
 	};
+	public function draw_set_transform_matrix(p_xform:gd.Transform2D):Void __canvasitem_ptr().value.draw_set_transform_matrix(((p_xform : gd.Transform2D)));
 	public function draw_animation_slice(p_animation_length:Float, p_slice_begin:Float, p_slice_end:Float, ?p_offset:Float):Void switch [p_animation_length, p_slice_begin, p_slice_end, p_offset] {
 		case [_, _, _, null]:__canvasitem_ptr().value.draw_animation_slice(((p_animation_length : Float)), ((p_slice_begin : Float)), ((p_slice_end : Float)));
 		default:__canvasitem_ptr().value.draw_animation_slice(((p_animation_length : Float)), ((p_slice_begin : Float)), ((p_slice_end : Float)), ((p_offset : Float)));
 	};
 	public function draw_end_animation():Void __canvasitem_ptr().value.draw_end_animation();
+	public function get_transform():gd.Transform2D return __canvasitem_ptr().value.get_transform();
+	public function get_global_transform():gd.Transform2D return __canvasitem_ptr().value.get_global_transform();
+	public function get_global_transform_with_canvas():gd.Transform2D return __canvasitem_ptr().value.get_global_transform_with_canvas();
+	public function get_viewport_transform():gd.Transform2D return __canvasitem_ptr().value.get_viewport_transform();
 	public function get_viewport_rect():gd.Rect2 return __canvasitem_ptr().value.get_viewport_rect();
+	public function get_canvas_transform():gd.Transform2D return __canvasitem_ptr().value.get_canvas_transform();
+	public function get_screen_transform():gd.Transform2D return __canvasitem_ptr().value.get_screen_transform();
 	public function get_local_mouse_position():gd.Vector2 return __canvasitem_ptr().value.get_local_mouse_position();
 	public function get_global_mouse_position():gd.Vector2 return __canvasitem_ptr().value.get_global_mouse_position();
 	public function get_canvas():gd.RID return __canvasitem_ptr().value.get_canvas();

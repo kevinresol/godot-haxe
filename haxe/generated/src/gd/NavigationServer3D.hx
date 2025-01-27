@@ -58,6 +58,8 @@ class NavigationServer3D extends gd.Object {
 	public function region_get_map(p_region:gd.RID):gd.RID return __navigationserver3d_ptr().value.region_get_map(((p_region : gd.RID)));
 	public function region_set_navigation_layers(p_region:gd.RID, p_navigation_layers:Int):Void __navigationserver3d_ptr().value.region_set_navigation_layers(((p_region : gd.RID)), ((p_navigation_layers : Int)));
 	public function region_get_navigation_layers(p_region:gd.RID):Int return __navigationserver3d_ptr().value.region_get_navigation_layers(((p_region : gd.RID)));
+	public function region_set_transform(p_region:gd.RID, p_transform:gd.Transform3D):Void __navigationserver3d_ptr().value.region_set_transform(((p_region : gd.RID)), ((p_transform : gd.Transform3D)));
+	public function region_get_transform(p_region:gd.RID):gd.Transform3D return __navigationserver3d_ptr().value.region_get_transform(((p_region : gd.RID)));
 	public function region_set_navigation_mesh(p_region:gd.RID, p_navigation_mesh:gd.NavigationMesh):Void __navigationserver3d_ptr().value.region_set_navigation_mesh(((p_region : gd.RID)), ((p_navigation_mesh : gd.NavigationMesh)));
 	public function region_bake_navigation_mesh(p_navigation_mesh:gd.NavigationMesh, p_root_node:gd.Node):Void __navigationserver3d_ptr().value.region_bake_navigation_mesh(((p_navigation_mesh : gd.NavigationMesh)), ((p_root_node : gd.Node)));
 	public function region_get_connections_count(p_region:gd.RID):Int return __navigationserver3d_ptr().value.region_get_connections_count(((p_region : gd.RID)));

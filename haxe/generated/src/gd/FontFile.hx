@@ -95,6 +95,8 @@ class FontFile extends gd.Font {
 	public function get_variation_coordinates(p_cache_index:Int):gd.Dictionary return __fontfile_ptr().value.get_variation_coordinates(((p_cache_index : Int)));
 	public function set_embolden(p_cache_index:Int, p_strength:Float):Void __fontfile_ptr().value.set_embolden(((p_cache_index : Int)), ((p_strength : Float)));
 	public function get_embolden(p_cache_index:Int):Float return __fontfile_ptr().value.get_embolden(((p_cache_index : Int)));
+	public function set_transform(p_cache_index:Int, p_transform:gd.Transform2D):Void __fontfile_ptr().value.set_transform(((p_cache_index : Int)), ((p_transform : gd.Transform2D)));
+	public function get_transform(p_cache_index:Int):gd.Transform2D return __fontfile_ptr().value.get_transform(((p_cache_index : Int)));
 	public function set_extra_spacing(p_cache_index:Int, p_spacing:gd.textserver.SpacingType, p_value:Int):Void __fontfile_ptr().value.set_extra_spacing(((p_cache_index : Int)), ((p_spacing : gd.textserver.SpacingType)), ((p_value : Int)));
 	public function get_extra_spacing(p_cache_index:Int, p_spacing:gd.textserver.SpacingType):Int return __fontfile_ptr().value.get_extra_spacing(((p_cache_index : Int)), ((p_spacing : gd.textserver.SpacingType)));
 	public function set_extra_baseline_offset(p_cache_index:Int, p_baseline_offset:Float):Void __fontfile_ptr().value.set_extra_baseline_offset(((p_cache_index : Int)), ((p_baseline_offset : Float)));

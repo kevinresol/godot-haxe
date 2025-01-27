@@ -44,6 +44,8 @@ extern class NavigationServer3D extends gd.Object {
 	function region_get_map(p_region:gd.RID):gd.RID;
 	function region_set_navigation_layers(p_region:gd.RID, p_navigation_layers:Int):Void;
 	function region_get_navigation_layers(p_region:gd.RID):Int;
+	function region_set_transform(p_region:gd.RID, p_transform:gd.Transform3D):Void;
+	function region_get_transform(p_region:gd.RID):gd.Transform3D;
 	function region_set_navigation_mesh(p_region:gd.RID, p_navigation_mesh:gd.NavigationMesh):Void;
 	function region_bake_navigation_mesh(p_navigation_mesh:gd.NavigationMesh, p_root_node:gd.Node):Void;
 	function region_get_connections_count(p_region:gd.RID):Int;

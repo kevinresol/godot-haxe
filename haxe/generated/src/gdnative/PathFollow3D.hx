@@ -19,6 +19,7 @@ package gdnative;
 	function has_loop():Bool;
 	function set_tilt_enabled(p_enabled:Bool):Void;
 	function is_tilt_enabled():Bool;
+	static function correct_posture(p_transform:gdnative.Transform3D, p_rotation_mode:gdnative.pathfollow3d.RotationMode):gdnative.Transform3D;
 }
 @:forward abstract PathFollow3D(cpp.Pointer<PathFollow3D_extern>) from cpp.Pointer<PathFollow3D_extern> to cpp.Pointer<PathFollow3D_extern> {
 	@:from

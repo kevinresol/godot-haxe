@@ -27,10 +27,13 @@ extern class Node2D extends gd.CanvasItem {
 	function get_global_skew():Float;
 	function set_global_scale(p_scale:gd.Vector2):gd.Vector2;
 	function get_global_scale():gd.Vector2;
+	function set_transform(p_xform:gd.Transform2D):Void;
+	function set_global_transform(p_xform:gd.Transform2D):Void;
 	function look_at(p_point:gd.Vector2):Void;
 	function get_angle_to(p_point:gd.Vector2):Float;
 	function to_local(p_global_point:gd.Vector2):gd.Vector2;
 	function to_global(p_local_point:gd.Vector2):gd.Vector2;
+	function get_relative_transform_to_parent(p_parent:gd.Node):gd.Transform2D;
 	var position(get, set) : gd.Vector2;
 	var rotation(get, set) : Float;
 	var rotation_degrees(get, set) : Float;

@@ -36,6 +36,8 @@ extern class NavigationServer2D extends gd.Object {
 	function region_get_map(p_region:gd.RID):gd.RID;
 	function region_set_navigation_layers(p_region:gd.RID, p_navigation_layers:Int):Void;
 	function region_get_navigation_layers(p_region:gd.RID):Int;
+	function region_set_transform(p_region:gd.RID, p_transform:gd.Transform2D):Void;
+	function region_get_transform(p_region:gd.RID):gd.Transform2D;
 	function region_set_navigation_polygon(p_region:gd.RID, p_navigation_polygon:gd.NavigationPolygon):Void;
 	function region_get_connections_count(p_region:gd.RID):Int;
 	function region_get_connection_pathway_start(p_region:gd.RID, p_connection:Int):gd.Vector2;

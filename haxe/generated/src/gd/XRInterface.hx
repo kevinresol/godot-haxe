@@ -32,6 +32,7 @@ class XRInterface extends gd.RefCounted {
 	public function is_passthrough_enabled():Bool return __xrinterface_ptr().value.is_passthrough_enabled();
 	public function start_passthrough():Bool return __xrinterface_ptr().value.start_passthrough();
 	public function stop_passthrough():Void __xrinterface_ptr().value.stop_passthrough();
+	public function get_transform_for_view(p_view:Int, p_cam_transform:gd.Transform3D):gd.Transform3D return __xrinterface_ptr().value.get_transform_for_view(((p_view : Int)), ((p_cam_transform : gd.Transform3D)));
 	public function get_supported_environment_blend_modes():gd.Array return __xrinterface_ptr().value.get_supported_environment_blend_modes();
 	public function set_environment_blend_mode(p_mode:gd.xrinterface.EnvironmentBlendMode):Bool return __xrinterface_ptr().value.set_environment_blend_mode(((p_mode : gd.xrinterface.EnvironmentBlendMode)));
 	public function get_environment_blend_mode():gd.xrinterface.EnvironmentBlendMode return __xrinterface_ptr().value.get_environment_blend_mode();

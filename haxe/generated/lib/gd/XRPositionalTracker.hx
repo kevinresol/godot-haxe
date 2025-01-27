@@ -8,6 +8,7 @@ extern class XRPositionalTracker extends gd.XRTracker {
 	function has_pose(p_name:std.String):Bool;
 	function get_pose(p_name:std.String):gd.XRPose;
 	function invalidate_pose(p_name:std.String):Void;
+	function set_pose(p_name:std.String, p_transform:gd.Transform3D, p_linear_velocity:gd.Vector3, p_angular_velocity:gd.Vector3, p_tracking_confidence:gd.xrpose.TrackingConfidence):Void;
 	function get_input(p_name:std.String):gd.Variant;
 	function set_input(p_name:std.String, p_value:gd.Variant):Void;
 	var profile(get, set) : std.String;

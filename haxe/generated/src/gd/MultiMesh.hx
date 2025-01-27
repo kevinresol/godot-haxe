@@ -39,6 +39,10 @@ class MultiMesh extends gd.Resource {
 		return p_count;
 	}
 	public function get_visible_instance_count():Int return __multimesh_ptr().value.get_visible_instance_count();
+	public function set_instance_transform(p_instance:Int, p_transform:gd.Transform3D):Void __multimesh_ptr().value.set_instance_transform(((p_instance : Int)), ((p_transform : gd.Transform3D)));
+	public function set_instance_transform_2d(p_instance:Int, p_transform:gd.Transform2D):Void __multimesh_ptr().value.set_instance_transform_2d(((p_instance : Int)), ((p_transform : gd.Transform2D)));
+	public function get_instance_transform(p_instance:Int):gd.Transform3D return __multimesh_ptr().value.get_instance_transform(((p_instance : Int)));
+	public function get_instance_transform_2d(p_instance:Int):gd.Transform2D return __multimesh_ptr().value.get_instance_transform_2d(((p_instance : Int)));
 	public function set_instance_color(p_instance:Int, p_color:gd.Color):Void __multimesh_ptr().value.set_instance_color(((p_instance : Int)), ((p_color : gd.Color)));
 	public function get_instance_color(p_instance:Int):gd.Color return __multimesh_ptr().value.get_instance_color(((p_instance : Int)));
 	public function set_instance_custom_data(p_instance:Int, p_custom_data:gd.Color):Void __multimesh_ptr().value.set_instance_custom_data(((p_instance : Int)), ((p_custom_data : gd.Color)));

@@ -60,6 +60,8 @@ package gdnative;
 	function font_get_spacing(p_font_rid:gdnative.RID, p_spacing:gdnative.textserver.SpacingType):Int;
 	function font_set_baseline_offset(p_font_rid:gdnative.RID, p_baseline_offset:Float):Void;
 	function font_get_baseline_offset(p_font_rid:gdnative.RID):Float;
+	function font_set_transform(p_font_rid:gdnative.RID, p_transform:gdnative.Transform2D):Void;
+	function font_get_transform(p_font_rid:gdnative.RID):gdnative.Transform2D;
 	function font_set_variation_coordinates(p_font_rid:gdnative.RID, p_variation_coordinates:gdnative.Dictionary):Void;
 	function font_get_variation_coordinates(p_font_rid:gdnative.RID):gdnative.Dictionary;
 	function font_set_oversampling(p_font_rid:gdnative.RID, p_oversampling:Float):Void;

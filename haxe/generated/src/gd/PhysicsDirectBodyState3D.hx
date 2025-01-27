@@ -28,6 +28,11 @@ class PhysicsDirectBodyState3D extends gd.Object {
 		return p_velocity;
 	}
 	public function get_angular_velocity():gd.Vector3 return __physicsdirectbodystate3d_ptr().value.get_angular_velocity();
+	public function set_transform(p_transform:gd.Transform3D):gd.Transform3D {
+		__physicsdirectbodystate3d_ptr().value.set_transform(((p_transform : gd.Transform3D)));
+		return p_transform;
+	}
+	public function get_transform():gd.Transform3D return __physicsdirectbodystate3d_ptr().value.get_transform();
 	public function get_velocity_at_local_position(p_local_position:gd.Vector3):gd.Vector3 return __physicsdirectbodystate3d_ptr().value.get_velocity_at_local_position(((p_local_position : gd.Vector3)));
 	public function apply_central_impulse(?p_impulse:gd.Vector3):Void switch [p_impulse] {
 		case [null]:__physicsdirectbodystate3d_ptr().value.apply_central_impulse();
@@ -85,4 +90,5 @@ class PhysicsDirectBodyState3D extends gd.Object {
 		set_sleep_state(v);
 		return v;
 	}
+	public var transform(get, set) : gd.Transform3D;
 }

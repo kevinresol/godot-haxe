@@ -16,6 +16,13 @@ class PhysicsBody3D extends gd.CollisionObject3D {
 		case [_, _, _, _, null]:__physicsbody3d_ptr().value.move_and_collide(((p_motion : gd.Vector3)), ((p_test_only : Bool)), ((p_safe_margin : Float)), ((p_recovery_as_collision : Bool)));
 		default:__physicsbody3d_ptr().value.move_and_collide(((p_motion : gd.Vector3)), ((p_test_only : Bool)), ((p_safe_margin : Float)), ((p_recovery_as_collision : Bool)), ((p_max_collisions : Int)));
 	};
+	public function test_move(p_from:gd.Transform3D, p_motion:gd.Vector3, ?p_collision:gd.KinematicCollision3D, ?p_safe_margin:Float, ?p_recovery_as_collision:Bool, ?p_max_collisions:Int):Bool return switch [p_from, p_motion, p_collision, p_safe_margin, p_recovery_as_collision, p_max_collisions] {
+		case [_, _, null, _, _, _]:__physicsbody3d_ptr().value.test_move(((p_from : gd.Transform3D)), ((p_motion : gd.Vector3)));
+		case [_, _, _, null, _, _]:__physicsbody3d_ptr().value.test_move(((p_from : gd.Transform3D)), ((p_motion : gd.Vector3)), ((p_collision : gd.KinematicCollision3D)));
+		case [_, _, _, _, null, _]:__physicsbody3d_ptr().value.test_move(((p_from : gd.Transform3D)), ((p_motion : gd.Vector3)), ((p_collision : gd.KinematicCollision3D)), ((p_safe_margin : Float)));
+		case [_, _, _, _, _, null]:__physicsbody3d_ptr().value.test_move(((p_from : gd.Transform3D)), ((p_motion : gd.Vector3)), ((p_collision : gd.KinematicCollision3D)), ((p_safe_margin : Float)), ((p_recovery_as_collision : Bool)));
+		default:__physicsbody3d_ptr().value.test_move(((p_from : gd.Transform3D)), ((p_motion : gd.Vector3)), ((p_collision : gd.KinematicCollision3D)), ((p_safe_margin : Float)), ((p_recovery_as_collision : Bool)), ((p_max_collisions : Int)));
+	};
 	public function get_gravity():gd.Vector3 return __physicsbody3d_ptr().value.get_gravity();
 	public function set_axis_lock(p_axis:gd.physicsserver3d.BodyAxis, p_lock:Bool):Void __physicsbody3d_ptr().value.set_axis_lock(((p_axis : gd.physicsserver3d.BodyAxis)), ((p_lock : Bool)));
 	public function get_axis_lock(p_axis:gd.physicsserver3d.BodyAxis):Bool return __physicsbody3d_ptr().value.get_axis_lock(((p_axis : gd.physicsserver3d.BodyAxis)));

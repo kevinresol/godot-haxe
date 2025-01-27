@@ -14,6 +14,8 @@ package gdnative;
 	function get_linear_velocity():gdnative.Vector3;
 	function set_angular_velocity(p_velocity:gdnative.Vector3):Void;
 	function get_angular_velocity():gdnative.Vector3;
+	function set_transform(p_transform:gdnative.Transform3D):Void;
+	function get_transform():gdnative.Transform3D;
 	function get_velocity_at_local_position(p_local_position:gdnative.Vector3):gdnative.Vector3;
 	overload function apply_central_impulse():Void;
 	overload function apply_central_impulse(p_impulse:gdnative.Vector3):Void;

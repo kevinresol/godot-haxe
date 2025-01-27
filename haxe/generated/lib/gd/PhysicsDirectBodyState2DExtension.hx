@@ -12,6 +12,8 @@ extern class PhysicsDirectBodyState2DExtension extends gd.PhysicsDirectBodyState
 	function _get_linear_velocity():gd.Vector2;
 	function _set_angular_velocity(p_velocity:Float):Void;
 	function _get_angular_velocity():Float;
+	function _set_transform(p_transform:gd.Transform2D):Void;
+	function _get_transform():gd.Transform2D;
 	function _get_velocity_at_local_position(p_local_position:gd.Vector2):gd.Vector2;
 	function _apply_central_impulse(p_impulse:gd.Vector2):Void;
 	function _apply_impulse(p_impulse:gd.Vector2, p_position:gd.Vector2):Void;

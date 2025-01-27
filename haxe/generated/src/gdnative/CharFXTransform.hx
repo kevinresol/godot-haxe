@@ -1,6 +1,8 @@
 package gdnative;
 @:include("godot_cpp/classes/char_fx_transform.hpp") @:native("godot::CharFXTransform") @:structAccess extern class CharFXTransform_extern extends gdnative.RefCounted.RefCounted_extern {
 	extern static inline function __alloc():cpp.Pointer<CharFXTransform_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::CharFXTransform"));
+	function get_transform():gdnative.Transform2D;
+	function set_transform(p_transform:gdnative.Transform2D):Void;
 	function get_range():gdnative.Vector2i;
 	function set_range(p_range:gdnative.Vector2i):Void;
 	function get_elapsed_time():Float;

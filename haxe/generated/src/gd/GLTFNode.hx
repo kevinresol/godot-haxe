@@ -24,6 +24,11 @@ class GLTFNode extends gd.Resource {
 		__gltfnode_ptr().value.set_height(((p_height : Int)));
 		return p_height;
 	}
+	public function get_xform():gd.Transform3D return __gltfnode_ptr().value.get_xform();
+	public function set_xform(p_xform:gd.Transform3D):gd.Transform3D {
+		__gltfnode_ptr().value.set_xform(((p_xform : gd.Transform3D)));
+		return p_xform;
+	}
 	public function get_mesh():Int return __gltfnode_ptr().value.get_mesh();
 	public function set_mesh(p_mesh:Int):Int {
 		__gltfnode_ptr().value.set_mesh(((p_mesh : Int)));
@@ -74,6 +79,7 @@ class GLTFNode extends gd.Resource {
 	public var original_name(get, set) : std.String;
 	public var parent(get, set) : Int;
 	public var height(get, set) : Int;
+	public var xform(get, set) : gd.Transform3D;
 	public var mesh(get, set) : Int;
 	public var camera(get, set) : Int;
 	public var skin(get, set) : Int;

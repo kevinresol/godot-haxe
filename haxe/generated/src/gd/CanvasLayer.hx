@@ -21,6 +21,12 @@ class CanvasLayer extends gd.Node {
 	public function is_visible():Bool return __canvaslayer_ptr().value.is_visible();
 	public function show():Void __canvaslayer_ptr().value.show();
 	public function hide():Void __canvaslayer_ptr().value.hide();
+	public function set_transform(p_transform:gd.Transform2D):gd.Transform2D {
+		__canvaslayer_ptr().value.set_transform(((p_transform : gd.Transform2D)));
+		return p_transform;
+	}
+	public function get_transform():gd.Transform2D return __canvaslayer_ptr().value.get_transform();
+	public function get_final_transform():gd.Transform2D return __canvaslayer_ptr().value.get_final_transform();
 	public function set_offset(p_offset:gd.Vector2):gd.Vector2 {
 		__canvaslayer_ptr().value.set_offset(((p_offset : gd.Vector2)));
 		return p_offset;
@@ -55,6 +61,7 @@ class CanvasLayer extends gd.Node {
 	public var offset(get, set) : gd.Vector2;
 	public var rotation(get, set) : Float;
 	public var scale(get, set) : gd.Vector2;
+	public var transform(get, set) : gd.Transform2D;
 	public var custom_viewport(get, set) : gd.Node;
 	public var follow_viewport_enabled(get, set) : Bool;
 	function get_follow_viewport_enabled():Bool return is_following_viewport();

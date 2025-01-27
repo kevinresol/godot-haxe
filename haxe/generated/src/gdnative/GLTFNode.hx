@@ -7,6 +7,8 @@ package gdnative;
 	function set_parent(p_parent:Int):Void;
 	function get_height():Int;
 	function set_height(p_height:Int):Void;
+	function get_xform():gdnative.Transform3D;
+	function set_xform(p_xform:gdnative.Transform3D):Void;
 	function get_mesh():Int;
 	function set_mesh(p_mesh:Int):Void;
 	function get_camera():Int;

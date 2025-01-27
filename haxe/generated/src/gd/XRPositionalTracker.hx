@@ -16,6 +16,7 @@ class XRPositionalTracker extends gd.XRTracker {
 	public function has_pose(p_name:std.String):Bool return __xrpositionaltracker_ptr().value.has_pose(((p_name : std.String)));
 	public function get_pose(p_name:std.String):gd.XRPose return __xrpositionaltracker_ptr().value.get_pose(((p_name : std.String)));
 	public function invalidate_pose(p_name:std.String):Void __xrpositionaltracker_ptr().value.invalidate_pose(((p_name : std.String)));
+	public function set_pose(p_name:std.String, p_transform:gd.Transform3D, p_linear_velocity:gd.Vector3, p_angular_velocity:gd.Vector3, p_tracking_confidence:gd.xrpose.TrackingConfidence):Void __xrpositionaltracker_ptr().value.set_pose(((p_name : std.String)), ((p_transform : gd.Transform3D)), ((p_linear_velocity : gd.Vector3)), ((p_angular_velocity : gd.Vector3)), ((p_tracking_confidence : gd.xrpose.TrackingConfidence)));
 	public function get_input(p_name:std.String):gd.Variant return __xrpositionaltracker_ptr().value.get_input(((p_name : std.String)));
 	public function set_input(p_name:std.String, p_value:gd.Variant):Void __xrpositionaltracker_ptr().value.set_input(((p_name : std.String)), ((p_value : gd.Variant)));
 	public var profile(get, set) : std.String;

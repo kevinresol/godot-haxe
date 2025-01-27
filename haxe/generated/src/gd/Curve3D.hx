@@ -48,6 +48,12 @@ class Curve3D extends gd.Resource {
 		case [_, null]:__curve3d_ptr().value.sample_baked(((p_offset : Float)));
 		default:__curve3d_ptr().value.sample_baked(((p_offset : Float)), ((p_cubic : Bool)));
 	};
+	public function sample_baked_with_rotation(?p_offset:Float, ?p_cubic:Bool, ?p_apply_tilt:Bool):gd.Transform3D return switch [p_offset, p_cubic, p_apply_tilt] {
+		case [null, _, _]:__curve3d_ptr().value.sample_baked_with_rotation();
+		case [_, null, _]:__curve3d_ptr().value.sample_baked_with_rotation(((p_offset : Float)));
+		case [_, _, null]:__curve3d_ptr().value.sample_baked_with_rotation(((p_offset : Float)), ((p_cubic : Bool)));
+		default:__curve3d_ptr().value.sample_baked_with_rotation(((p_offset : Float)), ((p_cubic : Bool)), ((p_apply_tilt : Bool)));
+	};
 	public function sample_baked_up_vector(p_offset:Float, ?p_apply_tilt:Bool):gd.Vector3 return switch [p_offset, p_apply_tilt] {
 		case [_, null]:__curve3d_ptr().value.sample_baked_up_vector(((p_offset : Float)));
 		default:__curve3d_ptr().value.sample_baked_up_vector(((p_offset : Float)), ((p_apply_tilt : Bool)));

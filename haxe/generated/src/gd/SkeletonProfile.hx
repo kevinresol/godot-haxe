@@ -42,6 +42,8 @@ class SkeletonProfile extends gd.Resource {
 	public function set_tail_direction(p_bone_idx:Int, p_tail_direction:gd.skeletonprofile.TailDirection):Void __skeletonprofile_ptr().value.set_tail_direction(((p_bone_idx : Int)), ((p_tail_direction : gd.skeletonprofile.TailDirection)));
 	public function get_bone_tail(p_bone_idx:Int):std.String return __skeletonprofile_ptr().value.get_bone_tail(((p_bone_idx : Int)));
 	public function set_bone_tail(p_bone_idx:Int, p_bone_tail:std.String):Void __skeletonprofile_ptr().value.set_bone_tail(((p_bone_idx : Int)), ((p_bone_tail : std.String)));
+	public function get_reference_pose(p_bone_idx:Int):gd.Transform3D return __skeletonprofile_ptr().value.get_reference_pose(((p_bone_idx : Int)));
+	public function set_reference_pose(p_bone_idx:Int, p_bone_name:gd.Transform3D):Void __skeletonprofile_ptr().value.set_reference_pose(((p_bone_idx : Int)), ((p_bone_name : gd.Transform3D)));
 	public function get_handle_offset(p_bone_idx:Int):gd.Vector2 return __skeletonprofile_ptr().value.get_handle_offset(((p_bone_idx : Int)));
 	public function set_handle_offset(p_bone_idx:Int, p_handle_offset:gd.Vector2):Void __skeletonprofile_ptr().value.set_handle_offset(((p_bone_idx : Int)), ((p_handle_offset : gd.Vector2)));
 	public function get_group(p_bone_idx:Int):std.String return __skeletonprofile_ptr().value.get_group(((p_bone_idx : Int)));

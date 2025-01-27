@@ -92,12 +92,16 @@ class RenderingServer extends gd.Object {
 	};
 	public function multimesh_get_instance_count(p_multimesh:gd.RID):Int return __renderingserver_ptr().value.multimesh_get_instance_count(((p_multimesh : gd.RID)));
 	public function multimesh_set_mesh(p_multimesh:gd.RID, p_mesh:gd.RID):Void __renderingserver_ptr().value.multimesh_set_mesh(((p_multimesh : gd.RID)), ((p_mesh : gd.RID)));
+	public function multimesh_instance_set_transform(p_multimesh:gd.RID, p_index:Int, p_transform:gd.Transform3D):Void __renderingserver_ptr().value.multimesh_instance_set_transform(((p_multimesh : gd.RID)), ((p_index : Int)), ((p_transform : gd.Transform3D)));
+	public function multimesh_instance_set_transform_2d(p_multimesh:gd.RID, p_index:Int, p_transform:gd.Transform2D):Void __renderingserver_ptr().value.multimesh_instance_set_transform_2d(((p_multimesh : gd.RID)), ((p_index : Int)), ((p_transform : gd.Transform2D)));
 	public function multimesh_instance_set_color(p_multimesh:gd.RID, p_index:Int, p_color:gd.Color):Void __renderingserver_ptr().value.multimesh_instance_set_color(((p_multimesh : gd.RID)), ((p_index : Int)), ((p_color : gd.Color)));
 	public function multimesh_instance_set_custom_data(p_multimesh:gd.RID, p_index:Int, p_custom_data:gd.Color):Void __renderingserver_ptr().value.multimesh_instance_set_custom_data(((p_multimesh : gd.RID)), ((p_index : Int)), ((p_custom_data : gd.Color)));
 	public function multimesh_get_mesh(p_multimesh:gd.RID):gd.RID return __renderingserver_ptr().value.multimesh_get_mesh(((p_multimesh : gd.RID)));
 	public function multimesh_get_aabb(p_multimesh:gd.RID):gd.AABB return __renderingserver_ptr().value.multimesh_get_aabb(((p_multimesh : gd.RID)));
 	public function multimesh_set_custom_aabb(p_multimesh:gd.RID, p_aabb:gd.AABB):Void __renderingserver_ptr().value.multimesh_set_custom_aabb(((p_multimesh : gd.RID)), ((p_aabb : gd.AABB)));
 	public function multimesh_get_custom_aabb(p_multimesh:gd.RID):gd.AABB return __renderingserver_ptr().value.multimesh_get_custom_aabb(((p_multimesh : gd.RID)));
+	public function multimesh_instance_get_transform(p_multimesh:gd.RID, p_index:Int):gd.Transform3D return __renderingserver_ptr().value.multimesh_instance_get_transform(((p_multimesh : gd.RID)), ((p_index : Int)));
+	public function multimesh_instance_get_transform_2d(p_multimesh:gd.RID, p_index:Int):gd.Transform2D return __renderingserver_ptr().value.multimesh_instance_get_transform_2d(((p_multimesh : gd.RID)), ((p_index : Int)));
 	public function multimesh_instance_get_color(p_multimesh:gd.RID, p_index:Int):gd.Color return __renderingserver_ptr().value.multimesh_instance_get_color(((p_multimesh : gd.RID)), ((p_index : Int)));
 	public function multimesh_instance_get_custom_data(p_multimesh:gd.RID, p_index:Int):gd.Color return __renderingserver_ptr().value.multimesh_instance_get_custom_data(((p_multimesh : gd.RID)), ((p_index : Int)));
 	public function multimesh_set_visible_instances(p_multimesh:gd.RID, p_visible:Int):Void __renderingserver_ptr().value.multimesh_set_visible_instances(((p_multimesh : gd.RID)), ((p_visible : Int)));
@@ -110,6 +114,11 @@ class RenderingServer extends gd.Object {
 		default:__renderingserver_ptr().value.skeleton_allocate_data(((p_skeleton : gd.RID)), ((p_bones : Int)), ((p_is_2d_skeleton : Bool)));
 	};
 	public function skeleton_get_bone_count(p_skeleton:gd.RID):Int return __renderingserver_ptr().value.skeleton_get_bone_count(((p_skeleton : gd.RID)));
+	public function skeleton_bone_set_transform(p_skeleton:gd.RID, p_bone:Int, p_transform:gd.Transform3D):Void __renderingserver_ptr().value.skeleton_bone_set_transform(((p_skeleton : gd.RID)), ((p_bone : Int)), ((p_transform : gd.Transform3D)));
+	public function skeleton_bone_get_transform(p_skeleton:gd.RID, p_bone:Int):gd.Transform3D return __renderingserver_ptr().value.skeleton_bone_get_transform(((p_skeleton : gd.RID)), ((p_bone : Int)));
+	public function skeleton_bone_set_transform_2d(p_skeleton:gd.RID, p_bone:Int, p_transform:gd.Transform2D):Void __renderingserver_ptr().value.skeleton_bone_set_transform_2d(((p_skeleton : gd.RID)), ((p_bone : Int)), ((p_transform : gd.Transform2D)));
+	public function skeleton_bone_get_transform_2d(p_skeleton:gd.RID, p_bone:Int):gd.Transform2D return __renderingserver_ptr().value.skeleton_bone_get_transform_2d(((p_skeleton : gd.RID)), ((p_bone : Int)));
+	public function skeleton_set_base_transform_2d(p_skeleton:gd.RID, p_base_transform:gd.Transform2D):Void __renderingserver_ptr().value.skeleton_set_base_transform_2d(((p_skeleton : gd.RID)), ((p_base_transform : gd.Transform2D)));
 	public function directional_light_create():gd.RID return __renderingserver_ptr().value.directional_light_create();
 	public function omni_light_create():gd.RID return __renderingserver_ptr().value.omni_light_create();
 	public function spot_light_create():gd.RID return __renderingserver_ptr().value.spot_light_create();
@@ -160,11 +169,13 @@ class RenderingServer extends gd.Object {
 	public function decals_set_filter(p_filter:gd.renderingserver.DecalFilter):Void __renderingserver_ptr().value.decals_set_filter(((p_filter : gd.renderingserver.DecalFilter)));
 	public function gi_set_use_half_resolution(p_half_resolution:Bool):Void __renderingserver_ptr().value.gi_set_use_half_resolution(((p_half_resolution : Bool)));
 	public function voxel_gi_create():gd.RID return __renderingserver_ptr().value.voxel_gi_create();
+	public function voxel_gi_allocate_data(p_voxel_gi:gd.RID, p_to_cell_xform:gd.Transform3D, p_aabb:gd.AABB, p_octree_size:gd.Vector3i, p_octree_cells:gd.PackedByteArray, p_data_cells:gd.PackedByteArray, p_distance_field:gd.PackedByteArray, p_level_counts:gd.PackedInt32Array):Void __renderingserver_ptr().value.voxel_gi_allocate_data(((p_voxel_gi : gd.RID)), ((p_to_cell_xform : gd.Transform3D)), ((p_aabb : gd.AABB)), ((p_octree_size : gd.Vector3i)), ((p_octree_cells : gd.PackedByteArray)), ((p_data_cells : gd.PackedByteArray)), ((p_distance_field : gd.PackedByteArray)), ((p_level_counts : gd.PackedInt32Array)));
 	public function voxel_gi_get_octree_size(p_voxel_gi:gd.RID):gd.Vector3i return __renderingserver_ptr().value.voxel_gi_get_octree_size(((p_voxel_gi : gd.RID)));
 	public function voxel_gi_get_octree_cells(p_voxel_gi:gd.RID):gd.PackedByteArray return __renderingserver_ptr().value.voxel_gi_get_octree_cells(((p_voxel_gi : gd.RID)));
 	public function voxel_gi_get_data_cells(p_voxel_gi:gd.RID):gd.PackedByteArray return __renderingserver_ptr().value.voxel_gi_get_data_cells(((p_voxel_gi : gd.RID)));
 	public function voxel_gi_get_distance_field(p_voxel_gi:gd.RID):gd.PackedByteArray return __renderingserver_ptr().value.voxel_gi_get_distance_field(((p_voxel_gi : gd.RID)));
 	public function voxel_gi_get_level_counts(p_voxel_gi:gd.RID):gd.PackedInt32Array return __renderingserver_ptr().value.voxel_gi_get_level_counts(((p_voxel_gi : gd.RID)));
+	public function voxel_gi_get_to_cell_xform(p_voxel_gi:gd.RID):gd.Transform3D return __renderingserver_ptr().value.voxel_gi_get_to_cell_xform(((p_voxel_gi : gd.RID)));
 	public function voxel_gi_set_dynamic_range(p_voxel_gi:gd.RID, p_range:Float):Void __renderingserver_ptr().value.voxel_gi_set_dynamic_range(((p_voxel_gi : gd.RID)), ((p_range : Float)));
 	public function voxel_gi_set_propagation(p_voxel_gi:gd.RID, p_amount:Float):Void __renderingserver_ptr().value.voxel_gi_set_propagation(((p_voxel_gi : gd.RID)), ((p_amount : Float)));
 	public function voxel_gi_set_energy(p_voxel_gi:gd.RID, p_energy:Float):Void __renderingserver_ptr().value.voxel_gi_set_energy(((p_voxel_gi : gd.RID)), ((p_energy : Float)));
@@ -212,10 +223,12 @@ class RenderingServer extends gd.Object {
 	public function particles_request_process(p_particles:gd.RID):Void __renderingserver_ptr().value.particles_request_process(((p_particles : gd.RID)));
 	public function particles_restart(p_particles:gd.RID):Void __renderingserver_ptr().value.particles_restart(((p_particles : gd.RID)));
 	public function particles_set_subemitter(p_particles:gd.RID, p_subemitter_particles:gd.RID):Void __renderingserver_ptr().value.particles_set_subemitter(((p_particles : gd.RID)), ((p_subemitter_particles : gd.RID)));
+	public function particles_emit(p_particles:gd.RID, p_transform:gd.Transform3D, p_velocity:gd.Vector3, p_color:gd.Color, p_custom:gd.Color, p_emit_flags:Int):Void __renderingserver_ptr().value.particles_emit(((p_particles : gd.RID)), ((p_transform : gd.Transform3D)), ((p_velocity : gd.Vector3)), ((p_color : gd.Color)), ((p_custom : gd.Color)), ((p_emit_flags : Int)));
 	public function particles_set_draw_order(p_particles:gd.RID, p_order:gd.renderingserver.ParticlesDrawOrder):Void __renderingserver_ptr().value.particles_set_draw_order(((p_particles : gd.RID)), ((p_order : gd.renderingserver.ParticlesDrawOrder)));
 	public function particles_set_draw_passes(p_particles:gd.RID, p_count:Int):Void __renderingserver_ptr().value.particles_set_draw_passes(((p_particles : gd.RID)), ((p_count : Int)));
 	public function particles_set_draw_pass_mesh(p_particles:gd.RID, p_pass:Int, p_mesh:gd.RID):Void __renderingserver_ptr().value.particles_set_draw_pass_mesh(((p_particles : gd.RID)), ((p_pass : Int)), ((p_mesh : gd.RID)));
 	public function particles_get_current_aabb(p_particles:gd.RID):gd.AABB return __renderingserver_ptr().value.particles_get_current_aabb(((p_particles : gd.RID)));
+	public function particles_set_emission_transform(p_particles:gd.RID, p_transform:gd.Transform3D):Void __renderingserver_ptr().value.particles_set_emission_transform(((p_particles : gd.RID)), ((p_transform : gd.Transform3D)));
 	public function particles_collision_create():gd.RID return __renderingserver_ptr().value.particles_collision_create();
 	public function particles_collision_set_collision_type(p_particles_collision:gd.RID, p_type:gd.renderingserver.ParticlesCollisionType):Void __renderingserver_ptr().value.particles_collision_set_collision_type(((p_particles_collision : gd.RID)), ((p_type : gd.renderingserver.ParticlesCollisionType)));
 	public function particles_collision_set_cull_mask(p_particles_collision:gd.RID, p_mask:Int):Void __renderingserver_ptr().value.particles_collision_set_cull_mask(((p_particles_collision : gd.RID)), ((p_mask : Int)));
@@ -240,6 +253,7 @@ class RenderingServer extends gd.Object {
 	public function camera_set_perspective(p_camera:gd.RID, p_fovy_degrees:Float, p_z_near:Float, p_z_far:Float):Void __renderingserver_ptr().value.camera_set_perspective(((p_camera : gd.RID)), ((p_fovy_degrees : Float)), ((p_z_near : Float)), ((p_z_far : Float)));
 	public function camera_set_orthogonal(p_camera:gd.RID, p_size:Float, p_z_near:Float, p_z_far:Float):Void __renderingserver_ptr().value.camera_set_orthogonal(((p_camera : gd.RID)), ((p_size : Float)), ((p_z_near : Float)), ((p_z_far : Float)));
 	public function camera_set_frustum(p_camera:gd.RID, p_size:Float, p_offset:gd.Vector2, p_z_near:Float, p_z_far:Float):Void __renderingserver_ptr().value.camera_set_frustum(((p_camera : gd.RID)), ((p_size : Float)), ((p_offset : gd.Vector2)), ((p_z_near : Float)), ((p_z_far : Float)));
+	public function camera_set_transform(p_camera:gd.RID, p_transform:gd.Transform3D):Void __renderingserver_ptr().value.camera_set_transform(((p_camera : gd.RID)), ((p_transform : gd.Transform3D)));
 	public function camera_set_cull_mask(p_camera:gd.RID, p_layers:Int):Void __renderingserver_ptr().value.camera_set_cull_mask(((p_camera : gd.RID)), ((p_layers : Int)));
 	public function camera_set_environment(p_camera:gd.RID, p_env:gd.RID):Void __renderingserver_ptr().value.camera_set_environment(((p_camera : gd.RID)), ((p_env : gd.RID)));
 	public function camera_set_camera_attributes(p_camera:gd.RID, p_effects:gd.RID):Void __renderingserver_ptr().value.camera_set_camera_attributes(((p_camera : gd.RID)), ((p_effects : gd.RID)));
@@ -277,8 +291,10 @@ class RenderingServer extends gd.Object {
 	public function viewport_set_snap_2d_vertices_to_pixel(p_viewport:gd.RID, p_enabled:Bool):Void __renderingserver_ptr().value.viewport_set_snap_2d_vertices_to_pixel(((p_viewport : gd.RID)), ((p_enabled : Bool)));
 	public function viewport_set_default_canvas_item_texture_filter(p_viewport:gd.RID, p_filter:gd.renderingserver.CanvasItemTextureFilter):Void __renderingserver_ptr().value.viewport_set_default_canvas_item_texture_filter(((p_viewport : gd.RID)), ((p_filter : gd.renderingserver.CanvasItemTextureFilter)));
 	public function viewport_set_default_canvas_item_texture_repeat(p_viewport:gd.RID, p_repeat:gd.renderingserver.CanvasItemTextureRepeat):Void __renderingserver_ptr().value.viewport_set_default_canvas_item_texture_repeat(((p_viewport : gd.RID)), ((p_repeat : gd.renderingserver.CanvasItemTextureRepeat)));
+	public function viewport_set_canvas_transform(p_viewport:gd.RID, p_canvas:gd.RID, p_offset:gd.Transform2D):Void __renderingserver_ptr().value.viewport_set_canvas_transform(((p_viewport : gd.RID)), ((p_canvas : gd.RID)), ((p_offset : gd.Transform2D)));
 	public function viewport_set_canvas_stacking(p_viewport:gd.RID, p_canvas:gd.RID, p_layer:Int, p_sublayer:Int):Void __renderingserver_ptr().value.viewport_set_canvas_stacking(((p_viewport : gd.RID)), ((p_canvas : gd.RID)), ((p_layer : Int)), ((p_sublayer : Int)));
 	public function viewport_set_transparent_background(p_viewport:gd.RID, p_enabled:Bool):Void __renderingserver_ptr().value.viewport_set_transparent_background(((p_viewport : gd.RID)), ((p_enabled : Bool)));
+	public function viewport_set_global_canvas_transform(p_viewport:gd.RID, p_transform:gd.Transform2D):Void __renderingserver_ptr().value.viewport_set_global_canvas_transform(((p_viewport : gd.RID)), ((p_transform : gd.Transform2D)));
 	public function viewport_set_sdf_oversize_and_scale(p_viewport:gd.RID, p_oversize:gd.renderingserver.ViewportSDFOversize, p_scale:gd.renderingserver.ViewportSDFScale):Void __renderingserver_ptr().value.viewport_set_sdf_oversize_and_scale(((p_viewport : gd.RID)), ((p_oversize : gd.renderingserver.ViewportSDFOversize)), ((p_scale : gd.renderingserver.ViewportSDFScale)));
 	public function viewport_set_positional_shadow_atlas_size(p_viewport:gd.RID, p_size:Int, ?p_use_16_bits:Bool):Void switch [p_viewport, p_size, p_use_16_bits] {
 		case [_, _, null]:__renderingserver_ptr().value.viewport_set_positional_shadow_atlas_size(((p_viewport : gd.RID)), ((p_size : Int)));
@@ -368,6 +384,7 @@ class RenderingServer extends gd.Object {
 	public function instance_set_scenario(p_instance:gd.RID, p_scenario:gd.RID):Void __renderingserver_ptr().value.instance_set_scenario(((p_instance : gd.RID)), ((p_scenario : gd.RID)));
 	public function instance_set_layer_mask(p_instance:gd.RID, p_mask:Int):Void __renderingserver_ptr().value.instance_set_layer_mask(((p_instance : gd.RID)), ((p_mask : Int)));
 	public function instance_set_pivot_data(p_instance:gd.RID, p_sorting_offset:Float, p_use_aabb_center:Bool):Void __renderingserver_ptr().value.instance_set_pivot_data(((p_instance : gd.RID)), ((p_sorting_offset : Float)), ((p_use_aabb_center : Bool)));
+	public function instance_set_transform(p_instance:gd.RID, p_transform:gd.Transform3D):Void __renderingserver_ptr().value.instance_set_transform(((p_instance : gd.RID)), ((p_transform : gd.Transform3D)));
 	public function instance_attach_object_instance_id(p_instance:gd.RID, p_id:Int):Void __renderingserver_ptr().value.instance_attach_object_instance_id(((p_instance : gd.RID)), ((p_id : Int)));
 	public function instance_set_blend_shape_weight(p_instance:gd.RID, p_shape:Int, p_weight:Float):Void __renderingserver_ptr().value.instance_set_blend_shape_weight(((p_instance : gd.RID)), ((p_shape : Int)), ((p_weight : Float)));
 	public function instance_set_surface_override_material(p_instance:gd.RID, p_surface:Int, p_material:gd.RID):Void __renderingserver_ptr().value.instance_set_surface_override_material(((p_instance : gd.RID)), ((p_surface : Int)), ((p_material : gd.RID)));
@@ -413,6 +430,7 @@ class RenderingServer extends gd.Object {
 	public function canvas_item_set_visible(p_item:gd.RID, p_visible:Bool):Void __renderingserver_ptr().value.canvas_item_set_visible(((p_item : gd.RID)), ((p_visible : Bool)));
 	public function canvas_item_set_light_mask(p_item:gd.RID, p_mask:Int):Void __renderingserver_ptr().value.canvas_item_set_light_mask(((p_item : gd.RID)), ((p_mask : Int)));
 	public function canvas_item_set_visibility_layer(p_item:gd.RID, p_visibility_layer:Int):Void __renderingserver_ptr().value.canvas_item_set_visibility_layer(((p_item : gd.RID)), ((p_visibility_layer : Int)));
+	public function canvas_item_set_transform(p_item:gd.RID, p_transform:gd.Transform2D):Void __renderingserver_ptr().value.canvas_item_set_transform(((p_item : gd.RID)), ((p_transform : gd.Transform2D)));
 	public function canvas_item_set_clip(p_item:gd.RID, p_clip:Bool):Void __renderingserver_ptr().value.canvas_item_set_clip(((p_item : gd.RID)), ((p_clip : Bool)));
 	public function canvas_item_set_distance_field_mode(p_item:gd.RID, p_enabled:Bool):Void __renderingserver_ptr().value.canvas_item_set_distance_field_mode(((p_item : gd.RID)), ((p_enabled : Bool)));
 	public function canvas_item_set_custom_rect(p_item:gd.RID, p_use_custom_rect:Bool, ?p_rect:gd.Rect2):Void switch [p_item, p_use_custom_rect, p_rect] {
@@ -424,6 +442,7 @@ class RenderingServer extends gd.Object {
 	public function canvas_item_set_draw_behind_parent(p_item:gd.RID, p_enabled:Bool):Void __renderingserver_ptr().value.canvas_item_set_draw_behind_parent(((p_item : gd.RID)), ((p_enabled : Bool)));
 	public function canvas_item_set_interpolated(p_item:gd.RID, p_interpolated:Bool):Void __renderingserver_ptr().value.canvas_item_set_interpolated(((p_item : gd.RID)), ((p_interpolated : Bool)));
 	public function canvas_item_reset_physics_interpolation(p_item:gd.RID):Void __renderingserver_ptr().value.canvas_item_reset_physics_interpolation(((p_item : gd.RID)));
+	public function canvas_item_transform_physics_interpolation(p_item:gd.RID, p_transform:gd.Transform2D):Void __renderingserver_ptr().value.canvas_item_transform_physics_interpolation(((p_item : gd.RID)), ((p_transform : gd.Transform2D)));
 	public function canvas_item_add_line(p_item:gd.RID, p_from:gd.Vector2, p_to:gd.Vector2, p_color:gd.Color, ?p_width:Float, ?p_antialiased:Bool):Void switch [p_item, p_from, p_to, p_color, p_width, p_antialiased] {
 		case [_, _, _, _, null, _]:__renderingserver_ptr().value.canvas_item_add_line(((p_item : gd.RID)), ((p_from : gd.Vector2)), ((p_to : gd.Vector2)), ((p_color : gd.Color)));
 		case [_, _, _, _, _, null]:__renderingserver_ptr().value.canvas_item_add_line(((p_item : gd.RID)), ((p_from : gd.Vector2)), ((p_to : gd.Vector2)), ((p_color : gd.Color)), ((p_width : Float)));
@@ -488,11 +507,18 @@ class RenderingServer extends gd.Object {
 		case [_, _, _, _, _, _, _, _, null]:__renderingserver_ptr().value.canvas_item_add_triangle_array(((p_item : gd.RID)), ((p_indices : gd.PackedInt32Array)), ((p_points : gd.PackedVector2Array)), ((p_colors : gd.PackedColorArray)), ((p_uvs : gd.PackedVector2Array)), ((p_bones : gd.PackedInt32Array)), ((p_weights : gd.PackedFloat32Array)), ((p_texture : gd.RID)));
 		default:__renderingserver_ptr().value.canvas_item_add_triangle_array(((p_item : gd.RID)), ((p_indices : gd.PackedInt32Array)), ((p_points : gd.PackedVector2Array)), ((p_colors : gd.PackedColorArray)), ((p_uvs : gd.PackedVector2Array)), ((p_bones : gd.PackedInt32Array)), ((p_weights : gd.PackedFloat32Array)), ((p_texture : gd.RID)), ((p_count : Int)));
 	};
+	public function canvas_item_add_mesh(p_item:gd.RID, p_mesh:gd.RID, ?p_transform:gd.Transform2D, ?p_modulate:gd.Color, ?p_texture:gd.RID):Void switch [p_item, p_mesh, p_transform, p_modulate, p_texture] {
+		case [_, _, null, _, _]:__renderingserver_ptr().value.canvas_item_add_mesh(((p_item : gd.RID)), ((p_mesh : gd.RID)));
+		case [_, _, _, null, _]:__renderingserver_ptr().value.canvas_item_add_mesh(((p_item : gd.RID)), ((p_mesh : gd.RID)), ((p_transform : gd.Transform2D)));
+		case [_, _, _, _, null]:__renderingserver_ptr().value.canvas_item_add_mesh(((p_item : gd.RID)), ((p_mesh : gd.RID)), ((p_transform : gd.Transform2D)), ((p_modulate : gd.Color)));
+		default:__renderingserver_ptr().value.canvas_item_add_mesh(((p_item : gd.RID)), ((p_mesh : gd.RID)), ((p_transform : gd.Transform2D)), ((p_modulate : gd.Color)), ((p_texture : gd.RID)));
+	};
 	public function canvas_item_add_multimesh(p_item:gd.RID, p_mesh:gd.RID, ?p_texture:gd.RID):Void switch [p_item, p_mesh, p_texture] {
 		case [_, _, null]:__renderingserver_ptr().value.canvas_item_add_multimesh(((p_item : gd.RID)), ((p_mesh : gd.RID)));
 		default:__renderingserver_ptr().value.canvas_item_add_multimesh(((p_item : gd.RID)), ((p_mesh : gd.RID)), ((p_texture : gd.RID)));
 	};
 	public function canvas_item_add_particles(p_item:gd.RID, p_particles:gd.RID, p_texture:gd.RID):Void __renderingserver_ptr().value.canvas_item_add_particles(((p_item : gd.RID)), ((p_particles : gd.RID)), ((p_texture : gd.RID)));
+	public function canvas_item_add_set_transform(p_item:gd.RID, p_transform:gd.Transform2D):Void __renderingserver_ptr().value.canvas_item_add_set_transform(((p_item : gd.RID)), ((p_transform : gd.Transform2D)));
 	public function canvas_item_add_clip_ignore(p_item:gd.RID, p_ignore:Bool):Void __renderingserver_ptr().value.canvas_item_add_clip_ignore(((p_item : gd.RID)), ((p_ignore : Bool)));
 	public function canvas_item_add_animation_slice(p_item:gd.RID, p_animation_length:Float, p_slice_begin:Float, p_slice_end:Float, ?p_offset:Float):Void switch [p_item, p_animation_length, p_slice_begin, p_slice_end, p_offset] {
 		case [_, _, _, _, null]:__renderingserver_ptr().value.canvas_item_add_animation_slice(((p_item : gd.RID)), ((p_animation_length : Float)), ((p_slice_begin : Float)), ((p_slice_end : Float)));
@@ -519,6 +545,7 @@ class RenderingServer extends gd.Object {
 	public function canvas_light_attach_to_canvas(p_light:gd.RID, p_canvas:gd.RID):Void __renderingserver_ptr().value.canvas_light_attach_to_canvas(((p_light : gd.RID)), ((p_canvas : gd.RID)));
 	public function canvas_light_set_enabled(p_light:gd.RID, p_enabled:Bool):Void __renderingserver_ptr().value.canvas_light_set_enabled(((p_light : gd.RID)), ((p_enabled : Bool)));
 	public function canvas_light_set_texture_scale(p_light:gd.RID, p_scale:Float):Void __renderingserver_ptr().value.canvas_light_set_texture_scale(((p_light : gd.RID)), ((p_scale : Float)));
+	public function canvas_light_set_transform(p_light:gd.RID, p_transform:gd.Transform2D):Void __renderingserver_ptr().value.canvas_light_set_transform(((p_light : gd.RID)), ((p_transform : gd.Transform2D)));
 	public function canvas_light_set_texture(p_light:gd.RID, p_texture:gd.RID):Void __renderingserver_ptr().value.canvas_light_set_texture(((p_light : gd.RID)), ((p_texture : gd.RID)));
 	public function canvas_light_set_texture_offset(p_light:gd.RID, p_offset:gd.Vector2):Void __renderingserver_ptr().value.canvas_light_set_texture_offset(((p_light : gd.RID)), ((p_offset : gd.Vector2)));
 	public function canvas_light_set_color(p_light:gd.RID, p_color:gd.Color):Void __renderingserver_ptr().value.canvas_light_set_color(((p_light : gd.RID)), ((p_color : gd.Color)));
@@ -536,14 +563,17 @@ class RenderingServer extends gd.Object {
 	public function canvas_light_set_blend_mode(p_light:gd.RID, p_mode:gd.renderingserver.CanvasLightBlendMode):Void __renderingserver_ptr().value.canvas_light_set_blend_mode(((p_light : gd.RID)), ((p_mode : gd.renderingserver.CanvasLightBlendMode)));
 	public function canvas_light_set_interpolated(p_light:gd.RID, p_interpolated:Bool):Void __renderingserver_ptr().value.canvas_light_set_interpolated(((p_light : gd.RID)), ((p_interpolated : Bool)));
 	public function canvas_light_reset_physics_interpolation(p_light:gd.RID):Void __renderingserver_ptr().value.canvas_light_reset_physics_interpolation(((p_light : gd.RID)));
+	public function canvas_light_transform_physics_interpolation(p_light:gd.RID, p_transform:gd.Transform2D):Void __renderingserver_ptr().value.canvas_light_transform_physics_interpolation(((p_light : gd.RID)), ((p_transform : gd.Transform2D)));
 	public function canvas_light_occluder_create():gd.RID return __renderingserver_ptr().value.canvas_light_occluder_create();
 	public function canvas_light_occluder_attach_to_canvas(p_occluder:gd.RID, p_canvas:gd.RID):Void __renderingserver_ptr().value.canvas_light_occluder_attach_to_canvas(((p_occluder : gd.RID)), ((p_canvas : gd.RID)));
 	public function canvas_light_occluder_set_enabled(p_occluder:gd.RID, p_enabled:Bool):Void __renderingserver_ptr().value.canvas_light_occluder_set_enabled(((p_occluder : gd.RID)), ((p_enabled : Bool)));
 	public function canvas_light_occluder_set_polygon(p_occluder:gd.RID, p_polygon:gd.RID):Void __renderingserver_ptr().value.canvas_light_occluder_set_polygon(((p_occluder : gd.RID)), ((p_polygon : gd.RID)));
 	public function canvas_light_occluder_set_as_sdf_collision(p_occluder:gd.RID, p_enable:Bool):Void __renderingserver_ptr().value.canvas_light_occluder_set_as_sdf_collision(((p_occluder : gd.RID)), ((p_enable : Bool)));
+	public function canvas_light_occluder_set_transform(p_occluder:gd.RID, p_transform:gd.Transform2D):Void __renderingserver_ptr().value.canvas_light_occluder_set_transform(((p_occluder : gd.RID)), ((p_transform : gd.Transform2D)));
 	public function canvas_light_occluder_set_light_mask(p_occluder:gd.RID, p_mask:Int):Void __renderingserver_ptr().value.canvas_light_occluder_set_light_mask(((p_occluder : gd.RID)), ((p_mask : Int)));
 	public function canvas_light_occluder_set_interpolated(p_occluder:gd.RID, p_interpolated:Bool):Void __renderingserver_ptr().value.canvas_light_occluder_set_interpolated(((p_occluder : gd.RID)), ((p_interpolated : Bool)));
 	public function canvas_light_occluder_reset_physics_interpolation(p_occluder:gd.RID):Void __renderingserver_ptr().value.canvas_light_occluder_reset_physics_interpolation(((p_occluder : gd.RID)));
+	public function canvas_light_occluder_transform_physics_interpolation(p_occluder:gd.RID, p_transform:gd.Transform2D):Void __renderingserver_ptr().value.canvas_light_occluder_transform_physics_interpolation(((p_occluder : gd.RID)), ((p_transform : gd.Transform2D)));
 	public function canvas_occluder_polygon_create():gd.RID return __renderingserver_ptr().value.canvas_occluder_polygon_create();
 	public function canvas_occluder_polygon_set_shape(p_occluder_polygon:gd.RID, p_shape:gd.PackedVector2Array, p_closed:Bool):Void __renderingserver_ptr().value.canvas_occluder_polygon_set_shape(((p_occluder_polygon : gd.RID)), ((p_shape : gd.PackedVector2Array)), ((p_closed : Bool)));
 	public function canvas_occluder_polygon_set_cull_mode(p_occluder_polygon:gd.RID, p_mode:gd.renderingserver.CanvasOccluderPolygonCullMode):Void __renderingserver_ptr().value.canvas_occluder_polygon_set_cull_mode(((p_occluder_polygon : gd.RID)), ((p_mode : gd.renderingserver.CanvasOccluderPolygonCullMode)));

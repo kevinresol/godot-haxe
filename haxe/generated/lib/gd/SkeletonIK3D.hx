@@ -5,6 +5,8 @@ extern class SkeletonIK3D extends gd.SkeletonModifier3D {
 	function get_root_bone():std.String;
 	function set_tip_bone(p_tip_bone:std.String):std.String;
 	function get_tip_bone():std.String;
+	function set_target_transform(p_target:gd.Transform3D):Void;
+	function get_target_transform():gd.Transform3D;
 	function set_target_node(p_node:std.String):std.String;
 	function get_target_node():std.String;
 	function set_override_tip_basis(p_override:Bool):Bool;
@@ -25,6 +27,9 @@ extern class SkeletonIK3D extends gd.SkeletonModifier3D {
 	function get_interpolation():Float;
 	var root_bone(get, set) : std.String;
 	var tip_bone(get, set) : std.String;
+	var target(get, set) : gd.Transform3D;
+	function get_target():gd.Transform3D;
+	function set_target(v:gd.Transform3D):gd.Transform3D;
 	var override_tip_basis(get, set) : Bool;
 	function get_override_tip_basis():Bool;
 	var use_magnet(get, set) : Bool;

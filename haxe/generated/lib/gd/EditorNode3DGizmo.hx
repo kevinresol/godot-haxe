@@ -9,7 +9,10 @@ extern class EditorNode3DGizmo extends gd.Node3DGizmo {
 	function _set_handle(p_id:Int, p_secondary:Bool, p_camera:gd.Camera3D, p_point:gd.Vector2):Void;
 	function _commit_handle(p_id:Int, p_secondary:Bool, p_restore:gd.Variant, p_cancel:Bool):Void;
 	function _subgizmos_intersect_ray(p_camera:gd.Camera3D, p_point:gd.Vector2):Int;
+	function _set_subgizmo_transform(p_id:Int, p_transform:gd.Transform3D):Void;
+	function _get_subgizmo_transform(p_id:Int):gd.Transform3D;
 	function add_lines(p_lines:gd.PackedVector3Array, p_material:gd.Material, ?p_billboard:Bool, ?p_modulate:gd.Color):Void;
+	function add_mesh(p_mesh:gd.Mesh, ?p_material:gd.Material, ?p_transform:gd.Transform3D, ?p_skeleton:gd.SkinReference):Void;
 	function add_collision_segments(p_segments:gd.PackedVector3Array):Void;
 	function add_collision_triangles(p_triangles:gd.TriangleMesh):Void;
 	function add_unscaled_billboard(p_material:gd.Material, ?p_default_scale:Float, ?p_modulate:gd.Color):Void;

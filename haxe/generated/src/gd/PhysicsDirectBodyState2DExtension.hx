@@ -20,6 +20,8 @@ class PhysicsDirectBodyState2DExtension extends gd.PhysicsDirectBodyState2D {
 	public function _get_linear_velocity():gd.Vector2 return __physicsdirectbodystate2dextension_ptr().value._get_linear_velocity();
 	public function _set_angular_velocity(p_velocity:Float):Void __physicsdirectbodystate2dextension_ptr().value._set_angular_velocity(((p_velocity : Float)));
 	public function _get_angular_velocity():Float return __physicsdirectbodystate2dextension_ptr().value._get_angular_velocity();
+	public function _set_transform(p_transform:gd.Transform2D):Void __physicsdirectbodystate2dextension_ptr().value._set_transform(((p_transform : gd.Transform2D)));
+	public function _get_transform():gd.Transform2D return __physicsdirectbodystate2dextension_ptr().value._get_transform();
 	public function _get_velocity_at_local_position(p_local_position:gd.Vector2):gd.Vector2 return __physicsdirectbodystate2dextension_ptr().value._get_velocity_at_local_position(((p_local_position : gd.Vector2)));
 	public function _apply_central_impulse(p_impulse:gd.Vector2):Void __physicsdirectbodystate2dextension_ptr().value._apply_central_impulse(((p_impulse : gd.Vector2)));
 	public function _apply_impulse(p_impulse:gd.Vector2, p_position:gd.Vector2):Void __physicsdirectbodystate2dextension_ptr().value._apply_impulse(((p_impulse : gd.Vector2)), ((p_position : gd.Vector2)));

@@ -15,6 +15,18 @@ class Viewport extends gd.Node {
 	}
 	public function get_world_2d():gd.World2D return __viewport_ptr().value.get_world_2d();
 	public function find_world_2d():gd.World2D return __viewport_ptr().value.find_world_2d();
+	public function set_canvas_transform(p_xform:gd.Transform2D):gd.Transform2D {
+		__viewport_ptr().value.set_canvas_transform(((p_xform : gd.Transform2D)));
+		return p_xform;
+	}
+	public function get_canvas_transform():gd.Transform2D return __viewport_ptr().value.get_canvas_transform();
+	public function set_global_canvas_transform(p_xform:gd.Transform2D):gd.Transform2D {
+		__viewport_ptr().value.set_global_canvas_transform(((p_xform : gd.Transform2D)));
+		return p_xform;
+	}
+	public function get_global_canvas_transform():gd.Transform2D return __viewport_ptr().value.get_global_canvas_transform();
+	public function get_final_transform():gd.Transform2D return __viewport_ptr().value.get_final_transform();
+	public function get_screen_transform():gd.Transform2D return __viewport_ptr().value.get_screen_transform();
 	public function get_visible_rect():gd.Rect2 return __viewport_ptr().value.get_visible_rect();
 	public function set_transparent_background(p_enable:Bool):Void __viewport_ptr().value.set_transparent_background(((p_enable : Bool)));
 	public function has_transparent_background():Bool return __viewport_ptr().value.has_transparent_background();
@@ -331,5 +343,7 @@ class Viewport extends gd.Node {
 		set_positional_shadow_atlas_quadrant_subdiv(3, v);
 		return v;
 	}
+	public var canvas_transform(get, set) : gd.Transform2D;
+	public var global_canvas_transform(get, set) : gd.Transform2D;
 	public var canvas_cull_mask(get, set) : Int;
 }

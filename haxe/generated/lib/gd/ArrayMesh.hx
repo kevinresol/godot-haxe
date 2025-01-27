@@ -20,6 +20,7 @@ extern class ArrayMesh extends gd.Mesh {
 	function surface_set_name(p_surf_idx:Int, p_name:std.String):Void;
 	function surface_get_name(p_surf_idx:Int):std.String;
 	function regen_normal_maps():Void;
+	function lightmap_unwrap(p_transform:gd.Transform3D, p_texel_size:Float):gd.Error;
 	function set_custom_aabb(p_aabb:gd.AABB):gd.AABB;
 	function get_custom_aabb():gd.AABB;
 	function set_shadow_mesh(p_mesh:gd.ArrayMesh):gd.ArrayMesh;

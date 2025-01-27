@@ -31,6 +31,7 @@ class ArrayMesh extends gd.Mesh {
 	public function surface_set_name(p_surf_idx:Int, p_name:std.String):Void __arraymesh_ptr().value.surface_set_name(((p_surf_idx : Int)), ((p_name : std.String)));
 	public function surface_get_name(p_surf_idx:Int):std.String return __arraymesh_ptr().value.surface_get_name(((p_surf_idx : Int)));
 	public function regen_normal_maps():Void __arraymesh_ptr().value.regen_normal_maps();
+	public function lightmap_unwrap(p_transform:gd.Transform3D, p_texel_size:Float):gd.Error return __arraymesh_ptr().value.lightmap_unwrap(((p_transform : gd.Transform3D)), ((p_texel_size : Float)));
 	public function set_custom_aabb(p_aabb:gd.AABB):gd.AABB {
 		__arraymesh_ptr().value.set_custom_aabb(((p_aabb : gd.AABB)));
 		return p_aabb;

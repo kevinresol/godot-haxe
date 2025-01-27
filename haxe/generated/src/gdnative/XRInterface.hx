@@ -24,6 +24,7 @@ package gdnative;
 	function is_passthrough_enabled():Bool;
 	function start_passthrough():Bool;
 	function stop_passthrough():Void;
+	function get_transform_for_view(p_view:Int, p_cam_transform:gdnative.Transform3D):gdnative.Transform3D;
 	function get_supported_environment_blend_modes():gdnative.Array;
 	function set_environment_blend_mode(p_mode:gdnative.xrinterface.EnvironmentBlendMode):Bool;
 	function get_environment_blend_mode():gdnative.xrinterface.EnvironmentBlendMode;

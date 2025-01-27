@@ -15,6 +15,8 @@ package gdnative;
 	function _set_handle(p_gizmo:gdnative.EditorNode3DGizmo, p_handle_id:Int, p_secondary:Bool, p_camera:gdnative.Camera3D, p_screen_pos:gdnative.Vector2):Void;
 	function _commit_handle(p_gizmo:gdnative.EditorNode3DGizmo, p_handle_id:Int, p_secondary:Bool, p_restore:gdnative.Variant, p_cancel:Bool):Void;
 	function _subgizmos_intersect_ray(p_gizmo:gdnative.EditorNode3DGizmo, p_camera:gdnative.Camera3D, p_screen_pos:gdnative.Vector2):Int;
+	function _get_subgizmo_transform(p_gizmo:gdnative.EditorNode3DGizmo, p_subgizmo_id:Int):gdnative.Transform3D;
+	function _set_subgizmo_transform(p_gizmo:gdnative.EditorNode3DGizmo, p_subgizmo_id:Int, p_transform:gdnative.Transform3D):Void;
 	overload function create_material(p_name:gdnative.String, p_color:gdnative.Color):Void;
 	overload function create_material(p_name:gdnative.String, p_color:gdnative.Color, p_billboard:Bool):Void;
 	overload function create_material(p_name:gdnative.String, p_color:gdnative.Color, p_billboard:Bool, p_on_top:Bool):Void;

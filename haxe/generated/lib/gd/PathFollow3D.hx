@@ -19,6 +19,7 @@ extern class PathFollow3D extends gd.Node3D {
 	function has_loop():Bool;
 	function set_tilt_enabled(p_enabled:Bool):Bool;
 	function is_tilt_enabled():Bool;
+	static function correct_posture(p_transform:gd.Transform3D, p_rotation_mode:gd.pathfollow3d.RotationMode):gd.Transform3D;
 	var progress(get, set) : Float;
 	var progress_ratio(get, set) : Float;
 	var h_offset(get, set) : Float;

@@ -47,6 +47,7 @@ class SurfaceTool extends gd.RefCounted {
 		default:__surfacetool_ptr().value.create_from_arrays(((p_arrays : gd.Array)), ((p_primitive_type : gd.mesh.PrimitiveType)));
 	};
 	public function create_from_blend_shape(p_existing:gd.Mesh, p_surface:Int, p_blend_shape:std.String):Void __surfacetool_ptr().value.create_from_blend_shape(((p_existing : gd.Mesh)), ((p_surface : Int)), ((p_blend_shape : std.String)));
+	public function append_from(p_existing:gd.Mesh, p_surface:Int, p_transform:gd.Transform3D):Void __surfacetool_ptr().value.append_from(((p_existing : gd.Mesh)), ((p_surface : Int)), ((p_transform : gd.Transform3D)));
 	public function commit(?p_existing:gd.ArrayMesh, ?p_flags:Int):gd.ArrayMesh return switch [p_existing, p_flags] {
 		case [null, _]:__surfacetool_ptr().value.commit();
 		case [_, null]:__surfacetool_ptr().value.commit(((p_existing : gd.ArrayMesh)));

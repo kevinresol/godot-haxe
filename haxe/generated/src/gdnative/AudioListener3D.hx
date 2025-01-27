@@ -4,6 +4,7 @@ package gdnative;
 	function make_current():Void;
 	function clear_current():Void;
 	function is_current():Bool;
+	function get_listener_transform():gdnative.Transform3D;
 }
 @:forward abstract AudioListener3D(cpp.Pointer<AudioListener3D_extern>) from cpp.Pointer<AudioListener3D_extern> to cpp.Pointer<AudioListener3D_extern> {
 	@:from

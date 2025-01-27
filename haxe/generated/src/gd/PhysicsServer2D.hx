@@ -30,10 +30,17 @@ class PhysicsServer2D extends gd.Object {
 	public function area_create():gd.RID return __physicsserver2d_ptr().value.area_create();
 	public function area_set_space(p_area:gd.RID, p_space:gd.RID):Void __physicsserver2d_ptr().value.area_set_space(((p_area : gd.RID)), ((p_space : gd.RID)));
 	public function area_get_space(p_area:gd.RID):gd.RID return __physicsserver2d_ptr().value.area_get_space(((p_area : gd.RID)));
+	public function area_add_shape(p_area:gd.RID, p_shape:gd.RID, ?p_transform:gd.Transform2D, ?p_disabled:Bool):Void switch [p_area, p_shape, p_transform, p_disabled] {
+		case [_, _, null, _]:__physicsserver2d_ptr().value.area_add_shape(((p_area : gd.RID)), ((p_shape : gd.RID)));
+		case [_, _, _, null]:__physicsserver2d_ptr().value.area_add_shape(((p_area : gd.RID)), ((p_shape : gd.RID)), ((p_transform : gd.Transform2D)));
+		default:__physicsserver2d_ptr().value.area_add_shape(((p_area : gd.RID)), ((p_shape : gd.RID)), ((p_transform : gd.Transform2D)), ((p_disabled : Bool)));
+	};
 	public function area_set_shape(p_area:gd.RID, p_shape_idx:Int, p_shape:gd.RID):Void __physicsserver2d_ptr().value.area_set_shape(((p_area : gd.RID)), ((p_shape_idx : Int)), ((p_shape : gd.RID)));
+	public function area_set_shape_transform(p_area:gd.RID, p_shape_idx:Int, p_transform:gd.Transform2D):Void __physicsserver2d_ptr().value.area_set_shape_transform(((p_area : gd.RID)), ((p_shape_idx : Int)), ((p_transform : gd.Transform2D)));
 	public function area_set_shape_disabled(p_area:gd.RID, p_shape_idx:Int, p_disabled:Bool):Void __physicsserver2d_ptr().value.area_set_shape_disabled(((p_area : gd.RID)), ((p_shape_idx : Int)), ((p_disabled : Bool)));
 	public function area_get_shape_count(p_area:gd.RID):Int return __physicsserver2d_ptr().value.area_get_shape_count(((p_area : gd.RID)));
 	public function area_get_shape(p_area:gd.RID, p_shape_idx:Int):gd.RID return __physicsserver2d_ptr().value.area_get_shape(((p_area : gd.RID)), ((p_shape_idx : Int)));
+	public function area_get_shape_transform(p_area:gd.RID, p_shape_idx:Int):gd.Transform2D return __physicsserver2d_ptr().value.area_get_shape_transform(((p_area : gd.RID)), ((p_shape_idx : Int)));
 	public function area_remove_shape(p_area:gd.RID, p_shape_idx:Int):Void __physicsserver2d_ptr().value.area_remove_shape(((p_area : gd.RID)), ((p_shape_idx : Int)));
 	public function area_clear_shapes(p_area:gd.RID):Void __physicsserver2d_ptr().value.area_clear_shapes(((p_area : gd.RID)));
 	public function area_set_collision_layer(p_area:gd.RID, p_layer:Int):Void __physicsserver2d_ptr().value.area_set_collision_layer(((p_area : gd.RID)), ((p_layer : Int)));
@@ -41,7 +48,9 @@ class PhysicsServer2D extends gd.Object {
 	public function area_set_collision_mask(p_area:gd.RID, p_mask:Int):Void __physicsserver2d_ptr().value.area_set_collision_mask(((p_area : gd.RID)), ((p_mask : Int)));
 	public function area_get_collision_mask(p_area:gd.RID):Int return __physicsserver2d_ptr().value.area_get_collision_mask(((p_area : gd.RID)));
 	public function area_set_param(p_area:gd.RID, p_param:gd.physicsserver2d.AreaParameter, p_value:gd.Variant):Void __physicsserver2d_ptr().value.area_set_param(((p_area : gd.RID)), ((p_param : gd.physicsserver2d.AreaParameter)), ((p_value : gd.Variant)));
+	public function area_set_transform(p_area:gd.RID, p_transform:gd.Transform2D):Void __physicsserver2d_ptr().value.area_set_transform(((p_area : gd.RID)), ((p_transform : gd.Transform2D)));
 	public function area_get_param(p_area:gd.RID, p_param:gd.physicsserver2d.AreaParameter):gd.Variant return __physicsserver2d_ptr().value.area_get_param(((p_area : gd.RID)), ((p_param : gd.physicsserver2d.AreaParameter)));
+	public function area_get_transform(p_area:gd.RID):gd.Transform2D return __physicsserver2d_ptr().value.area_get_transform(((p_area : gd.RID)));
 	public function area_attach_object_instance_id(p_area:gd.RID, p_id:Int):Void __physicsserver2d_ptr().value.area_attach_object_instance_id(((p_area : gd.RID)), ((p_id : Int)));
 	public function area_get_object_instance_id(p_area:gd.RID):Int return __physicsserver2d_ptr().value.area_get_object_instance_id(((p_area : gd.RID)));
 	public function area_attach_canvas_instance_id(p_area:gd.RID, p_id:Int):Void __physicsserver2d_ptr().value.area_attach_canvas_instance_id(((p_area : gd.RID)), ((p_id : Int)));
@@ -54,9 +63,16 @@ class PhysicsServer2D extends gd.Object {
 	public function body_get_space(p_body:gd.RID):gd.RID return __physicsserver2d_ptr().value.body_get_space(((p_body : gd.RID)));
 	public function body_set_mode(p_body:gd.RID, p_mode:gd.physicsserver2d.BodyMode):Void __physicsserver2d_ptr().value.body_set_mode(((p_body : gd.RID)), ((p_mode : gd.physicsserver2d.BodyMode)));
 	public function body_get_mode(p_body:gd.RID):gd.physicsserver2d.BodyMode return __physicsserver2d_ptr().value.body_get_mode(((p_body : gd.RID)));
+	public function body_add_shape(p_body:gd.RID, p_shape:gd.RID, ?p_transform:gd.Transform2D, ?p_disabled:Bool):Void switch [p_body, p_shape, p_transform, p_disabled] {
+		case [_, _, null, _]:__physicsserver2d_ptr().value.body_add_shape(((p_body : gd.RID)), ((p_shape : gd.RID)));
+		case [_, _, _, null]:__physicsserver2d_ptr().value.body_add_shape(((p_body : gd.RID)), ((p_shape : gd.RID)), ((p_transform : gd.Transform2D)));
+		default:__physicsserver2d_ptr().value.body_add_shape(((p_body : gd.RID)), ((p_shape : gd.RID)), ((p_transform : gd.Transform2D)), ((p_disabled : Bool)));
+	};
 	public function body_set_shape(p_body:gd.RID, p_shape_idx:Int, p_shape:gd.RID):Void __physicsserver2d_ptr().value.body_set_shape(((p_body : gd.RID)), ((p_shape_idx : Int)), ((p_shape : gd.RID)));
+	public function body_set_shape_transform(p_body:gd.RID, p_shape_idx:Int, p_transform:gd.Transform2D):Void __physicsserver2d_ptr().value.body_set_shape_transform(((p_body : gd.RID)), ((p_shape_idx : Int)), ((p_transform : gd.Transform2D)));
 	public function body_get_shape_count(p_body:gd.RID):Int return __physicsserver2d_ptr().value.body_get_shape_count(((p_body : gd.RID)));
 	public function body_get_shape(p_body:gd.RID, p_shape_idx:Int):gd.RID return __physicsserver2d_ptr().value.body_get_shape(((p_body : gd.RID)), ((p_shape_idx : Int)));
+	public function body_get_shape_transform(p_body:gd.RID, p_shape_idx:Int):gd.Transform2D return __physicsserver2d_ptr().value.body_get_shape_transform(((p_body : gd.RID)), ((p_shape_idx : Int)));
 	public function body_remove_shape(p_body:gd.RID, p_shape_idx:Int):Void __physicsserver2d_ptr().value.body_remove_shape(((p_body : gd.RID)), ((p_shape_idx : Int)));
 	public function body_clear_shapes(p_body:gd.RID):Void __physicsserver2d_ptr().value.body_clear_shapes(((p_body : gd.RID)));
 	public function body_set_shape_disabled(p_body:gd.RID, p_shape_idx:Int, p_disabled:Bool):Void __physicsserver2d_ptr().value.body_set_shape_disabled(((p_body : gd.RID)), ((p_shape_idx : Int)), ((p_disabled : Bool)));

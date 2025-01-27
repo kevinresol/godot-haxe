@@ -19,6 +19,11 @@ class PhysicsShapeQueryParameters2D extends gd.RefCounted {
 		return p_shape;
 	}
 	public function get_shape_rid():gd.RID return __physicsshapequeryparameters2d_ptr().value.get_shape_rid();
+	public function set_transform(p_transform:gd.Transform2D):gd.Transform2D {
+		__physicsshapequeryparameters2d_ptr().value.set_transform(((p_transform : gd.Transform2D)));
+		return p_transform;
+	}
+	public function get_transform():gd.Transform2D return __physicsshapequeryparameters2d_ptr().value.get_transform();
 	public function set_motion(p_motion:gd.Vector2):gd.Vector2 {
 		__physicsshapequeryparameters2d_ptr().value.set_motion(((p_motion : gd.Vector2)));
 		return p_motion;
@@ -49,6 +54,7 @@ class PhysicsShapeQueryParameters2D extends gd.RefCounted {
 	public var motion(get, set) : gd.Vector2;
 	public var shape(get, set) : gd.Resource;
 	public var shape_rid(get, set) : gd.RID;
+	public var transform(get, set) : gd.Transform2D;
 	public var collide_with_bodies(get, set) : Bool;
 	function get_collide_with_bodies():Bool return is_collide_with_bodies_enabled();
 	public var collide_with_areas(get, set) : Bool;

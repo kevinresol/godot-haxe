@@ -2,6 +2,7 @@ package gd;
 extern class PhysicsBody3D extends gd.CollisionObject3D {
 	function new(?owner:Dynamic);
 	function move_and_collide(p_motion:gd.Vector3, ?p_test_only:Bool, ?p_safe_margin:Float, ?p_recovery_as_collision:Bool, ?p_max_collisions:Int):gd.KinematicCollision3D;
+	function test_move(p_from:gd.Transform3D, p_motion:gd.Vector3, ?p_collision:gd.KinematicCollision3D, ?p_safe_margin:Float, ?p_recovery_as_collision:Bool, ?p_max_collisions:Int):Bool;
 	function get_gravity():gd.Vector3;
 	function set_axis_lock(p_axis:gd.physicsserver3d.BodyAxis, p_lock:Bool):Void;
 	function get_axis_lock(p_axis:gd.physicsserver3d.BodyAxis):Bool;

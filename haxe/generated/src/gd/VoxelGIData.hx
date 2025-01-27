@@ -9,8 +9,10 @@ class VoxelGIData extends gd.Resource {
 		super(native.reinterpret());
 	}
 	extern inline function __voxelgidata_ptr():cpp.Pointer<gdnative.VoxelGIData.VoxelGIData_extern> return cast __gd.ptr;
+	public function allocate(p_to_cell_xform:gd.Transform3D, p_aabb:gd.AABB, p_octree_size:gd.Vector3, p_octree_cells:gd.PackedByteArray, p_data_cells:gd.PackedByteArray, p_distance_field:gd.PackedByteArray, p_level_counts:gd.PackedInt32Array):Void __voxelgidata_ptr().value.allocate(((p_to_cell_xform : gd.Transform3D)), ((p_aabb : gd.AABB)), ((p_octree_size : gd.Vector3)), ((p_octree_cells : gd.PackedByteArray)), ((p_data_cells : gd.PackedByteArray)), ((p_distance_field : gd.PackedByteArray)), ((p_level_counts : gd.PackedInt32Array)));
 	public function get_bounds():gd.AABB return __voxelgidata_ptr().value.get_bounds();
 	public function get_octree_size():gd.Vector3 return __voxelgidata_ptr().value.get_octree_size();
+	public function get_to_cell_xform():gd.Transform3D return __voxelgidata_ptr().value.get_to_cell_xform();
 	public function get_octree_cells():gd.PackedByteArray return __voxelgidata_ptr().value.get_octree_cells();
 	public function get_data_cells():gd.PackedByteArray return __voxelgidata_ptr().value.get_data_cells();
 	public function get_level_counts():gd.PackedInt32Array return __voxelgidata_ptr().value.get_level_counts();

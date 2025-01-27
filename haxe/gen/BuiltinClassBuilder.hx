@@ -18,7 +18,7 @@ class BuiltinClassBuilder extends Builder {
 			final hppExists = sys.FileSystem.exists(Path.join([Sys.programPath().directory(), '../godot-cpp/include', hpp]))
 				|| sys.FileSystem.exists(Path.join([Sys.programPath().directory(), '../godot-cpp/gen/include', hpp]));
 			if (hppExists) {
-				if (/* clazz.name != 'Basis' && */ clazz.name != 'Transform2D' && clazz.name != 'Transform3D' && clazz.name != 'Projection') {
+				if (clazz.name != 'Projection') {
 					generateClassExtern(clazz, hpp);
 					generateClassWrapper(clazz, false);
 					generateClassWrapper(clazz, true);
@@ -165,7 +165,11 @@ class BuiltinClassBuilder extends Builder {
 						kind: FFun({
 							args: fargs.slice(0, fargs.length - i),
 							ret: rct,
-						})
+						}),
+						meta: switch getMethodNative(cname, fname) {
+							case null: [];
+							case v: [{pos: null, name: ':native', params: [macro $v{v}]}];
+						}
 					});
 				}
 			} catch (e) {}
@@ -478,14 +482,26 @@ class BuiltinClassBuilder extends Builder {
 			case 'Plane':
 				// TODO: get_center() should be center()
 				// TODO: intersects functions use pointer to hold return value
-				clazz.methods.filter(m -> !['get_center', 'intersect_3', 'intersects_ray', 'intersects_segment'].contains(m.name));
+				clazz.methods.filter(m -> !['intersect_3', 'intersects_ray', 'intersects_segment'].contains(m.name));
 			case 'AABB':
 				// TODO: intersects functions use pointer to hold return value
 				clazz.methods.filter(m -> !['intersects_segment', 'intersects_ray'].contains(m.name));
-			case 'Basis':
+			case 'Basis' | 'Transform2D':
 				clazz.methods.filter(m -> !['is_conformal'].contains(m.name));
 			default:
 				clazz.methods;
+		}
+	}
+
+	// Handle cases where the API-specified name is different from the actual c++ implementation
+	function getMethodNative(cls:String, fn:String):Null<String> {
+		return switch [cls, fn] {
+			case ['Transform2D', 'determinant']:
+				'basis_determinant';
+			case ['Plane', 'get_center']:
+				'center';
+			default:
+				null;
 		}
 	}
 
@@ -511,6 +527,7 @@ class BuiltinClassBuilder extends Builder {
 		}
 	}
 
+	// Handle cases where the API-specified name is different from the actual c++ implementation
 	function getMemberNative(cls:String, member:String):Null<String> {
 		return switch [cls, member] {
 			case ['Basis', 'x']:
@@ -519,6 +536,12 @@ class BuiltinClassBuilder extends Builder {
 				'rows[1]';
 			case ['Basis', 'z']:
 				'rows[2]';
+			case ['Transform2D', 'x']:
+				'columns[0]';
+			case ['Transform2D', 'y']:
+				'columns[1]';
+			case ['Transform2D', 'origin']:
+				'columns[2]';
 			default:
 				null;
 		}
@@ -533,6 +556,20 @@ class BuiltinClassBuilder extends Builder {
 						arguments: ['xx', 'xy', 'xz', 'yx', 'yy', 'yz', 'zx', 'zy', 'zz'].map(n -> {name: n, type: 'float'})
 					}
 				]);
+			case 'Transform2D':
+				clazz.constructors.concat([
+					{
+						index: clazz.constructors.length,
+						arguments: ['xx', 'xy', 'yx', 'yy', 'ox', 'oy'].map(n -> {name: n, type: 'float'})
+					}
+				]);
+			case 'Transform3D':
+				clazz.constructors.concat([
+					{
+						index: clazz.constructors.length,
+						arguments: ['xx', 'xy', 'xz', 'yx', 'yy', 'yz', 'zx', 'zy', 'zz', 'tx', 'ty', 'tz'].map(n -> {name: n, type: 'float'})
+					}
+				]);
 			default:
 				clazz.constructors;
 		}
@@ -542,6 +579,8 @@ class BuiltinClassBuilder extends Builder {
 		return if (args == null) [] else switch [cls, fn] {
 			case ['Quaternion', 'get_euler']:
 				[];
+			case ['Transform3D', 'looking_at']:
+				args.slice(0, 2);
 			default:
 				args;
 		}

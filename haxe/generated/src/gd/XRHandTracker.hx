@@ -21,6 +21,8 @@ class XRHandTracker extends gd.XRPositionalTracker {
 	public function get_hand_tracking_source():gd.xrhandtracker.HandTrackingSource return __xrhandtracker_ptr().value.get_hand_tracking_source();
 	public function set_hand_joint_flags(p_joint:gd.xrhandtracker.HandJoint, p_flags:Int):Void __xrhandtracker_ptr().value.set_hand_joint_flags(((p_joint : gd.xrhandtracker.HandJoint)), ((p_flags : Int)));
 	public function get_hand_joint_flags(p_joint:gd.xrhandtracker.HandJoint):Int return __xrhandtracker_ptr().value.get_hand_joint_flags(((p_joint : gd.xrhandtracker.HandJoint)));
+	public function set_hand_joint_transform(p_joint:gd.xrhandtracker.HandJoint, p_transform:gd.Transform3D):Void __xrhandtracker_ptr().value.set_hand_joint_transform(((p_joint : gd.xrhandtracker.HandJoint)), ((p_transform : gd.Transform3D)));
+	public function get_hand_joint_transform(p_joint:gd.xrhandtracker.HandJoint):gd.Transform3D return __xrhandtracker_ptr().value.get_hand_joint_transform(((p_joint : gd.xrhandtracker.HandJoint)));
 	public function set_hand_joint_radius(p_joint:gd.xrhandtracker.HandJoint, p_radius:Float):Void __xrhandtracker_ptr().value.set_hand_joint_radius(((p_joint : gd.xrhandtracker.HandJoint)), ((p_radius : Float)));
 	public function get_hand_joint_radius(p_joint:gd.xrhandtracker.HandJoint):Float return __xrhandtracker_ptr().value.get_hand_joint_radius(((p_joint : gd.xrhandtracker.HandJoint)));
 	public function set_hand_joint_linear_velocity(p_joint:gd.xrhandtracker.HandJoint, p_linear_velocity:gd.Vector3):Void __xrhandtracker_ptr().value.set_hand_joint_linear_velocity(((p_joint : gd.xrhandtracker.HandJoint)), ((p_linear_velocity : gd.Vector3)));

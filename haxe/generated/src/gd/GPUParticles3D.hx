@@ -95,6 +95,7 @@ class GPUParticles3D extends gd.GeometryInstance3D {
 		return p_path;
 	}
 	public function get_sub_emitter():std.String return __gpuparticles3d_ptr().value.get_sub_emitter();
+	public function emit_particle(p_xform:gd.Transform3D, p_velocity:gd.Vector3, p_color:gd.Color, p_custom:gd.Color, p_flags:Int):Void __gpuparticles3d_ptr().value.emit_particle(((p_xform : gd.Transform3D)), ((p_velocity : gd.Vector3)), ((p_color : gd.Color)), ((p_custom : gd.Color)), ((p_flags : Int)));
 	public function set_trail_enabled(p_enabled:Bool):Bool {
 		__gpuparticles3d_ptr().value.set_trail_enabled(((p_enabled : Bool)));
 		return p_enabled;

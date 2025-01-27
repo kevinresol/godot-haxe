@@ -7,6 +7,8 @@ extern class XRHandTracker extends gd.XRPositionalTracker {
 	function get_hand_tracking_source():gd.xrhandtracker.HandTrackingSource;
 	function set_hand_joint_flags(p_joint:gd.xrhandtracker.HandJoint, p_flags:Int):Void;
 	function get_hand_joint_flags(p_joint:gd.xrhandtracker.HandJoint):Int;
+	function set_hand_joint_transform(p_joint:gd.xrhandtracker.HandJoint, p_transform:gd.Transform3D):Void;
+	function get_hand_joint_transform(p_joint:gd.xrhandtracker.HandJoint):gd.Transform3D;
 	function set_hand_joint_radius(p_joint:gd.xrhandtracker.HandJoint, p_radius:Float):Void;
 	function get_hand_joint_radius(p_joint:gd.xrhandtracker.HandJoint):Float;
 	function set_hand_joint_linear_velocity(p_joint:gd.xrhandtracker.HandJoint, p_linear_velocity:gd.Vector3):Void;

@@ -29,6 +29,11 @@ class FontVariation extends gd.Font {
 		return p_face_index;
 	}
 	public function get_variation_face_index():Int return __fontvariation_ptr().value.get_variation_face_index();
+	public function set_variation_transform(p_transform:gd.Transform2D):gd.Transform2D {
+		__fontvariation_ptr().value.set_variation_transform(((p_transform : gd.Transform2D)));
+		return p_transform;
+	}
+	public function get_variation_transform():gd.Transform2D return __fontvariation_ptr().value.get_variation_transform();
 	public function set_opentype_features(p_features:gd.Dictionary):Void __fontvariation_ptr().value.set_opentype_features(((p_features : gd.Dictionary)));
 	public function set_spacing(p_spacing:gd.textserver.SpacingType, p_value:Int):Void __fontvariation_ptr().value.set_spacing(((p_spacing : gd.textserver.SpacingType)), ((p_value : Int)));
 	public function set_baseline_offset(p_baseline_offset:Float):Float {
@@ -40,5 +45,6 @@ class FontVariation extends gd.Font {
 	public var variation_opentype(get, set) : gd.Dictionary;
 	public var variation_face_index(get, set) : Int;
 	public var variation_embolden(get, set) : Float;
+	public var variation_transform(get, set) : gd.Transform2D;
 	public var baseline_offset(get, set) : Float;
 }

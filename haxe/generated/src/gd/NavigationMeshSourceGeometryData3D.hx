@@ -22,6 +22,9 @@ class NavigationMeshSourceGeometryData3D extends gd.Resource {
 	public function append_arrays(p_vertices:gd.PackedFloat32Array, p_indices:gd.PackedInt32Array):Void __navigationmeshsourcegeometrydata3d_ptr().value.append_arrays(((p_vertices : gd.PackedFloat32Array)), ((p_indices : gd.PackedInt32Array)));
 	public function clear():Void __navigationmeshsourcegeometrydata3d_ptr().value.clear();
 	public function has_data():Bool return __navigationmeshsourcegeometrydata3d_ptr().value.has_data();
+	public function add_mesh(p_mesh:gd.Mesh, p_xform:gd.Transform3D):Void __navigationmeshsourcegeometrydata3d_ptr().value.add_mesh(((p_mesh : gd.Mesh)), ((p_xform : gd.Transform3D)));
+	public function add_mesh_array(p_mesh_array:gd.Array, p_xform:gd.Transform3D):Void __navigationmeshsourcegeometrydata3d_ptr().value.add_mesh_array(((p_mesh_array : gd.Array)), ((p_xform : gd.Transform3D)));
+	public function add_faces(p_faces:gd.PackedVector3Array, p_xform:gd.Transform3D):Void __navigationmeshsourcegeometrydata3d_ptr().value.add_faces(((p_faces : gd.PackedVector3Array)), ((p_xform : gd.Transform3D)));
 	public function merge(p_other_geometry:gd.NavigationMeshSourceGeometryData3D):Void __navigationmeshsourcegeometrydata3d_ptr().value.merge(((p_other_geometry : gd.NavigationMeshSourceGeometryData3D)));
 	public function add_projected_obstruction(p_vertices:gd.PackedVector3Array, p_elevation:Float, p_height:Float, p_carve:Bool):Void __navigationmeshsourcegeometrydata3d_ptr().value.add_projected_obstruction(((p_vertices : gd.PackedVector3Array)), ((p_elevation : Float)), ((p_height : Float)), ((p_carve : Bool)));
 	public function clear_projected_obstructions():Void __navigationmeshsourcegeometrydata3d_ptr().value.clear_projected_obstructions();

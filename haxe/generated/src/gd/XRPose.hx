@@ -19,6 +19,12 @@ class XRPose extends gd.RefCounted {
 		return p_name;
 	}
 	public function get_name():std.String return __xrpose_ptr().value.get_name();
+	public function set_transform(p_transform:gd.Transform3D):gd.Transform3D {
+		__xrpose_ptr().value.set_transform(((p_transform : gd.Transform3D)));
+		return p_transform;
+	}
+	public function get_transform():gd.Transform3D return __xrpose_ptr().value.get_transform();
+	public function get_adjusted_transform():gd.Transform3D return __xrpose_ptr().value.get_adjusted_transform();
 	public function set_linear_velocity(p_velocity:gd.Vector3):gd.Vector3 {
 		__xrpose_ptr().value.set_linear_velocity(((p_velocity : gd.Vector3)));
 		return p_velocity;
@@ -36,6 +42,7 @@ class XRPose extends gd.RefCounted {
 	public function get_tracking_confidence():gd.xrpose.TrackingConfidence return __xrpose_ptr().value.get_tracking_confidence();
 	public var has_tracking_data(get, set) : Bool;
 	public var name(get, set) : std.String;
+	public var transform(get, set) : gd.Transform3D;
 	public var linear_velocity(get, set) : gd.Vector3;
 	public var angular_velocity(get, set) : gd.Vector3;
 	public var tracking_confidence(get, set) : gd.xrpose.TrackingConfidence;

@@ -1,6 +1,7 @@
 package gd;
 extern class Font extends gd.Resource {
 	function new(?owner:Dynamic);
+	function find_variation(p_variation_coordinates:gd.Dictionary, ?p_face_index:Int, ?p_strength:Float, ?p_transform:gd.Transform2D, ?p_spacing_top:Int, ?p_spacing_bottom:Int, ?p_spacing_space:Int, ?p_spacing_glyph:Int, ?p_baseline_offset:Float):gd.RID;
 	function get_height(?p_font_size:Int):Float;
 	function get_ascent(?p_font_size:Int):Float;
 	function get_descent(?p_font_size:Int):Float;

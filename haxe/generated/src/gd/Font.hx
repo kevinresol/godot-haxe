@@ -9,6 +9,17 @@ class Font extends gd.Resource {
 		super(native.reinterpret());
 	}
 	extern inline function __font_ptr():cpp.Pointer<gdnative.Font.Font_extern> return cast __gd.ptr;
+	public function find_variation(p_variation_coordinates:gd.Dictionary, ?p_face_index:Int, ?p_strength:Float, ?p_transform:gd.Transform2D, ?p_spacing_top:Int, ?p_spacing_bottom:Int, ?p_spacing_space:Int, ?p_spacing_glyph:Int, ?p_baseline_offset:Float):gd.RID return switch [p_variation_coordinates, p_face_index, p_strength, p_transform, p_spacing_top, p_spacing_bottom, p_spacing_space, p_spacing_glyph, p_baseline_offset] {
+		case [_, null, _, _, _, _, _, _, _]:__font_ptr().value.find_variation(((p_variation_coordinates : gd.Dictionary)));
+		case [_, _, null, _, _, _, _, _, _]:__font_ptr().value.find_variation(((p_variation_coordinates : gd.Dictionary)), ((p_face_index : Int)));
+		case [_, _, _, null, _, _, _, _, _]:__font_ptr().value.find_variation(((p_variation_coordinates : gd.Dictionary)), ((p_face_index : Int)), ((p_strength : Float)));
+		case [_, _, _, _, null, _, _, _, _]:__font_ptr().value.find_variation(((p_variation_coordinates : gd.Dictionary)), ((p_face_index : Int)), ((p_strength : Float)), ((p_transform : gd.Transform2D)));
+		case [_, _, _, _, _, null, _, _, _]:__font_ptr().value.find_variation(((p_variation_coordinates : gd.Dictionary)), ((p_face_index : Int)), ((p_strength : Float)), ((p_transform : gd.Transform2D)), ((p_spacing_top : Int)));
+		case [_, _, _, _, _, _, null, _, _]:__font_ptr().value.find_variation(((p_variation_coordinates : gd.Dictionary)), ((p_face_index : Int)), ((p_strength : Float)), ((p_transform : gd.Transform2D)), ((p_spacing_top : Int)), ((p_spacing_bottom : Int)));
+		case [_, _, _, _, _, _, _, null, _]:__font_ptr().value.find_variation(((p_variation_coordinates : gd.Dictionary)), ((p_face_index : Int)), ((p_strength : Float)), ((p_transform : gd.Transform2D)), ((p_spacing_top : Int)), ((p_spacing_bottom : Int)), ((p_spacing_space : Int)));
+		case [_, _, _, _, _, _, _, _, null]:__font_ptr().value.find_variation(((p_variation_coordinates : gd.Dictionary)), ((p_face_index : Int)), ((p_strength : Float)), ((p_transform : gd.Transform2D)), ((p_spacing_top : Int)), ((p_spacing_bottom : Int)), ((p_spacing_space : Int)), ((p_spacing_glyph : Int)));
+		default:__font_ptr().value.find_variation(((p_variation_coordinates : gd.Dictionary)), ((p_face_index : Int)), ((p_strength : Float)), ((p_transform : gd.Transform2D)), ((p_spacing_top : Int)), ((p_spacing_bottom : Int)), ((p_spacing_space : Int)), ((p_spacing_glyph : Int)), ((p_baseline_offset : Float)));
+	};
 	public function get_height(?p_font_size:Int):Float return switch [p_font_size] {
 		case [null]:__font_ptr().value.get_height();
 		default:__font_ptr().value.get_height(((p_font_size : Int)));

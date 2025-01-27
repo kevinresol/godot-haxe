@@ -13,6 +13,8 @@ package gdnative;
 	function _get_play_area():gdnative.PackedVector3Array;
 	function _get_render_target_size():gdnative.Vector2;
 	function _get_view_count():Int;
+	function _get_camera_transform():gdnative.Transform3D;
+	function _get_transform_for_view(p_view:Int, p_cam_transform:gdnative.Transform3D):gdnative.Transform3D;
 	function _get_projection_for_view(p_view:Int, p_aspect:Float, p_z_near:Float, p_z_far:Float):gdnative.PackedFloat64Array;
 	function _get_vrs_texture():gdnative.RID;
 	function _process():Void;

@@ -1,6 +1,8 @@
 package gd;
 extern class Node3D extends gd.Node {
 	function new(?owner:Dynamic);
+	function set_transform(p_local:gd.Transform3D):gd.Transform3D;
+	function get_transform():gd.Transform3D;
 	function set_position(p_position:gd.Vector3):gd.Vector3;
 	function get_position():gd.Vector3;
 	function set_rotation(p_euler_radians:gd.Vector3):gd.Vector3;
@@ -17,6 +19,8 @@ extern class Node3D extends gd.Node {
 	function get_quaternion():gd.Quaternion;
 	function set_basis(p_basis:gd.Basis):gd.Basis;
 	function get_basis():gd.Basis;
+	function set_global_transform(p_global:gd.Transform3D):gd.Transform3D;
+	function get_global_transform():gd.Transform3D;
 	function set_global_position(p_position:gd.Vector3):gd.Vector3;
 	function get_global_position():gd.Vector3;
 	function set_global_basis(p_basis:gd.Basis):gd.Basis;
@@ -38,6 +42,7 @@ extern class Node3D extends gd.Node {
 	function update_gizmos():Void;
 	function add_gizmo(p_gizmo:gd.Node3DGizmo):Void;
 	function clear_gizmos():Void;
+	function set_subgizmo_selection(p_gizmo:gd.Node3DGizmo, p_id:Int, p_transform:gd.Transform3D):Void;
 	function clear_subgizmo_selection():Void;
 	function set_visible(p_visible:Bool):Bool;
 	function is_visible():Bool;
@@ -65,6 +70,8 @@ extern class Node3D extends gd.Node {
 	function look_at_from_position(p_position:gd.Vector3, p_target:gd.Vector3, ?p_up:gd.Vector3, ?p_use_model_front:Bool):Void;
 	function to_local(p_global_point:gd.Vector3):gd.Vector3;
 	function to_global(p_local_point:gd.Vector3):gd.Vector3;
+	var transform(get, set) : gd.Transform3D;
+	var global_transform(get, set) : gd.Transform3D;
 	var position(get, set) : gd.Vector3;
 	var rotation(get, set) : gd.Vector3;
 	var rotation_degrees(get, set) : gd.Vector3;

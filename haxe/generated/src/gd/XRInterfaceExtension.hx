@@ -21,6 +21,8 @@ class XRInterfaceExtension extends gd.XRInterface {
 	public function _get_play_area():gd.PackedVector3Array return __xrinterfaceextension_ptr().value._get_play_area();
 	public function _get_render_target_size():gd.Vector2 return __xrinterfaceextension_ptr().value._get_render_target_size();
 	public function _get_view_count():Int return __xrinterfaceextension_ptr().value._get_view_count();
+	public function _get_camera_transform():gd.Transform3D return __xrinterfaceextension_ptr().value._get_camera_transform();
+	public function _get_transform_for_view(p_view:Int, p_cam_transform:gd.Transform3D):gd.Transform3D return __xrinterfaceextension_ptr().value._get_transform_for_view(((p_view : Int)), ((p_cam_transform : gd.Transform3D)));
 	public function _get_projection_for_view(p_view:Int, p_aspect:Float, p_z_near:Float, p_z_far:Float):gd.PackedFloat64Array return __xrinterfaceextension_ptr().value._get_projection_for_view(((p_view : Int)), ((p_aspect : Float)), ((p_z_near : Float)), ((p_z_far : Float)));
 	public function _get_vrs_texture():gd.RID return __xrinterfaceextension_ptr().value._get_vrs_texture();
 	public function _process():Void __xrinterfaceextension_ptr().value._process();

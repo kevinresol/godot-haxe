@@ -44,6 +44,8 @@ class CollisionObject2D extends gd.Node2D {
 	public function create_shape_owner(p_owner:gd.Object):Int return __collisionobject2d_ptr().value.create_shape_owner(((p_owner : gd.Object)));
 	public function remove_shape_owner(p_owner_id:Int):Void __collisionobject2d_ptr().value.remove_shape_owner(((p_owner_id : Int)));
 	public function get_shape_owners():gd.PackedInt32Array return __collisionobject2d_ptr().value.get_shape_owners();
+	public function shape_owner_set_transform(p_owner_id:Int, p_transform:gd.Transform2D):Void __collisionobject2d_ptr().value.shape_owner_set_transform(((p_owner_id : Int)), ((p_transform : gd.Transform2D)));
+	public function shape_owner_get_transform(p_owner_id:Int):gd.Transform2D return __collisionobject2d_ptr().value.shape_owner_get_transform(((p_owner_id : Int)));
 	public function shape_owner_get_owner(p_owner_id:Int):gd.Object return __collisionobject2d_ptr().value.shape_owner_get_owner(((p_owner_id : Int)));
 	public function shape_owner_set_disabled(p_owner_id:Int, p_disabled:Bool):Void __collisionobject2d_ptr().value.shape_owner_set_disabled(((p_owner_id : Int)), ((p_disabled : Bool)));
 	public function is_shape_owner_disabled(p_owner_id:Int):Bool return __collisionobject2d_ptr().value.is_shape_owner_disabled(((p_owner_id : Int)));

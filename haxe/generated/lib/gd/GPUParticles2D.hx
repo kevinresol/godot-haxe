@@ -41,6 +41,7 @@ extern class GPUParticles2D extends gd.Node2D {
 	function restart():Void;
 	function set_sub_emitter(p_path:std.String):std.String;
 	function get_sub_emitter():std.String;
+	function emit_particle(p_xform:gd.Transform2D, p_velocity:gd.Vector2, p_color:gd.Color, p_custom:gd.Color, p_flags:Int):Void;
 	function set_trail_enabled(p_enabled:Bool):Bool;
 	function set_trail_lifetime(p_secs:Float):Float;
 	function is_trail_enabled():Bool;

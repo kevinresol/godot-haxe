@@ -47,6 +47,8 @@ class NavigationServer2D extends gd.Object {
 	public function region_get_map(p_region:gd.RID):gd.RID return __navigationserver2d_ptr().value.region_get_map(((p_region : gd.RID)));
 	public function region_set_navigation_layers(p_region:gd.RID, p_navigation_layers:Int):Void __navigationserver2d_ptr().value.region_set_navigation_layers(((p_region : gd.RID)), ((p_navigation_layers : Int)));
 	public function region_get_navigation_layers(p_region:gd.RID):Int return __navigationserver2d_ptr().value.region_get_navigation_layers(((p_region : gd.RID)));
+	public function region_set_transform(p_region:gd.RID, p_transform:gd.Transform2D):Void __navigationserver2d_ptr().value.region_set_transform(((p_region : gd.RID)), ((p_transform : gd.Transform2D)));
+	public function region_get_transform(p_region:gd.RID):gd.Transform2D return __navigationserver2d_ptr().value.region_get_transform(((p_region : gd.RID)));
 	public function region_set_navigation_polygon(p_region:gd.RID, p_navigation_polygon:gd.NavigationPolygon):Void __navigationserver2d_ptr().value.region_set_navigation_polygon(((p_region : gd.RID)), ((p_navigation_polygon : gd.NavigationPolygon)));
 	public function region_get_connections_count(p_region:gd.RID):Int return __navigationserver2d_ptr().value.region_get_connections_count(((p_region : gd.RID)));
 	public function region_get_connection_pathway_start(p_region:gd.RID, p_connection:Int):gd.Vector2 return __navigationserver2d_ptr().value.region_get_connection_pathway_start(((p_region : gd.RID)), ((p_connection : Int)));

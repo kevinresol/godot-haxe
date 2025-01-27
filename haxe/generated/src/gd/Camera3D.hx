@@ -28,6 +28,7 @@ class Camera3D extends gd.Node3D {
 		return p_enabled;
 	}
 	public function is_current():Bool return __camera3d_ptr().value.is_current();
+	public function get_camera_transform():gd.Transform3D return __camera3d_ptr().value.get_camera_transform();
 	public function get_fov():Float return __camera3d_ptr().value.get_fov();
 	public function get_frustum_offset():gd.Vector2 return __camera3d_ptr().value.get_frustum_offset();
 	public function get_size():Float return __camera3d_ptr().value.get_size();

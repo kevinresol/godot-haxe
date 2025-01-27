@@ -1,6 +1,15 @@
 package gdnative;
 @:include("godot_cpp/classes/font.hpp") @:native("godot::Font") @:structAccess extern class Font_extern extends gdnative.Resource.Resource_extern {
 	extern static inline function __alloc():cpp.Pointer<Font_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::Font"));
+	overload function find_variation(p_variation_coordinates:gdnative.Dictionary):gdnative.RID;
+	overload function find_variation(p_variation_coordinates:gdnative.Dictionary, p_face_index:Int):gdnative.RID;
+	overload function find_variation(p_variation_coordinates:gdnative.Dictionary, p_face_index:Int, p_strength:Float):gdnative.RID;
+	overload function find_variation(p_variation_coordinates:gdnative.Dictionary, p_face_index:Int, p_strength:Float, p_transform:gdnative.Transform2D):gdnative.RID;
+	overload function find_variation(p_variation_coordinates:gdnative.Dictionary, p_face_index:Int, p_strength:Float, p_transform:gdnative.Transform2D, p_spacing_top:Int):gdnative.RID;
+	overload function find_variation(p_variation_coordinates:gdnative.Dictionary, p_face_index:Int, p_strength:Float, p_transform:gdnative.Transform2D, p_spacing_top:Int, p_spacing_bottom:Int):gdnative.RID;
+	overload function find_variation(p_variation_coordinates:gdnative.Dictionary, p_face_index:Int, p_strength:Float, p_transform:gdnative.Transform2D, p_spacing_top:Int, p_spacing_bottom:Int, p_spacing_space:Int):gdnative.RID;
+	overload function find_variation(p_variation_coordinates:gdnative.Dictionary, p_face_index:Int, p_strength:Float, p_transform:gdnative.Transform2D, p_spacing_top:Int, p_spacing_bottom:Int, p_spacing_space:Int, p_spacing_glyph:Int):gdnative.RID;
+	overload function find_variation(p_variation_coordinates:gdnative.Dictionary, p_face_index:Int, p_strength:Float, p_transform:gdnative.Transform2D, p_spacing_top:Int, p_spacing_bottom:Int, p_spacing_space:Int, p_spacing_glyph:Int, p_baseline_offset:Float):gdnative.RID;
 	overload function get_height():Float;
 	overload function get_height(p_font_size:Int):Float;
 	overload function get_ascent():Float;

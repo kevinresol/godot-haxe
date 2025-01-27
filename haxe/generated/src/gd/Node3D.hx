@@ -9,6 +9,11 @@ class Node3D extends gd.Node {
 		super(native.reinterpret());
 	}
 	extern inline function __node3d_ptr():cpp.Pointer<gdnative.Node3D.Node3D_extern> return cast __gd.ptr;
+	public function set_transform(p_local:gd.Transform3D):gd.Transform3D {
+		__node3d_ptr().value.set_transform(((p_local : gd.Transform3D)));
+		return p_local;
+	}
+	public function get_transform():gd.Transform3D return __node3d_ptr().value.get_transform();
 	public function set_position(p_position:gd.Vector3):gd.Vector3 {
 		__node3d_ptr().value.set_position(((p_position : gd.Vector3)));
 		return p_position;
@@ -49,6 +54,11 @@ class Node3D extends gd.Node {
 		return p_basis;
 	}
 	public function get_basis():gd.Basis return __node3d_ptr().value.get_basis();
+	public function set_global_transform(p_global:gd.Transform3D):gd.Transform3D {
+		__node3d_ptr().value.set_global_transform(((p_global : gd.Transform3D)));
+		return p_global;
+	}
+	public function get_global_transform():gd.Transform3D return __node3d_ptr().value.get_global_transform();
 	public function set_global_position(p_position:gd.Vector3):gd.Vector3 {
 		__node3d_ptr().value.set_global_position(((p_position : gd.Vector3)));
 		return p_position;
@@ -85,6 +95,7 @@ class Node3D extends gd.Node {
 	public function update_gizmos():Void __node3d_ptr().value.update_gizmos();
 	public function add_gizmo(p_gizmo:gd.Node3DGizmo):Void __node3d_ptr().value.add_gizmo(((p_gizmo : gd.Node3DGizmo)));
 	public function clear_gizmos():Void __node3d_ptr().value.clear_gizmos();
+	public function set_subgizmo_selection(p_gizmo:gd.Node3DGizmo, p_id:Int, p_transform:gd.Transform3D):Void __node3d_ptr().value.set_subgizmo_selection(((p_gizmo : gd.Node3DGizmo)), ((p_id : Int)), ((p_transform : gd.Transform3D)));
 	public function clear_subgizmo_selection():Void __node3d_ptr().value.clear_subgizmo_selection();
 	public function set_visible(p_visible:Bool):Bool {
 		__node3d_ptr().value.set_visible(((p_visible : Bool)));
@@ -123,6 +134,8 @@ class Node3D extends gd.Node {
 	};
 	public function to_local(p_global_point:gd.Vector3):gd.Vector3 return __node3d_ptr().value.to_local(((p_global_point : gd.Vector3)));
 	public function to_global(p_local_point:gd.Vector3):gd.Vector3 return __node3d_ptr().value.to_global(((p_local_point : gd.Vector3)));
+	public var transform(get, set) : gd.Transform3D;
+	public var global_transform(get, set) : gd.Transform3D;
 	public var position(get, set) : gd.Vector3;
 	public var rotation(get, set) : gd.Vector3;
 	public var rotation_degrees(get, set) : gd.Vector3;

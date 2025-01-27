@@ -21,10 +21,15 @@ class Skeleton3D extends gd.Node3D {
 	public function unparent_bone_and_rest(p_bone_idx:Int):Void __skeleton3d_ptr().value.unparent_bone_and_rest(((p_bone_idx : Int)));
 	public function get_bone_children(p_bone_idx:Int):gd.PackedInt32Array return __skeleton3d_ptr().value.get_bone_children(((p_bone_idx : Int)));
 	public function get_parentless_bones():gd.PackedInt32Array return __skeleton3d_ptr().value.get_parentless_bones();
+	public function get_bone_rest(p_bone_idx:Int):gd.Transform3D return __skeleton3d_ptr().value.get_bone_rest(((p_bone_idx : Int)));
+	public function set_bone_rest(p_bone_idx:Int, p_rest:gd.Transform3D):Void __skeleton3d_ptr().value.set_bone_rest(((p_bone_idx : Int)), ((p_rest : gd.Transform3D)));
+	public function get_bone_global_rest(p_bone_idx:Int):gd.Transform3D return __skeleton3d_ptr().value.get_bone_global_rest(((p_bone_idx : Int)));
 	public function create_skin_from_rest_transforms():gd.Skin return __skeleton3d_ptr().value.create_skin_from_rest_transforms();
 	public function register_skin(p_skin:gd.Skin):gd.SkinReference return __skeleton3d_ptr().value.register_skin(((p_skin : gd.Skin)));
 	public function localize_rests():Void __skeleton3d_ptr().value.localize_rests();
 	public function clear_bones():Void __skeleton3d_ptr().value.clear_bones();
+	public function get_bone_pose(p_bone_idx:Int):gd.Transform3D return __skeleton3d_ptr().value.get_bone_pose(((p_bone_idx : Int)));
+	public function set_bone_pose(p_bone_idx:Int, p_pose:gd.Transform3D):Void __skeleton3d_ptr().value.set_bone_pose(((p_bone_idx : Int)), ((p_pose : gd.Transform3D)));
 	public function set_bone_pose_position(p_bone_idx:Int, p_position:gd.Vector3):Void __skeleton3d_ptr().value.set_bone_pose_position(((p_bone_idx : Int)), ((p_position : gd.Vector3)));
 	public function set_bone_pose_rotation(p_bone_idx:Int, p_rotation:gd.Quaternion):Void __skeleton3d_ptr().value.set_bone_pose_rotation(((p_bone_idx : Int)), ((p_rotation : gd.Quaternion)));
 	public function set_bone_pose_scale(p_bone_idx:Int, p_scale:gd.Vector3):Void __skeleton3d_ptr().value.set_bone_pose_scale(((p_bone_idx : Int)), ((p_scale : gd.Vector3)));
@@ -38,6 +43,8 @@ class Skeleton3D extends gd.Node3D {
 		case [_, null]:__skeleton3d_ptr().value.set_bone_enabled(((p_bone_idx : Int)));
 		default:__skeleton3d_ptr().value.set_bone_enabled(((p_bone_idx : Int)), ((p_enabled : Bool)));
 	};
+	public function get_bone_global_pose(p_bone_idx:Int):gd.Transform3D return __skeleton3d_ptr().value.get_bone_global_pose(((p_bone_idx : Int)));
+	public function set_bone_global_pose(p_bone_idx:Int, p_pose:gd.Transform3D):Void __skeleton3d_ptr().value.set_bone_global_pose(((p_bone_idx : Int)), ((p_pose : gd.Transform3D)));
 	public function force_update_all_bone_transforms():Void __skeleton3d_ptr().value.force_update_all_bone_transforms();
 	public function force_update_bone_child_transform(p_bone_idx:Int):Void __skeleton3d_ptr().value.force_update_bone_child_transform(((p_bone_idx : Int)));
 	public function set_motion_scale(p_motion_scale:Float):Float {
@@ -56,6 +63,12 @@ class Skeleton3D extends gd.Node3D {
 	}
 	public function get_modifier_callback_mode_process():gd.skeleton3d.ModifierCallbackModeProcess return __skeleton3d_ptr().value.get_modifier_callback_mode_process();
 	public function clear_bones_global_pose_override():Void __skeleton3d_ptr().value.clear_bones_global_pose_override();
+	public function set_bone_global_pose_override(p_bone_idx:Int, p_pose:gd.Transform3D, p_amount:Float, ?p_persistent:Bool):Void switch [p_bone_idx, p_pose, p_amount, p_persistent] {
+		case [_, _, _, null]:__skeleton3d_ptr().value.set_bone_global_pose_override(((p_bone_idx : Int)), ((p_pose : gd.Transform3D)), ((p_amount : Float)));
+		default:__skeleton3d_ptr().value.set_bone_global_pose_override(((p_bone_idx : Int)), ((p_pose : gd.Transform3D)), ((p_amount : Float)), ((p_persistent : Bool)));
+	};
+	public function get_bone_global_pose_override(p_bone_idx:Int):gd.Transform3D return __skeleton3d_ptr().value.get_bone_global_pose_override(((p_bone_idx : Int)));
+	public function get_bone_global_pose_no_override(p_bone_idx:Int):gd.Transform3D return __skeleton3d_ptr().value.get_bone_global_pose_no_override(((p_bone_idx : Int)));
 	public function set_animate_physical_bones(p_enabled:Bool):Bool {
 		__skeleton3d_ptr().value.set_animate_physical_bones(((p_enabled : Bool)));
 		return p_enabled;
