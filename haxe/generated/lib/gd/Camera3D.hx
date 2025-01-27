@@ -15,6 +15,7 @@ extern class Camera3D extends gd.Node3D {
 	function set_current(p_enabled:Bool):Bool;
 	function is_current():Bool;
 	function get_camera_transform():gd.Transform3D;
+	function get_camera_projection():gd.Projection;
 	function get_fov():Float;
 	function get_frustum_offset():gd.Vector2;
 	function get_size():Float;

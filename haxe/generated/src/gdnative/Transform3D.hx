@@ -3,6 +3,7 @@ package gdnative;
 	@:overload(function(p_from:gdnative.Transform3D):Void { })
 	@:overload(function(p_basis:gdnative.Basis, p_origin:gdnative.Vector3):Void { })
 	@:overload(function(p_x_axis:gdnative.Vector3, p_y_axis:gdnative.Vector3, p_z_axis:gdnative.Vector3, p_origin:gdnative.Vector3):Void { })
+	@:overload(function(p_from:gdnative.Projection):Void { })
 	@:overload(function(p_xx:Float, p_xy:Float, p_xz:Float, p_yx:Float, p_yy:Float, p_yz:Float, p_zx:Float, p_zy:Float, p_zz:Float, p_tx:Float, p_ty:Float, p_tz:Float):Void { })
 	function new();
 	function inverse():gdnative.Transform3D;
@@ -36,5 +37,6 @@ package gdnative;
 	public extern overload inline function new(p_from:gd.Transform3D) this = new gdnative.Transform3D.Transform3D_extern(p_from);
 	public extern overload inline function new(p_basis:gd.Basis, p_origin:gd.Vector3) this = new gdnative.Transform3D.Transform3D_extern(p_basis, p_origin);
 	public extern overload inline function new(p_x_axis:gd.Vector3, p_y_axis:gd.Vector3, p_z_axis:gd.Vector3, p_origin:gd.Vector3) this = new gdnative.Transform3D.Transform3D_extern(p_x_axis, p_y_axis, p_z_axis, p_origin);
+	public extern overload inline function new(p_from:gd.Projection) this = new gdnative.Transform3D.Transform3D_extern(p_from);
 	public extern overload inline function new(p_xx:Float, p_xy:Float, p_xz:Float, p_yx:Float, p_yy:Float, p_yz:Float, p_zx:Float, p_zy:Float, p_zz:Float, p_tx:Float, p_ty:Float, p_tz:Float) this = new gdnative.Transform3D.Transform3D_extern(p_xx, p_xy, p_xz, p_yx, p_yy, p_yz, p_zx, p_zy, p_zz, p_tx, p_ty, p_tz);
 }

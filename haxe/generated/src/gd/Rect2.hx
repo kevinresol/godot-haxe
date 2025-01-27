@@ -24,10 +24,16 @@ class Rect2_wrapper {
 	public function abs():gd.Rect2 return __gd.abs();
 	public var position(get, set) : gd.Vector2;
 	function get_position():gd.Vector2 return __gd.position;
-	function set_position(v:gd.Vector2):gd.Vector2 return __gd.position = v;
+	function set_position(v:gd.Vector2):gd.Vector2 {
+		__gd.position = v;
+		return v;
+	}
 	public var size(get, set) : gd.Vector2;
 	function get_size():gd.Vector2 return __gd.size;
-	function set_size(v:gd.Vector2):gd.Vector2 return __gd.size = v;
+	function set_size(v:gd.Vector2):gd.Vector2 {
+		__gd.size = v;
+		return v;
+	}
 }
 
 @:forward @:forwardStatics abstract Rect2(Rect2_wrapper) from Rect2_wrapper to Rect2_wrapper {

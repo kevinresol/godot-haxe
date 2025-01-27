@@ -22,10 +22,16 @@ class Rect2i_wrapper {
 	public function abs():gd.Rect2i return __gd.abs();
 	public var position(get, set) : gd.Vector2i;
 	function get_position():gd.Vector2i return __gd.position;
-	function set_position(v:gd.Vector2i):gd.Vector2i return __gd.position = v;
+	function set_position(v:gd.Vector2i):gd.Vector2i {
+		__gd.position = v;
+		return v;
+	}
 	public var size(get, set) : gd.Vector2i;
 	function get_size():gd.Vector2i return __gd.size;
-	function set_size(v:gd.Vector2i):gd.Vector2i return __gd.size = v;
+	function set_size(v:gd.Vector2i):gd.Vector2i {
+		__gd.size = v;
+		return v;
+	}
 }
 
 @:forward @:forwardStatics abstract Rect2i(Rect2i_wrapper) from Rect2i_wrapper to Rect2i_wrapper {

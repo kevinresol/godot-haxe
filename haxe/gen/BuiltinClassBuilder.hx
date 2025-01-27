@@ -18,11 +18,9 @@ class BuiltinClassBuilder extends Builder {
 			final hppExists = sys.FileSystem.exists(Path.join([Sys.programPath().directory(), '../godot-cpp/include', hpp]))
 				|| sys.FileSystem.exists(Path.join([Sys.programPath().directory(), '../godot-cpp/gen/include', hpp]));
 			if (hppExists) {
-				if (clazz.name != 'Projection') {
-					generateClassExtern(clazz, hpp);
-					generateClassWrapper(clazz, false);
-					generateClassWrapper(clazz, true);
-				}
+				generateClassExtern(clazz, hpp);
+				generateClassWrapper(clazz, false);
+				generateClassWrapper(clazz, true);
 			} else {
 				trace('Skipping ${cname} because ${hpp} does not exist');
 			}
@@ -421,7 +419,7 @@ class BuiltinClassBuilder extends Builder {
 								kind: FFun({
 									args: [{name: 'v', type: ptype}],
 									ret: ptype,
-									expr: macro return __gd.$pname = v
+									expr: macro {__gd.$pname = v; return v;}
 								})
 							});
 						case {kind: FFun(f)}:
@@ -459,7 +457,18 @@ class BuiltinClassBuilder extends Builder {
 								default: macro $v{v.contains('.') ? Std.parseFloat(v) : Std.parseInt(v)};
 							});
 
-							macro new $tp($a{args});
+							switch cname {
+								case 'Projection':
+									// special handling for Projection because the C++ code does not have this constructor
+									macro new $tp( //
+										new gd.Vector4($a{args.slice(0, 4)}), //
+										new gd.Vector4($a{args.slice(4, 8)}), //
+										new gd.Vector4($a{args.slice(8, 12)}), //
+										new gd.Vector4($a{args.slice(12, 16)}), //
+									);
+								default:
+									macro new $tp($a{args});
+							}
 						} else {
 							throw 'Unhandled constant type ${const.type}';
 						}
@@ -536,12 +545,23 @@ class BuiltinClassBuilder extends Builder {
 				'rows[1]';
 			case ['Basis', 'z']:
 				'rows[2]';
+
 			case ['Transform2D', 'x']:
 				'columns[0]';
 			case ['Transform2D', 'y']:
 				'columns[1]';
 			case ['Transform2D', 'origin']:
 				'columns[2]';
+
+			case ['Projection', 'x']:
+				'columns[0]';
+			case ['Projection', 'y']:
+				'columns[1]';
+			case ['Projection', 'z']:
+				'columns[2]';
+			case ['Projection', 'w']:
+				'columns[3]';
+
 			default:
 				null;
 		}
@@ -592,6 +612,8 @@ class BuiltinClassBuilder extends Builder {
 				'enum::Side';
 			case ['Basis', 'get_euler' | 'from_euler', 'order']:
 				'enum::EulerOrder';
+			case ['Projection', 'get_projection_plane', 'plane']:
+				'enum::Projection.Planes';
 			default:
 				argType;
 		}

@@ -12,7 +12,6 @@ class Type {
 			case 'int': macro :Int;
 			case 'bool': macro :Bool;
 
-			case 'Projection': throw gdType;
 			// enums
 			case t if (t.startsWith('enum::')):
 				switch t.substr('enum::'.length).split('.') {
@@ -39,7 +38,6 @@ class Type {
 			case 'bool': macro :Bool;
 
 			// builitin
-			case 'Projection': throw gdType;
 			case 'NodePath' | 'String' | 'StringName': macro :std.String;
 			// enums
 			case t if (t.startsWith('enum::')):

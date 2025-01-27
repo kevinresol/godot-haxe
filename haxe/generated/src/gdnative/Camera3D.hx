@@ -16,6 +16,7 @@ package gdnative;
 	function set_current(p_enabled:Bool):Void;
 	function is_current():Bool;
 	function get_camera_transform():gdnative.Transform3D;
+	function get_camera_projection():gdnative.Projection;
 	function get_fov():Float;
 	function get_frustum_offset():gdnative.Vector2;
 	function get_size():Float;

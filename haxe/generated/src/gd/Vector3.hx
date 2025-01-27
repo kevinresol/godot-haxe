@@ -55,13 +55,22 @@ class Vector3_wrapper {
 	public function octahedron_decode(p_uv:gd.Vector2):gd.Vector3 return __gd.octahedron_decode(p_uv);
 	public var x(get, set) : Float;
 	function get_x():Float return __gd.x;
-	function set_x(v:Float):Float return __gd.x = v;
+	function set_x(v:Float):Float {
+		__gd.x = v;
+		return v;
+	}
 	public var y(get, set) : Float;
 	function get_y():Float return __gd.y;
-	function set_y(v:Float):Float return __gd.y = v;
+	function set_y(v:Float):Float {
+		__gd.y = v;
+		return v;
+	}
 	public var z(get, set) : Float;
 	function get_z():Float return __gd.z;
-	function set_z(v:Float):Float return __gd.z = v;
+	function set_z(v:Float):Float {
+		__gd.z = v;
+		return v;
+	}
 	public static final AXIS_X : Int = 0;
 	public static final AXIS_Y : Int = 1;
 	public static final AXIS_Z : Int = 2;

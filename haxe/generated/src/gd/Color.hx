@@ -35,16 +35,28 @@ class Color_wrapper {
 	public function from_rgbe9995(p_rgbe:Int):gd.Color return __gd.from_rgbe9995(p_rgbe);
 	public var r(get, set) : Float;
 	function get_r():Float return __gd.r;
-	function set_r(v:Float):Float return __gd.r = v;
+	function set_r(v:Float):Float {
+		__gd.r = v;
+		return v;
+	}
 	public var g(get, set) : Float;
 	function get_g():Float return __gd.g;
-	function set_g(v:Float):Float return __gd.g = v;
+	function set_g(v:Float):Float {
+		__gd.g = v;
+		return v;
+	}
 	public var b(get, set) : Float;
 	function get_b():Float return __gd.b;
-	function set_b(v:Float):Float return __gd.b = v;
+	function set_b(v:Float):Float {
+		__gd.b = v;
+		return v;
+	}
 	public var a(get, set) : Float;
 	function get_a():Float return __gd.a;
-	function set_a(v:Float):Float return __gd.a = v;
+	function set_a(v:Float):Float {
+		__gd.a = v;
+		return v;
+	}
 	public static final ALICE_BLUE : gd.Color = new gd.Color(0.941176, 0.972549, 1, 1);
 	public static final ANTIQUE_WHITE : gd.Color = new gd.Color(0.980392, 0.921569, 0.843137, 1);
 	public static final AQUA : gd.Color = new gd.Color(0, 1, 1, 1);
