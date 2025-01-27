@@ -5,8 +5,8 @@ class Base extends Node2D {
 	@export
 	var base:Float = 42;
 
-	function new() {
-		super();
+	function new(owner) {
+		super(owner);
 		trace('new Base()');
 		trace(__props);
 	}
@@ -18,8 +18,8 @@ class Main extends Base {
 	@export_range(0, 100)
 	var speed:Float = 42;
 
-	function new() {
-		super();
+	function new(owner) {
+		super(owner);
 		trace('new Main()');
 		trace(__props);
 

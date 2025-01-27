@@ -47,6 +47,7 @@ class Cppia {
 
 		final x = new gd.Node2D();
 		UtilityFunctions.print(x);
+		x.free();
 	}
 
 	static var module:Module;

@@ -48,7 +48,10 @@ class Object {
 	public function is_queued_for_deletion():Bool return __object_ptr().value.is_queued_for_deletion();
 	public function cancel_free():Void __object_ptr().value.cancel_free();
 	public var __gd : gdnative.Object;
-	function cast_to<T:(gd.Object)>(cls:Class<T>):T {
+	public function free() {
+		gdnative.Memory.Memory_extern.memdelete(__gd.ptr);
+	}
+	public function cast_to<T:(gd.Object)>(cls:Class<T>):T {
 		final ret:T = Type.createInstance(cls, [__gd]);
 		switch [Std.downcast(this, gd.RefCounted), Std.downcast(((ret : Dynamic)), gd.RefCounted)] {
 			case [null, null]:
