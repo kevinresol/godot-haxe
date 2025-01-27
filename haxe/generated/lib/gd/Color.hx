@@ -1,9 +1,5 @@
 package gd;
 extern class Color_wrapper {
-	var r(get, set) : Float;
-	var g(get, set) : Float;
-	var b(get, set) : Float;
-	var a(get, set) : Float;
 	static function _new0():Color_wrapper;
 	static function _new1(p_from:gd.Color):Color_wrapper;
 	static function _new2(p_from:gd.Color, p_alpha:Float):Color_wrapper;
@@ -35,6 +31,10 @@ extern class Color_wrapper {
 	function from_string(p_str:std.String, p_default:gd.Color):gd.Color;
 	function from_hsv(p_h:Float, p_s:Float, p_v:Float, ?p_alpha:Float):gd.Color;
 	function from_rgbe9995(p_rgbe:Int):gd.Color;
+	var r(get, set) : Float;
+	var g(get, set) : Float;
+	var b(get, set) : Float;
+	var a(get, set) : Float;
 	public static final ALICE_BLUE : gd.Color;
 	public static final ANTIQUE_WHITE : gd.Color;
 	public static final AQUA : gd.Color;

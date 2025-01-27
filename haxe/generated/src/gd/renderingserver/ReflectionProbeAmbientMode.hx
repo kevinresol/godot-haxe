@@ -1,0 +1,2 @@
+package gd.renderingserver;
+typedef ReflectionProbeAmbientMode = gdnative.renderingserver.ReflectionProbeAmbientMode;

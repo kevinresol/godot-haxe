@@ -1,0 +1,37 @@
+package gd;
+extern class SceneMultiplayer extends gd.MultiplayerAPI {
+	function new(?owner:Dynamic);
+	function set_root_path(p_path:std.String):std.String;
+	function get_root_path():std.String;
+	function clear():Void;
+	function disconnect_peer(p_id:Int):Void;
+	function get_authenticating_peers():gd.PackedInt32Array;
+	function send_auth(p_id:Int, p_data:gd.PackedByteArray):gd.Error;
+	function complete_auth(p_id:Int):gd.Error;
+	function set_auth_callback(p_callback:gd.Callable):gd.Callable;
+	function get_auth_callback():gd.Callable;
+	function set_auth_timeout(p_timeout:Float):Float;
+	function get_auth_timeout():Float;
+	function set_refuse_new_connections(p_refuse:Bool):Bool;
+	function is_refusing_new_connections():Bool;
+	function set_allow_object_decoding(p_enable:Bool):Bool;
+	function is_object_decoding_allowed():Bool;
+	function set_server_relay_enabled(p_enabled:Bool):Void;
+	function is_server_relay_enabled():Bool;
+	function get_max_sync_packet_size():Int;
+	function set_max_sync_packet_size(p_size:Int):Int;
+	function get_max_delta_packet_size():Int;
+	function set_max_delta_packet_size(p_size:Int):Int;
+	var root_path(get, set) : std.String;
+	var auth_callback(get, set) : gd.Callable;
+	var auth_timeout(get, set) : Float;
+	var allow_object_decoding(get, set) : Bool;
+	function get_allow_object_decoding():Bool;
+	var refuse_new_connections(get, set) : Bool;
+	function get_refuse_new_connections():Bool;
+	var server_relay(get, set) : Bool;
+	function get_server_relay():Bool;
+	function set_server_relay(v:Bool):Bool;
+	var max_sync_packet_size(get, set) : Int;
+	var max_delta_packet_size(get, set) : Int;
+}

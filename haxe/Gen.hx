@@ -15,7 +15,7 @@ class Gen {
 		final api:Api = haxe.Json.parse(json);
 
 		final gen = new Gen(api);
-		// gen.findType('ClassDB');
+		// gen.findType('Plane');
 		gen.generate();
 
 		// final e = [for (c in api.classes) for (e in (c.enums ?? [])) '${e.name}:${c.name}'];

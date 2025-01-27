@@ -1,0 +1,2 @@
+package gd.renderingserver;
+typedef ParticlesCollisionType = gdnative.renderingserver.ParticlesCollisionType;

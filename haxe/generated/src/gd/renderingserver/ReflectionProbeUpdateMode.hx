@@ -1,0 +1,2 @@
+package gd.renderingserver;
+typedef ReflectionProbeUpdateMode = gdnative.renderingserver.ReflectionProbeUpdateMode;

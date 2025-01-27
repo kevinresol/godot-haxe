@@ -1,5 +1,9 @@
 package gdnative;
-@:include("godot_cpp/classes/global_constants.hpp") @:native("godot::KeyModifierMask") extern enum abstract KeyModifierMask(cpp.UInt32) to cpp.UInt32 {
+@:native("godot::KeyModifierMask") extern enum abstract KeyModifierMask(KeyModifierMask_extern) {
+	@:from
+	extern inline static function fromInt(v:Int):KeyModifierMask return untyped __cpp__("(static_cast<godot::KeyModifierMask>({0}))", v);
+	@:to
+	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
 	final KEY_CODE_MASK;
 	final KEY_MODIFIER_MASK;
 	@:native("godot::KeyModifierMask::KEY_MASK_CMD_OR_CTRL")
@@ -16,4 +20,7 @@ package gdnative;
 	final KPAD;
 	@:native("godot::KeyModifierMask::KEY_MASK_GROUP_SWITCH")
 	final GROUP_SWITCH;
+}
+@:include("godot_cpp/classes/global_constants.hpp") @:native("cpp::Struct<godot::KeyModifierMask, cpp::EnumHandler>") extern class KeyModifierMask_extern {
+
 }

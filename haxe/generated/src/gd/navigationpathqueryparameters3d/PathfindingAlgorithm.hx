@@ -1,0 +1,2 @@
+package gd.navigationpathqueryparameters3d;
+typedef PathfindingAlgorithm = gdnative.navigationpathqueryparameters3d.PathfindingAlgorithm;

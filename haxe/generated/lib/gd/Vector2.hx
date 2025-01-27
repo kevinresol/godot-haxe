@@ -1,9 +1,8 @@
 package gd;
 extern class Vector2_wrapper {
-	var x(get, set) : Float;
-	var y(get, set) : Float;
 	static function _new0():Vector2_wrapper;
 	static function _new1(p_from:gd.Vector2):Vector2_wrapper;
+	static function _new2(p_from:gd.Vector2i):Vector2_wrapper;
 	static function _new3(p_x:Float, p_y:Float):Vector2_wrapper;
 	function angle():Float;
 	function angle_to(p_to:gd.Vector2):Float;
@@ -52,6 +51,8 @@ extern class Vector2_wrapper {
 	function max(p_with:gd.Vector2):gd.Vector2;
 	function maxf(p_with:Float):gd.Vector2;
 	function from_angle(p_angle:Float):gd.Vector2;
+	var x(get, set) : Float;
+	var y(get, set) : Float;
 	public static final AXIS_X : Int;
 	public static final AXIS_Y : Int;
 	public static final ZERO : gd.Vector2;
@@ -66,5 +67,6 @@ extern class Vector2_wrapper {
 @:forward @:forwardStatics abstract Vector2(Vector2_wrapper) from Vector2_wrapper to Vector2_wrapper {
 	public extern overload inline function new() this = Vector2_wrapper._new0();
 	public extern overload inline function new(p_from:gd.Vector2) this = Vector2_wrapper._new1(p_from);
+	public extern overload inline function new(p_from:gd.Vector2i) this = Vector2_wrapper._new2(p_from);
 	public extern overload inline function new(p_x:Float, p_y:Float) this = Vector2_wrapper._new3(p_x, p_y);
 }

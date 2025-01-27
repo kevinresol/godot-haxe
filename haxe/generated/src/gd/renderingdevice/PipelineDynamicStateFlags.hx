@@ -1,0 +1,2 @@
+package gd.renderingdevice;
+typedef PipelineDynamicStateFlags = gdnative.renderingdevice.PipelineDynamicStateFlags;

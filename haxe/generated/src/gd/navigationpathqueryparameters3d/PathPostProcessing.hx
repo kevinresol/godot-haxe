@@ -1,0 +1,2 @@
+package gd.navigationpathqueryparameters3d;
+typedef PathPostProcessing = gdnative.navigationpathqueryparameters3d.PathPostProcessing;

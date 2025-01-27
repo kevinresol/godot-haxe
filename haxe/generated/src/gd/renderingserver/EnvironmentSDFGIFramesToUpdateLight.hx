@@ -1,0 +1,2 @@
+package gd.renderingserver;
+typedef EnvironmentSDFGIFramesToUpdateLight = gdnative.renderingserver.EnvironmentSDFGIFramesToUpdateLight;

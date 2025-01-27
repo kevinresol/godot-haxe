@@ -2,11 +2,13 @@ package gen;
 
 import gen.Api;
 import gen.Type.*;
+import gen.Utils.*;
 import haxe.macro.Expr;
 
 using StringTools;
 using gen.StringTools;
 using haxe.io.Path;
+using Lambda;
 
 class BuiltinClassBuilder extends Builder {
 	public function generate() {
@@ -16,7 +18,7 @@ class BuiltinClassBuilder extends Builder {
 			final hppExists = sys.FileSystem.exists(Path.join([Sys.programPath().directory(), '../godot-cpp/include', hpp]))
 				|| sys.FileSystem.exists(Path.join([Sys.programPath().directory(), '../godot-cpp/gen/include', hpp]));
 			if (hppExists) {
-				if (clazz.name == 'Vector2' || clazz.name == 'Color' || clazz.name == 'Callable') {
+				if (clazz.name != 'Basis' && clazz.name != 'Transform2D' && clazz.name != 'Transform3D' && clazz.name != 'Projection') {
 					generateClassExtern(clazz, hpp);
 					generateClassWrapper(clazz, false);
 					generateClassWrapper(clazz, true);
@@ -51,7 +53,7 @@ class BuiltinClassBuilder extends Builder {
 				return fromWrapperInternal(v);
 
 			@:from static inline function fromWrapperInternal(v:$wct):$act
-				return @:privateAccess v.__gd;
+				return untyped __cpp__('{0}.get()', @:privateAccess v.__gd);
 
 			@:to inline function toWrapper():gd.$cname
 				return toWrapperInternal();
@@ -103,54 +105,148 @@ class BuiltinClassBuilder extends Builder {
 			}
 		}
 
+		// enums
+		for (e in (clazz.enums ?? [])) {
+			final ename = e.name.replace('.', '');
+			final ect = TPath({pack: [], name: ename});
+			final ntype = 'godot::$cname::${e.name.replace('.', '::')}';
+			final ecname = '${ename}_extern';
+			final enm = macro class $ename {
+				@:from
+				extern inline static function fromInt(v:Int):$ect
+					return untyped __cpp__($v{'(static_cast<$ntype>({0}))'}, v);
+
+				@:to
+				extern inline function toInt():Int
+					return untyped __cpp__('(static_cast<int>({0}))', this);
+			}
+			enm.isExtern = true;
+			enm.pack = config.pack.concat([cname.toLowerCase()]);
+			enm.kind = TDAbstract(TPath({pack: [], name: ecname}), [AbEnum]);
+			enm.meta = [{pos: null, name: ':native', params: [macro $v{ntype}]}];
+			final ecls = macro class $ecname {}
+			ecls.isExtern = true;
+			ecls.meta = [
+				{pos: null, name: ':include', params: [macro $v{hpp}]},
+				{pos: null, name: ':native', params: [macro $v{'cpp::Struct<godot::$cname::$ename, cpp::EnumHandler>'}]}
+			];
+			for (v in e.values) {
+				final hname = getHaxeEnumEntryName('$cname.${e.name}', v.name, e.values.map(v -> v.name));
+				final nname = getNativeEnumEntryName('$cname.${e.name}', v.name);
+				enm.fields.push({
+					pos: null,
+					access: [AFinal],
+					name: hname,
+					kind: FVar(null),
+					meta: hname == nname ? [] : [{pos: null, name: ':native', params: [macro $v{'$ntype::$nname'}]}]
+				});
+			}
+			final source = printTypeDefinition(enm) + '\n' + printTypeDefinition(ecls);
+			write('${config.folder}/${enm.pack.join('/')}/$ename.hx', source);
+		}
+
+		// methods
 		for (fn in getValidMethods(clazz)) {
 			final fname = fn.name;
-			final rtype = fn.return_type ?? 'void';
+			final rtype = patchRetType(cname, fname, fn.return_type ?? 'void');
 			try {
 				cls.fields.push({
 					pos: null,
 					name: fname,
 					kind: FFun({
-						args: fn.arguments?.map(arg -> ({
+						args: patchArgs(cname, fname, fn.arguments).map(arg -> ({
 							name: 'p_${arg.name}',
-							type: makeGodotType(arg.type),
+							type: makeGodotType(patchArgType(cname, fname, arg.name, arg.type)),
 							opt: arg.default_value != null,
-						} : FunctionArg)) ?? [],
+						} : FunctionArg)),
 						ret: makeGodotType(rtype),
 					})
 				});
 			} catch (e) {}
 		}
-
+		// properties
 		for (prop in getValidMembers(clazz)) {
-			cls.fields.push({
-				pos: null,
-				name: prop.name,
-				kind: FVar(makeGodotType(prop.type)),
-			});
+			try {
+				cls.fields.push({
+					pos: null,
+					name: prop.name,
+					kind: FVar(makeGodotType(prop.type)),
+				});
+			} catch (e) {}
 		}
 
+		final absctors = new Map<String, Bool>();
 		for (ctor in clazz.constructors) {
 			final tp = {pack: [], name: cname};
 			try {
-				abs.fields.push({
-					pos: null,
-					access: [APublic, AExtern, AOverload, AInline],
-					name: 'new',
-					kind: FFun({
-						args: (ctor.arguments ?? []).map(arg -> ({
-							name: 'p_${arg.name}',
-							type: makeHaxeType(arg.type),
-						} : FunctionArg)) ?? [],
-						expr: {
-							final tp = {pack: Config.nativeExtern.pack, name: cname, sub: ename};
-							macro this = new $tp($a{
-								(ctor.arguments ?? []).map(arg -> macro $i{'p_${arg.name}'})
-							});
-						}
-					})
-				});
+				final argTypes = (ctor.arguments ?? []).map(arg -> new haxe.macro.Printer().printComplexType(makeHaxeType(arg.type))).join(', ');
+				if (!absctors.get(argTypes)) {
+					absctors.set(argTypes, true);
+					abs.fields.push({
+						pos: null,
+						access: [APublic, AExtern, AOverload, AInline],
+						name: 'new',
+						kind: FFun({
+							args: (ctor.arguments ?? []).map(arg -> ({
+								name: 'p_${arg.name}',
+								type: makeHaxeType(arg.type),
+							} : FunctionArg)) ?? [],
+							expr: {
+								final tp = {pack: Config.nativeExtern.pack, name: cname, sub: ename};
+								macro this = new $tp($a{
+									(ctor.arguments ?? []).map(arg -> macro $i{'p_${arg.name}'})
+								});
+							}
+						})
+					});
+				}
 			} catch (e) {}
+		}
+
+		switch cname {
+			case 'String':
+				abs.fields = (macro class {
+					@:to
+					extern inline function toHaxe():std.String {
+						untyped __cpp__('auto __utf8 = {0}.value.utf8()', this);
+						return untyped __cpp__('::String::create(__utf8.get_data(), __utf8.length())');
+					}
+
+					@:from
+					extern static inline function fromHaxe(v:std.String):String {
+						// TODO: does this make a copy? if not it might become invalid when the haxe string is gc'd
+						return untyped __cpp__('godot::String({0})', cpp.NativeString.c_str(v));
+					}
+				}).fields.concat(abs.fields);
+			case 'StringName':
+				abs.fields = (macro class {
+					@:to
+					extern inline function toHaxe():std.String {
+						// TODO: perhaps there is a more direct way
+						return (untyped __cpp__('(godot::String){0}', this) : gdnative.String);
+					}
+
+					@:from
+					extern static inline function fromHaxe(v:std.String):StringName {
+						// TODO: does this make a copy? if not it might become invalid when the haxe string is gc'd
+						return untyped __cpp__('godot::StringName({0})', cpp.NativeString.c_str(v));
+					}
+				}).fields.concat(abs.fields);
+			case 'NodePath':
+				abs.fields = (macro class {
+					@:to
+					extern inline function toHaxe():std.String {
+						// TODO: perhaps there is a more direct way
+						return (untyped __cpp__('(godot::String){0}', this) : gdnative.String);
+					}
+
+					@:from
+					extern static inline function fromHaxe(v:std.String):NodePath {
+						// TODO: does this make a copy? if not it might become invalid when the haxe string is gc'd
+						return untyped __cpp__('godot::NodePath({0})', cpp.NativeString.c_str(v));
+					}
+				}).fields.concat(abs.fields);
+			case _:
 		}
 
 		final source = printTypeDefinition(cls) + '\n\n' + printTypeDefinition(abs);
@@ -178,27 +274,31 @@ class BuiltinClassBuilder extends Builder {
 		abs.kind = TDAbstract(wct, [AbFrom(wct), AbTo(wct)]);
 		abs.meta = [{pos: null, name: ':forward'}, {pos: null, name: ':forwardStatics'},];
 
-		for (prop in getValidMembers(clazz)) {
-			final pname = prop.name;
-			final ptype = makeGodotType(prop.type);
-			cls.fields.push({
-				pos: null,
-				access: isScriptExtern ? [] : [APublic],
-				name: pname,
-				kind: FProp('get', 'set', ptype),
-			});
-
-			if (!isScriptExtern) {
-				final getter = 'get_${prop.name}';
-				final setter = 'set_${prop.name}';
-				cls.fields = cls.fields.concat((macro class {
-					function $getter():$ptype return __gd.$pname;
-
-					function $setter(v : $ptype):$ptype return __gd.$pname = v;
-				}).fields);
+		// enums
+		for (e in (clazz.enums ?? [])) {
+			final ename = e.name;
+			final enm = macro class $ename {}
+			enm.pack = config.pack.concat([cname.toLowerCase()]);
+			if (isScriptExtern) {
+				enm.kind = TDAbstract(macro :Int, [AbEnum, AbTo(macro :Int)]);
+				for (v in e.values) {
+					enm.fields.push({
+						pos: null,
+						access: [AFinal],
+						name: getHaxeEnumEntryName('$cname.${e.name}', v.name, e.values.map(v -> v.name)),
+						kind: FVar(null, macro $v{v.value}),
+					});
+				}
+			} else {
+				final ntype = 'godot::$cname::${ename}';
+				enm.kind = TDAlias(TPath({pack: Config.nativeExtern.pack.concat([cname.toLowerCase()]), name: ename}));
 			}
+			final source = printTypeDefinition(enm);
+			write('${config.folder}/${enm.pack.join('/')}/$ename.hx', source);
 		}
 
+		// constructors
+		final absctors = new Map<String, Bool>();
 		for (i => ctor in clazz.constructors) {
 			final wtp = {pack: [], name: wname};
 			try {
@@ -214,36 +314,46 @@ class BuiltinClassBuilder extends Builder {
 						ret: TPath({pack: [], name: wname}),
 						expr: isScriptExtern ? null : {
 							final tp = {pack: Config.nativeExtern.pack, name: cname};
-							macro return new $wtp(new $tp($a{
-								(ctor.arguments ?? []).map(arg -> macro $i{'p_${arg.name}'})
-							}));
-						}
-					})
-				});
-				abs.fields.push({
-					pos: null,
-					access: [APublic, AExtern, AOverload, AInline],
-					name: 'new',
-					kind: FFun({
-						args: (ctor.arguments ?? []).map(arg -> ({
-							name: 'p_${arg.name}',
-							type: makeHaxeType(arg.type),
-						} : FunctionArg)),
-						expr: {
-							final e = macro $p{[wname, '_new${i}']}($a{
-								(ctor.arguments ?? []).map(arg -> macro $i{'p_${arg.name}'})
+							final args = (ctor.arguments ?? []).map(arg -> {
+								final isBuiltin = api.builtin_classes.exists(c -> c.name == arg.type);
+								// isBuiltin ? (macro untyped __cpp__('{0}.get()', $i{'p_${arg.name}'})) :
+								(macro $i{'p_${arg.name}'});
 							});
-							isScriptExtern ? macro this = $e : macro this = @:privateAccess
-								$e;
+
+							macro return new $wtp(new $tp($a{args}));
 						}
 					})
 				});
+
+				final argTypes = (ctor.arguments ?? []).map(arg -> new haxe.macro.Printer().printComplexType(makeHaxeType(arg.type))).join(', ');
+				if (!absctors.get(argTypes)) {
+					absctors.set(argTypes, true);
+					abs.fields.push({
+						pos: null,
+						access: [APublic, AExtern, AOverload, AInline],
+						name: 'new',
+						kind: FFun({
+							args: (ctor.arguments ?? []).map(arg -> ({
+								name: 'p_${arg.name}',
+								type: makeHaxeType(arg.type),
+							} : FunctionArg)),
+							expr: {
+								final e = macro $p{[wname, '_new${i}']}($a{
+									(ctor.arguments ?? []).map(arg -> macro $i{'p_${arg.name}'})
+								});
+								isScriptExtern ? macro this = $e : macro this = @:privateAccess
+									$e;
+							}
+						})
+					});
+				}
 			} catch (e) {}
 		}
 
+		// methods
 		for (fn in getValidMethods(clazz)) {
 			final fname = fn.name;
-			final rtype = fn.return_type ?? 'void';
+			final rtype = patchRetType(cname, fname, fn.return_type ?? 'void');
 
 			try {
 				cls.fields.push({
@@ -251,17 +361,70 @@ class BuiltinClassBuilder extends Builder {
 					access: isScriptExtern ? [] : [APublic],
 					name: fname,
 					kind: FFun({
-						args: fn.arguments?.map(arg -> ({
+						args: patchArgs(cname, fname, fn.arguments).map(arg -> ({
 							name: 'p_${arg.name}',
-							type: makeHaxeType(arg.type),
+							type: makeHaxeType(patchArgType(cname, fname, arg.name, arg.type)),
 							opt: arg.default_value != null,
-						} : FunctionArg)) ?? [],
+						} : FunctionArg)),
 						ret: makeHaxeType(rtype),
-						expr: isScriptExtern ? null : macro return __gd.$fname($a{(fn.arguments ?? []).map(arg -> macro $i{'p_${arg.name}'})})
+						expr: isScriptExtern ? null : macro return __gd.$fname($a{patchArgs(cname, fname, fn.arguments).map(arg -> macro $i{'p_${arg.name}'})})
 					})
 				});
 			} catch (e) {}
 		}
+
+		// properties
+		for (prop in getValidMembers(clazz)) {
+			try {
+				final pname = isHaxeKeyword(prop.name) ? '${prop.name}_' : prop.name;
+				final ptype = makeGodotType(prop.type);
+				cls.fields.push({
+					pos: null,
+					access: isScriptExtern ? [] : [APublic],
+					name: pname,
+					kind: FProp('get', 'set', ptype),
+				});
+
+				if (!isScriptExtern) {
+					if (!cls.fields.exists(f -> f.name == 'get_$pname')) {
+						cls.fields.push({
+							pos: null,
+							access: [],
+							name: 'get_$pname',
+							kind: FFun({
+								args: [],
+								ret: ptype,
+								expr: macro return __gd.$pname
+							})
+						});
+					}
+					switch cls.fields.find(f -> f.name == 'set_$pname') {
+						case null:
+							cls.fields.push({
+								pos: null,
+								access: [],
+								name: 'set_$pname',
+								kind: FFun({
+									args: [{name: 'v', type: ptype}],
+									ret: ptype,
+									expr: macro return __gd.$pname = v
+								})
+							});
+						case {kind: FFun(f)}:
+							// if Haxe's setter function name is already used, modify it to return the value so that it fulfills Haxe's setter requirement
+							f.ret = ptype;
+							if (!isScriptExtern)
+								f.expr = macro {
+									${f.expr};
+									return $i{f.args[0].name}
+								}
+						case _:
+					}
+				}
+			} catch (e) {}
+		}
+
+		// constants
 		for (const in (clazz.constants ?? [])) {
 			final type = makeHaxeType(const.type);
 			cls.fields.push({
@@ -298,8 +461,17 @@ class BuiltinClassBuilder extends Builder {
 		return switch clazz.name {
 			case 'Color':
 				clazz.methods.filter(m -> !['from_ok_hsl'].contains(m.name));
-			case 'Vector2':
+			case 'Vector2' | 'Vector3':
 				clazz.methods.filter(m -> !['bezier_derivative'].contains(m.name));
+			case 'Quaternion':
+				clazz.methods.filter(m -> !['from_euler'].contains(m.name));
+			case 'Plane':
+				// TODO: get_center() should be center()
+				// TODO: intersects functions use pointer to hold return value
+				clazz.methods.filter(m -> !['get_center', 'intersect_3', 'intersects_ray', 'intersects_segment'].contains(m.name));
+			case 'AABB':
+				// TODO: intersects functions use pointer to hold return value
+				clazz.methods.filter(m -> !['intersects_segment', 'intersects_ray'].contains(m.name));
 			default:
 				clazz.methods;
 		}
@@ -308,11 +480,49 @@ class BuiltinClassBuilder extends Builder {
 	function getValidMembers(clazz:BuiltinClass):Array<BuiltinClassMember> {
 		return if (clazz.members == null) {
 			[];
-		} else if (clazz.name == 'Color') {
-			// TODO: handle these virtual members
-			clazz.members.filter(m -> !['r8', 'g8', 'b8', 'a8', 'h', 's', 'v'].contains(m.name));
-		} else {
-			clazz.members;
+		} else switch clazz.name {
+			case 'Color':
+				// TODO: handle these virtual members
+				clazz.members.filter(m -> !['r8', 'g8', 'b8', 'a8', 'h', 's', 'v'].contains(m.name));
+			case 'Rect2' | 'Rect2i':
+				// TODO: handle these virtual members
+				clazz.members.filter(m -> !['end'].contains(m.name));
+			case 'AABB':
+				// TODO: handle these virtual members
+				clazz.members.filter(m -> !['end'].contains(m.name));
+			case 'Plane':
+				// TODO: handle these virtual members
+				clazz.members.filter(m -> !['x', 'y', 'z'].contains(m.name));
+
+			default:
+				clazz.members;
+		}
+	}
+
+	function patchArgs(cls:String, fn:String, args:Null<Array<BuiltinClassMethodArgument>>):Array<BuiltinClassMethodArgument> {
+		return if (args == null) [] else switch [cls, fn] {
+			case ['Quaternion', 'get_euler']:
+				[];
+			default:
+				args;
+		}
+	}
+
+	function patchArgType(cls:String, fn:String, argName:String, argType:String):String {
+		return switch [cls, fn, argName] {
+			case ['Rect2' | 'Rect2i', 'grow_side', 'side']:
+				'enum::Side';
+			default:
+				argType;
+		}
+	}
+
+	function patchRetType(cls:String, fn:String, retType:String):String {
+		return switch [cls, fn] {
+			// case ['Plane', 'intersect_3' | 'intersects_ray' | 'intersects_segment']:
+			// 	'bool';
+			default:
+				retType;
 		}
 	}
 }

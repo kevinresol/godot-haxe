@@ -1,0 +1,2 @@
+package gd.openxrapiextension;
+typedef OpenXRAlphaBlendModeSupport = gdnative.openxrapiextension.OpenXRAlphaBlendModeSupport;

@@ -5,6 +5,8 @@ package gdnative;
 	function get_radiance_size():gdnative.sky.RadianceSize;
 	function set_process_mode(p_mode:gdnative.sky.ProcessMode):Void;
 	function get_process_mode():gdnative.sky.ProcessMode;
+	function set_material(p_material:gdnative.Material):Void;
+	function get_material():gdnative.Material;
 }
 @:forward abstract Sky(gdnative.Ref<Sky_extern>) from gdnative.Ref<Sky_extern> to gdnative.Ref<Sky_extern> {
 	@:from

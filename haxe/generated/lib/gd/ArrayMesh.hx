@@ -1,0 +1,30 @@
+package gd;
+extern class ArrayMesh extends gd.Mesh {
+	function new(?owner:Dynamic);
+	function add_blend_shape(p_name:std.String):Void;
+	function get_blend_shape_count():Int;
+	function get_blend_shape_name(p_index:Int):std.String;
+	function set_blend_shape_name(p_index:Int, p_name:std.String):Void;
+	function clear_blend_shapes():Void;
+	function set_blend_shape_mode(p_mode:gd.mesh.BlendShapeMode):gd.mesh.BlendShapeMode;
+	function get_blend_shape_mode():gd.mesh.BlendShapeMode;
+	function clear_surfaces():Void;
+	function surface_update_vertex_region(p_surf_idx:Int, p_offset:Int, p_data:gd.PackedByteArray):Void;
+	function surface_update_attribute_region(p_surf_idx:Int, p_offset:Int, p_data:gd.PackedByteArray):Void;
+	function surface_update_skin_region(p_surf_idx:Int, p_offset:Int, p_data:gd.PackedByteArray):Void;
+	function surface_get_array_len(p_surf_idx:Int):Int;
+	function surface_get_array_index_len(p_surf_idx:Int):Int;
+	function surface_get_format(p_surf_idx:Int):Int;
+	function surface_get_primitive_type(p_surf_idx:Int):gd.mesh.PrimitiveType;
+	function surface_find_by_name(p_name:std.String):Int;
+	function surface_set_name(p_surf_idx:Int, p_name:std.String):Void;
+	function surface_get_name(p_surf_idx:Int):std.String;
+	function regen_normal_maps():Void;
+	function set_custom_aabb(p_aabb:gd.AABB):gd.AABB;
+	function get_custom_aabb():gd.AABB;
+	function set_shadow_mesh(p_mesh:gd.ArrayMesh):gd.ArrayMesh;
+	function get_shadow_mesh():gd.ArrayMesh;
+	var blend_shape_mode(get, set) : gd.mesh.BlendShapeMode;
+	var custom_aabb(get, set) : gd.AABB;
+	var shadow_mesh(get, set) : gd.ArrayMesh;
+}

@@ -14,14 +14,19 @@ package gdnative;
 	function set_region_enabled(p_enabled:Bool):Void;
 	function is_region_enabled():Bool;
 	function is_pixel_opaque(p_pos:gdnative.Vector2):Bool;
+	function set_region_rect(p_rect:gdnative.Rect2):Void;
+	function get_region_rect():gdnative.Rect2;
 	function set_region_filter_clip_enabled(p_enabled:Bool):Void;
 	function is_region_filter_clip_enabled():Bool;
 	function set_frame(p_frame:Int):Void;
 	function get_frame():Int;
+	function set_frame_coords(p_coords:gdnative.Vector2i):Void;
+	function get_frame_coords():gdnative.Vector2i;
 	function set_vframes(p_vframes:Int):Void;
 	function get_vframes():Int;
 	function set_hframes(p_hframes:Int):Void;
 	function get_hframes():Int;
+	function get_rect():gdnative.Rect2;
 }
 @:forward abstract Sprite2D(cpp.Pointer<Sprite2D_extern>) from cpp.Pointer<Sprite2D_extern> to cpp.Pointer<Sprite2D_extern> {
 	@:from

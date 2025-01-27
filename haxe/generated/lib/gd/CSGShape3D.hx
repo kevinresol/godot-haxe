@@ -1,0 +1,33 @@
+package gd;
+extern class CSGShape3D extends gd.GeometryInstance3D {
+	function new(?owner:Dynamic);
+	function is_root_shape():Bool;
+	function set_operation(p_operation:gd.csgshape3d.Operation):gd.csgshape3d.Operation;
+	function get_operation():gd.csgshape3d.Operation;
+	function set_snap(p_snap:Float):Float;
+	function get_snap():Float;
+	function set_use_collision(p_operation:Bool):Bool;
+	function is_using_collision():Bool;
+	function set_collision_layer(p_layer:Int):Int;
+	function get_collision_layer():Int;
+	function set_collision_mask(p_mask:Int):Int;
+	function get_collision_mask():Int;
+	function set_collision_mask_value(p_layer_number:Int, p_value:Bool):Void;
+	function get_collision_mask_value(p_layer_number:Int):Bool;
+	function set_collision_layer_value(p_layer_number:Int, p_value:Bool):Void;
+	function get_collision_layer_value(p_layer_number:Int):Bool;
+	function set_collision_priority(p_priority:Float):Float;
+	function get_collision_priority():Float;
+	function set_calculate_tangents(p_enabled:Bool):Bool;
+	function is_calculating_tangents():Bool;
+	function get_meshes():gd.Array;
+	var operation(get, set) : gd.csgshape3d.Operation;
+	var snap(get, set) : Float;
+	var calculate_tangents(get, set) : Bool;
+	function get_calculate_tangents():Bool;
+	var use_collision(get, set) : Bool;
+	function get_use_collision():Bool;
+	var collision_layer(get, set) : Int;
+	var collision_mask(get, set) : Int;
+	var collision_priority(get, set) : Float;
+}

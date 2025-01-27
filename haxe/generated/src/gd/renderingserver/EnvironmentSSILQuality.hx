@@ -1,0 +1,2 @@
+package gd.renderingserver;
+typedef EnvironmentSSILQuality = gdnative.renderingserver.EnvironmentSSILQuality;

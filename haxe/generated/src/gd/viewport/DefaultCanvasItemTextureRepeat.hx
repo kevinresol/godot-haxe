@@ -1,0 +1,2 @@
+package gd.viewport;
+typedef DefaultCanvasItemTextureRepeat = gdnative.viewport.DefaultCanvasItemTextureRepeat;

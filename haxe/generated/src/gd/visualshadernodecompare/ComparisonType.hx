@@ -1,0 +1,2 @@
+package gd.visualshadernodecompare;
+typedef ComparisonType = gdnative.visualshadernodecompare.ComparisonType;

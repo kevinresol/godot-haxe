@@ -1,0 +1,2 @@
+package gd.renderingserver;
+typedef GlobalShaderParameterType = gdnative.renderingserver.GlobalShaderParameterType;

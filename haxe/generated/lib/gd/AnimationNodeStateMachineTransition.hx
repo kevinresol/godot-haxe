@@ -1,0 +1,33 @@
+package gd;
+extern class AnimationNodeStateMachineTransition extends gd.Resource {
+	function new(?owner:Dynamic);
+	function set_switch_mode(p_mode:gd.animationnodestatemachinetransition.SwitchMode):gd.animationnodestatemachinetransition.SwitchMode;
+	function get_switch_mode():gd.animationnodestatemachinetransition.SwitchMode;
+	function set_advance_mode(p_mode:gd.animationnodestatemachinetransition.AdvanceMode):gd.animationnodestatemachinetransition.AdvanceMode;
+	function get_advance_mode():gd.animationnodestatemachinetransition.AdvanceMode;
+	function set_advance_condition(p_name:std.String):std.String;
+	function get_advance_condition():std.String;
+	function set_xfade_time(p_secs:Float):Float;
+	function get_xfade_time():Float;
+	function set_xfade_curve(p_curve:gd.Curve):gd.Curve;
+	function get_xfade_curve():gd.Curve;
+	function set_break_loop_at_end(p_enable:Bool):Bool;
+	function is_loop_broken_at_end():Bool;
+	function set_reset(p_reset:Bool):Bool;
+	function is_reset():Bool;
+	function set_priority(p_priority:Int):Int;
+	function get_priority():Int;
+	function set_advance_expression(p_text:std.String):std.String;
+	function get_advance_expression():std.String;
+	var xfade_time(get, set) : Float;
+	var xfade_curve(get, set) : gd.Curve;
+	var break_loop_at_end(get, set) : Bool;
+	function get_break_loop_at_end():Bool;
+	var reset(get, set) : Bool;
+	function get_reset():Bool;
+	var priority(get, set) : Int;
+	var switch_mode(get, set) : gd.animationnodestatemachinetransition.SwitchMode;
+	var advance_mode(get, set) : gd.animationnodestatemachinetransition.AdvanceMode;
+	var advance_condition(get, set) : std.String;
+	var advance_expression(get, set) : std.String;
+}

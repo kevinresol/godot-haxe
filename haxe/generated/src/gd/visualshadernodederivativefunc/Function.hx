@@ -1,0 +1,2 @@
+package gd.visualshadernodederivativefunc;
+typedef Function = gdnative.visualshadernodederivativefunc.Function;

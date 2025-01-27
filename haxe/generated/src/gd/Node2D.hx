@@ -35,8 +35,8 @@ class Node2D extends gd.CanvasItem {
 	public function get_skew():Float return __node2d_ptr().value.get_skew();
 	public function get_scale():gd.Vector2 return __node2d_ptr().value.get_scale();
 	public function rotate(p_radians:Float):Void __node2d_ptr().value.rotate(p_radians);
-	public function move_local_x(p_delta:Float, ?p_scaled:Bool):Void __node2d_ptr().value.move_local_x(p_delta, p_scaled);
-	public function move_local_y(p_delta:Float, ?p_scaled:Bool):Void __node2d_ptr().value.move_local_y(p_delta, p_scaled);
+	public function move_local_x(p_delta:Float, ?p_scaled:Bool = false):Void __node2d_ptr().value.move_local_x(p_delta, p_scaled);
+	public function move_local_y(p_delta:Float, ?p_scaled:Bool = false):Void __node2d_ptr().value.move_local_y(p_delta, p_scaled);
 	public function translate(p_offset:gd.Vector2):Void __node2d_ptr().value.translate(p_offset);
 	public function global_translate(p_offset:gd.Vector2):Void __node2d_ptr().value.global_translate(p_offset);
 	public function apply_scale(p_ratio:gd.Vector2):Void __node2d_ptr().value.apply_scale(p_ratio);

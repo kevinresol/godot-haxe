@@ -1,0 +1,31 @@
+package gd;
+extern class NavigationRegion3D extends gd.Node3D {
+	function new(?owner:Dynamic);
+	function get_rid():gd.RID;
+	function set_navigation_mesh(p_navigation_mesh:gd.NavigationMesh):gd.NavigationMesh;
+	function get_navigation_mesh():gd.NavigationMesh;
+	function set_enabled(p_enabled:Bool):Bool;
+	function is_enabled():Bool;
+	function set_navigation_map(p_navigation_map:gd.RID):Void;
+	function get_navigation_map():gd.RID;
+	function set_use_edge_connections(p_enabled:Bool):Bool;
+	function get_use_edge_connections():Bool;
+	function set_navigation_layers(p_navigation_layers:Int):Int;
+	function get_navigation_layers():Int;
+	function set_navigation_layer_value(p_layer_number:Int, p_value:Bool):Void;
+	function get_navigation_layer_value(p_layer_number:Int):Bool;
+	function get_region_rid():gd.RID;
+	function set_enter_cost(p_enter_cost:Float):Float;
+	function get_enter_cost():Float;
+	function set_travel_cost(p_travel_cost:Float):Float;
+	function get_travel_cost():Float;
+	function bake_navigation_mesh(?p_on_thread:Bool = true):Void;
+	function is_baking():Bool;
+	var navigation_mesh(get, set) : gd.NavigationMesh;
+	var enabled(get, set) : Bool;
+	function get_enabled():Bool;
+	var use_edge_connections(get, set) : Bool;
+	var navigation_layers(get, set) : Int;
+	var enter_cost(get, set) : Float;
+	var travel_cost(get, set) : Float;
+}

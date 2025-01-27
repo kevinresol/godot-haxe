@@ -1,6 +1,7 @@
 package gdnative;
 @:include("godot_cpp/variant/vector2.hpp") @:native("godot::Vector2") @:structAccess extern class Vector2_extern {
 	@:overload(function(p_from:gdnative.Vector2):Void { })
+	@:overload(function(p_from:gdnative.Vector2i):Void { })
 	@:overload(function(p_x:Float, p_y:Float):Void { })
 	function new();
 	function angle():Float;
@@ -58,12 +59,13 @@ package gdnative;
 	@:from
 	static inline function fromWrapper(v:gd.Vector2):gdnative.Vector2 return fromWrapperInternal(v);
 	@:from
-	static inline function fromWrapperInternal(v:gd.Vector2.Vector2_wrapper):gdnative.Vector2 return @:privateAccess v.__gd;
+	static inline function fromWrapperInternal(v:gd.Vector2.Vector2_wrapper):gdnative.Vector2 return untyped __cpp__('{0}.get()', @:privateAccess v.__gd);
 	@:to
 	inline function toWrapper():gd.Vector2 return toWrapperInternal();
 	@:to
 	inline function toWrapperInternal():gd.Vector2.Vector2_wrapper return new gd.Vector2.Vector2_wrapper(this);
 	public extern overload inline function new() this = new gdnative.Vector2.Vector2_extern();
 	public extern overload inline function new(p_from:gd.Vector2) this = new gdnative.Vector2.Vector2_extern(p_from);
+	public extern overload inline function new(p_from:gd.Vector2i) this = new gdnative.Vector2.Vector2_extern(p_from);
 	public extern overload inline function new(p_x:Float, p_y:Float) this = new gdnative.Vector2.Vector2_extern(p_x, p_y);
 }

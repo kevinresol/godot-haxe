@@ -1,0 +1,2 @@
+package gd.navigationpathqueryresult2d;
+typedef PathSegmentType = gdnative.navigationpathqueryresult2d.PathSegmentType;

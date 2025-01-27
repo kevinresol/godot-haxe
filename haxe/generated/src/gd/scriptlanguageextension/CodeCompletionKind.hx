@@ -1,0 +1,2 @@
+package gd.scriptlanguageextension;
+typedef CodeCompletionKind = gdnative.scriptlanguageextension.CodeCompletionKind;

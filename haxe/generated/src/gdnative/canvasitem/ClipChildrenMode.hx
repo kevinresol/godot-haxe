@@ -1,5 +1,9 @@
 package gdnative.canvasitem;
 @:native("godot::CanvasItem::ClipChildrenMode") extern enum abstract ClipChildrenMode(ClipChildrenMode_extern) {
+	@:from
+	extern inline static function fromInt(v:Int):ClipChildrenMode return untyped __cpp__("(static_cast<godot::CanvasItem::ClipChildrenMode>({0}))", v);
+	@:to
+	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
 	@:native("godot::CanvasItem::ClipChildrenMode::CLIP_CHILDREN_DISABLED")
 	final DISABLED;
 	@:native("godot::CanvasItem::ClipChildrenMode::CLIP_CHILDREN_ONLY")

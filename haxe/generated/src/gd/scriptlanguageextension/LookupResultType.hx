@@ -1,0 +1,2 @@
+package gd.scriptlanguageextension;
+typedef LookupResultType = gdnative.scriptlanguageextension.LookupResultType;

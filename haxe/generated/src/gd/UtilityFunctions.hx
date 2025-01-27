@@ -85,6 +85,7 @@ class UtilityFunctions {
 	public static function randf_range(p_from:Float, p_to:Float):Float return gdnative.UtilityFunctions.randf_range(p_from, p_to);
 	public static function randfn(p_mean:Float, p_deviation:Float):Float return gdnative.UtilityFunctions.randfn(p_mean, p_deviation);
 	public static function seed(p_base:Int):Void gdnative.UtilityFunctions.seed(p_base);
+	public static function rand_from_seed(p_seed:Int):gd.PackedInt64Array return gdnative.UtilityFunctions.rand_from_seed(p_seed);
 	public static function weakref(p_obj:gd.Variant):gd.Variant return gdnative.UtilityFunctions.weakref(p_obj);
 	public static function typeof(p_variable:gd.Variant):Int return gdnative.UtilityFunctions.typeof(p_variable);
 	public static function type_convert(p_variant:gd.Variant, p_type:Int):gd.Variant return gdnative.UtilityFunctions.type_convert(p_variant, p_type);
@@ -102,10 +103,15 @@ class UtilityFunctions {
 	public static function push_warning(p_arg1:gd.Variant):Void gdnative.UtilityFunctions.push_warning(p_arg1);
 	public static function var_to_str(p_variable:gd.Variant):std.String return gdnative.UtilityFunctions.var_to_str(p_variable);
 	public static function str_to_var(p_string:std.String):gd.Variant return gdnative.UtilityFunctions.str_to_var(p_string);
+	public static function var_to_bytes(p_variable:gd.Variant):gd.PackedByteArray return gdnative.UtilityFunctions.var_to_bytes(p_variable);
+	public static function bytes_to_var(p_bytes:gd.PackedByteArray):gd.Variant return gdnative.UtilityFunctions.bytes_to_var(p_bytes);
+	public static function var_to_bytes_with_objects(p_variable:gd.Variant):gd.PackedByteArray return gdnative.UtilityFunctions.var_to_bytes_with_objects(p_variable);
+	public static function bytes_to_var_with_objects(p_bytes:gd.PackedByteArray):gd.Variant return gdnative.UtilityFunctions.bytes_to_var_with_objects(p_bytes);
 	public static function hash(p_variable:gd.Variant):Int return gdnative.UtilityFunctions.hash(p_variable);
 	public static function instance_from_id(p_instance_id:Int):gd.Object return gdnative.UtilityFunctions.instance_from_id(p_instance_id);
 	public static function is_instance_id_valid(p_id:Int):Bool return gdnative.UtilityFunctions.is_instance_id_valid(p_id);
 	public static function is_instance_valid(p_instance:gd.Variant):Bool return gdnative.UtilityFunctions.is_instance_valid(p_instance);
 	public static function rid_allocate_id():Int return gdnative.UtilityFunctions.rid_allocate_id();
+	public static function rid_from_int64(p_base:Int):gd.RID return gdnative.UtilityFunctions.rid_from_int64(p_base);
 	public static function is_same(p_a:gd.Variant, p_b:gd.Variant):Bool return gdnative.UtilityFunctions.is_same(p_a, p_b);
 }

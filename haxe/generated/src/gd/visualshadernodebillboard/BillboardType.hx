@@ -1,0 +1,2 @@
+package gd.visualshadernodebillboard;
+typedef BillboardType = gdnative.visualshadernodebillboard.BillboardType;

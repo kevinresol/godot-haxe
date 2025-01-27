@@ -1,0 +1,2 @@
+package gd.animationplayer;
+typedef AnimationMethodCallMode = gdnative.animationplayer.AnimationMethodCallMode;

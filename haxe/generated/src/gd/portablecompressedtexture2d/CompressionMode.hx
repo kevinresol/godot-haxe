@@ -1,0 +1,2 @@
+package gd.portablecompressedtexture2d;
+typedef CompressionMode = gdnative.portablecompressedtexture2d.CompressionMode;

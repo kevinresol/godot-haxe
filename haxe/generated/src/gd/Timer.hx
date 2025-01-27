@@ -24,7 +24,7 @@ class Timer extends gd.Node {
 		return p_enable;
 	}
 	public function has_autostart():Bool return __timer_ptr().value.has_autostart();
-	public function start(?p_time_sec:Float):Void __timer_ptr().value.start(p_time_sec);
+	public function start(?p_time_sec:Float = -1.):Void __timer_ptr().value.start(p_time_sec);
 	public function stop():Void __timer_ptr().value.stop();
 	public function set_paused(p_paused:Bool):Bool {
 		__timer_ptr().value.set_paused(p_paused);
@@ -48,5 +48,4 @@ class Timer extends gd.Node {
 	function get_autostart():Bool return has_autostart();
 	var paused(get, set) : Bool;
 	function get_paused():Bool return is_paused();
-	var time_left(get, never) : Float;
 }

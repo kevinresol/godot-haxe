@@ -1,0 +1,2 @@
+package gd.renderingserver;
+typedef CanvasItemTextureRepeat = gdnative.renderingserver.CanvasItemTextureRepeat;

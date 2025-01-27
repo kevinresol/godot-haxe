@@ -41,7 +41,7 @@ package gdnative;
 	@:from
 	static inline function fromWrapper(v:gd.Color):gdnative.Color return fromWrapperInternal(v);
 	@:from
-	static inline function fromWrapperInternal(v:gd.Color.Color_wrapper):gdnative.Color return @:privateAccess v.__gd;
+	static inline function fromWrapperInternal(v:gd.Color.Color_wrapper):gdnative.Color return untyped __cpp__('{0}.get()', @:privateAccess v.__gd);
 	@:to
 	inline function toWrapper():gd.Color return toWrapperInternal();
 	@:to

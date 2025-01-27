@@ -1,0 +1,2 @@
+package gd.fastnoiselite;
+typedef CellularDistanceFunction = gdnative.fastnoiselite.CellularDistanceFunction;

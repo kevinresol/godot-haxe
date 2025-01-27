@@ -1,0 +1,2 @@
+package gd.animationmixer;
+typedef AnimationCallbackModeDiscrete = gdnative.animationmixer.AnimationCallbackModeDiscrete;

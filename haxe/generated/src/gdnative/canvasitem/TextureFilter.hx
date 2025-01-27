@@ -1,5 +1,9 @@
 package gdnative.canvasitem;
 @:native("godot::CanvasItem::TextureFilter") extern enum abstract TextureFilter(TextureFilter_extern) {
+	@:from
+	extern inline static function fromInt(v:Int):TextureFilter return untyped __cpp__("(static_cast<godot::CanvasItem::TextureFilter>({0}))", v);
+	@:to
+	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
 	@:native("godot::CanvasItem::TextureFilter::TEXTURE_FILTER_PARENT_NODE")
 	final PARENT_NODE;
 	@:native("godot::CanvasItem::TextureFilter::TEXTURE_FILTER_NEAREST")

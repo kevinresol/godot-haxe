@@ -1,0 +1,31 @@
+package gd;
+extern class SkeletonModification2DCCDIK extends gd.SkeletonModification2D {
+	function new(?owner:Dynamic);
+	function set_target_node(p_target_nodepath:std.String):Void;
+	function get_target_node():std.String;
+	function set_tip_node(p_tip_nodepath:std.String):Void;
+	function get_tip_node():std.String;
+	function set_ccdik_data_chain_length(p_length:Int):Int;
+	function get_ccdik_data_chain_length():Int;
+	function set_ccdik_joint_bone2d_node(p_joint_idx:Int, p_bone2d_nodepath:std.String):Void;
+	function get_ccdik_joint_bone2d_node(p_joint_idx:Int):std.String;
+	function set_ccdik_joint_bone_index(p_joint_idx:Int, p_bone_idx:Int):Void;
+	function get_ccdik_joint_bone_index(p_joint_idx:Int):Int;
+	function set_ccdik_joint_rotate_from_joint(p_joint_idx:Int, p_rotate_from_joint:Bool):Void;
+	function get_ccdik_joint_rotate_from_joint(p_joint_idx:Int):Bool;
+	function set_ccdik_joint_enable_constraint(p_joint_idx:Int, p_enable_constraint:Bool):Void;
+	function get_ccdik_joint_enable_constraint(p_joint_idx:Int):Bool;
+	function set_ccdik_joint_constraint_angle_min(p_joint_idx:Int, p_angle_min:Float):Void;
+	function get_ccdik_joint_constraint_angle_min(p_joint_idx:Int):Float;
+	function set_ccdik_joint_constraint_angle_max(p_joint_idx:Int, p_angle_max:Float):Void;
+	function get_ccdik_joint_constraint_angle_max(p_joint_idx:Int):Float;
+	function set_ccdik_joint_constraint_angle_invert(p_joint_idx:Int, p_invert:Bool):Void;
+	function get_ccdik_joint_constraint_angle_invert(p_joint_idx:Int):Bool;
+	var target_nodepath(get, set) : std.String;
+	function get_target_nodepath():std.String;
+	function set_target_nodepath(v:std.String):std.String;
+	var tip_nodepath(get, set) : std.String;
+	function get_tip_nodepath():std.String;
+	function set_tip_nodepath(v:std.String):std.String;
+	var ccdik_data_chain_length(get, set) : Int;
+}

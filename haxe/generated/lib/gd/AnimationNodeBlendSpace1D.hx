@@ -1,0 +1,31 @@
+package gd;
+extern class AnimationNodeBlendSpace1D extends gd.AnimationRootNode {
+	function new(?owner:Dynamic);
+	function add_blend_point(p_node:gd.AnimationRootNode, p_pos:Float, ?p_at_index:Int = -1):Void;
+	function set_blend_point_position(p_point:Int, p_pos:Float):Void;
+	function get_blend_point_position(p_point:Int):Float;
+	function set_blend_point_node(p_point:Int, p_node:gd.AnimationRootNode):Void;
+	function get_blend_point_node(p_point:Int):gd.AnimationRootNode;
+	function remove_blend_point(p_point:Int):Void;
+	function get_blend_point_count():Int;
+	function set_min_space(p_min_space:Float):Float;
+	function get_min_space():Float;
+	function set_max_space(p_max_space:Float):Float;
+	function get_max_space():Float;
+	function set_snap(p_snap:Float):Float;
+	function get_snap():Float;
+	function set_value_label(p_text:std.String):std.String;
+	function get_value_label():std.String;
+	function set_blend_mode(p_mode:gd.animationnodeblendspace1d.BlendMode):gd.animationnodeblendspace1d.BlendMode;
+	function get_blend_mode():gd.animationnodeblendspace1d.BlendMode;
+	function set_use_sync(p_enable:Bool):Void;
+	function is_using_sync():Bool;
+	var min_space(get, set) : Float;
+	var max_space(get, set) : Float;
+	var snap(get, set) : Float;
+	var value_label(get, set) : std.String;
+	var blend_mode(get, set) : gd.animationnodeblendspace1d.BlendMode;
+	var sync(get, set) : Bool;
+	function get_sync():Bool;
+	function set_sync(v:Bool):Bool;
+}

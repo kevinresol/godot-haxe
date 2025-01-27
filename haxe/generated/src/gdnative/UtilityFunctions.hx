@@ -85,6 +85,7 @@ package gdnative;
 	static function randf_range(p_from:Float, p_to:Float):Float;
 	static function randfn(p_mean:Float, p_deviation:Float):Float;
 	static function seed(p_base:Int):Void;
+	static function rand_from_seed(p_seed:Int):gdnative.PackedInt64Array;
 	static function weakref(p_obj:gdnative.Variant):gdnative.Variant;
 	@:native("godot::UtilityFunctions::type_of")
 	static function typeof(p_variable:gdnative.Variant):Int;
@@ -103,10 +104,15 @@ package gdnative;
 	static function push_warning(p_arg1:gdnative.Variant):Void;
 	static function var_to_str(p_variable:gdnative.Variant):gdnative.String;
 	static function str_to_var(p_string:gdnative.String):gdnative.Variant;
+	static function var_to_bytes(p_variable:gdnative.Variant):gdnative.PackedByteArray;
+	static function bytes_to_var(p_bytes:gdnative.PackedByteArray):gdnative.Variant;
+	static function var_to_bytes_with_objects(p_variable:gdnative.Variant):gdnative.PackedByteArray;
+	static function bytes_to_var_with_objects(p_bytes:gdnative.PackedByteArray):gdnative.Variant;
 	static function hash(p_variable:gdnative.Variant):Int;
 	static function instance_from_id(p_instance_id:Int):gdnative.Object;
 	static function is_instance_id_valid(p_id:Int):Bool;
 	static function is_instance_valid(p_instance:gdnative.Variant):Bool;
 	static function rid_allocate_id():Int;
+	static function rid_from_int64(p_base:Int):gdnative.RID;
 	static function is_same(p_a:gdnative.Variant, p_b:gdnative.Variant):Bool;
 }

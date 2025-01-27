@@ -1,0 +1,37 @@
+package gd;
+extern class RDPipelineRasterizationState extends gd.RefCounted {
+	function new(?owner:Dynamic);
+	function set_enable_depth_clamp(p_p_member:Bool):Bool;
+	function get_enable_depth_clamp():Bool;
+	function set_discard_primitives(p_p_member:Bool):Bool;
+	function get_discard_primitives():Bool;
+	function set_wireframe(p_p_member:Bool):Bool;
+	function get_wireframe():Bool;
+	function set_cull_mode(p_p_member:gd.renderingdevice.PolygonCullMode):gd.renderingdevice.PolygonCullMode;
+	function get_cull_mode():gd.renderingdevice.PolygonCullMode;
+	function set_front_face(p_p_member:gd.renderingdevice.PolygonFrontFace):gd.renderingdevice.PolygonFrontFace;
+	function get_front_face():gd.renderingdevice.PolygonFrontFace;
+	function set_depth_bias_enabled(p_p_member:Bool):Bool;
+	function get_depth_bias_enabled():Bool;
+	function set_depth_bias_constant_factor(p_p_member:Float):Float;
+	function get_depth_bias_constant_factor():Float;
+	function set_depth_bias_clamp(p_p_member:Float):Float;
+	function get_depth_bias_clamp():Float;
+	function set_depth_bias_slope_factor(p_p_member:Float):Float;
+	function get_depth_bias_slope_factor():Float;
+	function set_line_width(p_p_member:Float):Float;
+	function get_line_width():Float;
+	function set_patch_control_points(p_p_member:Int):Int;
+	function get_patch_control_points():Int;
+	var enable_depth_clamp(get, set) : Bool;
+	var discard_primitives(get, set) : Bool;
+	var wireframe(get, set) : Bool;
+	var cull_mode(get, set) : gd.renderingdevice.PolygonCullMode;
+	var front_face(get, set) : gd.renderingdevice.PolygonFrontFace;
+	var depth_bias_enabled(get, set) : Bool;
+	var depth_bias_constant_factor(get, set) : Float;
+	var depth_bias_clamp(get, set) : Float;
+	var depth_bias_slope_factor(get, set) : Float;
+	var line_width(get, set) : Float;
+	var patch_control_points(get, set) : Int;
+}

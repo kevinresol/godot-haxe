@@ -7,7 +7,7 @@ extern class Timer extends gd.Node {
 	function is_one_shot():Bool;
 	function set_autostart(p_enable:Bool):Bool;
 	function has_autostart():Bool;
-	function start(?p_time_sec:Float):Void;
+	function start(?p_time_sec:Float = -1.):Void;
 	function stop():Void;
 	function set_paused(p_paused:Bool):Bool;
 	function is_paused():Bool;
@@ -25,5 +25,4 @@ extern class Timer extends gd.Node {
 	function get_autostart():Bool;
 	var paused(get, set) : Bool;
 	function get_paused():Bool;
-	var time_left(get, never) : Float;
 }

@@ -1,0 +1,35 @@
+package gd;
+extern class TouchScreenButton extends gd.Node2D {
+	function new(?owner:Dynamic);
+	function set_texture_normal(p_texture:gd.Texture2D):gd.Texture2D;
+	function get_texture_normal():gd.Texture2D;
+	function set_texture_pressed(p_texture:gd.Texture2D):gd.Texture2D;
+	function get_texture_pressed():gd.Texture2D;
+	function set_bitmask(p_bitmask:gd.BitMap):gd.BitMap;
+	function get_bitmask():gd.BitMap;
+	function set_shape(p_shape:gd.Shape2D):gd.Shape2D;
+	function get_shape():gd.Shape2D;
+	function set_shape_centered(p_bool:Bool):Bool;
+	function is_shape_centered():Bool;
+	function set_shape_visible(p_bool:Bool):Bool;
+	function is_shape_visible():Bool;
+	function set_action(p_action:std.String):std.String;
+	function get_action():std.String;
+	function set_visibility_mode(p_mode:gd.touchscreenbutton.VisibilityMode):gd.touchscreenbutton.VisibilityMode;
+	function get_visibility_mode():gd.touchscreenbutton.VisibilityMode;
+	function set_passby_press(p_enabled:Bool):Bool;
+	function is_passby_press_enabled():Bool;
+	function is_pressed():Bool;
+	var texture_normal(get, set) : gd.Texture2D;
+	var texture_pressed(get, set) : gd.Texture2D;
+	var bitmask(get, set) : gd.BitMap;
+	var shape(get, set) : gd.Shape2D;
+	var shape_centered(get, set) : Bool;
+	function get_shape_centered():Bool;
+	var shape_visible(get, set) : Bool;
+	function get_shape_visible():Bool;
+	var passby_press(get, set) : Bool;
+	function get_passby_press():Bool;
+	var action(get, set) : std.String;
+	var visibility_mode(get, set) : gd.touchscreenbutton.VisibilityMode;
+}

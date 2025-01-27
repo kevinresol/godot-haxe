@@ -11,12 +11,8 @@ class Type {
 			case 'float': macro :Float;
 			case 'int': macro :Int;
 			case 'bool': macro :Bool;
-			case 'Variant': macro :gdnative.Variant;
 
-			// builitin
-			case 'Color' | 'NodePath' | 'String' | 'StringName' | 'Vector2' | 'Callable': TPath({pack: ['gdnative'], name: gdType});
-			// objects
-			case 'CanvasItem' | 'Node' | 'Node2D' | 'Object' | 'Sprite2D' | 'Texture' | 'Texture2D' | 'Resource': TPath({pack: ['gdnative'], name: gdType});
+			case 'Basis' | 'Transform2D' | 'Transform3D' | 'Projection': throw gdType;
 			// enums
 			case t if (t.startsWith('enum::')):
 				switch t.substr('enum::'.length).split('.') {
@@ -24,10 +20,14 @@ class Type {
 					case [parent, name]: TPath({pack: ['gdnative', parent.toLowerCase()], name: name});
 					case _: throw 'Unhandled enum path: $t';
 				}
-			case v:
-				// trace('Unhandled type $gdType');
-				// macro :Dynamic;
-				throw gdType;
+			// bitfield
+			case t if (t.startsWith('bitfield::')): macro :Int;
+			// typedarray
+			case t if (t.startsWith('typedarray::')): throw t;
+
+			case t if (t.contains('::') || t.contains('*')): throw t;
+
+			case _: TPath({pack: ['gdnative'], name: gdType});
 		}
 	}
 
@@ -37,13 +37,10 @@ class Type {
 			case 'float': macro :Float;
 			case 'int': macro :Int;
 			case 'bool': macro :Bool;
-			case 'Variant': macro :gd.Variant;
 
 			// builitin
+			case 'Basis' | 'Transform2D' | 'Transform3D' | 'Projection': throw gdType;
 			case 'NodePath' | 'String' | 'StringName': macro :std.String;
-			case 'Color' | 'Vector2' | 'Callable': TPath({pack: ['gd'], name: gdType});
-			// objects
-			case 'CanvasItem' | 'Node' | 'Node2D' | 'Object' | 'Sprite2D' | 'Texture' | 'Texture2D' | 'Resource': TPath({pack: ['gd'], name: gdType});
 			// enums
 			case t if (t.startsWith('enum::')):
 				switch t.substr('enum::'.length).split('.') {
@@ -51,10 +48,14 @@ class Type {
 					case [parent, name]: TPath({pack: ['gd', parent.toLowerCase()], name: name});
 					case _: throw 'Unhandled enum path: $t';
 				}
-			case v:
-				// trace('Unhandled type $gdType');
-				// macro :Dynamic;
-				throw gdType;
+			// bitfield
+			case t if (t.startsWith('bitfield::')): macro :Int;
+			// typedarray
+			case t if (t.startsWith('typedarray::')): throw t;
+
+			case t if (t.contains('::') || t.contains('*')): throw t;
+
+			case _: TPath({pack: ['gd'], name: gdType});
 		}
 	}
 }

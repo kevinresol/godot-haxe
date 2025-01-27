@@ -1,5 +1,9 @@
 package gdnative;
-@:include("godot_cpp/classes/global_constants.hpp") @:native("godot::InlineAlignment") extern enum abstract InlineAlignment(cpp.UInt32) to cpp.UInt32 {
+@:native("godot::InlineAlignment") extern enum abstract InlineAlignment(InlineAlignment_extern) {
+	@:from
+	extern inline static function fromInt(v:Int):InlineAlignment return untyped __cpp__("(static_cast<godot::InlineAlignment>({0}))", v);
+	@:to
+	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
 	@:native("godot::InlineAlignment::INLINE_ALIGNMENT_TOP_TO")
 	final TOP_TO;
 	@:native("godot::InlineAlignment::INLINE_ALIGNMENT_CENTER_TO")
@@ -26,4 +30,7 @@ package gdnative;
 	final IMAGE_MASK;
 	@:native("godot::InlineAlignment::INLINE_ALIGNMENT_TEXT_MASK")
 	final TEXT_MASK;
+}
+@:include("godot_cpp/classes/global_constants.hpp") @:native("cpp::Struct<godot::InlineAlignment, cpp::EnumHandler>") extern class InlineAlignment_extern {
+
 }

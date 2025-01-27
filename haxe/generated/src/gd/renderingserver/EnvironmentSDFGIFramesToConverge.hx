@@ -1,0 +1,2 @@
+package gd.renderingserver;
+typedef EnvironmentSDFGIFramesToConverge = gdnative.renderingserver.EnvironmentSDFGIFramesToConverge;

@@ -1,0 +1,64 @@
+package gd;
+class ScriptLanguageExtension extends gd.ScriptLanguage {
+	public function new(?native:cpp.Pointer<gdnative.ScriptLanguageExtension.ScriptLanguageExtension_extern>) {
+		if (native == null) {
+			gd.Utils.checkAndWarnForMissingOwner(this, "ScriptLanguageExtension");
+			trace("Allocating ScriptLanguageExtension");
+			native = gdnative.ScriptLanguageExtension.ScriptLanguageExtension_extern.__alloc();
+		};
+		super(native.reinterpret());
+	}
+	extern inline function __scriptlanguageextension_ptr():cpp.Pointer<gdnative.ScriptLanguageExtension.ScriptLanguageExtension_extern> return cast __gd.ptr;
+	public function _get_name():std.String return __scriptlanguageextension_ptr().value._get_name();
+	public function _init():Void __scriptlanguageextension_ptr().value._init();
+	public function _get_type():std.String return __scriptlanguageextension_ptr().value._get_type();
+	public function _get_extension():std.String return __scriptlanguageextension_ptr().value._get_extension();
+	public function _finish():Void __scriptlanguageextension_ptr().value._finish();
+	public function _get_reserved_words():gd.PackedStringArray return __scriptlanguageextension_ptr().value._get_reserved_words();
+	public function _is_control_flow_keyword(p_keyword:std.String):Bool return __scriptlanguageextension_ptr().value._is_control_flow_keyword(p_keyword);
+	public function _get_comment_delimiters():gd.PackedStringArray return __scriptlanguageextension_ptr().value._get_comment_delimiters();
+	public function _get_doc_comment_delimiters():gd.PackedStringArray return __scriptlanguageextension_ptr().value._get_doc_comment_delimiters();
+	public function _get_string_delimiters():gd.PackedStringArray return __scriptlanguageextension_ptr().value._get_string_delimiters();
+	public function _make_template(p_template:std.String, p_class_name:std.String, p_base_class_name:std.String):gd.Script return __scriptlanguageextension_ptr().value._make_template(p_template, p_class_name, p_base_class_name);
+	public function _is_using_templates():Bool return __scriptlanguageextension_ptr().value._is_using_templates();
+	public function _validate(p_script:std.String, p_path:std.String, p_validate_functions:Bool, p_validate_errors:Bool, p_validate_warnings:Bool, p_validate_safe_lines:Bool):gd.Dictionary return __scriptlanguageextension_ptr().value._validate(p_script, p_path, p_validate_functions, p_validate_errors, p_validate_warnings, p_validate_safe_lines);
+	public function _validate_path(p_path:std.String):std.String return __scriptlanguageextension_ptr().value._validate_path(p_path);
+	public function _create_script():gd.Object return __scriptlanguageextension_ptr().value._create_script();
+	public function _has_named_classes():Bool return __scriptlanguageextension_ptr().value._has_named_classes();
+	public function _supports_builtin_mode():Bool return __scriptlanguageextension_ptr().value._supports_builtin_mode();
+	public function _supports_documentation():Bool return __scriptlanguageextension_ptr().value._supports_documentation();
+	public function _can_inherit_from_file():Bool return __scriptlanguageextension_ptr().value._can_inherit_from_file();
+	public function _find_function(p_function:std.String, p_code:std.String):Int return __scriptlanguageextension_ptr().value._find_function(p_function, p_code);
+	public function _make_function(p_class_name:std.String, p_function_name:std.String, p_function_args:gd.PackedStringArray):std.String return __scriptlanguageextension_ptr().value._make_function(p_class_name, p_function_name, p_function_args);
+	public function _can_make_function():Bool return __scriptlanguageextension_ptr().value._can_make_function();
+	public function _open_in_external_editor(p_script:gd.Script, p_line:Int, p_column:Int):gd.Error return __scriptlanguageextension_ptr().value._open_in_external_editor(p_script, p_line, p_column);
+	public function _overrides_external_editor():Bool return __scriptlanguageextension_ptr().value._overrides_external_editor();
+	public function _preferred_file_name_casing():gd.scriptlanguage.ScriptNameCasing return __scriptlanguageextension_ptr().value._preferred_file_name_casing();
+	public function _complete_code(p_code:std.String, p_path:std.String, p_owner:gd.Object):gd.Dictionary return __scriptlanguageextension_ptr().value._complete_code(p_code, p_path, p_owner);
+	public function _lookup_code(p_code:std.String, p_symbol:std.String, p_path:std.String, p_owner:gd.Object):gd.Dictionary return __scriptlanguageextension_ptr().value._lookup_code(p_code, p_symbol, p_path, p_owner);
+	public function _auto_indent_code(p_code:std.String, p_from_line:Int, p_to_line:Int):std.String return __scriptlanguageextension_ptr().value._auto_indent_code(p_code, p_from_line, p_to_line);
+	public function _add_global_constant(p_name:std.String, p_value:gd.Variant):Void __scriptlanguageextension_ptr().value._add_global_constant(p_name, p_value);
+	public function _add_named_global_constant(p_name:std.String, p_value:gd.Variant):Void __scriptlanguageextension_ptr().value._add_named_global_constant(p_name, p_value);
+	public function _remove_named_global_constant(p_name:std.String):Void __scriptlanguageextension_ptr().value._remove_named_global_constant(p_name);
+	public function _thread_enter():Void __scriptlanguageextension_ptr().value._thread_enter();
+	public function _thread_exit():Void __scriptlanguageextension_ptr().value._thread_exit();
+	public function _debug_get_error():std.String return __scriptlanguageextension_ptr().value._debug_get_error();
+	public function _debug_get_stack_level_count():Int return __scriptlanguageextension_ptr().value._debug_get_stack_level_count();
+	public function _debug_get_stack_level_line(p_level:Int):Int return __scriptlanguageextension_ptr().value._debug_get_stack_level_line(p_level);
+	public function _debug_get_stack_level_function(p_level:Int):std.String return __scriptlanguageextension_ptr().value._debug_get_stack_level_function(p_level);
+	public function _debug_get_stack_level_source(p_level:Int):std.String return __scriptlanguageextension_ptr().value._debug_get_stack_level_source(p_level);
+	public function _debug_get_stack_level_locals(p_level:Int, p_max_subitems:Int, p_max_depth:Int):gd.Dictionary return __scriptlanguageextension_ptr().value._debug_get_stack_level_locals(p_level, p_max_subitems, p_max_depth);
+	public function _debug_get_stack_level_members(p_level:Int, p_max_subitems:Int, p_max_depth:Int):gd.Dictionary return __scriptlanguageextension_ptr().value._debug_get_stack_level_members(p_level, p_max_subitems, p_max_depth);
+	public function _debug_get_globals(p_max_subitems:Int, p_max_depth:Int):gd.Dictionary return __scriptlanguageextension_ptr().value._debug_get_globals(p_max_subitems, p_max_depth);
+	public function _debug_parse_stack_level_expression(p_level:Int, p_expression:std.String, p_max_subitems:Int, p_max_depth:Int):std.String return __scriptlanguageextension_ptr().value._debug_parse_stack_level_expression(p_level, p_expression, p_max_subitems, p_max_depth);
+	public function _reload_all_scripts():Void __scriptlanguageextension_ptr().value._reload_all_scripts();
+	public function _reload_tool_script(p_script:gd.Script, p_soft_reload:Bool):Void __scriptlanguageextension_ptr().value._reload_tool_script(p_script, p_soft_reload);
+	public function _get_recognized_extensions():gd.PackedStringArray return __scriptlanguageextension_ptr().value._get_recognized_extensions();
+	public function _get_public_constants():gd.Dictionary return __scriptlanguageextension_ptr().value._get_public_constants();
+	public function _profiling_start():Void __scriptlanguageextension_ptr().value._profiling_start();
+	public function _profiling_stop():Void __scriptlanguageextension_ptr().value._profiling_stop();
+	public function _profiling_set_save_native_calls(p_enable:Bool):Void __scriptlanguageextension_ptr().value._profiling_set_save_native_calls(p_enable);
+	public function _frame():Void __scriptlanguageextension_ptr().value._frame();
+	public function _handles_global_class_type(p_type:std.String):Bool return __scriptlanguageextension_ptr().value._handles_global_class_type(p_type);
+	public function _get_global_class_name(p_path:std.String):gd.Dictionary return __scriptlanguageextension_ptr().value._get_global_class_name(p_path);
+}

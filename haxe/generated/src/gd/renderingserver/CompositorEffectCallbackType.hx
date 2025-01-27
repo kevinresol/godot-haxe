@@ -1,0 +1,2 @@
+package gd.renderingserver;
+typedef CompositorEffectCallbackType = gdnative.renderingserver.CompositorEffectCallbackType;

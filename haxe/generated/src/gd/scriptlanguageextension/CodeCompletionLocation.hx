@@ -1,0 +1,2 @@
+package gd.scriptlanguageextension;
+typedef CodeCompletionLocation = gdnative.scriptlanguageextension.CodeCompletionLocation;

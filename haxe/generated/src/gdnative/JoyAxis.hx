@@ -1,5 +1,9 @@
 package gdnative;
-@:include("godot_cpp/classes/global_constants.hpp") @:native("godot::JoyAxis") extern enum abstract JoyAxis(cpp.UInt32) to cpp.UInt32 {
+@:native("godot::JoyAxis") extern enum abstract JoyAxis(JoyAxis_extern) {
+	@:from
+	extern inline static function fromInt(v:Int):JoyAxis return untyped __cpp__("(static_cast<godot::JoyAxis>({0}))", v);
+	@:to
+	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
 	@:native("godot::JoyAxis::JOY_AXIS_INVALID")
 	final INVALID;
 	@:native("godot::JoyAxis::JOY_AXIS_LEFT_X")
@@ -18,4 +22,7 @@ package gdnative;
 	final SDL_MAX;
 	@:native("godot::JoyAxis::JOY_AXIS_MAX")
 	final MAX;
+}
+@:include("godot_cpp/classes/global_constants.hpp") @:native("cpp::Struct<godot::JoyAxis, cpp::EnumHandler>") extern class JoyAxis_extern {
+
 }

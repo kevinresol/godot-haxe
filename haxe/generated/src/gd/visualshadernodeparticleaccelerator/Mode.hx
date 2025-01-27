@@ -1,0 +1,2 @@
+package gd.visualshadernodeparticleaccelerator;
+typedef Mode = gdnative.visualshadernodeparticleaccelerator.Mode;

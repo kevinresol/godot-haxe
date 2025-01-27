@@ -1,5 +1,9 @@
 package gdnative.node;
 @:native("godot::Node::ProcessMode") extern enum abstract ProcessMode(ProcessMode_extern) {
+	@:from
+	extern inline static function fromInt(v:Int):ProcessMode return untyped __cpp__("(static_cast<godot::Node::ProcessMode>({0}))", v);
+	@:to
+	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
 	@:native("godot::Node::ProcessMode::PROCESS_MODE_INHERIT")
 	final INHERIT;
 	@:native("godot::Node::ProcessMode::PROCESS_MODE_PAUSABLE")

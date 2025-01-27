@@ -7,6 +7,7 @@ extern class Resource extends gd.RefCounted {
 	function get_path():std.String;
 	function set_name(p_name:std.String):Void;
 	function get_name():std.String;
+	function get_rid():gd.RID;
 	function set_local_to_scene(p_enable:Bool):Void;
 	function is_local_to_scene():Bool;
 	function get_local_scene():gd.Node;
@@ -15,7 +16,7 @@ extern class Resource extends gd.RefCounted {
 	function set_scene_unique_id(p_id:std.String):Void;
 	function get_scene_unique_id():std.String;
 	function emit_changed():Void;
-	function duplicate(?p_subresources:Bool):gd.Resource;
+	function duplicate(?p_subresources:Bool = false):gd.Resource;
 	var resource_local_to_scene(get, set) : Bool;
 	function get_resource_local_to_scene():Bool;
 	function set_resource_local_to_scene(v:Bool):Bool;

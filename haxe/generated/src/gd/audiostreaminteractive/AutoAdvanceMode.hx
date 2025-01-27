@@ -1,0 +1,2 @@
+package gd.audiostreaminteractive;
+typedef AutoAdvanceMode = gdnative.audiostreaminteractive.AutoAdvanceMode;

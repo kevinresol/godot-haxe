@@ -1,0 +1,2 @@
+package gd.visualshadernodetransformvecmult;
+typedef Operator = gdnative.visualshadernodetransformvecmult.Operator;

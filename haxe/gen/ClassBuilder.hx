@@ -24,11 +24,13 @@ class ClassBuilder extends Builder {
 			final hppExists = sys.FileSystem.exists(hppPath);
 
 			if (hppExists) {
-				if (getClassInheritance('Sprite2D').contains(cname)
+				if (true
+					|| getClassInheritance('Sprite2D').contains(cname)
 					|| getClassInheritance('Texture2D').contains(cname)
 					|| getClassInheritance('Sky').contains(cname)
 					|| getClassInheritance('ResourceLoader').contains(cname)
 					|| getClassInheritance('ClassDB').contains(cname)
+					|| getClassInheritance('RDShaderSource').contains(cname)
 					|| getClassInheritance('Timer').contains(cname)) {
 					generateClassExtern(clazz, hpp);
 					generateClassWrapper(clazz, true);
@@ -86,9 +88,18 @@ class ClassBuilder extends Builder {
 		// enums
 		for (e in (clazz.enums ?? [])) {
 			final ename = e.name.replace('.', '');
+			final ect = TPath({pack: [], name: ename});
 			final ntype = 'godot::$cname::${e.name.replace('.', '::')}';
 			final ecname = '${ename}_extern';
-			final enm = macro class $ename {}
+			final enm = macro class $ename {
+				@:from
+				extern inline static function fromInt(v:Int):$ect
+					return untyped __cpp__($v{'(static_cast<$ntype>({0}))'}, v);
+
+				@:to
+				extern inline function toInt():Int
+					return untyped __cpp__('(static_cast<int>({0}))', this);
+			}
 			enm.isExtern = true;
 			enm.pack = config.pack.concat([cname.toLowerCase()]);
 			enm.kind = TDAbstract(TPath({pack: [], name: ecname}), [AbEnum]);
@@ -100,7 +111,7 @@ class ClassBuilder extends Builder {
 				{pos: null, name: ':native', params: [macro $v{'cpp::Struct<godot::$cname::$ename, cpp::EnumHandler>'}]}
 			];
 			for (v in e.values) {
-				final hname = getHaxeEnumEntryName('$cname.${e.name}', v.name);
+				final hname = getHaxeEnumEntryName('$cname.${e.name}', v.name, e.values.map(v -> v.name));
 				final nname = getNativeEnumEntryName('$cname.${e.name}', v.name);
 				enm.fields.push({
 					pos: null,
@@ -247,7 +258,7 @@ class ClassBuilder extends Builder {
 					enm.fields.push({
 						pos: null,
 						access: [AFinal],
-						name: getHaxeEnumEntryName('$cname.${e.name}', v.name),
+						name: getHaxeEnumEntryName('$cname.${e.name}', v.name, e.values.map(v -> v.name)),
 						kind: FVar(null, macro $v{v.value}),
 					});
 				}
@@ -283,6 +294,20 @@ class ClassBuilder extends Builder {
 							.map(arg -> ({
 								name: 'p_${arg.name}',
 								type: makeHaxeType(arg.type),
+								value: switch [arg.default_value, arg.type] {
+									case [null, _]: null;
+									case [_, 'bool']: (macro $v{arg.default_value == 'true'});
+									case [_, 'int']: (macro $v{Std.parseInt(arg.default_value)});
+									case [_, 'float']: (macro $v{Std.parseFloat(arg.default_value)});
+									case [_, 'std.String' | 'String' | 'StringName']: (macro $v{arg.default_value});
+									case [_, t] if (t.startsWith('enum::')):
+										// macro $i{findEnumEntryName(t.split('::')[1], Std.parseInt(arg.default_value))};
+										trace('TODO: handle enum default value $t');
+										throw 0;
+									case [_, t]:
+										trace('TODO: handle default value $t');
+										throw 0;
+								},
 								opt: arg.default_value != null,
 							} : FunctionArg)),
 						ret: makeHaxeType(isSetter ? fn.arguments[0].type : rtype),
@@ -317,6 +342,22 @@ class ClassBuilder extends Builder {
 		// properties
 		for (prop in (clazz.properties ?? [])) {
 			try {
+				// TODO: handle these special cases properly
+				if (prop.setter.startsWith('_'))
+					continue;
+				switch [cname, prop.name] {
+					case ['VisualShaderNodeReroute', 'port_type']:
+						continue;
+					case ['XRInterface', 'environment_blend_mode']:
+						continue;
+					case ['BaseMaterial3D', 'grow']:
+						continue;
+					case ['XRNode3D', 'pose']:
+						continue;
+					default:
+				}
+
+				final pname = isHaxeKeyword(prop.name) ? '_${prop.name}' : prop.name;
 				final ptype = switch cls.fields.find(f -> f.name == prop.getter) {
 					case {kind: FFun(f)}: f.ret;
 					case _: throw 'Unexpected getter function type';
@@ -324,36 +365,54 @@ class ClassBuilder extends Builder {
 
 				cls.fields.push({
 					pos: null,
-					name: prop.name,
+					name: pname,
 					kind: FProp('get', prop.setter == null ? 'never' : 'set', ptype)
 				});
 
 				// getter
-				if (!cls.fields.exists(f -> f.name == 'get_${prop.name}')) {
+				if (!cls.fields.exists(f -> f.name == 'get_${pname}')) {
 					// if Haxe's expected getter function does not already exist, generate one
 					cls.fields.push({
 						pos: null,
-						name: 'get_${prop.name}',
+						name: 'get_${pname}',
 						kind: FFun({
 							args: [],
 							ret: ptype,
-							expr: isScriptExtern ? null : macro return $i{prop.getter}()
+							expr: isScriptExtern ? null : {
+								if (prop.index != null) {
+									switch cls.fields.find(f -> f.name == prop.getter) {
+										case {kind: FFun(f)}:
+											macro return $i{prop.getter}($v{prop.index});
+										case _:
+											throw 'Missing getter function';
+									}
+								} else
+									macro return $i{prop.getter}();
+							}
 						})
 					});
 				}
 
 				// setter
 				if (prop.setter != null) {
-					switch cls.fields.find(f -> f.name == 'set_${prop.name}') {
+					switch cls.fields.find(f -> f.name == 'set_${pname}') {
 						case null:
 							// if Haxe's expected setter function does not already exist, generate one
 							cls.fields.push({
 								pos: null,
-								name: 'set_${prop.name}',
+								name: 'set_${pname}',
 								kind: FFun({
 									args: [{name: 'v', type: ptype}],
 									ret: ptype,
-									expr: isScriptExtern ? null : macro {$i{prop.setter}(v); return v;}
+									expr: isScriptExtern ? null : {
+										final args = [macro v];
+										if (prop.index != null)
+											args.unshift(macro $v{prop.index});
+										macro {
+											$i{prop.setter}($a{args});
+											return v;
+										}
+									}
 								})
 							});
 						case {kind: FFun(f)}:
@@ -459,5 +518,29 @@ class ClassBuilder extends Builder {
 
 	function getPointerHelperName(name:String):String {
 		return '__${name.toLowerCase()}_ptr';
+	}
+
+	function findEnumEntryName(name:String, value:Int):String {
+		switch api.global_enums.find(e -> e.name == name) {
+			case null:
+			case e:
+				return getHaxeEnumEntryName(name, e.values.find(v -> v.value == value)?.name, e.values.map(v -> v.name));
+		}
+
+		final parts = name.split('.');
+
+		switch api.classes.find(e -> e.name == parts[0])?.enums?.find(e -> e.name == parts[1]) {
+			case null:
+			case e:
+				return getHaxeEnumEntryName(name, e.values.find(v -> v.value == value)?.name, e.values.map(v -> v.name));
+		}
+
+		switch api.builtin_classes.find(e -> e.name == parts[0])?.enums?.find(e -> e.name == parts[1]) {
+			case null:
+			case e:
+				return getHaxeEnumEntryName(name, e.values.find(v -> v.value == value)?.name, e.values.map(v -> v.name));
+		}
+
+		return null;
 	}
 }

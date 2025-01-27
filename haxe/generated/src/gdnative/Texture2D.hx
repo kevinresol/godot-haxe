@@ -5,10 +5,17 @@ package gdnative;
 	function _get_height():Int;
 	function _is_pixel_opaque(p_x:Int, p_y:Int):Bool;
 	function _has_alpha():Bool;
+	function _draw(p_to_canvas_item:gdnative.RID, p_pos:gdnative.Vector2, p_modulate:gdnative.Color, p_transpose:Bool):Void;
+	function _draw_rect(p_to_canvas_item:gdnative.RID, p_rect:gdnative.Rect2, p_tile:Bool, p_modulate:gdnative.Color, p_transpose:Bool):Void;
+	function _draw_rect_region(p_to_canvas_item:gdnative.RID, p_rect:gdnative.Rect2, p_src_rect:gdnative.Rect2, p_modulate:gdnative.Color, p_transpose:Bool, p_clip_uv:Bool):Void;
 	function get_width():Int;
 	function get_height():Int;
 	function get_size():gdnative.Vector2;
 	function has_alpha():Bool;
+	function draw(p_canvas_item:gdnative.RID, p_position:gdnative.Vector2, ?p_modulate:gdnative.Color, ?p_transpose:Bool):Void;
+	function draw_rect(p_canvas_item:gdnative.RID, p_rect:gdnative.Rect2, p_tile:Bool, ?p_modulate:gdnative.Color, ?p_transpose:Bool):Void;
+	function draw_rect_region(p_canvas_item:gdnative.RID, p_rect:gdnative.Rect2, p_src_rect:gdnative.Rect2, ?p_modulate:gdnative.Color, ?p_transpose:Bool, ?p_clip_uv:Bool):Void;
+	function get_image():gdnative.Image;
 	function create_placeholder():gdnative.Resource;
 }
 @:forward abstract Texture2D(gdnative.Ref<Texture2D_extern>) from gdnative.Ref<Texture2D_extern> to gdnative.Ref<Texture2D_extern> {

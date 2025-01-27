@@ -1,0 +1,2 @@
+package gd.viewport;
+typedef PositionalShadowAtlasQuadrantSubdiv = gdnative.viewport.PositionalShadowAtlasQuadrantSubdiv;

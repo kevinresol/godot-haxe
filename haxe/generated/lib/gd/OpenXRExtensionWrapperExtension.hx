@@ -1,0 +1,29 @@
+package gd;
+extern class OpenXRExtensionWrapperExtension extends gd.Object {
+	function new(?owner:Dynamic);
+	function _get_requested_extensions():gd.Dictionary;
+	function _get_composition_layer_count():Int;
+	function _get_composition_layer(p_index:Int):Int;
+	function _get_composition_layer_order(p_index:Int):Int;
+	function _get_suggested_tracker_names():gd.PackedStringArray;
+	function _on_register_metadata():Void;
+	function _on_before_instance_created():Void;
+	function _on_instance_created(p_instance:Int):Void;
+	function _on_instance_destroyed():Void;
+	function _on_session_created(p_session:Int):Void;
+	function _on_process():Void;
+	function _on_pre_render():Void;
+	function _on_main_swapchains_created():Void;
+	function _on_session_destroyed():Void;
+	function _on_state_idle():Void;
+	function _on_state_ready():Void;
+	function _on_state_synchronized():Void;
+	function _on_state_visible():Void;
+	function _on_state_focused():Void;
+	function _on_state_stopping():Void;
+	function _on_state_loss_pending():Void;
+	function _on_state_exiting():Void;
+	function _get_viewport_composition_layer_extension_property_defaults():gd.Dictionary;
+	function get_openxr_api():gd.OpenXRAPIExtension;
+	function register_extension_wrapper():Void;
+}

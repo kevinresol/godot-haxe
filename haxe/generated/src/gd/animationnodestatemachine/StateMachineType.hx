@@ -1,0 +1,2 @@
+package gd.animationnodestatemachine;
+typedef StateMachineType = gdnative.animationnodestatemachine.StateMachineType;

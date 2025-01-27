@@ -4,6 +4,7 @@ extern class Callable_wrapper {
 	static function _new1(p_from:gd.Callable):Callable_wrapper;
 	static function _new2(p_object:gd.Object, p_method:std.String):Callable_wrapper;
 	function create(p_variant:gd.Variant, p_method:std.String):gd.Callable;
+	function callv(p_arguments:gd.Array):gd.Variant;
 	function is_null():Bool;
 	function is_custom():Bool;
 	function is_standard():Bool;
@@ -13,7 +14,9 @@ extern class Callable_wrapper {
 	function get_method():std.String;
 	function get_argument_count():Int;
 	function get_bound_arguments_count():Int;
+	function get_bound_arguments():gd.Array;
 	function hash():Int;
+	function bindv(p_arguments:gd.Array):gd.Callable;
 	function unbind(p_argcount:Int):gd.Callable;
 	function call():gd.Variant;
 	function call_deferred():Void;

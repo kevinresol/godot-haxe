@@ -1,0 +1,2 @@
+package gd.renderingserver;
+typedef ParticlesTransformAlign = gdnative.renderingserver.ParticlesTransformAlign;

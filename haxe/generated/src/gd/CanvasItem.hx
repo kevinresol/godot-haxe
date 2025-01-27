@@ -10,6 +10,7 @@ class CanvasItem extends gd.Node {
 	}
 	extern inline function __canvasitem_ptr():cpp.Pointer<gdnative.CanvasItem.CanvasItem_extern> return cast __gd.ptr;
 	public function _draw():Void __canvasitem_ptr().value._draw();
+	public function get_canvas_item():gd.RID return __canvasitem_ptr().value.get_canvas_item();
 	public function set_visible(p_visible:Bool):Bool {
 		__canvasitem_ptr().value.set_visible(p_visible);
 		return p_visible;
@@ -54,16 +55,30 @@ class CanvasItem extends gd.Node {
 	public function is_y_sort_enabled():Bool return __canvasitem_ptr().value.is_y_sort_enabled();
 	public function set_draw_behind_parent(p_enable:Bool):Void __canvasitem_ptr().value.set_draw_behind_parent(p_enable);
 	public function is_draw_behind_parent_enabled():Bool return __canvasitem_ptr().value.is_draw_behind_parent_enabled();
-	public function draw_line(p_from:gd.Vector2, p_to:gd.Vector2, p_color:gd.Color, ?p_width:Float, ?p_antialiased:Bool):Void __canvasitem_ptr().value.draw_line(p_from, p_to, p_color, p_width, p_antialiased);
-	public function draw_dashed_line(p_from:gd.Vector2, p_to:gd.Vector2, p_color:gd.Color, ?p_width:Float, ?p_dash:Float, ?p_aligned:Bool, ?p_antialiased:Bool):Void __canvasitem_ptr().value.draw_dashed_line(p_from, p_to, p_color, p_width, p_dash, p_aligned, p_antialiased);
-	public function draw_arc(p_center:gd.Vector2, p_radius:Float, p_start_angle:Float, p_end_angle:Float, p_point_count:Int, p_color:gd.Color, ?p_width:Float, ?p_antialiased:Bool):Void __canvasitem_ptr().value.draw_arc(p_center, p_radius, p_start_angle, p_end_angle, p_point_count, p_color, p_width, p_antialiased);
-	public function draw_circle(p_position:gd.Vector2, p_radius:Float, p_color:gd.Color, ?p_filled:Bool, ?p_width:Float, ?p_antialiased:Bool):Void __canvasitem_ptr().value.draw_circle(p_position, p_radius, p_color, p_filled, p_width, p_antialiased);
-	public function draw_texture(p_texture:gd.Texture2D, p_position:gd.Vector2, ?p_modulate:gd.Color):Void __canvasitem_ptr().value.draw_texture(p_texture, p_position, p_modulate);
-	public function draw_set_transform(p_position:gd.Vector2, ?p_rotation:Float, ?p_scale:gd.Vector2):Void __canvasitem_ptr().value.draw_set_transform(p_position, p_rotation, p_scale);
-	public function draw_animation_slice(p_animation_length:Float, p_slice_begin:Float, p_slice_end:Float, ?p_offset:Float):Void __canvasitem_ptr().value.draw_animation_slice(p_animation_length, p_slice_begin, p_slice_end, p_offset);
+	public function draw_line(p_from:gd.Vector2, p_to:gd.Vector2, p_color:gd.Color, ?p_width:Float = -1., ?p_antialiased:Bool = false):Void __canvasitem_ptr().value.draw_line(p_from, p_to, p_color, p_width, p_antialiased);
+	public function draw_dashed_line(p_from:gd.Vector2, p_to:gd.Vector2, p_color:gd.Color, ?p_width:Float = -1., ?p_dash:Float = 2., ?p_aligned:Bool = true, ?p_antialiased:Bool = false):Void __canvasitem_ptr().value.draw_dashed_line(p_from, p_to, p_color, p_width, p_dash, p_aligned, p_antialiased);
+	public function draw_polyline(p_points:gd.PackedVector2Array, p_color:gd.Color, ?p_width:Float = -1., ?p_antialiased:Bool = false):Void __canvasitem_ptr().value.draw_polyline(p_points, p_color, p_width, p_antialiased);
+	public function draw_polyline_colors(p_points:gd.PackedVector2Array, p_colors:gd.PackedColorArray, ?p_width:Float = -1., ?p_antialiased:Bool = false):Void __canvasitem_ptr().value.draw_polyline_colors(p_points, p_colors, p_width, p_antialiased);
+	public function draw_arc(p_center:gd.Vector2, p_radius:Float, p_start_angle:Float, p_end_angle:Float, p_point_count:Int, p_color:gd.Color, ?p_width:Float = -1., ?p_antialiased:Bool = false):Void __canvasitem_ptr().value.draw_arc(p_center, p_radius, p_start_angle, p_end_angle, p_point_count, p_color, p_width, p_antialiased);
+	public function draw_multiline(p_points:gd.PackedVector2Array, p_color:gd.Color, ?p_width:Float = -1., ?p_antialiased:Bool = false):Void __canvasitem_ptr().value.draw_multiline(p_points, p_color, p_width, p_antialiased);
+	public function draw_multiline_colors(p_points:gd.PackedVector2Array, p_colors:gd.PackedColorArray, ?p_width:Float = -1., ?p_antialiased:Bool = false):Void __canvasitem_ptr().value.draw_multiline_colors(p_points, p_colors, p_width, p_antialiased);
+	public function draw_rect(p_rect:gd.Rect2, p_color:gd.Color, ?p_filled:Bool = true, ?p_width:Float = -1., ?p_antialiased:Bool = false):Void __canvasitem_ptr().value.draw_rect(p_rect, p_color, p_filled, p_width, p_antialiased);
+	public function draw_circle(p_position:gd.Vector2, p_radius:Float, p_color:gd.Color, ?p_filled:Bool = true, ?p_width:Float = -1., ?p_antialiased:Bool = false):Void __canvasitem_ptr().value.draw_circle(p_position, p_radius, p_color, p_filled, p_width, p_antialiased);
+	public function draw_style_box(p_style_box:gd.StyleBox, p_rect:gd.Rect2):Void __canvasitem_ptr().value.draw_style_box(p_style_box, p_rect);
+	public function draw_multimesh(p_multimesh:gd.MultiMesh, p_texture:gd.Texture2D):Void __canvasitem_ptr().value.draw_multimesh(p_multimesh, p_texture);
+	public function draw_animation_slice(p_animation_length:Float, p_slice_begin:Float, p_slice_end:Float, ?p_offset:Float = 0.):Void __canvasitem_ptr().value.draw_animation_slice(p_animation_length, p_slice_begin, p_slice_end, p_offset);
 	public function draw_end_animation():Void __canvasitem_ptr().value.draw_end_animation();
+	public function get_viewport_rect():gd.Rect2 return __canvasitem_ptr().value.get_viewport_rect();
 	public function get_local_mouse_position():gd.Vector2 return __canvasitem_ptr().value.get_local_mouse_position();
 	public function get_global_mouse_position():gd.Vector2 return __canvasitem_ptr().value.get_global_mouse_position();
+	public function get_canvas():gd.RID return __canvasitem_ptr().value.get_canvas();
+	public function get_canvas_layer_node():gd.CanvasLayer return __canvasitem_ptr().value.get_canvas_layer_node();
+	public function get_world_2d():gd.World2D return __canvasitem_ptr().value.get_world_2d();
+	public function set_material(p_material:gd.Material):gd.Material {
+		__canvasitem_ptr().value.set_material(p_material);
+		return p_material;
+	}
+	public function get_material():gd.Material return __canvasitem_ptr().value.get_material();
 	public function set_use_parent_material(p_enable:Bool):Bool {
 		__canvasitem_ptr().value.set_use_parent_material(p_enable);
 		return p_enable;
@@ -75,6 +90,7 @@ class CanvasItem extends gd.Node {
 	public function is_transform_notification_enabled():Bool return __canvasitem_ptr().value.is_transform_notification_enabled();
 	public function force_update_transform():Void __canvasitem_ptr().value.force_update_transform();
 	public function make_canvas_position_local(p_screen_point:gd.Vector2):gd.Vector2 return __canvasitem_ptr().value.make_canvas_position_local(p_screen_point);
+	public function make_input_local(p_event:gd.InputEvent):gd.InputEvent return __canvasitem_ptr().value.make_input_local(p_event);
 	public function set_visibility_layer(p_layer:Int):Int {
 		__canvasitem_ptr().value.set_visibility_layer(p_layer);
 		return p_layer;
@@ -125,5 +141,6 @@ class CanvasItem extends gd.Node {
 	function get_y_sort_enabled():Bool return is_y_sort_enabled();
 	var texture_filter(get, set) : gd.canvasitem.TextureFilter;
 	var texture_repeat(get, set) : gd.canvasitem.TextureRepeat;
+	var material(get, set) : gd.Material;
 	var use_parent_material(get, set) : Bool;
 }

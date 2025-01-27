@@ -1,0 +1,2 @@
+package gd.renderingserver;
+typedef ViewportEnvironmentMode = gdnative.renderingserver.ViewportEnvironmentMode;

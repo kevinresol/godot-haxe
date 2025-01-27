@@ -1,0 +1,2 @@
+package gd.audiostreaminteractive;
+typedef TransitionToTime = gdnative.audiostreaminteractive.TransitionToTime;

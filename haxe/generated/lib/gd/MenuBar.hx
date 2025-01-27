@@ -1,0 +1,37 @@
+package gd;
+extern class MenuBar extends gd.Control {
+	function new(?owner:Dynamic);
+	function set_switch_on_hover(p_enable:Bool):Bool;
+	function is_switch_on_hover():Bool;
+	function set_disable_shortcuts(p_disabled:Bool):Void;
+	function set_prefer_global_menu(p_enabled:Bool):Bool;
+	function is_prefer_global_menu():Bool;
+	function is_native_menu():Bool;
+	function get_menu_count():Int;
+	function set_text_direction(p_direction:gd.control.TextDirection):gd.control.TextDirection;
+	function get_text_direction():gd.control.TextDirection;
+	function set_language(p_language:std.String):std.String;
+	function get_language():std.String;
+	function set_flat(p_enabled:Bool):Bool;
+	function is_flat():Bool;
+	function set_start_index(p_enabled:Int):Int;
+	function get_start_index():Int;
+	function set_menu_title(p_menu:Int, p_title:std.String):Void;
+	function get_menu_title(p_menu:Int):std.String;
+	function set_menu_tooltip(p_menu:Int, p_tooltip:std.String):Void;
+	function get_menu_tooltip(p_menu:Int):std.String;
+	function set_menu_disabled(p_menu:Int, p_disabled:Bool):Void;
+	function is_menu_disabled(p_menu:Int):Bool;
+	function set_menu_hidden(p_menu:Int, p_hidden:Bool):Void;
+	function is_menu_hidden(p_menu:Int):Bool;
+	function get_menu_popup(p_menu:Int):gd.PopupMenu;
+	var flat(get, set) : Bool;
+	function get_flat():Bool;
+	var start_index(get, set) : Int;
+	var switch_on_hover(get, set) : Bool;
+	function get_switch_on_hover():Bool;
+	var prefer_global_menu(get, set) : Bool;
+	function get_prefer_global_menu():Bool;
+	var text_direction(get, set) : gd.control.TextDirection;
+	var language(get, set) : std.String;
+}

@@ -1,0 +1,2 @@
+package gd.geometryinstance3d;
+typedef VisibilityRangeFadeMode = gdnative.geometryinstance3d.VisibilityRangeFadeMode;

@@ -1,0 +1,2 @@
+package gd.animationnodestatemachinetransition;
+typedef SwitchMode = gdnative.animationnodestatemachinetransition.SwitchMode;

@@ -1,0 +1,2 @@
+package gd.visualshadernodederivativefunc;
+typedef Precision = gdnative.visualshadernodederivativefunc.Precision;

@@ -1,7 +1,7 @@
 package gd;
 
 class Utils {
-	public static function checkAndWarnForMissingOwner(instance:Any, baseEngineClass:String):Void {
+	public static function checkAndWarnForMissingOwner(instance:Any, baseEngineClass:std.String):Void {
 		final instanceClass = Type.getClassName(Type.getClass(instance));
 		final isEngineClass = StringTools.startsWith(instanceClass, 'gd.') && gd.ClassDB.singleton.class_exists(instanceClass.substr(3));
 		if (!isEngineClass)

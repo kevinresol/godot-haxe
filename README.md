@@ -9,11 +9,14 @@ This repository provides Haxe scripting (cppia) support for Godot 4 via GDExtens
 ## Enums
 
 Global enums can be found in the `gd` package and class enums can be found in the `gd.<classname>` package.
-Most enum names are simplified by removing the prefix (refer to the actual definition in the hx files).
+Most enum names are simplified by removing the prefix.
+
+In case the resulting name is not a valid identifier, a `_` will be added as prefix.
 
 Example:
 
 ```haxe
+trace(gd.Key._9); // In GDScript it would be KEY_9
 trace(gd.Key.BACKSPACE); // In GDScript it would be KEY_BACKSPACE
 trace(gd.node.ProcessMode.DISABLED); // In GDScript it would be PROCESS_MODE_DISABLED
 ```

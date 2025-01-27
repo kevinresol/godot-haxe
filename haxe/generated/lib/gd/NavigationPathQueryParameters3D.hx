@@ -1,0 +1,31 @@
+package gd;
+extern class NavigationPathQueryParameters3D extends gd.RefCounted {
+	function new(?owner:Dynamic);
+	function set_pathfinding_algorithm(p_pathfinding_algorithm:gd.navigationpathqueryparameters3d.PathfindingAlgorithm):gd.navigationpathqueryparameters3d.PathfindingAlgorithm;
+	function get_pathfinding_algorithm():gd.navigationpathqueryparameters3d.PathfindingAlgorithm;
+	function set_path_postprocessing(p_path_postprocessing:gd.navigationpathqueryparameters3d.PathPostProcessing):gd.navigationpathqueryparameters3d.PathPostProcessing;
+	function get_path_postprocessing():gd.navigationpathqueryparameters3d.PathPostProcessing;
+	function set_map(p_map:gd.RID):gd.RID;
+	function get_map():gd.RID;
+	function set_start_position(p_start_position:gd.Vector3):gd.Vector3;
+	function get_start_position():gd.Vector3;
+	function set_target_position(p_target_position:gd.Vector3):gd.Vector3;
+	function get_target_position():gd.Vector3;
+	function set_navigation_layers(p_navigation_layers:Int):Int;
+	function get_navigation_layers():Int;
+	function set_metadata_flags(p_flags:Int):Int;
+	function get_metadata_flags():Int;
+	function set_simplify_path(p_enabled:Bool):Bool;
+	function get_simplify_path():Bool;
+	function set_simplify_epsilon(p_epsilon:Float):Float;
+	function get_simplify_epsilon():Float;
+	var map(get, set) : gd.RID;
+	var start_position(get, set) : gd.Vector3;
+	var target_position(get, set) : gd.Vector3;
+	var navigation_layers(get, set) : Int;
+	var pathfinding_algorithm(get, set) : gd.navigationpathqueryparameters3d.PathfindingAlgorithm;
+	var path_postprocessing(get, set) : gd.navigationpathqueryparameters3d.PathPostProcessing;
+	var metadata_flags(get, set) : Int;
+	var simplify_path(get, set) : Bool;
+	var simplify_epsilon(get, set) : Float;
+}

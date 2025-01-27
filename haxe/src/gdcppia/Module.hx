@@ -113,7 +113,7 @@ class Module {
 												className: '',
 												hint: PropertyHint.NONE,
 												hintString: '',
-												usage: PropertyUsageFlags.DEFAULT | PropertyUsageFlags.NIL_IS_VARIANT,
+												usage: (PropertyUsageFlags.DEFAULT : Int) | (PropertyUsageFlags.NIL_IS_VARIANT : Int),
 											},
 											flags: 1,
 											id: 0,
@@ -135,7 +135,7 @@ class Module {
 		}
 	}
 
-	function rttiTypeToGodotVariantType(type:haxe.rtti.CType):gdnative.VariantType {
+	function rttiTypeToGodotVariantType(type:haxe.rtti.CType):gdnative.variant.Type {
 		return switch type {
 			case CAbstract('Float', _):
 				FLOAT;
@@ -157,7 +157,7 @@ class ClassInfo {
 @:structInit
 @:unreflective
 class PropertyInfo {
-	public final type:gdnative.VariantType;
+	public final type:gdnative.variant.Type;
 	public final name:String;
 	public final className:String;
 	public final hint:cpp.UInt32; // Bitfield of `PropertyHint` (defined in `extension_api.json`).

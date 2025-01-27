@@ -1,0 +1,30 @@
+package gd;
+extern class AudioEffectReverb extends gd.AudioEffect {
+	function new(?owner:Dynamic);
+	function set_predelay_msec(p_msec:Float):Float;
+	function get_predelay_msec():Float;
+	function set_predelay_feedback(p_feedback:Float):Float;
+	function get_predelay_feedback():Float;
+	function set_room_size(p_size:Float):Float;
+	function get_room_size():Float;
+	function set_damping(p_amount:Float):Float;
+	function get_damping():Float;
+	function set_spread(p_amount:Float):Float;
+	function get_spread():Float;
+	function set_dry(p_amount:Float):Float;
+	function get_dry():Float;
+	function set_wet(p_amount:Float):Float;
+	function get_wet():Float;
+	function set_hpf(p_amount:Float):Void;
+	function get_hpf():Float;
+	var predelay_msec(get, set) : Float;
+	var predelay_feedback(get, set) : Float;
+	var room_size(get, set) : Float;
+	var damping(get, set) : Float;
+	var spread(get, set) : Float;
+	var hipass(get, set) : Float;
+	function get_hipass():Float;
+	function set_hipass(v:Float):Float;
+	var dry(get, set) : Float;
+	var wet(get, set) : Float;
+}

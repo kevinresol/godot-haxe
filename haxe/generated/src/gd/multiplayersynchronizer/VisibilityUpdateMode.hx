@@ -1,0 +1,2 @@
+package gd.multiplayersynchronizer;
+typedef VisibilityUpdateMode = gdnative.multiplayersynchronizer.VisibilityUpdateMode;

@@ -1,0 +1,2 @@
+package gd.geometryinstance3d;
+typedef ShadowCastingSetting = gdnative.geometryinstance3d.ShadowCastingSetting;

@@ -1,5 +1,9 @@
 package gdnative.object;
 @:native("godot::Object::ConnectFlags") extern enum abstract ConnectFlags(ConnectFlags_extern) {
+	@:from
+	extern inline static function fromInt(v:Int):ConnectFlags return untyped __cpp__("(static_cast<godot::Object::ConnectFlags>({0}))", v);
+	@:to
+	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
 	@:native("godot::Object::ConnectFlags::CONNECT_DEFERRED")
 	final DEFERRED;
 	@:native("godot::Object::ConnectFlags::CONNECT_PERSIST")

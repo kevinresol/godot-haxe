@@ -1,0 +1,2 @@
+package gd.scenereplicationconfig;
+typedef ReplicationMode = gdnative.scenereplicationconfig.ReplicationMode;

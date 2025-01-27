@@ -1,0 +1,2 @@
+package gd.gpuparticlescollisionheightfield3d;
+typedef UpdateMode = gdnative.gpuparticlescollisionheightfield3d.UpdateMode;

@@ -1,0 +1,2 @@
+package gd.viewport;
+typedef DefaultCanvasItemTextureFilter = gdnative.viewport.DefaultCanvasItemTextureFilter;

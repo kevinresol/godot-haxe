@@ -14,32 +14,38 @@ class Node extends gd.Object {
 	public function _enter_tree():Void __node_ptr().value._enter_tree();
 	public function _exit_tree():Void __node_ptr().value._exit_tree();
 	public function _ready():Void __node_ptr().value._ready();
+	public function _get_configuration_warnings():gd.PackedStringArray return __node_ptr().value._get_configuration_warnings();
+	public function _input(p_event:gd.InputEvent):Void __node_ptr().value._input(p_event);
+	public function _shortcut_input(p_event:gd.InputEvent):Void __node_ptr().value._shortcut_input(p_event);
+	public function _unhandled_input(p_event:gd.InputEvent):Void __node_ptr().value._unhandled_input(p_event);
+	public function _unhandled_key_input(p_event:gd.InputEvent):Void __node_ptr().value._unhandled_key_input(p_event);
 	public static function print_orphan_nodes():Void gdnative.Node.Node_extern.print_orphan_nodes();
-	public function add_sibling(p_sibling:gd.Node, ?p_force_readable_name:Bool):Void __node_ptr().value.add_sibling(p_sibling, p_force_readable_name);
+	public function add_sibling(p_sibling:gd.Node, ?p_force_readable_name:Bool = false):Void __node_ptr().value.add_sibling(p_sibling, p_force_readable_name);
 	public function set_name(p_name:std.String):std.String {
 		__node_ptr().value.set_name(p_name);
 		return p_name;
 	}
 	public function get_name():std.String return __node_ptr().value.get_name();
-	public function add_child(p_node:gd.Node, ?p_force_readable_name:Bool):Void __node_ptr().value.add_child(p_node, p_force_readable_name);
+	public function add_child(p_node:gd.Node, ?p_force_readable_name:Bool = false):Void __node_ptr().value.add_child(p_node, p_force_readable_name);
 	public function remove_child(p_node:gd.Node):Void __node_ptr().value.remove_child(p_node);
-	public function reparent(p_new_parent:gd.Node, ?p_keep_global_transform:Bool):Void __node_ptr().value.reparent(p_new_parent, p_keep_global_transform);
-	public function get_child_count(?p_include_internal:Bool):Int return __node_ptr().value.get_child_count(p_include_internal);
-	public function get_child(p_idx:Int, ?p_include_internal:Bool):gd.Node return __node_ptr().value.get_child(p_idx, p_include_internal);
+	public function reparent(p_new_parent:gd.Node, ?p_keep_global_transform:Bool = true):Void __node_ptr().value.reparent(p_new_parent, p_keep_global_transform);
+	public function get_child_count(?p_include_internal:Bool = false):Int return __node_ptr().value.get_child_count(p_include_internal);
+	public function get_child(p_idx:Int, ?p_include_internal:Bool = false):gd.Node return __node_ptr().value.get_child(p_idx, p_include_internal);
 	public function has_node(p_path:std.String):Bool return __node_ptr().value.has_node(p_path);
 	public function get_node(p_path:std.String):gd.Node return __node_ptr().value.get_node(p_path);
 	public function get_node_or_null(p_path:std.String):gd.Node return __node_ptr().value.get_node_or_null(p_path);
 	public function get_parent():gd.Node return __node_ptr().value.get_parent();
-	public function find_child(p_pattern:std.String, ?p_recursive:Bool, ?p_owned:Bool):gd.Node return __node_ptr().value.find_child(p_pattern, p_recursive, p_owned);
+	public function find_child(p_pattern:std.String, ?p_recursive:Bool = true, ?p_owned:Bool = true):gd.Node return __node_ptr().value.find_child(p_pattern, p_recursive, p_owned);
 	public function find_parent(p_pattern:std.String):gd.Node return __node_ptr().value.find_parent(p_pattern);
 	public function has_node_and_resource(p_path:std.String):Bool return __node_ptr().value.has_node_and_resource(p_path);
+	public function get_node_and_resource(p_path:std.String):gd.Array return __node_ptr().value.get_node_and_resource(p_path);
 	public function is_inside_tree():Bool return __node_ptr().value.is_inside_tree();
 	public function is_part_of_edited_scene():Bool return __node_ptr().value.is_part_of_edited_scene();
 	public function is_ancestor_of(p_node:gd.Node):Bool return __node_ptr().value.is_ancestor_of(p_node);
 	public function is_greater_than(p_node:gd.Node):Bool return __node_ptr().value.is_greater_than(p_node);
 	public function get_path():std.String return __node_ptr().value.get_path();
-	public function get_path_to(p_node:gd.Node, ?p_use_unique_path:Bool):std.String return __node_ptr().value.get_path_to(p_node, p_use_unique_path);
-	public function add_to_group(p_group:std.String, ?p_persistent:Bool):Void __node_ptr().value.add_to_group(p_group, p_persistent);
+	public function get_path_to(p_node:gd.Node, ?p_use_unique_path:Bool = false):std.String return __node_ptr().value.get_path_to(p_node, p_use_unique_path);
+	public function add_to_group(p_group:std.String, ?p_persistent:Bool = false):Void __node_ptr().value.add_to_group(p_group, p_persistent);
 	public function remove_from_group(p_group:std.String):Void __node_ptr().value.remove_from_group(p_group);
 	public function is_in_group(p_group:std.String):Bool return __node_ptr().value.is_in_group(p_group);
 	public function move_child(p_child_node:gd.Node, p_to_index:Int):Void __node_ptr().value.move_child(p_child_node, p_to_index);
@@ -48,7 +54,7 @@ class Node extends gd.Object {
 		return p_owner;
 	}
 	public function get_owner():gd.Node return __node_ptr().value.get_owner();
-	public function get_index(?p_include_internal:Bool):Int return __node_ptr().value.get_index(p_include_internal);
+	public function get_index(?p_include_internal:Bool = false):Int return __node_ptr().value.get_index(p_include_internal);
 	public function print_tree():Void __node_ptr().value.print_tree();
 	public function print_tree_pretty():Void __node_ptr().value.print_tree_pretty();
 	public function get_tree_string():std.String return __node_ptr().value.get_tree_string();
@@ -91,6 +97,11 @@ class Node extends gd.Object {
 		return p_mode;
 	}
 	public function get_process_thread_group():gd.node.ProcessThreadGroup return __node_ptr().value.get_process_thread_group();
+	public function set_process_thread_messages(p_flags:Int):Int {
+		__node_ptr().value.set_process_thread_messages(p_flags);
+		return p_flags;
+	}
+	public function get_process_thread_messages():Int return __node_ptr().value.get_process_thread_messages();
 	public function set_process_thread_group_order(p_order:Int):Int {
 		__node_ptr().value.set_process_thread_group_order(p_order);
 		return p_order;
@@ -115,18 +126,24 @@ class Node extends gd.Object {
 		return p_mode;
 	}
 	public function get_auto_translate_mode():gd.node.AutoTranslateMode return __node_ptr().value.get_auto_translate_mode();
-	public function duplicate(?p_flags:Int):gd.Node return __node_ptr().value.duplicate(p_flags);
-	public function replace_by(p_node:gd.Node, ?p_keep_groups:Bool):Void __node_ptr().value.replace_by(p_node, p_keep_groups);
+	public function get_window():gd.Window return __node_ptr().value.get_window();
+	public function get_last_exclusive_window():gd.Window return __node_ptr().value.get_last_exclusive_window();
+	public function get_tree():gd.SceneTree return __node_ptr().value.get_tree();
+	public function create_tween():gd.Tween return __node_ptr().value.create_tween();
+	public function duplicate(?p_flags:Int = 15):gd.Node return __node_ptr().value.duplicate(p_flags);
+	public function replace_by(p_node:gd.Node, ?p_keep_groups:Bool = false):Void __node_ptr().value.replace_by(p_node, p_keep_groups);
 	public function set_scene_instance_load_placeholder(p_load_placeholder:Bool):Void __node_ptr().value.set_scene_instance_load_placeholder(p_load_placeholder);
 	public function get_scene_instance_load_placeholder():Bool return __node_ptr().value.get_scene_instance_load_placeholder();
 	public function set_editable_instance(p_node:gd.Node, p_is_editable:Bool):Void __node_ptr().value.set_editable_instance(p_node, p_is_editable);
 	public function is_editable_instance(p_node:gd.Node):Bool return __node_ptr().value.is_editable_instance(p_node);
+	public function get_viewport():gd.Viewport return __node_ptr().value.get_viewport();
 	public function queue_free():Void __node_ptr().value.queue_free();
 	public function request_ready():Void __node_ptr().value.request_ready();
 	public function is_node_ready():Bool return __node_ptr().value.is_node_ready();
-	public function set_multiplayer_authority(p_id:Int, ?p_recursive:Bool):Void __node_ptr().value.set_multiplayer_authority(p_id, p_recursive);
+	public function set_multiplayer_authority(p_id:Int, ?p_recursive:Bool = true):Void __node_ptr().value.set_multiplayer_authority(p_id, p_recursive);
 	public function get_multiplayer_authority():Int return __node_ptr().value.get_multiplayer_authority();
 	public function is_multiplayer_authority():Bool return __node_ptr().value.is_multiplayer_authority();
+	public function get_multiplayer():gd.MultiplayerAPI return __node_ptr().value.get_multiplayer();
 	public function rpc_config(p_method:std.String, p_config:gd.Variant):Void __node_ptr().value.rpc_config(p_method, p_config);
 	public function set_editor_description(p_editor_description:std.String):std.String {
 		__node_ptr().value.set_editor_description(p_editor_description);
@@ -138,8 +155,8 @@ class Node extends gd.Object {
 		return p_enable;
 	}
 	public function is_unique_name_in_owner():Bool return __node_ptr().value.is_unique_name_in_owner();
-	public function atr(p_message:std.String, ?p_context:std.String):std.String return __node_ptr().value.atr(p_message, p_context);
-	public function atr_n(p_message:std.String, p_plural_message:std.String, p_n:Int, ?p_context:std.String):std.String return __node_ptr().value.atr_n(p_message, p_plural_message, p_n, p_context);
+	public function atr(p_message:std.String, ?p_context:std.String = "\"\""):std.String return __node_ptr().value.atr(p_message, p_context);
+	public function atr_n(p_message:std.String, p_plural_message:std.String, p_n:Int, ?p_context:std.String = "\"\""):std.String return __node_ptr().value.atr_n(p_message, p_plural_message, p_n, p_context);
 	public function rpc(p_method:std.String):gd.Error return __node_ptr().value.rpc(p_method);
 	public function rpc_id(p_peer_id:Int, p_method:std.String):gd.Error return __node_ptr().value.rpc_id(p_peer_id, p_method);
 	public function update_configuration_warnings():Void __node_ptr().value.update_configuration_warnings();
@@ -164,6 +181,7 @@ class Node extends gd.Object {
 	}
 	var process_thread_group(get, set) : gd.node.ProcessThreadGroup;
 	var process_thread_group_order(get, set) : Int;
+	var process_thread_messages(get, set) : Int;
 	var physics_interpolation_mode(get, set) : gd.node.PhysicsInterpolationMode;
 	var auto_translate_mode(get, set) : gd.node.AutoTranslateMode;
 	var editor_description(get, set) : std.String;

@@ -1,0 +1,2 @@
+package gd.visualshadernodeparticleemit;
+typedef EmitFlags = gdnative.visualshadernodeparticleemit.EmitFlags;

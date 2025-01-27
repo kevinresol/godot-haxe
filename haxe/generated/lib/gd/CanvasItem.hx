@@ -2,6 +2,7 @@ package gd;
 extern class CanvasItem extends gd.Node {
 	function new(?owner:Dynamic);
 	function _draw():Void;
+	function get_canvas_item():gd.RID;
 	function set_visible(p_visible:Bool):Bool;
 	function is_visible():Bool;
 	function is_visible_in_tree():Bool;
@@ -25,16 +26,27 @@ extern class CanvasItem extends gd.Node {
 	function is_y_sort_enabled():Bool;
 	function set_draw_behind_parent(p_enable:Bool):Void;
 	function is_draw_behind_parent_enabled():Bool;
-	function draw_line(p_from:gd.Vector2, p_to:gd.Vector2, p_color:gd.Color, ?p_width:Float, ?p_antialiased:Bool):Void;
-	function draw_dashed_line(p_from:gd.Vector2, p_to:gd.Vector2, p_color:gd.Color, ?p_width:Float, ?p_dash:Float, ?p_aligned:Bool, ?p_antialiased:Bool):Void;
-	function draw_arc(p_center:gd.Vector2, p_radius:Float, p_start_angle:Float, p_end_angle:Float, p_point_count:Int, p_color:gd.Color, ?p_width:Float, ?p_antialiased:Bool):Void;
-	function draw_circle(p_position:gd.Vector2, p_radius:Float, p_color:gd.Color, ?p_filled:Bool, ?p_width:Float, ?p_antialiased:Bool):Void;
-	function draw_texture(p_texture:gd.Texture2D, p_position:gd.Vector2, ?p_modulate:gd.Color):Void;
-	function draw_set_transform(p_position:gd.Vector2, ?p_rotation:Float, ?p_scale:gd.Vector2):Void;
-	function draw_animation_slice(p_animation_length:Float, p_slice_begin:Float, p_slice_end:Float, ?p_offset:Float):Void;
+	function draw_line(p_from:gd.Vector2, p_to:gd.Vector2, p_color:gd.Color, ?p_width:Float = -1., ?p_antialiased:Bool = false):Void;
+	function draw_dashed_line(p_from:gd.Vector2, p_to:gd.Vector2, p_color:gd.Color, ?p_width:Float = -1., ?p_dash:Float = 2., ?p_aligned:Bool = true, ?p_antialiased:Bool = false):Void;
+	function draw_polyline(p_points:gd.PackedVector2Array, p_color:gd.Color, ?p_width:Float = -1., ?p_antialiased:Bool = false):Void;
+	function draw_polyline_colors(p_points:gd.PackedVector2Array, p_colors:gd.PackedColorArray, ?p_width:Float = -1., ?p_antialiased:Bool = false):Void;
+	function draw_arc(p_center:gd.Vector2, p_radius:Float, p_start_angle:Float, p_end_angle:Float, p_point_count:Int, p_color:gd.Color, ?p_width:Float = -1., ?p_antialiased:Bool = false):Void;
+	function draw_multiline(p_points:gd.PackedVector2Array, p_color:gd.Color, ?p_width:Float = -1., ?p_antialiased:Bool = false):Void;
+	function draw_multiline_colors(p_points:gd.PackedVector2Array, p_colors:gd.PackedColorArray, ?p_width:Float = -1., ?p_antialiased:Bool = false):Void;
+	function draw_rect(p_rect:gd.Rect2, p_color:gd.Color, ?p_filled:Bool = true, ?p_width:Float = -1., ?p_antialiased:Bool = false):Void;
+	function draw_circle(p_position:gd.Vector2, p_radius:Float, p_color:gd.Color, ?p_filled:Bool = true, ?p_width:Float = -1., ?p_antialiased:Bool = false):Void;
+	function draw_style_box(p_style_box:gd.StyleBox, p_rect:gd.Rect2):Void;
+	function draw_multimesh(p_multimesh:gd.MultiMesh, p_texture:gd.Texture2D):Void;
+	function draw_animation_slice(p_animation_length:Float, p_slice_begin:Float, p_slice_end:Float, ?p_offset:Float = 0.):Void;
 	function draw_end_animation():Void;
+	function get_viewport_rect():gd.Rect2;
 	function get_local_mouse_position():gd.Vector2;
 	function get_global_mouse_position():gd.Vector2;
+	function get_canvas():gd.RID;
+	function get_canvas_layer_node():gd.CanvasLayer;
+	function get_world_2d():gd.World2D;
+	function set_material(p_material:gd.Material):gd.Material;
+	function get_material():gd.Material;
 	function set_use_parent_material(p_enable:Bool):Bool;
 	function get_use_parent_material():Bool;
 	function set_notify_local_transform(p_enable:Bool):Void;
@@ -43,6 +55,7 @@ extern class CanvasItem extends gd.Node {
 	function is_transform_notification_enabled():Bool;
 	function force_update_transform():Void;
 	function make_canvas_position_local(p_screen_point:gd.Vector2):gd.Vector2;
+	function make_input_local(p_event:gd.InputEvent):gd.InputEvent;
 	function set_visibility_layer(p_layer:Int):Int;
 	function get_visibility_layer():Int;
 	function set_visibility_layer_bit(p_layer:Int, p_enabled:Bool):Void;
@@ -75,5 +88,6 @@ extern class CanvasItem extends gd.Node {
 	function get_y_sort_enabled():Bool;
 	var texture_filter(get, set) : gd.canvasitem.TextureFilter;
 	var texture_repeat(get, set) : gd.canvasitem.TextureRepeat;
+	var material(get, set) : gd.Material;
 	var use_parent_material(get, set) : Bool;
 }

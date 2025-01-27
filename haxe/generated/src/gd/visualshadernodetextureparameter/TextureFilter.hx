@@ -1,0 +1,2 @@
+package gd.visualshadernodetextureparameter;
+typedef TextureFilter = gdnative.visualshadernodetextureparameter.TextureFilter;

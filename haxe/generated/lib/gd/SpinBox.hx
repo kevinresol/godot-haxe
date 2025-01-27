@@ -1,0 +1,31 @@
+package gd;
+extern class SpinBox extends gd.Range {
+	function new(?owner:Dynamic);
+	function set_horizontal_alignment(p_alignment:gd.HorizontalAlignment):Void;
+	function get_horizontal_alignment():gd.HorizontalAlignment;
+	function set_suffix(p_suffix:std.String):std.String;
+	function get_suffix():std.String;
+	function set_prefix(p_prefix:std.String):std.String;
+	function get_prefix():std.String;
+	function set_editable(p_enabled:Bool):Bool;
+	function set_custom_arrow_step(p_arrow_step:Float):Float;
+	function get_custom_arrow_step():Float;
+	function is_editable():Bool;
+	function set_update_on_text_changed(p_enabled:Bool):Bool;
+	function get_update_on_text_changed():Bool;
+	function set_select_all_on_focus(p_enabled:Bool):Bool;
+	function is_select_all_on_focus():Bool;
+	function apply():Void;
+	function get_line_edit():gd.LineEdit;
+	var alignment(get, set) : gd.HorizontalAlignment;
+	function get_alignment():gd.HorizontalAlignment;
+	function set_alignment(v:gd.HorizontalAlignment):gd.HorizontalAlignment;
+	var editable(get, set) : Bool;
+	function get_editable():Bool;
+	var update_on_text_changed(get, set) : Bool;
+	var prefix(get, set) : std.String;
+	var suffix(get, set) : std.String;
+	var custom_arrow_step(get, set) : Float;
+	var select_all_on_focus(get, set) : Bool;
+	function get_select_all_on_focus():Bool;
+}

@@ -23,6 +23,9 @@ class Builder {
 		if (!sys.FileSystem.exists(dir)) {
 			sys.FileSystem.createDirectory(dir);
 		}
-		sys.io.File.saveContent(dest, content);
+
+		if (!sys.FileSystem.exists(dest) || sys.io.File.getContent(dest) != content) {
+			sys.io.File.saveContent(dest, content);
+		}
 	}
 }

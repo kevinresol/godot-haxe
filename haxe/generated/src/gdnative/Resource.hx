@@ -7,6 +7,7 @@ package gdnative;
 	function get_path():gdnative.String;
 	function set_name(p_name:gdnative.String):Void;
 	function get_name():gdnative.String;
+	function get_rid():gdnative.RID;
 	function set_local_to_scene(p_enable:Bool):Void;
 	function is_local_to_scene():Bool;
 	function get_local_scene():gdnative.Node;

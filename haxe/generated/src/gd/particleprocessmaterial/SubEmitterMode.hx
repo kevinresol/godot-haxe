@@ -1,0 +1,2 @@
+package gd.particleprocessmaterial;
+typedef SubEmitterMode = gdnative.particleprocessmaterial.SubEmitterMode;

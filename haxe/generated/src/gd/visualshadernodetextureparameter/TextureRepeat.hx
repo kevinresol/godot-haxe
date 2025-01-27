@@ -1,0 +1,2 @@
+package gd.visualshadernodetextureparameter;
+typedef TextureRepeat = gdnative.visualshadernodetextureparameter.TextureRepeat;

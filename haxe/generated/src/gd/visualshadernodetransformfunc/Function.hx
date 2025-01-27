@@ -1,0 +1,2 @@
+package gd.visualshadernodetransformfunc;
+typedef Function = gdnative.visualshadernodetransformfunc.Function;

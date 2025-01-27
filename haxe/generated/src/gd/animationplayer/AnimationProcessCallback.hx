@@ -1,0 +1,2 @@
+package gd.animationplayer;
+typedef AnimationProcessCallback = gdnative.animationplayer.AnimationProcessCallback;

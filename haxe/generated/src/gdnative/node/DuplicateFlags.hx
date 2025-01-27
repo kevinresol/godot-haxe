@@ -1,5 +1,9 @@
 package gdnative.node;
 @:native("godot::Node::DuplicateFlags") extern enum abstract DuplicateFlags(DuplicateFlags_extern) {
+	@:from
+	extern inline static function fromInt(v:Int):DuplicateFlags return untyped __cpp__("(static_cast<godot::Node::DuplicateFlags>({0}))", v);
+	@:to
+	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
 	@:native("godot::Node::DuplicateFlags::DUPLICATE_SIGNALS")
 	final SIGNALS;
 	@:native("godot::Node::DuplicateFlags::DUPLICATE_GROUPS")

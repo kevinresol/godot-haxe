@@ -1,0 +1,2 @@
+package gd.visualshadernodetextureparameter;
+typedef TextureType = gdnative.visualshadernodetextureparameter.TextureType;

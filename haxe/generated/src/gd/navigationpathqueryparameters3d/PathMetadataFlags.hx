@@ -1,0 +1,2 @@
+package gd.navigationpathqueryparameters3d;
+typedef PathMetadataFlags = gdnative.navigationpathqueryparameters3d.PathMetadataFlags;

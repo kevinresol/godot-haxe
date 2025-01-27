@@ -1,0 +1,2 @@
+package gd.gpuparticlescollisionheightfield3d;
+typedef Resolution = gdnative.gpuparticlescollisionheightfield3d.Resolution;

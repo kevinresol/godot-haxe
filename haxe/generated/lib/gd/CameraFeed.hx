@@ -1,0 +1,13 @@
+package gd;
+extern class CameraFeed extends gd.RefCounted {
+	function new(?owner:Dynamic);
+	function get_id():Int;
+	function is_active():Bool;
+	function set_active(p_active:Bool):Void;
+	function get_name():std.String;
+	function get_position():gd.camerafeed.FeedPosition;
+	function get_datatype():gd.camerafeed.FeedDataType;
+	var feed_is_active(get, set) : Bool;
+	function get_feed_is_active():Bool;
+	function set_feed_is_active(v:Bool):Bool;
+}

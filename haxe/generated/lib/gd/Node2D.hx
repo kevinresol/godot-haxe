@@ -12,8 +12,8 @@ extern class Node2D extends gd.CanvasItem {
 	function get_skew():Float;
 	function get_scale():gd.Vector2;
 	function rotate(p_radians:Float):Void;
-	function move_local_x(p_delta:Float, ?p_scaled:Bool):Void;
-	function move_local_y(p_delta:Float, ?p_scaled:Bool):Void;
+	function move_local_x(p_delta:Float, ?p_scaled:Bool = false):Void;
+	function move_local_y(p_delta:Float, ?p_scaled:Bool = false):Void;
 	function translate(p_offset:gd.Vector2):Void;
 	function global_translate(p_offset:gd.Vector2):Void;
 	function apply_scale(p_ratio:gd.Vector2):Void;

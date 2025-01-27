@@ -4,6 +4,7 @@ package gdnative;
 	@:overload(function(p_object:gdnative.Object, p_method:gdnative.StringName):Void { })
 	function new();
 	function create(p_variant:gdnative.Variant, p_method:gdnative.StringName):gdnative.Callable;
+	function callv(p_arguments:gdnative.Array):gdnative.Variant;
 	function is_null():Bool;
 	function is_custom():Bool;
 	function is_standard():Bool;
@@ -13,7 +14,9 @@ package gdnative;
 	function get_method():gdnative.StringName;
 	function get_argument_count():Int;
 	function get_bound_arguments_count():Int;
+	function get_bound_arguments():gdnative.Array;
 	function hash():Int;
+	function bindv(p_arguments:gdnative.Array):gdnative.Callable;
 	function unbind(p_argcount:Int):gdnative.Callable;
 	function call():gdnative.Variant;
 	function call_deferred():Void;
@@ -26,7 +29,7 @@ package gdnative;
 	@:from
 	static inline function fromWrapper(v:gd.Callable):gdnative.Callable return fromWrapperInternal(v);
 	@:from
-	static inline function fromWrapperInternal(v:gd.Callable.Callable_wrapper):gdnative.Callable return @:privateAccess v.__gd;
+	static inline function fromWrapperInternal(v:gd.Callable.Callable_wrapper):gdnative.Callable return untyped __cpp__('{0}.get()', @:privateAccess v.__gd);
 	@:to
 	inline function toWrapper():gd.Callable return toWrapperInternal();
 	@:to

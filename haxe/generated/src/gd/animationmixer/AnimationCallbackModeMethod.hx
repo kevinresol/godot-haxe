@@ -1,0 +1,2 @@
+package gd.animationmixer;
+typedef AnimationCallbackModeMethod = gdnative.animationmixer.AnimationCallbackModeMethod;

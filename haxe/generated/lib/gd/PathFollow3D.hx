@@ -1,0 +1,36 @@
+package gd;
+extern class PathFollow3D extends gd.Node3D {
+	function new(?owner:Dynamic);
+	function set_progress(p_progress:Float):Float;
+	function get_progress():Float;
+	function set_h_offset(p_h_offset:Float):Float;
+	function get_h_offset():Float;
+	function set_v_offset(p_v_offset:Float):Float;
+	function get_v_offset():Float;
+	function set_progress_ratio(p_ratio:Float):Float;
+	function get_progress_ratio():Float;
+	function set_rotation_mode(p_rotation_mode:gd.pathfollow3d.RotationMode):gd.pathfollow3d.RotationMode;
+	function get_rotation_mode():gd.pathfollow3d.RotationMode;
+	function set_cubic_interpolation(p_enabled:Bool):Void;
+	function get_cubic_interpolation():Bool;
+	function set_use_model_front(p_enabled:Bool):Bool;
+	function is_using_model_front():Bool;
+	function set_loop(p_loop:Bool):Bool;
+	function has_loop():Bool;
+	function set_tilt_enabled(p_enabled:Bool):Bool;
+	function is_tilt_enabled():Bool;
+	var progress(get, set) : Float;
+	var progress_ratio(get, set) : Float;
+	var h_offset(get, set) : Float;
+	var v_offset(get, set) : Float;
+	var rotation_mode(get, set) : gd.pathfollow3d.RotationMode;
+	var use_model_front(get, set) : Bool;
+	function get_use_model_front():Bool;
+	var cubic_interp(get, set) : Bool;
+	function get_cubic_interp():Bool;
+	function set_cubic_interp(v:Bool):Bool;
+	var loop(get, set) : Bool;
+	function get_loop():Bool;
+	var tilt_enabled(get, set) : Bool;
+	function get_tilt_enabled():Bool;
+}

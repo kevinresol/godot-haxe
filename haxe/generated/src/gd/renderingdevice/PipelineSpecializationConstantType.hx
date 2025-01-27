@@ -1,0 +1,2 @@
+package gd.renderingdevice;
+typedef PipelineSpecializationConstantType = gdnative.renderingdevice.PipelineSpecializationConstantType;

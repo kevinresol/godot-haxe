@@ -1,0 +1,2 @@
+package gd.audioeffectspectrumanalyzerinstance;
+typedef MagnitudeMode = gdnative.audioeffectspectrumanalyzerinstance.MagnitudeMode;

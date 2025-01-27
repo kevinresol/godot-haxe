@@ -30,7 +30,7 @@ class Cppia {
 		UtilityFunctions.print(gd.Vector2.ONE);
 		UtilityFunctions.print(new gd.Color());
 		UtilityFunctions.print(gd.Color.WHEAT);
-		UtilityFunctions.print(('Node/Path' : gd.NodePath));
+		// UtilityFunctions.print(('Node/Path' : gd.NodePath));
 
 		trace('UtilityFunctions::typeof checks (host)');
 		UtilityFunctions.print(UtilityFunctions.typeof(42));
@@ -39,11 +39,11 @@ class Cppia {
 		UtilityFunctions.print(UtilityFunctions.typeof('HaxeString'));
 		UtilityFunctions.print(UtilityFunctions.typeof(new gd.Vector2()));
 		UtilityFunctions.print(UtilityFunctions.typeof(new gd.Vector2(42, 44)));
-		UtilityFunctions.print(UtilityFunctions.typeof(('Node/Path' : gd.NodePath)));
+		// UtilityFunctions.print(UtilityFunctions.typeof(('Node/Path' : gd.NodePath)));
 
 		trace('Enum checks (host)');
-		UtilityFunctions.print(gd.VariantType.INT);
-		UtilityFunctions.print(gd.VariantType.FLOAT);
+		UtilityFunctions.print(gd.variant.Type.INT);
+		UtilityFunctions.print(gd.variant.Type.FLOAT);
 
 		final x = new gd.Node2D();
 		UtilityFunctions.print(x);

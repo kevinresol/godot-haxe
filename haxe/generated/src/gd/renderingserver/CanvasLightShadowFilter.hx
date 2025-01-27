@@ -1,0 +1,2 @@
+package gd.renderingserver;
+typedef CanvasLightShadowFilter = gdnative.renderingserver.CanvasLightShadowFilter;

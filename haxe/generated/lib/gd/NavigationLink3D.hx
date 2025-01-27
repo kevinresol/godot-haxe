@@ -1,0 +1,34 @@
+package gd;
+extern class NavigationLink3D extends gd.Node3D {
+	function new(?owner:Dynamic);
+	function get_rid():gd.RID;
+	function set_enabled(p_enabled:Bool):Bool;
+	function is_enabled():Bool;
+	function set_bidirectional(p_bidirectional:Bool):Bool;
+	function is_bidirectional():Bool;
+	function set_navigation_layers(p_navigation_layers:Int):Int;
+	function get_navigation_layers():Int;
+	function set_navigation_layer_value(p_layer_number:Int, p_value:Bool):Void;
+	function get_navigation_layer_value(p_layer_number:Int):Bool;
+	function set_start_position(p_position:gd.Vector3):gd.Vector3;
+	function get_start_position():gd.Vector3;
+	function set_end_position(p_position:gd.Vector3):gd.Vector3;
+	function get_end_position():gd.Vector3;
+	function set_global_start_position(p_position:gd.Vector3):Void;
+	function get_global_start_position():gd.Vector3;
+	function set_global_end_position(p_position:gd.Vector3):Void;
+	function get_global_end_position():gd.Vector3;
+	function set_enter_cost(p_enter_cost:Float):Float;
+	function get_enter_cost():Float;
+	function set_travel_cost(p_travel_cost:Float):Float;
+	function get_travel_cost():Float;
+	var enabled(get, set) : Bool;
+	function get_enabled():Bool;
+	var bidirectional(get, set) : Bool;
+	function get_bidirectional():Bool;
+	var navigation_layers(get, set) : Int;
+	var start_position(get, set) : gd.Vector3;
+	var end_position(get, set) : gd.Vector3;
+	var enter_cost(get, set) : Float;
+	var travel_cost(get, set) : Float;
+}

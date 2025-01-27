@@ -1,0 +1,31 @@
+package gd;
+extern class LabelSettings extends gd.Resource {
+	function new(?owner:Dynamic);
+	function set_line_spacing(p_spacing:Float):Float;
+	function get_line_spacing():Float;
+	function set_font(p_font:gd.Font):gd.Font;
+	function get_font():gd.Font;
+	function set_font_size(p_size:Int):Int;
+	function get_font_size():Int;
+	function set_font_color(p_color:gd.Color):gd.Color;
+	function get_font_color():gd.Color;
+	function set_outline_size(p_size:Int):Int;
+	function get_outline_size():Int;
+	function set_outline_color(p_color:gd.Color):gd.Color;
+	function get_outline_color():gd.Color;
+	function set_shadow_size(p_size:Int):Int;
+	function get_shadow_size():Int;
+	function set_shadow_color(p_color:gd.Color):gd.Color;
+	function get_shadow_color():gd.Color;
+	function set_shadow_offset(p_offset:gd.Vector2):gd.Vector2;
+	function get_shadow_offset():gd.Vector2;
+	var line_spacing(get, set) : Float;
+	var font(get, set) : gd.Font;
+	var font_size(get, set) : Int;
+	var font_color(get, set) : gd.Color;
+	var outline_size(get, set) : Int;
+	var outline_color(get, set) : gd.Color;
+	var shadow_size(get, set) : Int;
+	var shadow_color(get, set) : gd.Color;
+	var shadow_offset(get, set) : gd.Vector2;
+}

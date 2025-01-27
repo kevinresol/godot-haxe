@@ -1,0 +1,37 @@
+package gd;
+extern class PhysicalSkyMaterial extends gd.Material {
+	function new(?owner:Dynamic);
+	function set_rayleigh_coefficient(p_rayleigh:Float):Float;
+	function get_rayleigh_coefficient():Float;
+	function set_rayleigh_color(p_color:gd.Color):gd.Color;
+	function get_rayleigh_color():gd.Color;
+	function set_mie_coefficient(p_mie:Float):Float;
+	function get_mie_coefficient():Float;
+	function set_mie_eccentricity(p_eccentricity:Float):Float;
+	function get_mie_eccentricity():Float;
+	function set_mie_color(p_color:gd.Color):gd.Color;
+	function get_mie_color():gd.Color;
+	function set_turbidity(p_turbidity:Float):Float;
+	function get_turbidity():Float;
+	function set_sun_disk_scale(p_scale:Float):Float;
+	function get_sun_disk_scale():Float;
+	function set_ground_color(p_color:gd.Color):gd.Color;
+	function get_ground_color():gd.Color;
+	function set_energy_multiplier(p_multiplier:Float):Float;
+	function get_energy_multiplier():Float;
+	function set_use_debanding(p_use_debanding:Bool):Bool;
+	function get_use_debanding():Bool;
+	function set_night_sky(p_night_sky:gd.Texture2D):gd.Texture2D;
+	function get_night_sky():gd.Texture2D;
+	var rayleigh_coefficient(get, set) : Float;
+	var rayleigh_color(get, set) : gd.Color;
+	var mie_coefficient(get, set) : Float;
+	var mie_eccentricity(get, set) : Float;
+	var mie_color(get, set) : gd.Color;
+	var turbidity(get, set) : Float;
+	var sun_disk_scale(get, set) : Float;
+	var ground_color(get, set) : gd.Color;
+	var energy_multiplier(get, set) : Float;
+	var use_debanding(get, set) : Bool;
+	var night_sky(get, set) : gd.Texture2D;
+}

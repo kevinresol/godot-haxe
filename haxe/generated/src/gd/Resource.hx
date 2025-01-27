@@ -15,6 +15,7 @@ class Resource extends gd.RefCounted {
 	public function get_path():std.String return __resource_ptr().value.get_path();
 	public function set_name(p_name:std.String):Void __resource_ptr().value.set_name(p_name);
 	public function get_name():std.String return __resource_ptr().value.get_name();
+	public function get_rid():gd.RID return __resource_ptr().value.get_rid();
 	public function set_local_to_scene(p_enable:Bool):Void __resource_ptr().value.set_local_to_scene(p_enable);
 	public function is_local_to_scene():Bool return __resource_ptr().value.is_local_to_scene();
 	public function get_local_scene():gd.Node return __resource_ptr().value.get_local_scene();
@@ -23,7 +24,7 @@ class Resource extends gd.RefCounted {
 	public function set_scene_unique_id(p_id:std.String):Void __resource_ptr().value.set_scene_unique_id(p_id);
 	public function get_scene_unique_id():std.String return __resource_ptr().value.get_scene_unique_id();
 	public function emit_changed():Void __resource_ptr().value.emit_changed();
-	public function duplicate(?p_subresources:Bool):gd.Resource return __resource_ptr().value.duplicate(p_subresources);
+	public function duplicate(?p_subresources:Bool = false):gd.Resource return __resource_ptr().value.duplicate(p_subresources);
 	var resource_local_to_scene(get, set) : Bool;
 	function get_resource_local_to_scene():Bool return is_local_to_scene();
 	function set_resource_local_to_scene(v:Bool):Bool {

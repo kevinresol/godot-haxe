@@ -1,5 +1,7 @@
 package gdnative;
 
+import cpp.abi.ThisCall;
+
 @:unreflective
 abstract Variant(cpp.Struct<Variant_extern>) from cpp.Struct<Variant_extern> to cpp.Struct<Variant_extern> {
 	@:from
@@ -35,13 +37,16 @@ abstract Variant(cpp.Struct<Variant_extern>) from cpp.Struct<Variant_extern> to 
 		return new Variant_extern(v);
 
 	@:from
+	extern static inline function fromNodePathWrapper(v:gd.NodePath):Variant
+		return fromNodePath(v);
+
+	@:from
 	extern static inline function fromVector2(v:gdnative.Vector2):Variant
 		return new Variant_extern(v);
 
 	@:from
 	extern static inline function fromVector2Wrapper(v:gd.Vector2):Variant {
-		// use .get() to unwrap cpp.Struct
-		return fromVector2(untyped __cpp__('{0}.get()', (v : gdnative.Vector2)));
+		return fromVector2(v);
 	}
 
 	@:from
@@ -50,8 +55,7 @@ abstract Variant(cpp.Struct<Variant_extern>) from cpp.Struct<Variant_extern> to 
 
 	@:from
 	extern static inline function fromColorWrapper(v:gd.Color):Variant {
-		// use .get() to unwrap cpp.Struct
-		return fromColor(untyped __cpp__('{0}.get()', (v : gdnative.Color)));
+		return fromColor(v);
 	}
 
 	@:from
@@ -84,20 +88,22 @@ abstract Variant(cpp.Struct<Variant_extern>) from cpp.Struct<Variant_extern> to 
 
 	@:to @:analyzer(no_const_propagation)
 	public function toHaxe():Dynamic {
-		return switch this.get_type() {
-			case BOOL:
-				final v = (cast val() : Bool);
-				v;
-			case INT:
-				final v = (cast val() : Int);
-				v;
-			case FLOAT:
-				final v = (cast val() : Float);
-				v;
-			case STRING:
-				toHaxeString();
-			default:
-				null;
+		// switch-case won't work: https://github.com/HaxeFoundation/hxcpp/issues/1131
+		final type = this.get_type();
+
+		return if (type == BOOL) {
+			final v = (cast val() : Bool);
+			v;
+		} else if (type == INT) {
+			final v = (cast val() : Int);
+			v;
+		} else if (type == FLOAT) {
+			final v = (cast val() : Float);
+			v;
+		} else if (type == STRING) {
+			toHaxeString();
+		} else {
+			null;
 		}
 	}
 
@@ -127,6 +133,6 @@ extern class Variant_extern {
 	@:overload(function(v:Bool):Void {})
 	function new();
 
-	function get_type():VariantType;
+	function get_type():gdnative.variant.Type;
 	static function print(v:Variant_extern):Void;
 }

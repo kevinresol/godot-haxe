@@ -1,5 +1,9 @@
 package gdnative;
-@:include("godot_cpp/classes/global_constants.hpp") @:native("godot::Key") extern enum abstract Key(cpp.UInt32) to cpp.UInt32 {
+@:native("godot::Key") extern enum abstract Key(Key_extern) {
+	@:from
+	extern inline static function fromInt(v:Int):Key return untyped __cpp__("(static_cast<godot::Key>({0}))", v);
+	@:to
+	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
 	@:native("godot::Key::KEY_NONE")
 	final NONE;
 	@:native("godot::Key::KEY_SPECIAL")
@@ -277,25 +281,25 @@ package gdnative;
 	@:native("godot::Key::KEY_SLASH")
 	final SLASH;
 	@:native("godot::Key::KEY_0")
-	final NUM_0;
+	final _0;
 	@:native("godot::Key::KEY_1")
-	final NUM_1;
+	final _1;
 	@:native("godot::Key::KEY_2")
-	final NUM_2;
+	final _2;
 	@:native("godot::Key::KEY_3")
-	final NUM_3;
+	final _3;
 	@:native("godot::Key::KEY_4")
-	final NUM_4;
+	final _4;
 	@:native("godot::Key::KEY_5")
-	final NUM_5;
+	final _5;
 	@:native("godot::Key::KEY_6")
-	final NUM_6;
+	final _6;
 	@:native("godot::Key::KEY_7")
-	final NUM_7;
+	final _7;
 	@:native("godot::Key::KEY_8")
-	final NUM_8;
+	final _8;
 	@:native("godot::Key::KEY_9")
-	final NUM_9;
+	final _9;
 	@:native("godot::Key::KEY_COLON")
 	final COLON;
 	@:native("godot::Key::KEY_SEMICOLON")
@@ -386,4 +390,7 @@ package gdnative;
 	final YEN;
 	@:native("godot::Key::KEY_SECTION")
 	final SECTION;
+}
+@:include("godot_cpp/classes/global_constants.hpp") @:native("cpp::Struct<godot::Key, cpp::EnumHandler>") extern class Key_extern {
+
 }

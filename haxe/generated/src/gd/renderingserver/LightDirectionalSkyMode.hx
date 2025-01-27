@@ -1,0 +1,2 @@
+package gd.renderingserver;
+typedef LightDirectionalSkyMode = gdnative.renderingserver.LightDirectionalSkyMode;

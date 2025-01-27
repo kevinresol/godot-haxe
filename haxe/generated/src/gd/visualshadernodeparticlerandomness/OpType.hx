@@ -1,0 +1,2 @@
+package gd.visualshadernodeparticlerandomness;
+typedef OpType = gdnative.visualshadernodeparticlerandomness.OpType;

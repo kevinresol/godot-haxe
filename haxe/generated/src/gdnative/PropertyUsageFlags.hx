@@ -1,5 +1,9 @@
 package gdnative;
-@:include("godot_cpp/classes/global_constants.hpp") @:native("godot::PropertyUsageFlags") extern enum abstract PropertyUsageFlags(cpp.UInt32) to cpp.UInt32 {
+@:native("godot::PropertyUsageFlags") extern enum abstract PropertyUsageFlags(PropertyUsageFlags_extern) {
+	@:from
+	extern inline static function fromInt(v:Int):PropertyUsageFlags return untyped __cpp__("(static_cast<godot::PropertyUsageFlags>({0}))", v);
+	@:to
+	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
 	@:native("godot::PropertyUsageFlags::PROPERTY_USAGE_NONE")
 	final NONE;
 	@:native("godot::PropertyUsageFlags::PROPERTY_USAGE_STORAGE")
@@ -64,4 +68,7 @@ package gdnative;
 	final DEFAULT;
 	@:native("godot::PropertyUsageFlags::PROPERTY_USAGE_NO_EDITOR")
 	final NO_EDITOR;
+}
+@:include("godot_cpp/classes/global_constants.hpp") @:native("cpp::Struct<godot::PropertyUsageFlags, cpp::EnumHandler>") extern class PropertyUsageFlags_extern {
+
 }

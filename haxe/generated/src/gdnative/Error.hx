@@ -1,5 +1,9 @@
 package gdnative;
-@:include("godot_cpp/classes/global_constants.hpp") @:native("godot::Error") extern enum abstract Error(cpp.UInt32) to cpp.UInt32 {
+@:native("godot::Error") extern enum abstract Error(Error_extern) {
+	@:from
+	extern inline static function fromInt(v:Int):Error return untyped __cpp__("(static_cast<godot::Error>({0}))", v);
+	@:to
+	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
 	final OK;
 	final FAILED;
 	@:native("godot::Error::ERR_UNAVAILABLE")
@@ -96,4 +100,7 @@ package gdnative;
 	final BUG;
 	@:native("godot::Error::ERR_PRINTER_ON_FIRE")
 	final PRINTER_ON_FIRE;
+}
+@:include("godot_cpp/classes/global_constants.hpp") @:native("cpp::Struct<godot::Error, cpp::EnumHandler>") extern class Error_extern {
+
 }

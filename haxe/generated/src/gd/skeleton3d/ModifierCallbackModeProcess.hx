@@ -1,0 +1,2 @@
+package gd.skeleton3d;
+typedef ModifierCallbackModeProcess = gdnative.skeleton3d.ModifierCallbackModeProcess;

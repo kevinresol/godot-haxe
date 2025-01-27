@@ -1,0 +1,36 @@
+package gd;
+extern class ImporterMeshInstance3D extends gd.Node3D {
+	function new(?owner:Dynamic);
+	function set_mesh(p_mesh:gd.ImporterMesh):gd.ImporterMesh;
+	function get_mesh():gd.ImporterMesh;
+	function set_skin(p_skin:gd.Skin):gd.Skin;
+	function get_skin():gd.Skin;
+	function set_skeleton_path(p_skeleton_path:std.String):std.String;
+	function get_skeleton_path():std.String;
+	function set_layer_mask(p_layer_mask:Int):Int;
+	function get_layer_mask():Int;
+	function set_cast_shadows_setting(p_shadow_casting_setting:gd.geometryinstance3d.ShadowCastingSetting):Void;
+	function get_cast_shadows_setting():gd.geometryinstance3d.ShadowCastingSetting;
+	function set_visibility_range_end_margin(p_distance:Float):Float;
+	function get_visibility_range_end_margin():Float;
+	function set_visibility_range_end(p_distance:Float):Float;
+	function get_visibility_range_end():Float;
+	function set_visibility_range_begin_margin(p_distance:Float):Float;
+	function get_visibility_range_begin_margin():Float;
+	function set_visibility_range_begin(p_distance:Float):Float;
+	function get_visibility_range_begin():Float;
+	function set_visibility_range_fade_mode(p_mode:gd.geometryinstance3d.VisibilityRangeFadeMode):gd.geometryinstance3d.VisibilityRangeFadeMode;
+	function get_visibility_range_fade_mode():gd.geometryinstance3d.VisibilityRangeFadeMode;
+	var mesh(get, set) : gd.ImporterMesh;
+	var skin(get, set) : gd.Skin;
+	var skeleton_path(get, set) : std.String;
+	var layer_mask(get, set) : Int;
+	var cast_shadow(get, set) : gd.geometryinstance3d.ShadowCastingSetting;
+	function get_cast_shadow():gd.geometryinstance3d.ShadowCastingSetting;
+	function set_cast_shadow(v:gd.geometryinstance3d.ShadowCastingSetting):gd.geometryinstance3d.ShadowCastingSetting;
+	var visibility_range_begin(get, set) : Float;
+	var visibility_range_begin_margin(get, set) : Float;
+	var visibility_range_end(get, set) : Float;
+	var visibility_range_end_margin(get, set) : Float;
+	var visibility_range_fade_mode(get, set) : gd.geometryinstance3d.VisibilityRangeFadeMode;
+}
