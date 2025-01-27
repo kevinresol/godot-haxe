@@ -11,7 +11,7 @@ using StringTools;
 using haxe.io.Path;
 using gen.StringTools;
 
-class ClassBuilder extends Builder {
+class ClassBuilder extends EnumBuilder {
 	public function generate() {
 		for (clazz in api.classes) {
 			final cname = clazz.name;
@@ -87,42 +87,7 @@ class ClassBuilder extends Builder {
 
 		// enums
 		for (e in (clazz.enums ?? [])) {
-			final ename = e.name.replace('.', '');
-			final ect = TPath({pack: [], name: ename});
-			final ntype = 'godot::$cname::${e.name.replace('.', '::')}';
-			final ecname = '${ename}_extern';
-			final enm = macro class $ename {
-				@:from
-				extern inline static function fromInt(v:Int):$ect
-					return untyped __cpp__($v{'(static_cast<$ntype>({0}))'}, v);
-
-				@:to
-				extern inline function toInt():Int
-					return untyped __cpp__('(static_cast<int>({0}))', this);
-			}
-			enm.isExtern = true;
-			enm.pack = config.pack.concat([cname.toLowerCase()]);
-			enm.kind = TDAbstract(TPath({pack: [], name: ecname}), [AbEnum]);
-			enm.meta = [{pos: null, name: ':native', params: [macro $v{ntype}]}];
-			final ecls = macro class $ecname {}
-			ecls.isExtern = true;
-			ecls.meta = [
-				{pos: null, name: ':include', params: [macro $v{hpp}]},
-				{pos: null, name: ':native', params: [macro $v{'cpp::Struct<godot::$cname::$ename, cpp::EnumHandler>'}]}
-			];
-			for (v in e.values) {
-				final hname = getHaxeEnumEntryName('$cname.${e.name}', v.name, e.values.map(v -> v.name));
-				final nname = getNativeEnumEntryName('$cname.${e.name}', v.name);
-				enm.fields.push({
-					pos: null,
-					access: [AFinal],
-					name: hname,
-					kind: FVar(null),
-					meta: hname == nname ? [] : [{pos: null, name: ':native', params: [macro $v{'$ntype::$nname'}]}]
-				});
-			}
-			final source = printTypeDefinition(enm) + '\n' + printTypeDefinition(ecls);
-			write('${config.folder}/${enm.pack.join('/')}/$ename.hx', source);
+			generateEnumExtern({name: '$cname.${e.name}', values: e.values}, hpp);
 		}
 
 		// methods
@@ -249,25 +214,7 @@ class ClassBuilder extends Builder {
 
 		// enums
 		for (e in (clazz.enums ?? [])) {
-			final ename = e.name;
-			final enm = macro class $ename {}
-			enm.pack = config.pack.concat([cname.toLowerCase()]);
-			if (isScriptExtern) {
-				enm.kind = TDAbstract(macro :Int, [AbEnum, AbTo(macro :Int)]);
-				for (v in e.values) {
-					enm.fields.push({
-						pos: null,
-						access: [AFinal],
-						name: getHaxeEnumEntryName('$cname.${e.name}', v.name, e.values.map(v -> v.name)),
-						kind: FVar(null, macro $v{v.value}),
-					});
-				}
-			} else {
-				final ntype = 'godot::$cname::${ename}';
-				enm.kind = TDAlias(TPath({pack: Config.nativeExtern.pack.concat([cname.toLowerCase()]), name: ename}));
-			}
-			final source = printTypeDefinition(enm);
-			write('${config.folder}/${enm.pack.join('/')}/$ename.hx', source);
+			generateEnumWrapper({name: '$cname.${e.name}', values: e.values}, isScriptExtern);
 		}
 
 		// methods

@@ -46,6 +46,11 @@ class Main extends Base {
 		trace('Enum checks (cppia)');
 		UtilityFunctions.print(gd.variant.Type.INT);
 		UtilityFunctions.print(gd.variant.Type.FLOAT);
+
+		final res = ResourceLoader.singleton.load("res://main.tscn");
+		UtilityFunctions.print(res);
+		final scn = res.cast_to(PackedScene);
+		UtilityFunctions.print(scn.can_instantiate());
 	}
 
 	override function _enter_tree() {
