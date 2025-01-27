@@ -48,6 +48,9 @@ class Cppia {
 		final x = new gd.Node2D();
 		UtilityFunctions.print(x);
 		x.free();
+
+		trace(gdnative.Error.OK);
+		trace(gdnative.sky.ProcessMode.PROCESS_MODE_QUALITY);
 	}
 
 	static var module:Module;

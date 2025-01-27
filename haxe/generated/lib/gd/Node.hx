@@ -60,7 +60,11 @@ extern class Node extends gd.Object {
 	function is_processing_unhandled_input():Bool;
 	function set_process_unhandled_key_input(p_enable:Bool):Void;
 	function is_processing_unhandled_key_input():Bool;
+	function set_process_mode(p_mode:gd.node.ProcessMode):Void;
+	function get_process_mode():gd.node.ProcessMode;
 	function can_process():Bool;
+	function set_process_thread_group(p_mode:gd.node.ProcessThreadGroup):Void;
+	function get_process_thread_group():gd.node.ProcessThreadGroup;
 	function set_process_thread_group_order(p_order:Int):Void;
 	function get_process_thread_group_order():Int;
 	function set_display_folded(p_fold:Bool):Void;
@@ -69,9 +73,13 @@ extern class Node extends gd.Object {
 	function is_processing_internal():Bool;
 	function set_physics_process_internal(p_enable:Bool):Void;
 	function is_physics_processing_internal():Bool;
+	function set_physics_interpolation_mode(p_mode:gd.node.PhysicsInterpolationMode):Void;
+	function get_physics_interpolation_mode():gd.node.PhysicsInterpolationMode;
 	function is_physics_interpolated():Bool;
 	function is_physics_interpolated_and_enabled():Bool;
 	function reset_physics_interpolation():Void;
+	function set_auto_translate_mode(p_mode:gd.node.AutoTranslateMode):Void;
+	function get_auto_translate_mode():gd.node.AutoTranslateMode;
 	function duplicate(?p_flags:Int):gd.Node;
 	function replace_by(p_node:gd.Node, ?p_keep_groups:Bool):Void;
 	function set_scene_instance_load_placeholder(p_load_placeholder:Bool):Void;

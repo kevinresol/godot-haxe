@@ -25,6 +25,7 @@ class ClassBuilder extends Builder {
 			if (hppExists) {
 				if (getClassInheritance('Sprite2D').contains(cname)
 					|| getClassInheritance('Texture2D').contains(cname)
+					|| getClassInheritance('Sky').contains(cname)
 					|| getClassInheritance('ResourceLoader').contains(cname)
 					|| getClassInheritance('ClassDB').contains(cname)
 					|| getClassInheritance('Timer').contains(cname)) {
@@ -79,6 +80,36 @@ class ClassBuilder extends Builder {
 					ret: macro :cpp.Pointer<$local>,
 				})
 			});
+		}
+
+		// enums
+		for (e in (clazz.enums ?? [])) {
+			final ename = e.name.replace('.', '');
+			final ntype = 'godot::$cname::${e.name.replace('.', '::')}';
+			final ecname = '${ename}_extern';
+			final enm = macro class $ename {}
+			enm.isExtern = true;
+			enm.pack = config.pack.concat([cname.toLowerCase()]);
+			enm.kind = TDAbstract(TPath({pack: [], name: ecname}), [AbEnum]);
+			enm.meta = [{pos: null, name: ':native', params: [macro $v{ntype}]}];
+			final ecls = macro class $ecname {}
+			ecls.isExtern = true;
+			ecls.meta = [
+				{pos: null, name: ':include', params: [macro $v{hpp}]},
+				{pos: null, name: ':native', params: [macro $v{'cpp::Struct<godot::$cname::$ename, cpp::EnumHandler>'}]}
+			];
+			for (v in e.values) {
+				// final hname = getHaxeEntryName(e.name, v.name);
+				// final nname = getNativeEntryName(e.name, v.name);
+				enm.fields.push({
+					pos: null,
+					access: [AFinal],
+					name: v.name,
+					kind: FVar(null),
+				});
+			}
+			final source = printTypeDefinition(enm) + '\n' + printTypeDefinition(ecls);
+			write('${config.folder}/${enm.pack.join('/')}/$ename.hx', source);
 		}
 
 		// methods
@@ -201,6 +232,29 @@ class ClassBuilder extends Builder {
 				// so we cast it into the correct pointer type before dereferencing
 				extern inline function $fname():cpp.Pointer<$native> return cast __gd.ptr;
 			}).fields);
+		}
+
+		// enums
+		for (e in (clazz.enums ?? [])) {
+			final ename = e.name;
+			final enm = macro class $ename {}
+			enm.pack = config.pack.concat([cname.toLowerCase()]);
+			if (isScriptExtern) {
+				enm.kind = TDAbstract(macro :Int, [AbEnum, AbTo(macro :Int)]);
+				for (v in e.values) {
+					enm.fields.push({
+						pos: null,
+						access: [AFinal],
+						name: v.name,
+						kind: FVar(null, macro $v{v.value}),
+					});
+				}
+			} else {
+				final ntype = 'godot::$cname::${ename}';
+				enm.kind = TDAlias(TPath({pack: Config.nativeExtern.pack.concat([cname.toLowerCase()]), name: ename}));
+			}
+			final source = printTypeDefinition(enm);
+			write('${config.folder}/${enm.pack.join('/')}/$ename.hx', source);
 		}
 
 		// methods

@@ -13,4 +13,6 @@ extern class Timer extends gd.Node {
 	function is_paused():Bool;
 	function is_stopped():Bool;
 	function get_time_left():Float;
+	function set_timer_process_callback(p_callback:gd.timer.TimerProcessCallback):Void;
+	function get_timer_process_callback():gd.timer.TimerProcessCallback;
 }

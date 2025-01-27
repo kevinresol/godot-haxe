@@ -47,4 +47,10 @@ extern class CanvasItem extends gd.Node {
 	function get_visibility_layer():Int;
 	function set_visibility_layer_bit(p_layer:Int, p_enabled:Bool):Void;
 	function get_visibility_layer_bit(p_layer:Int):Bool;
+	function set_texture_filter(p_mode:gd.canvasitem.TextureFilter):Void;
+	function get_texture_filter():gd.canvasitem.TextureFilter;
+	function set_texture_repeat(p_mode:gd.canvasitem.TextureRepeat):Void;
+	function get_texture_repeat():gd.canvasitem.TextureRepeat;
+	function set_clip_children_mode(p_mode:gd.canvasitem.ClipChildrenMode):Void;
+	function get_clip_children_mode():gd.canvasitem.ClipChildrenMode;
 }

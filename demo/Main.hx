@@ -54,18 +54,21 @@ class Main extends Base {
 
 	final target = new Vector2(100, 100);
 
-	// override function _process(delta:Float) {
-	// 	if (!processed) {
-	// 		trace('_process($delta) $processed');
-	// 		processed = true;
-	// 	}
-	// 	final pos = get_position();
-	// 	if (pos.x == 100 && pos.y == 100) {
-	// 		set_position(new Vector2());
-	// 	} else {
-	// 		set_position(pos.move_toward(target, delta * speed));
-	// 	}
-	// }
+	override function _process(delta:Float) {
+		if (!processed) {
+			trace('_process($delta) $processed');
+			trace(gd.sky.ProcessMode.PROCESS_MODE_QUALITY);
+			processed = true;
+			set_process_mode(PROCESS_MODE_DISABLED);
+		}
+		final pos = get_position();
+		if (pos.x == 100 && pos.y == 100) {
+			set_position(new Vector2());
+		} else {
+			set_position(pos.move_toward(target, delta * speed));
+		}
+	}
+
 	var processed = false;
 	var physicsProcessed = false;
 

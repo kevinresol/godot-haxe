@@ -2,6 +2,8 @@ package gen;
 
 import haxe.macro.Expr;
 
+using StringTools;
+
 class Type {
 	public static function makeGodotType(gdType:String):ComplexType {
 		return switch gdType {
@@ -13,11 +15,15 @@ class Type {
 
 			// builitin
 			case 'Color' | 'NodePath' | 'String' | 'StringName' | 'Vector2' | 'Callable': TPath({pack: ['gdnative'], name: gdType});
-			// enums
-			case 'enum::Error': TPath({pack: ['gdnative'], name: gdType.substr('enum::'.length)});
-			case 'enum::Node.InternalMode' | 'enum::ResourceLoader.CacheMode': macro :Int;
 			// objects
 			case 'CanvasItem' | 'Node' | 'Node2D' | 'Object' | 'Sprite2D' | 'Texture' | 'Texture2D' | 'Resource': TPath({pack: ['gdnative'], name: gdType});
+			// enums
+			case t if (t.startsWith('enum::')):
+				switch t.substr('enum::'.length).split('.') {
+					case [name]: TPath({pack: ['gdnative'], name: name});
+					case [parent, name]: TPath({pack: ['gdnative', parent.toLowerCase()], name: name});
+					case _: throw 'Unhandled enum path: $t';
+				}
 			case v:
 				// trace('Unhandled type $gdType');
 				// macro :Dynamic;
@@ -36,11 +42,15 @@ class Type {
 			// builitin
 			case 'NodePath' | 'String' | 'StringName': macro :std.String;
 			case 'Color' | 'Vector2' | 'Callable': TPath({pack: ['gd'], name: gdType});
-			// enums
-			case 'enum::Error': TPath({pack: ['gd'], name: gdType.substr('enum::'.length)});
-			case 'enum::Node.InternalMode' | 'enum::ResourceLoader.CacheMode': macro :Int;
 			// objects
 			case 'CanvasItem' | 'Node' | 'Node2D' | 'Object' | 'Sprite2D' | 'Texture' | 'Texture2D' | 'Resource': TPath({pack: ['gd'], name: gdType});
+			// enums
+			case t if (t.startsWith('enum::')):
+				switch t.substr('enum::'.length).split('.') {
+					case [name]: TPath({pack: ['gd'], name: name});
+					case [parent, name]: TPath({pack: ['gd', parent.toLowerCase()], name: name});
+					case _: throw 'Unhandled enum path: $t';
+				}
 			case v:
 				// trace('Unhandled type $gdType');
 				// macro :Dynamic;

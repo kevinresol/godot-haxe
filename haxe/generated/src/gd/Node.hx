@@ -68,7 +68,11 @@ class Node extends gd.Object {
 	public function is_processing_unhandled_input():Bool return __node_ptr().value.is_processing_unhandled_input();
 	public function set_process_unhandled_key_input(p_enable:Bool):Void __node_ptr().value.set_process_unhandled_key_input(p_enable);
 	public function is_processing_unhandled_key_input():Bool return __node_ptr().value.is_processing_unhandled_key_input();
+	public function set_process_mode(p_mode:gd.node.ProcessMode):Void __node_ptr().value.set_process_mode(p_mode);
+	public function get_process_mode():gd.node.ProcessMode return __node_ptr().value.get_process_mode();
 	public function can_process():Bool return __node_ptr().value.can_process();
+	public function set_process_thread_group(p_mode:gd.node.ProcessThreadGroup):Void __node_ptr().value.set_process_thread_group(p_mode);
+	public function get_process_thread_group():gd.node.ProcessThreadGroup return __node_ptr().value.get_process_thread_group();
 	public function set_process_thread_group_order(p_order:Int):Void __node_ptr().value.set_process_thread_group_order(p_order);
 	public function get_process_thread_group_order():Int return __node_ptr().value.get_process_thread_group_order();
 	public function set_display_folded(p_fold:Bool):Void __node_ptr().value.set_display_folded(p_fold);
@@ -77,9 +81,13 @@ class Node extends gd.Object {
 	public function is_processing_internal():Bool return __node_ptr().value.is_processing_internal();
 	public function set_physics_process_internal(p_enable:Bool):Void __node_ptr().value.set_physics_process_internal(p_enable);
 	public function is_physics_processing_internal():Bool return __node_ptr().value.is_physics_processing_internal();
+	public function set_physics_interpolation_mode(p_mode:gd.node.PhysicsInterpolationMode):Void __node_ptr().value.set_physics_interpolation_mode(p_mode);
+	public function get_physics_interpolation_mode():gd.node.PhysicsInterpolationMode return __node_ptr().value.get_physics_interpolation_mode();
 	public function is_physics_interpolated():Bool return __node_ptr().value.is_physics_interpolated();
 	public function is_physics_interpolated_and_enabled():Bool return __node_ptr().value.is_physics_interpolated_and_enabled();
 	public function reset_physics_interpolation():Void __node_ptr().value.reset_physics_interpolation();
+	public function set_auto_translate_mode(p_mode:gd.node.AutoTranslateMode):Void __node_ptr().value.set_auto_translate_mode(p_mode);
+	public function get_auto_translate_mode():gd.node.AutoTranslateMode return __node_ptr().value.get_auto_translate_mode();
 	public function duplicate(?p_flags:Int):gd.Node return __node_ptr().value.duplicate(p_flags);
 	public function replace_by(p_node:gd.Node, ?p_keep_groups:Bool):Void __node_ptr().value.replace_by(p_node, p_keep_groups);
 	public function set_scene_instance_load_placeholder(p_load_placeholder:Bool):Void __node_ptr().value.set_scene_instance_load_placeholder(p_load_placeholder);

@@ -47,6 +47,12 @@ package gdnative;
 	function get_visibility_layer():Int;
 	function set_visibility_layer_bit(p_layer:Int, p_enabled:Bool):Void;
 	function get_visibility_layer_bit(p_layer:Int):Bool;
+	function set_texture_filter(p_mode:gdnative.canvasitem.TextureFilter):Void;
+	function get_texture_filter():gdnative.canvasitem.TextureFilter;
+	function set_texture_repeat(p_mode:gdnative.canvasitem.TextureRepeat):Void;
+	function get_texture_repeat():gdnative.canvasitem.TextureRepeat;
+	function set_clip_children_mode(p_mode:gdnative.canvasitem.ClipChildrenMode):Void;
+	function get_clip_children_mode():gdnative.canvasitem.ClipChildrenMode;
 }
 @:forward abstract CanvasItem(cpp.Pointer<CanvasItem_extern>) from cpp.Pointer<CanvasItem_extern> to cpp.Pointer<CanvasItem_extern> {
 	@:from

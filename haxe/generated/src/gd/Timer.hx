@@ -21,4 +21,6 @@ class Timer extends gd.Node {
 	public function is_paused():Bool return __timer_ptr().value.is_paused();
 	public function is_stopped():Bool return __timer_ptr().value.is_stopped();
 	public function get_time_left():Float return __timer_ptr().value.get_time_left();
+	public function set_timer_process_callback(p_callback:gd.timer.TimerProcessCallback):Void __timer_ptr().value.set_timer_process_callback(p_callback);
+	public function get_timer_process_callback():gd.timer.TimerProcessCallback return __timer_ptr().value.get_timer_process_callback();
 }

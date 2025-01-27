@@ -13,6 +13,8 @@ package gdnative;
 	function is_paused():Bool;
 	function is_stopped():Bool;
 	function get_time_left():Float;
+	function set_timer_process_callback(p_callback:gdnative.timer.TimerProcessCallback):Void;
+	function get_timer_process_callback():gdnative.timer.TimerProcessCallback;
 }
 @:forward abstract Timer(cpp.Pointer<Timer_extern>) from cpp.Pointer<Timer_extern> to cpp.Pointer<Timer_extern> {
 	@:from

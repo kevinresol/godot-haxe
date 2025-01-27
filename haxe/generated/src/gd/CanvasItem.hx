@@ -55,4 +55,10 @@ class CanvasItem extends gd.Node {
 	public function get_visibility_layer():Int return __canvasitem_ptr().value.get_visibility_layer();
 	public function set_visibility_layer_bit(p_layer:Int, p_enabled:Bool):Void __canvasitem_ptr().value.set_visibility_layer_bit(p_layer, p_enabled);
 	public function get_visibility_layer_bit(p_layer:Int):Bool return __canvasitem_ptr().value.get_visibility_layer_bit(p_layer);
+	public function set_texture_filter(p_mode:gd.canvasitem.TextureFilter):Void __canvasitem_ptr().value.set_texture_filter(p_mode);
+	public function get_texture_filter():gd.canvasitem.TextureFilter return __canvasitem_ptr().value.get_texture_filter();
+	public function set_texture_repeat(p_mode:gd.canvasitem.TextureRepeat):Void __canvasitem_ptr().value.set_texture_repeat(p_mode);
+	public function get_texture_repeat():gd.canvasitem.TextureRepeat return __canvasitem_ptr().value.get_texture_repeat();
+	public function set_clip_children_mode(p_mode:gd.canvasitem.ClipChildrenMode):Void __canvasitem_ptr().value.set_clip_children_mode(p_mode);
+	public function get_clip_children_mode():gd.canvasitem.ClipChildrenMode return __canvasitem_ptr().value.get_clip_children_mode();
 }

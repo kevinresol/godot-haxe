@@ -15,13 +15,13 @@ class Gen {
 		final api:Api = haxe.Json.parse(json);
 
 		final gen = new Gen(api);
-		gen.findType('ClassDB');
+		// gen.findType('ClassDB');
 		gen.generate();
 
-		final e = [for (c in api.classes) for (e in (c.enums ?? [])) '${e.name}:${c.name}'];
-		e.sort(Reflect.compare);
-		for (v in e)
-			trace(v);
+		// final e = [for (c in api.classes) for (e in (c.enums ?? [])) '${e.name}:${c.name}'];
+		// e.sort(Reflect.compare);
+		// for (v in e)
+		// 	trace(v);
 
 		// for (cls in api.builtin_classes)
 		// 	for (const in (cls.constants ?? []))
