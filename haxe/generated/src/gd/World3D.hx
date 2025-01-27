@@ -13,17 +13,17 @@ class World3D extends gd.Resource {
 	public function get_navigation_map():gd.RID return __world3d_ptr().value.get_navigation_map();
 	public function get_scenario():gd.RID return __world3d_ptr().value.get_scenario();
 	public function set_environment(p_env:gd.Environment):gd.Environment {
-		__world3d_ptr().value.set_environment(p_env);
+		__world3d_ptr().value.set_environment(((p_env : gd.Environment)));
 		return p_env;
 	}
 	public function get_environment():gd.Environment return __world3d_ptr().value.get_environment();
 	public function set_fallback_environment(p_env:gd.Environment):gd.Environment {
-		__world3d_ptr().value.set_fallback_environment(p_env);
+		__world3d_ptr().value.set_fallback_environment(((p_env : gd.Environment)));
 		return p_env;
 	}
 	public function get_fallback_environment():gd.Environment return __world3d_ptr().value.get_fallback_environment();
 	public function set_camera_attributes(p_attributes:gd.CameraAttributes):gd.CameraAttributes {
-		__world3d_ptr().value.set_camera_attributes(p_attributes);
+		__world3d_ptr().value.set_camera_attributes(((p_attributes : gd.CameraAttributes)));
 		return p_attributes;
 	}
 	public function get_camera_attributes():gd.CameraAttributes return __world3d_ptr().value.get_camera_attributes();

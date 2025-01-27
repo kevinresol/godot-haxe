@@ -10,25 +10,25 @@ class AudioStreamPlaylist extends gd.AudioStream {
 	}
 	extern inline function __audiostreamplaylist_ptr():cpp.Pointer<gdnative.AudioStreamPlaylist.AudioStreamPlaylist_extern> return cast __gd.ptr;
 	public function set_stream_count(p_stream_count:Int):Int {
-		__audiostreamplaylist_ptr().value.set_stream_count(p_stream_count);
+		__audiostreamplaylist_ptr().value.set_stream_count(((p_stream_count : Int)));
 		return p_stream_count;
 	}
 	public function get_stream_count():Int return __audiostreamplaylist_ptr().value.get_stream_count();
 	public function get_bpm():Float return __audiostreamplaylist_ptr().value.get_bpm();
-	public function set_list_stream(p_stream_index:Int, p_audio_stream:gd.AudioStream):Void __audiostreamplaylist_ptr().value.set_list_stream(p_stream_index, p_audio_stream);
-	public function get_list_stream(p_stream_index:Int):gd.AudioStream return __audiostreamplaylist_ptr().value.get_list_stream(p_stream_index);
+	public function set_list_stream(p_stream_index:Int, p_audio_stream:gd.AudioStream):Void __audiostreamplaylist_ptr().value.set_list_stream(((p_stream_index : Int)), ((p_audio_stream : gd.AudioStream)));
+	public function get_list_stream(p_stream_index:Int):gd.AudioStream return __audiostreamplaylist_ptr().value.get_list_stream(((p_stream_index : Int)));
 	public function set_shuffle(p_shuffle:Bool):Bool {
-		__audiostreamplaylist_ptr().value.set_shuffle(p_shuffle);
+		__audiostreamplaylist_ptr().value.set_shuffle(((p_shuffle : Bool)));
 		return p_shuffle;
 	}
 	public function get_shuffle():Bool return __audiostreamplaylist_ptr().value.get_shuffle();
 	public function set_fade_time(p_dec:Float):Float {
-		__audiostreamplaylist_ptr().value.set_fade_time(p_dec);
+		__audiostreamplaylist_ptr().value.set_fade_time(((p_dec : Float)));
 		return p_dec;
 	}
 	public function get_fade_time():Float return __audiostreamplaylist_ptr().value.get_fade_time();
 	public function set_loop(p_loop:Bool):Bool {
-		__audiostreamplaylist_ptr().value.set_loop(p_loop);
+		__audiostreamplaylist_ptr().value.set_loop(((p_loop : Bool)));
 		return p_loop;
 	}
 	public function has_loop():Bool return __audiostreamplaylist_ptr().value.has_loop();

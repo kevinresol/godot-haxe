@@ -6,7 +6,7 @@ extern class Line2D extends gd.Node2D {
 	function set_point_position(p_index:Int, p_position:gd.Vector2):Void;
 	function get_point_position(p_index:Int):gd.Vector2;
 	function get_point_count():Int;
-	function add_point(p_position:gd.Vector2, ?p_index:Int = -1):Void;
+	function add_point(p_position:gd.Vector2, ?p_index:Int):Void;
 	function remove_point(p_index:Int):Void;
 	function clear_points():Void;
 	function set_closed(p_closed:Bool):Bool;

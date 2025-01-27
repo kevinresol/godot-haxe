@@ -8,10 +8,10 @@ extern class UPNP extends gd.RefCounted {
 	function remove_device(p_index:Int):Void;
 	function clear_devices():Void;
 	function get_gateway():gd.UPNPDevice;
-	function discover(?p_timeout:Int = 2000, ?p_ttl:Int = 2, ?p_device_filter:std.String = "\"InternetGatewayDevice\""):Int;
+	function discover(?p_timeout:Int, ?p_ttl:Int, ?p_device_filter:std.String):Int;
 	function query_external_address():std.String;
-	function add_port_mapping(p_port:Int, ?p_port_internal:Int = 0, ?p_desc:std.String = "\"\"", ?p_proto:std.String = "\"UDP\"", ?p_duration:Int = 0):Int;
-	function delete_port_mapping(p_port:Int, ?p_proto:std.String = "\"UDP\""):Int;
+	function add_port_mapping(p_port:Int, ?p_port_internal:Int, ?p_desc:std.String, ?p_proto:std.String, ?p_duration:Int):Int;
+	function delete_port_mapping(p_port:Int, ?p_proto:std.String):Int;
 	function set_discover_multicast_if(p_m_if:std.String):std.String;
 	function get_discover_multicast_if():std.String;
 	function set_discover_local_port(p_port:Int):Int;

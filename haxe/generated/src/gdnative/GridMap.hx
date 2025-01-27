@@ -25,8 +25,8 @@ package gdnative;
 	function get_cell_scale():Float;
 	function set_octant_size(p_size:Int):Void;
 	function get_octant_size():Int;
-	overload function set_cell_item(p_position:gdnative.Vector3i, p_item:Int, p_orientation:Int):Void;
 	overload function set_cell_item(p_position:gdnative.Vector3i, p_item:Int):Void;
+	overload function set_cell_item(p_position:gdnative.Vector3i, p_item:Int, p_orientation:Int):Void;
 	function get_cell_item(p_position:gdnative.Vector3i):Int;
 	function get_cell_item_orientation(p_position:gdnative.Vector3i):Int;
 	function local_to_map(p_local_position:gdnative.Vector3):gdnative.Vector3i;
@@ -43,9 +43,9 @@ package gdnative;
 	function get_bake_meshes():gdnative.Array;
 	function get_bake_mesh_instance(p_idx:Int):gdnative.RID;
 	function clear_baked_meshes():Void;
-	overload function make_baked_meshes(p_gen_lightmap_uv:Bool, p_lightmap_uv_texel_size:Float):Void;
-	overload function make_baked_meshes(p_gen_lightmap_uv:Bool):Void;
 	overload function make_baked_meshes():Void;
+	overload function make_baked_meshes(p_gen_lightmap_uv:Bool):Void;
+	overload function make_baked_meshes(p_gen_lightmap_uv:Bool, p_lightmap_uv_texel_size:Float):Void;
 }
 @:forward abstract GridMap(cpp.Pointer<GridMap_extern>) from cpp.Pointer<GridMap_extern> to cpp.Pointer<GridMap_extern> {
 	@:from

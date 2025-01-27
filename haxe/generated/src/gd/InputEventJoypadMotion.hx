@@ -10,12 +10,12 @@ class InputEventJoypadMotion extends gd.InputEvent {
 	}
 	extern inline function __inputeventjoypadmotion_ptr():cpp.Pointer<gdnative.InputEventJoypadMotion.InputEventJoypadMotion_extern> return cast __gd.ptr;
 	public function set_axis(p_axis:gd.JoyAxis):gd.JoyAxis {
-		__inputeventjoypadmotion_ptr().value.set_axis(p_axis);
+		__inputeventjoypadmotion_ptr().value.set_axis(((p_axis : gd.JoyAxis)));
 		return p_axis;
 	}
 	public function get_axis():gd.JoyAxis return __inputeventjoypadmotion_ptr().value.get_axis();
 	public function set_axis_value(p_axis_value:Float):Float {
-		__inputeventjoypadmotion_ptr().value.set_axis_value(p_axis_value);
+		__inputeventjoypadmotion_ptr().value.set_axis_value(((p_axis_value : Float)));
 		return p_axis_value;
 	}
 	public function get_axis_value():Float return __inputeventjoypadmotion_ptr().value.get_axis_value();

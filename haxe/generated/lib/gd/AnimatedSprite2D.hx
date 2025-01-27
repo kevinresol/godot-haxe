@@ -8,8 +8,8 @@ extern class AnimatedSprite2D extends gd.Node2D {
 	function set_autoplay(p_name:std.String):std.String;
 	function get_autoplay():std.String;
 	function is_playing():Bool;
-	function play(?p_name:std.String = "&\"\"", ?p_custom_speed:Float = 1., ?p_from_end:Bool = false):Void;
-	function play_backwards(?p_name:std.String = "&\"\""):Void;
+	function play(?p_name:std.String, ?p_custom_speed:Float, ?p_from_end:Bool):Void;
+	function play_backwards(?p_name:std.String):Void;
 	function pause():Void;
 	function stop():Void;
 	function set_centered(p_centered:Bool):Bool;

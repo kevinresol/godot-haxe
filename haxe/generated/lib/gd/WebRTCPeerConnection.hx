@@ -2,6 +2,8 @@ package gd;
 extern class WebRTCPeerConnection extends gd.RefCounted {
 	function new(?owner:Dynamic);
 	static function set_default_extension(p_extension_class:std.String):Void;
+	function initialize(?p_configuration:gd.Dictionary):gd.Error;
+	function create_data_channel(p_label:std.String, ?p_options:gd.Dictionary):gd.WebRTCDataChannel;
 	function create_offer():gd.Error;
 	function set_local_description(p_type:std.String, p_sdp:std.String):gd.Error;
 	function set_remote_description(p_type:std.String, p_sdp:std.String):gd.Error;

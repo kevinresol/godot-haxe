@@ -10,37 +10,37 @@ class CanvasTexture extends gd.Texture2D {
 	}
 	extern inline function __canvastexture_ptr():cpp.Pointer<gdnative.CanvasTexture.CanvasTexture_extern> return cast __gd.ptr;
 	public function set_diffuse_texture(p_texture:gd.Texture2D):gd.Texture2D {
-		__canvastexture_ptr().value.set_diffuse_texture(p_texture);
+		__canvastexture_ptr().value.set_diffuse_texture(((p_texture : gd.Texture2D)));
 		return p_texture;
 	}
 	public function get_diffuse_texture():gd.Texture2D return __canvastexture_ptr().value.get_diffuse_texture();
 	public function set_normal_texture(p_texture:gd.Texture2D):gd.Texture2D {
-		__canvastexture_ptr().value.set_normal_texture(p_texture);
+		__canvastexture_ptr().value.set_normal_texture(((p_texture : gd.Texture2D)));
 		return p_texture;
 	}
 	public function get_normal_texture():gd.Texture2D return __canvastexture_ptr().value.get_normal_texture();
 	public function set_specular_texture(p_texture:gd.Texture2D):gd.Texture2D {
-		__canvastexture_ptr().value.set_specular_texture(p_texture);
+		__canvastexture_ptr().value.set_specular_texture(((p_texture : gd.Texture2D)));
 		return p_texture;
 	}
 	public function get_specular_texture():gd.Texture2D return __canvastexture_ptr().value.get_specular_texture();
 	public function set_specular_color(p_color:gd.Color):gd.Color {
-		__canvastexture_ptr().value.set_specular_color(p_color);
+		__canvastexture_ptr().value.set_specular_color(((p_color : gd.Color)));
 		return p_color;
 	}
 	public function get_specular_color():gd.Color return __canvastexture_ptr().value.get_specular_color();
 	public function set_specular_shininess(p_shininess:Float):Float {
-		__canvastexture_ptr().value.set_specular_shininess(p_shininess);
+		__canvastexture_ptr().value.set_specular_shininess(((p_shininess : Float)));
 		return p_shininess;
 	}
 	public function get_specular_shininess():Float return __canvastexture_ptr().value.get_specular_shininess();
 	public function set_texture_filter(p_filter:gd.canvasitem.TextureFilter):gd.canvasitem.TextureFilter {
-		__canvastexture_ptr().value.set_texture_filter(p_filter);
+		__canvastexture_ptr().value.set_texture_filter(((p_filter : gd.canvasitem.TextureFilter)));
 		return p_filter;
 	}
 	public function get_texture_filter():gd.canvasitem.TextureFilter return __canvastexture_ptr().value.get_texture_filter();
 	public function set_texture_repeat(p_repeat:gd.canvasitem.TextureRepeat):gd.canvasitem.TextureRepeat {
-		__canvastexture_ptr().value.set_texture_repeat(p_repeat);
+		__canvastexture_ptr().value.set_texture_repeat(((p_repeat : gd.canvasitem.TextureRepeat)));
 		return p_repeat;
 	}
 	public function get_texture_repeat():gd.canvasitem.TextureRepeat return __canvastexture_ptr().value.get_texture_repeat();

@@ -10,14 +10,14 @@ class PanoramaSkyMaterial extends gd.Material {
 	}
 	extern inline function __panoramaskymaterial_ptr():cpp.Pointer<gdnative.PanoramaSkyMaterial.PanoramaSkyMaterial_extern> return cast __gd.ptr;
 	public function set_panorama(p_texture:gd.Texture2D):gd.Texture2D {
-		__panoramaskymaterial_ptr().value.set_panorama(p_texture);
+		__panoramaskymaterial_ptr().value.set_panorama(((p_texture : gd.Texture2D)));
 		return p_texture;
 	}
 	public function get_panorama():gd.Texture2D return __panoramaskymaterial_ptr().value.get_panorama();
-	public function set_filtering_enabled(p_enabled:Bool):Void __panoramaskymaterial_ptr().value.set_filtering_enabled(p_enabled);
+	public function set_filtering_enabled(p_enabled:Bool):Void __panoramaskymaterial_ptr().value.set_filtering_enabled(((p_enabled : Bool)));
 	public function is_filtering_enabled():Bool return __panoramaskymaterial_ptr().value.is_filtering_enabled();
 	public function set_energy_multiplier(p_multiplier:Float):Float {
-		__panoramaskymaterial_ptr().value.set_energy_multiplier(p_multiplier);
+		__panoramaskymaterial_ptr().value.set_energy_multiplier(((p_multiplier : Float)));
 		return p_multiplier;
 	}
 	public function get_energy_multiplier():Float return __panoramaskymaterial_ptr().value.get_energy_multiplier();

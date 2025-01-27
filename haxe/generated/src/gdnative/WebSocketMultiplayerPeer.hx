@@ -1,11 +1,11 @@
 package gdnative;
 @:include("godot_cpp/classes/web_socket_multiplayer_peer.hpp") @:native("godot::WebSocketMultiplayerPeer") @:structAccess extern class WebSocketMultiplayerPeer_extern extends gdnative.MultiplayerPeer.MultiplayerPeer_extern {
 	extern static inline function __alloc():cpp.Pointer<WebSocketMultiplayerPeer_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::WebSocketMultiplayerPeer"));
-	overload function create_client(p_url:gdnative.String, p_tls_client_options:gdnative.TLSOptions):gdnative.Error;
 	overload function create_client(p_url:gdnative.String):gdnative.Error;
-	overload function create_server(p_port:Int, p_bind_address:gdnative.String, p_tls_server_options:gdnative.TLSOptions):gdnative.Error;
-	overload function create_server(p_port:Int, p_bind_address:gdnative.String):gdnative.Error;
+	overload function create_client(p_url:gdnative.String, p_tls_client_options:gdnative.TLSOptions):gdnative.Error;
 	overload function create_server(p_port:Int):gdnative.Error;
+	overload function create_server(p_port:Int, p_bind_address:gdnative.String):gdnative.Error;
+	overload function create_server(p_port:Int, p_bind_address:gdnative.String, p_tls_server_options:gdnative.TLSOptions):gdnative.Error;
 	function get_peer(p_peer_id:Int):gdnative.WebSocketPeer;
 	function get_peer_address(p_id:Int):gdnative.String;
 	function get_peer_port(p_id:Int):Int;

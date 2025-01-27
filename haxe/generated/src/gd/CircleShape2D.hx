@@ -10,7 +10,7 @@ class CircleShape2D extends gd.Shape2D {
 	}
 	extern inline function __circleshape2d_ptr():cpp.Pointer<gdnative.CircleShape2D.CircleShape2D_extern> return cast __gd.ptr;
 	public function set_radius(p_radius:Float):Float {
-		__circleshape2d_ptr().value.set_radius(p_radius);
+		__circleshape2d_ptr().value.set_radius(((p_radius : Float)));
 		return p_radius;
 	}
 	public function get_radius():Float return __circleshape2d_ptr().value.get_radius();

@@ -10,6 +10,6 @@ class RenderSceneData extends gd.Object {
 	}
 	extern inline function __renderscenedata_ptr():cpp.Pointer<gdnative.RenderSceneData.RenderSceneData_extern> return cast __gd.ptr;
 	public function get_view_count():Int return __renderscenedata_ptr().value.get_view_count();
-	public function get_view_eye_offset(p_view:Int):gd.Vector3 return __renderscenedata_ptr().value.get_view_eye_offset(p_view);
+	public function get_view_eye_offset(p_view:Int):gd.Vector3 return __renderscenedata_ptr().value.get_view_eye_offset(((p_view : Int)));
 	public function get_uniform_buffer():gd.RID return __renderscenedata_ptr().value.get_uniform_buffer();
 }

@@ -10,22 +10,22 @@ class Joint3D extends gd.Node3D {
 	}
 	extern inline function __joint3d_ptr():cpp.Pointer<gdnative.Joint3D.Joint3D_extern> return cast __gd.ptr;
 	public function set_node_a(p_node:std.String):std.String {
-		__joint3d_ptr().value.set_node_a(p_node);
+		__joint3d_ptr().value.set_node_a(((p_node : std.String)));
 		return p_node;
 	}
 	public function get_node_a():std.String return __joint3d_ptr().value.get_node_a();
 	public function set_node_b(p_node:std.String):std.String {
-		__joint3d_ptr().value.set_node_b(p_node);
+		__joint3d_ptr().value.set_node_b(((p_node : std.String)));
 		return p_node;
 	}
 	public function get_node_b():std.String return __joint3d_ptr().value.get_node_b();
 	public function set_solver_priority(p_priority:Int):Int {
-		__joint3d_ptr().value.set_solver_priority(p_priority);
+		__joint3d_ptr().value.set_solver_priority(((p_priority : Int)));
 		return p_priority;
 	}
 	public function get_solver_priority():Int return __joint3d_ptr().value.get_solver_priority();
 	public function set_exclude_nodes_from_collision(p_enable:Bool):Bool {
-		__joint3d_ptr().value.set_exclude_nodes_from_collision(p_enable);
+		__joint3d_ptr().value.set_exclude_nodes_from_collision(((p_enable : Bool)));
 		return p_enable;
 	}
 	public function get_exclude_nodes_from_collision():Bool return __joint3d_ptr().value.get_exclude_nodes_from_collision();

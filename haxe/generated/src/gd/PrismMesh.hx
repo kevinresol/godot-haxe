@@ -10,27 +10,27 @@ class PrismMesh extends gd.PrimitiveMesh {
 	}
 	extern inline function __prismmesh_ptr():cpp.Pointer<gdnative.PrismMesh.PrismMesh_extern> return cast __gd.ptr;
 	public function set_left_to_right(p_left_to_right:Float):Float {
-		__prismmesh_ptr().value.set_left_to_right(p_left_to_right);
+		__prismmesh_ptr().value.set_left_to_right(((p_left_to_right : Float)));
 		return p_left_to_right;
 	}
 	public function get_left_to_right():Float return __prismmesh_ptr().value.get_left_to_right();
 	public function set_size(p_size:gd.Vector3):gd.Vector3 {
-		__prismmesh_ptr().value.set_size(p_size);
+		__prismmesh_ptr().value.set_size(((p_size : gd.Vector3)));
 		return p_size;
 	}
 	public function get_size():gd.Vector3 return __prismmesh_ptr().value.get_size();
 	public function set_subdivide_width(p_segments:Int):Int {
-		__prismmesh_ptr().value.set_subdivide_width(p_segments);
+		__prismmesh_ptr().value.set_subdivide_width(((p_segments : Int)));
 		return p_segments;
 	}
 	public function get_subdivide_width():Int return __prismmesh_ptr().value.get_subdivide_width();
 	public function set_subdivide_height(p_segments:Int):Int {
-		__prismmesh_ptr().value.set_subdivide_height(p_segments);
+		__prismmesh_ptr().value.set_subdivide_height(((p_segments : Int)));
 		return p_segments;
 	}
 	public function get_subdivide_height():Int return __prismmesh_ptr().value.get_subdivide_height();
 	public function set_subdivide_depth(p_segments:Int):Int {
-		__prismmesh_ptr().value.set_subdivide_depth(p_segments);
+		__prismmesh_ptr().value.set_subdivide_depth(((p_segments : Int)));
 		return p_segments;
 	}
 	public function get_subdivide_depth():Int return __prismmesh_ptr().value.get_subdivide_depth();

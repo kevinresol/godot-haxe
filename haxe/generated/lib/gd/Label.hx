@@ -27,7 +27,7 @@ extern class Label extends gd.Control {
 	function get_ellipsis_char():std.String;
 	function set_uppercase(p_enable:Bool):Bool;
 	function is_uppercase():Bool;
-	function get_line_height(?p_line:Int = -1):Int;
+	function get_line_height(?p_line:Int):Int;
 	function get_line_count():Int;
 	function get_visible_line_count():Int;
 	function get_total_character_count():Int;

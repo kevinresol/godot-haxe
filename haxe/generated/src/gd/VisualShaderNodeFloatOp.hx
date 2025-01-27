@@ -9,7 +9,7 @@ class VisualShaderNodeFloatOp extends gd.VisualShaderNode {
 		super(native.reinterpret());
 	}
 	extern inline function __visualshadernodefloatop_ptr():cpp.Pointer<gdnative.VisualShaderNodeFloatOp.VisualShaderNodeFloatOp_extern> return cast __gd.ptr;
-	public function set_operator(p_op:gd.visualshadernodefloatop.Operator):Void __visualshadernodefloatop_ptr().value.set_operator(p_op);
+	public function set_operator(p_op:gd.visualshadernodefloatop.Operator):Void __visualshadernodefloatop_ptr().value.set_operator(((p_op : gd.visualshadernodefloatop.Operator)));
 	public function get_operator():gd.visualshadernodefloatop.Operator return __visualshadernodefloatop_ptr().value.get_operator();
 	var operator_(get, set) : gd.visualshadernodefloatop.Operator;
 	function get_operator_():gd.visualshadernodefloatop.Operator return get_operator();

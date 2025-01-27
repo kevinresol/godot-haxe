@@ -5,7 +5,7 @@ extern class AudioServer extends gd.Object {
 	function set_bus_count(p_amount:Int):Int;
 	function get_bus_count():Int;
 	function remove_bus(p_index:Int):Void;
-	function add_bus(?p_at_position:Int = -1):Void;
+	function add_bus(?p_at_position:Int):Void;
 	function move_bus(p_index:Int, p_to_index:Int):Void;
 	function set_bus_name(p_bus_idx:Int, p_name:std.String):Void;
 	function get_bus_name(p_bus_idx:Int):std.String;
@@ -21,11 +21,11 @@ extern class AudioServer extends gd.Object {
 	function is_bus_mute(p_bus_idx:Int):Bool;
 	function set_bus_bypass_effects(p_bus_idx:Int, p_enable:Bool):Void;
 	function is_bus_bypassing_effects(p_bus_idx:Int):Bool;
-	function add_bus_effect(p_bus_idx:Int, p_effect:gd.AudioEffect, ?p_at_position:Int = -1):Void;
+	function add_bus_effect(p_bus_idx:Int, p_effect:gd.AudioEffect, ?p_at_position:Int):Void;
 	function remove_bus_effect(p_bus_idx:Int, p_effect_idx:Int):Void;
 	function get_bus_effect_count(p_bus_idx:Int):Int;
 	function get_bus_effect(p_bus_idx:Int, p_effect_idx:Int):gd.AudioEffect;
-	function get_bus_effect_instance(p_bus_idx:Int, p_effect_idx:Int, ?p_channel:Int = 0):gd.AudioEffectInstance;
+	function get_bus_effect_instance(p_bus_idx:Int, p_effect_idx:Int, ?p_channel:Int):gd.AudioEffectInstance;
 	function swap_bus_effects(p_bus_idx:Int, p_effect_idx:Int, p_by_effect_idx:Int):Void;
 	function set_bus_effect_enabled(p_bus_idx:Int, p_effect_idx:Int, p_enabled:Bool):Void;
 	function is_bus_effect_enabled(p_bus_idx:Int, p_effect_idx:Int):Bool;

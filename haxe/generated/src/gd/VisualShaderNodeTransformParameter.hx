@@ -10,7 +10,7 @@ class VisualShaderNodeTransformParameter extends gd.VisualShaderNodeParameter {
 	}
 	extern inline function __visualshadernodetransformparameter_ptr():cpp.Pointer<gdnative.VisualShaderNodeTransformParameter.VisualShaderNodeTransformParameter_extern> return cast __gd.ptr;
 	public function set_default_value_enabled(p_enabled:Bool):Bool {
-		__visualshadernodetransformparameter_ptr().value.set_default_value_enabled(p_enabled);
+		__visualshadernodetransformparameter_ptr().value.set_default_value_enabled(((p_enabled : Bool)));
 		return p_enabled;
 	}
 	public function is_default_value_enabled():Bool return __visualshadernodetransformparameter_ptr().value.is_default_value_enabled();

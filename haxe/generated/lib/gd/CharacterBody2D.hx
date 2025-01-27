@@ -44,6 +44,7 @@ extern class CharacterBody2D extends gd.PhysicsBody2D {
 	function get_last_motion():gd.Vector2;
 	function get_position_delta():gd.Vector2;
 	function get_real_velocity():gd.Vector2;
+	function get_floor_angle(?p_up_direction:gd.Vector2):Float;
 	function get_platform_velocity():gd.Vector2;
 	function get_slide_collision_count():Int;
 	function get_slide_collision(p_slide_idx:Int):gd.KinematicCollision2D;

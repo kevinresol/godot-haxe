@@ -10,7 +10,7 @@ class VisualShaderNodeParticleRandomness extends gd.VisualShaderNode {
 	}
 	extern inline function __visualshadernodeparticlerandomness_ptr():cpp.Pointer<gdnative.VisualShaderNodeParticleRandomness.VisualShaderNodeParticleRandomness_extern> return cast __gd.ptr;
 	public function set_op_type(p_type:gd.visualshadernodeparticlerandomness.OpType):gd.visualshadernodeparticlerandomness.OpType {
-		__visualshadernodeparticlerandomness_ptr().value.set_op_type(p_type);
+		__visualshadernodeparticlerandomness_ptr().value.set_op_type(((p_type : gd.visualshadernodeparticlerandomness.OpType)));
 		return p_type;
 	}
 	public function get_op_type():gd.visualshadernodeparticlerandomness.OpType return __visualshadernodeparticlerandomness_ptr().value.get_op_type();

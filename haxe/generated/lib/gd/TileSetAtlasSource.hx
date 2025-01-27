@@ -11,8 +11,11 @@ extern class TileSetAtlasSource extends gd.TileSetSource {
 	function get_texture_region_size():gd.Vector2i;
 	function set_use_texture_padding(p_use_texture_padding:Bool):Bool;
 	function get_use_texture_padding():Bool;
+	function create_tile(p_atlas_coords:gd.Vector2i, ?p_size:gd.Vector2i):Void;
 	function remove_tile(p_atlas_coords:gd.Vector2i):Void;
+	function move_tile_in_atlas(p_atlas_coords:gd.Vector2i, ?p_new_atlas_coords:gd.Vector2i, ?p_new_size:gd.Vector2i):Void;
 	function get_tile_size_in_atlas(p_atlas_coords:gd.Vector2i):gd.Vector2i;
+	function has_room_for_tile(p_atlas_coords:gd.Vector2i, p_size:gd.Vector2i, p_animation_columns:Int, p_animation_separation:gd.Vector2i, p_frames_count:Int, ?p_ignored_tile:gd.Vector2i):Bool;
 	function get_tiles_to_be_removed_on_change(p_texture:gd.Texture2D, p_margins:gd.Vector2i, p_separation:gd.Vector2i, p_texture_region_size:gd.Vector2i):gd.PackedVector2Array;
 	function get_tile_at_coords(p_atlas_coords:gd.Vector2i):gd.Vector2i;
 	function has_tiles_outside_texture():Bool;
@@ -30,13 +33,13 @@ extern class TileSetAtlasSource extends gd.TileSetSource {
 	function set_tile_animation_frame_duration(p_atlas_coords:gd.Vector2i, p_frame_index:Int, p_duration:Float):Void;
 	function get_tile_animation_frame_duration(p_atlas_coords:gd.Vector2i, p_frame_index:Int):Float;
 	function get_tile_animation_total_duration(p_atlas_coords:gd.Vector2i):Float;
-	function create_alternative_tile(p_atlas_coords:gd.Vector2i, ?p_alternative_id_override:Int = -1):Int;
+	function create_alternative_tile(p_atlas_coords:gd.Vector2i, ?p_alternative_id_override:Int):Int;
 	function remove_alternative_tile(p_atlas_coords:gd.Vector2i, p_alternative_tile:Int):Void;
 	function set_alternative_tile_id(p_atlas_coords:gd.Vector2i, p_alternative_tile:Int, p_new_id:Int):Void;
 	function get_next_alternative_tile_id(p_atlas_coords:gd.Vector2i):Int;
 	function get_tile_data(p_atlas_coords:gd.Vector2i, p_alternative_tile:Int):gd.TileData;
 	function get_atlas_grid_size():gd.Vector2i;
-	function get_tile_texture_region(p_atlas_coords:gd.Vector2i, ?p_frame:Int = 0):gd.Rect2i;
+	function get_tile_texture_region(p_atlas_coords:gd.Vector2i, ?p_frame:Int):gd.Rect2i;
 	function get_runtime_texture():gd.Texture2D;
 	function get_runtime_tile_texture_region(p_atlas_coords:gd.Vector2i, p_frame:Int):gd.Rect2i;
 	var texture(get, set) : gd.Texture2D;

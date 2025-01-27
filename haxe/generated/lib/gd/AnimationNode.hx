@@ -19,6 +19,9 @@ extern class AnimationNode extends gd.Resource {
 	function is_path_filtered(p_path:std.String):Bool;
 	function set_filter_enabled(p_enable:Bool):Bool;
 	function is_filter_enabled():Bool;
+	function blend_animation(p_animation:std.String, p_time:Float, p_delta:Float, p_seeked:Bool, p_is_external_seeking:Bool, p_blend:Float, ?p_looped_flag:gd.animation.LoopedFlag):Void;
+	function blend_node(p_name:std.String, p_node:gd.AnimationNode, p_time:Float, p_seek:Bool, p_is_external_seeking:Bool, p_blend:Float, ?p_filter:gd.animationnode.FilterAction, ?p_sync:Bool, ?p_test_only:Bool):Float;
+	function blend_input(p_input_index:Int, p_time:Float, p_seek:Bool, p_is_external_seeking:Bool, p_blend:Float, ?p_filter:gd.animationnode.FilterAction, ?p_sync:Bool, ?p_test_only:Bool):Float;
 	function set_parameter(p_name:std.String, p_value:gd.Variant):Void;
 	function get_parameter(p_name:std.String):gd.Variant;
 	var filter_enabled(get, set) : Bool;

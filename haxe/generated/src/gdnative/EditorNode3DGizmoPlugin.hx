@@ -15,19 +15,19 @@ package gdnative;
 	function _set_handle(p_gizmo:gdnative.EditorNode3DGizmo, p_handle_id:Int, p_secondary:Bool, p_camera:gdnative.Camera3D, p_screen_pos:gdnative.Vector2):Void;
 	function _commit_handle(p_gizmo:gdnative.EditorNode3DGizmo, p_handle_id:Int, p_secondary:Bool, p_restore:gdnative.Variant, p_cancel:Bool):Void;
 	function _subgizmos_intersect_ray(p_gizmo:gdnative.EditorNode3DGizmo, p_camera:gdnative.Camera3D, p_screen_pos:gdnative.Vector2):Int;
-	overload function create_material(p_name:gdnative.String, p_color:gdnative.Color, p_billboard:Bool, p_on_top:Bool, p_use_vertex_color:Bool):Void;
-	overload function create_material(p_name:gdnative.String, p_color:gdnative.Color, p_billboard:Bool, p_on_top:Bool):Void;
-	overload function create_material(p_name:gdnative.String, p_color:gdnative.Color, p_billboard:Bool):Void;
 	overload function create_material(p_name:gdnative.String, p_color:gdnative.Color):Void;
-	overload function create_icon_material(p_name:gdnative.String, p_texture:gdnative.Texture2D, p_on_top:Bool, p_color:gdnative.Color):Void;
-	overload function create_icon_material(p_name:gdnative.String, p_texture:gdnative.Texture2D, p_on_top:Bool):Void;
+	overload function create_material(p_name:gdnative.String, p_color:gdnative.Color, p_billboard:Bool):Void;
+	overload function create_material(p_name:gdnative.String, p_color:gdnative.Color, p_billboard:Bool, p_on_top:Bool):Void;
+	overload function create_material(p_name:gdnative.String, p_color:gdnative.Color, p_billboard:Bool, p_on_top:Bool, p_use_vertex_color:Bool):Void;
 	overload function create_icon_material(p_name:gdnative.String, p_texture:gdnative.Texture2D):Void;
-	overload function create_handle_material(p_name:gdnative.String, p_billboard:Bool, p_texture:gdnative.Texture2D):Void;
-	overload function create_handle_material(p_name:gdnative.String, p_billboard:Bool):Void;
+	overload function create_icon_material(p_name:gdnative.String, p_texture:gdnative.Texture2D, p_on_top:Bool):Void;
+	overload function create_icon_material(p_name:gdnative.String, p_texture:gdnative.Texture2D, p_on_top:Bool, p_color:gdnative.Color):Void;
 	overload function create_handle_material(p_name:gdnative.String):Void;
+	overload function create_handle_material(p_name:gdnative.String, p_billboard:Bool):Void;
+	overload function create_handle_material(p_name:gdnative.String, p_billboard:Bool, p_texture:gdnative.Texture2D):Void;
 	function add_material(p_name:gdnative.String, p_material:gdnative.StandardMaterial3D):Void;
-	overload function get_material(p_name:gdnative.String, p_gizmo:gdnative.EditorNode3DGizmo):gdnative.StandardMaterial3D;
 	overload function get_material(p_name:gdnative.String):gdnative.StandardMaterial3D;
+	overload function get_material(p_name:gdnative.String, p_gizmo:gdnative.EditorNode3DGizmo):gdnative.StandardMaterial3D;
 }
 @:forward abstract EditorNode3DGizmoPlugin(gdnative.Ref<EditorNode3DGizmoPlugin_extern>) from gdnative.Ref<EditorNode3DGizmoPlugin_extern> to gdnative.Ref<EditorNode3DGizmoPlugin_extern> {
 	@:from

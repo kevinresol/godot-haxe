@@ -10,16 +10,16 @@ class LightmapGIData extends gd.Resource {
 	}
 	extern inline function __lightmapgidata_ptr():cpp.Pointer<gdnative.LightmapGIData.LightmapGIData_extern> return cast __gd.ptr;
 	public function set_uses_spherical_harmonics(p_uses_spherical_harmonics:Bool):Bool {
-		__lightmapgidata_ptr().value.set_uses_spherical_harmonics(p_uses_spherical_harmonics);
+		__lightmapgidata_ptr().value.set_uses_spherical_harmonics(((p_uses_spherical_harmonics : Bool)));
 		return p_uses_spherical_harmonics;
 	}
 	public function is_using_spherical_harmonics():Bool return __lightmapgidata_ptr().value.is_using_spherical_harmonics();
-	public function add_user(p_path:std.String, p_uv_scale:gd.Rect2, p_slice_index:Int, p_sub_instance:Int):Void __lightmapgidata_ptr().value.add_user(p_path, p_uv_scale, p_slice_index, p_sub_instance);
+	public function add_user(p_path:std.String, p_uv_scale:gd.Rect2, p_slice_index:Int, p_sub_instance:Int):Void __lightmapgidata_ptr().value.add_user(((p_path : std.String)), ((p_uv_scale : gd.Rect2)), ((p_slice_index : Int)), ((p_sub_instance : Int)));
 	public function get_user_count():Int return __lightmapgidata_ptr().value.get_user_count();
-	public function get_user_path(p_user_idx:Int):std.String return __lightmapgidata_ptr().value.get_user_path(p_user_idx);
+	public function get_user_path(p_user_idx:Int):std.String return __lightmapgidata_ptr().value.get_user_path(((p_user_idx : Int)));
 	public function clear_users():Void __lightmapgidata_ptr().value.clear_users();
 	public function set_light_texture(p_light_texture:gd.TextureLayered):gd.TextureLayered {
-		__lightmapgidata_ptr().value.set_light_texture(p_light_texture);
+		__lightmapgidata_ptr().value.set_light_texture(((p_light_texture : gd.TextureLayered)));
 		return p_light_texture;
 	}
 	public function get_light_texture():gd.TextureLayered return __lightmapgidata_ptr().value.get_light_texture();

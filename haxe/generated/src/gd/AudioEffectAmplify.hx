@@ -10,7 +10,7 @@ class AudioEffectAmplify extends gd.AudioEffect {
 	}
 	extern inline function __audioeffectamplify_ptr():cpp.Pointer<gdnative.AudioEffectAmplify.AudioEffectAmplify_extern> return cast __gd.ptr;
 	public function set_volume_db(p_volume:Float):Float {
-		__audioeffectamplify_ptr().value.set_volume_db(p_volume);
+		__audioeffectamplify_ptr().value.set_volume_db(((p_volume : Float)));
 		return p_volume;
 	}
 	public function get_volume_db():Float return __audioeffectamplify_ptr().value.get_volume_db();

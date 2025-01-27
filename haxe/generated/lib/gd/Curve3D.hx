@@ -3,6 +3,7 @@ extern class Curve3D extends gd.Resource {
 	function new(?owner:Dynamic);
 	function get_point_count():Int;
 	function set_point_count(p_count:Int):Int;
+	function add_point(p_position:gd.Vector3, ?p_in:gd.Vector3, ?p_out:gd.Vector3, ?p_index:Int):Void;
 	function set_point_position(p_idx:Int, p_position:gd.Vector3):Void;
 	function get_point_position(p_idx:Int):gd.Vector3;
 	function set_point_tilt(p_idx:Int, p_tilt:Float):Void;
@@ -20,15 +21,15 @@ extern class Curve3D extends gd.Resource {
 	function set_up_vector_enabled(p_enable:Bool):Bool;
 	function is_up_vector_enabled():Bool;
 	function get_baked_length():Float;
-	function sample_baked(?p_offset:Float = 0., ?p_cubic:Bool = false):gd.Vector3;
-	function sample_baked_up_vector(p_offset:Float, ?p_apply_tilt:Bool = false):gd.Vector3;
+	function sample_baked(?p_offset:Float, ?p_cubic:Bool):gd.Vector3;
+	function sample_baked_up_vector(p_offset:Float, ?p_apply_tilt:Bool):gd.Vector3;
 	function get_baked_points():gd.PackedVector3Array;
 	function get_baked_tilts():gd.PackedFloat32Array;
 	function get_baked_up_vectors():gd.PackedVector3Array;
 	function get_closest_point(p_to_point:gd.Vector3):gd.Vector3;
 	function get_closest_offset(p_to_point:gd.Vector3):Float;
-	function tessellate(?p_max_stages:Int = 5, ?p_tolerance_degrees:Float = 4.):gd.PackedVector3Array;
-	function tessellate_even_length(?p_max_stages:Int = 5, ?p_tolerance_length:Float = 0.2):gd.PackedVector3Array;
+	function tessellate(?p_max_stages:Int, ?p_tolerance_degrees:Float):gd.PackedVector3Array;
+	function tessellate_even_length(?p_max_stages:Int, ?p_tolerance_length:Float):gd.PackedVector3Array;
 	var bake_interval(get, set) : Float;
 	var point_count(get, set) : Int;
 	var up_vector_enabled(get, set) : Bool;

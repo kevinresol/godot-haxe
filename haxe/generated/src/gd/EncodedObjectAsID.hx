@@ -10,7 +10,7 @@ class EncodedObjectAsID extends gd.RefCounted {
 	}
 	extern inline function __encodedobjectasid_ptr():cpp.Pointer<gdnative.EncodedObjectAsID.EncodedObjectAsID_extern> return cast __gd.ptr;
 	public function set_object_id(p_id:Int):Int {
-		__encodedobjectasid_ptr().value.set_object_id(p_id);
+		__encodedobjectasid_ptr().value.set_object_id(((p_id : Int)));
 		return p_id;
 	}
 	public function get_object_id():Int return __encodedobjectasid_ptr().value.get_object_id();

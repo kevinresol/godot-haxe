@@ -33,8 +33,8 @@ extern class Viewport extends gd.Node {
 	function get_physics_object_picking_first_only():Bool;
 	function get_viewport_rid():gd.RID;
 	function push_text_input(p_text:std.String):Void;
-	function push_input(p_event:gd.InputEvent, ?p_in_local_coords:Bool = false):Void;
-	function push_unhandled_input(p_event:gd.InputEvent, ?p_in_local_coords:Bool = false):Void;
+	function push_input(p_event:gd.InputEvent, ?p_in_local_coords:Bool):Void;
+	function push_unhandled_input(p_event:gd.InputEvent, ?p_in_local_coords:Bool):Void;
 	function get_mouse_position():gd.Vector2;
 	function warp_mouse(p_position:gd.Vector2):Void;
 	function update_mouse_cursor_state():Void;

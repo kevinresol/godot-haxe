@@ -10,32 +10,32 @@ class FogMaterial extends gd.Material {
 	}
 	extern inline function __fogmaterial_ptr():cpp.Pointer<gdnative.FogMaterial.FogMaterial_extern> return cast __gd.ptr;
 	public function set_density(p_density:Float):Float {
-		__fogmaterial_ptr().value.set_density(p_density);
+		__fogmaterial_ptr().value.set_density(((p_density : Float)));
 		return p_density;
 	}
 	public function get_density():Float return __fogmaterial_ptr().value.get_density();
 	public function set_albedo(p_albedo:gd.Color):gd.Color {
-		__fogmaterial_ptr().value.set_albedo(p_albedo);
+		__fogmaterial_ptr().value.set_albedo(((p_albedo : gd.Color)));
 		return p_albedo;
 	}
 	public function get_albedo():gd.Color return __fogmaterial_ptr().value.get_albedo();
 	public function set_emission(p_emission:gd.Color):gd.Color {
-		__fogmaterial_ptr().value.set_emission(p_emission);
+		__fogmaterial_ptr().value.set_emission(((p_emission : gd.Color)));
 		return p_emission;
 	}
 	public function get_emission():gd.Color return __fogmaterial_ptr().value.get_emission();
 	public function set_height_falloff(p_height_falloff:Float):Float {
-		__fogmaterial_ptr().value.set_height_falloff(p_height_falloff);
+		__fogmaterial_ptr().value.set_height_falloff(((p_height_falloff : Float)));
 		return p_height_falloff;
 	}
 	public function get_height_falloff():Float return __fogmaterial_ptr().value.get_height_falloff();
 	public function set_edge_fade(p_edge_fade:Float):Float {
-		__fogmaterial_ptr().value.set_edge_fade(p_edge_fade);
+		__fogmaterial_ptr().value.set_edge_fade(((p_edge_fade : Float)));
 		return p_edge_fade;
 	}
 	public function get_edge_fade():Float return __fogmaterial_ptr().value.get_edge_fade();
 	public function set_density_texture(p_density_texture:gd.Texture3D):gd.Texture3D {
-		__fogmaterial_ptr().value.set_density_texture(p_density_texture);
+		__fogmaterial_ptr().value.set_density_texture(((p_density_texture : gd.Texture3D)));
 		return p_density_texture;
 	}
 	public function get_density_texture():gd.Texture3D return __fogmaterial_ptr().value.get_density_texture();

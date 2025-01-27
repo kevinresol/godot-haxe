@@ -10,7 +10,7 @@ class VisualShaderNodeExpression extends gd.VisualShaderNodeGroupBase {
 	}
 	extern inline function __visualshadernodeexpression_ptr():cpp.Pointer<gdnative.VisualShaderNodeExpression.VisualShaderNodeExpression_extern> return cast __gd.ptr;
 	public function set_expression(p_expression:std.String):std.String {
-		__visualshadernodeexpression_ptr().value.set_expression(p_expression);
+		__visualshadernodeexpression_ptr().value.set_expression(((p_expression : std.String)));
 		return p_expression;
 	}
 	public function get_expression():std.String return __visualshadernodeexpression_ptr().value.get_expression();

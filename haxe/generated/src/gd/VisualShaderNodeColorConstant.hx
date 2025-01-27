@@ -10,7 +10,7 @@ class VisualShaderNodeColorConstant extends gd.VisualShaderNodeConstant {
 	}
 	extern inline function __visualshadernodecolorconstant_ptr():cpp.Pointer<gdnative.VisualShaderNodeColorConstant.VisualShaderNodeColorConstant_extern> return cast __gd.ptr;
 	public function set_constant(p_constant:gd.Color):gd.Color {
-		__visualshadernodecolorconstant_ptr().value.set_constant(p_constant);
+		__visualshadernodecolorconstant_ptr().value.set_constant(((p_constant : gd.Color)));
 		return p_constant;
 	}
 	public function get_constant():gd.Color return __visualshadernodecolorconstant_ptr().value.get_constant();

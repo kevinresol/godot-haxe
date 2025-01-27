@@ -19,6 +19,7 @@ extern class ImporterMesh extends gd.Resource {
 	function set_surface_name(p_surface_idx:Int, p_name:std.String):Void;
 	function set_surface_material(p_surface_idx:Int, p_material:gd.Material):Void;
 	function generate_lods(p_normal_merge_angle:Float, p_normal_split_angle:Float, p_bone_transform_array:gd.Array):Void;
+	function get_mesh(?p_base_mesh:gd.ArrayMesh):gd.ArrayMesh;
 	function clear():Void;
 	function set_lightmap_size_hint(p_size:gd.Vector2i):Void;
 	function get_lightmap_size_hint():gd.Vector2i;

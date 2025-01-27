@@ -10,217 +10,217 @@ class ParticleProcessMaterial extends gd.Material {
 	}
 	extern inline function __particleprocessmaterial_ptr():cpp.Pointer<gdnative.ParticleProcessMaterial.ParticleProcessMaterial_extern> return cast __gd.ptr;
 	public function set_direction(p_degrees:gd.Vector3):gd.Vector3 {
-		__particleprocessmaterial_ptr().value.set_direction(p_degrees);
+		__particleprocessmaterial_ptr().value.set_direction(((p_degrees : gd.Vector3)));
 		return p_degrees;
 	}
 	public function get_direction():gd.Vector3 return __particleprocessmaterial_ptr().value.get_direction();
 	public function set_inherit_velocity_ratio(p_ratio:Float):Float {
-		__particleprocessmaterial_ptr().value.set_inherit_velocity_ratio(p_ratio);
+		__particleprocessmaterial_ptr().value.set_inherit_velocity_ratio(((p_ratio : Float)));
 		return p_ratio;
 	}
 	public function get_inherit_velocity_ratio():Float return __particleprocessmaterial_ptr().value.get_inherit_velocity_ratio();
 	public function set_spread(p_degrees:Float):Float {
-		__particleprocessmaterial_ptr().value.set_spread(p_degrees);
+		__particleprocessmaterial_ptr().value.set_spread(((p_degrees : Float)));
 		return p_degrees;
 	}
 	public function get_spread():Float return __particleprocessmaterial_ptr().value.get_spread();
 	public function set_flatness(p_amount:Float):Float {
-		__particleprocessmaterial_ptr().value.set_flatness(p_amount);
+		__particleprocessmaterial_ptr().value.set_flatness(((p_amount : Float)));
 		return p_amount;
 	}
 	public function get_flatness():Float return __particleprocessmaterial_ptr().value.get_flatness();
-	public function set_param(p_param:gd.particleprocessmaterial.Parameter, p_value:gd.Vector2):Void __particleprocessmaterial_ptr().value.set_param(p_param, p_value);
-	public function get_param(p_param:gd.particleprocessmaterial.Parameter):gd.Vector2 return __particleprocessmaterial_ptr().value.get_param(p_param);
-	public function set_param_min(p_param:gd.particleprocessmaterial.Parameter, p_value:Float):Void __particleprocessmaterial_ptr().value.set_param_min(p_param, p_value);
-	public function get_param_min(p_param:gd.particleprocessmaterial.Parameter):Float return __particleprocessmaterial_ptr().value.get_param_min(p_param);
-	public function set_param_max(p_param:gd.particleprocessmaterial.Parameter, p_value:Float):Void __particleprocessmaterial_ptr().value.set_param_max(p_param, p_value);
-	public function get_param_max(p_param:gd.particleprocessmaterial.Parameter):Float return __particleprocessmaterial_ptr().value.get_param_max(p_param);
-	public function set_param_texture(p_param:gd.particleprocessmaterial.Parameter, p_texture:gd.Texture2D):Void __particleprocessmaterial_ptr().value.set_param_texture(p_param, p_texture);
-	public function get_param_texture(p_param:gd.particleprocessmaterial.Parameter):gd.Texture2D return __particleprocessmaterial_ptr().value.get_param_texture(p_param);
+	public function set_param(p_param:gd.particleprocessmaterial.Parameter, p_value:gd.Vector2):Void __particleprocessmaterial_ptr().value.set_param(((p_param : gd.particleprocessmaterial.Parameter)), ((p_value : gd.Vector2)));
+	public function get_param(p_param:gd.particleprocessmaterial.Parameter):gd.Vector2 return __particleprocessmaterial_ptr().value.get_param(((p_param : gd.particleprocessmaterial.Parameter)));
+	public function set_param_min(p_param:gd.particleprocessmaterial.Parameter, p_value:Float):Void __particleprocessmaterial_ptr().value.set_param_min(((p_param : gd.particleprocessmaterial.Parameter)), ((p_value : Float)));
+	public function get_param_min(p_param:gd.particleprocessmaterial.Parameter):Float return __particleprocessmaterial_ptr().value.get_param_min(((p_param : gd.particleprocessmaterial.Parameter)));
+	public function set_param_max(p_param:gd.particleprocessmaterial.Parameter, p_value:Float):Void __particleprocessmaterial_ptr().value.set_param_max(((p_param : gd.particleprocessmaterial.Parameter)), ((p_value : Float)));
+	public function get_param_max(p_param:gd.particleprocessmaterial.Parameter):Float return __particleprocessmaterial_ptr().value.get_param_max(((p_param : gd.particleprocessmaterial.Parameter)));
+	public function set_param_texture(p_param:gd.particleprocessmaterial.Parameter, p_texture:gd.Texture2D):Void __particleprocessmaterial_ptr().value.set_param_texture(((p_param : gd.particleprocessmaterial.Parameter)), ((p_texture : gd.Texture2D)));
+	public function get_param_texture(p_param:gd.particleprocessmaterial.Parameter):gd.Texture2D return __particleprocessmaterial_ptr().value.get_param_texture(((p_param : gd.particleprocessmaterial.Parameter)));
 	public function set_color(p_color:gd.Color):gd.Color {
-		__particleprocessmaterial_ptr().value.set_color(p_color);
+		__particleprocessmaterial_ptr().value.set_color(((p_color : gd.Color)));
 		return p_color;
 	}
 	public function get_color():gd.Color return __particleprocessmaterial_ptr().value.get_color();
 	public function set_color_ramp(p_ramp:gd.Texture2D):gd.Texture2D {
-		__particleprocessmaterial_ptr().value.set_color_ramp(p_ramp);
+		__particleprocessmaterial_ptr().value.set_color_ramp(((p_ramp : gd.Texture2D)));
 		return p_ramp;
 	}
 	public function get_color_ramp():gd.Texture2D return __particleprocessmaterial_ptr().value.get_color_ramp();
 	public function set_alpha_curve(p_curve:gd.Texture2D):gd.Texture2D {
-		__particleprocessmaterial_ptr().value.set_alpha_curve(p_curve);
+		__particleprocessmaterial_ptr().value.set_alpha_curve(((p_curve : gd.Texture2D)));
 		return p_curve;
 	}
 	public function get_alpha_curve():gd.Texture2D return __particleprocessmaterial_ptr().value.get_alpha_curve();
 	public function set_emission_curve(p_curve:gd.Texture2D):gd.Texture2D {
-		__particleprocessmaterial_ptr().value.set_emission_curve(p_curve);
+		__particleprocessmaterial_ptr().value.set_emission_curve(((p_curve : gd.Texture2D)));
 		return p_curve;
 	}
 	public function get_emission_curve():gd.Texture2D return __particleprocessmaterial_ptr().value.get_emission_curve();
 	public function set_color_initial_ramp(p_ramp:gd.Texture2D):gd.Texture2D {
-		__particleprocessmaterial_ptr().value.set_color_initial_ramp(p_ramp);
+		__particleprocessmaterial_ptr().value.set_color_initial_ramp(((p_ramp : gd.Texture2D)));
 		return p_ramp;
 	}
 	public function get_color_initial_ramp():gd.Texture2D return __particleprocessmaterial_ptr().value.get_color_initial_ramp();
 	public function set_velocity_limit_curve(p_curve:gd.Texture2D):gd.Texture2D {
-		__particleprocessmaterial_ptr().value.set_velocity_limit_curve(p_curve);
+		__particleprocessmaterial_ptr().value.set_velocity_limit_curve(((p_curve : gd.Texture2D)));
 		return p_curve;
 	}
 	public function get_velocity_limit_curve():gd.Texture2D return __particleprocessmaterial_ptr().value.get_velocity_limit_curve();
-	public function set_particle_flag(p_particle_flag:gd.particleprocessmaterial.ParticleFlags, p_enable:Bool):Void __particleprocessmaterial_ptr().value.set_particle_flag(p_particle_flag, p_enable);
-	public function get_particle_flag(p_particle_flag:gd.particleprocessmaterial.ParticleFlags):Bool return __particleprocessmaterial_ptr().value.get_particle_flag(p_particle_flag);
+	public function set_particle_flag(p_particle_flag:gd.particleprocessmaterial.ParticleFlags, p_enable:Bool):Void __particleprocessmaterial_ptr().value.set_particle_flag(((p_particle_flag : gd.particleprocessmaterial.ParticleFlags)), ((p_enable : Bool)));
+	public function get_particle_flag(p_particle_flag:gd.particleprocessmaterial.ParticleFlags):Bool return __particleprocessmaterial_ptr().value.get_particle_flag(((p_particle_flag : gd.particleprocessmaterial.ParticleFlags)));
 	public function set_velocity_pivot(p_pivot:gd.Vector3):gd.Vector3 {
-		__particleprocessmaterial_ptr().value.set_velocity_pivot(p_pivot);
+		__particleprocessmaterial_ptr().value.set_velocity_pivot(((p_pivot : gd.Vector3)));
 		return p_pivot;
 	}
 	public function get_velocity_pivot():gd.Vector3 return __particleprocessmaterial_ptr().value.get_velocity_pivot();
 	public function set_emission_shape(p_shape:gd.particleprocessmaterial.EmissionShape):gd.particleprocessmaterial.EmissionShape {
-		__particleprocessmaterial_ptr().value.set_emission_shape(p_shape);
+		__particleprocessmaterial_ptr().value.set_emission_shape(((p_shape : gd.particleprocessmaterial.EmissionShape)));
 		return p_shape;
 	}
 	public function get_emission_shape():gd.particleprocessmaterial.EmissionShape return __particleprocessmaterial_ptr().value.get_emission_shape();
 	public function set_emission_sphere_radius(p_radius:Float):Float {
-		__particleprocessmaterial_ptr().value.set_emission_sphere_radius(p_radius);
+		__particleprocessmaterial_ptr().value.set_emission_sphere_radius(((p_radius : Float)));
 		return p_radius;
 	}
 	public function get_emission_sphere_radius():Float return __particleprocessmaterial_ptr().value.get_emission_sphere_radius();
 	public function set_emission_box_extents(p_extents:gd.Vector3):gd.Vector3 {
-		__particleprocessmaterial_ptr().value.set_emission_box_extents(p_extents);
+		__particleprocessmaterial_ptr().value.set_emission_box_extents(((p_extents : gd.Vector3)));
 		return p_extents;
 	}
 	public function get_emission_box_extents():gd.Vector3 return __particleprocessmaterial_ptr().value.get_emission_box_extents();
 	public function set_emission_point_texture(p_texture:gd.Texture2D):gd.Texture2D {
-		__particleprocessmaterial_ptr().value.set_emission_point_texture(p_texture);
+		__particleprocessmaterial_ptr().value.set_emission_point_texture(((p_texture : gd.Texture2D)));
 		return p_texture;
 	}
 	public function get_emission_point_texture():gd.Texture2D return __particleprocessmaterial_ptr().value.get_emission_point_texture();
 	public function set_emission_normal_texture(p_texture:gd.Texture2D):gd.Texture2D {
-		__particleprocessmaterial_ptr().value.set_emission_normal_texture(p_texture);
+		__particleprocessmaterial_ptr().value.set_emission_normal_texture(((p_texture : gd.Texture2D)));
 		return p_texture;
 	}
 	public function get_emission_normal_texture():gd.Texture2D return __particleprocessmaterial_ptr().value.get_emission_normal_texture();
 	public function set_emission_color_texture(p_texture:gd.Texture2D):gd.Texture2D {
-		__particleprocessmaterial_ptr().value.set_emission_color_texture(p_texture);
+		__particleprocessmaterial_ptr().value.set_emission_color_texture(((p_texture : gd.Texture2D)));
 		return p_texture;
 	}
 	public function get_emission_color_texture():gd.Texture2D return __particleprocessmaterial_ptr().value.get_emission_color_texture();
 	public function set_emission_point_count(p_point_count:Int):Int {
-		__particleprocessmaterial_ptr().value.set_emission_point_count(p_point_count);
+		__particleprocessmaterial_ptr().value.set_emission_point_count(((p_point_count : Int)));
 		return p_point_count;
 	}
 	public function get_emission_point_count():Int return __particleprocessmaterial_ptr().value.get_emission_point_count();
 	public function set_emission_ring_axis(p_axis:gd.Vector3):gd.Vector3 {
-		__particleprocessmaterial_ptr().value.set_emission_ring_axis(p_axis);
+		__particleprocessmaterial_ptr().value.set_emission_ring_axis(((p_axis : gd.Vector3)));
 		return p_axis;
 	}
 	public function get_emission_ring_axis():gd.Vector3 return __particleprocessmaterial_ptr().value.get_emission_ring_axis();
 	public function set_emission_ring_height(p_height:Float):Float {
-		__particleprocessmaterial_ptr().value.set_emission_ring_height(p_height);
+		__particleprocessmaterial_ptr().value.set_emission_ring_height(((p_height : Float)));
 		return p_height;
 	}
 	public function get_emission_ring_height():Float return __particleprocessmaterial_ptr().value.get_emission_ring_height();
 	public function set_emission_ring_radius(p_radius:Float):Float {
-		__particleprocessmaterial_ptr().value.set_emission_ring_radius(p_radius);
+		__particleprocessmaterial_ptr().value.set_emission_ring_radius(((p_radius : Float)));
 		return p_radius;
 	}
 	public function get_emission_ring_radius():Float return __particleprocessmaterial_ptr().value.get_emission_ring_radius();
 	public function set_emission_ring_inner_radius(p_inner_radius:Float):Float {
-		__particleprocessmaterial_ptr().value.set_emission_ring_inner_radius(p_inner_radius);
+		__particleprocessmaterial_ptr().value.set_emission_ring_inner_radius(((p_inner_radius : Float)));
 		return p_inner_radius;
 	}
 	public function get_emission_ring_inner_radius():Float return __particleprocessmaterial_ptr().value.get_emission_ring_inner_radius();
 	public function set_emission_shape_offset(p_emission_shape_offset:gd.Vector3):gd.Vector3 {
-		__particleprocessmaterial_ptr().value.set_emission_shape_offset(p_emission_shape_offset);
+		__particleprocessmaterial_ptr().value.set_emission_shape_offset(((p_emission_shape_offset : gd.Vector3)));
 		return p_emission_shape_offset;
 	}
 	public function get_emission_shape_offset():gd.Vector3 return __particleprocessmaterial_ptr().value.get_emission_shape_offset();
 	public function set_emission_shape_scale(p_emission_shape_scale:gd.Vector3):gd.Vector3 {
-		__particleprocessmaterial_ptr().value.set_emission_shape_scale(p_emission_shape_scale);
+		__particleprocessmaterial_ptr().value.set_emission_shape_scale(((p_emission_shape_scale : gd.Vector3)));
 		return p_emission_shape_scale;
 	}
 	public function get_emission_shape_scale():gd.Vector3 return __particleprocessmaterial_ptr().value.get_emission_shape_scale();
 	public function get_turbulence_enabled():Bool return __particleprocessmaterial_ptr().value.get_turbulence_enabled();
 	public function set_turbulence_enabled(p_turbulence_enabled:Bool):Bool {
-		__particleprocessmaterial_ptr().value.set_turbulence_enabled(p_turbulence_enabled);
+		__particleprocessmaterial_ptr().value.set_turbulence_enabled(((p_turbulence_enabled : Bool)));
 		return p_turbulence_enabled;
 	}
 	public function get_turbulence_noise_strength():Float return __particleprocessmaterial_ptr().value.get_turbulence_noise_strength();
 	public function set_turbulence_noise_strength(p_turbulence_noise_strength:Float):Float {
-		__particleprocessmaterial_ptr().value.set_turbulence_noise_strength(p_turbulence_noise_strength);
+		__particleprocessmaterial_ptr().value.set_turbulence_noise_strength(((p_turbulence_noise_strength : Float)));
 		return p_turbulence_noise_strength;
 	}
 	public function get_turbulence_noise_scale():Float return __particleprocessmaterial_ptr().value.get_turbulence_noise_scale();
 	public function set_turbulence_noise_scale(p_turbulence_noise_scale:Float):Float {
-		__particleprocessmaterial_ptr().value.set_turbulence_noise_scale(p_turbulence_noise_scale);
+		__particleprocessmaterial_ptr().value.set_turbulence_noise_scale(((p_turbulence_noise_scale : Float)));
 		return p_turbulence_noise_scale;
 	}
 	public function get_turbulence_noise_speed_random():Float return __particleprocessmaterial_ptr().value.get_turbulence_noise_speed_random();
 	public function set_turbulence_noise_speed_random(p_turbulence_noise_speed_random:Float):Float {
-		__particleprocessmaterial_ptr().value.set_turbulence_noise_speed_random(p_turbulence_noise_speed_random);
+		__particleprocessmaterial_ptr().value.set_turbulence_noise_speed_random(((p_turbulence_noise_speed_random : Float)));
 		return p_turbulence_noise_speed_random;
 	}
 	public function get_turbulence_noise_speed():gd.Vector3 return __particleprocessmaterial_ptr().value.get_turbulence_noise_speed();
 	public function set_turbulence_noise_speed(p_turbulence_noise_speed:gd.Vector3):gd.Vector3 {
-		__particleprocessmaterial_ptr().value.set_turbulence_noise_speed(p_turbulence_noise_speed);
+		__particleprocessmaterial_ptr().value.set_turbulence_noise_speed(((p_turbulence_noise_speed : gd.Vector3)));
 		return p_turbulence_noise_speed;
 	}
 	public function get_gravity():gd.Vector3 return __particleprocessmaterial_ptr().value.get_gravity();
 	public function set_gravity(p_accel_vec:gd.Vector3):gd.Vector3 {
-		__particleprocessmaterial_ptr().value.set_gravity(p_accel_vec);
+		__particleprocessmaterial_ptr().value.set_gravity(((p_accel_vec : gd.Vector3)));
 		return p_accel_vec;
 	}
 	public function set_lifetime_randomness(p_randomness:Float):Float {
-		__particleprocessmaterial_ptr().value.set_lifetime_randomness(p_randomness);
+		__particleprocessmaterial_ptr().value.set_lifetime_randomness(((p_randomness : Float)));
 		return p_randomness;
 	}
 	public function get_lifetime_randomness():Float return __particleprocessmaterial_ptr().value.get_lifetime_randomness();
 	public function get_sub_emitter_mode():gd.particleprocessmaterial.SubEmitterMode return __particleprocessmaterial_ptr().value.get_sub_emitter_mode();
 	public function set_sub_emitter_mode(p_mode:gd.particleprocessmaterial.SubEmitterMode):gd.particleprocessmaterial.SubEmitterMode {
-		__particleprocessmaterial_ptr().value.set_sub_emitter_mode(p_mode);
+		__particleprocessmaterial_ptr().value.set_sub_emitter_mode(((p_mode : gd.particleprocessmaterial.SubEmitterMode)));
 		return p_mode;
 	}
 	public function get_sub_emitter_frequency():Float return __particleprocessmaterial_ptr().value.get_sub_emitter_frequency();
 	public function set_sub_emitter_frequency(p_hz:Float):Float {
-		__particleprocessmaterial_ptr().value.set_sub_emitter_frequency(p_hz);
+		__particleprocessmaterial_ptr().value.set_sub_emitter_frequency(((p_hz : Float)));
 		return p_hz;
 	}
 	public function get_sub_emitter_amount_at_end():Int return __particleprocessmaterial_ptr().value.get_sub_emitter_amount_at_end();
 	public function set_sub_emitter_amount_at_end(p_amount:Int):Int {
-		__particleprocessmaterial_ptr().value.set_sub_emitter_amount_at_end(p_amount);
+		__particleprocessmaterial_ptr().value.set_sub_emitter_amount_at_end(((p_amount : Int)));
 		return p_amount;
 	}
 	public function get_sub_emitter_amount_at_collision():Int return __particleprocessmaterial_ptr().value.get_sub_emitter_amount_at_collision();
 	public function set_sub_emitter_amount_at_collision(p_amount:Int):Int {
-		__particleprocessmaterial_ptr().value.set_sub_emitter_amount_at_collision(p_amount);
+		__particleprocessmaterial_ptr().value.set_sub_emitter_amount_at_collision(((p_amount : Int)));
 		return p_amount;
 	}
 	public function get_sub_emitter_keep_velocity():Bool return __particleprocessmaterial_ptr().value.get_sub_emitter_keep_velocity();
 	public function set_sub_emitter_keep_velocity(p_enable:Bool):Bool {
-		__particleprocessmaterial_ptr().value.set_sub_emitter_keep_velocity(p_enable);
+		__particleprocessmaterial_ptr().value.set_sub_emitter_keep_velocity(((p_enable : Bool)));
 		return p_enable;
 	}
 	public function set_attractor_interaction_enabled(p_enabled:Bool):Bool {
-		__particleprocessmaterial_ptr().value.set_attractor_interaction_enabled(p_enabled);
+		__particleprocessmaterial_ptr().value.set_attractor_interaction_enabled(((p_enabled : Bool)));
 		return p_enabled;
 	}
 	public function is_attractor_interaction_enabled():Bool return __particleprocessmaterial_ptr().value.is_attractor_interaction_enabled();
 	public function set_collision_mode(p_mode:gd.particleprocessmaterial.CollisionMode):gd.particleprocessmaterial.CollisionMode {
-		__particleprocessmaterial_ptr().value.set_collision_mode(p_mode);
+		__particleprocessmaterial_ptr().value.set_collision_mode(((p_mode : gd.particleprocessmaterial.CollisionMode)));
 		return p_mode;
 	}
 	public function get_collision_mode():gd.particleprocessmaterial.CollisionMode return __particleprocessmaterial_ptr().value.get_collision_mode();
 	public function set_collision_use_scale(p_radius:Bool):Bool {
-		__particleprocessmaterial_ptr().value.set_collision_use_scale(p_radius);
+		__particleprocessmaterial_ptr().value.set_collision_use_scale(((p_radius : Bool)));
 		return p_radius;
 	}
 	public function is_collision_using_scale():Bool return __particleprocessmaterial_ptr().value.is_collision_using_scale();
 	public function set_collision_friction(p_friction:Float):Float {
-		__particleprocessmaterial_ptr().value.set_collision_friction(p_friction);
+		__particleprocessmaterial_ptr().value.set_collision_friction(((p_friction : Float)));
 		return p_friction;
 	}
 	public function get_collision_friction():Float return __particleprocessmaterial_ptr().value.get_collision_friction();
 	public function set_collision_bounce(p_bounce:Float):Float {
-		__particleprocessmaterial_ptr().value.set_collision_bounce(p_bounce);
+		__particleprocessmaterial_ptr().value.set_collision_bounce(((p_bounce : Float)));
 		return p_bounce;
 	}
 	public function get_collision_bounce():Float return __particleprocessmaterial_ptr().value.get_collision_bounce();

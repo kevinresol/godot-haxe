@@ -7,7 +7,7 @@ extern class AcceptDialog extends gd.Window {
 	function get_hide_on_ok():Bool;
 	function set_close_on_escape(p_enabled:Bool):Void;
 	function get_close_on_escape():Bool;
-	function add_button(p_text:std.String, ?p_right:Bool = false, ?p_action:std.String = "\"\""):gd.Button;
+	function add_button(p_text:std.String, ?p_right:Bool, ?p_action:std.String):gd.Button;
 	function add_cancel_button(p_name:std.String):gd.Button;
 	function remove_button(p_button:gd.Button):Void;
 	function register_text_enter(p_line_edit:gd.LineEdit):Void;

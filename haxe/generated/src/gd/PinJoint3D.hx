@@ -9,6 +9,6 @@ class PinJoint3D extends gd.Joint3D {
 		super(native.reinterpret());
 	}
 	extern inline function __pinjoint3d_ptr():cpp.Pointer<gdnative.PinJoint3D.PinJoint3D_extern> return cast __gd.ptr;
-	public function set_param(p_param:gd.pinjoint3d.Param, p_value:Float):Void __pinjoint3d_ptr().value.set_param(p_param, p_value);
-	public function get_param(p_param:gd.pinjoint3d.Param):Float return __pinjoint3d_ptr().value.get_param(p_param);
+	public function set_param(p_param:gd.pinjoint3d.Param, p_value:Float):Void __pinjoint3d_ptr().value.set_param(((p_param : gd.pinjoint3d.Param)), ((p_value : Float)));
+	public function get_param(p_param:gd.pinjoint3d.Param):Float return __pinjoint3d_ptr().value.get_param(((p_param : gd.pinjoint3d.Param)));
 }

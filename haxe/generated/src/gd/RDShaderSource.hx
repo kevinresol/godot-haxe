@@ -9,10 +9,10 @@ class RDShaderSource extends gd.RefCounted {
 		super(native.reinterpret());
 	}
 	extern inline function __rdshadersource_ptr():cpp.Pointer<gdnative.RDShaderSource.RDShaderSource_extern> return cast __gd.ptr;
-	public function set_stage_source(p_stage:gd.renderingdevice.ShaderStage, p_source:std.String):Void __rdshadersource_ptr().value.set_stage_source(p_stage, p_source);
-	public function get_stage_source(p_stage:gd.renderingdevice.ShaderStage):std.String return __rdshadersource_ptr().value.get_stage_source(p_stage);
+	public function set_stage_source(p_stage:gd.renderingdevice.ShaderStage, p_source:std.String):Void __rdshadersource_ptr().value.set_stage_source(((p_stage : gd.renderingdevice.ShaderStage)), ((p_source : std.String)));
+	public function get_stage_source(p_stage:gd.renderingdevice.ShaderStage):std.String return __rdshadersource_ptr().value.get_stage_source(((p_stage : gd.renderingdevice.ShaderStage)));
 	public function set_language(p_language:gd.renderingdevice.ShaderLanguage):gd.renderingdevice.ShaderLanguage {
-		__rdshadersource_ptr().value.set_language(p_language);
+		__rdshadersource_ptr().value.set_language(((p_language : gd.renderingdevice.ShaderLanguage)));
 		return p_language;
 	}
 	public function get_language():gd.renderingdevice.ShaderLanguage return __rdshadersource_ptr().value.get_language();

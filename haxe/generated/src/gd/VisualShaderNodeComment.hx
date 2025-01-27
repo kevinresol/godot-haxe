@@ -10,7 +10,7 @@ class VisualShaderNodeComment extends gd.VisualShaderNodeFrame {
 	}
 	extern inline function __visualshadernodecomment_ptr():cpp.Pointer<gdnative.VisualShaderNodeComment.VisualShaderNodeComment_extern> return cast __gd.ptr;
 	public function set_description(p_description:std.String):std.String {
-		__visualshadernodecomment_ptr().value.set_description(p_description);
+		__visualshadernodecomment_ptr().value.set_description(((p_description : std.String)));
 		return p_description;
 	}
 	public function get_description():std.String return __visualshadernodecomment_ptr().value.get_description();

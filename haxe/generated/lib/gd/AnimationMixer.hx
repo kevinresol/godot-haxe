@@ -34,6 +34,7 @@ extern class AnimationMixer extends gd.Node {
 	function get_root_motion_scale_accumulator():gd.Vector3;
 	function clear_caches():Void;
 	function advance(p_delta:Float):Void;
+	function capture(p_name:std.String, p_duration:Float, ?p_trans_type:gd.tween.TransitionType, ?p_ease_type:gd.tween.EaseType):Void;
 	function set_reset_on_save_enabled(p_enabled:Bool):Void;
 	function is_reset_on_save_enabled():Bool;
 	function find_animation(p_animation:gd.Animation):std.String;

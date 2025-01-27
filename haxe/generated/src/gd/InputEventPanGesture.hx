@@ -10,7 +10,7 @@ class InputEventPanGesture extends gd.InputEventGesture {
 	}
 	extern inline function __inputeventpangesture_ptr():cpp.Pointer<gdnative.InputEventPanGesture.InputEventPanGesture_extern> return cast __gd.ptr;
 	public function set_delta(p_delta:gd.Vector2):gd.Vector2 {
-		__inputeventpangesture_ptr().value.set_delta(p_delta);
+		__inputeventpangesture_ptr().value.set_delta(((p_delta : gd.Vector2)));
 		return p_delta;
 	}
 	public function get_delta():gd.Vector2 return __inputeventpangesture_ptr().value.get_delta();

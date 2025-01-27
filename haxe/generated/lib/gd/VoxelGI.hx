@@ -9,6 +9,7 @@ extern class VoxelGI extends gd.VisualInstance3D {
 	function get_size():gd.Vector3;
 	function set_camera_attributes(p_camera_attributes:gd.CameraAttributes):gd.CameraAttributes;
 	function get_camera_attributes():gd.CameraAttributes;
+	function bake(?p_from_node:gd.Node, ?p_create_visual_debug:Bool):Void;
 	function debug_bake():Void;
 	var subdiv(get, set) : gd.voxelgi.Subdiv;
 	var size(get, set) : gd.Vector3;

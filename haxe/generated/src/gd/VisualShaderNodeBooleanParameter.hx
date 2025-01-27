@@ -10,12 +10,12 @@ class VisualShaderNodeBooleanParameter extends gd.VisualShaderNodeParameter {
 	}
 	extern inline function __visualshadernodebooleanparameter_ptr():cpp.Pointer<gdnative.VisualShaderNodeBooleanParameter.VisualShaderNodeBooleanParameter_extern> return cast __gd.ptr;
 	public function set_default_value_enabled(p_enabled:Bool):Bool {
-		__visualshadernodebooleanparameter_ptr().value.set_default_value_enabled(p_enabled);
+		__visualshadernodebooleanparameter_ptr().value.set_default_value_enabled(((p_enabled : Bool)));
 		return p_enabled;
 	}
 	public function is_default_value_enabled():Bool return __visualshadernodebooleanparameter_ptr().value.is_default_value_enabled();
 	public function set_default_value(p_value:Bool):Bool {
-		__visualshadernodebooleanparameter_ptr().value.set_default_value(p_value);
+		__visualshadernodebooleanparameter_ptr().value.set_default_value(((p_value : Bool)));
 		return p_value;
 	}
 	public function get_default_value():Bool return __visualshadernodebooleanparameter_ptr().value.get_default_value();

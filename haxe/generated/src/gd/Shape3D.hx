@@ -10,12 +10,12 @@ class Shape3D extends gd.Resource {
 	}
 	extern inline function __shape3d_ptr():cpp.Pointer<gdnative.Shape3D.Shape3D_extern> return cast __gd.ptr;
 	public function set_custom_solver_bias(p_bias:Float):Float {
-		__shape3d_ptr().value.set_custom_solver_bias(p_bias);
+		__shape3d_ptr().value.set_custom_solver_bias(((p_bias : Float)));
 		return p_bias;
 	}
 	public function get_custom_solver_bias():Float return __shape3d_ptr().value.get_custom_solver_bias();
 	public function set_margin(p_margin:Float):Float {
-		__shape3d_ptr().value.set_margin(p_margin);
+		__shape3d_ptr().value.set_margin(((p_margin : Float)));
 		return p_margin;
 	}
 	public function get_margin():Float return __shape3d_ptr().value.get_margin();

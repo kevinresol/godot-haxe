@@ -9,280 +9,280 @@ class BaseMaterial3D extends gd.Material {
 		super(native.reinterpret());
 	}
 	extern inline function __basematerial3d_ptr():cpp.Pointer<gdnative.BaseMaterial3D.BaseMaterial3D_extern> return cast __gd.ptr;
-	public function set_albedo(p_albedo:gd.Color):Void __basematerial3d_ptr().value.set_albedo(p_albedo);
+	public function set_albedo(p_albedo:gd.Color):Void __basematerial3d_ptr().value.set_albedo(((p_albedo : gd.Color)));
 	public function get_albedo():gd.Color return __basematerial3d_ptr().value.get_albedo();
 	public function set_transparency(p_transparency:gd.basematerial3d.Transparency):gd.basematerial3d.Transparency {
-		__basematerial3d_ptr().value.set_transparency(p_transparency);
+		__basematerial3d_ptr().value.set_transparency(((p_transparency : gd.basematerial3d.Transparency)));
 		return p_transparency;
 	}
 	public function get_transparency():gd.basematerial3d.Transparency return __basematerial3d_ptr().value.get_transparency();
-	public function set_alpha_antialiasing(p_alpha_aa:gd.basematerial3d.AlphaAntiAliasing):Void __basematerial3d_ptr().value.set_alpha_antialiasing(p_alpha_aa);
+	public function set_alpha_antialiasing(p_alpha_aa:gd.basematerial3d.AlphaAntiAliasing):Void __basematerial3d_ptr().value.set_alpha_antialiasing(((p_alpha_aa : gd.basematerial3d.AlphaAntiAliasing)));
 	public function get_alpha_antialiasing():gd.basematerial3d.AlphaAntiAliasing return __basematerial3d_ptr().value.get_alpha_antialiasing();
 	public function set_alpha_antialiasing_edge(p_edge:Float):Float {
-		__basematerial3d_ptr().value.set_alpha_antialiasing_edge(p_edge);
+		__basematerial3d_ptr().value.set_alpha_antialiasing_edge(((p_edge : Float)));
 		return p_edge;
 	}
 	public function get_alpha_antialiasing_edge():Float return __basematerial3d_ptr().value.get_alpha_antialiasing_edge();
 	public function set_shading_mode(p_shading_mode:gd.basematerial3d.ShadingMode):gd.basematerial3d.ShadingMode {
-		__basematerial3d_ptr().value.set_shading_mode(p_shading_mode);
+		__basematerial3d_ptr().value.set_shading_mode(((p_shading_mode : gd.basematerial3d.ShadingMode)));
 		return p_shading_mode;
 	}
 	public function get_shading_mode():gd.basematerial3d.ShadingMode return __basematerial3d_ptr().value.get_shading_mode();
-	public function set_specular(p_specular:Float):Void __basematerial3d_ptr().value.set_specular(p_specular);
+	public function set_specular(p_specular:Float):Void __basematerial3d_ptr().value.set_specular(((p_specular : Float)));
 	public function get_specular():Float return __basematerial3d_ptr().value.get_specular();
 	public function set_metallic(p_metallic:Float):Float {
-		__basematerial3d_ptr().value.set_metallic(p_metallic);
+		__basematerial3d_ptr().value.set_metallic(((p_metallic : Float)));
 		return p_metallic;
 	}
 	public function get_metallic():Float return __basematerial3d_ptr().value.get_metallic();
 	public function set_roughness(p_roughness:Float):Float {
-		__basematerial3d_ptr().value.set_roughness(p_roughness);
+		__basematerial3d_ptr().value.set_roughness(((p_roughness : Float)));
 		return p_roughness;
 	}
 	public function get_roughness():Float return __basematerial3d_ptr().value.get_roughness();
 	public function set_emission(p_emission:gd.Color):gd.Color {
-		__basematerial3d_ptr().value.set_emission(p_emission);
+		__basematerial3d_ptr().value.set_emission(((p_emission : gd.Color)));
 		return p_emission;
 	}
 	public function get_emission():gd.Color return __basematerial3d_ptr().value.get_emission();
 	public function set_emission_energy_multiplier(p_emission_energy_multiplier:Float):Float {
-		__basematerial3d_ptr().value.set_emission_energy_multiplier(p_emission_energy_multiplier);
+		__basematerial3d_ptr().value.set_emission_energy_multiplier(((p_emission_energy_multiplier : Float)));
 		return p_emission_energy_multiplier;
 	}
 	public function get_emission_energy_multiplier():Float return __basematerial3d_ptr().value.get_emission_energy_multiplier();
 	public function set_emission_intensity(p_emission_energy_multiplier:Float):Float {
-		__basematerial3d_ptr().value.set_emission_intensity(p_emission_energy_multiplier);
+		__basematerial3d_ptr().value.set_emission_intensity(((p_emission_energy_multiplier : Float)));
 		return p_emission_energy_multiplier;
 	}
 	public function get_emission_intensity():Float return __basematerial3d_ptr().value.get_emission_intensity();
 	public function set_normal_scale(p_normal_scale:Float):Float {
-		__basematerial3d_ptr().value.set_normal_scale(p_normal_scale);
+		__basematerial3d_ptr().value.set_normal_scale(((p_normal_scale : Float)));
 		return p_normal_scale;
 	}
 	public function get_normal_scale():Float return __basematerial3d_ptr().value.get_normal_scale();
 	public function set_rim(p_rim:Float):Float {
-		__basematerial3d_ptr().value.set_rim(p_rim);
+		__basematerial3d_ptr().value.set_rim(((p_rim : Float)));
 		return p_rim;
 	}
 	public function get_rim():Float return __basematerial3d_ptr().value.get_rim();
 	public function set_rim_tint(p_rim_tint:Float):Float {
-		__basematerial3d_ptr().value.set_rim_tint(p_rim_tint);
+		__basematerial3d_ptr().value.set_rim_tint(((p_rim_tint : Float)));
 		return p_rim_tint;
 	}
 	public function get_rim_tint():Float return __basematerial3d_ptr().value.get_rim_tint();
 	public function set_clearcoat(p_clearcoat:Float):Float {
-		__basematerial3d_ptr().value.set_clearcoat(p_clearcoat);
+		__basematerial3d_ptr().value.set_clearcoat(((p_clearcoat : Float)));
 		return p_clearcoat;
 	}
 	public function get_clearcoat():Float return __basematerial3d_ptr().value.get_clearcoat();
 	public function set_clearcoat_roughness(p_clearcoat_roughness:Float):Float {
-		__basematerial3d_ptr().value.set_clearcoat_roughness(p_clearcoat_roughness);
+		__basematerial3d_ptr().value.set_clearcoat_roughness(((p_clearcoat_roughness : Float)));
 		return p_clearcoat_roughness;
 	}
 	public function get_clearcoat_roughness():Float return __basematerial3d_ptr().value.get_clearcoat_roughness();
 	public function set_anisotropy(p_anisotropy:Float):Float {
-		__basematerial3d_ptr().value.set_anisotropy(p_anisotropy);
+		__basematerial3d_ptr().value.set_anisotropy(((p_anisotropy : Float)));
 		return p_anisotropy;
 	}
 	public function get_anisotropy():Float return __basematerial3d_ptr().value.get_anisotropy();
 	public function set_heightmap_scale(p_heightmap_scale:Float):Float {
-		__basematerial3d_ptr().value.set_heightmap_scale(p_heightmap_scale);
+		__basematerial3d_ptr().value.set_heightmap_scale(((p_heightmap_scale : Float)));
 		return p_heightmap_scale;
 	}
 	public function get_heightmap_scale():Float return __basematerial3d_ptr().value.get_heightmap_scale();
-	public function set_subsurface_scattering_strength(p_strength:Float):Void __basematerial3d_ptr().value.set_subsurface_scattering_strength(p_strength);
+	public function set_subsurface_scattering_strength(p_strength:Float):Void __basematerial3d_ptr().value.set_subsurface_scattering_strength(((p_strength : Float)));
 	public function get_subsurface_scattering_strength():Float return __basematerial3d_ptr().value.get_subsurface_scattering_strength();
-	public function set_transmittance_color(p_color:gd.Color):Void __basematerial3d_ptr().value.set_transmittance_color(p_color);
+	public function set_transmittance_color(p_color:gd.Color):Void __basematerial3d_ptr().value.set_transmittance_color(((p_color : gd.Color)));
 	public function get_transmittance_color():gd.Color return __basematerial3d_ptr().value.get_transmittance_color();
-	public function set_transmittance_depth(p_depth:Float):Void __basematerial3d_ptr().value.set_transmittance_depth(p_depth);
+	public function set_transmittance_depth(p_depth:Float):Void __basematerial3d_ptr().value.set_transmittance_depth(((p_depth : Float)));
 	public function get_transmittance_depth():Float return __basematerial3d_ptr().value.get_transmittance_depth();
-	public function set_transmittance_boost(p_boost:Float):Void __basematerial3d_ptr().value.set_transmittance_boost(p_boost);
+	public function set_transmittance_boost(p_boost:Float):Void __basematerial3d_ptr().value.set_transmittance_boost(((p_boost : Float)));
 	public function get_transmittance_boost():Float return __basematerial3d_ptr().value.get_transmittance_boost();
 	public function set_backlight(p_backlight:gd.Color):gd.Color {
-		__basematerial3d_ptr().value.set_backlight(p_backlight);
+		__basematerial3d_ptr().value.set_backlight(((p_backlight : gd.Color)));
 		return p_backlight;
 	}
 	public function get_backlight():gd.Color return __basematerial3d_ptr().value.get_backlight();
-	public function set_refraction(p_refraction:Float):Void __basematerial3d_ptr().value.set_refraction(p_refraction);
+	public function set_refraction(p_refraction:Float):Void __basematerial3d_ptr().value.set_refraction(((p_refraction : Float)));
 	public function get_refraction():Float return __basematerial3d_ptr().value.get_refraction();
 	public function set_point_size(p_point_size:Float):Float {
-		__basematerial3d_ptr().value.set_point_size(p_point_size);
+		__basematerial3d_ptr().value.set_point_size(((p_point_size : Float)));
 		return p_point_size;
 	}
 	public function get_point_size():Float return __basematerial3d_ptr().value.get_point_size();
-	public function set_detail_uv(p_detail_uv:gd.basematerial3d.DetailUV):Void __basematerial3d_ptr().value.set_detail_uv(p_detail_uv);
+	public function set_detail_uv(p_detail_uv:gd.basematerial3d.DetailUV):Void __basematerial3d_ptr().value.set_detail_uv(((p_detail_uv : gd.basematerial3d.DetailUV)));
 	public function get_detail_uv():gd.basematerial3d.DetailUV return __basematerial3d_ptr().value.get_detail_uv();
 	public function set_blend_mode(p_blend_mode:gd.basematerial3d.BlendMode):gd.basematerial3d.BlendMode {
-		__basematerial3d_ptr().value.set_blend_mode(p_blend_mode);
+		__basematerial3d_ptr().value.set_blend_mode(((p_blend_mode : gd.basematerial3d.BlendMode)));
 		return p_blend_mode;
 	}
 	public function get_blend_mode():gd.basematerial3d.BlendMode return __basematerial3d_ptr().value.get_blend_mode();
 	public function set_depth_draw_mode(p_depth_draw_mode:gd.basematerial3d.DepthDrawMode):gd.basematerial3d.DepthDrawMode {
-		__basematerial3d_ptr().value.set_depth_draw_mode(p_depth_draw_mode);
+		__basematerial3d_ptr().value.set_depth_draw_mode(((p_depth_draw_mode : gd.basematerial3d.DepthDrawMode)));
 		return p_depth_draw_mode;
 	}
 	public function get_depth_draw_mode():gd.basematerial3d.DepthDrawMode return __basematerial3d_ptr().value.get_depth_draw_mode();
 	public function set_cull_mode(p_cull_mode:gd.basematerial3d.CullMode):gd.basematerial3d.CullMode {
-		__basematerial3d_ptr().value.set_cull_mode(p_cull_mode);
+		__basematerial3d_ptr().value.set_cull_mode(((p_cull_mode : gd.basematerial3d.CullMode)));
 		return p_cull_mode;
 	}
 	public function get_cull_mode():gd.basematerial3d.CullMode return __basematerial3d_ptr().value.get_cull_mode();
 	public function set_diffuse_mode(p_diffuse_mode:gd.basematerial3d.DiffuseMode):gd.basematerial3d.DiffuseMode {
-		__basematerial3d_ptr().value.set_diffuse_mode(p_diffuse_mode);
+		__basematerial3d_ptr().value.set_diffuse_mode(((p_diffuse_mode : gd.basematerial3d.DiffuseMode)));
 		return p_diffuse_mode;
 	}
 	public function get_diffuse_mode():gd.basematerial3d.DiffuseMode return __basematerial3d_ptr().value.get_diffuse_mode();
 	public function set_specular_mode(p_specular_mode:gd.basematerial3d.SpecularMode):gd.basematerial3d.SpecularMode {
-		__basematerial3d_ptr().value.set_specular_mode(p_specular_mode);
+		__basematerial3d_ptr().value.set_specular_mode(((p_specular_mode : gd.basematerial3d.SpecularMode)));
 		return p_specular_mode;
 	}
 	public function get_specular_mode():gd.basematerial3d.SpecularMode return __basematerial3d_ptr().value.get_specular_mode();
-	public function set_flag(p_flag:gd.basematerial3d.Flags, p_enable:Bool):Void __basematerial3d_ptr().value.set_flag(p_flag, p_enable);
-	public function get_flag(p_flag:gd.basematerial3d.Flags):Bool return __basematerial3d_ptr().value.get_flag(p_flag);
+	public function set_flag(p_flag:gd.basematerial3d.Flags, p_enable:Bool):Void __basematerial3d_ptr().value.set_flag(((p_flag : gd.basematerial3d.Flags)), ((p_enable : Bool)));
+	public function get_flag(p_flag:gd.basematerial3d.Flags):Bool return __basematerial3d_ptr().value.get_flag(((p_flag : gd.basematerial3d.Flags)));
 	public function set_texture_filter(p_mode:gd.basematerial3d.TextureFilter):gd.basematerial3d.TextureFilter {
-		__basematerial3d_ptr().value.set_texture_filter(p_mode);
+		__basematerial3d_ptr().value.set_texture_filter(((p_mode : gd.basematerial3d.TextureFilter)));
 		return p_mode;
 	}
 	public function get_texture_filter():gd.basematerial3d.TextureFilter return __basematerial3d_ptr().value.get_texture_filter();
-	public function set_feature(p_feature:gd.basematerial3d.Feature, p_enable:Bool):Void __basematerial3d_ptr().value.set_feature(p_feature, p_enable);
-	public function get_feature(p_feature:gd.basematerial3d.Feature):Bool return __basematerial3d_ptr().value.get_feature(p_feature);
-	public function set_texture(p_param:gd.basematerial3d.TextureParam, p_texture:gd.Texture2D):Void __basematerial3d_ptr().value.set_texture(p_param, p_texture);
-	public function get_texture(p_param:gd.basematerial3d.TextureParam):gd.Texture2D return __basematerial3d_ptr().value.get_texture(p_param);
+	public function set_feature(p_feature:gd.basematerial3d.Feature, p_enable:Bool):Void __basematerial3d_ptr().value.set_feature(((p_feature : gd.basematerial3d.Feature)), ((p_enable : Bool)));
+	public function get_feature(p_feature:gd.basematerial3d.Feature):Bool return __basematerial3d_ptr().value.get_feature(((p_feature : gd.basematerial3d.Feature)));
+	public function set_texture(p_param:gd.basematerial3d.TextureParam, p_texture:gd.Texture2D):Void __basematerial3d_ptr().value.set_texture(((p_param : gd.basematerial3d.TextureParam)), ((p_texture : gd.Texture2D)));
+	public function get_texture(p_param:gd.basematerial3d.TextureParam):gd.Texture2D return __basematerial3d_ptr().value.get_texture(((p_param : gd.basematerial3d.TextureParam)));
 	public function set_detail_blend_mode(p_detail_blend_mode:gd.basematerial3d.BlendMode):gd.basematerial3d.BlendMode {
-		__basematerial3d_ptr().value.set_detail_blend_mode(p_detail_blend_mode);
+		__basematerial3d_ptr().value.set_detail_blend_mode(((p_detail_blend_mode : gd.basematerial3d.BlendMode)));
 		return p_detail_blend_mode;
 	}
 	public function get_detail_blend_mode():gd.basematerial3d.BlendMode return __basematerial3d_ptr().value.get_detail_blend_mode();
 	public function set_uv1_scale(p_scale:gd.Vector3):gd.Vector3 {
-		__basematerial3d_ptr().value.set_uv1_scale(p_scale);
+		__basematerial3d_ptr().value.set_uv1_scale(((p_scale : gd.Vector3)));
 		return p_scale;
 	}
 	public function get_uv1_scale():gd.Vector3 return __basematerial3d_ptr().value.get_uv1_scale();
 	public function set_uv1_offset(p_offset:gd.Vector3):gd.Vector3 {
-		__basematerial3d_ptr().value.set_uv1_offset(p_offset);
+		__basematerial3d_ptr().value.set_uv1_offset(((p_offset : gd.Vector3)));
 		return p_offset;
 	}
 	public function get_uv1_offset():gd.Vector3 return __basematerial3d_ptr().value.get_uv1_offset();
-	public function set_uv1_triplanar_blend_sharpness(p_sharpness:Float):Void __basematerial3d_ptr().value.set_uv1_triplanar_blend_sharpness(p_sharpness);
+	public function set_uv1_triplanar_blend_sharpness(p_sharpness:Float):Void __basematerial3d_ptr().value.set_uv1_triplanar_blend_sharpness(((p_sharpness : Float)));
 	public function get_uv1_triplanar_blend_sharpness():Float return __basematerial3d_ptr().value.get_uv1_triplanar_blend_sharpness();
 	public function set_uv2_scale(p_scale:gd.Vector3):gd.Vector3 {
-		__basematerial3d_ptr().value.set_uv2_scale(p_scale);
+		__basematerial3d_ptr().value.set_uv2_scale(((p_scale : gd.Vector3)));
 		return p_scale;
 	}
 	public function get_uv2_scale():gd.Vector3 return __basematerial3d_ptr().value.get_uv2_scale();
 	public function set_uv2_offset(p_offset:gd.Vector3):gd.Vector3 {
-		__basematerial3d_ptr().value.set_uv2_offset(p_offset);
+		__basematerial3d_ptr().value.set_uv2_offset(((p_offset : gd.Vector3)));
 		return p_offset;
 	}
 	public function get_uv2_offset():gd.Vector3 return __basematerial3d_ptr().value.get_uv2_offset();
-	public function set_uv2_triplanar_blend_sharpness(p_sharpness:Float):Void __basematerial3d_ptr().value.set_uv2_triplanar_blend_sharpness(p_sharpness);
+	public function set_uv2_triplanar_blend_sharpness(p_sharpness:Float):Void __basematerial3d_ptr().value.set_uv2_triplanar_blend_sharpness(((p_sharpness : Float)));
 	public function get_uv2_triplanar_blend_sharpness():Float return __basematerial3d_ptr().value.get_uv2_triplanar_blend_sharpness();
 	public function set_billboard_mode(p_mode:gd.basematerial3d.BillboardMode):gd.basematerial3d.BillboardMode {
-		__basematerial3d_ptr().value.set_billboard_mode(p_mode);
+		__basematerial3d_ptr().value.set_billboard_mode(((p_mode : gd.basematerial3d.BillboardMode)));
 		return p_mode;
 	}
 	public function get_billboard_mode():gd.basematerial3d.BillboardMode return __basematerial3d_ptr().value.get_billboard_mode();
 	public function set_particles_anim_h_frames(p_frames:Int):Int {
-		__basematerial3d_ptr().value.set_particles_anim_h_frames(p_frames);
+		__basematerial3d_ptr().value.set_particles_anim_h_frames(((p_frames : Int)));
 		return p_frames;
 	}
 	public function get_particles_anim_h_frames():Int return __basematerial3d_ptr().value.get_particles_anim_h_frames();
 	public function set_particles_anim_v_frames(p_frames:Int):Int {
-		__basematerial3d_ptr().value.set_particles_anim_v_frames(p_frames);
+		__basematerial3d_ptr().value.set_particles_anim_v_frames(((p_frames : Int)));
 		return p_frames;
 	}
 	public function get_particles_anim_v_frames():Int return __basematerial3d_ptr().value.get_particles_anim_v_frames();
 	public function set_particles_anim_loop(p_loop:Bool):Bool {
-		__basematerial3d_ptr().value.set_particles_anim_loop(p_loop);
+		__basematerial3d_ptr().value.set_particles_anim_loop(((p_loop : Bool)));
 		return p_loop;
 	}
 	public function get_particles_anim_loop():Bool return __basematerial3d_ptr().value.get_particles_anim_loop();
 	public function set_heightmap_deep_parallax(p_enable:Bool):Bool {
-		__basematerial3d_ptr().value.set_heightmap_deep_parallax(p_enable);
+		__basematerial3d_ptr().value.set_heightmap_deep_parallax(((p_enable : Bool)));
 		return p_enable;
 	}
 	public function is_heightmap_deep_parallax_enabled():Bool return __basematerial3d_ptr().value.is_heightmap_deep_parallax_enabled();
-	public function set_heightmap_deep_parallax_min_layers(p_layer:Int):Void __basematerial3d_ptr().value.set_heightmap_deep_parallax_min_layers(p_layer);
+	public function set_heightmap_deep_parallax_min_layers(p_layer:Int):Void __basematerial3d_ptr().value.set_heightmap_deep_parallax_min_layers(((p_layer : Int)));
 	public function get_heightmap_deep_parallax_min_layers():Int return __basematerial3d_ptr().value.get_heightmap_deep_parallax_min_layers();
-	public function set_heightmap_deep_parallax_max_layers(p_layer:Int):Void __basematerial3d_ptr().value.set_heightmap_deep_parallax_max_layers(p_layer);
+	public function set_heightmap_deep_parallax_max_layers(p_layer:Int):Void __basematerial3d_ptr().value.set_heightmap_deep_parallax_max_layers(((p_layer : Int)));
 	public function get_heightmap_deep_parallax_max_layers():Int return __basematerial3d_ptr().value.get_heightmap_deep_parallax_max_layers();
-	public function set_heightmap_deep_parallax_flip_tangent(p_flip:Bool):Void __basematerial3d_ptr().value.set_heightmap_deep_parallax_flip_tangent(p_flip);
+	public function set_heightmap_deep_parallax_flip_tangent(p_flip:Bool):Void __basematerial3d_ptr().value.set_heightmap_deep_parallax_flip_tangent(((p_flip : Bool)));
 	public function get_heightmap_deep_parallax_flip_tangent():Bool return __basematerial3d_ptr().value.get_heightmap_deep_parallax_flip_tangent();
-	public function set_heightmap_deep_parallax_flip_binormal(p_flip:Bool):Void __basematerial3d_ptr().value.set_heightmap_deep_parallax_flip_binormal(p_flip);
+	public function set_heightmap_deep_parallax_flip_binormal(p_flip:Bool):Void __basematerial3d_ptr().value.set_heightmap_deep_parallax_flip_binormal(((p_flip : Bool)));
 	public function get_heightmap_deep_parallax_flip_binormal():Bool return __basematerial3d_ptr().value.get_heightmap_deep_parallax_flip_binormal();
-	public function set_grow(p_amount:Float):Void __basematerial3d_ptr().value.set_grow(p_amount);
+	public function set_grow(p_amount:Float):Void __basematerial3d_ptr().value.set_grow(((p_amount : Float)));
 	public function get_grow():Float return __basematerial3d_ptr().value.get_grow();
 	public function set_emission_operator(p_operator:gd.basematerial3d.EmissionOperator):gd.basematerial3d.EmissionOperator {
-		__basematerial3d_ptr().value.set_emission_operator(p_operator);
+		__basematerial3d_ptr().value.set_emission_operator(((p_operator : gd.basematerial3d.EmissionOperator)));
 		return p_operator;
 	}
 	public function get_emission_operator():gd.basematerial3d.EmissionOperator return __basematerial3d_ptr().value.get_emission_operator();
 	public function set_ao_light_affect(p_amount:Float):Float {
-		__basematerial3d_ptr().value.set_ao_light_affect(p_amount);
+		__basematerial3d_ptr().value.set_ao_light_affect(((p_amount : Float)));
 		return p_amount;
 	}
 	public function get_ao_light_affect():Float return __basematerial3d_ptr().value.get_ao_light_affect();
 	public function set_alpha_scissor_threshold(p_threshold:Float):Float {
-		__basematerial3d_ptr().value.set_alpha_scissor_threshold(p_threshold);
+		__basematerial3d_ptr().value.set_alpha_scissor_threshold(((p_threshold : Float)));
 		return p_threshold;
 	}
 	public function get_alpha_scissor_threshold():Float return __basematerial3d_ptr().value.get_alpha_scissor_threshold();
 	public function set_alpha_hash_scale(p_threshold:Float):Float {
-		__basematerial3d_ptr().value.set_alpha_hash_scale(p_threshold);
+		__basematerial3d_ptr().value.set_alpha_hash_scale(((p_threshold : Float)));
 		return p_threshold;
 	}
 	public function get_alpha_hash_scale():Float return __basematerial3d_ptr().value.get_alpha_hash_scale();
-	public function set_grow_enabled(p_enable:Bool):Void __basematerial3d_ptr().value.set_grow_enabled(p_enable);
+	public function set_grow_enabled(p_enable:Bool):Void __basematerial3d_ptr().value.set_grow_enabled(((p_enable : Bool)));
 	public function is_grow_enabled():Bool return __basematerial3d_ptr().value.is_grow_enabled();
 	public function set_metallic_texture_channel(p_channel:gd.basematerial3d.TextureChannel):gd.basematerial3d.TextureChannel {
-		__basematerial3d_ptr().value.set_metallic_texture_channel(p_channel);
+		__basematerial3d_ptr().value.set_metallic_texture_channel(((p_channel : gd.basematerial3d.TextureChannel)));
 		return p_channel;
 	}
 	public function get_metallic_texture_channel():gd.basematerial3d.TextureChannel return __basematerial3d_ptr().value.get_metallic_texture_channel();
 	public function set_roughness_texture_channel(p_channel:gd.basematerial3d.TextureChannel):gd.basematerial3d.TextureChannel {
-		__basematerial3d_ptr().value.set_roughness_texture_channel(p_channel);
+		__basematerial3d_ptr().value.set_roughness_texture_channel(((p_channel : gd.basematerial3d.TextureChannel)));
 		return p_channel;
 	}
 	public function get_roughness_texture_channel():gd.basematerial3d.TextureChannel return __basematerial3d_ptr().value.get_roughness_texture_channel();
 	public function set_ao_texture_channel(p_channel:gd.basematerial3d.TextureChannel):gd.basematerial3d.TextureChannel {
-		__basematerial3d_ptr().value.set_ao_texture_channel(p_channel);
+		__basematerial3d_ptr().value.set_ao_texture_channel(((p_channel : gd.basematerial3d.TextureChannel)));
 		return p_channel;
 	}
 	public function get_ao_texture_channel():gd.basematerial3d.TextureChannel return __basematerial3d_ptr().value.get_ao_texture_channel();
 	public function set_refraction_texture_channel(p_channel:gd.basematerial3d.TextureChannel):gd.basematerial3d.TextureChannel {
-		__basematerial3d_ptr().value.set_refraction_texture_channel(p_channel);
+		__basematerial3d_ptr().value.set_refraction_texture_channel(((p_channel : gd.basematerial3d.TextureChannel)));
 		return p_channel;
 	}
 	public function get_refraction_texture_channel():gd.basematerial3d.TextureChannel return __basematerial3d_ptr().value.get_refraction_texture_channel();
 	public function set_proximity_fade_enabled(p_enabled:Bool):Bool {
-		__basematerial3d_ptr().value.set_proximity_fade_enabled(p_enabled);
+		__basematerial3d_ptr().value.set_proximity_fade_enabled(((p_enabled : Bool)));
 		return p_enabled;
 	}
 	public function is_proximity_fade_enabled():Bool return __basematerial3d_ptr().value.is_proximity_fade_enabled();
 	public function set_proximity_fade_distance(p_distance:Float):Float {
-		__basematerial3d_ptr().value.set_proximity_fade_distance(p_distance);
+		__basematerial3d_ptr().value.set_proximity_fade_distance(((p_distance : Float)));
 		return p_distance;
 	}
 	public function get_proximity_fade_distance():Float return __basematerial3d_ptr().value.get_proximity_fade_distance();
 	public function set_msdf_pixel_range(p_range:Float):Float {
-		__basematerial3d_ptr().value.set_msdf_pixel_range(p_range);
+		__basematerial3d_ptr().value.set_msdf_pixel_range(((p_range : Float)));
 		return p_range;
 	}
 	public function get_msdf_pixel_range():Float return __basematerial3d_ptr().value.get_msdf_pixel_range();
 	public function set_msdf_outline_size(p_size:Float):Float {
-		__basematerial3d_ptr().value.set_msdf_outline_size(p_size);
+		__basematerial3d_ptr().value.set_msdf_outline_size(((p_size : Float)));
 		return p_size;
 	}
 	public function get_msdf_outline_size():Float return __basematerial3d_ptr().value.get_msdf_outline_size();
-	public function set_distance_fade(p_mode:gd.basematerial3d.DistanceFadeMode):Void __basematerial3d_ptr().value.set_distance_fade(p_mode);
+	public function set_distance_fade(p_mode:gd.basematerial3d.DistanceFadeMode):Void __basematerial3d_ptr().value.set_distance_fade(((p_mode : gd.basematerial3d.DistanceFadeMode)));
 	public function get_distance_fade():gd.basematerial3d.DistanceFadeMode return __basematerial3d_ptr().value.get_distance_fade();
 	public function set_distance_fade_max_distance(p_distance:Float):Float {
-		__basematerial3d_ptr().value.set_distance_fade_max_distance(p_distance);
+		__basematerial3d_ptr().value.set_distance_fade_max_distance(((p_distance : Float)));
 		return p_distance;
 	}
 	public function get_distance_fade_max_distance():Float return __basematerial3d_ptr().value.get_distance_fade_max_distance();
 	public function set_distance_fade_min_distance(p_distance:Float):Float {
-		__basematerial3d_ptr().value.set_distance_fade_min_distance(p_distance);
+		__basematerial3d_ptr().value.set_distance_fade_min_distance(((p_distance : Float)));
 		return p_distance;
 	}
 	public function get_distance_fade_min_distance():Float return __basematerial3d_ptr().value.get_distance_fade_min_distance();

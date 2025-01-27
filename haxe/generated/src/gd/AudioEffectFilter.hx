@@ -9,20 +9,20 @@ class AudioEffectFilter extends gd.AudioEffect {
 		super(native.reinterpret());
 	}
 	extern inline function __audioeffectfilter_ptr():cpp.Pointer<gdnative.AudioEffectFilter.AudioEffectFilter_extern> return cast __gd.ptr;
-	public function set_cutoff(p_freq:Float):Void __audioeffectfilter_ptr().value.set_cutoff(p_freq);
+	public function set_cutoff(p_freq:Float):Void __audioeffectfilter_ptr().value.set_cutoff(((p_freq : Float)));
 	public function get_cutoff():Float return __audioeffectfilter_ptr().value.get_cutoff();
 	public function set_resonance(p_amount:Float):Float {
-		__audioeffectfilter_ptr().value.set_resonance(p_amount);
+		__audioeffectfilter_ptr().value.set_resonance(((p_amount : Float)));
 		return p_amount;
 	}
 	public function get_resonance():Float return __audioeffectfilter_ptr().value.get_resonance();
 	public function set_gain(p_amount:Float):Float {
-		__audioeffectfilter_ptr().value.set_gain(p_amount);
+		__audioeffectfilter_ptr().value.set_gain(((p_amount : Float)));
 		return p_amount;
 	}
 	public function get_gain():Float return __audioeffectfilter_ptr().value.get_gain();
 	public function set_db(p_amount:gd.audioeffectfilter.FilterDB):gd.audioeffectfilter.FilterDB {
-		__audioeffectfilter_ptr().value.set_db(p_amount);
+		__audioeffectfilter_ptr().value.set_db(((p_amount : gd.audioeffectfilter.FilterDB)));
 		return p_amount;
 	}
 	public function get_db():gd.audioeffectfilter.FilterDB return __audioeffectfilter_ptr().value.get_db();

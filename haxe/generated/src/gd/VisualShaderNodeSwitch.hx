@@ -10,7 +10,7 @@ class VisualShaderNodeSwitch extends gd.VisualShaderNode {
 	}
 	extern inline function __visualshadernodeswitch_ptr():cpp.Pointer<gdnative.VisualShaderNodeSwitch.VisualShaderNodeSwitch_extern> return cast __gd.ptr;
 	public function set_op_type(p_type:gd.visualshadernodeswitch.OpType):gd.visualshadernodeswitch.OpType {
-		__visualshadernodeswitch_ptr().value.set_op_type(p_type);
+		__visualshadernodeswitch_ptr().value.set_op_type(((p_type : gd.visualshadernodeswitch.OpType)));
 		return p_type;
 	}
 	public function get_op_type():gd.visualshadernodeswitch.OpType return __visualshadernodeswitch_ptr().value.get_op_type();

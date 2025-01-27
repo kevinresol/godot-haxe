@@ -10,21 +10,21 @@ class Joint2D extends gd.Node2D {
 	}
 	extern inline function __joint2d_ptr():cpp.Pointer<gdnative.Joint2D.Joint2D_extern> return cast __gd.ptr;
 	public function set_node_a(p_node:std.String):std.String {
-		__joint2d_ptr().value.set_node_a(p_node);
+		__joint2d_ptr().value.set_node_a(((p_node : std.String)));
 		return p_node;
 	}
 	public function get_node_a():std.String return __joint2d_ptr().value.get_node_a();
 	public function set_node_b(p_node:std.String):std.String {
-		__joint2d_ptr().value.set_node_b(p_node);
+		__joint2d_ptr().value.set_node_b(((p_node : std.String)));
 		return p_node;
 	}
 	public function get_node_b():std.String return __joint2d_ptr().value.get_node_b();
 	public function set_bias(p_bias:Float):Float {
-		__joint2d_ptr().value.set_bias(p_bias);
+		__joint2d_ptr().value.set_bias(((p_bias : Float)));
 		return p_bias;
 	}
 	public function get_bias():Float return __joint2d_ptr().value.get_bias();
-	public function set_exclude_nodes_from_collision(p_enable:Bool):Void __joint2d_ptr().value.set_exclude_nodes_from_collision(p_enable);
+	public function set_exclude_nodes_from_collision(p_enable:Bool):Void __joint2d_ptr().value.set_exclude_nodes_from_collision(((p_enable : Bool)));
 	public function get_exclude_nodes_from_collision():Bool return __joint2d_ptr().value.get_exclude_nodes_from_collision();
 	public function get_rid():gd.RID return __joint2d_ptr().value.get_rid();
 	var node_a(get, set) : std.String;

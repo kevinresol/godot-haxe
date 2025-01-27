@@ -3,6 +3,7 @@ extern class PhysicalBone3D extends gd.PhysicsBody3D {
 	function new(?owner:Dynamic);
 	function _integrate_forces(p_state:gd.PhysicsDirectBodyState3D):Void;
 	function apply_central_impulse(p_impulse:gd.Vector3):Void;
+	function apply_impulse(p_impulse:gd.Vector3, ?p_position:gd.Vector3):Void;
 	function set_joint_type(p_joint_type:gd.physicalbone3d.JointType):gd.physicalbone3d.JointType;
 	function get_joint_type():gd.physicalbone3d.JointType;
 	function set_joint_rotation(p_euler:gd.Vector3):gd.Vector3;

@@ -1,12 +1,12 @@
 package gdnative;
 @:include("godot_cpp/classes/stream_peer_gzip.hpp") @:native("godot::StreamPeerGZIP") @:structAccess extern class StreamPeerGZIP_extern extends gdnative.StreamPeer.StreamPeer_extern {
 	extern static inline function __alloc():cpp.Pointer<StreamPeerGZIP_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::StreamPeerGZIP"));
-	overload function start_compression(p_use_deflate:Bool, p_buffer_size:Int):gdnative.Error;
-	overload function start_compression(p_use_deflate:Bool):gdnative.Error;
 	overload function start_compression():gdnative.Error;
-	overload function start_decompression(p_use_deflate:Bool, p_buffer_size:Int):gdnative.Error;
-	overload function start_decompression(p_use_deflate:Bool):gdnative.Error;
+	overload function start_compression(p_use_deflate:Bool):gdnative.Error;
+	overload function start_compression(p_use_deflate:Bool, p_buffer_size:Int):gdnative.Error;
 	overload function start_decompression():gdnative.Error;
+	overload function start_decompression(p_use_deflate:Bool):gdnative.Error;
+	overload function start_decompression(p_use_deflate:Bool, p_buffer_size:Int):gdnative.Error;
 	function finish():gdnative.Error;
 	function clear():Void;
 }

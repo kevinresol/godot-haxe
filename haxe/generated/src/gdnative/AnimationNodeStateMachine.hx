@@ -1,8 +1,8 @@
 package gdnative;
 @:include("godot_cpp/classes/animation_node_state_machine.hpp") @:native("godot::AnimationNodeStateMachine") @:structAccess extern class AnimationNodeStateMachine_extern extends gdnative.AnimationRootNode.AnimationRootNode_extern {
 	extern static inline function __alloc():cpp.Pointer<AnimationNodeStateMachine_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::AnimationNodeStateMachine"));
-	overload function add_node(p_name:gdnative.StringName, p_node:gdnative.AnimationNode, p_position:gdnative.Vector2):Void;
 	overload function add_node(p_name:gdnative.StringName, p_node:gdnative.AnimationNode):Void;
+	overload function add_node(p_name:gdnative.StringName, p_node:gdnative.AnimationNode, p_position:gdnative.Vector2):Void;
 	function replace_node(p_name:gdnative.StringName, p_node:gdnative.AnimationNode):Void;
 	function get_node(p_name:gdnative.StringName):gdnative.AnimationNode;
 	function remove_node(p_name:gdnative.StringName):Void;

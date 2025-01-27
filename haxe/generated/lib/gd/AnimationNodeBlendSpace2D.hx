@@ -1,14 +1,14 @@
 package gd;
 extern class AnimationNodeBlendSpace2D extends gd.AnimationRootNode {
 	function new(?owner:Dynamic);
-	function add_blend_point(p_node:gd.AnimationRootNode, p_pos:gd.Vector2, ?p_at_index:Int = -1):Void;
+	function add_blend_point(p_node:gd.AnimationRootNode, p_pos:gd.Vector2, ?p_at_index:Int):Void;
 	function set_blend_point_position(p_point:Int, p_pos:gd.Vector2):Void;
 	function get_blend_point_position(p_point:Int):gd.Vector2;
 	function set_blend_point_node(p_point:Int, p_node:gd.AnimationRootNode):Void;
 	function get_blend_point_node(p_point:Int):gd.AnimationRootNode;
 	function remove_blend_point(p_point:Int):Void;
 	function get_blend_point_count():Int;
-	function add_triangle(p_x:Int, p_y:Int, p_z:Int, ?p_at_index:Int = -1):Void;
+	function add_triangle(p_x:Int, p_y:Int, p_z:Int, ?p_at_index:Int):Void;
 	function get_triangle_point(p_triangle:Int, p_point:Int):Int;
 	function remove_triangle(p_triangle:Int):Void;
 	function get_triangle_count():Int;

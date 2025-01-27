@@ -10,6 +10,6 @@ class EditorResourceConversionPlugin extends gd.RefCounted {
 	}
 	extern inline function __editorresourceconversionplugin_ptr():cpp.Pointer<gdnative.EditorResourceConversionPlugin.EditorResourceConversionPlugin_extern> return cast __gd.ptr;
 	public function _converts_to():std.String return __editorresourceconversionplugin_ptr().value._converts_to();
-	public function _handles(p_resource:gd.Resource):Bool return __editorresourceconversionplugin_ptr().value._handles(p_resource);
-	public function _convert(p_resource:gd.Resource):gd.Resource return __editorresourceconversionplugin_ptr().value._convert(p_resource);
+	public function _handles(p_resource:gd.Resource):Bool return __editorresourceconversionplugin_ptr().value._handles(((p_resource : gd.Resource)));
+	public function _convert(p_resource:gd.Resource):gd.Resource return __editorresourceconversionplugin_ptr().value._convert(((p_resource : gd.Resource)));
 }

@@ -1,11 +1,11 @@
 package gd;
 extern class Font extends gd.Resource {
 	function new(?owner:Dynamic);
-	function get_height(?p_font_size:Int = 16):Float;
-	function get_ascent(?p_font_size:Int = 16):Float;
-	function get_descent(?p_font_size:Int = 16):Float;
-	function get_underline_position(?p_font_size:Int = 16):Float;
-	function get_underline_thickness(?p_font_size:Int = 16):Float;
+	function get_height(?p_font_size:Int):Float;
+	function get_ascent(?p_font_size:Int):Float;
+	function get_descent(?p_font_size:Int):Float;
+	function get_underline_position(?p_font_size:Int):Float;
+	function get_underline_thickness(?p_font_size:Int):Float;
 	function get_font_name():std.String;
 	function get_font_style_name():std.String;
 	function get_ot_name_strings():gd.Dictionary;
@@ -15,7 +15,15 @@ extern class Font extends gd.Resource {
 	function get_spacing(p_spacing:gd.textserver.SpacingType):Int;
 	function get_opentype_features():gd.Dictionary;
 	function set_cache_capacity(p_single_line:Int, p_multi_line:Int):Void;
+	function get_string_size(p_text:std.String, ?p_alignment:gd.HorizontalAlignment, ?p_width:Float, ?p_font_size:Int, ?p_justification_flags:Int, ?p_direction:gd.textserver.Direction, ?p_orientation:gd.textserver.Orientation):gd.Vector2;
+	function get_multiline_string_size(p_text:std.String, ?p_alignment:gd.HorizontalAlignment, ?p_width:Float, ?p_font_size:Int, ?p_max_lines:Int, ?p_brk_flags:Int, ?p_justification_flags:Int, ?p_direction:gd.textserver.Direction, ?p_orientation:gd.textserver.Orientation):gd.Vector2;
+	function draw_string(p_canvas_item:gd.RID, p_pos:gd.Vector2, p_text:std.String, ?p_alignment:gd.HorizontalAlignment, ?p_width:Float, ?p_font_size:Int, ?p_modulate:gd.Color, ?p_justification_flags:Int, ?p_direction:gd.textserver.Direction, ?p_orientation:gd.textserver.Orientation):Void;
+	function draw_multiline_string(p_canvas_item:gd.RID, p_pos:gd.Vector2, p_text:std.String, ?p_alignment:gd.HorizontalAlignment, ?p_width:Float, ?p_font_size:Int, ?p_max_lines:Int, ?p_modulate:gd.Color, ?p_brk_flags:Int, ?p_justification_flags:Int, ?p_direction:gd.textserver.Direction, ?p_orientation:gd.textserver.Orientation):Void;
+	function draw_string_outline(p_canvas_item:gd.RID, p_pos:gd.Vector2, p_text:std.String, ?p_alignment:gd.HorizontalAlignment, ?p_width:Float, ?p_font_size:Int, ?p_size:Int, ?p_modulate:gd.Color, ?p_justification_flags:Int, ?p_direction:gd.textserver.Direction, ?p_orientation:gd.textserver.Orientation):Void;
+	function draw_multiline_string_outline(p_canvas_item:gd.RID, p_pos:gd.Vector2, p_text:std.String, ?p_alignment:gd.HorizontalAlignment, ?p_width:Float, ?p_font_size:Int, ?p_max_lines:Int, ?p_size:Int, ?p_modulate:gd.Color, ?p_brk_flags:Int, ?p_justification_flags:Int, ?p_direction:gd.textserver.Direction, ?p_orientation:gd.textserver.Orientation):Void;
 	function get_char_size(p_char:Int, p_font_size:Int):gd.Vector2;
+	function draw_char(p_canvas_item:gd.RID, p_pos:gd.Vector2, p_char:Int, p_font_size:Int, ?p_modulate:gd.Color):Float;
+	function draw_char_outline(p_canvas_item:gd.RID, p_pos:gd.Vector2, p_char:Int, p_font_size:Int, ?p_size:Int, ?p_modulate:gd.Color):Float;
 	function has_char(p_char:Int):Bool;
 	function get_supported_chars():std.String;
 	function is_language_supported(p_language:std.String):Bool;

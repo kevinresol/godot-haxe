@@ -9,6 +9,6 @@ class SkeletonModification2DStackHolder extends gd.SkeletonModification2D {
 		super(native.reinterpret());
 	}
 	extern inline function __skeletonmodification2dstackholder_ptr():cpp.Pointer<gdnative.SkeletonModification2DStackHolder.SkeletonModification2DStackHolder_extern> return cast __gd.ptr;
-	public function set_held_modification_stack(p_held_modification_stack:gd.SkeletonModificationStack2D):Void __skeletonmodification2dstackholder_ptr().value.set_held_modification_stack(p_held_modification_stack);
+	public function set_held_modification_stack(p_held_modification_stack:gd.SkeletonModificationStack2D):Void __skeletonmodification2dstackholder_ptr().value.set_held_modification_stack(((p_held_modification_stack : gd.SkeletonModificationStack2D)));
 	public function get_held_modification_stack():gd.SkeletonModificationStack2D return __skeletonmodification2dstackholder_ptr().value.get_held_modification_stack();
 }

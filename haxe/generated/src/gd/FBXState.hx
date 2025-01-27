@@ -11,7 +11,7 @@ class FBXState extends gd.GLTFState {
 	extern inline function __fbxstate_ptr():cpp.Pointer<gdnative.FBXState.FBXState_extern> return cast __gd.ptr;
 	public function get_allow_geometry_helper_nodes():Bool return __fbxstate_ptr().value.get_allow_geometry_helper_nodes();
 	public function set_allow_geometry_helper_nodes(p_allow:Bool):Bool {
-		__fbxstate_ptr().value.set_allow_geometry_helper_nodes(p_allow);
+		__fbxstate_ptr().value.set_allow_geometry_helper_nodes(((p_allow : Bool)));
 		return p_allow;
 	}
 	var allow_geometry_helper_nodes(get, set) : Bool;

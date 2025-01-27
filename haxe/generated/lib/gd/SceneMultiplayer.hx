@@ -18,6 +18,7 @@ extern class SceneMultiplayer extends gd.MultiplayerAPI {
 	function is_object_decoding_allowed():Bool;
 	function set_server_relay_enabled(p_enabled:Bool):Void;
 	function is_server_relay_enabled():Bool;
+	function send_bytes(p_bytes:gd.PackedByteArray, ?p_id:Int, ?p_mode:gd.multiplayerpeer.TransferMode, ?p_channel:Int):gd.Error;
 	function get_max_sync_packet_size():Int;
 	function set_max_sync_packet_size(p_size:Int):Int;
 	function get_max_delta_packet_size():Int;

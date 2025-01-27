@@ -9,8 +9,13 @@ class PhysicsBody2D extends gd.CollisionObject2D {
 		super(native.reinterpret());
 	}
 	extern inline function __physicsbody2d_ptr():cpp.Pointer<gdnative.PhysicsBody2D.PhysicsBody2D_extern> return cast __gd.ptr;
-	public function move_and_collide(p_motion:gd.Vector2, ?p_test_only:Bool = false, ?p_safe_margin:Float = 0.08, ?p_recovery_as_collision:Bool = false):gd.KinematicCollision2D return __physicsbody2d_ptr().value.move_and_collide(p_motion, p_test_only, p_safe_margin, p_recovery_as_collision);
+	public function move_and_collide(p_motion:gd.Vector2, ?p_test_only:Bool, ?p_safe_margin:Float, ?p_recovery_as_collision:Bool):gd.KinematicCollision2D return switch [p_motion, p_test_only, p_safe_margin, p_recovery_as_collision] {
+		case [_, null, _, _]:__physicsbody2d_ptr().value.move_and_collide(((p_motion : gd.Vector2)));
+		case [_, _, null, _]:__physicsbody2d_ptr().value.move_and_collide(((p_motion : gd.Vector2)), ((p_test_only : Bool)));
+		case [_, _, _, null]:__physicsbody2d_ptr().value.move_and_collide(((p_motion : gd.Vector2)), ((p_test_only : Bool)), ((p_safe_margin : Float)));
+		default:__physicsbody2d_ptr().value.move_and_collide(((p_motion : gd.Vector2)), ((p_test_only : Bool)), ((p_safe_margin : Float)), ((p_recovery_as_collision : Bool)));
+	};
 	public function get_gravity():gd.Vector2 return __physicsbody2d_ptr().value.get_gravity();
-	public function add_collision_exception_with(p_body:gd.Node):Void __physicsbody2d_ptr().value.add_collision_exception_with(p_body);
-	public function remove_collision_exception_with(p_body:gd.Node):Void __physicsbody2d_ptr().value.remove_collision_exception_with(p_body);
+	public function add_collision_exception_with(p_body:gd.Node):Void __physicsbody2d_ptr().value.add_collision_exception_with(((p_body : gd.Node)));
+	public function remove_collision_exception_with(p_body:gd.Node):Void __physicsbody2d_ptr().value.remove_collision_exception_with(((p_body : gd.Node)));
 }

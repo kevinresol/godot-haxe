@@ -71,10 +71,13 @@ extern class PhysicsServer3D extends gd.Object {
 	function body_set_state(p_body:gd.RID, p_state:gd.physicsserver3d.BodyState, p_value:gd.Variant):Void;
 	function body_get_state(p_body:gd.RID, p_state:gd.physicsserver3d.BodyState):gd.Variant;
 	function body_apply_central_impulse(p_body:gd.RID, p_impulse:gd.Vector3):Void;
+	function body_apply_impulse(p_body:gd.RID, p_impulse:gd.Vector3, ?p_position:gd.Vector3):Void;
 	function body_apply_torque_impulse(p_body:gd.RID, p_impulse:gd.Vector3):Void;
 	function body_apply_central_force(p_body:gd.RID, p_force:gd.Vector3):Void;
+	function body_apply_force(p_body:gd.RID, p_force:gd.Vector3, ?p_position:gd.Vector3):Void;
 	function body_apply_torque(p_body:gd.RID, p_torque:gd.Vector3):Void;
 	function body_add_constant_central_force(p_body:gd.RID, p_force:gd.Vector3):Void;
+	function body_add_constant_force(p_body:gd.RID, p_force:gd.Vector3, ?p_position:gd.Vector3):Void;
 	function body_add_constant_torque(p_body:gd.RID, p_torque:gd.Vector3):Void;
 	function body_set_constant_force(p_body:gd.RID, p_force:gd.Vector3):Void;
 	function body_get_constant_force(p_body:gd.RID):gd.Vector3;
@@ -90,7 +93,9 @@ extern class PhysicsServer3D extends gd.Object {
 	function body_set_omit_force_integration(p_body:gd.RID, p_enable:Bool):Void;
 	function body_is_omitting_force_integration(p_body:gd.RID):Bool;
 	function body_set_state_sync_callback(p_body:gd.RID, p_callable:gd.Callable):Void;
+	function body_set_force_integration_callback(p_body:gd.RID, p_callable:gd.Callable, ?p_userdata:gd.Variant):Void;
 	function body_set_ray_pickable(p_body:gd.RID, p_enable:Bool):Void;
+	function body_test_motion(p_body:gd.RID, p_parameters:gd.PhysicsTestMotionParameters3D, ?p_result:gd.PhysicsTestMotionResult3D):Bool;
 	function body_get_direct_state(p_body:gd.RID):gd.PhysicsDirectBodyState3D;
 	function soft_body_create():gd.RID;
 	function soft_body_update_rendering_server(p_body:gd.RID, p_rendering_server_handler:gd.PhysicsServer3DRenderingServerHandler):Void;

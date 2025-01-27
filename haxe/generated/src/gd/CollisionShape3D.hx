@@ -9,14 +9,14 @@ class CollisionShape3D extends gd.Node3D {
 		super(native.reinterpret());
 	}
 	extern inline function __collisionshape3d_ptr():cpp.Pointer<gdnative.CollisionShape3D.CollisionShape3D_extern> return cast __gd.ptr;
-	public function resource_changed(p_resource:gd.Resource):Void __collisionshape3d_ptr().value.resource_changed(p_resource);
+	public function resource_changed(p_resource:gd.Resource):Void __collisionshape3d_ptr().value.resource_changed(((p_resource : gd.Resource)));
 	public function set_shape(p_shape:gd.Shape3D):gd.Shape3D {
-		__collisionshape3d_ptr().value.set_shape(p_shape);
+		__collisionshape3d_ptr().value.set_shape(((p_shape : gd.Shape3D)));
 		return p_shape;
 	}
 	public function get_shape():gd.Shape3D return __collisionshape3d_ptr().value.get_shape();
 	public function set_disabled(p_enable:Bool):Bool {
-		__collisionshape3d_ptr().value.set_disabled(p_enable);
+		__collisionshape3d_ptr().value.set_disabled(((p_enable : Bool)));
 		return p_enable;
 	}
 	public function is_disabled():Bool return __collisionshape3d_ptr().value.is_disabled();

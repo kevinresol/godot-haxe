@@ -1,16 +1,16 @@
 package gdnative;
 @:include("godot_cpp/classes/e_net_multiplayer_peer.hpp") @:native("godot::ENetMultiplayerPeer") @:structAccess extern class ENetMultiplayerPeer_extern extends gdnative.MultiplayerPeer.MultiplayerPeer_extern {
 	extern static inline function __alloc():cpp.Pointer<ENetMultiplayerPeer_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::ENetMultiplayerPeer"));
-	overload function create_server(p_port:Int, p_max_clients:Int, p_max_channels:Int, p_in_bandwidth:Int, p_out_bandwidth:Int):gdnative.Error;
-	overload function create_server(p_port:Int, p_max_clients:Int, p_max_channels:Int, p_in_bandwidth:Int):gdnative.Error;
-	overload function create_server(p_port:Int, p_max_clients:Int, p_max_channels:Int):gdnative.Error;
-	overload function create_server(p_port:Int, p_max_clients:Int):gdnative.Error;
 	overload function create_server(p_port:Int):gdnative.Error;
-	overload function create_client(p_address:gdnative.String, p_port:Int, p_channel_count:Int, p_in_bandwidth:Int, p_out_bandwidth:Int, p_local_port:Int):gdnative.Error;
-	overload function create_client(p_address:gdnative.String, p_port:Int, p_channel_count:Int, p_in_bandwidth:Int, p_out_bandwidth:Int):gdnative.Error;
-	overload function create_client(p_address:gdnative.String, p_port:Int, p_channel_count:Int, p_in_bandwidth:Int):gdnative.Error;
-	overload function create_client(p_address:gdnative.String, p_port:Int, p_channel_count:Int):gdnative.Error;
+	overload function create_server(p_port:Int, p_max_clients:Int):gdnative.Error;
+	overload function create_server(p_port:Int, p_max_clients:Int, p_max_channels:Int):gdnative.Error;
+	overload function create_server(p_port:Int, p_max_clients:Int, p_max_channels:Int, p_in_bandwidth:Int):gdnative.Error;
+	overload function create_server(p_port:Int, p_max_clients:Int, p_max_channels:Int, p_in_bandwidth:Int, p_out_bandwidth:Int):gdnative.Error;
 	overload function create_client(p_address:gdnative.String, p_port:Int):gdnative.Error;
+	overload function create_client(p_address:gdnative.String, p_port:Int, p_channel_count:Int):gdnative.Error;
+	overload function create_client(p_address:gdnative.String, p_port:Int, p_channel_count:Int, p_in_bandwidth:Int):gdnative.Error;
+	overload function create_client(p_address:gdnative.String, p_port:Int, p_channel_count:Int, p_in_bandwidth:Int, p_out_bandwidth:Int):gdnative.Error;
+	overload function create_client(p_address:gdnative.String, p_port:Int, p_channel_count:Int, p_in_bandwidth:Int, p_out_bandwidth:Int, p_local_port:Int):gdnative.Error;
 	function create_mesh(p_unique_id:Int):gdnative.Error;
 	function add_mesh_peer(p_peer_id:Int, p_host:gdnative.ENetConnection):gdnative.Error;
 	function set_bind_ip(p_ip:gdnative.String):Void;

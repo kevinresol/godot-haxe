@@ -19,7 +19,7 @@ extern class NavigationRegion2D extends gd.Node2D {
 	function get_enter_cost():Float;
 	function set_travel_cost(p_travel_cost:Float):Float;
 	function get_travel_cost():Float;
-	function bake_navigation_polygon(?p_on_thread:Bool = true):Void;
+	function bake_navigation_polygon(?p_on_thread:Bool):Void;
 	function is_baking():Bool;
 	var navigation_polygon(get, set) : gd.NavigationPolygon;
 	var enabled(get, set) : Bool;

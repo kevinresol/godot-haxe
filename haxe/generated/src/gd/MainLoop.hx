@@ -10,7 +10,7 @@ class MainLoop extends gd.Object {
 	}
 	extern inline function __mainloop_ptr():cpp.Pointer<gdnative.MainLoop.MainLoop_extern> return cast __gd.ptr;
 	public function _initialize():Void __mainloop_ptr().value._initialize();
-	public function _physics_process(p_delta:Float):Bool return __mainloop_ptr().value._physics_process(p_delta);
-	public function _process(p_delta:Float):Bool return __mainloop_ptr().value._process(p_delta);
+	public function _physics_process(p_delta:Float):Bool return __mainloop_ptr().value._physics_process(((p_delta : Float)));
+	public function _process(p_delta:Float):Bool return __mainloop_ptr().value._process(((p_delta : Float)));
 	public function _finalize():Void __mainloop_ptr().value._finalize();
 }

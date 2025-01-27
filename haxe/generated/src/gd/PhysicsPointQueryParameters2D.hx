@@ -10,27 +10,27 @@ class PhysicsPointQueryParameters2D extends gd.RefCounted {
 	}
 	extern inline function __physicspointqueryparameters2d_ptr():cpp.Pointer<gdnative.PhysicsPointQueryParameters2D.PhysicsPointQueryParameters2D_extern> return cast __gd.ptr;
 	public function set_position(p_position:gd.Vector2):gd.Vector2 {
-		__physicspointqueryparameters2d_ptr().value.set_position(p_position);
+		__physicspointqueryparameters2d_ptr().value.set_position(((p_position : gd.Vector2)));
 		return p_position;
 	}
 	public function get_position():gd.Vector2 return __physicspointqueryparameters2d_ptr().value.get_position();
 	public function set_canvas_instance_id(p_canvas_instance_id:Int):Int {
-		__physicspointqueryparameters2d_ptr().value.set_canvas_instance_id(p_canvas_instance_id);
+		__physicspointqueryparameters2d_ptr().value.set_canvas_instance_id(((p_canvas_instance_id : Int)));
 		return p_canvas_instance_id;
 	}
 	public function get_canvas_instance_id():Int return __physicspointqueryparameters2d_ptr().value.get_canvas_instance_id();
 	public function set_collision_mask(p_collision_mask:Int):Int {
-		__physicspointqueryparameters2d_ptr().value.set_collision_mask(p_collision_mask);
+		__physicspointqueryparameters2d_ptr().value.set_collision_mask(((p_collision_mask : Int)));
 		return p_collision_mask;
 	}
 	public function get_collision_mask():Int return __physicspointqueryparameters2d_ptr().value.get_collision_mask();
 	public function set_collide_with_bodies(p_enable:Bool):Bool {
-		__physicspointqueryparameters2d_ptr().value.set_collide_with_bodies(p_enable);
+		__physicspointqueryparameters2d_ptr().value.set_collide_with_bodies(((p_enable : Bool)));
 		return p_enable;
 	}
 	public function is_collide_with_bodies_enabled():Bool return __physicspointqueryparameters2d_ptr().value.is_collide_with_bodies_enabled();
 	public function set_collide_with_areas(p_enable:Bool):Bool {
-		__physicspointqueryparameters2d_ptr().value.set_collide_with_areas(p_enable);
+		__physicspointqueryparameters2d_ptr().value.set_collide_with_areas(((p_enable : Bool)));
 		return p_enable;
 	}
 	public function is_collide_with_areas_enabled():Bool return __physicspointqueryparameters2d_ptr().value.is_collide_with_areas_enabled();

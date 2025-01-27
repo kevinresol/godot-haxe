@@ -10,17 +10,17 @@ class AudioEffectSpectrumAnalyzer extends gd.AudioEffect {
 	}
 	extern inline function __audioeffectspectrumanalyzer_ptr():cpp.Pointer<gdnative.AudioEffectSpectrumAnalyzer.AudioEffectSpectrumAnalyzer_extern> return cast __gd.ptr;
 	public function set_buffer_length(p_seconds:Float):Float {
-		__audioeffectspectrumanalyzer_ptr().value.set_buffer_length(p_seconds);
+		__audioeffectspectrumanalyzer_ptr().value.set_buffer_length(((p_seconds : Float)));
 		return p_seconds;
 	}
 	public function get_buffer_length():Float return __audioeffectspectrumanalyzer_ptr().value.get_buffer_length();
 	public function set_tap_back_pos(p_seconds:Float):Float {
-		__audioeffectspectrumanalyzer_ptr().value.set_tap_back_pos(p_seconds);
+		__audioeffectspectrumanalyzer_ptr().value.set_tap_back_pos(((p_seconds : Float)));
 		return p_seconds;
 	}
 	public function get_tap_back_pos():Float return __audioeffectspectrumanalyzer_ptr().value.get_tap_back_pos();
 	public function set_fft_size(p_size:gd.audioeffectspectrumanalyzer.FFTSize):gd.audioeffectspectrumanalyzer.FFTSize {
-		__audioeffectspectrumanalyzer_ptr().value.set_fft_size(p_size);
+		__audioeffectspectrumanalyzer_ptr().value.set_fft_size(((p_size : gd.audioeffectspectrumanalyzer.FFTSize)));
 		return p_size;
 	}
 	public function get_fft_size():gd.audioeffectspectrumanalyzer.FFTSize return __audioeffectspectrumanalyzer_ptr().value.get_fft_size();

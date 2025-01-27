@@ -10,12 +10,12 @@ class VisualShaderNodeColorParameter extends gd.VisualShaderNodeParameter {
 	}
 	extern inline function __visualshadernodecolorparameter_ptr():cpp.Pointer<gdnative.VisualShaderNodeColorParameter.VisualShaderNodeColorParameter_extern> return cast __gd.ptr;
 	public function set_default_value_enabled(p_enabled:Bool):Bool {
-		__visualshadernodecolorparameter_ptr().value.set_default_value_enabled(p_enabled);
+		__visualshadernodecolorparameter_ptr().value.set_default_value_enabled(((p_enabled : Bool)));
 		return p_enabled;
 	}
 	public function is_default_value_enabled():Bool return __visualshadernodecolorparameter_ptr().value.is_default_value_enabled();
 	public function set_default_value(p_value:gd.Color):gd.Color {
-		__visualshadernodecolorparameter_ptr().value.set_default_value(p_value);
+		__visualshadernodecolorparameter_ptr().value.set_default_value(((p_value : gd.Color)));
 		return p_value;
 	}
 	public function get_default_value():gd.Color return __visualshadernodecolorparameter_ptr().value.get_default_value();

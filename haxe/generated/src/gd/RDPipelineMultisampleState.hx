@@ -10,27 +10,27 @@ class RDPipelineMultisampleState extends gd.RefCounted {
 	}
 	extern inline function __rdpipelinemultisamplestate_ptr():cpp.Pointer<gdnative.RDPipelineMultisampleState.RDPipelineMultisampleState_extern> return cast __gd.ptr;
 	public function set_sample_count(p_p_member:gd.renderingdevice.TextureSamples):gd.renderingdevice.TextureSamples {
-		__rdpipelinemultisamplestate_ptr().value.set_sample_count(p_p_member);
+		__rdpipelinemultisamplestate_ptr().value.set_sample_count(((p_p_member : gd.renderingdevice.TextureSamples)));
 		return p_p_member;
 	}
 	public function get_sample_count():gd.renderingdevice.TextureSamples return __rdpipelinemultisamplestate_ptr().value.get_sample_count();
 	public function set_enable_sample_shading(p_p_member:Bool):Bool {
-		__rdpipelinemultisamplestate_ptr().value.set_enable_sample_shading(p_p_member);
+		__rdpipelinemultisamplestate_ptr().value.set_enable_sample_shading(((p_p_member : Bool)));
 		return p_p_member;
 	}
 	public function get_enable_sample_shading():Bool return __rdpipelinemultisamplestate_ptr().value.get_enable_sample_shading();
 	public function set_min_sample_shading(p_p_member:Float):Float {
-		__rdpipelinemultisamplestate_ptr().value.set_min_sample_shading(p_p_member);
+		__rdpipelinemultisamplestate_ptr().value.set_min_sample_shading(((p_p_member : Float)));
 		return p_p_member;
 	}
 	public function get_min_sample_shading():Float return __rdpipelinemultisamplestate_ptr().value.get_min_sample_shading();
 	public function set_enable_alpha_to_coverage(p_p_member:Bool):Bool {
-		__rdpipelinemultisamplestate_ptr().value.set_enable_alpha_to_coverage(p_p_member);
+		__rdpipelinemultisamplestate_ptr().value.set_enable_alpha_to_coverage(((p_p_member : Bool)));
 		return p_p_member;
 	}
 	public function get_enable_alpha_to_coverage():Bool return __rdpipelinemultisamplestate_ptr().value.get_enable_alpha_to_coverage();
 	public function set_enable_alpha_to_one(p_p_member:Bool):Bool {
-		__rdpipelinemultisamplestate_ptr().value.set_enable_alpha_to_one(p_p_member);
+		__rdpipelinemultisamplestate_ptr().value.set_enable_alpha_to_one(((p_p_member : Bool)));
 		return p_p_member;
 	}
 	public function get_enable_alpha_to_one():Bool return __rdpipelinemultisamplestate_ptr().value.get_enable_alpha_to_one();

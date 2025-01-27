@@ -10,7 +10,7 @@ class Path3D extends gd.Node3D {
 	}
 	extern inline function __path3d_ptr():cpp.Pointer<gdnative.Path3D.Path3D_extern> return cast __gd.ptr;
 	public function set_curve(p_curve:gd.Curve3D):gd.Curve3D {
-		__path3d_ptr().value.set_curve(p_curve);
+		__path3d_ptr().value.set_curve(((p_curve : gd.Curve3D)));
 		return p_curve;
 	}
 	public function get_curve():gd.Curve3D return __path3d_ptr().value.get_curve();

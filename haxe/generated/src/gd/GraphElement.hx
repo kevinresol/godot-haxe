@@ -10,27 +10,27 @@ class GraphElement extends gd.Container {
 	}
 	extern inline function __graphelement_ptr():cpp.Pointer<gdnative.GraphElement.GraphElement_extern> return cast __gd.ptr;
 	public function set_resizable(p_resizable:Bool):Bool {
-		__graphelement_ptr().value.set_resizable(p_resizable);
+		__graphelement_ptr().value.set_resizable(((p_resizable : Bool)));
 		return p_resizable;
 	}
 	public function is_resizable():Bool return __graphelement_ptr().value.is_resizable();
 	public function set_draggable(p_draggable:Bool):Bool {
-		__graphelement_ptr().value.set_draggable(p_draggable);
+		__graphelement_ptr().value.set_draggable(((p_draggable : Bool)));
 		return p_draggable;
 	}
 	public function is_draggable():Bool return __graphelement_ptr().value.is_draggable();
 	public function set_selectable(p_selectable:Bool):Bool {
-		__graphelement_ptr().value.set_selectable(p_selectable);
+		__graphelement_ptr().value.set_selectable(((p_selectable : Bool)));
 		return p_selectable;
 	}
 	public function is_selectable():Bool return __graphelement_ptr().value.is_selectable();
 	public function set_selected(p_selected:Bool):Bool {
-		__graphelement_ptr().value.set_selected(p_selected);
+		__graphelement_ptr().value.set_selected(((p_selected : Bool)));
 		return p_selected;
 	}
 	public function is_selected():Bool return __graphelement_ptr().value.is_selected();
 	public function set_position_offset(p_offset:gd.Vector2):gd.Vector2 {
-		__graphelement_ptr().value.set_position_offset(p_offset);
+		__graphelement_ptr().value.set_position_offset(((p_offset : gd.Vector2)));
 		return p_offset;
 	}
 	public function get_position_offset():gd.Vector2 return __graphelement_ptr().value.get_position_offset();

@@ -3,8 +3,8 @@ extern class UPNPDevice extends gd.RefCounted {
 	function new(?owner:Dynamic);
 	function is_valid_gateway():Bool;
 	function query_external_address():std.String;
-	function add_port_mapping(p_port:Int, ?p_port_internal:Int = 0, ?p_desc:std.String = "\"\"", ?p_proto:std.String = "\"UDP\"", ?p_duration:Int = 0):Int;
-	function delete_port_mapping(p_port:Int, ?p_proto:std.String = "\"UDP\""):Int;
+	function add_port_mapping(p_port:Int, ?p_port_internal:Int, ?p_desc:std.String, ?p_proto:std.String, ?p_duration:Int):Int;
+	function delete_port_mapping(p_port:Int, ?p_proto:std.String):Int;
 	function set_description_url(p_url:std.String):std.String;
 	function get_description_url():std.String;
 	function set_service_type(p_type:std.String):std.String;

@@ -10,7 +10,7 @@ class BoxOccluder3D extends gd.Occluder3D {
 	}
 	extern inline function __boxoccluder3d_ptr():cpp.Pointer<gdnative.BoxOccluder3D.BoxOccluder3D_extern> return cast __gd.ptr;
 	public function set_size(p_size:gd.Vector3):gd.Vector3 {
-		__boxoccluder3d_ptr().value.set_size(p_size);
+		__boxoccluder3d_ptr().value.set_size(((p_size : gd.Vector3)));
 		return p_size;
 	}
 	public function get_size():gd.Vector3 return __boxoccluder3d_ptr().value.get_size();

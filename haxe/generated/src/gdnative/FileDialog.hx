@@ -2,8 +2,8 @@ package gdnative;
 @:include("godot_cpp/classes/file_dialog.hpp") @:native("godot::FileDialog") @:structAccess extern class FileDialog_extern extends gdnative.ConfirmationDialog.ConfirmationDialog_extern {
 	extern static inline function __alloc():cpp.Pointer<FileDialog_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::FileDialog"));
 	function clear_filters():Void;
-	overload function add_filter(p_filter:gdnative.String, p_description:gdnative.String):Void;
 	overload function add_filter(p_filter:gdnative.String):Void;
+	overload function add_filter(p_filter:gdnative.String, p_description:gdnative.String):Void;
 	function set_filters(p_filters:gdnative.PackedStringArray):Void;
 	function get_filters():gdnative.PackedStringArray;
 	function get_option_name(p_option:Int):gdnative.String;

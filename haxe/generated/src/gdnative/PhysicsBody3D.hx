@@ -1,11 +1,11 @@
 package gdnative;
 @:include("godot_cpp/classes/physics_body3d.hpp") @:native("godot::PhysicsBody3D") @:structAccess extern class PhysicsBody3D_extern extends gdnative.CollisionObject3D.CollisionObject3D_extern {
 	extern static inline function __alloc():cpp.Pointer<PhysicsBody3D_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::PhysicsBody3D"));
-	overload function move_and_collide(p_motion:gdnative.Vector3, p_test_only:Bool, p_safe_margin:Float, p_recovery_as_collision:Bool, p_max_collisions:Int):gdnative.KinematicCollision3D;
-	overload function move_and_collide(p_motion:gdnative.Vector3, p_test_only:Bool, p_safe_margin:Float, p_recovery_as_collision:Bool):gdnative.KinematicCollision3D;
-	overload function move_and_collide(p_motion:gdnative.Vector3, p_test_only:Bool, p_safe_margin:Float):gdnative.KinematicCollision3D;
-	overload function move_and_collide(p_motion:gdnative.Vector3, p_test_only:Bool):gdnative.KinematicCollision3D;
 	overload function move_and_collide(p_motion:gdnative.Vector3):gdnative.KinematicCollision3D;
+	overload function move_and_collide(p_motion:gdnative.Vector3, p_test_only:Bool):gdnative.KinematicCollision3D;
+	overload function move_and_collide(p_motion:gdnative.Vector3, p_test_only:Bool, p_safe_margin:Float):gdnative.KinematicCollision3D;
+	overload function move_and_collide(p_motion:gdnative.Vector3, p_test_only:Bool, p_safe_margin:Float, p_recovery_as_collision:Bool):gdnative.KinematicCollision3D;
+	overload function move_and_collide(p_motion:gdnative.Vector3, p_test_only:Bool, p_safe_margin:Float, p_recovery_as_collision:Bool, p_max_collisions:Int):gdnative.KinematicCollision3D;
 	function get_gravity():gdnative.Vector3;
 	function set_axis_lock(p_axis:gdnative.physicsserver3d.BodyAxis, p_lock:Bool):Void;
 	function get_axis_lock(p_axis:gdnative.physicsserver3d.BodyAxis):Bool;

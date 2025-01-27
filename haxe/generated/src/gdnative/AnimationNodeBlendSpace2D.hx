@@ -1,16 +1,16 @@
 package gdnative;
 @:include("godot_cpp/classes/animation_node_blend_space2d.hpp") @:native("godot::AnimationNodeBlendSpace2D") @:structAccess extern class AnimationNodeBlendSpace2D_extern extends gdnative.AnimationRootNode.AnimationRootNode_extern {
 	extern static inline function __alloc():cpp.Pointer<AnimationNodeBlendSpace2D_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::AnimationNodeBlendSpace2D"));
-	overload function add_blend_point(p_node:gdnative.AnimationRootNode, p_pos:gdnative.Vector2, p_at_index:Int):Void;
 	overload function add_blend_point(p_node:gdnative.AnimationRootNode, p_pos:gdnative.Vector2):Void;
+	overload function add_blend_point(p_node:gdnative.AnimationRootNode, p_pos:gdnative.Vector2, p_at_index:Int):Void;
 	function set_blend_point_position(p_point:Int, p_pos:gdnative.Vector2):Void;
 	function get_blend_point_position(p_point:Int):gdnative.Vector2;
 	function set_blend_point_node(p_point:Int, p_node:gdnative.AnimationRootNode):Void;
 	function get_blend_point_node(p_point:Int):gdnative.AnimationRootNode;
 	function remove_blend_point(p_point:Int):Void;
 	function get_blend_point_count():Int;
-	overload function add_triangle(p_x:Int, p_y:Int, p_z:Int, p_at_index:Int):Void;
 	overload function add_triangle(p_x:Int, p_y:Int, p_z:Int):Void;
+	overload function add_triangle(p_x:Int, p_y:Int, p_z:Int, p_at_index:Int):Void;
 	function get_triangle_point(p_triangle:Int, p_point:Int):Int;
 	function remove_triangle(p_triangle:Int):Void;
 	function get_triangle_count():Int;

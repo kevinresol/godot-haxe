@@ -15,7 +15,7 @@ extern class DirAccess extends gd.RefCounted {
 	static function get_drive_name(p_idx:Int):std.String;
 	function get_current_drive():Int;
 	function change_dir(p_to_dir:std.String):gd.Error;
-	function get_current_dir(?p_include_drive:Bool = true):std.String;
+	function get_current_dir(?p_include_drive:Bool):std.String;
 	function make_dir(p_path:std.String):gd.Error;
 	static function make_dir_absolute(p_path:std.String):gd.Error;
 	function make_dir_recursive(p_path:std.String):gd.Error;
@@ -24,8 +24,8 @@ extern class DirAccess extends gd.RefCounted {
 	function dir_exists(p_path:std.String):Bool;
 	static function dir_exists_absolute(p_path:std.String):Bool;
 	function get_space_left():Int;
-	function copy(p_from:std.String, p_to:std.String, ?p_chmod_flags:Int = -1):gd.Error;
-	static function copy_absolute(p_from:std.String, p_to:std.String, ?p_chmod_flags:Int = -1):gd.Error;
+	function copy(p_from:std.String, p_to:std.String, ?p_chmod_flags:Int):gd.Error;
+	static function copy_absolute(p_from:std.String, p_to:std.String, ?p_chmod_flags:Int):gd.Error;
 	function rename(p_from:std.String, p_to:std.String):gd.Error;
 	static function rename_absolute(p_from:std.String, p_to:std.String):gd.Error;
 	function remove(p_path:std.String):gd.Error;

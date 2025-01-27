@@ -22,7 +22,7 @@ extern class EditorProperty extends gd.Container {
 	function update_property():Void;
 	function add_focusable(p_control:gd.Control):Void;
 	function set_bottom_editor(p_editor:gd.Control):Void;
-	function emit_changed(p_property:std.String, p_value:gd.Variant, ?p_field:std.String = "&\"\"", ?p_changing:Bool = false):Void;
+	function emit_changed(p_property:std.String, p_value:gd.Variant, ?p_field:std.String, ?p_changing:Bool):Void;
 	var label(get, set) : std.String;
 	var read_only(get, set) : Bool;
 	function get_read_only():Bool;

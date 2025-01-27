@@ -9,7 +9,7 @@ class HMACContext extends gd.RefCounted {
 		super(native.reinterpret());
 	}
 	extern inline function __hmaccontext_ptr():cpp.Pointer<gdnative.HMACContext.HMACContext_extern> return cast __gd.ptr;
-	public function start(p_hash_type:gd.hashingcontext.HashType, p_key:gd.PackedByteArray):gd.Error return __hmaccontext_ptr().value.start(p_hash_type, p_key);
-	public function update(p_data:gd.PackedByteArray):gd.Error return __hmaccontext_ptr().value.update(p_data);
+	public function start(p_hash_type:gd.hashingcontext.HashType, p_key:gd.PackedByteArray):gd.Error return __hmaccontext_ptr().value.start(((p_hash_type : gd.hashingcontext.HashType)), ((p_key : gd.PackedByteArray)));
+	public function update(p_data:gd.PackedByteArray):gd.Error return __hmaccontext_ptr().value.update(((p_data : gd.PackedByteArray)));
 	public function finish():gd.PackedByteArray return __hmaccontext_ptr().value.finish();
 }

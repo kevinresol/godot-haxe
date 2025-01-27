@@ -10,34 +10,34 @@ class LinkButton extends gd.BaseButton {
 	}
 	extern inline function __linkbutton_ptr():cpp.Pointer<gdnative.LinkButton.LinkButton_extern> return cast __gd.ptr;
 	public function set_text(p_text:std.String):std.String {
-		__linkbutton_ptr().value.set_text(p_text);
+		__linkbutton_ptr().value.set_text(((p_text : std.String)));
 		return p_text;
 	}
 	public function get_text():std.String return __linkbutton_ptr().value.get_text();
 	public function set_text_direction(p_direction:gd.control.TextDirection):gd.control.TextDirection {
-		__linkbutton_ptr().value.set_text_direction(p_direction);
+		__linkbutton_ptr().value.set_text_direction(((p_direction : gd.control.TextDirection)));
 		return p_direction;
 	}
 	public function get_text_direction():gd.control.TextDirection return __linkbutton_ptr().value.get_text_direction();
 	public function set_language(p_language:std.String):std.String {
-		__linkbutton_ptr().value.set_language(p_language);
+		__linkbutton_ptr().value.set_language(((p_language : std.String)));
 		return p_language;
 	}
 	public function get_language():std.String return __linkbutton_ptr().value.get_language();
 	public function set_uri(p_uri:std.String):std.String {
-		__linkbutton_ptr().value.set_uri(p_uri);
+		__linkbutton_ptr().value.set_uri(((p_uri : std.String)));
 		return p_uri;
 	}
 	public function get_uri():std.String return __linkbutton_ptr().value.get_uri();
-	public function set_underline_mode(p_underline_mode:gd.linkbutton.UnderlineMode):Void __linkbutton_ptr().value.set_underline_mode(p_underline_mode);
+	public function set_underline_mode(p_underline_mode:gd.linkbutton.UnderlineMode):Void __linkbutton_ptr().value.set_underline_mode(((p_underline_mode : gd.linkbutton.UnderlineMode)));
 	public function get_underline_mode():gd.linkbutton.UnderlineMode return __linkbutton_ptr().value.get_underline_mode();
 	public function set_structured_text_bidi_override(p_parser:gd.textserver.StructuredTextParser):gd.textserver.StructuredTextParser {
-		__linkbutton_ptr().value.set_structured_text_bidi_override(p_parser);
+		__linkbutton_ptr().value.set_structured_text_bidi_override(((p_parser : gd.textserver.StructuredTextParser)));
 		return p_parser;
 	}
 	public function get_structured_text_bidi_override():gd.textserver.StructuredTextParser return __linkbutton_ptr().value.get_structured_text_bidi_override();
 	public function set_structured_text_bidi_override_options(p_args:gd.Array):gd.Array {
-		__linkbutton_ptr().value.set_structured_text_bidi_override_options(p_args);
+		__linkbutton_ptr().value.set_structured_text_bidi_override_options(((p_args : gd.Array)));
 		return p_args;
 	}
 	public function get_structured_text_bidi_override_options():gd.Array return __linkbutton_ptr().value.get_structured_text_bidi_override_options();

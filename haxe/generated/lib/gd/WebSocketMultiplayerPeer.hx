@@ -1,6 +1,8 @@
 package gd;
 extern class WebSocketMultiplayerPeer extends gd.MultiplayerPeer {
 	function new(?owner:Dynamic);
+	function create_client(p_url:std.String, ?p_tls_client_options:gd.TLSOptions):gd.Error;
+	function create_server(p_port:Int, ?p_bind_address:std.String, ?p_tls_server_options:gd.TLSOptions):gd.Error;
 	function get_peer(p_peer_id:Int):gd.WebSocketPeer;
 	function get_peer_address(p_id:Int):std.String;
 	function get_peer_port(p_id:Int):Int;

@@ -2,10 +2,10 @@ package gdnative;
 @:include("godot_cpp/classes/web_rtc_peer_connection.hpp") @:native("godot::WebRTCPeerConnection") @:structAccess extern class WebRTCPeerConnection_extern extends gdnative.RefCounted.RefCounted_extern {
 	extern static inline function __alloc():cpp.Pointer<WebRTCPeerConnection_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::WebRTCPeerConnection"));
 	static function set_default_extension(p_extension_class:gdnative.StringName):Void;
-	overload function initialize(p_configuration:gdnative.Dictionary):gdnative.Error;
 	overload function initialize():gdnative.Error;
-	overload function create_data_channel(p_label:gdnative.String, p_options:gdnative.Dictionary):gdnative.WebRTCDataChannel;
+	overload function initialize(p_configuration:gdnative.Dictionary):gdnative.Error;
 	overload function create_data_channel(p_label:gdnative.String):gdnative.WebRTCDataChannel;
+	overload function create_data_channel(p_label:gdnative.String, p_options:gdnative.Dictionary):gdnative.WebRTCDataChannel;
 	function create_offer():gdnative.Error;
 	function set_local_description(p_type:gdnative.String, p_sdp:gdnative.String):gdnative.Error;
 	function set_remote_description(p_type:gdnative.String, p_sdp:gdnative.String):gdnative.Error;

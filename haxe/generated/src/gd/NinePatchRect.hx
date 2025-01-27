@@ -10,25 +10,25 @@ class NinePatchRect extends gd.Control {
 	}
 	extern inline function __ninepatchrect_ptr():cpp.Pointer<gdnative.NinePatchRect.NinePatchRect_extern> return cast __gd.ptr;
 	public function set_texture(p_texture:gd.Texture2D):gd.Texture2D {
-		__ninepatchrect_ptr().value.set_texture(p_texture);
+		__ninepatchrect_ptr().value.set_texture(((p_texture : gd.Texture2D)));
 		return p_texture;
 	}
 	public function get_texture():gd.Texture2D return __ninepatchrect_ptr().value.get_texture();
-	public function set_patch_margin(p_margin:gd.Side, p_value:Int):Void __ninepatchrect_ptr().value.set_patch_margin(p_margin, p_value);
-	public function get_patch_margin(p_margin:gd.Side):Int return __ninepatchrect_ptr().value.get_patch_margin(p_margin);
+	public function set_patch_margin(p_margin:gd.Side, p_value:Int):Void __ninepatchrect_ptr().value.set_patch_margin(((p_margin : gd.Side)), ((p_value : Int)));
+	public function get_patch_margin(p_margin:gd.Side):Int return __ninepatchrect_ptr().value.get_patch_margin(((p_margin : gd.Side)));
 	public function set_region_rect(p_rect:gd.Rect2):gd.Rect2 {
-		__ninepatchrect_ptr().value.set_region_rect(p_rect);
+		__ninepatchrect_ptr().value.set_region_rect(((p_rect : gd.Rect2)));
 		return p_rect;
 	}
 	public function get_region_rect():gd.Rect2 return __ninepatchrect_ptr().value.get_region_rect();
 	public function set_draw_center(p_draw_center:Bool):Bool {
-		__ninepatchrect_ptr().value.set_draw_center(p_draw_center);
+		__ninepatchrect_ptr().value.set_draw_center(((p_draw_center : Bool)));
 		return p_draw_center;
 	}
 	public function is_draw_center_enabled():Bool return __ninepatchrect_ptr().value.is_draw_center_enabled();
-	public function set_h_axis_stretch_mode(p_mode:gd.ninepatchrect.AxisStretchMode):Void __ninepatchrect_ptr().value.set_h_axis_stretch_mode(p_mode);
+	public function set_h_axis_stretch_mode(p_mode:gd.ninepatchrect.AxisStretchMode):Void __ninepatchrect_ptr().value.set_h_axis_stretch_mode(((p_mode : gd.ninepatchrect.AxisStretchMode)));
 	public function get_h_axis_stretch_mode():gd.ninepatchrect.AxisStretchMode return __ninepatchrect_ptr().value.get_h_axis_stretch_mode();
-	public function set_v_axis_stretch_mode(p_mode:gd.ninepatchrect.AxisStretchMode):Void __ninepatchrect_ptr().value.set_v_axis_stretch_mode(p_mode);
+	public function set_v_axis_stretch_mode(p_mode:gd.ninepatchrect.AxisStretchMode):Void __ninepatchrect_ptr().value.set_v_axis_stretch_mode(((p_mode : gd.ninepatchrect.AxisStretchMode)));
 	public function get_v_axis_stretch_mode():gd.ninepatchrect.AxisStretchMode return __ninepatchrect_ptr().value.get_v_axis_stretch_mode();
 	var texture(get, set) : gd.Texture2D;
 	var draw_center(get, set) : Bool;

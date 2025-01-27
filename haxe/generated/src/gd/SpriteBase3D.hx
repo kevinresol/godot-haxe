@@ -10,70 +10,70 @@ class SpriteBase3D extends gd.GeometryInstance3D {
 	}
 	extern inline function __spritebase3d_ptr():cpp.Pointer<gdnative.SpriteBase3D.SpriteBase3D_extern> return cast __gd.ptr;
 	public function set_centered(p_centered:Bool):Bool {
-		__spritebase3d_ptr().value.set_centered(p_centered);
+		__spritebase3d_ptr().value.set_centered(((p_centered : Bool)));
 		return p_centered;
 	}
 	public function is_centered():Bool return __spritebase3d_ptr().value.is_centered();
 	public function set_offset(p_offset:gd.Vector2):gd.Vector2 {
-		__spritebase3d_ptr().value.set_offset(p_offset);
+		__spritebase3d_ptr().value.set_offset(((p_offset : gd.Vector2)));
 		return p_offset;
 	}
 	public function get_offset():gd.Vector2 return __spritebase3d_ptr().value.get_offset();
 	public function set_flip_h(p_flip_h:Bool):Bool {
-		__spritebase3d_ptr().value.set_flip_h(p_flip_h);
+		__spritebase3d_ptr().value.set_flip_h(((p_flip_h : Bool)));
 		return p_flip_h;
 	}
 	public function is_flipped_h():Bool return __spritebase3d_ptr().value.is_flipped_h();
 	public function set_flip_v(p_flip_v:Bool):Bool {
-		__spritebase3d_ptr().value.set_flip_v(p_flip_v);
+		__spritebase3d_ptr().value.set_flip_v(((p_flip_v : Bool)));
 		return p_flip_v;
 	}
 	public function is_flipped_v():Bool return __spritebase3d_ptr().value.is_flipped_v();
 	public function set_modulate(p_modulate:gd.Color):gd.Color {
-		__spritebase3d_ptr().value.set_modulate(p_modulate);
+		__spritebase3d_ptr().value.set_modulate(((p_modulate : gd.Color)));
 		return p_modulate;
 	}
 	public function get_modulate():gd.Color return __spritebase3d_ptr().value.get_modulate();
 	public function set_render_priority(p_priority:Int):Int {
-		__spritebase3d_ptr().value.set_render_priority(p_priority);
+		__spritebase3d_ptr().value.set_render_priority(((p_priority : Int)));
 		return p_priority;
 	}
 	public function get_render_priority():Int return __spritebase3d_ptr().value.get_render_priority();
 	public function set_pixel_size(p_pixel_size:Float):Float {
-		__spritebase3d_ptr().value.set_pixel_size(p_pixel_size);
+		__spritebase3d_ptr().value.set_pixel_size(((p_pixel_size : Float)));
 		return p_pixel_size;
 	}
 	public function get_pixel_size():Float return __spritebase3d_ptr().value.get_pixel_size();
 	public function set_axis(p_axis:gd.vector3.Axis):gd.vector3.Axis {
-		__spritebase3d_ptr().value.set_axis(p_axis);
+		__spritebase3d_ptr().value.set_axis(((p_axis : gd.vector3.Axis)));
 		return p_axis;
 	}
 	public function get_axis():gd.vector3.Axis return __spritebase3d_ptr().value.get_axis();
-	public function set_draw_flag(p_flag:gd.spritebase3d.DrawFlags, p_enabled:Bool):Void __spritebase3d_ptr().value.set_draw_flag(p_flag, p_enabled);
-	public function get_draw_flag(p_flag:gd.spritebase3d.DrawFlags):Bool return __spritebase3d_ptr().value.get_draw_flag(p_flag);
-	public function set_alpha_cut_mode(p_mode:gd.spritebase3d.AlphaCutMode):Void __spritebase3d_ptr().value.set_alpha_cut_mode(p_mode);
+	public function set_draw_flag(p_flag:gd.spritebase3d.DrawFlags, p_enabled:Bool):Void __spritebase3d_ptr().value.set_draw_flag(((p_flag : gd.spritebase3d.DrawFlags)), ((p_enabled : Bool)));
+	public function get_draw_flag(p_flag:gd.spritebase3d.DrawFlags):Bool return __spritebase3d_ptr().value.get_draw_flag(((p_flag : gd.spritebase3d.DrawFlags)));
+	public function set_alpha_cut_mode(p_mode:gd.spritebase3d.AlphaCutMode):Void __spritebase3d_ptr().value.set_alpha_cut_mode(((p_mode : gd.spritebase3d.AlphaCutMode)));
 	public function get_alpha_cut_mode():gd.spritebase3d.AlphaCutMode return __spritebase3d_ptr().value.get_alpha_cut_mode();
 	public function set_alpha_scissor_threshold(p_threshold:Float):Float {
-		__spritebase3d_ptr().value.set_alpha_scissor_threshold(p_threshold);
+		__spritebase3d_ptr().value.set_alpha_scissor_threshold(((p_threshold : Float)));
 		return p_threshold;
 	}
 	public function get_alpha_scissor_threshold():Float return __spritebase3d_ptr().value.get_alpha_scissor_threshold();
 	public function set_alpha_hash_scale(p_threshold:Float):Float {
-		__spritebase3d_ptr().value.set_alpha_hash_scale(p_threshold);
+		__spritebase3d_ptr().value.set_alpha_hash_scale(((p_threshold : Float)));
 		return p_threshold;
 	}
 	public function get_alpha_hash_scale():Float return __spritebase3d_ptr().value.get_alpha_hash_scale();
-	public function set_alpha_antialiasing(p_alpha_aa:gd.basematerial3d.AlphaAntiAliasing):Void __spritebase3d_ptr().value.set_alpha_antialiasing(p_alpha_aa);
+	public function set_alpha_antialiasing(p_alpha_aa:gd.basematerial3d.AlphaAntiAliasing):Void __spritebase3d_ptr().value.set_alpha_antialiasing(((p_alpha_aa : gd.basematerial3d.AlphaAntiAliasing)));
 	public function get_alpha_antialiasing():gd.basematerial3d.AlphaAntiAliasing return __spritebase3d_ptr().value.get_alpha_antialiasing();
 	public function set_alpha_antialiasing_edge(p_edge:Float):Float {
-		__spritebase3d_ptr().value.set_alpha_antialiasing_edge(p_edge);
+		__spritebase3d_ptr().value.set_alpha_antialiasing_edge(((p_edge : Float)));
 		return p_edge;
 	}
 	public function get_alpha_antialiasing_edge():Float return __spritebase3d_ptr().value.get_alpha_antialiasing_edge();
-	public function set_billboard_mode(p_mode:gd.basematerial3d.BillboardMode):Void __spritebase3d_ptr().value.set_billboard_mode(p_mode);
+	public function set_billboard_mode(p_mode:gd.basematerial3d.BillboardMode):Void __spritebase3d_ptr().value.set_billboard_mode(((p_mode : gd.basematerial3d.BillboardMode)));
 	public function get_billboard_mode():gd.basematerial3d.BillboardMode return __spritebase3d_ptr().value.get_billboard_mode();
 	public function set_texture_filter(p_mode:gd.basematerial3d.TextureFilter):gd.basematerial3d.TextureFilter {
-		__spritebase3d_ptr().value.set_texture_filter(p_mode);
+		__spritebase3d_ptr().value.set_texture_filter(((p_mode : gd.basematerial3d.TextureFilter)));
 		return p_mode;
 	}
 	public function get_texture_filter():gd.basematerial3d.TextureFilter return __spritebase3d_ptr().value.get_texture_filter();

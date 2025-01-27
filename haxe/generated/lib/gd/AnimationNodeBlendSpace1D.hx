@@ -1,7 +1,7 @@
 package gd;
 extern class AnimationNodeBlendSpace1D extends gd.AnimationRootNode {
 	function new(?owner:Dynamic);
-	function add_blend_point(p_node:gd.AnimationRootNode, p_pos:Float, ?p_at_index:Int = -1):Void;
+	function add_blend_point(p_node:gd.AnimationRootNode, p_pos:Float, ?p_at_index:Int):Void;
 	function set_blend_point_position(p_point:Int, p_pos:Float):Void;
 	function get_blend_point_position(p_point:Int):Float;
 	function set_blend_point_node(p_point:Int, p_node:gd.AnimationRootNode):Void;

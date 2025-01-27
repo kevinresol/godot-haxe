@@ -10,48 +10,51 @@ class SkeletonIK3D extends gd.SkeletonModifier3D {
 	}
 	extern inline function __skeletonik3d_ptr():cpp.Pointer<gdnative.SkeletonIK3D.SkeletonIK3D_extern> return cast __gd.ptr;
 	public function set_root_bone(p_root_bone:std.String):std.String {
-		__skeletonik3d_ptr().value.set_root_bone(p_root_bone);
+		__skeletonik3d_ptr().value.set_root_bone(((p_root_bone : std.String)));
 		return p_root_bone;
 	}
 	public function get_root_bone():std.String return __skeletonik3d_ptr().value.get_root_bone();
 	public function set_tip_bone(p_tip_bone:std.String):std.String {
-		__skeletonik3d_ptr().value.set_tip_bone(p_tip_bone);
+		__skeletonik3d_ptr().value.set_tip_bone(((p_tip_bone : std.String)));
 		return p_tip_bone;
 	}
 	public function get_tip_bone():std.String return __skeletonik3d_ptr().value.get_tip_bone();
 	public function set_target_node(p_node:std.String):std.String {
-		__skeletonik3d_ptr().value.set_target_node(p_node);
+		__skeletonik3d_ptr().value.set_target_node(((p_node : std.String)));
 		return p_node;
 	}
 	public function get_target_node():std.String return __skeletonik3d_ptr().value.get_target_node();
 	public function set_override_tip_basis(p_override:Bool):Bool {
-		__skeletonik3d_ptr().value.set_override_tip_basis(p_override);
+		__skeletonik3d_ptr().value.set_override_tip_basis(((p_override : Bool)));
 		return p_override;
 	}
 	public function is_override_tip_basis():Bool return __skeletonik3d_ptr().value.is_override_tip_basis();
 	public function set_use_magnet(p_use:Bool):Bool {
-		__skeletonik3d_ptr().value.set_use_magnet(p_use);
+		__skeletonik3d_ptr().value.set_use_magnet(((p_use : Bool)));
 		return p_use;
 	}
 	public function is_using_magnet():Bool return __skeletonik3d_ptr().value.is_using_magnet();
-	public function set_magnet_position(p_local_position:gd.Vector3):Void __skeletonik3d_ptr().value.set_magnet_position(p_local_position);
+	public function set_magnet_position(p_local_position:gd.Vector3):Void __skeletonik3d_ptr().value.set_magnet_position(((p_local_position : gd.Vector3)));
 	public function get_magnet_position():gd.Vector3 return __skeletonik3d_ptr().value.get_magnet_position();
 	public function get_parent_skeleton():gd.Skeleton3D return __skeletonik3d_ptr().value.get_parent_skeleton();
 	public function is_running():Bool return __skeletonik3d_ptr().value.is_running();
 	public function set_min_distance(p_min_distance:Float):Float {
-		__skeletonik3d_ptr().value.set_min_distance(p_min_distance);
+		__skeletonik3d_ptr().value.set_min_distance(((p_min_distance : Float)));
 		return p_min_distance;
 	}
 	public function get_min_distance():Float return __skeletonik3d_ptr().value.get_min_distance();
 	public function set_max_iterations(p_iterations:Int):Int {
-		__skeletonik3d_ptr().value.set_max_iterations(p_iterations);
+		__skeletonik3d_ptr().value.set_max_iterations(((p_iterations : Int)));
 		return p_iterations;
 	}
 	public function get_max_iterations():Int return __skeletonik3d_ptr().value.get_max_iterations();
-	public function start(?p_one_time:Bool = false):Void __skeletonik3d_ptr().value.start(p_one_time);
+	public function start(?p_one_time:Bool):Void switch [p_one_time] {
+		case [null]:__skeletonik3d_ptr().value.start();
+		default:__skeletonik3d_ptr().value.start(((p_one_time : Bool)));
+	};
 	public function stop():Void __skeletonik3d_ptr().value.stop();
 	public function set_interpolation(p_interpolation:Float):Float {
-		__skeletonik3d_ptr().value.set_interpolation(p_interpolation);
+		__skeletonik3d_ptr().value.set_interpolation(((p_interpolation : Float)));
 		return p_interpolation;
 	}
 	public function get_interpolation():Float return __skeletonik3d_ptr().value.get_interpolation();

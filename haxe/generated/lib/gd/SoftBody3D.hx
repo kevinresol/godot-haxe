@@ -29,6 +29,7 @@ extern class SoftBody3D extends gd.MeshInstance3D {
 	function set_drag_coefficient(p_drag_coefficient:Float):Float;
 	function get_drag_coefficient():Float;
 	function get_point_transform(p_point_index:Int):gd.Vector3;
+	function set_point_pinned(p_point_index:Int, p_pinned:Bool, ?p_attachment_path:std.String):Void;
 	function is_point_pinned(p_point_index:Int):Bool;
 	function set_ray_pickable(p_ray_pickable:Bool):Bool;
 	function is_ray_pickable():Bool;

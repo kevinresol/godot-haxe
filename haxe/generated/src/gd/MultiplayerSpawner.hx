@@ -9,23 +9,27 @@ class MultiplayerSpawner extends gd.Node {
 		super(native.reinterpret());
 	}
 	extern inline function __multiplayerspawner_ptr():cpp.Pointer<gdnative.MultiplayerSpawner.MultiplayerSpawner_extern> return cast __gd.ptr;
-	public function add_spawnable_scene(p_path:std.String):Void __multiplayerspawner_ptr().value.add_spawnable_scene(p_path);
+	public function add_spawnable_scene(p_path:std.String):Void __multiplayerspawner_ptr().value.add_spawnable_scene(((p_path : std.String)));
 	public function get_spawnable_scene_count():Int return __multiplayerspawner_ptr().value.get_spawnable_scene_count();
-	public function get_spawnable_scene(p_index:Int):std.String return __multiplayerspawner_ptr().value.get_spawnable_scene(p_index);
+	public function get_spawnable_scene(p_index:Int):std.String return __multiplayerspawner_ptr().value.get_spawnable_scene(((p_index : Int)));
 	public function clear_spawnable_scenes():Void __multiplayerspawner_ptr().value.clear_spawnable_scenes();
+	public function spawn(?p_data:gd.Variant):gd.Node return switch [p_data] {
+		case [null]:__multiplayerspawner_ptr().value.spawn();
+		default:__multiplayerspawner_ptr().value.spawn(((p_data : gd.Variant)));
+	};
 	public function get_spawn_path():std.String return __multiplayerspawner_ptr().value.get_spawn_path();
 	public function set_spawn_path(p_path:std.String):std.String {
-		__multiplayerspawner_ptr().value.set_spawn_path(p_path);
+		__multiplayerspawner_ptr().value.set_spawn_path(((p_path : std.String)));
 		return p_path;
 	}
 	public function get_spawn_limit():Int return __multiplayerspawner_ptr().value.get_spawn_limit();
 	public function set_spawn_limit(p_limit:Int):Int {
-		__multiplayerspawner_ptr().value.set_spawn_limit(p_limit);
+		__multiplayerspawner_ptr().value.set_spawn_limit(((p_limit : Int)));
 		return p_limit;
 	}
 	public function get_spawn_function():gd.Callable return __multiplayerspawner_ptr().value.get_spawn_function();
 	public function set_spawn_function(p_spawn_function:gd.Callable):gd.Callable {
-		__multiplayerspawner_ptr().value.set_spawn_function(p_spawn_function);
+		__multiplayerspawner_ptr().value.set_spawn_function(((p_spawn_function : gd.Callable)));
 		return p_spawn_function;
 	}
 	var spawn_path(get, set) : std.String;

@@ -10,27 +10,27 @@ class OpenXRHand extends gd.Node3D {
 	}
 	extern inline function __openxrhand_ptr():cpp.Pointer<gdnative.OpenXRHand.OpenXRHand_extern> return cast __gd.ptr;
 	public function set_hand(p_hand:gd.openxrhand.Hands):gd.openxrhand.Hands {
-		__openxrhand_ptr().value.set_hand(p_hand);
+		__openxrhand_ptr().value.set_hand(((p_hand : gd.openxrhand.Hands)));
 		return p_hand;
 	}
 	public function get_hand():gd.openxrhand.Hands return __openxrhand_ptr().value.get_hand();
 	public function set_hand_skeleton(p_hand_skeleton:std.String):std.String {
-		__openxrhand_ptr().value.set_hand_skeleton(p_hand_skeleton);
+		__openxrhand_ptr().value.set_hand_skeleton(((p_hand_skeleton : std.String)));
 		return p_hand_skeleton;
 	}
 	public function get_hand_skeleton():std.String return __openxrhand_ptr().value.get_hand_skeleton();
 	public function set_motion_range(p_motion_range:gd.openxrhand.MotionRange):gd.openxrhand.MotionRange {
-		__openxrhand_ptr().value.set_motion_range(p_motion_range);
+		__openxrhand_ptr().value.set_motion_range(((p_motion_range : gd.openxrhand.MotionRange)));
 		return p_motion_range;
 	}
 	public function get_motion_range():gd.openxrhand.MotionRange return __openxrhand_ptr().value.get_motion_range();
 	public function set_skeleton_rig(p_skeleton_rig:gd.openxrhand.SkeletonRig):gd.openxrhand.SkeletonRig {
-		__openxrhand_ptr().value.set_skeleton_rig(p_skeleton_rig);
+		__openxrhand_ptr().value.set_skeleton_rig(((p_skeleton_rig : gd.openxrhand.SkeletonRig)));
 		return p_skeleton_rig;
 	}
 	public function get_skeleton_rig():gd.openxrhand.SkeletonRig return __openxrhand_ptr().value.get_skeleton_rig();
 	public function set_bone_update(p_bone_update:gd.openxrhand.BoneUpdate):gd.openxrhand.BoneUpdate {
-		__openxrhand_ptr().value.set_bone_update(p_bone_update);
+		__openxrhand_ptr().value.set_bone_update(((p_bone_update : gd.openxrhand.BoneUpdate)));
 		return p_bone_update;
 	}
 	public function get_bone_update():gd.openxrhand.BoneUpdate return __openxrhand_ptr().value.get_bone_update();

@@ -1,7 +1,8 @@
 package gd;
 extern class UndoRedo extends gd.Object {
 	function new(?owner:Dynamic);
-	function commit_action(?p_execute:Bool = true):Void;
+	function create_action(p_name:std.String, ?p_merge_mode:gd.undoredo.MergeMode, ?p_backward_undo_ops:Bool):Void;
+	function commit_action(?p_execute:Bool):Void;
 	function is_committing_action():Bool;
 	function add_do_method(p_callable:gd.Callable):Void;
 	function add_undo_method(p_callable:gd.Callable):Void;
@@ -14,7 +15,7 @@ extern class UndoRedo extends gd.Object {
 	function get_history_count():Int;
 	function get_current_action():Int;
 	function get_action_name(p_id:Int):std.String;
-	function clear_history(?p_increase_version:Bool = true):Void;
+	function clear_history(?p_increase_version:Bool):Void;
 	function get_current_action_name():std.String;
 	function has_undo():Bool;
 	function has_redo():Bool;

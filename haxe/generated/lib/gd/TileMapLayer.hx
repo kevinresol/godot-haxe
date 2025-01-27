@@ -3,6 +3,7 @@ extern class TileMapLayer extends gd.Node2D {
 	function new(?owner:Dynamic);
 	function _use_tile_data_runtime_update(p_coords:gd.Vector2i):Bool;
 	function _tile_data_runtime_update(p_coords:gd.Vector2i, p_tile_data:gd.TileData):Void;
+	function set_cell(p_coords:gd.Vector2i, ?p_source_id:Int, ?p_atlas_coords:gd.Vector2i, ?p_alternative_tile:Int):Void;
 	function erase_cell(p_coords:gd.Vector2i):Void;
 	function fix_invalid_tiles():Void;
 	function clear():Void;

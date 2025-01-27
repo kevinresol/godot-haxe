@@ -10,7 +10,7 @@ class ScrollBar extends gd.Range {
 	}
 	extern inline function __scrollbar_ptr():cpp.Pointer<gdnative.ScrollBar.ScrollBar_extern> return cast __gd.ptr;
 	public function set_custom_step(p_step:Float):Float {
-		__scrollbar_ptr().value.set_custom_step(p_step);
+		__scrollbar_ptr().value.set_custom_step(((p_step : Float)));
 		return p_step;
 	}
 	public function get_custom_step():Float return __scrollbar_ptr().value.get_custom_step();

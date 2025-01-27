@@ -11,17 +11,17 @@ class ReferenceRect extends gd.Control {
 	extern inline function __referencerect_ptr():cpp.Pointer<gdnative.ReferenceRect.ReferenceRect_extern> return cast __gd.ptr;
 	public function get_border_color():gd.Color return __referencerect_ptr().value.get_border_color();
 	public function set_border_color(p_color:gd.Color):gd.Color {
-		__referencerect_ptr().value.set_border_color(p_color);
+		__referencerect_ptr().value.set_border_color(((p_color : gd.Color)));
 		return p_color;
 	}
 	public function get_border_width():Float return __referencerect_ptr().value.get_border_width();
 	public function set_border_width(p_width:Float):Float {
-		__referencerect_ptr().value.set_border_width(p_width);
+		__referencerect_ptr().value.set_border_width(((p_width : Float)));
 		return p_width;
 	}
 	public function get_editor_only():Bool return __referencerect_ptr().value.get_editor_only();
 	public function set_editor_only(p_enabled:Bool):Bool {
-		__referencerect_ptr().value.set_editor_only(p_enabled);
+		__referencerect_ptr().value.set_editor_only(((p_enabled : Bool)));
 		return p_enabled;
 	}
 	var border_color(get, set) : gd.Color;

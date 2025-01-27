@@ -1,11 +1,13 @@
 package gd;
 extern class WebSocketPeer extends gd.PacketPeer {
 	function new(?owner:Dynamic);
+	function connect_to_url(p_url:std.String, ?p_tls_client_options:gd.TLSOptions):gd.Error;
 	function accept_stream(p_stream:gd.StreamPeer):gd.Error;
+	function send(p_message:gd.PackedByteArray, ?p_write_mode:gd.websocketpeer.WriteMode):gd.Error;
 	function send_text(p_message:std.String):gd.Error;
 	function was_string_packet():Bool;
 	function poll():Void;
-	function close(?p_code:Int = 1000, ?p_reason:std.String = "\"\""):Void;
+	function close(?p_code:Int, ?p_reason:std.String):Void;
 	function get_connected_host():std.String;
 	function get_connected_port():Int;
 	function get_selected_protocol():std.String;

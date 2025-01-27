@@ -10,7 +10,7 @@ class TextureLayeredRD extends gd.TextureLayered {
 	}
 	extern inline function __texturelayeredrd_ptr():cpp.Pointer<gdnative.TextureLayeredRD.TextureLayeredRD_extern> return cast __gd.ptr;
 	public function set_texture_rd_rid(p_texture_rd_rid:gd.RID):gd.RID {
-		__texturelayeredrd_ptr().value.set_texture_rd_rid(p_texture_rd_rid);
+		__texturelayeredrd_ptr().value.set_texture_rd_rid(((p_texture_rd_rid : gd.RID)));
 		return p_texture_rd_rid;
 	}
 	public function get_texture_rd_rid():gd.RID return __texturelayeredrd_ptr().value.get_texture_rd_rid();

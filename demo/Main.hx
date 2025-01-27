@@ -80,7 +80,9 @@ class Main extends Base {
 	var physicsProcessed = false;
 
 	override function _ready() {
-		trace('_ready ${get_child_count(false)}');
+		trace('get_child_count(): ${get_child_count()}');
+		trace('get_child_count(false): ${get_child_count(false)}');
+		trace('get_child_count(true): ${get_child_count(true)}');
 		trace('get_name: ${get_name()}');
 		trace('get_index: ${get_index()}');
 		trace('get_tree_string: ${get_tree_string()}');

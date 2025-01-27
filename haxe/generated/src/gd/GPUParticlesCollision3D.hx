@@ -10,7 +10,7 @@ class GPUParticlesCollision3D extends gd.VisualInstance3D {
 	}
 	extern inline function __gpuparticlescollision3d_ptr():cpp.Pointer<gdnative.GPUParticlesCollision3D.GPUParticlesCollision3D_extern> return cast __gd.ptr;
 	public function set_cull_mask(p_mask:Int):Int {
-		__gpuparticlescollision3d_ptr().value.set_cull_mask(p_mask);
+		__gpuparticlescollision3d_ptr().value.set_cull_mask(((p_mask : Int)));
 		return p_mask;
 	}
 	public function get_cull_mask():Int return __gpuparticlescollision3d_ptr().value.get_cull_mask();

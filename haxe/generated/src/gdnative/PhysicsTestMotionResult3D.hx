@@ -6,24 +6,24 @@ package gdnative;
 	function get_collision_safe_fraction():Float;
 	function get_collision_unsafe_fraction():Float;
 	function get_collision_count():Int;
-	overload function get_collision_point(p_collision_index:Int):gdnative.Vector3;
 	overload function get_collision_point():gdnative.Vector3;
-	overload function get_collision_normal(p_collision_index:Int):gdnative.Vector3;
+	overload function get_collision_point(p_collision_index:Int):gdnative.Vector3;
 	overload function get_collision_normal():gdnative.Vector3;
-	overload function get_collider_velocity(p_collision_index:Int):gdnative.Vector3;
+	overload function get_collision_normal(p_collision_index:Int):gdnative.Vector3;
 	overload function get_collider_velocity():gdnative.Vector3;
-	overload function get_collider_id(p_collision_index:Int):Int;
+	overload function get_collider_velocity(p_collision_index:Int):gdnative.Vector3;
 	overload function get_collider_id():Int;
-	overload function get_collider_rid(p_collision_index:Int):gdnative.RID;
+	overload function get_collider_id(p_collision_index:Int):Int;
 	overload function get_collider_rid():gdnative.RID;
-	overload function get_collider(p_collision_index:Int):gdnative.Object;
+	overload function get_collider_rid(p_collision_index:Int):gdnative.RID;
 	overload function get_collider():gdnative.Object;
-	overload function get_collider_shape(p_collision_index:Int):Int;
+	overload function get_collider(p_collision_index:Int):gdnative.Object;
 	overload function get_collider_shape():Int;
-	overload function get_collision_local_shape(p_collision_index:Int):Int;
+	overload function get_collider_shape(p_collision_index:Int):Int;
 	overload function get_collision_local_shape():Int;
-	overload function get_collision_depth(p_collision_index:Int):Float;
+	overload function get_collision_local_shape(p_collision_index:Int):Int;
 	overload function get_collision_depth():Float;
+	overload function get_collision_depth(p_collision_index:Int):Float;
 }
 @:forward abstract PhysicsTestMotionResult3D(gdnative.Ref<PhysicsTestMotionResult3D_extern>) from gdnative.Ref<PhysicsTestMotionResult3D_extern> to gdnative.Ref<PhysicsTestMotionResult3D_extern> {
 	@:from

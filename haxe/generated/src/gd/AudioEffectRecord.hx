@@ -9,10 +9,10 @@ class AudioEffectRecord extends gd.AudioEffect {
 		super(native.reinterpret());
 	}
 	extern inline function __audioeffectrecord_ptr():cpp.Pointer<gdnative.AudioEffectRecord.AudioEffectRecord_extern> return cast __gd.ptr;
-	public function set_recording_active(p_record:Bool):Void __audioeffectrecord_ptr().value.set_recording_active(p_record);
+	public function set_recording_active(p_record:Bool):Void __audioeffectrecord_ptr().value.set_recording_active(((p_record : Bool)));
 	public function is_recording_active():Bool return __audioeffectrecord_ptr().value.is_recording_active();
 	public function set_format(p_format:gd.audiostreamwav.Format):gd.audiostreamwav.Format {
-		__audioeffectrecord_ptr().value.set_format(p_format);
+		__audioeffectrecord_ptr().value.set_format(((p_format : gd.audiostreamwav.Format)));
 		return p_format;
 	}
 	public function get_format():gd.audiostreamwav.Format return __audioeffectrecord_ptr().value.get_format();

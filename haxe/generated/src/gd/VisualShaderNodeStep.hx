@@ -10,7 +10,7 @@ class VisualShaderNodeStep extends gd.VisualShaderNode {
 	}
 	extern inline function __visualshadernodestep_ptr():cpp.Pointer<gdnative.VisualShaderNodeStep.VisualShaderNodeStep_extern> return cast __gd.ptr;
 	public function set_op_type(p_op_type:gd.visualshadernodestep.OpType):gd.visualshadernodestep.OpType {
-		__visualshadernodestep_ptr().value.set_op_type(p_op_type);
+		__visualshadernodestep_ptr().value.set_op_type(((p_op_type : gd.visualshadernodestep.OpType)));
 		return p_op_type;
 	}
 	public function get_op_type():gd.visualshadernodestep.OpType return __visualshadernodestep_ptr().value.get_op_type();

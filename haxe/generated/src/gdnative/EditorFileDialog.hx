@@ -2,8 +2,8 @@ package gdnative;
 @:include("godot_cpp/classes/editor_file_dialog.hpp") @:native("godot::EditorFileDialog") @:structAccess extern class EditorFileDialog_extern extends gdnative.ConfirmationDialog.ConfirmationDialog_extern {
 	extern static inline function __alloc():cpp.Pointer<EditorFileDialog_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::EditorFileDialog"));
 	function clear_filters():Void;
-	overload function add_filter(p_filter:gdnative.String, p_description:gdnative.String):Void;
 	overload function add_filter(p_filter:gdnative.String):Void;
+	overload function add_filter(p_filter:gdnative.String, p_description:gdnative.String):Void;
 	function set_filters(p_filters:gdnative.PackedStringArray):Void;
 	function get_filters():gdnative.PackedStringArray;
 	function get_option_name(p_option:Int):gdnative.String;
@@ -34,8 +34,8 @@ package gdnative;
 	function get_display_mode():gdnative.editorfiledialog.DisplayMode;
 	function set_disable_overwrite_warning(p_disable:Bool):Void;
 	function is_overwrite_warning_disabled():Bool;
-	overload function add_side_menu(p_menu:gdnative.Control, p_title:gdnative.String):Void;
 	overload function add_side_menu(p_menu:gdnative.Control):Void;
+	overload function add_side_menu(p_menu:gdnative.Control, p_title:gdnative.String):Void;
 	function popup_file_dialog():Void;
 	function invalidate():Void;
 }

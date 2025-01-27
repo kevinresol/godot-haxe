@@ -10,32 +10,32 @@ class VisualShaderNodeFloatParameter extends gd.VisualShaderNodeParameter {
 	}
 	extern inline function __visualshadernodefloatparameter_ptr():cpp.Pointer<gdnative.VisualShaderNodeFloatParameter.VisualShaderNodeFloatParameter_extern> return cast __gd.ptr;
 	public function set_hint(p_hint:gd.visualshadernodefloatparameter.Hint):gd.visualshadernodefloatparameter.Hint {
-		__visualshadernodefloatparameter_ptr().value.set_hint(p_hint);
+		__visualshadernodefloatparameter_ptr().value.set_hint(((p_hint : gd.visualshadernodefloatparameter.Hint)));
 		return p_hint;
 	}
 	public function get_hint():gd.visualshadernodefloatparameter.Hint return __visualshadernodefloatparameter_ptr().value.get_hint();
 	public function set_min(p_value:Float):Float {
-		__visualshadernodefloatparameter_ptr().value.set_min(p_value);
+		__visualshadernodefloatparameter_ptr().value.set_min(((p_value : Float)));
 		return p_value;
 	}
 	public function get_min():Float return __visualshadernodefloatparameter_ptr().value.get_min();
 	public function set_max(p_value:Float):Float {
-		__visualshadernodefloatparameter_ptr().value.set_max(p_value);
+		__visualshadernodefloatparameter_ptr().value.set_max(((p_value : Float)));
 		return p_value;
 	}
 	public function get_max():Float return __visualshadernodefloatparameter_ptr().value.get_max();
 	public function set_step(p_value:Float):Float {
-		__visualshadernodefloatparameter_ptr().value.set_step(p_value);
+		__visualshadernodefloatparameter_ptr().value.set_step(((p_value : Float)));
 		return p_value;
 	}
 	public function get_step():Float return __visualshadernodefloatparameter_ptr().value.get_step();
 	public function set_default_value_enabled(p_enabled:Bool):Bool {
-		__visualshadernodefloatparameter_ptr().value.set_default_value_enabled(p_enabled);
+		__visualshadernodefloatparameter_ptr().value.set_default_value_enabled(((p_enabled : Bool)));
 		return p_enabled;
 	}
 	public function is_default_value_enabled():Bool return __visualshadernodefloatparameter_ptr().value.is_default_value_enabled();
 	public function set_default_value(p_value:Float):Float {
-		__visualshadernodefloatparameter_ptr().value.set_default_value(p_value);
+		__visualshadernodefloatparameter_ptr().value.set_default_value(((p_value : Float)));
 		return p_value;
 	}
 	public function get_default_value():Float return __visualshadernodefloatparameter_ptr().value.get_default_value();

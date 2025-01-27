@@ -10,16 +10,16 @@ class PacketPeerStream extends gd.PacketPeer {
 	}
 	extern inline function __packetpeerstream_ptr():cpp.Pointer<gdnative.PacketPeerStream.PacketPeerStream_extern> return cast __gd.ptr;
 	public function set_stream_peer(p_peer:gd.StreamPeer):gd.StreamPeer {
-		__packetpeerstream_ptr().value.set_stream_peer(p_peer);
+		__packetpeerstream_ptr().value.set_stream_peer(((p_peer : gd.StreamPeer)));
 		return p_peer;
 	}
 	public function get_stream_peer():gd.StreamPeer return __packetpeerstream_ptr().value.get_stream_peer();
 	public function set_input_buffer_max_size(p_max_size_bytes:Int):Int {
-		__packetpeerstream_ptr().value.set_input_buffer_max_size(p_max_size_bytes);
+		__packetpeerstream_ptr().value.set_input_buffer_max_size(((p_max_size_bytes : Int)));
 		return p_max_size_bytes;
 	}
 	public function set_output_buffer_max_size(p_max_size_bytes:Int):Int {
-		__packetpeerstream_ptr().value.set_output_buffer_max_size(p_max_size_bytes);
+		__packetpeerstream_ptr().value.set_output_buffer_max_size(((p_max_size_bytes : Int)));
 		return p_max_size_bytes;
 	}
 	public function get_input_buffer_max_size():Int return __packetpeerstream_ptr().value.get_input_buffer_max_size();

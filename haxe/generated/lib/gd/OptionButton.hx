@@ -1,8 +1,8 @@
 package gd;
 extern class OptionButton extends gd.Button {
 	function new(?owner:Dynamic);
-	function add_item(p_label:std.String, ?p_id:Int = -1):Void;
-	function add_icon_item(p_texture:gd.Texture2D, p_label:std.String, ?p_id:Int = -1):Void;
+	function add_item(p_label:std.String, ?p_id:Int):Void;
+	function add_icon_item(p_texture:gd.Texture2D, p_label:std.String, ?p_id:Int):Void;
 	function set_item_text(p_idx:Int, p_text:std.String):Void;
 	function set_item_icon(p_idx:Int, p_texture:gd.Texture2D):Void;
 	function set_item_disabled(p_idx:Int, p_disabled:Bool):Void;
@@ -17,7 +17,7 @@ extern class OptionButton extends gd.Button {
 	function get_item_tooltip(p_idx:Int):std.String;
 	function is_item_disabled(p_idx:Int):Bool;
 	function is_item_separator(p_idx:Int):Bool;
-	function add_separator(?p_text:std.String = "\"\""):Void;
+	function add_separator(?p_text:std.String):Void;
 	function clear():Void;
 	function select(p_idx:Int):Void;
 	function get_selected():Int;
@@ -29,7 +29,7 @@ extern class OptionButton extends gd.Button {
 	function set_item_count(p_count:Int):Int;
 	function get_item_count():Int;
 	function has_selectable_items():Bool;
-	function get_selectable_item(?p_from_last:Bool = false):Int;
+	function get_selectable_item(?p_from_last:Bool):Int;
 	function set_fit_to_longest_item(p_fit:Bool):Bool;
 	function is_fit_to_longest_item():Bool;
 	function set_allow_reselect(p_allow:Bool):Bool;

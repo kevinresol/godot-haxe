@@ -14,12 +14,12 @@ class Material extends gd.Resource {
 	public function _can_do_next_pass():Bool return __material_ptr().value._can_do_next_pass();
 	public function _can_use_render_priority():Bool return __material_ptr().value._can_use_render_priority();
 	public function set_next_pass(p_next_pass:gd.Material):gd.Material {
-		__material_ptr().value.set_next_pass(p_next_pass);
+		__material_ptr().value.set_next_pass(((p_next_pass : gd.Material)));
 		return p_next_pass;
 	}
 	public function get_next_pass():gd.Material return __material_ptr().value.get_next_pass();
 	public function set_render_priority(p_priority:Int):Int {
-		__material_ptr().value.set_render_priority(p_priority);
+		__material_ptr().value.set_render_priority(((p_priority : Int)));
 		return p_priority;
 	}
 	public function get_render_priority():Int return __material_ptr().value.get_render_priority();

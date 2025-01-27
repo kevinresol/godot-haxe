@@ -9,5 +9,5 @@ class ImageTextureLayered extends gd.TextureLayered {
 		super(native.reinterpret());
 	}
 	extern inline function __imagetexturelayered_ptr():cpp.Pointer<gdnative.ImageTextureLayered.ImageTextureLayered_extern> return cast __gd.ptr;
-	public function update_layer(p_image:gd.Image, p_layer:Int):Void __imagetexturelayered_ptr().value.update_layer(p_image, p_layer);
+	public function update_layer(p_image:gd.Image, p_layer:Int):Void __imagetexturelayered_ptr().value.update_layer(((p_image : gd.Image)), ((p_layer : Int)));
 }

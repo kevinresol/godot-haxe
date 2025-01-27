@@ -7,7 +7,7 @@ extern class OS extends gd.Object {
 	function get_connected_midi_inputs():gd.PackedStringArray;
 	function open_midi_inputs():Void;
 	function close_midi_inputs():Void;
-	function alert(p_text:std.String, ?p_title:std.String = "\"Alert!\""):Void;
+	function alert(p_text:std.String, ?p_title:std.String):Void;
 	function crash(p_message:std.String):Void;
 	function set_low_processor_usage_mode(p_enable:Bool):Bool;
 	function is_in_low_processor_usage_mode():Bool;
@@ -18,16 +18,17 @@ extern class OS extends gd.Object {
 	function get_processor_count():Int;
 	function get_processor_name():std.String;
 	function get_system_fonts():gd.PackedStringArray;
-	function get_system_font_path(p_font_name:std.String, ?p_weight:Int = 400, ?p_stretch:Int = 100, ?p_italic:Bool = false):std.String;
-	function get_system_font_path_for_text(p_font_name:std.String, p_text:std.String, ?p_locale:std.String = "\"\"", ?p_script:std.String = "\"\"", ?p_weight:Int = 400, ?p_stretch:Int = 100, ?p_italic:Bool = false):gd.PackedStringArray;
+	function get_system_font_path(p_font_name:std.String, ?p_weight:Int, ?p_stretch:Int, ?p_italic:Bool):std.String;
+	function get_system_font_path_for_text(p_font_name:std.String, p_text:std.String, ?p_locale:std.String, ?p_script:std.String, ?p_weight:Int, ?p_stretch:Int, ?p_italic:Bool):gd.PackedStringArray;
 	function get_executable_path():std.String;
 	function read_string_from_stdin():std.String;
+	function execute(p_path:std.String, p_arguments:gd.PackedStringArray, ?p_output:gd.Array, ?p_read_stderr:Bool, ?p_open_console:Bool):Int;
 	function execute_with_pipe(p_path:std.String, p_arguments:gd.PackedStringArray):gd.Dictionary;
-	function create_process(p_path:std.String, p_arguments:gd.PackedStringArray, ?p_open_console:Bool = false):Int;
+	function create_process(p_path:std.String, p_arguments:gd.PackedStringArray, ?p_open_console:Bool):Int;
 	function create_instance(p_arguments:gd.PackedStringArray):Int;
 	function kill(p_pid:Int):gd.Error;
 	function shell_open(p_uri:std.String):gd.Error;
-	function shell_show_in_file_manager(p_file_or_dir_path:std.String, ?p_open_folder:Bool = true):gd.Error;
+	function shell_show_in_file_manager(p_file_or_dir_path:std.String, ?p_open_folder:Bool):gd.Error;
 	function is_process_running(p_pid:Int):Bool;
 	function get_process_exit_code(p_pid:Int):Int;
 	function get_process_id():Int;
@@ -41,6 +42,7 @@ extern class OS extends gd.Object {
 	function get_cmdline_args():gd.PackedStringArray;
 	function get_cmdline_user_args():gd.PackedStringArray;
 	function get_video_adapter_driver_info():gd.PackedStringArray;
+	function set_restart_on_exit(p_restart:Bool, ?p_arguments:gd.PackedStringArray):Void;
 	function is_restart_on_exit_set():Bool;
 	function get_restart_on_exit_arguments():gd.PackedStringArray;
 	function delay_usec(p_usec:Int):Void;
@@ -56,7 +58,7 @@ extern class OS extends gd.Object {
 	function get_memory_info():gd.Dictionary;
 	function move_to_trash(p_path:std.String):gd.Error;
 	function get_user_data_dir():std.String;
-	function get_system_dir(p_dir:gd.os.SystemDir, ?p_shared_storage:Bool = true):std.String;
+	function get_system_dir(p_dir:gd.os.SystemDir, ?p_shared_storage:Bool):std.String;
 	function get_config_dir():std.String;
 	function get_data_dir():std.String;
 	function get_cache_dir():std.String;

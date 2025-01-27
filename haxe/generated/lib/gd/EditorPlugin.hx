@@ -26,6 +26,8 @@ extern class EditorPlugin extends gd.Node {
 	function _enable_plugin():Void;
 	function _disable_plugin():Void;
 	function add_control_to_container(p_container:gd.editorplugin.CustomControlContainer, p_control:gd.Control):Void;
+	function add_control_to_bottom_panel(p_control:gd.Control, p_title:std.String, ?p_shortcut:gd.Shortcut):gd.Button;
+	function add_control_to_dock(p_slot:gd.editorplugin.DockSlot, p_control:gd.Control, ?p_shortcut:gd.Shortcut):Void;
 	function remove_control_from_docks(p_control:gd.Control):Void;
 	function remove_control_from_bottom_panel(p_control:gd.Control):Void;
 	function remove_control_from_container(p_container:gd.editorplugin.CustomControlContainer, p_control:gd.Control):Void;
@@ -47,11 +49,11 @@ extern class EditorPlugin extends gd.Node {
 	function queue_save_layout():Void;
 	function add_translation_parser_plugin(p_parser:gd.EditorTranslationParserPlugin):Void;
 	function remove_translation_parser_plugin(p_parser:gd.EditorTranslationParserPlugin):Void;
-	function add_import_plugin(p_importer:gd.EditorImportPlugin, ?p_first_priority:Bool = false):Void;
+	function add_import_plugin(p_importer:gd.EditorImportPlugin, ?p_first_priority:Bool):Void;
 	function remove_import_plugin(p_importer:gd.EditorImportPlugin):Void;
-	function add_scene_format_importer_plugin(p_scene_format_importer:gd.EditorSceneFormatImporter, ?p_first_priority:Bool = false):Void;
+	function add_scene_format_importer_plugin(p_scene_format_importer:gd.EditorSceneFormatImporter, ?p_first_priority:Bool):Void;
 	function remove_scene_format_importer_plugin(p_scene_format_importer:gd.EditorSceneFormatImporter):Void;
-	function add_scene_post_import_plugin(p_scene_import_plugin:gd.EditorScenePostImportPlugin, ?p_first_priority:Bool = false):Void;
+	function add_scene_post_import_plugin(p_scene_import_plugin:gd.EditorScenePostImportPlugin, ?p_first_priority:Bool):Void;
 	function remove_scene_post_import_plugin(p_scene_import_plugin:gd.EditorScenePostImportPlugin):Void;
 	function add_export_plugin(p_plugin:gd.EditorExportPlugin):Void;
 	function remove_export_plugin(p_plugin:gd.EditorExportPlugin):Void;

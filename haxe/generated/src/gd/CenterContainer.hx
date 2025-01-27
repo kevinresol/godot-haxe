@@ -10,7 +10,7 @@ class CenterContainer extends gd.Container {
 	}
 	extern inline function __centercontainer_ptr():cpp.Pointer<gdnative.CenterContainer.CenterContainer_extern> return cast __gd.ptr;
 	public function set_use_top_left(p_enable:Bool):Bool {
-		__centercontainer_ptr().value.set_use_top_left(p_enable);
+		__centercontainer_ptr().value.set_use_top_left(((p_enable : Bool)));
 		return p_enable;
 	}
 	public function is_using_top_left():Bool return __centercontainer_ptr().value.is_using_top_left();

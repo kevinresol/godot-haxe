@@ -10,12 +10,12 @@ class GPUParticlesAttractorVectorField3D extends gd.GPUParticlesAttractor3D {
 	}
 	extern inline function __gpuparticlesattractorvectorfield3d_ptr():cpp.Pointer<gdnative.GPUParticlesAttractorVectorField3D.GPUParticlesAttractorVectorField3D_extern> return cast __gd.ptr;
 	public function set_size(p_size:gd.Vector3):gd.Vector3 {
-		__gpuparticlesattractorvectorfield3d_ptr().value.set_size(p_size);
+		__gpuparticlesattractorvectorfield3d_ptr().value.set_size(((p_size : gd.Vector3)));
 		return p_size;
 	}
 	public function get_size():gd.Vector3 return __gpuparticlesattractorvectorfield3d_ptr().value.get_size();
 	public function set_texture(p_texture:gd.Texture3D):gd.Texture3D {
-		__gpuparticlesattractorvectorfield3d_ptr().value.set_texture(p_texture);
+		__gpuparticlesattractorvectorfield3d_ptr().value.set_texture(((p_texture : gd.Texture3D)));
 		return p_texture;
 	}
 	public function get_texture():gd.Texture3D return __gpuparticlesattractorvectorfield3d_ptr().value.get_texture();

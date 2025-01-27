@@ -10,7 +10,7 @@ class AudioStreamPolyphonic extends gd.AudioStream {
 	}
 	extern inline function __audiostreampolyphonic_ptr():cpp.Pointer<gdnative.AudioStreamPolyphonic.AudioStreamPolyphonic_extern> return cast __gd.ptr;
 	public function set_polyphony(p_voices:Int):Int {
-		__audiostreampolyphonic_ptr().value.set_polyphony(p_voices);
+		__audiostreampolyphonic_ptr().value.set_polyphony(((p_voices : Int)));
 		return p_voices;
 	}
 	public function get_polyphony():Int return __audiostreampolyphonic_ptr().value.get_polyphony();

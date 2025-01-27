@@ -3,7 +3,7 @@ extern class MeshDataTool extends gd.RefCounted {
 	function new(?owner:Dynamic);
 	function clear():Void;
 	function create_from_surface(p_mesh:gd.ArrayMesh, p_surface:Int):gd.Error;
-	function commit_to_surface(p_mesh:gd.ArrayMesh, ?p_compression_flags:Int = 0):gd.Error;
+	function commit_to_surface(p_mesh:gd.ArrayMesh, ?p_compression_flags:Int):gd.Error;
 	function get_format():Int;
 	function get_vertex_count():Int;
 	function get_edge_count():Int;

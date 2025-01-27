@@ -11,12 +11,12 @@ extern class RenderSceneBuffersRD extends gd.RenderSceneBuffers {
 	function get_texture_slice_view(p_context:std.String, p_name:std.String, p_layer:Int, p_mipmap:Int, p_layers:Int, p_mipmaps:Int, p_view:gd.RDTextureView):gd.RID;
 	function get_texture_slice_size(p_context:std.String, p_name:std.String, p_mipmap:Int):gd.Vector2i;
 	function clear_context(p_context:std.String):Void;
-	function get_color_texture(?p_msaa:Bool = false):gd.RID;
-	function get_color_layer(p_layer:Int, ?p_msaa:Bool = false):gd.RID;
-	function get_depth_texture(?p_msaa:Bool = false):gd.RID;
-	function get_depth_layer(p_layer:Int, ?p_msaa:Bool = false):gd.RID;
-	function get_velocity_texture(?p_msaa:Bool = false):gd.RID;
-	function get_velocity_layer(p_layer:Int, ?p_msaa:Bool = false):gd.RID;
+	function get_color_texture(?p_msaa:Bool):gd.RID;
+	function get_color_layer(p_layer:Int, ?p_msaa:Bool):gd.RID;
+	function get_depth_texture(?p_msaa:Bool):gd.RID;
+	function get_depth_layer(p_layer:Int, ?p_msaa:Bool):gd.RID;
+	function get_velocity_texture(?p_msaa:Bool):gd.RID;
+	function get_velocity_layer(p_layer:Int, ?p_msaa:Bool):gd.RID;
 	function get_render_target():gd.RID;
 	function get_view_count():Int;
 	function get_internal_size():gd.Vector2i;

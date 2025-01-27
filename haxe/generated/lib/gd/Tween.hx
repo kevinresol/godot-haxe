@@ -16,8 +16,8 @@ extern class Tween extends gd.RefCounted {
 	function bind_node(p_node:gd.Node):gd.Tween;
 	function set_process_mode(p_mode:gd.tween.TweenProcessMode):gd.Tween;
 	function set_pause_mode(p_mode:gd.tween.TweenPauseMode):gd.Tween;
-	function set_parallel(?p_parallel:Bool = true):gd.Tween;
-	function set_loops(?p_loops:Int = 0):gd.Tween;
+	function set_parallel(?p_parallel:Bool):gd.Tween;
+	function set_loops(?p_loops:Int):gd.Tween;
 	function get_loops_left():Int;
 	function set_speed_scale(p_speed:Float):gd.Tween;
 	function set_trans(p_trans:gd.tween.TransitionType):gd.Tween;

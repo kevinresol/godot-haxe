@@ -14,4 +14,5 @@ extern class VideoStreamPlayback extends gd.Resource {
 	function _update(p_delta:Float):Void;
 	function _get_channels():Int;
 	function _get_mix_rate():Int;
+	function mix_audio(p_num_frames:Int, ?p_buffer:gd.PackedFloat32Array, ?p_offset:Int):Int;
 }

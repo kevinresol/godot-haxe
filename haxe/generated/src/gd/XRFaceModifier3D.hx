@@ -10,12 +10,12 @@ class XRFaceModifier3D extends gd.Node3D {
 	}
 	extern inline function __xrfacemodifier3d_ptr():cpp.Pointer<gdnative.XRFaceModifier3D.XRFaceModifier3D_extern> return cast __gd.ptr;
 	public function set_face_tracker(p_tracker_name:std.String):std.String {
-		__xrfacemodifier3d_ptr().value.set_face_tracker(p_tracker_name);
+		__xrfacemodifier3d_ptr().value.set_face_tracker(((p_tracker_name : std.String)));
 		return p_tracker_name;
 	}
 	public function get_face_tracker():std.String return __xrfacemodifier3d_ptr().value.get_face_tracker();
 	public function set_target(p_target:std.String):std.String {
-		__xrfacemodifier3d_ptr().value.set_target(p_target);
+		__xrfacemodifier3d_ptr().value.set_target(((p_target : std.String)));
 		return p_target;
 	}
 	public function get_target():std.String return __xrfacemodifier3d_ptr().value.get_target();

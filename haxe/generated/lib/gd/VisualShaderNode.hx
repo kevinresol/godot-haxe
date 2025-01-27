@@ -4,6 +4,7 @@ extern class VisualShaderNode extends gd.Resource {
 	function get_default_input_port(p_type:gd.visualshadernode.PortType):Int;
 	function set_output_port_for_preview(p_port:Int):Int;
 	function get_output_port_for_preview():Int;
+	function set_input_port_default_value(p_port:Int, p_value:gd.Variant, ?p_prev_value:gd.Variant):Void;
 	function get_input_port_default_value(p_port:Int):gd.Variant;
 	function remove_input_port_default_value(p_port:Int):Void;
 	function clear_default_input_values():Void;

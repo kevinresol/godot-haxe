@@ -10,14 +10,14 @@ class PointLight2D extends gd.Light2D {
 	}
 	extern inline function __pointlight2d_ptr():cpp.Pointer<gdnative.PointLight2D.PointLight2D_extern> return cast __gd.ptr;
 	public function set_texture(p_texture:gd.Texture2D):gd.Texture2D {
-		__pointlight2d_ptr().value.set_texture(p_texture);
+		__pointlight2d_ptr().value.set_texture(((p_texture : gd.Texture2D)));
 		return p_texture;
 	}
 	public function get_texture():gd.Texture2D return __pointlight2d_ptr().value.get_texture();
-	public function set_texture_offset(p_texture_offset:gd.Vector2):Void __pointlight2d_ptr().value.set_texture_offset(p_texture_offset);
+	public function set_texture_offset(p_texture_offset:gd.Vector2):Void __pointlight2d_ptr().value.set_texture_offset(((p_texture_offset : gd.Vector2)));
 	public function get_texture_offset():gd.Vector2 return __pointlight2d_ptr().value.get_texture_offset();
 	public function set_texture_scale(p_texture_scale:Float):Float {
-		__pointlight2d_ptr().value.set_texture_scale(p_texture_scale);
+		__pointlight2d_ptr().value.set_texture_scale(((p_texture_scale : Float)));
 		return p_texture_scale;
 	}
 	public function get_texture_scale():Float return __pointlight2d_ptr().value.get_texture_scale();

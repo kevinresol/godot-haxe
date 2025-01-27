@@ -1,7 +1,8 @@
 package gd;
 extern class EditorUndoRedoManager extends gd.Object {
 	function new(?owner:Dynamic);
-	function commit_action(?p_execute:Bool = true):Void;
+	function create_action(p_name:std.String, ?p_merge_mode:gd.undoredo.MergeMode, ?p_custom_context:gd.Object, ?p_backward_undo_ops:Bool):Void;
+	function commit_action(?p_execute:Bool):Void;
 	function is_committing_action():Bool;
 	function force_fixed_history():Void;
 	function add_do_method(p_object:gd.Object, p_method:std.String):Void;

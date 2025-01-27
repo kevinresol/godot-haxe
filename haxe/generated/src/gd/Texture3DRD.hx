@@ -10,7 +10,7 @@ class Texture3DRD extends gd.Texture3D {
 	}
 	extern inline function __texture3drd_ptr():cpp.Pointer<gdnative.Texture3DRD.Texture3DRD_extern> return cast __gd.ptr;
 	public function set_texture_rd_rid(p_texture_rd_rid:gd.RID):gd.RID {
-		__texture3drd_ptr().value.set_texture_rd_rid(p_texture_rd_rid);
+		__texture3drd_ptr().value.set_texture_rd_rid(((p_texture_rd_rid : gd.RID)));
 		return p_texture_rd_rid;
 	}
 	public function get_texture_rd_rid():gd.RID return __texture3drd_ptr().value.get_texture_rd_rid();

@@ -5,6 +5,7 @@ extern class KinematicCollision2D extends gd.RefCounted {
 	function get_normal():gd.Vector2;
 	function get_travel():gd.Vector2;
 	function get_remainder():gd.Vector2;
+	function get_angle(?p_up_direction:gd.Vector2):Float;
 	function get_depth():Float;
 	function get_local_shape():gd.Object;
 	function get_collider():gd.Object;

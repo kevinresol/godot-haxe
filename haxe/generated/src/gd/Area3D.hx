@@ -9,98 +9,98 @@ class Area3D extends gd.CollisionObject3D {
 		super(native.reinterpret());
 	}
 	extern inline function __area3d_ptr():cpp.Pointer<gdnative.Area3D.Area3D_extern> return cast __gd.ptr;
-	public function set_gravity_space_override_mode(p_space_override_mode:gd.area3d.SpaceOverride):Void __area3d_ptr().value.set_gravity_space_override_mode(p_space_override_mode);
+	public function set_gravity_space_override_mode(p_space_override_mode:gd.area3d.SpaceOverride):Void __area3d_ptr().value.set_gravity_space_override_mode(((p_space_override_mode : gd.area3d.SpaceOverride)));
 	public function get_gravity_space_override_mode():gd.area3d.SpaceOverride return __area3d_ptr().value.get_gravity_space_override_mode();
-	public function set_gravity_is_point(p_enable:Bool):Void __area3d_ptr().value.set_gravity_is_point(p_enable);
+	public function set_gravity_is_point(p_enable:Bool):Void __area3d_ptr().value.set_gravity_is_point(((p_enable : Bool)));
 	public function is_gravity_a_point():Bool return __area3d_ptr().value.is_gravity_a_point();
 	public function set_gravity_point_unit_distance(p_distance_scale:Float):Float {
-		__area3d_ptr().value.set_gravity_point_unit_distance(p_distance_scale);
+		__area3d_ptr().value.set_gravity_point_unit_distance(((p_distance_scale : Float)));
 		return p_distance_scale;
 	}
 	public function get_gravity_point_unit_distance():Float return __area3d_ptr().value.get_gravity_point_unit_distance();
 	public function set_gravity_point_center(p_center:gd.Vector3):gd.Vector3 {
-		__area3d_ptr().value.set_gravity_point_center(p_center);
+		__area3d_ptr().value.set_gravity_point_center(((p_center : gd.Vector3)));
 		return p_center;
 	}
 	public function get_gravity_point_center():gd.Vector3 return __area3d_ptr().value.get_gravity_point_center();
 	public function set_gravity_direction(p_direction:gd.Vector3):gd.Vector3 {
-		__area3d_ptr().value.set_gravity_direction(p_direction);
+		__area3d_ptr().value.set_gravity_direction(((p_direction : gd.Vector3)));
 		return p_direction;
 	}
 	public function get_gravity_direction():gd.Vector3 return __area3d_ptr().value.get_gravity_direction();
 	public function set_gravity(p_gravity:Float):Float {
-		__area3d_ptr().value.set_gravity(p_gravity);
+		__area3d_ptr().value.set_gravity(((p_gravity : Float)));
 		return p_gravity;
 	}
 	public function get_gravity():Float return __area3d_ptr().value.get_gravity();
-	public function set_linear_damp_space_override_mode(p_space_override_mode:gd.area3d.SpaceOverride):Void __area3d_ptr().value.set_linear_damp_space_override_mode(p_space_override_mode);
+	public function set_linear_damp_space_override_mode(p_space_override_mode:gd.area3d.SpaceOverride):Void __area3d_ptr().value.set_linear_damp_space_override_mode(((p_space_override_mode : gd.area3d.SpaceOverride)));
 	public function get_linear_damp_space_override_mode():gd.area3d.SpaceOverride return __area3d_ptr().value.get_linear_damp_space_override_mode();
-	public function set_angular_damp_space_override_mode(p_space_override_mode:gd.area3d.SpaceOverride):Void __area3d_ptr().value.set_angular_damp_space_override_mode(p_space_override_mode);
+	public function set_angular_damp_space_override_mode(p_space_override_mode:gd.area3d.SpaceOverride):Void __area3d_ptr().value.set_angular_damp_space_override_mode(((p_space_override_mode : gd.area3d.SpaceOverride)));
 	public function get_angular_damp_space_override_mode():gd.area3d.SpaceOverride return __area3d_ptr().value.get_angular_damp_space_override_mode();
 	public function set_angular_damp(p_angular_damp:Float):Float {
-		__area3d_ptr().value.set_angular_damp(p_angular_damp);
+		__area3d_ptr().value.set_angular_damp(((p_angular_damp : Float)));
 		return p_angular_damp;
 	}
 	public function get_angular_damp():Float return __area3d_ptr().value.get_angular_damp();
 	public function set_linear_damp(p_linear_damp:Float):Float {
-		__area3d_ptr().value.set_linear_damp(p_linear_damp);
+		__area3d_ptr().value.set_linear_damp(((p_linear_damp : Float)));
 		return p_linear_damp;
 	}
 	public function get_linear_damp():Float return __area3d_ptr().value.get_linear_damp();
 	public function set_priority(p_priority:Int):Int {
-		__area3d_ptr().value.set_priority(p_priority);
+		__area3d_ptr().value.set_priority(((p_priority : Int)));
 		return p_priority;
 	}
 	public function get_priority():Int return __area3d_ptr().value.get_priority();
 	public function set_wind_force_magnitude(p_wind_force_magnitude:Float):Float {
-		__area3d_ptr().value.set_wind_force_magnitude(p_wind_force_magnitude);
+		__area3d_ptr().value.set_wind_force_magnitude(((p_wind_force_magnitude : Float)));
 		return p_wind_force_magnitude;
 	}
 	public function get_wind_force_magnitude():Float return __area3d_ptr().value.get_wind_force_magnitude();
 	public function set_wind_attenuation_factor(p_wind_attenuation_factor:Float):Float {
-		__area3d_ptr().value.set_wind_attenuation_factor(p_wind_attenuation_factor);
+		__area3d_ptr().value.set_wind_attenuation_factor(((p_wind_attenuation_factor : Float)));
 		return p_wind_attenuation_factor;
 	}
 	public function get_wind_attenuation_factor():Float return __area3d_ptr().value.get_wind_attenuation_factor();
 	public function set_wind_source_path(p_wind_source_path:std.String):std.String {
-		__area3d_ptr().value.set_wind_source_path(p_wind_source_path);
+		__area3d_ptr().value.set_wind_source_path(((p_wind_source_path : std.String)));
 		return p_wind_source_path;
 	}
 	public function get_wind_source_path():std.String return __area3d_ptr().value.get_wind_source_path();
 	public function set_monitorable(p_enable:Bool):Bool {
-		__area3d_ptr().value.set_monitorable(p_enable);
+		__area3d_ptr().value.set_monitorable(((p_enable : Bool)));
 		return p_enable;
 	}
 	public function is_monitorable():Bool return __area3d_ptr().value.is_monitorable();
 	public function set_monitoring(p_enable:Bool):Bool {
-		__area3d_ptr().value.set_monitoring(p_enable);
+		__area3d_ptr().value.set_monitoring(((p_enable : Bool)));
 		return p_enable;
 	}
 	public function is_monitoring():Bool return __area3d_ptr().value.is_monitoring();
 	public function has_overlapping_bodies():Bool return __area3d_ptr().value.has_overlapping_bodies();
 	public function has_overlapping_areas():Bool return __area3d_ptr().value.has_overlapping_areas();
-	public function overlaps_body(p_body:gd.Node):Bool return __area3d_ptr().value.overlaps_body(p_body);
-	public function overlaps_area(p_area:gd.Node):Bool return __area3d_ptr().value.overlaps_area(p_area);
+	public function overlaps_body(p_body:gd.Node):Bool return __area3d_ptr().value.overlaps_body(((p_body : gd.Node)));
+	public function overlaps_area(p_area:gd.Node):Bool return __area3d_ptr().value.overlaps_area(((p_area : gd.Node)));
 	public function set_audio_bus_override(p_enable:Bool):Bool {
-		__area3d_ptr().value.set_audio_bus_override(p_enable);
+		__area3d_ptr().value.set_audio_bus_override(((p_enable : Bool)));
 		return p_enable;
 	}
 	public function is_overriding_audio_bus():Bool return __area3d_ptr().value.is_overriding_audio_bus();
 	public function set_audio_bus_name(p_name:std.String):std.String {
-		__area3d_ptr().value.set_audio_bus_name(p_name);
+		__area3d_ptr().value.set_audio_bus_name(((p_name : std.String)));
 		return p_name;
 	}
 	public function get_audio_bus_name():std.String return __area3d_ptr().value.get_audio_bus_name();
-	public function set_use_reverb_bus(p_enable:Bool):Void __area3d_ptr().value.set_use_reverb_bus(p_enable);
+	public function set_use_reverb_bus(p_enable:Bool):Void __area3d_ptr().value.set_use_reverb_bus(((p_enable : Bool)));
 	public function is_using_reverb_bus():Bool return __area3d_ptr().value.is_using_reverb_bus();
 	public function set_reverb_bus_name(p_name:std.String):std.String {
-		__area3d_ptr().value.set_reverb_bus_name(p_name);
+		__area3d_ptr().value.set_reverb_bus_name(((p_name : std.String)));
 		return p_name;
 	}
 	public function get_reverb_bus_name():std.String return __area3d_ptr().value.get_reverb_bus_name();
-	public function set_reverb_amount(p_amount:Float):Void __area3d_ptr().value.set_reverb_amount(p_amount);
+	public function set_reverb_amount(p_amount:Float):Void __area3d_ptr().value.set_reverb_amount(((p_amount : Float)));
 	public function get_reverb_amount():Float return __area3d_ptr().value.get_reverb_amount();
-	public function set_reverb_uniformity(p_amount:Float):Void __area3d_ptr().value.set_reverb_uniformity(p_amount);
+	public function set_reverb_uniformity(p_amount:Float):Void __area3d_ptr().value.set_reverb_uniformity(((p_amount : Float)));
 	public function get_reverb_uniformity():Float return __area3d_ptr().value.get_reverb_uniformity();
 	var monitoring(get, set) : Bool;
 	function get_monitoring():Bool return is_monitoring();

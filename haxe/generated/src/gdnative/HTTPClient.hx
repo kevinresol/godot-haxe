@@ -1,14 +1,14 @@
 package gdnative;
 @:include("godot_cpp/classes/http_client.hpp") @:native("godot::HTTPClient") @:structAccess extern class HTTPClient_extern extends gdnative.RefCounted.RefCounted_extern {
 	extern static inline function __alloc():cpp.Pointer<HTTPClient_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::HTTPClient"));
-	overload function connect_to_host(p_host:gdnative.String, p_port:Int, p_tls_options:gdnative.TLSOptions):gdnative.Error;
-	overload function connect_to_host(p_host:gdnative.String, p_port:Int):gdnative.Error;
 	overload function connect_to_host(p_host:gdnative.String):gdnative.Error;
+	overload function connect_to_host(p_host:gdnative.String, p_port:Int):gdnative.Error;
+	overload function connect_to_host(p_host:gdnative.String, p_port:Int, p_tls_options:gdnative.TLSOptions):gdnative.Error;
 	function set_connection(p_connection:gdnative.StreamPeer):Void;
 	function get_connection():gdnative.StreamPeer;
 	function request_raw(p_method:gdnative.httpclient.Method, p_url:gdnative.String, p_headers:gdnative.PackedStringArray, p_body:gdnative.PackedByteArray):gdnative.Error;
-	overload function request(p_method:gdnative.httpclient.Method, p_url:gdnative.String, p_headers:gdnative.PackedStringArray, p_body:gdnative.String):gdnative.Error;
 	overload function request(p_method:gdnative.httpclient.Method, p_url:gdnative.String, p_headers:gdnative.PackedStringArray):gdnative.Error;
+	overload function request(p_method:gdnative.httpclient.Method, p_url:gdnative.String, p_headers:gdnative.PackedStringArray, p_body:gdnative.String):gdnative.Error;
 	function close():Void;
 	function has_response():Bool;
 	function is_response_chunked():Bool;

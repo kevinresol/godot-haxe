@@ -1,7 +1,7 @@
 package gd;
 extern class StreamPeerTCP extends gd.StreamPeer {
 	function new(?owner:Dynamic);
-	function bind(p_port:Int, ?p_host:std.String = "\"*\""):gd.Error;
+	function bind(p_port:Int, ?p_host:std.String):gd.Error;
 	function connect_to_host(p_host:std.String, p_port:Int):gd.Error;
 	function poll():gd.Error;
 	function get_status():gd.streampeertcp.Status;

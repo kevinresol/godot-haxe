@@ -10,22 +10,22 @@ class BoxMesh extends gd.PrimitiveMesh {
 	}
 	extern inline function __boxmesh_ptr():cpp.Pointer<gdnative.BoxMesh.BoxMesh_extern> return cast __gd.ptr;
 	public function set_size(p_size:gd.Vector3):gd.Vector3 {
-		__boxmesh_ptr().value.set_size(p_size);
+		__boxmesh_ptr().value.set_size(((p_size : gd.Vector3)));
 		return p_size;
 	}
 	public function get_size():gd.Vector3 return __boxmesh_ptr().value.get_size();
 	public function set_subdivide_width(p_subdivide:Int):Int {
-		__boxmesh_ptr().value.set_subdivide_width(p_subdivide);
+		__boxmesh_ptr().value.set_subdivide_width(((p_subdivide : Int)));
 		return p_subdivide;
 	}
 	public function get_subdivide_width():Int return __boxmesh_ptr().value.get_subdivide_width();
 	public function set_subdivide_height(p_divisions:Int):Int {
-		__boxmesh_ptr().value.set_subdivide_height(p_divisions);
+		__boxmesh_ptr().value.set_subdivide_height(((p_divisions : Int)));
 		return p_divisions;
 	}
 	public function get_subdivide_height():Int return __boxmesh_ptr().value.get_subdivide_height();
 	public function set_subdivide_depth(p_divisions:Int):Int {
-		__boxmesh_ptr().value.set_subdivide_depth(p_divisions);
+		__boxmesh_ptr().value.set_subdivide_depth(((p_divisions : Int)));
 		return p_divisions;
 	}
 	public function get_subdivide_depth():Int return __boxmesh_ptr().value.get_subdivide_depth();

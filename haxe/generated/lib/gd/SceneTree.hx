@@ -17,11 +17,11 @@ extern class SceneTree extends gd.MainLoop {
 	function get_edited_scene_root():gd.Node;
 	function set_pause(p_enable:Bool):Void;
 	function is_paused():Bool;
-	function create_timer(p_time_sec:Float, ?p_process_always:Bool = true, ?p_process_in_physics:Bool = false, ?p_ignore_time_scale:Bool = false):gd.SceneTreeTimer;
+	function create_timer(p_time_sec:Float, ?p_process_always:Bool, ?p_process_in_physics:Bool, ?p_ignore_time_scale:Bool):gd.SceneTreeTimer;
 	function create_tween():gd.Tween;
 	function get_node_count():Int;
 	function get_frame():Int;
-	function quit(?p_exit_code:Int = 0):Void;
+	function quit(?p_exit_code:Int):Void;
 	function set_physics_interpolation_enabled(p_enabled:Bool):Void;
 	function is_physics_interpolation_enabled():Bool;
 	function queue_delete(p_obj:gd.Object):Void;
@@ -39,6 +39,8 @@ extern class SceneTree extends gd.MainLoop {
 	function change_scene_to_packed(p_packed_scene:gd.PackedScene):gd.Error;
 	function reload_current_scene():gd.Error;
 	function unload_current_scene():Void;
+	function set_multiplayer(p_multiplayer:gd.MultiplayerAPI, ?p_root_path:std.String):Void;
+	function get_multiplayer(?p_for_path:std.String):gd.MultiplayerAPI;
 	function set_multiplayer_poll_enabled(p_enabled:Bool):Void;
 	function is_multiplayer_poll_enabled():Bool;
 	var auto_accept_quit(get, set) : Bool;

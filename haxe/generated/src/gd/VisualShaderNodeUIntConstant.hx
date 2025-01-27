@@ -10,7 +10,7 @@ class VisualShaderNodeUIntConstant extends gd.VisualShaderNodeConstant {
 	}
 	extern inline function __visualshadernodeuintconstant_ptr():cpp.Pointer<gdnative.VisualShaderNodeUIntConstant.VisualShaderNodeUIntConstant_extern> return cast __gd.ptr;
 	public function set_constant(p_constant:Int):Int {
-		__visualshadernodeuintconstant_ptr().value.set_constant(p_constant);
+		__visualshadernodeuintconstant_ptr().value.set_constant(((p_constant : Int)));
 		return p_constant;
 	}
 	public function get_constant():Int return __visualshadernodeuintconstant_ptr().value.get_constant();

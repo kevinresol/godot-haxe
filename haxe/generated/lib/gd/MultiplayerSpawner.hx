@@ -5,6 +5,7 @@ extern class MultiplayerSpawner extends gd.Node {
 	function get_spawnable_scene_count():Int;
 	function get_spawnable_scene(p_index:Int):std.String;
 	function clear_spawnable_scenes():Void;
+	function spawn(?p_data:gd.Variant):gd.Node;
 	function get_spawn_path():std.String;
 	function set_spawn_path(p_path:std.String):std.String;
 	function get_spawn_limit():Int;

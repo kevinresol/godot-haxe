@@ -1,7 +1,7 @@
 package gd;
 extern class Animation extends gd.Resource {
 	function new(?owner:Dynamic);
-	function add_track(p_type:gd.animation.TrackType, ?p_at_position:Int = -1):Int;
+	function add_track(p_type:gd.animation.TrackType, ?p_at_position:Int):Int;
 	function remove_track(p_track_idx:Int):Void;
 	function get_track_count():Int;
 	function track_get_type(p_track_idx:Int):gd.animation.TrackType;
@@ -20,11 +20,11 @@ extern class Animation extends gd.Resource {
 	function rotation_track_insert_key(p_track_idx:Int, p_time:Float, p_rotation:gd.Quaternion):Int;
 	function scale_track_insert_key(p_track_idx:Int, p_time:Float, p_scale:gd.Vector3):Int;
 	function blend_shape_track_insert_key(p_track_idx:Int, p_time:Float, p_amount:Float):Int;
-	function position_track_interpolate(p_track_idx:Int, p_time_sec:Float, ?p_backward:Bool = false):gd.Vector3;
-	function rotation_track_interpolate(p_track_idx:Int, p_time_sec:Float, ?p_backward:Bool = false):gd.Quaternion;
-	function scale_track_interpolate(p_track_idx:Int, p_time_sec:Float, ?p_backward:Bool = false):gd.Vector3;
-	function blend_shape_track_interpolate(p_track_idx:Int, p_time_sec:Float, ?p_backward:Bool = false):Float;
-	function track_insert_key(p_track_idx:Int, p_time:Float, p_key:gd.Variant, ?p_transition:Float = 1.):Int;
+	function position_track_interpolate(p_track_idx:Int, p_time_sec:Float, ?p_backward:Bool):gd.Vector3;
+	function rotation_track_interpolate(p_track_idx:Int, p_time_sec:Float, ?p_backward:Bool):gd.Quaternion;
+	function scale_track_interpolate(p_track_idx:Int, p_time_sec:Float, ?p_backward:Bool):gd.Vector3;
+	function blend_shape_track_interpolate(p_track_idx:Int, p_time_sec:Float, ?p_backward:Bool):Float;
+	function track_insert_key(p_track_idx:Int, p_time:Float, p_key:gd.Variant, ?p_transition:Float):Int;
 	function track_remove_key(p_track_idx:Int, p_key_idx:Int):Void;
 	function track_remove_key_at_time(p_track_idx:Int, p_time:Float):Void;
 	function track_set_key_value(p_track_idx:Int, p_key:Int, p_value:gd.Variant):Void;
@@ -34,6 +34,7 @@ extern class Animation extends gd.Resource {
 	function track_get_key_count(p_track_idx:Int):Int;
 	function track_get_key_value(p_track_idx:Int, p_key_idx:Int):gd.Variant;
 	function track_get_key_time(p_track_idx:Int, p_key_idx:Int):Float;
+	function track_find_key(p_track_idx:Int, p_time:Float, ?p_find_mode:gd.animation.FindMode, ?p_limit:Bool, ?p_backward:Bool):Int;
 	function track_set_interpolation_type(p_track_idx:Int, p_interpolation:gd.animation.InterpolationType):Void;
 	function track_get_interpolation_type(p_track_idx:Int):gd.animation.InterpolationType;
 	function track_set_interpolation_loop_wrap(p_track_idx:Int, p_interpolation:Bool):Void;
@@ -41,17 +42,18 @@ extern class Animation extends gd.Resource {
 	function track_is_compressed(p_track_idx:Int):Bool;
 	function value_track_set_update_mode(p_track_idx:Int, p_mode:gd.animation.UpdateMode):Void;
 	function value_track_get_update_mode(p_track_idx:Int):gd.animation.UpdateMode;
-	function value_track_interpolate(p_track_idx:Int, p_time_sec:Float, ?p_backward:Bool = false):gd.Variant;
+	function value_track_interpolate(p_track_idx:Int, p_time_sec:Float, ?p_backward:Bool):gd.Variant;
 	function method_track_get_name(p_track_idx:Int, p_key_idx:Int):std.String;
 	function method_track_get_params(p_track_idx:Int, p_key_idx:Int):gd.Array;
+	function bezier_track_insert_key(p_track_idx:Int, p_time:Float, p_value:Float, ?p_in_handle:gd.Vector2, ?p_out_handle:gd.Vector2):Int;
 	function bezier_track_set_key_value(p_track_idx:Int, p_key_idx:Int, p_value:Float):Void;
-	function bezier_track_set_key_in_handle(p_track_idx:Int, p_key_idx:Int, p_in_handle:gd.Vector2, ?p_balanced_value_time_ratio:Float = 1.):Void;
-	function bezier_track_set_key_out_handle(p_track_idx:Int, p_key_idx:Int, p_out_handle:gd.Vector2, ?p_balanced_value_time_ratio:Float = 1.):Void;
+	function bezier_track_set_key_in_handle(p_track_idx:Int, p_key_idx:Int, p_in_handle:gd.Vector2, ?p_balanced_value_time_ratio:Float):Void;
+	function bezier_track_set_key_out_handle(p_track_idx:Int, p_key_idx:Int, p_out_handle:gd.Vector2, ?p_balanced_value_time_ratio:Float):Void;
 	function bezier_track_get_key_value(p_track_idx:Int, p_key_idx:Int):Float;
 	function bezier_track_get_key_in_handle(p_track_idx:Int, p_key_idx:Int):gd.Vector2;
 	function bezier_track_get_key_out_handle(p_track_idx:Int, p_key_idx:Int):gd.Vector2;
 	function bezier_track_interpolate(p_track_idx:Int, p_time:Float):Float;
-	function audio_track_insert_key(p_track_idx:Int, p_time:Float, p_stream:gd.Resource, ?p_start_offset:Float = 0., ?p_end_offset:Float = 0.):Int;
+	function audio_track_insert_key(p_track_idx:Int, p_time:Float, p_stream:gd.Resource, ?p_start_offset:Float, ?p_end_offset:Float):Int;
 	function audio_track_set_key_stream(p_track_idx:Int, p_key_idx:Int, p_stream:gd.Resource):Void;
 	function audio_track_set_key_start_offset(p_track_idx:Int, p_key_idx:Int, p_offset:Float):Void;
 	function audio_track_set_key_end_offset(p_track_idx:Int, p_key_idx:Int, p_offset:Float):Void;
@@ -71,7 +73,7 @@ extern class Animation extends gd.Resource {
 	function get_step():Float;
 	function clear():Void;
 	function copy_track(p_track_idx:Int, p_to_animation:gd.Animation):Void;
-	function compress(?p_page_size:Int = 8192, ?p_fps:Int = 120, ?p_split_tolerance:Float = 4.):Void;
+	function compress(?p_page_size:Int, ?p_fps:Int, ?p_split_tolerance:Float):Void;
 	function is_capture_included():Bool;
 	var length(get, set) : Float;
 	var loop_mode(get, set) : gd.animation.LoopMode;

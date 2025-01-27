@@ -10,11 +10,11 @@ class XRTracker extends gd.RefCounted {
 	}
 	extern inline function __xrtracker_ptr():cpp.Pointer<gdnative.XRTracker.XRTracker_extern> return cast __gd.ptr;
 	public function get_tracker_type():gd.xrserver.TrackerType return __xrtracker_ptr().value.get_tracker_type();
-	public function set_tracker_type(p_type:gd.xrserver.TrackerType):Void __xrtracker_ptr().value.set_tracker_type(p_type);
+	public function set_tracker_type(p_type:gd.xrserver.TrackerType):Void __xrtracker_ptr().value.set_tracker_type(((p_type : gd.xrserver.TrackerType)));
 	public function get_tracker_name():std.String return __xrtracker_ptr().value.get_tracker_name();
-	public function set_tracker_name(p_name:std.String):Void __xrtracker_ptr().value.set_tracker_name(p_name);
+	public function set_tracker_name(p_name:std.String):Void __xrtracker_ptr().value.set_tracker_name(((p_name : std.String)));
 	public function get_tracker_desc():std.String return __xrtracker_ptr().value.get_tracker_desc();
-	public function set_tracker_desc(p_description:std.String):Void __xrtracker_ptr().value.set_tracker_desc(p_description);
+	public function set_tracker_desc(p_description:std.String):Void __xrtracker_ptr().value.set_tracker_desc(((p_description : std.String)));
 	var type(get, set) : gd.xrserver.TrackerType;
 	function get_type():gd.xrserver.TrackerType return get_tracker_type();
 	function set_type(v:gd.xrserver.TrackerType):gd.xrserver.TrackerType {

@@ -10,7 +10,7 @@ class GPUParticlesCollisionSphere3D extends gd.GPUParticlesCollision3D {
 	}
 	extern inline function __gpuparticlescollisionsphere3d_ptr():cpp.Pointer<gdnative.GPUParticlesCollisionSphere3D.GPUParticlesCollisionSphere3D_extern> return cast __gd.ptr;
 	public function set_radius(p_radius:Float):Float {
-		__gpuparticlescollisionsphere3d_ptr().value.set_radius(p_radius);
+		__gpuparticlescollisionsphere3d_ptr().value.set_radius(((p_radius : Float)));
 		return p_radius;
 	}
 	public function get_radius():Float return __gpuparticlescollisionsphere3d_ptr().value.get_radius();

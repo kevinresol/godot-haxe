@@ -72,9 +72,12 @@ extern class PhysicsServer2D extends gd.Object {
 	function body_get_state(p_body:gd.RID, p_state:gd.physicsserver2d.BodyState):gd.Variant;
 	function body_apply_central_impulse(p_body:gd.RID, p_impulse:gd.Vector2):Void;
 	function body_apply_torque_impulse(p_body:gd.RID, p_impulse:Float):Void;
+	function body_apply_impulse(p_body:gd.RID, p_impulse:gd.Vector2, ?p_position:gd.Vector2):Void;
 	function body_apply_central_force(p_body:gd.RID, p_force:gd.Vector2):Void;
+	function body_apply_force(p_body:gd.RID, p_force:gd.Vector2, ?p_position:gd.Vector2):Void;
 	function body_apply_torque(p_body:gd.RID, p_torque:Float):Void;
 	function body_add_constant_central_force(p_body:gd.RID, p_force:gd.Vector2):Void;
+	function body_add_constant_force(p_body:gd.RID, p_force:gd.Vector2, ?p_position:gd.Vector2):Void;
 	function body_add_constant_torque(p_body:gd.RID, p_torque:Float):Void;
 	function body_set_constant_force(p_body:gd.RID, p_force:gd.Vector2):Void;
 	function body_get_constant_force(p_body:gd.RID):gd.Vector2;
@@ -88,6 +91,8 @@ extern class PhysicsServer2D extends gd.Object {
 	function body_set_omit_force_integration(p_body:gd.RID, p_enable:Bool):Void;
 	function body_is_omitting_force_integration(p_body:gd.RID):Bool;
 	function body_set_state_sync_callback(p_body:gd.RID, p_callable:gd.Callable):Void;
+	function body_set_force_integration_callback(p_body:gd.RID, p_callable:gd.Callable, ?p_userdata:gd.Variant):Void;
+	function body_test_motion(p_body:gd.RID, p_parameters:gd.PhysicsTestMotionParameters2D, ?p_result:gd.PhysicsTestMotionResult2D):Bool;
 	function body_get_direct_state(p_body:gd.RID):gd.PhysicsDirectBodyState2D;
 	function joint_create():gd.RID;
 	function joint_clear(p_joint:gd.RID):Void;
@@ -95,6 +100,9 @@ extern class PhysicsServer2D extends gd.Object {
 	function joint_get_param(p_joint:gd.RID, p_param:gd.physicsserver2d.JointParam):Float;
 	function joint_disable_collisions_between_bodies(p_joint:gd.RID, p_disable:Bool):Void;
 	function joint_is_disabled_collisions_between_bodies(p_joint:gd.RID):Bool;
+	function joint_make_pin(p_joint:gd.RID, p_anchor:gd.Vector2, p_body_a:gd.RID, ?p_body_b:gd.RID):Void;
+	function joint_make_groove(p_joint:gd.RID, p_groove1_a:gd.Vector2, p_groove2_a:gd.Vector2, p_anchor_b:gd.Vector2, ?p_body_a:gd.RID, ?p_body_b:gd.RID):Void;
+	function joint_make_damped_spring(p_joint:gd.RID, p_anchor_a:gd.Vector2, p_anchor_b:gd.Vector2, p_body_a:gd.RID, ?p_body_b:gd.RID):Void;
 	function pin_joint_set_flag(p_joint:gd.RID, p_flag:gd.physicsserver2d.PinJointFlag, p_enabled:Bool):Void;
 	function pin_joint_get_flag(p_joint:gd.RID, p_flag:gd.physicsserver2d.PinJointFlag):Bool;
 	function pin_joint_set_param(p_joint:gd.RID, p_param:gd.physicsserver2d.PinJointParam, p_value:Float):Void;

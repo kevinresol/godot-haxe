@@ -25,7 +25,7 @@ extern class GridMap extends gd.Node3D {
 	function get_cell_scale():Float;
 	function set_octant_size(p_size:Int):Void;
 	function get_octant_size():Int;
-	function set_cell_item(p_position:gd.Vector3i, p_item:Int, ?p_orientation:Int = 0):Void;
+	function set_cell_item(p_position:gd.Vector3i, p_item:Int, ?p_orientation:Int):Void;
 	function get_cell_item(p_position:gd.Vector3i):Int;
 	function get_cell_item_orientation(p_position:gd.Vector3i):Int;
 	function local_to_map(p_local_position:gd.Vector3):gd.Vector3i;
@@ -42,7 +42,7 @@ extern class GridMap extends gd.Node3D {
 	function get_bake_meshes():gd.Array;
 	function get_bake_mesh_instance(p_idx:Int):gd.RID;
 	function clear_baked_meshes():Void;
-	function make_baked_meshes(?p_gen_lightmap_uv:Bool = false, ?p_lightmap_uv_texel_size:Float = 0.1):Void;
+	function make_baked_meshes(?p_gen_lightmap_uv:Bool, ?p_lightmap_uv_texel_size:Float):Void;
 	var mesh_library(get, set) : gd.MeshLibrary;
 	var physics_material(get, set) : gd.PhysicsMaterial;
 	var cell_size(get, set) : gd.Vector3;

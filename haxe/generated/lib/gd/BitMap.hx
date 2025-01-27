@@ -2,7 +2,7 @@ package gd;
 extern class BitMap extends gd.Resource {
 	function new(?owner:Dynamic);
 	function create(p_size:gd.Vector2i):Void;
-	function create_from_image_alpha(p_image:gd.Image, ?p_threshold:Float = 0.1):Void;
+	function create_from_image_alpha(p_image:gd.Image, ?p_threshold:Float):Void;
 	function set_bitv(p_position:gd.Vector2i, p_bit:Bool):Void;
 	function set_bit(p_x:Int, p_y:Int, p_bit:Bool):Void;
 	function get_bitv(p_position:gd.Vector2i):Bool;

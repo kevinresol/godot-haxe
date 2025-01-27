@@ -1,6 +1,7 @@
 package gd;
 extern class AnimationNodeBlendTree extends gd.AnimationRootNode {
 	function new(?owner:Dynamic);
+	function add_node(p_name:std.String, p_node:gd.AnimationNode, ?p_position:gd.Vector2):Void;
 	function get_node(p_name:std.String):gd.AnimationNode;
 	function remove_node(p_name:std.String):Void;
 	function rename_node(p_name:std.String, p_new_name:std.String):Void;

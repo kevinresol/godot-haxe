@@ -1,8 +1,8 @@
 package gd;
 extern class PacketPeer extends gd.RefCounted {
 	function new(?owner:Dynamic);
-	function get_var(?p_allow_objects:Bool = false):gd.Variant;
-	function put_var(p_var:gd.Variant, ?p_full_objects:Bool = false):gd.Error;
+	function get_var(?p_allow_objects:Bool):gd.Variant;
+	function put_var(p_var:gd.Variant, ?p_full_objects:Bool):gd.Error;
 	function get_packet():gd.PackedByteArray;
 	function put_packet(p_buffer:gd.PackedByteArray):gd.Error;
 	function get_packet_error():gd.Error;

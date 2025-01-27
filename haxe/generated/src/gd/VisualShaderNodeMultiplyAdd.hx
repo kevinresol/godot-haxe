@@ -10,7 +10,7 @@ class VisualShaderNodeMultiplyAdd extends gd.VisualShaderNode {
 	}
 	extern inline function __visualshadernodemultiplyadd_ptr():cpp.Pointer<gdnative.VisualShaderNodeMultiplyAdd.VisualShaderNodeMultiplyAdd_extern> return cast __gd.ptr;
 	public function set_op_type(p_type:gd.visualshadernodemultiplyadd.OpType):gd.visualshadernodemultiplyadd.OpType {
-		__visualshadernodemultiplyadd_ptr().value.set_op_type(p_type);
+		__visualshadernodemultiplyadd_ptr().value.set_op_type(((p_type : gd.visualshadernodemultiplyadd.OpType)));
 		return p_type;
 	}
 	public function get_op_type():gd.visualshadernodemultiplyadd.OpType return __visualshadernodemultiplyadd_ptr().value.get_op_type();

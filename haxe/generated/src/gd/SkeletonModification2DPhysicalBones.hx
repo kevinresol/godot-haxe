@@ -10,12 +10,12 @@ class SkeletonModification2DPhysicalBones extends gd.SkeletonModification2D {
 	}
 	extern inline function __skeletonmodification2dphysicalbones_ptr():cpp.Pointer<gdnative.SkeletonModification2DPhysicalBones.SkeletonModification2DPhysicalBones_extern> return cast __gd.ptr;
 	public function set_physical_bone_chain_length(p_length:Int):Int {
-		__skeletonmodification2dphysicalbones_ptr().value.set_physical_bone_chain_length(p_length);
+		__skeletonmodification2dphysicalbones_ptr().value.set_physical_bone_chain_length(((p_length : Int)));
 		return p_length;
 	}
 	public function get_physical_bone_chain_length():Int return __skeletonmodification2dphysicalbones_ptr().value.get_physical_bone_chain_length();
-	public function set_physical_bone_node(p_joint_idx:Int, p_physicalbone2d_node:std.String):Void __skeletonmodification2dphysicalbones_ptr().value.set_physical_bone_node(p_joint_idx, p_physicalbone2d_node);
-	public function get_physical_bone_node(p_joint_idx:Int):std.String return __skeletonmodification2dphysicalbones_ptr().value.get_physical_bone_node(p_joint_idx);
+	public function set_physical_bone_node(p_joint_idx:Int, p_physicalbone2d_node:std.String):Void __skeletonmodification2dphysicalbones_ptr().value.set_physical_bone_node(((p_joint_idx : Int)), ((p_physicalbone2d_node : std.String)));
+	public function get_physical_bone_node(p_joint_idx:Int):std.String return __skeletonmodification2dphysicalbones_ptr().value.get_physical_bone_node(((p_joint_idx : Int)));
 	public function fetch_physical_bones():Void __skeletonmodification2dphysicalbones_ptr().value.fetch_physical_bones();
 	var physical_bone_chain_length(get, set) : Int;
 }

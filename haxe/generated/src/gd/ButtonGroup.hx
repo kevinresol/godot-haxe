@@ -11,7 +11,7 @@ class ButtonGroup extends gd.Resource {
 	extern inline function __buttongroup_ptr():cpp.Pointer<gdnative.ButtonGroup.ButtonGroup_extern> return cast __gd.ptr;
 	public function get_pressed_button():gd.BaseButton return __buttongroup_ptr().value.get_pressed_button();
 	public function set_allow_unpress(p_enabled:Bool):Bool {
-		__buttongroup_ptr().value.set_allow_unpress(p_enabled);
+		__buttongroup_ptr().value.set_allow_unpress(((p_enabled : Bool)));
 		return p_enabled;
 	}
 	public function is_allow_unpress():Bool return __buttongroup_ptr().value.is_allow_unpress();

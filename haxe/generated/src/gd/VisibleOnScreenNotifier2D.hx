@@ -10,7 +10,7 @@ class VisibleOnScreenNotifier2D extends gd.Node2D {
 	}
 	extern inline function __visibleonscreennotifier2d_ptr():cpp.Pointer<gdnative.VisibleOnScreenNotifier2D.VisibleOnScreenNotifier2D_extern> return cast __gd.ptr;
 	public function set_rect(p_rect:gd.Rect2):gd.Rect2 {
-		__visibleonscreennotifier2d_ptr().value.set_rect(p_rect);
+		__visibleonscreennotifier2d_ptr().value.set_rect(((p_rect : gd.Rect2)));
 		return p_rect;
 	}
 	public function get_rect():gd.Rect2 return __visibleonscreennotifier2d_ptr().value.get_rect();

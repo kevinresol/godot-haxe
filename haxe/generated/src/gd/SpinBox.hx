@@ -9,35 +9,35 @@ class SpinBox extends gd.Range {
 		super(native.reinterpret());
 	}
 	extern inline function __spinbox_ptr():cpp.Pointer<gdnative.SpinBox.SpinBox_extern> return cast __gd.ptr;
-	public function set_horizontal_alignment(p_alignment:gd.HorizontalAlignment):Void __spinbox_ptr().value.set_horizontal_alignment(p_alignment);
+	public function set_horizontal_alignment(p_alignment:gd.HorizontalAlignment):Void __spinbox_ptr().value.set_horizontal_alignment(((p_alignment : gd.HorizontalAlignment)));
 	public function get_horizontal_alignment():gd.HorizontalAlignment return __spinbox_ptr().value.get_horizontal_alignment();
 	public function set_suffix(p_suffix:std.String):std.String {
-		__spinbox_ptr().value.set_suffix(p_suffix);
+		__spinbox_ptr().value.set_suffix(((p_suffix : std.String)));
 		return p_suffix;
 	}
 	public function get_suffix():std.String return __spinbox_ptr().value.get_suffix();
 	public function set_prefix(p_prefix:std.String):std.String {
-		__spinbox_ptr().value.set_prefix(p_prefix);
+		__spinbox_ptr().value.set_prefix(((p_prefix : std.String)));
 		return p_prefix;
 	}
 	public function get_prefix():std.String return __spinbox_ptr().value.get_prefix();
 	public function set_editable(p_enabled:Bool):Bool {
-		__spinbox_ptr().value.set_editable(p_enabled);
+		__spinbox_ptr().value.set_editable(((p_enabled : Bool)));
 		return p_enabled;
 	}
 	public function set_custom_arrow_step(p_arrow_step:Float):Float {
-		__spinbox_ptr().value.set_custom_arrow_step(p_arrow_step);
+		__spinbox_ptr().value.set_custom_arrow_step(((p_arrow_step : Float)));
 		return p_arrow_step;
 	}
 	public function get_custom_arrow_step():Float return __spinbox_ptr().value.get_custom_arrow_step();
 	public function is_editable():Bool return __spinbox_ptr().value.is_editable();
 	public function set_update_on_text_changed(p_enabled:Bool):Bool {
-		__spinbox_ptr().value.set_update_on_text_changed(p_enabled);
+		__spinbox_ptr().value.set_update_on_text_changed(((p_enabled : Bool)));
 		return p_enabled;
 	}
 	public function get_update_on_text_changed():Bool return __spinbox_ptr().value.get_update_on_text_changed();
 	public function set_select_all_on_focus(p_enabled:Bool):Bool {
-		__spinbox_ptr().value.set_select_all_on_focus(p_enabled);
+		__spinbox_ptr().value.set_select_all_on_focus(((p_enabled : Bool)));
 		return p_enabled;
 	}
 	public function is_select_all_on_focus():Bool return __spinbox_ptr().value.is_select_all_on_focus();

@@ -9,33 +9,33 @@ class InputEventKey extends gd.InputEventWithModifiers {
 		super(native.reinterpret());
 	}
 	extern inline function __inputeventkey_ptr():cpp.Pointer<gdnative.InputEventKey.InputEventKey_extern> return cast __gd.ptr;
-	public function set_pressed(p_pressed:Bool):Void __inputeventkey_ptr().value.set_pressed(p_pressed);
+	public function set_pressed(p_pressed:Bool):Void __inputeventkey_ptr().value.set_pressed(((p_pressed : Bool)));
 	public function set_keycode(p_keycode:gd.Key):gd.Key {
-		__inputeventkey_ptr().value.set_keycode(p_keycode);
+		__inputeventkey_ptr().value.set_keycode(((p_keycode : gd.Key)));
 		return p_keycode;
 	}
 	public function get_keycode():gd.Key return __inputeventkey_ptr().value.get_keycode();
 	public function set_physical_keycode(p_physical_keycode:gd.Key):gd.Key {
-		__inputeventkey_ptr().value.set_physical_keycode(p_physical_keycode);
+		__inputeventkey_ptr().value.set_physical_keycode(((p_physical_keycode : gd.Key)));
 		return p_physical_keycode;
 	}
 	public function get_physical_keycode():gd.Key return __inputeventkey_ptr().value.get_physical_keycode();
 	public function set_key_label(p_key_label:gd.Key):gd.Key {
-		__inputeventkey_ptr().value.set_key_label(p_key_label);
+		__inputeventkey_ptr().value.set_key_label(((p_key_label : gd.Key)));
 		return p_key_label;
 	}
 	public function get_key_label():gd.Key return __inputeventkey_ptr().value.get_key_label();
 	public function set_unicode(p_unicode:Int):Int {
-		__inputeventkey_ptr().value.set_unicode(p_unicode);
+		__inputeventkey_ptr().value.set_unicode(((p_unicode : Int)));
 		return p_unicode;
 	}
 	public function get_unicode():Int return __inputeventkey_ptr().value.get_unicode();
 	public function set_location(p_location:gd.KeyLocation):gd.KeyLocation {
-		__inputeventkey_ptr().value.set_location(p_location);
+		__inputeventkey_ptr().value.set_location(((p_location : gd.KeyLocation)));
 		return p_location;
 	}
 	public function get_location():gd.KeyLocation return __inputeventkey_ptr().value.get_location();
-	public function set_echo(p_echo:Bool):Void __inputeventkey_ptr().value.set_echo(p_echo);
+	public function set_echo(p_echo:Bool):Void __inputeventkey_ptr().value.set_echo(((p_echo : Bool)));
 	public function get_keycode_with_modifiers():gd.Key return __inputeventkey_ptr().value.get_keycode_with_modifiers();
 	public function get_physical_keycode_with_modifiers():gd.Key return __inputeventkey_ptr().value.get_physical_keycode_with_modifiers();
 	public function get_key_label_with_modifiers():gd.Key return __inputeventkey_ptr().value.get_key_label_with_modifiers();

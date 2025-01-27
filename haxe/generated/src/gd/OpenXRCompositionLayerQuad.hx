@@ -10,7 +10,7 @@ class OpenXRCompositionLayerQuad extends gd.OpenXRCompositionLayer {
 	}
 	extern inline function __openxrcompositionlayerquad_ptr():cpp.Pointer<gdnative.OpenXRCompositionLayerQuad.OpenXRCompositionLayerQuad_extern> return cast __gd.ptr;
 	public function set_quad_size(p_size:gd.Vector2):gd.Vector2 {
-		__openxrcompositionlayerquad_ptr().value.set_quad_size(p_size);
+		__openxrcompositionlayerquad_ptr().value.set_quad_size(((p_size : gd.Vector2)));
 		return p_size;
 	}
 	public function get_quad_size():gd.Vector2 return __openxrcompositionlayerquad_ptr().value.get_quad_size();

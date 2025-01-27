@@ -9,7 +9,7 @@ class VisualShaderNodeTransformVecMult extends gd.VisualShaderNode {
 		super(native.reinterpret());
 	}
 	extern inline function __visualshadernodetransformvecmult_ptr():cpp.Pointer<gdnative.VisualShaderNodeTransformVecMult.VisualShaderNodeTransformVecMult_extern> return cast __gd.ptr;
-	public function set_operator(p_op:gd.visualshadernodetransformvecmult.Operator):Void __visualshadernodetransformvecmult_ptr().value.set_operator(p_op);
+	public function set_operator(p_op:gd.visualshadernodetransformvecmult.Operator):Void __visualshadernodetransformvecmult_ptr().value.set_operator(((p_op : gd.visualshadernodetransformvecmult.Operator)));
 	public function get_operator():gd.visualshadernodetransformvecmult.Operator return __visualshadernodetransformvecmult_ptr().value.get_operator();
 	var operator_(get, set) : gd.visualshadernodetransformvecmult.Operator;
 	function get_operator_():gd.visualshadernodetransformvecmult.Operator return get_operator();

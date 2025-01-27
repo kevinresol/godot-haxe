@@ -10,7 +10,7 @@ class InputEventMagnifyGesture extends gd.InputEventGesture {
 	}
 	extern inline function __inputeventmagnifygesture_ptr():cpp.Pointer<gdnative.InputEventMagnifyGesture.InputEventMagnifyGesture_extern> return cast __gd.ptr;
 	public function set_factor(p_factor:Float):Float {
-		__inputeventmagnifygesture_ptr().value.set_factor(p_factor);
+		__inputeventmagnifygesture_ptr().value.set_factor(((p_factor : Float)));
 		return p_factor;
 	}
 	public function get_factor():Float return __inputeventmagnifygesture_ptr().value.get_factor();

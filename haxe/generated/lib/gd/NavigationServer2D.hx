@@ -13,7 +13,7 @@ extern class NavigationServer2D extends gd.Object {
 	function map_get_edge_connection_margin(p_map:gd.RID):Float;
 	function map_set_link_connection_radius(p_map:gd.RID, p_radius:Float):Void;
 	function map_get_link_connection_radius(p_map:gd.RID):Float;
-	function map_get_path(p_map:gd.RID, p_origin:gd.Vector2, p_destination:gd.Vector2, p_optimize:Bool, ?p_navigation_layers:Int = 1):gd.PackedVector2Array;
+	function map_get_path(p_map:gd.RID, p_origin:gd.Vector2, p_destination:gd.Vector2, p_optimize:Bool, ?p_navigation_layers:Int):gd.PackedVector2Array;
 	function map_get_closest_point(p_map:gd.RID, p_to_point:gd.Vector2):gd.Vector2;
 	function map_get_closest_point_owner(p_map:gd.RID, p_to_point:gd.Vector2):gd.RID;
 	function map_force_update(p_map:gd.RID):Void;
@@ -110,6 +110,9 @@ extern class NavigationServer2D extends gd.Object {
 	function obstacle_get_vertices(p_obstacle:gd.RID):gd.PackedVector2Array;
 	function obstacle_set_avoidance_layers(p_obstacle:gd.RID, p_layers:Int):Void;
 	function obstacle_get_avoidance_layers(p_obstacle:gd.RID):Int;
+	function parse_source_geometry_data(p_navigation_polygon:gd.NavigationPolygon, p_source_geometry_data:gd.NavigationMeshSourceGeometryData2D, p_root_node:gd.Node, ?p_callback:gd.Callable):Void;
+	function bake_from_source_geometry_data(p_navigation_polygon:gd.NavigationPolygon, p_source_geometry_data:gd.NavigationMeshSourceGeometryData2D, ?p_callback:gd.Callable):Void;
+	function bake_from_source_geometry_data_async(p_navigation_polygon:gd.NavigationPolygon, p_source_geometry_data:gd.NavigationMeshSourceGeometryData2D, ?p_callback:gd.Callable):Void;
 	function is_baking_navigation_polygon(p_navigation_polygon:gd.NavigationPolygon):Bool;
 	function source_geometry_parser_create():gd.RID;
 	function source_geometry_parser_set_callback(p_parser:gd.RID, p_callback:gd.Callable):Void;

@@ -9,53 +9,53 @@ class TextureProgressBar extends gd.Range {
 		super(native.reinterpret());
 	}
 	extern inline function __textureprogressbar_ptr():cpp.Pointer<gdnative.TextureProgressBar.TextureProgressBar_extern> return cast __gd.ptr;
-	public function set_under_texture(p_tex:gd.Texture2D):Void __textureprogressbar_ptr().value.set_under_texture(p_tex);
+	public function set_under_texture(p_tex:gd.Texture2D):Void __textureprogressbar_ptr().value.set_under_texture(((p_tex : gd.Texture2D)));
 	public function get_under_texture():gd.Texture2D return __textureprogressbar_ptr().value.get_under_texture();
-	public function set_progress_texture(p_tex:gd.Texture2D):Void __textureprogressbar_ptr().value.set_progress_texture(p_tex);
+	public function set_progress_texture(p_tex:gd.Texture2D):Void __textureprogressbar_ptr().value.set_progress_texture(((p_tex : gd.Texture2D)));
 	public function get_progress_texture():gd.Texture2D return __textureprogressbar_ptr().value.get_progress_texture();
-	public function set_over_texture(p_tex:gd.Texture2D):Void __textureprogressbar_ptr().value.set_over_texture(p_tex);
+	public function set_over_texture(p_tex:gd.Texture2D):Void __textureprogressbar_ptr().value.set_over_texture(((p_tex : gd.Texture2D)));
 	public function get_over_texture():gd.Texture2D return __textureprogressbar_ptr().value.get_over_texture();
 	public function set_fill_mode(p_mode:Int):Int {
-		__textureprogressbar_ptr().value.set_fill_mode(p_mode);
+		__textureprogressbar_ptr().value.set_fill_mode(((p_mode : Int)));
 		return p_mode;
 	}
 	public function get_fill_mode():Int return __textureprogressbar_ptr().value.get_fill_mode();
 	public function set_tint_under(p_tint:gd.Color):gd.Color {
-		__textureprogressbar_ptr().value.set_tint_under(p_tint);
+		__textureprogressbar_ptr().value.set_tint_under(((p_tint : gd.Color)));
 		return p_tint;
 	}
 	public function get_tint_under():gd.Color return __textureprogressbar_ptr().value.get_tint_under();
 	public function set_tint_progress(p_tint:gd.Color):gd.Color {
-		__textureprogressbar_ptr().value.set_tint_progress(p_tint);
+		__textureprogressbar_ptr().value.set_tint_progress(((p_tint : gd.Color)));
 		return p_tint;
 	}
 	public function get_tint_progress():gd.Color return __textureprogressbar_ptr().value.get_tint_progress();
 	public function set_tint_over(p_tint:gd.Color):gd.Color {
-		__textureprogressbar_ptr().value.set_tint_over(p_tint);
+		__textureprogressbar_ptr().value.set_tint_over(((p_tint : gd.Color)));
 		return p_tint;
 	}
 	public function get_tint_over():gd.Color return __textureprogressbar_ptr().value.get_tint_over();
 	public function set_texture_progress_offset(p_offset:gd.Vector2):gd.Vector2 {
-		__textureprogressbar_ptr().value.set_texture_progress_offset(p_offset);
+		__textureprogressbar_ptr().value.set_texture_progress_offset(((p_offset : gd.Vector2)));
 		return p_offset;
 	}
 	public function get_texture_progress_offset():gd.Vector2 return __textureprogressbar_ptr().value.get_texture_progress_offset();
 	public function set_radial_initial_angle(p_mode:Float):Float {
-		__textureprogressbar_ptr().value.set_radial_initial_angle(p_mode);
+		__textureprogressbar_ptr().value.set_radial_initial_angle(((p_mode : Float)));
 		return p_mode;
 	}
 	public function get_radial_initial_angle():Float return __textureprogressbar_ptr().value.get_radial_initial_angle();
 	public function set_radial_center_offset(p_mode:gd.Vector2):gd.Vector2 {
-		__textureprogressbar_ptr().value.set_radial_center_offset(p_mode);
+		__textureprogressbar_ptr().value.set_radial_center_offset(((p_mode : gd.Vector2)));
 		return p_mode;
 	}
 	public function get_radial_center_offset():gd.Vector2 return __textureprogressbar_ptr().value.get_radial_center_offset();
-	public function set_fill_degrees(p_mode:Float):Void __textureprogressbar_ptr().value.set_fill_degrees(p_mode);
+	public function set_fill_degrees(p_mode:Float):Void __textureprogressbar_ptr().value.set_fill_degrees(((p_mode : Float)));
 	public function get_fill_degrees():Float return __textureprogressbar_ptr().value.get_fill_degrees();
-	public function set_stretch_margin(p_margin:gd.Side, p_value:Int):Void __textureprogressbar_ptr().value.set_stretch_margin(p_margin, p_value);
-	public function get_stretch_margin(p_margin:gd.Side):Int return __textureprogressbar_ptr().value.get_stretch_margin(p_margin);
+	public function set_stretch_margin(p_margin:gd.Side, p_value:Int):Void __textureprogressbar_ptr().value.set_stretch_margin(((p_margin : gd.Side)), ((p_value : Int)));
+	public function get_stretch_margin(p_margin:gd.Side):Int return __textureprogressbar_ptr().value.get_stretch_margin(((p_margin : gd.Side)));
 	public function set_nine_patch_stretch(p_stretch:Bool):Bool {
-		__textureprogressbar_ptr().value.set_nine_patch_stretch(p_stretch);
+		__textureprogressbar_ptr().value.set_nine_patch_stretch(((p_stretch : Bool)));
 		return p_stretch;
 	}
 	public function get_nine_patch_stretch():Bool return __textureprogressbar_ptr().value.get_nine_patch_stretch();

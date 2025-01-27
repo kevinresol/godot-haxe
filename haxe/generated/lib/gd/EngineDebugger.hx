@@ -8,13 +8,14 @@ extern class EngineDebugger extends gd.Object {
 	function is_profiling(p_name:std.String):Bool;
 	function has_profiler(p_name:std.String):Bool;
 	function profiler_add_frame_data(p_name:std.String, p_data:gd.Array):Void;
+	function profiler_enable(p_name:std.String, p_enable:Bool, ?p_arguments:gd.Array):Void;
 	function register_message_capture(p_name:std.String, p_callable:gd.Callable):Void;
 	function unregister_message_capture(p_name:std.String):Void;
 	function has_capture(p_name:std.String):Bool;
 	function line_poll():Void;
 	function send_message(p_message:std.String, p_data:gd.Array):Void;
-	function debug(?p_can_continue:Bool = true, ?p_is_error_breakpoint:Bool = false):Void;
-	function script_debug(p_language:gd.ScriptLanguage, ?p_can_continue:Bool = true, ?p_is_error_breakpoint:Bool = false):Void;
+	function debug(?p_can_continue:Bool, ?p_is_error_breakpoint:Bool):Void;
+	function script_debug(p_language:gd.ScriptLanguage, ?p_can_continue:Bool, ?p_is_error_breakpoint:Bool):Void;
 	function set_lines_left(p_lines:Int):Void;
 	function get_lines_left():Int;
 	function set_depth(p_depth:Int):Void;

@@ -14,15 +14,15 @@ extern class ClassDB extends gd.Object {
 	function class_get_property(p_object:gd.Object, p_property:std.String):gd.Variant;
 	function class_set_property(p_object:gd.Object, p_property:std.String, p_value:gd.Variant):gd.Error;
 	function class_get_property_default_value(p_class:std.String, p_property:std.String):gd.Variant;
-	function class_has_method(p_class:std.String, p_method:std.String, ?p_no_inheritance:Bool = false):Bool;
-	function class_get_method_argument_count(p_class:std.String, p_method:std.String, ?p_no_inheritance:Bool = false):Int;
-	function class_get_integer_constant_list(p_class:std.String, ?p_no_inheritance:Bool = false):gd.PackedStringArray;
+	function class_has_method(p_class:std.String, p_method:std.String, ?p_no_inheritance:Bool):Bool;
+	function class_get_method_argument_count(p_class:std.String, p_method:std.String, ?p_no_inheritance:Bool):Int;
+	function class_get_integer_constant_list(p_class:std.String, ?p_no_inheritance:Bool):gd.PackedStringArray;
 	function class_has_integer_constant(p_class:std.String, p_name:std.String):Bool;
 	function class_get_integer_constant(p_class:std.String, p_name:std.String):Int;
-	function class_has_enum(p_class:std.String, p_name:std.String, ?p_no_inheritance:Bool = false):Bool;
-	function class_get_enum_list(p_class:std.String, ?p_no_inheritance:Bool = false):gd.PackedStringArray;
-	function class_get_enum_constants(p_class:std.String, p_enum:std.String, ?p_no_inheritance:Bool = false):gd.PackedStringArray;
-	function class_get_integer_constant_enum(p_class:std.String, p_name:std.String, ?p_no_inheritance:Bool = false):std.String;
-	function is_class_enum_bitfield(p_class:std.String, p_enum:std.String, ?p_no_inheritance:Bool = false):Bool;
+	function class_has_enum(p_class:std.String, p_name:std.String, ?p_no_inheritance:Bool):Bool;
+	function class_get_enum_list(p_class:std.String, ?p_no_inheritance:Bool):gd.PackedStringArray;
+	function class_get_enum_constants(p_class:std.String, p_enum:std.String, ?p_no_inheritance:Bool):gd.PackedStringArray;
+	function class_get_integer_constant_enum(p_class:std.String, p_name:std.String, ?p_no_inheritance:Bool):std.String;
+	function is_class_enum_bitfield(p_class:std.String, p_enum:std.String, ?p_no_inheritance:Bool):Bool;
 	function is_class_enabled(p_class:std.String):Bool;
 }

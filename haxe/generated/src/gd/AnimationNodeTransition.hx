@@ -9,25 +9,25 @@ class AnimationNodeTransition extends gd.AnimationNodeSync {
 		super(native.reinterpret());
 	}
 	extern inline function __animationnodetransition_ptr():cpp.Pointer<gdnative.AnimationNodeTransition.AnimationNodeTransition_extern> return cast __gd.ptr;
-	public function set_input_count(p_input_count:Int):Void __animationnodetransition_ptr().value.set_input_count(p_input_count);
-	public function set_input_as_auto_advance(p_input:Int, p_enable:Bool):Void __animationnodetransition_ptr().value.set_input_as_auto_advance(p_input, p_enable);
-	public function is_input_set_as_auto_advance(p_input:Int):Bool return __animationnodetransition_ptr().value.is_input_set_as_auto_advance(p_input);
-	public function set_input_break_loop_at_end(p_input:Int, p_enable:Bool):Void __animationnodetransition_ptr().value.set_input_break_loop_at_end(p_input, p_enable);
-	public function is_input_loop_broken_at_end(p_input:Int):Bool return __animationnodetransition_ptr().value.is_input_loop_broken_at_end(p_input);
-	public function set_input_reset(p_input:Int, p_enable:Bool):Void __animationnodetransition_ptr().value.set_input_reset(p_input, p_enable);
-	public function is_input_reset(p_input:Int):Bool return __animationnodetransition_ptr().value.is_input_reset(p_input);
+	public function set_input_count(p_input_count:Int):Void __animationnodetransition_ptr().value.set_input_count(((p_input_count : Int)));
+	public function set_input_as_auto_advance(p_input:Int, p_enable:Bool):Void __animationnodetransition_ptr().value.set_input_as_auto_advance(((p_input : Int)), ((p_enable : Bool)));
+	public function is_input_set_as_auto_advance(p_input:Int):Bool return __animationnodetransition_ptr().value.is_input_set_as_auto_advance(((p_input : Int)));
+	public function set_input_break_loop_at_end(p_input:Int, p_enable:Bool):Void __animationnodetransition_ptr().value.set_input_break_loop_at_end(((p_input : Int)), ((p_enable : Bool)));
+	public function is_input_loop_broken_at_end(p_input:Int):Bool return __animationnodetransition_ptr().value.is_input_loop_broken_at_end(((p_input : Int)));
+	public function set_input_reset(p_input:Int, p_enable:Bool):Void __animationnodetransition_ptr().value.set_input_reset(((p_input : Int)), ((p_enable : Bool)));
+	public function is_input_reset(p_input:Int):Bool return __animationnodetransition_ptr().value.is_input_reset(((p_input : Int)));
 	public function set_xfade_time(p_time:Float):Float {
-		__animationnodetransition_ptr().value.set_xfade_time(p_time);
+		__animationnodetransition_ptr().value.set_xfade_time(((p_time : Float)));
 		return p_time;
 	}
 	public function get_xfade_time():Float return __animationnodetransition_ptr().value.get_xfade_time();
 	public function set_xfade_curve(p_curve:gd.Curve):gd.Curve {
-		__animationnodetransition_ptr().value.set_xfade_curve(p_curve);
+		__animationnodetransition_ptr().value.set_xfade_curve(((p_curve : gd.Curve)));
 		return p_curve;
 	}
 	public function get_xfade_curve():gd.Curve return __animationnodetransition_ptr().value.get_xfade_curve();
 	public function set_allow_transition_to_self(p_enable:Bool):Bool {
-		__animationnodetransition_ptr().value.set_allow_transition_to_self(p_enable);
+		__animationnodetransition_ptr().value.set_allow_transition_to_self(((p_enable : Bool)));
 		return p_enable;
 	}
 	public function is_allow_transition_to_self():Bool return __animationnodetransition_ptr().value.is_allow_transition_to_self();

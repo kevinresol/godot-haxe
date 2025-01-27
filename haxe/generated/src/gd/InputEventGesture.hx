@@ -10,7 +10,7 @@ class InputEventGesture extends gd.InputEventWithModifiers {
 	}
 	extern inline function __inputeventgesture_ptr():cpp.Pointer<gdnative.InputEventGesture.InputEventGesture_extern> return cast __gd.ptr;
 	public function set_position(p_position:gd.Vector2):gd.Vector2 {
-		__inputeventgesture_ptr().value.set_position(p_position);
+		__inputeventgesture_ptr().value.set_position(((p_position : gd.Vector2)));
 		return p_position;
 	}
 	public function get_position():gd.Vector2 return __inputeventgesture_ptr().value.get_position();

@@ -9,6 +9,14 @@ class InstancePlaceholder extends gd.Node {
 		super(native.reinterpret());
 	}
 	extern inline function __instanceplaceholder_ptr():cpp.Pointer<gdnative.InstancePlaceholder.InstancePlaceholder_extern> return cast __gd.ptr;
-	public function get_stored_values(?p_with_order:Bool = false):gd.Dictionary return __instanceplaceholder_ptr().value.get_stored_values(p_with_order);
+	public function get_stored_values(?p_with_order:Bool):gd.Dictionary return switch [p_with_order] {
+		case [null]:__instanceplaceholder_ptr().value.get_stored_values();
+		default:__instanceplaceholder_ptr().value.get_stored_values(((p_with_order : Bool)));
+	};
+	public function create_instance(?p_replace:Bool, ?p_custom_scene:gd.PackedScene):gd.Node return switch [p_replace, p_custom_scene] {
+		case [null, _]:__instanceplaceholder_ptr().value.create_instance();
+		case [_, null]:__instanceplaceholder_ptr().value.create_instance(((p_replace : Bool)));
+		default:__instanceplaceholder_ptr().value.create_instance(((p_replace : Bool)), ((p_custom_scene : gd.PackedScene)));
+	};
 	public function get_instance_path():std.String return __instanceplaceholder_ptr().value.get_instance_path();
 }

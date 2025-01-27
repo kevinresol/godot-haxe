@@ -10,23 +10,23 @@ class SplitContainer extends gd.Container {
 	}
 	extern inline function __splitcontainer_ptr():cpp.Pointer<gdnative.SplitContainer.SplitContainer_extern> return cast __gd.ptr;
 	public function set_split_offset(p_offset:Int):Int {
-		__splitcontainer_ptr().value.set_split_offset(p_offset);
+		__splitcontainer_ptr().value.set_split_offset(((p_offset : Int)));
 		return p_offset;
 	}
 	public function get_split_offset():Int return __splitcontainer_ptr().value.get_split_offset();
 	public function clamp_split_offset():Void __splitcontainer_ptr().value.clamp_split_offset();
 	public function set_collapsed(p_collapsed:Bool):Bool {
-		__splitcontainer_ptr().value.set_collapsed(p_collapsed);
+		__splitcontainer_ptr().value.set_collapsed(((p_collapsed : Bool)));
 		return p_collapsed;
 	}
 	public function is_collapsed():Bool return __splitcontainer_ptr().value.is_collapsed();
 	public function set_dragger_visibility(p_mode:gd.splitcontainer.DraggerVisibility):gd.splitcontainer.DraggerVisibility {
-		__splitcontainer_ptr().value.set_dragger_visibility(p_mode);
+		__splitcontainer_ptr().value.set_dragger_visibility(((p_mode : gd.splitcontainer.DraggerVisibility)));
 		return p_mode;
 	}
 	public function get_dragger_visibility():gd.splitcontainer.DraggerVisibility return __splitcontainer_ptr().value.get_dragger_visibility();
 	public function set_vertical(p_vertical:Bool):Bool {
-		__splitcontainer_ptr().value.set_vertical(p_vertical);
+		__splitcontainer_ptr().value.set_vertical(((p_vertical : Bool)));
 		return p_vertical;
 	}
 	public function is_vertical():Bool return __splitcontainer_ptr().value.is_vertical();

@@ -9,7 +9,7 @@ class ViewportTexture extends gd.Texture2D {
 		super(native.reinterpret());
 	}
 	extern inline function __viewporttexture_ptr():cpp.Pointer<gdnative.ViewportTexture.ViewportTexture_extern> return cast __gd.ptr;
-	public function set_viewport_path_in_scene(p_path:std.String):Void __viewporttexture_ptr().value.set_viewport_path_in_scene(p_path);
+	public function set_viewport_path_in_scene(p_path:std.String):Void __viewporttexture_ptr().value.set_viewport_path_in_scene(((p_path : std.String)));
 	public function get_viewport_path_in_scene():std.String return __viewporttexture_ptr().value.get_viewport_path_in_scene();
 	var viewport_path(get, set) : std.String;
 	function get_viewport_path():std.String return get_viewport_path_in_scene();

@@ -10,41 +10,41 @@ class TextureButton extends gd.BaseButton {
 	}
 	extern inline function __texturebutton_ptr():cpp.Pointer<gdnative.TextureButton.TextureButton_extern> return cast __gd.ptr;
 	public function set_texture_normal(p_texture:gd.Texture2D):gd.Texture2D {
-		__texturebutton_ptr().value.set_texture_normal(p_texture);
+		__texturebutton_ptr().value.set_texture_normal(((p_texture : gd.Texture2D)));
 		return p_texture;
 	}
 	public function set_texture_pressed(p_texture:gd.Texture2D):gd.Texture2D {
-		__texturebutton_ptr().value.set_texture_pressed(p_texture);
+		__texturebutton_ptr().value.set_texture_pressed(((p_texture : gd.Texture2D)));
 		return p_texture;
 	}
 	public function set_texture_hover(p_texture:gd.Texture2D):gd.Texture2D {
-		__texturebutton_ptr().value.set_texture_hover(p_texture);
+		__texturebutton_ptr().value.set_texture_hover(((p_texture : gd.Texture2D)));
 		return p_texture;
 	}
 	public function set_texture_disabled(p_texture:gd.Texture2D):gd.Texture2D {
-		__texturebutton_ptr().value.set_texture_disabled(p_texture);
+		__texturebutton_ptr().value.set_texture_disabled(((p_texture : gd.Texture2D)));
 		return p_texture;
 	}
 	public function set_texture_focused(p_texture:gd.Texture2D):gd.Texture2D {
-		__texturebutton_ptr().value.set_texture_focused(p_texture);
+		__texturebutton_ptr().value.set_texture_focused(((p_texture : gd.Texture2D)));
 		return p_texture;
 	}
-	public function set_click_mask(p_mask:gd.BitMap):Void __texturebutton_ptr().value.set_click_mask(p_mask);
+	public function set_click_mask(p_mask:gd.BitMap):Void __texturebutton_ptr().value.set_click_mask(((p_mask : gd.BitMap)));
 	public function set_ignore_texture_size(p_ignore:Bool):Bool {
-		__texturebutton_ptr().value.set_ignore_texture_size(p_ignore);
+		__texturebutton_ptr().value.set_ignore_texture_size(((p_ignore : Bool)));
 		return p_ignore;
 	}
 	public function set_stretch_mode(p_mode:gd.texturebutton.StretchMode):gd.texturebutton.StretchMode {
-		__texturebutton_ptr().value.set_stretch_mode(p_mode);
+		__texturebutton_ptr().value.set_stretch_mode(((p_mode : gd.texturebutton.StretchMode)));
 		return p_mode;
 	}
 	public function set_flip_h(p_enable:Bool):Bool {
-		__texturebutton_ptr().value.set_flip_h(p_enable);
+		__texturebutton_ptr().value.set_flip_h(((p_enable : Bool)));
 		return p_enable;
 	}
 	public function is_flipped_h():Bool return __texturebutton_ptr().value.is_flipped_h();
 	public function set_flip_v(p_enable:Bool):Bool {
-		__texturebutton_ptr().value.set_flip_v(p_enable);
+		__texturebutton_ptr().value.set_flip_v(((p_enable : Bool)));
 		return p_enable;
 	}
 	public function is_flipped_v():Bool return __texturebutton_ptr().value.is_flipped_v();

@@ -11,7 +11,7 @@ extern class Camera3D extends gd.Node3D {
 	function set_orthogonal(p_size:Float, p_z_near:Float, p_z_far:Float):Void;
 	function set_frustum(p_size:Float, p_offset:gd.Vector2, p_z_near:Float, p_z_far:Float):Void;
 	function make_current():Void;
-	function clear_current(?p_enable_next:Bool = true):Void;
+	function clear_current(?p_enable_next:Bool):Void;
 	function set_current(p_enabled:Bool):Bool;
 	function is_current():Bool;
 	function get_fov():Float;

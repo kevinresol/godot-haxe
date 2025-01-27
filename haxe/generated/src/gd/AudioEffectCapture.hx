@@ -9,11 +9,11 @@ class AudioEffectCapture extends gd.AudioEffect {
 		super(native.reinterpret());
 	}
 	extern inline function __audioeffectcapture_ptr():cpp.Pointer<gdnative.AudioEffectCapture.AudioEffectCapture_extern> return cast __gd.ptr;
-	public function can_get_buffer(p_frames:Int):Bool return __audioeffectcapture_ptr().value.can_get_buffer(p_frames);
-	public function get_buffer(p_frames:Int):gd.PackedVector2Array return __audioeffectcapture_ptr().value.get_buffer(p_frames);
+	public function can_get_buffer(p_frames:Int):Bool return __audioeffectcapture_ptr().value.can_get_buffer(((p_frames : Int)));
+	public function get_buffer(p_frames:Int):gd.PackedVector2Array return __audioeffectcapture_ptr().value.get_buffer(((p_frames : Int)));
 	public function clear_buffer():Void __audioeffectcapture_ptr().value.clear_buffer();
 	public function set_buffer_length(p_buffer_length_seconds:Float):Float {
-		__audioeffectcapture_ptr().value.set_buffer_length(p_buffer_length_seconds);
+		__audioeffectcapture_ptr().value.set_buffer_length(((p_buffer_length_seconds : Float)));
 		return p_buffer_length_seconds;
 	}
 	public function get_buffer_length():Float return __audioeffectcapture_ptr().value.get_buffer_length();

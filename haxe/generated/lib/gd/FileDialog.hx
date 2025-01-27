@@ -2,7 +2,7 @@ package gd;
 extern class FileDialog extends gd.ConfirmationDialog {
 	function new(?owner:Dynamic);
 	function clear_filters():Void;
-	function add_filter(p_filter:std.String, ?p_description:std.String = "\"\""):Void;
+	function add_filter(p_filter:std.String, ?p_description:std.String):Void;
 	function set_filters(p_filters:gd.PackedStringArray):gd.PackedStringArray;
 	function get_filters():gd.PackedStringArray;
 	function get_option_name(p_option:Int):std.String;

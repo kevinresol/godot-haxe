@@ -10,48 +10,48 @@ class MultiMesh extends gd.Resource {
 	}
 	extern inline function __multimesh_ptr():cpp.Pointer<gdnative.MultiMesh.MultiMesh_extern> return cast __gd.ptr;
 	public function set_mesh(p_mesh:gd.Mesh):gd.Mesh {
-		__multimesh_ptr().value.set_mesh(p_mesh);
+		__multimesh_ptr().value.set_mesh(((p_mesh : gd.Mesh)));
 		return p_mesh;
 	}
 	public function get_mesh():gd.Mesh return __multimesh_ptr().value.get_mesh();
 	public function set_use_colors(p_enable:Bool):Bool {
-		__multimesh_ptr().value.set_use_colors(p_enable);
+		__multimesh_ptr().value.set_use_colors(((p_enable : Bool)));
 		return p_enable;
 	}
 	public function is_using_colors():Bool return __multimesh_ptr().value.is_using_colors();
 	public function set_use_custom_data(p_enable:Bool):Bool {
-		__multimesh_ptr().value.set_use_custom_data(p_enable);
+		__multimesh_ptr().value.set_use_custom_data(((p_enable : Bool)));
 		return p_enable;
 	}
 	public function is_using_custom_data():Bool return __multimesh_ptr().value.is_using_custom_data();
 	public function set_transform_format(p_format:gd.multimesh.TransformFormat):gd.multimesh.TransformFormat {
-		__multimesh_ptr().value.set_transform_format(p_format);
+		__multimesh_ptr().value.set_transform_format(((p_format : gd.multimesh.TransformFormat)));
 		return p_format;
 	}
 	public function get_transform_format():gd.multimesh.TransformFormat return __multimesh_ptr().value.get_transform_format();
 	public function set_instance_count(p_count:Int):Int {
-		__multimesh_ptr().value.set_instance_count(p_count);
+		__multimesh_ptr().value.set_instance_count(((p_count : Int)));
 		return p_count;
 	}
 	public function get_instance_count():Int return __multimesh_ptr().value.get_instance_count();
 	public function set_visible_instance_count(p_count:Int):Int {
-		__multimesh_ptr().value.set_visible_instance_count(p_count);
+		__multimesh_ptr().value.set_visible_instance_count(((p_count : Int)));
 		return p_count;
 	}
 	public function get_visible_instance_count():Int return __multimesh_ptr().value.get_visible_instance_count();
-	public function set_instance_color(p_instance:Int, p_color:gd.Color):Void __multimesh_ptr().value.set_instance_color(p_instance, p_color);
-	public function get_instance_color(p_instance:Int):gd.Color return __multimesh_ptr().value.get_instance_color(p_instance);
-	public function set_instance_custom_data(p_instance:Int, p_custom_data:gd.Color):Void __multimesh_ptr().value.set_instance_custom_data(p_instance, p_custom_data);
-	public function get_instance_custom_data(p_instance:Int):gd.Color return __multimesh_ptr().value.get_instance_custom_data(p_instance);
+	public function set_instance_color(p_instance:Int, p_color:gd.Color):Void __multimesh_ptr().value.set_instance_color(((p_instance : Int)), ((p_color : gd.Color)));
+	public function get_instance_color(p_instance:Int):gd.Color return __multimesh_ptr().value.get_instance_color(((p_instance : Int)));
+	public function set_instance_custom_data(p_instance:Int, p_custom_data:gd.Color):Void __multimesh_ptr().value.set_instance_custom_data(((p_instance : Int)), ((p_custom_data : gd.Color)));
+	public function get_instance_custom_data(p_instance:Int):gd.Color return __multimesh_ptr().value.get_instance_custom_data(((p_instance : Int)));
 	public function set_custom_aabb(p_aabb:gd.AABB):gd.AABB {
-		__multimesh_ptr().value.set_custom_aabb(p_aabb);
+		__multimesh_ptr().value.set_custom_aabb(((p_aabb : gd.AABB)));
 		return p_aabb;
 	}
 	public function get_custom_aabb():gd.AABB return __multimesh_ptr().value.get_custom_aabb();
 	public function get_aabb():gd.AABB return __multimesh_ptr().value.get_aabb();
 	public function get_buffer():gd.PackedFloat32Array return __multimesh_ptr().value.get_buffer();
 	public function set_buffer(p_buffer:gd.PackedFloat32Array):gd.PackedFloat32Array {
-		__multimesh_ptr().value.set_buffer(p_buffer);
+		__multimesh_ptr().value.set_buffer(((p_buffer : gd.PackedFloat32Array)));
 		return p_buffer;
 	}
 	var transform_format(get, set) : gd.multimesh.TransformFormat;

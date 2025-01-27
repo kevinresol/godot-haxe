@@ -2,11 +2,11 @@ package gdnative;
 @:include("godot_cpp/classes/gltf_physics_shape.hpp") @:native("godot::GLTFPhysicsShape") @:structAccess extern class GLTFPhysicsShape_extern extends gdnative.Resource.Resource_extern {
 	extern static inline function __alloc():cpp.Pointer<GLTFPhysicsShape_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::GLTFPhysicsShape"));
 	static function from_node(p_shape_node:gdnative.CollisionShape3D):gdnative.GLTFPhysicsShape;
-	overload function to_node(p_cache_shapes:Bool):gdnative.CollisionShape3D;
 	overload function to_node():gdnative.CollisionShape3D;
+	overload function to_node(p_cache_shapes:Bool):gdnative.CollisionShape3D;
 	static function from_resource(p_shape_resource:gdnative.Shape3D):gdnative.GLTFPhysicsShape;
-	overload function to_resource(p_cache_shapes:Bool):gdnative.Shape3D;
 	overload function to_resource():gdnative.Shape3D;
+	overload function to_resource(p_cache_shapes:Bool):gdnative.Shape3D;
 	static function from_dictionary(p_dictionary:gdnative.Dictionary):gdnative.GLTFPhysicsShape;
 	function to_dictionary():gdnative.Dictionary;
 	function get_shape_type():gdnative.String;

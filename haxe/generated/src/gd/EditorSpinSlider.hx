@@ -10,27 +10,27 @@ class EditorSpinSlider extends gd.Range {
 	}
 	extern inline function __editorspinslider_ptr():cpp.Pointer<gdnative.EditorSpinSlider.EditorSpinSlider_extern> return cast __gd.ptr;
 	public function set_label(p_label:std.String):std.String {
-		__editorspinslider_ptr().value.set_label(p_label);
+		__editorspinslider_ptr().value.set_label(((p_label : std.String)));
 		return p_label;
 	}
 	public function get_label():std.String return __editorspinslider_ptr().value.get_label();
 	public function set_suffix(p_suffix:std.String):std.String {
-		__editorspinslider_ptr().value.set_suffix(p_suffix);
+		__editorspinslider_ptr().value.set_suffix(((p_suffix : std.String)));
 		return p_suffix;
 	}
 	public function get_suffix():std.String return __editorspinslider_ptr().value.get_suffix();
 	public function set_read_only(p_read_only:Bool):Bool {
-		__editorspinslider_ptr().value.set_read_only(p_read_only);
+		__editorspinslider_ptr().value.set_read_only(((p_read_only : Bool)));
 		return p_read_only;
 	}
 	public function is_read_only():Bool return __editorspinslider_ptr().value.is_read_only();
 	public function set_flat(p_flat:Bool):Bool {
-		__editorspinslider_ptr().value.set_flat(p_flat);
+		__editorspinslider_ptr().value.set_flat(((p_flat : Bool)));
 		return p_flat;
 	}
 	public function is_flat():Bool return __editorspinslider_ptr().value.is_flat();
 	public function set_hide_slider(p_hide_slider:Bool):Bool {
-		__editorspinslider_ptr().value.set_hide_slider(p_hide_slider);
+		__editorspinslider_ptr().value.set_hide_slider(((p_hide_slider : Bool)));
 		return p_hide_slider;
 	}
 	public function is_hiding_slider():Bool return __editorspinslider_ptr().value.is_hiding_slider();

@@ -10,7 +10,7 @@ class EditorScriptPicker extends gd.EditorResourcePicker {
 	}
 	extern inline function __editorscriptpicker_ptr():cpp.Pointer<gdnative.EditorScriptPicker.EditorScriptPicker_extern> return cast __gd.ptr;
 	public function set_script_owner(p_owner_node:gd.Node):gd.Node {
-		__editorscriptpicker_ptr().value.set_script_owner(p_owner_node);
+		__editorscriptpicker_ptr().value.set_script_owner(((p_owner_node : gd.Node)));
 		return p_owner_node;
 	}
 	public function get_script_owner():gd.Node return __editorscriptpicker_ptr().value.get_script_owner();

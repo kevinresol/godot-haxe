@@ -4,7 +4,7 @@ extern class LineEdit extends gd.Control {
 	function set_horizontal_alignment(p_alignment:gd.HorizontalAlignment):Void;
 	function get_horizontal_alignment():gd.HorizontalAlignment;
 	function clear():Void;
-	function select(?p_from:Int = 0, ?p_to:Int = -1):Void;
+	function select(?p_from:Int, ?p_to:Int):Void;
 	function select_all():Void;
 	function deselect():Void;
 	function has_selection():Bool;

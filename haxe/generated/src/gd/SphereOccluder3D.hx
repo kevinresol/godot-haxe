@@ -10,7 +10,7 @@ class SphereOccluder3D extends gd.Occluder3D {
 	}
 	extern inline function __sphereoccluder3d_ptr():cpp.Pointer<gdnative.SphereOccluder3D.SphereOccluder3D_extern> return cast __gd.ptr;
 	public function set_radius(p_radius:Float):Float {
-		__sphereoccluder3d_ptr().value.set_radius(p_radius);
+		__sphereoccluder3d_ptr().value.set_radius(((p_radius : Float)));
 		return p_radius;
 	}
 	public function get_radius():Float return __sphereoccluder3d_ptr().value.get_radius();

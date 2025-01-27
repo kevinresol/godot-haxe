@@ -9,5 +9,5 @@ class OptimizedTranslation extends gd.Translation {
 		super(native.reinterpret());
 	}
 	extern inline function __optimizedtranslation_ptr():cpp.Pointer<gdnative.OptimizedTranslation.OptimizedTranslation_extern> return cast __gd.ptr;
-	public function generate(p_from:gd.Translation):Void __optimizedtranslation_ptr().value.generate(p_from);
+	public function generate(p_from:gd.Translation):Void __optimizedtranslation_ptr().value.generate(((p_from : gd.Translation)));
 }

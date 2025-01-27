@@ -9,8 +9,14 @@ class AnimationNodeStateMachinePlayback extends gd.Resource {
 		super(native.reinterpret());
 	}
 	extern inline function __animationnodestatemachineplayback_ptr():cpp.Pointer<gdnative.AnimationNodeStateMachinePlayback.AnimationNodeStateMachinePlayback_extern> return cast __gd.ptr;
-	public function travel(p_to_node:std.String, ?p_reset_on_teleport:Bool = true):Void __animationnodestatemachineplayback_ptr().value.travel(p_to_node, p_reset_on_teleport);
-	public function start(p_node:std.String, ?p_reset:Bool = true):Void __animationnodestatemachineplayback_ptr().value.start(p_node, p_reset);
+	public function travel(p_to_node:std.String, ?p_reset_on_teleport:Bool):Void switch [p_to_node, p_reset_on_teleport] {
+		case [_, null]:__animationnodestatemachineplayback_ptr().value.travel(((p_to_node : std.String)));
+		default:__animationnodestatemachineplayback_ptr().value.travel(((p_to_node : std.String)), ((p_reset_on_teleport : Bool)));
+	};
+	public function start(p_node:std.String, ?p_reset:Bool):Void switch [p_node, p_reset] {
+		case [_, null]:__animationnodestatemachineplayback_ptr().value.start(((p_node : std.String)));
+		default:__animationnodestatemachineplayback_ptr().value.start(((p_node : std.String)), ((p_reset : Bool)));
+	};
 	public function next():Void __animationnodestatemachineplayback_ptr().value.next();
 	public function stop():Void __animationnodestatemachineplayback_ptr().value.stop();
 	public function is_playing():Bool return __animationnodestatemachineplayback_ptr().value.is_playing();

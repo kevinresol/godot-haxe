@@ -1,7 +1,7 @@
 package gd;
 extern class PortableCompressedTexture2D extends gd.Texture2D {
 	function new(?owner:Dynamic);
-	function create_from_image(p_image:gd.Image, p_compression_mode:gd.portablecompressedtexture2d.CompressionMode, ?p_normal_map:Bool = false, ?p_lossy_quality:Float = 0.8):Void;
+	function create_from_image(p_image:gd.Image, p_compression_mode:gd.portablecompressedtexture2d.CompressionMode, ?p_normal_map:Bool, ?p_lossy_quality:Float):Void;
 	function get_format():gd.image.Format;
 	function get_compression_mode():gd.portablecompressedtexture2d.CompressionMode;
 	function set_size_override(p_size:gd.Vector2):gd.Vector2;

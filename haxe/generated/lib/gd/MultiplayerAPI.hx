@@ -8,6 +8,7 @@ extern class MultiplayerAPI extends gd.RefCounted {
 	function is_server():Bool;
 	function get_remote_sender_id():Int;
 	function poll():gd.Error;
+	function rpc(p_peer:Int, p_object:gd.Object, p_method:std.String, ?p_arguments:gd.Array):gd.Error;
 	function object_configuration_add(p_object:gd.Object, p_configuration:gd.Variant):gd.Error;
 	function object_configuration_remove(p_object:gd.Object, p_configuration:gd.Variant):gd.Error;
 	function get_peers():gd.PackedInt32Array;

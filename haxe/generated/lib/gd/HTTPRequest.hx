@@ -1,6 +1,8 @@
 package gd;
 extern class HTTPRequest extends gd.Node {
 	function new(?owner:Dynamic);
+	function request(p_url:std.String, ?p_custom_headers:gd.PackedStringArray, ?p_method:gd.httpclient.Method, ?p_request_data:std.String):gd.Error;
+	function request_raw(p_url:std.String, ?p_custom_headers:gd.PackedStringArray, ?p_method:gd.httpclient.Method, ?p_request_data_raw:gd.PackedByteArray):gd.Error;
 	function cancel_request():Void;
 	function set_tls_options(p_client_options:gd.TLSOptions):Void;
 	function get_http_client_status():gd.httpclient.Status;

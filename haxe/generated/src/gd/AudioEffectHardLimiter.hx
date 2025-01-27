@@ -10,17 +10,17 @@ class AudioEffectHardLimiter extends gd.AudioEffect {
 	}
 	extern inline function __audioeffecthardlimiter_ptr():cpp.Pointer<gdnative.AudioEffectHardLimiter.AudioEffectHardLimiter_extern> return cast __gd.ptr;
 	public function set_ceiling_db(p_ceiling:Float):Float {
-		__audioeffecthardlimiter_ptr().value.set_ceiling_db(p_ceiling);
+		__audioeffecthardlimiter_ptr().value.set_ceiling_db(((p_ceiling : Float)));
 		return p_ceiling;
 	}
 	public function get_ceiling_db():Float return __audioeffecthardlimiter_ptr().value.get_ceiling_db();
 	public function set_pre_gain_db(p_p_pre_gain:Float):Float {
-		__audioeffecthardlimiter_ptr().value.set_pre_gain_db(p_p_pre_gain);
+		__audioeffecthardlimiter_ptr().value.set_pre_gain_db(((p_p_pre_gain : Float)));
 		return p_p_pre_gain;
 	}
 	public function get_pre_gain_db():Float return __audioeffecthardlimiter_ptr().value.get_pre_gain_db();
 	public function set_release(p_p_release:Float):Float {
-		__audioeffecthardlimiter_ptr().value.set_release(p_p_release);
+		__audioeffecthardlimiter_ptr().value.set_release(((p_p_release : Float)));
 		return p_p_release;
 	}
 	public function get_release():Float return __audioeffecthardlimiter_ptr().value.get_release();

@@ -11,11 +11,13 @@ extern class Image extends gd.Resource {
 	function convert(p_format:gd.image.Format):Void;
 	function get_mipmap_count():Int;
 	function get_mipmap_offset(p_mipmap:Int):Int;
+	function resize_to_po2(?p_square:Bool, ?p_interpolation:gd.image.Interpolation):Void;
+	function resize(p_width:Int, p_height:Int, ?p_interpolation:gd.image.Interpolation):Void;
 	function shrink_x2():Void;
 	function crop(p_width:Int, p_height:Int):Void;
 	function flip_x():Void;
 	function flip_y():Void;
-	function generate_mipmaps(?p_renormalize:Bool = false):gd.Error;
+	function generate_mipmaps(?p_renormalize:Bool):gd.Error;
 	function clear_mipmaps():Void;
 	static function create(p_width:Int, p_height:Int, p_use_mipmaps:Bool, p_format:gd.image.Format):gd.Image;
 	static function create_empty(p_width:Int, p_height:Int, p_use_mipmaps:Bool, p_format:gd.image.Format):gd.Image;
@@ -26,14 +28,17 @@ extern class Image extends gd.Resource {
 	static function load_from_file(p_path:std.String):gd.Image;
 	function save_png(p_path:std.String):gd.Error;
 	function save_png_to_buffer():gd.PackedByteArray;
-	function save_jpg(p_path:std.String, ?p_quality:Float = 0.75):gd.Error;
-	function save_jpg_to_buffer(?p_quality:Float = 0.75):gd.PackedByteArray;
-	function save_exr(p_path:std.String, ?p_grayscale:Bool = false):gd.Error;
-	function save_exr_to_buffer(?p_grayscale:Bool = false):gd.PackedByteArray;
-	function save_webp(p_path:std.String, ?p_lossy:Bool = false, ?p_quality:Float = 0.75):gd.Error;
-	function save_webp_to_buffer(?p_lossy:Bool = false, ?p_quality:Float = 0.75):gd.PackedByteArray;
+	function save_jpg(p_path:std.String, ?p_quality:Float):gd.Error;
+	function save_jpg_to_buffer(?p_quality:Float):gd.PackedByteArray;
+	function save_exr(p_path:std.String, ?p_grayscale:Bool):gd.Error;
+	function save_exr_to_buffer(?p_grayscale:Bool):gd.PackedByteArray;
+	function save_webp(p_path:std.String, ?p_lossy:Bool, ?p_quality:Float):gd.Error;
+	function save_webp_to_buffer(?p_lossy:Bool, ?p_quality:Float):gd.PackedByteArray;
 	function detect_alpha():gd.image.AlphaMode;
 	function is_invisible():Bool;
+	function detect_used_channels(?p_source:gd.image.CompressSource):gd.image.UsedChannels;
+	function compress(p_mode:gd.image.CompressMode, ?p_source:gd.image.CompressSource, ?p_astc_format:gd.image.ASTCFormat):gd.Error;
+	function compress_from_channels(p_mode:gd.image.CompressMode, p_channels:gd.image.UsedChannels, ?p_astc_format:gd.image.ASTCFormat):gd.Error;
 	function decompress():gd.Error;
 	function is_compressed():Bool;
 	function rotate_90(p_direction:gd.ClockDirection):Void;
@@ -43,7 +48,7 @@ extern class Image extends gd.Resource {
 	function srgb_to_linear():Void;
 	function normal_map_to_xy():Void;
 	function rgbe_to_srgb():gd.Image;
-	function bump_map_to_normal_map(?p_bump_scale:Float = 1.):Void;
+	function bump_map_to_normal_map(?p_bump_scale:Float):Void;
 	function compute_image_metrics(p_compared_image:gd.Image, p_use_luma:Bool):gd.Dictionary;
 	function blit_rect(p_src:gd.Image, p_src_rect:gd.Rect2i, p_dst:gd.Vector2i):Void;
 	function blit_rect_mask(p_src:gd.Image, p_mask:gd.Image, p_src_rect:gd.Rect2i, p_dst:gd.Vector2i):Void;
@@ -65,6 +70,6 @@ extern class Image extends gd.Resource {
 	function load_tga_from_buffer(p_buffer:gd.PackedByteArray):gd.Error;
 	function load_bmp_from_buffer(p_buffer:gd.PackedByteArray):gd.Error;
 	function load_ktx_from_buffer(p_buffer:gd.PackedByteArray):gd.Error;
-	function load_svg_from_buffer(p_buffer:gd.PackedByteArray, ?p_scale:Float = 1.):gd.Error;
-	function load_svg_from_string(p_svg_str:std.String, ?p_scale:Float = 1.):gd.Error;
+	function load_svg_from_buffer(p_buffer:gd.PackedByteArray, ?p_scale:Float):gd.Error;
+	function load_svg_from_string(p_svg_str:std.String, ?p_scale:Float):gd.Error;
 }

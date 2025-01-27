@@ -9,9 +9,9 @@ class ConvexPolygonShape2D extends gd.Shape2D {
 		super(native.reinterpret());
 	}
 	extern inline function __convexpolygonshape2d_ptr():cpp.Pointer<gdnative.ConvexPolygonShape2D.ConvexPolygonShape2D_extern> return cast __gd.ptr;
-	public function set_point_cloud(p_point_cloud:gd.PackedVector2Array):Void __convexpolygonshape2d_ptr().value.set_point_cloud(p_point_cloud);
+	public function set_point_cloud(p_point_cloud:gd.PackedVector2Array):Void __convexpolygonshape2d_ptr().value.set_point_cloud(((p_point_cloud : gd.PackedVector2Array)));
 	public function set_points(p_points:gd.PackedVector2Array):gd.PackedVector2Array {
-		__convexpolygonshape2d_ptr().value.set_points(p_points);
+		__convexpolygonshape2d_ptr().value.set_points(((p_points : gd.PackedVector2Array)));
 		return p_points;
 	}
 	public function get_points():gd.PackedVector2Array return __convexpolygonshape2d_ptr().value.get_points();

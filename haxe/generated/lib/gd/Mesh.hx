@@ -24,7 +24,7 @@ extern class Mesh extends gd.Resource {
 	function surface_get_material(p_surf_idx:Int):gd.Material;
 	function create_placeholder():gd.Resource;
 	function create_trimesh_shape():gd.ConcavePolygonShape3D;
-	function create_convex_shape(?p_clean:Bool = true, ?p_simplify:Bool = false):gd.ConvexPolygonShape3D;
+	function create_convex_shape(?p_clean:Bool, ?p_simplify:Bool):gd.ConvexPolygonShape3D;
 	function create_outline(p_margin:Float):gd.Mesh;
 	function generate_triangle_mesh():gd.TriangleMesh;
 	var lightmap_size_hint(get, set) : gd.Vector2i;

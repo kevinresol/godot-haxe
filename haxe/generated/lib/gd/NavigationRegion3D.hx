@@ -19,7 +19,7 @@ extern class NavigationRegion3D extends gd.Node3D {
 	function get_enter_cost():Float;
 	function set_travel_cost(p_travel_cost:Float):Float;
 	function get_travel_cost():Float;
-	function bake_navigation_mesh(?p_on_thread:Bool = true):Void;
+	function bake_navigation_mesh(?p_on_thread:Bool):Void;
 	function is_baking():Bool;
 	var navigation_mesh(get, set) : gd.NavigationMesh;
 	var enabled(get, set) : Bool;

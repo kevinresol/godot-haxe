@@ -4,6 +4,7 @@ extern class FileAccess extends gd.RefCounted {
 	static function open(p_path:std.String, p_flags:gd.fileaccess.ModeFlags):gd.FileAccess;
 	static function open_encrypted(p_path:std.String, p_mode_flags:gd.fileaccess.ModeFlags, p_key:gd.PackedByteArray):gd.FileAccess;
 	static function open_encrypted_with_pass(p_path:std.String, p_mode_flags:gd.fileaccess.ModeFlags, p_pass:std.String):gd.FileAccess;
+	static function open_compressed(p_path:std.String, p_mode_flags:gd.fileaccess.ModeFlags, ?p_compression_mode:gd.fileaccess.CompressionMode):gd.FileAccess;
 	static function get_open_error():gd.Error;
 	static function get_file_as_bytes(p_path:std.String):gd.PackedByteArray;
 	static function get_file_as_string(p_path:std.String):std.String;
@@ -13,7 +14,7 @@ extern class FileAccess extends gd.RefCounted {
 	function get_path_absolute():std.String;
 	function is_open():Bool;
 	function seek(p_position:Int):Void;
-	function seek_end(?p_position:Int = 0):Void;
+	function seek_end(?p_position:Int):Void;
 	function get_position():Int;
 	function get_length():Int;
 	function eof_reached():Bool;
@@ -26,14 +27,14 @@ extern class FileAccess extends gd.RefCounted {
 	function get_real():Float;
 	function get_buffer(p_length:Int):gd.PackedByteArray;
 	function get_line():std.String;
-	function get_csv_line(?p_delim:std.String = "\",\""):gd.PackedStringArray;
-	function get_as_text(?p_skip_cr:Bool = false):std.String;
+	function get_csv_line(?p_delim:std.String):gd.PackedStringArray;
+	function get_as_text(?p_skip_cr:Bool):std.String;
 	static function get_md5(p_path:std.String):std.String;
 	static function get_sha256(p_path:std.String):std.String;
 	function is_big_endian():Bool;
 	function set_big_endian(p_big_endian:Bool):Bool;
 	function get_error():gd.Error;
-	function get_var(?p_allow_objects:Bool = false):gd.Variant;
+	function get_var(?p_allow_objects:Bool):gd.Variant;
 	function store_8(p_value:Int):Void;
 	function store_16(p_value:Int):Void;
 	function store_32(p_value:Int):Void;
@@ -43,9 +44,9 @@ extern class FileAccess extends gd.RefCounted {
 	function store_real(p_value:Float):Void;
 	function store_buffer(p_buffer:gd.PackedByteArray):Void;
 	function store_line(p_line:std.String):Void;
-	function store_csv_line(p_values:gd.PackedStringArray, ?p_delim:std.String = "\",\""):Void;
+	function store_csv_line(p_values:gd.PackedStringArray, ?p_delim:std.String):Void;
 	function store_string(p_string:std.String):Void;
-	function store_var(p_value:gd.Variant, ?p_full_objects:Bool = false):Void;
+	function store_var(p_value:gd.Variant, ?p_full_objects:Bool):Void;
 	function store_pascal_string(p_string:std.String):Void;
 	function get_pascal_string():std.String;
 	function close():Void;

@@ -1,12 +1,12 @@
 package gdnative;
 @:include("godot_cpp/classes/e_net_packet_peer.hpp") @:native("godot::ENetPacketPeer") @:structAccess extern class ENetPacketPeer_extern extends gdnative.PacketPeer.PacketPeer_extern {
 	extern static inline function __alloc():cpp.Pointer<ENetPacketPeer_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::ENetPacketPeer"));
-	overload function peer_disconnect(p_data:Int):Void;
 	overload function peer_disconnect():Void;
-	overload function peer_disconnect_later(p_data:Int):Void;
+	overload function peer_disconnect(p_data:Int):Void;
 	overload function peer_disconnect_later():Void;
-	overload function peer_disconnect_now(p_data:Int):Void;
+	overload function peer_disconnect_later(p_data:Int):Void;
 	overload function peer_disconnect_now():Void;
+	overload function peer_disconnect_now(p_data:Int):Void;
 	function ping():Void;
 	function ping_interval(p_ping_interval:Int):Void;
 	function reset():Void;

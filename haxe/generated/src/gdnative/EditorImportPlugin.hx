@@ -12,10 +12,10 @@ package gdnative;
 	function _get_import_order():Int;
 	function _get_option_visibility(p_path:gdnative.String, p_option_name:gdnative.StringName, p_options:gdnative.Dictionary):Bool;
 	function _can_import_threaded():Bool;
-	overload function append_import_external_resource(p_path:gdnative.String, p_custom_options:gdnative.Dictionary, p_custom_importer:gdnative.String, p_generator_parameters:gdnative.Variant):gdnative.Error;
-	overload function append_import_external_resource(p_path:gdnative.String, p_custom_options:gdnative.Dictionary, p_custom_importer:gdnative.String):gdnative.Error;
-	overload function append_import_external_resource(p_path:gdnative.String, p_custom_options:gdnative.Dictionary):gdnative.Error;
 	overload function append_import_external_resource(p_path:gdnative.String):gdnative.Error;
+	overload function append_import_external_resource(p_path:gdnative.String, p_custom_options:gdnative.Dictionary):gdnative.Error;
+	overload function append_import_external_resource(p_path:gdnative.String, p_custom_options:gdnative.Dictionary, p_custom_importer:gdnative.String):gdnative.Error;
+	overload function append_import_external_resource(p_path:gdnative.String, p_custom_options:gdnative.Dictionary, p_custom_importer:gdnative.String, p_generator_parameters:gdnative.Variant):gdnative.Error;
 }
 @:forward abstract EditorImportPlugin(gdnative.Ref<EditorImportPlugin_extern>) from gdnative.Ref<EditorImportPlugin_extern> to gdnative.Ref<EditorImportPlugin_extern> {
 	@:from

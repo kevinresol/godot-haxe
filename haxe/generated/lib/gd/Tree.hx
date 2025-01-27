@@ -2,6 +2,7 @@ package gd;
 extern class Tree extends gd.Control {
 	function new(?owner:Dynamic);
 	function clear():Void;
+	function create_item(?p_parent:gd.TreeItem, ?p_index:Int):gd.TreeItem;
 	function get_root():gd.TreeItem;
 	function set_column_custom_minimum_width(p_column:Int, p_min_width:Int):Void;
 	function set_column_expand(p_column:Int, p_expand:Bool):Void;
@@ -25,9 +26,9 @@ extern class Tree extends gd.Control {
 	function get_columns():Int;
 	function get_edited():gd.TreeItem;
 	function get_edited_column():Int;
-	function edit_selected(?p_force_edit:Bool = false):Bool;
+	function edit_selected(?p_force_edit:Bool):Bool;
 	function get_custom_popup_rect():gd.Rect2;
-	function get_item_area_rect(p_item:gd.TreeItem, ?p_column:Int = -1, ?p_button_index:Int = -1):gd.Rect2;
+	function get_item_area_rect(p_item:gd.TreeItem, ?p_column:Int, ?p_button_index:Int):gd.Rect2;
 	function get_item_at_position(p_position:gd.Vector2):gd.TreeItem;
 	function get_column_at_position(p_position:gd.Vector2):Int;
 	function get_drop_section_at_position(p_position:gd.Vector2):Int;
@@ -44,7 +45,7 @@ extern class Tree extends gd.Control {
 	function set_column_title_language(p_column:Int, p_language:std.String):Void;
 	function get_column_title_language(p_column:Int):std.String;
 	function get_scroll():gd.Vector2;
-	function scroll_to_item(p_item:gd.TreeItem, ?p_center_on_item:Bool = false):Void;
+	function scroll_to_item(p_item:gd.TreeItem, ?p_center_on_item:Bool):Void;
 	function set_h_scroll_enabled(p_h_scroll:Bool):Void;
 	function is_h_scroll_enabled():Bool;
 	function set_v_scroll_enabled(p_h_scroll:Bool):Void;

@@ -9,9 +9,9 @@ package gdnative;
 	function get_size():gdnative.Vector3;
 	function set_camera_attributes(p_camera_attributes:gdnative.CameraAttributes):Void;
 	function get_camera_attributes():gdnative.CameraAttributes;
-	overload function bake(p_from_node:gdnative.Node, p_create_visual_debug:Bool):Void;
-	overload function bake(p_from_node:gdnative.Node):Void;
 	overload function bake():Void;
+	overload function bake(p_from_node:gdnative.Node):Void;
+	overload function bake(p_from_node:gdnative.Node, p_create_visual_debug:Bool):Void;
 	function debug_bake():Void;
 }
 @:forward abstract VoxelGI(cpp.Pointer<VoxelGI_extern>) from cpp.Pointer<VoxelGI_extern> to cpp.Pointer<VoxelGI_extern> {

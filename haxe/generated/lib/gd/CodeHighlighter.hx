@@ -15,7 +15,7 @@ extern class CodeHighlighter extends gd.SyntaxHighlighter {
 	function set_member_keyword_colors(p_member_keyword:gd.Dictionary):gd.Dictionary;
 	function clear_member_keyword_colors():Void;
 	function get_member_keyword_colors():gd.Dictionary;
-	function add_color_region(p_start_key:std.String, p_end_key:std.String, p_color:gd.Color, ?p_line_only:Bool = false):Void;
+	function add_color_region(p_start_key:std.String, p_end_key:std.String, p_color:gd.Color, ?p_line_only:Bool):Void;
 	function remove_color_region(p_start_key:std.String):Void;
 	function has_color_region(p_start_key:std.String):Bool;
 	function set_color_regions(p_color_regions:gd.Dictionary):gd.Dictionary;

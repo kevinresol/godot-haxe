@@ -1,8 +1,8 @@
 package gdnative;
 @:include("godot_cpp/classes/animation_node_blend_tree.hpp") @:native("godot::AnimationNodeBlendTree") @:structAccess extern class AnimationNodeBlendTree_extern extends gdnative.AnimationRootNode.AnimationRootNode_extern {
 	extern static inline function __alloc():cpp.Pointer<AnimationNodeBlendTree_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::AnimationNodeBlendTree"));
-	overload function add_node(p_name:gdnative.StringName, p_node:gdnative.AnimationNode, p_position:gdnative.Vector2):Void;
 	overload function add_node(p_name:gdnative.StringName, p_node:gdnative.AnimationNode):Void;
+	overload function add_node(p_name:gdnative.StringName, p_node:gdnative.AnimationNode, p_position:gdnative.Vector2):Void;
 	function get_node(p_name:gdnative.StringName):gdnative.AnimationNode;
 	function remove_node(p_name:gdnative.StringName):Void;
 	function rename_node(p_name:gdnative.StringName, p_new_name:gdnative.StringName):Void;

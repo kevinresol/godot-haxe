@@ -12,12 +12,12 @@ class SkeletonModifier3D extends gd.Node3D {
 	public function _process_modification():Void __skeletonmodifier3d_ptr().value._process_modification();
 	public function get_skeleton():gd.Skeleton3D return __skeletonmodifier3d_ptr().value.get_skeleton();
 	public function set_active(p_active:Bool):Bool {
-		__skeletonmodifier3d_ptr().value.set_active(p_active);
+		__skeletonmodifier3d_ptr().value.set_active(((p_active : Bool)));
 		return p_active;
 	}
 	public function is_active():Bool return __skeletonmodifier3d_ptr().value.is_active();
 	public function set_influence(p_influence:Float):Float {
-		__skeletonmodifier3d_ptr().value.set_influence(p_influence);
+		__skeletonmodifier3d_ptr().value.set_influence(((p_influence : Float)));
 		return p_influence;
 	}
 	public function get_influence():Float return __skeletonmodifier3d_ptr().value.get_influence();

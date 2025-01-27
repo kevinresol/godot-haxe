@@ -10,47 +10,47 @@ class Light3D extends gd.VisualInstance3D {
 	}
 	extern inline function __light3d_ptr():cpp.Pointer<gdnative.Light3D.Light3D_extern> return cast __gd.ptr;
 	public function set_editor_only(p_editor_only:Bool):Bool {
-		__light3d_ptr().value.set_editor_only(p_editor_only);
+		__light3d_ptr().value.set_editor_only(((p_editor_only : Bool)));
 		return p_editor_only;
 	}
 	public function is_editor_only():Bool return __light3d_ptr().value.is_editor_only();
-	public function set_param(p_param:gd.light3d.Param, p_value:Float):Void __light3d_ptr().value.set_param(p_param, p_value);
-	public function get_param(p_param:gd.light3d.Param):Float return __light3d_ptr().value.get_param(p_param);
-	public function set_shadow(p_enabled:Bool):Void __light3d_ptr().value.set_shadow(p_enabled);
+	public function set_param(p_param:gd.light3d.Param, p_value:Float):Void __light3d_ptr().value.set_param(((p_param : gd.light3d.Param)), ((p_value : Float)));
+	public function get_param(p_param:gd.light3d.Param):Float return __light3d_ptr().value.get_param(((p_param : gd.light3d.Param)));
+	public function set_shadow(p_enabled:Bool):Void __light3d_ptr().value.set_shadow(((p_enabled : Bool)));
 	public function has_shadow():Bool return __light3d_ptr().value.has_shadow();
-	public function set_negative(p_enabled:Bool):Void __light3d_ptr().value.set_negative(p_enabled);
+	public function set_negative(p_enabled:Bool):Void __light3d_ptr().value.set_negative(((p_enabled : Bool)));
 	public function is_negative():Bool return __light3d_ptr().value.is_negative();
-	public function set_cull_mask(p_cull_mask:Int):Void __light3d_ptr().value.set_cull_mask(p_cull_mask);
+	public function set_cull_mask(p_cull_mask:Int):Void __light3d_ptr().value.set_cull_mask(((p_cull_mask : Int)));
 	public function get_cull_mask():Int return __light3d_ptr().value.get_cull_mask();
-	public function set_enable_distance_fade(p_enable:Bool):Void __light3d_ptr().value.set_enable_distance_fade(p_enable);
+	public function set_enable_distance_fade(p_enable:Bool):Void __light3d_ptr().value.set_enable_distance_fade(((p_enable : Bool)));
 	public function is_distance_fade_enabled():Bool return __light3d_ptr().value.is_distance_fade_enabled();
 	public function set_distance_fade_begin(p_distance:Float):Float {
-		__light3d_ptr().value.set_distance_fade_begin(p_distance);
+		__light3d_ptr().value.set_distance_fade_begin(((p_distance : Float)));
 		return p_distance;
 	}
 	public function get_distance_fade_begin():Float return __light3d_ptr().value.get_distance_fade_begin();
 	public function set_distance_fade_shadow(p_distance:Float):Float {
-		__light3d_ptr().value.set_distance_fade_shadow(p_distance);
+		__light3d_ptr().value.set_distance_fade_shadow(((p_distance : Float)));
 		return p_distance;
 	}
 	public function get_distance_fade_shadow():Float return __light3d_ptr().value.get_distance_fade_shadow();
 	public function set_distance_fade_length(p_distance:Float):Float {
-		__light3d_ptr().value.set_distance_fade_length(p_distance);
+		__light3d_ptr().value.set_distance_fade_length(((p_distance : Float)));
 		return p_distance;
 	}
 	public function get_distance_fade_length():Float return __light3d_ptr().value.get_distance_fade_length();
-	public function set_color(p_color:gd.Color):Void __light3d_ptr().value.set_color(p_color);
+	public function set_color(p_color:gd.Color):Void __light3d_ptr().value.set_color(((p_color : gd.Color)));
 	public function get_color():gd.Color return __light3d_ptr().value.get_color();
 	public function set_shadow_reverse_cull_face(p_enable:Bool):Bool {
-		__light3d_ptr().value.set_shadow_reverse_cull_face(p_enable);
+		__light3d_ptr().value.set_shadow_reverse_cull_face(((p_enable : Bool)));
 		return p_enable;
 	}
 	public function get_shadow_reverse_cull_face():Bool return __light3d_ptr().value.get_shadow_reverse_cull_face();
-	public function set_bake_mode(p_bake_mode:gd.light3d.BakeMode):Void __light3d_ptr().value.set_bake_mode(p_bake_mode);
+	public function set_bake_mode(p_bake_mode:gd.light3d.BakeMode):Void __light3d_ptr().value.set_bake_mode(((p_bake_mode : gd.light3d.BakeMode)));
 	public function get_bake_mode():gd.light3d.BakeMode return __light3d_ptr().value.get_bake_mode();
-	public function set_projector(p_projector:gd.Texture2D):Void __light3d_ptr().value.set_projector(p_projector);
+	public function set_projector(p_projector:gd.Texture2D):Void __light3d_ptr().value.set_projector(((p_projector : gd.Texture2D)));
 	public function get_projector():gd.Texture2D return __light3d_ptr().value.get_projector();
-	public function set_temperature(p_temperature:Float):Void __light3d_ptr().value.set_temperature(p_temperature);
+	public function set_temperature(p_temperature:Float):Void __light3d_ptr().value.set_temperature(((p_temperature : Float)));
 	public function get_temperature():Float return __light3d_ptr().value.get_temperature();
 	public function get_correlated_color():gd.Color return __light3d_ptr().value.get_correlated_color();
 	var light_intensity_lumens(get, set) : Float;

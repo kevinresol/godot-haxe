@@ -10,7 +10,7 @@ class PlaceholderTexture3D extends gd.Texture3D {
 	}
 	extern inline function __placeholdertexture3d_ptr():cpp.Pointer<gdnative.PlaceholderTexture3D.PlaceholderTexture3D_extern> return cast __gd.ptr;
 	public function set_size(p_size:gd.Vector3i):gd.Vector3i {
-		__placeholdertexture3d_ptr().value.set_size(p_size);
+		__placeholdertexture3d_ptr().value.set_size(((p_size : gd.Vector3i)));
 		return p_size;
 	}
 	public function get_size():gd.Vector3i return __placeholdertexture3d_ptr().value.get_size();

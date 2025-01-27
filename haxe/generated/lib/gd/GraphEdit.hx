@@ -9,7 +9,7 @@ extern class GraphEdit extends gd.Control {
 	function is_node_connected(p_from_node:std.String, p_from_port:Int, p_to_node:std.String, p_to_port:Int):Bool;
 	function disconnect_node(p_from_node:std.String, p_from_port:Int, p_to_node:std.String, p_to_port:Int):Void;
 	function set_connection_activity(p_from_node:std.String, p_from_port:Int, p_to_node:std.String, p_to_port:Int, p_amount:Float):Void;
-	function get_closest_connection_at_point(p_point:gd.Vector2, ?p_max_distance:Float = 4.):gd.Dictionary;
+	function get_closest_connection_at_point(p_point:gd.Vector2, ?p_max_distance:Float):gd.Dictionary;
 	function clear_connections():Void;
 	function force_connection_drag_end():Void;
 	function get_scroll_offset():gd.Vector2;

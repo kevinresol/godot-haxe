@@ -1,6 +1,7 @@
 package gd;
 extern class AnimationNodeStateMachine extends gd.AnimationRootNode {
 	function new(?owner:Dynamic);
+	function add_node(p_name:std.String, p_node:gd.AnimationNode, ?p_position:gd.Vector2):Void;
 	function replace_node(p_name:std.String, p_node:gd.AnimationNode):Void;
 	function get_node(p_name:std.String):gd.AnimationNode;
 	function remove_node(p_name:std.String):Void;

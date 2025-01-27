@@ -11,7 +11,7 @@ extern class AudioStreamPlayer3D extends gd.Node3D {
 	function get_max_db():Float;
 	function set_pitch_scale(p_pitch_scale:Float):Float;
 	function get_pitch_scale():Float;
-	function play(?p_from_position:Float = 0.):Void;
+	function play(?p_from_position:Float):Void;
 	function seek(p_to_position:Float):Void;
 	function stop():Void;
 	function is_playing():Bool;

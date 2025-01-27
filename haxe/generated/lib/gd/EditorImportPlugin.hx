@@ -12,4 +12,5 @@ extern class EditorImportPlugin extends gd.ResourceImporter {
 	function _get_import_order():Int;
 	function _get_option_visibility(p_path:std.String, p_option_name:std.String, p_options:gd.Dictionary):Bool;
 	function _can_import_threaded():Bool;
+	function append_import_external_resource(p_path:std.String, ?p_custom_options:gd.Dictionary, ?p_custom_importer:std.String, ?p_generator_parameters:gd.Variant):gd.Error;
 }

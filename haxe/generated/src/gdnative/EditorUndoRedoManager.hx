@@ -1,12 +1,12 @@
 package gdnative;
 @:include("godot_cpp/classes/editor_undo_redo_manager.hpp") @:native("godot::EditorUndoRedoManager") @:structAccess extern class EditorUndoRedoManager_extern extends gdnative.Object.Object_extern {
 	extern static inline function __alloc():cpp.Pointer<EditorUndoRedoManager_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::EditorUndoRedoManager"));
-	overload function create_action(p_name:gdnative.String, p_merge_mode:gdnative.undoredo.MergeMode, p_custom_context:gdnative.Object, p_backward_undo_ops:Bool):Void;
-	overload function create_action(p_name:gdnative.String, p_merge_mode:gdnative.undoredo.MergeMode, p_custom_context:gdnative.Object):Void;
-	overload function create_action(p_name:gdnative.String, p_merge_mode:gdnative.undoredo.MergeMode):Void;
 	overload function create_action(p_name:gdnative.String):Void;
-	overload function commit_action(p_execute:Bool):Void;
+	overload function create_action(p_name:gdnative.String, p_merge_mode:gdnative.undoredo.MergeMode):Void;
+	overload function create_action(p_name:gdnative.String, p_merge_mode:gdnative.undoredo.MergeMode, p_custom_context:gdnative.Object):Void;
+	overload function create_action(p_name:gdnative.String, p_merge_mode:gdnative.undoredo.MergeMode, p_custom_context:gdnative.Object, p_backward_undo_ops:Bool):Void;
 	overload function commit_action():Void;
+	overload function commit_action(p_execute:Bool):Void;
 	function is_committing_action():Bool;
 	function force_fixed_history():Void;
 	function add_do_method(p_object:gdnative.Object, p_method:gdnative.StringName):Void;

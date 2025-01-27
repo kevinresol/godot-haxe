@@ -1,8 +1,8 @@
 package gdnative;
 @:include("godot_cpp/classes/animation_node_blend_space1_d.hpp") @:native("godot::AnimationNodeBlendSpace1D") @:structAccess extern class AnimationNodeBlendSpace1D_extern extends gdnative.AnimationRootNode.AnimationRootNode_extern {
 	extern static inline function __alloc():cpp.Pointer<AnimationNodeBlendSpace1D_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::AnimationNodeBlendSpace1D"));
-	overload function add_blend_point(p_node:gdnative.AnimationRootNode, p_pos:Float, p_at_index:Int):Void;
 	overload function add_blend_point(p_node:gdnative.AnimationRootNode, p_pos:Float):Void;
+	overload function add_blend_point(p_node:gdnative.AnimationRootNode, p_pos:Float, p_at_index:Int):Void;
 	function set_blend_point_position(p_point:Int, p_pos:Float):Void;
 	function get_blend_point_position(p_point:Int):Float;
 	function set_blend_point_node(p_point:Int, p_node:gdnative.AnimationRootNode):Void;

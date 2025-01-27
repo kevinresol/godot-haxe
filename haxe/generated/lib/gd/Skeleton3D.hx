@@ -26,7 +26,7 @@ extern class Skeleton3D extends gd.Node3D {
 	function reset_bone_pose(p_bone_idx:Int):Void;
 	function reset_bone_poses():Void;
 	function is_bone_enabled(p_bone_idx:Int):Bool;
-	function set_bone_enabled(p_bone_idx:Int, ?p_enabled:Bool = true):Void;
+	function set_bone_enabled(p_bone_idx:Int, ?p_enabled:Bool):Void;
 	function force_update_all_bone_transforms():Void;
 	function force_update_bone_child_transform(p_bone_idx:Int):Void;
 	function set_motion_scale(p_motion_scale:Float):Float;

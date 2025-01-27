@@ -9,6 +9,6 @@ class PackedDataContainer extends gd.Resource {
 		super(native.reinterpret());
 	}
 	extern inline function __packeddatacontainer_ptr():cpp.Pointer<gdnative.PackedDataContainer.PackedDataContainer_extern> return cast __gd.ptr;
-	public function pack(p_value:gd.Variant):gd.Error return __packeddatacontainer_ptr().value.pack(p_value);
+	public function pack(p_value:gd.Variant):gd.Error return __packeddatacontainer_ptr().value.pack(((p_value : gd.Variant)));
 	public function size():Int return __packeddatacontainer_ptr().value.size();
 }

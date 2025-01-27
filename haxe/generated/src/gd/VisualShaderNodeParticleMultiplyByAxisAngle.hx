@@ -10,7 +10,7 @@ class VisualShaderNodeParticleMultiplyByAxisAngle extends gd.VisualShaderNode {
 	}
 	extern inline function __visualshadernodeparticlemultiplybyaxisangle_ptr():cpp.Pointer<gdnative.VisualShaderNodeParticleMultiplyByAxisAngle.VisualShaderNodeParticleMultiplyByAxisAngle_extern> return cast __gd.ptr;
 	public function set_degrees_mode(p_enabled:Bool):Bool {
-		__visualshadernodeparticlemultiplybyaxisangle_ptr().value.set_degrees_mode(p_enabled);
+		__visualshadernodeparticlemultiplybyaxisangle_ptr().value.set_degrees_mode(((p_enabled : Bool)));
 		return p_enabled;
 	}
 	public function is_degrees_mode():Bool return __visualshadernodeparticlemultiplybyaxisangle_ptr().value.is_degrees_mode();

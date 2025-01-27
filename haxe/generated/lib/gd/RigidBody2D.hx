@@ -36,10 +36,14 @@ extern class RigidBody2D extends gd.PhysicsBody2D {
 	function set_continuous_collision_detection_mode(p_mode:gd.rigidbody2d.CCDMode):Void;
 	function get_continuous_collision_detection_mode():gd.rigidbody2d.CCDMode;
 	function set_axis_velocity(p_axis_velocity:gd.Vector2):Void;
+	function apply_central_impulse(?p_impulse:gd.Vector2):Void;
+	function apply_impulse(p_impulse:gd.Vector2, ?p_position:gd.Vector2):Void;
 	function apply_torque_impulse(p_torque:Float):Void;
 	function apply_central_force(p_force:gd.Vector2):Void;
+	function apply_force(p_force:gd.Vector2, ?p_position:gd.Vector2):Void;
 	function apply_torque(p_torque:Float):Void;
 	function add_constant_central_force(p_force:gd.Vector2):Void;
+	function add_constant_force(p_force:gd.Vector2, ?p_position:gd.Vector2):Void;
 	function add_constant_torque(p_torque:Float):Void;
 	function set_constant_force(p_force:gd.Vector2):gd.Vector2;
 	function get_constant_force():gd.Vector2;

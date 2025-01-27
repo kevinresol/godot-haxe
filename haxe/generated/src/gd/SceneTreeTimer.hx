@@ -10,7 +10,7 @@ class SceneTreeTimer extends gd.RefCounted {
 	}
 	extern inline function __scenetreetimer_ptr():cpp.Pointer<gdnative.SceneTreeTimer.SceneTreeTimer_extern> return cast __gd.ptr;
 	public function set_time_left(p_time:Float):Float {
-		__scenetreetimer_ptr().value.set_time_left(p_time);
+		__scenetreetimer_ptr().value.set_time_left(((p_time : Float)));
 		return p_time;
 	}
 	public function get_time_left():Float return __scenetreetimer_ptr().value.get_time_left();

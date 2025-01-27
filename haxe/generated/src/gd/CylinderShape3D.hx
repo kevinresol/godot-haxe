@@ -10,12 +10,12 @@ class CylinderShape3D extends gd.Shape3D {
 	}
 	extern inline function __cylindershape3d_ptr():cpp.Pointer<gdnative.CylinderShape3D.CylinderShape3D_extern> return cast __gd.ptr;
 	public function set_radius(p_radius:Float):Float {
-		__cylindershape3d_ptr().value.set_radius(p_radius);
+		__cylindershape3d_ptr().value.set_radius(((p_radius : Float)));
 		return p_radius;
 	}
 	public function get_radius():Float return __cylindershape3d_ptr().value.get_radius();
 	public function set_height(p_height:Float):Float {
-		__cylindershape3d_ptr().value.set_height(p_height);
+		__cylindershape3d_ptr().value.set_height(((p_height : Float)));
 		return p_height;
 	}
 	public function get_height():Float return __cylindershape3d_ptr().value.get_height();

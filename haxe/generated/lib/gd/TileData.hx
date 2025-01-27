@@ -18,7 +18,7 @@ extern class TileData extends gd.Object {
 	function set_y_sort_origin(p_y_sort_origin:Int):Int;
 	function get_y_sort_origin():Int;
 	function set_occluder(p_layer_id:Int, p_occluder_polygon:gd.OccluderPolygon2D):Void;
-	function get_occluder(p_layer_id:Int, ?p_flip_h:Bool = false, ?p_flip_v:Bool = false, ?p_transpose:Bool = false):gd.OccluderPolygon2D;
+	function get_occluder(p_layer_id:Int, ?p_flip_h:Bool, ?p_flip_v:Bool, ?p_transpose:Bool):gd.OccluderPolygon2D;
 	function set_constant_linear_velocity(p_layer_id:Int, p_velocity:gd.Vector2):Void;
 	function get_constant_linear_velocity(p_layer_id:Int):gd.Vector2;
 	function set_constant_angular_velocity(p_layer_id:Int, p_velocity:Float):Void;
@@ -41,7 +41,7 @@ extern class TileData extends gd.Object {
 	function get_terrain_peering_bit(p_peering_bit:gd.tileset.CellNeighbor):Int;
 	function is_valid_terrain_peering_bit(p_peering_bit:gd.tileset.CellNeighbor):Bool;
 	function set_navigation_polygon(p_layer_id:Int, p_navigation_polygon:gd.NavigationPolygon):Void;
-	function get_navigation_polygon(p_layer_id:Int, ?p_flip_h:Bool = false, ?p_flip_v:Bool = false, ?p_transpose:Bool = false):gd.NavigationPolygon;
+	function get_navigation_polygon(p_layer_id:Int, ?p_flip_h:Bool, ?p_flip_v:Bool, ?p_transpose:Bool):gd.NavigationPolygon;
 	function set_probability(p_probability:Float):Float;
 	function get_probability():Float;
 	function set_custom_data(p_layer_name:std.String, p_value:gd.Variant):Void;

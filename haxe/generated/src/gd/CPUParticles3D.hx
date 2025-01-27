@@ -10,40 +10,40 @@ class CPUParticles3D extends gd.GeometryInstance3D {
 	}
 	extern inline function __cpuparticles3d_ptr():cpp.Pointer<gdnative.CPUParticles3D.CPUParticles3D_extern> return cast __gd.ptr;
 	public function set_emitting(p_emitting:Bool):Bool {
-		__cpuparticles3d_ptr().value.set_emitting(p_emitting);
+		__cpuparticles3d_ptr().value.set_emitting(((p_emitting : Bool)));
 		return p_emitting;
 	}
 	public function set_amount(p_amount:Int):Int {
-		__cpuparticles3d_ptr().value.set_amount(p_amount);
+		__cpuparticles3d_ptr().value.set_amount(((p_amount : Int)));
 		return p_amount;
 	}
 	public function set_lifetime(p_secs:Float):Float {
-		__cpuparticles3d_ptr().value.set_lifetime(p_secs);
+		__cpuparticles3d_ptr().value.set_lifetime(((p_secs : Float)));
 		return p_secs;
 	}
 	public function set_one_shot(p_enable:Bool):Bool {
-		__cpuparticles3d_ptr().value.set_one_shot(p_enable);
+		__cpuparticles3d_ptr().value.set_one_shot(((p_enable : Bool)));
 		return p_enable;
 	}
-	public function set_pre_process_time(p_secs:Float):Void __cpuparticles3d_ptr().value.set_pre_process_time(p_secs);
-	public function set_explosiveness_ratio(p_ratio:Float):Void __cpuparticles3d_ptr().value.set_explosiveness_ratio(p_ratio);
-	public function set_randomness_ratio(p_ratio:Float):Void __cpuparticles3d_ptr().value.set_randomness_ratio(p_ratio);
+	public function set_pre_process_time(p_secs:Float):Void __cpuparticles3d_ptr().value.set_pre_process_time(((p_secs : Float)));
+	public function set_explosiveness_ratio(p_ratio:Float):Void __cpuparticles3d_ptr().value.set_explosiveness_ratio(((p_ratio : Float)));
+	public function set_randomness_ratio(p_ratio:Float):Void __cpuparticles3d_ptr().value.set_randomness_ratio(((p_ratio : Float)));
 	public function set_visibility_aabb(p_aabb:gd.AABB):gd.AABB {
-		__cpuparticles3d_ptr().value.set_visibility_aabb(p_aabb);
+		__cpuparticles3d_ptr().value.set_visibility_aabb(((p_aabb : gd.AABB)));
 		return p_aabb;
 	}
 	public function set_lifetime_randomness(p_random:Float):Float {
-		__cpuparticles3d_ptr().value.set_lifetime_randomness(p_random);
+		__cpuparticles3d_ptr().value.set_lifetime_randomness(((p_random : Float)));
 		return p_random;
 	}
-	public function set_use_local_coordinates(p_enable:Bool):Void __cpuparticles3d_ptr().value.set_use_local_coordinates(p_enable);
+	public function set_use_local_coordinates(p_enable:Bool):Void __cpuparticles3d_ptr().value.set_use_local_coordinates(((p_enable : Bool)));
 	public function set_fixed_fps(p_fps:Int):Int {
-		__cpuparticles3d_ptr().value.set_fixed_fps(p_fps);
+		__cpuparticles3d_ptr().value.set_fixed_fps(((p_fps : Int)));
 		return p_fps;
 	}
-	public function set_fractional_delta(p_enable:Bool):Void __cpuparticles3d_ptr().value.set_fractional_delta(p_enable);
+	public function set_fractional_delta(p_enable:Bool):Void __cpuparticles3d_ptr().value.set_fractional_delta(((p_enable : Bool)));
 	public function set_speed_scale(p_scale:Float):Float {
-		__cpuparticles3d_ptr().value.set_speed_scale(p_scale);
+		__cpuparticles3d_ptr().value.set_speed_scale(((p_scale : Float)));
 		return p_scale;
 	}
 	public function is_emitting():Bool return __cpuparticles3d_ptr().value.is_emitting();
@@ -60,130 +60,130 @@ class CPUParticles3D extends gd.GeometryInstance3D {
 	public function get_fractional_delta():Bool return __cpuparticles3d_ptr().value.get_fractional_delta();
 	public function get_speed_scale():Float return __cpuparticles3d_ptr().value.get_speed_scale();
 	public function set_draw_order(p_order:gd.cpuparticles3d.DrawOrder):gd.cpuparticles3d.DrawOrder {
-		__cpuparticles3d_ptr().value.set_draw_order(p_order);
+		__cpuparticles3d_ptr().value.set_draw_order(((p_order : gd.cpuparticles3d.DrawOrder)));
 		return p_order;
 	}
 	public function get_draw_order():gd.cpuparticles3d.DrawOrder return __cpuparticles3d_ptr().value.get_draw_order();
 	public function set_mesh(p_mesh:gd.Mesh):gd.Mesh {
-		__cpuparticles3d_ptr().value.set_mesh(p_mesh);
+		__cpuparticles3d_ptr().value.set_mesh(((p_mesh : gd.Mesh)));
 		return p_mesh;
 	}
 	public function get_mesh():gd.Mesh return __cpuparticles3d_ptr().value.get_mesh();
 	public function restart():Void __cpuparticles3d_ptr().value.restart();
 	public function set_direction(p_direction:gd.Vector3):gd.Vector3 {
-		__cpuparticles3d_ptr().value.set_direction(p_direction);
+		__cpuparticles3d_ptr().value.set_direction(((p_direction : gd.Vector3)));
 		return p_direction;
 	}
 	public function get_direction():gd.Vector3 return __cpuparticles3d_ptr().value.get_direction();
 	public function set_spread(p_degrees:Float):Float {
-		__cpuparticles3d_ptr().value.set_spread(p_degrees);
+		__cpuparticles3d_ptr().value.set_spread(((p_degrees : Float)));
 		return p_degrees;
 	}
 	public function get_spread():Float return __cpuparticles3d_ptr().value.get_spread();
 	public function set_flatness(p_amount:Float):Float {
-		__cpuparticles3d_ptr().value.set_flatness(p_amount);
+		__cpuparticles3d_ptr().value.set_flatness(((p_amount : Float)));
 		return p_amount;
 	}
 	public function get_flatness():Float return __cpuparticles3d_ptr().value.get_flatness();
-	public function set_param_min(p_param:gd.cpuparticles3d.Parameter, p_value:Float):Void __cpuparticles3d_ptr().value.set_param_min(p_param, p_value);
-	public function get_param_min(p_param:gd.cpuparticles3d.Parameter):Float return __cpuparticles3d_ptr().value.get_param_min(p_param);
-	public function set_param_max(p_param:gd.cpuparticles3d.Parameter, p_value:Float):Void __cpuparticles3d_ptr().value.set_param_max(p_param, p_value);
-	public function get_param_max(p_param:gd.cpuparticles3d.Parameter):Float return __cpuparticles3d_ptr().value.get_param_max(p_param);
-	public function set_param_curve(p_param:gd.cpuparticles3d.Parameter, p_curve:gd.Curve):Void __cpuparticles3d_ptr().value.set_param_curve(p_param, p_curve);
-	public function get_param_curve(p_param:gd.cpuparticles3d.Parameter):gd.Curve return __cpuparticles3d_ptr().value.get_param_curve(p_param);
+	public function set_param_min(p_param:gd.cpuparticles3d.Parameter, p_value:Float):Void __cpuparticles3d_ptr().value.set_param_min(((p_param : gd.cpuparticles3d.Parameter)), ((p_value : Float)));
+	public function get_param_min(p_param:gd.cpuparticles3d.Parameter):Float return __cpuparticles3d_ptr().value.get_param_min(((p_param : gd.cpuparticles3d.Parameter)));
+	public function set_param_max(p_param:gd.cpuparticles3d.Parameter, p_value:Float):Void __cpuparticles3d_ptr().value.set_param_max(((p_param : gd.cpuparticles3d.Parameter)), ((p_value : Float)));
+	public function get_param_max(p_param:gd.cpuparticles3d.Parameter):Float return __cpuparticles3d_ptr().value.get_param_max(((p_param : gd.cpuparticles3d.Parameter)));
+	public function set_param_curve(p_param:gd.cpuparticles3d.Parameter, p_curve:gd.Curve):Void __cpuparticles3d_ptr().value.set_param_curve(((p_param : gd.cpuparticles3d.Parameter)), ((p_curve : gd.Curve)));
+	public function get_param_curve(p_param:gd.cpuparticles3d.Parameter):gd.Curve return __cpuparticles3d_ptr().value.get_param_curve(((p_param : gd.cpuparticles3d.Parameter)));
 	public function set_color(p_color:gd.Color):gd.Color {
-		__cpuparticles3d_ptr().value.set_color(p_color);
+		__cpuparticles3d_ptr().value.set_color(((p_color : gd.Color)));
 		return p_color;
 	}
 	public function get_color():gd.Color return __cpuparticles3d_ptr().value.get_color();
 	public function set_color_ramp(p_ramp:gd.Gradient):gd.Gradient {
-		__cpuparticles3d_ptr().value.set_color_ramp(p_ramp);
+		__cpuparticles3d_ptr().value.set_color_ramp(((p_ramp : gd.Gradient)));
 		return p_ramp;
 	}
 	public function get_color_ramp():gd.Gradient return __cpuparticles3d_ptr().value.get_color_ramp();
 	public function set_color_initial_ramp(p_ramp:gd.Gradient):gd.Gradient {
-		__cpuparticles3d_ptr().value.set_color_initial_ramp(p_ramp);
+		__cpuparticles3d_ptr().value.set_color_initial_ramp(((p_ramp : gd.Gradient)));
 		return p_ramp;
 	}
 	public function get_color_initial_ramp():gd.Gradient return __cpuparticles3d_ptr().value.get_color_initial_ramp();
-	public function set_particle_flag(p_particle_flag:gd.cpuparticles3d.ParticleFlags, p_enable:Bool):Void __cpuparticles3d_ptr().value.set_particle_flag(p_particle_flag, p_enable);
-	public function get_particle_flag(p_particle_flag:gd.cpuparticles3d.ParticleFlags):Bool return __cpuparticles3d_ptr().value.get_particle_flag(p_particle_flag);
+	public function set_particle_flag(p_particle_flag:gd.cpuparticles3d.ParticleFlags, p_enable:Bool):Void __cpuparticles3d_ptr().value.set_particle_flag(((p_particle_flag : gd.cpuparticles3d.ParticleFlags)), ((p_enable : Bool)));
+	public function get_particle_flag(p_particle_flag:gd.cpuparticles3d.ParticleFlags):Bool return __cpuparticles3d_ptr().value.get_particle_flag(((p_particle_flag : gd.cpuparticles3d.ParticleFlags)));
 	public function set_emission_shape(p_shape:gd.cpuparticles3d.EmissionShape):gd.cpuparticles3d.EmissionShape {
-		__cpuparticles3d_ptr().value.set_emission_shape(p_shape);
+		__cpuparticles3d_ptr().value.set_emission_shape(((p_shape : gd.cpuparticles3d.EmissionShape)));
 		return p_shape;
 	}
 	public function get_emission_shape():gd.cpuparticles3d.EmissionShape return __cpuparticles3d_ptr().value.get_emission_shape();
 	public function set_emission_sphere_radius(p_radius:Float):Float {
-		__cpuparticles3d_ptr().value.set_emission_sphere_radius(p_radius);
+		__cpuparticles3d_ptr().value.set_emission_sphere_radius(((p_radius : Float)));
 		return p_radius;
 	}
 	public function get_emission_sphere_radius():Float return __cpuparticles3d_ptr().value.get_emission_sphere_radius();
 	public function set_emission_box_extents(p_extents:gd.Vector3):gd.Vector3 {
-		__cpuparticles3d_ptr().value.set_emission_box_extents(p_extents);
+		__cpuparticles3d_ptr().value.set_emission_box_extents(((p_extents : gd.Vector3)));
 		return p_extents;
 	}
 	public function get_emission_box_extents():gd.Vector3 return __cpuparticles3d_ptr().value.get_emission_box_extents();
 	public function set_emission_points(p_array:gd.PackedVector3Array):gd.PackedVector3Array {
-		__cpuparticles3d_ptr().value.set_emission_points(p_array);
+		__cpuparticles3d_ptr().value.set_emission_points(((p_array : gd.PackedVector3Array)));
 		return p_array;
 	}
 	public function get_emission_points():gd.PackedVector3Array return __cpuparticles3d_ptr().value.get_emission_points();
 	public function set_emission_normals(p_array:gd.PackedVector3Array):gd.PackedVector3Array {
-		__cpuparticles3d_ptr().value.set_emission_normals(p_array);
+		__cpuparticles3d_ptr().value.set_emission_normals(((p_array : gd.PackedVector3Array)));
 		return p_array;
 	}
 	public function get_emission_normals():gd.PackedVector3Array return __cpuparticles3d_ptr().value.get_emission_normals();
 	public function set_emission_colors(p_array:gd.PackedColorArray):gd.PackedColorArray {
-		__cpuparticles3d_ptr().value.set_emission_colors(p_array);
+		__cpuparticles3d_ptr().value.set_emission_colors(((p_array : gd.PackedColorArray)));
 		return p_array;
 	}
 	public function get_emission_colors():gd.PackedColorArray return __cpuparticles3d_ptr().value.get_emission_colors();
 	public function set_emission_ring_axis(p_axis:gd.Vector3):gd.Vector3 {
-		__cpuparticles3d_ptr().value.set_emission_ring_axis(p_axis);
+		__cpuparticles3d_ptr().value.set_emission_ring_axis(((p_axis : gd.Vector3)));
 		return p_axis;
 	}
 	public function get_emission_ring_axis():gd.Vector3 return __cpuparticles3d_ptr().value.get_emission_ring_axis();
 	public function set_emission_ring_height(p_height:Float):Float {
-		__cpuparticles3d_ptr().value.set_emission_ring_height(p_height);
+		__cpuparticles3d_ptr().value.set_emission_ring_height(((p_height : Float)));
 		return p_height;
 	}
 	public function get_emission_ring_height():Float return __cpuparticles3d_ptr().value.get_emission_ring_height();
 	public function set_emission_ring_radius(p_radius:Float):Float {
-		__cpuparticles3d_ptr().value.set_emission_ring_radius(p_radius);
+		__cpuparticles3d_ptr().value.set_emission_ring_radius(((p_radius : Float)));
 		return p_radius;
 	}
 	public function get_emission_ring_radius():Float return __cpuparticles3d_ptr().value.get_emission_ring_radius();
 	public function set_emission_ring_inner_radius(p_inner_radius:Float):Float {
-		__cpuparticles3d_ptr().value.set_emission_ring_inner_radius(p_inner_radius);
+		__cpuparticles3d_ptr().value.set_emission_ring_inner_radius(((p_inner_radius : Float)));
 		return p_inner_radius;
 	}
 	public function get_emission_ring_inner_radius():Float return __cpuparticles3d_ptr().value.get_emission_ring_inner_radius();
 	public function get_gravity():gd.Vector3 return __cpuparticles3d_ptr().value.get_gravity();
 	public function set_gravity(p_accel_vec:gd.Vector3):gd.Vector3 {
-		__cpuparticles3d_ptr().value.set_gravity(p_accel_vec);
+		__cpuparticles3d_ptr().value.set_gravity(((p_accel_vec : gd.Vector3)));
 		return p_accel_vec;
 	}
 	public function get_split_scale():Bool return __cpuparticles3d_ptr().value.get_split_scale();
 	public function set_split_scale(p_split_scale:Bool):Bool {
-		__cpuparticles3d_ptr().value.set_split_scale(p_split_scale);
+		__cpuparticles3d_ptr().value.set_split_scale(((p_split_scale : Bool)));
 		return p_split_scale;
 	}
 	public function get_scale_curve_x():gd.Curve return __cpuparticles3d_ptr().value.get_scale_curve_x();
 	public function set_scale_curve_x(p_scale_curve:gd.Curve):gd.Curve {
-		__cpuparticles3d_ptr().value.set_scale_curve_x(p_scale_curve);
+		__cpuparticles3d_ptr().value.set_scale_curve_x(((p_scale_curve : gd.Curve)));
 		return p_scale_curve;
 	}
 	public function get_scale_curve_y():gd.Curve return __cpuparticles3d_ptr().value.get_scale_curve_y();
 	public function set_scale_curve_y(p_scale_curve:gd.Curve):gd.Curve {
-		__cpuparticles3d_ptr().value.set_scale_curve_y(p_scale_curve);
+		__cpuparticles3d_ptr().value.set_scale_curve_y(((p_scale_curve : gd.Curve)));
 		return p_scale_curve;
 	}
 	public function get_scale_curve_z():gd.Curve return __cpuparticles3d_ptr().value.get_scale_curve_z();
 	public function set_scale_curve_z(p_scale_curve:gd.Curve):gd.Curve {
-		__cpuparticles3d_ptr().value.set_scale_curve_z(p_scale_curve);
+		__cpuparticles3d_ptr().value.set_scale_curve_z(((p_scale_curve : gd.Curve)));
 		return p_scale_curve;
 	}
-	public function convert_from_particles(p_particles:gd.Node):Void __cpuparticles3d_ptr().value.convert_from_particles(p_particles);
+	public function convert_from_particles(p_particles:gd.Node):Void __cpuparticles3d_ptr().value.convert_from_particles(((p_particles : gd.Node)));
 	var emitting(get, set) : Bool;
 	function get_emitting():Bool return is_emitting();
 	var amount(get, set) : Int;

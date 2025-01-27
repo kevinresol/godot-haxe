@@ -9,7 +9,7 @@ class VisualShaderNodeFloatFunc extends gd.VisualShaderNode {
 		super(native.reinterpret());
 	}
 	extern inline function __visualshadernodefloatfunc_ptr():cpp.Pointer<gdnative.VisualShaderNodeFloatFunc.VisualShaderNodeFloatFunc_extern> return cast __gd.ptr;
-	public function set_function(p_func:gd.visualshadernodefloatfunc.Function):Void __visualshadernodefloatfunc_ptr().value.set_function(p_func);
+	public function set_function(p_func:gd.visualshadernodefloatfunc.Function):Void __visualshadernodefloatfunc_ptr().value.set_function(((p_func : gd.visualshadernodefloatfunc.Function)));
 	public function get_function():gd.visualshadernodefloatfunc.Function return __visualshadernodefloatfunc_ptr().value.get_function();
 	var function_(get, set) : gd.visualshadernodefloatfunc.Function;
 	function get_function_():gd.visualshadernodefloatfunc.Function return get_function();

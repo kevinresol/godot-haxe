@@ -1,17 +1,17 @@
 package gdnative;
 @:include("godot_cpp/classes/web_socket_peer.hpp") @:native("godot::WebSocketPeer") @:structAccess extern class WebSocketPeer_extern extends gdnative.PacketPeer.PacketPeer_extern {
 	extern static inline function __alloc():cpp.Pointer<WebSocketPeer_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::WebSocketPeer"));
-	overload function connect_to_url(p_url:gdnative.String, p_tls_client_options:gdnative.TLSOptions):gdnative.Error;
 	overload function connect_to_url(p_url:gdnative.String):gdnative.Error;
+	overload function connect_to_url(p_url:gdnative.String, p_tls_client_options:gdnative.TLSOptions):gdnative.Error;
 	function accept_stream(p_stream:gdnative.StreamPeer):gdnative.Error;
-	overload function send(p_message:gdnative.PackedByteArray, p_write_mode:gdnative.websocketpeer.WriteMode):gdnative.Error;
 	overload function send(p_message:gdnative.PackedByteArray):gdnative.Error;
+	overload function send(p_message:gdnative.PackedByteArray, p_write_mode:gdnative.websocketpeer.WriteMode):gdnative.Error;
 	function send_text(p_message:gdnative.String):gdnative.Error;
 	function was_string_packet():Bool;
 	function poll():Void;
-	overload function close(p_code:Int, p_reason:gdnative.String):Void;
-	overload function close(p_code:Int):Void;
 	overload function close():Void;
+	overload function close(p_code:Int):Void;
+	overload function close(p_code:Int, p_reason:gdnative.String):Void;
 	function get_connected_host():gdnative.String;
 	function get_connected_port():Int;
 	function get_selected_protocol():gdnative.String;

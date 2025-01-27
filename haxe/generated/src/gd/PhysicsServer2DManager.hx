@@ -10,6 +10,6 @@ class PhysicsServer2DManager extends gd.Object {
 	}
 	static public final singleton : gd.PhysicsServer2DManager = new PhysicsServer2DManager(gdnative.PhysicsServer2DManager.PhysicsServer2DManager_extern.get_singleton());
 	extern inline function __physicsserver2dmanager_ptr():cpp.Pointer<gdnative.PhysicsServer2DManager.PhysicsServer2DManager_extern> return cast __gd.ptr;
-	public function register_server(p_name:std.String, p_create_callback:gd.Callable):Void __physicsserver2dmanager_ptr().value.register_server(p_name, p_create_callback);
-	public function set_default_server(p_name:std.String, p_priority:Int):Void __physicsserver2dmanager_ptr().value.set_default_server(p_name, p_priority);
+	public function register_server(p_name:std.String, p_create_callback:gd.Callable):Void __physicsserver2dmanager_ptr().value.register_server(((p_name : std.String)), ((p_create_callback : gd.Callable)));
+	public function set_default_server(p_name:std.String, p_priority:Int):Void __physicsserver2dmanager_ptr().value.set_default_server(((p_name : std.String)), ((p_priority : Int)));
 }

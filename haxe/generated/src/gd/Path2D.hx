@@ -10,7 +10,7 @@ class Path2D extends gd.Node2D {
 	}
 	extern inline function __path2d_ptr():cpp.Pointer<gdnative.Path2D.Path2D_extern> return cast __gd.ptr;
 	public function set_curve(p_curve:gd.Curve2D):gd.Curve2D {
-		__path2d_ptr().value.set_curve(p_curve);
+		__path2d_ptr().value.set_curve(((p_curve : gd.Curve2D)));
 		return p_curve;
 	}
 	public function get_curve():gd.Curve2D return __path2d_ptr().value.get_curve();

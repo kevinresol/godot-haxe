@@ -9,5 +9,5 @@ class RenderSceneBuffers extends gd.RefCounted {
 		super(native.reinterpret());
 	}
 	extern inline function __renderscenebuffers_ptr():cpp.Pointer<gdnative.RenderSceneBuffers.RenderSceneBuffers_extern> return cast __gd.ptr;
-	public function configure(p_config:gd.RenderSceneBuffersConfiguration):Void __renderscenebuffers_ptr().value.configure(p_config);
+	public function configure(p_config:gd.RenderSceneBuffersConfiguration):Void __renderscenebuffers_ptr().value.configure(((p_config : gd.RenderSceneBuffersConfiguration)));
 }

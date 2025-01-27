@@ -11,7 +11,7 @@ class CameraFeed extends gd.RefCounted {
 	extern inline function __camerafeed_ptr():cpp.Pointer<gdnative.CameraFeed.CameraFeed_extern> return cast __gd.ptr;
 	public function get_id():Int return __camerafeed_ptr().value.get_id();
 	public function is_active():Bool return __camerafeed_ptr().value.is_active();
-	public function set_active(p_active:Bool):Void __camerafeed_ptr().value.set_active(p_active);
+	public function set_active(p_active:Bool):Void __camerafeed_ptr().value.set_active(((p_active : Bool)));
 	public function get_name():std.String return __camerafeed_ptr().value.get_name();
 	public function get_position():gd.camerafeed.FeedPosition return __camerafeed_ptr().value.get_position();
 	public function get_datatype():gd.camerafeed.FeedDataType return __camerafeed_ptr().value.get_datatype();

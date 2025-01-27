@@ -10,135 +10,135 @@ class Label3D extends gd.GeometryInstance3D {
 	}
 	extern inline function __label3d_ptr():cpp.Pointer<gdnative.Label3D.Label3D_extern> return cast __gd.ptr;
 	public function set_horizontal_alignment(p_alignment:gd.HorizontalAlignment):gd.HorizontalAlignment {
-		__label3d_ptr().value.set_horizontal_alignment(p_alignment);
+		__label3d_ptr().value.set_horizontal_alignment(((p_alignment : gd.HorizontalAlignment)));
 		return p_alignment;
 	}
 	public function get_horizontal_alignment():gd.HorizontalAlignment return __label3d_ptr().value.get_horizontal_alignment();
 	public function set_vertical_alignment(p_alignment:gd.VerticalAlignment):gd.VerticalAlignment {
-		__label3d_ptr().value.set_vertical_alignment(p_alignment);
+		__label3d_ptr().value.set_vertical_alignment(((p_alignment : gd.VerticalAlignment)));
 		return p_alignment;
 	}
 	public function get_vertical_alignment():gd.VerticalAlignment return __label3d_ptr().value.get_vertical_alignment();
 	public function set_modulate(p_modulate:gd.Color):gd.Color {
-		__label3d_ptr().value.set_modulate(p_modulate);
+		__label3d_ptr().value.set_modulate(((p_modulate : gd.Color)));
 		return p_modulate;
 	}
 	public function get_modulate():gd.Color return __label3d_ptr().value.get_modulate();
 	public function set_outline_modulate(p_modulate:gd.Color):gd.Color {
-		__label3d_ptr().value.set_outline_modulate(p_modulate);
+		__label3d_ptr().value.set_outline_modulate(((p_modulate : gd.Color)));
 		return p_modulate;
 	}
 	public function get_outline_modulate():gd.Color return __label3d_ptr().value.get_outline_modulate();
 	public function set_text(p_text:std.String):std.String {
-		__label3d_ptr().value.set_text(p_text);
+		__label3d_ptr().value.set_text(((p_text : std.String)));
 		return p_text;
 	}
 	public function get_text():std.String return __label3d_ptr().value.get_text();
 	public function set_text_direction(p_direction:gd.textserver.Direction):gd.textserver.Direction {
-		__label3d_ptr().value.set_text_direction(p_direction);
+		__label3d_ptr().value.set_text_direction(((p_direction : gd.textserver.Direction)));
 		return p_direction;
 	}
 	public function get_text_direction():gd.textserver.Direction return __label3d_ptr().value.get_text_direction();
 	public function set_language(p_language:std.String):std.String {
-		__label3d_ptr().value.set_language(p_language);
+		__label3d_ptr().value.set_language(((p_language : std.String)));
 		return p_language;
 	}
 	public function get_language():std.String return __label3d_ptr().value.get_language();
 	public function set_structured_text_bidi_override(p_parser:gd.textserver.StructuredTextParser):gd.textserver.StructuredTextParser {
-		__label3d_ptr().value.set_structured_text_bidi_override(p_parser);
+		__label3d_ptr().value.set_structured_text_bidi_override(((p_parser : gd.textserver.StructuredTextParser)));
 		return p_parser;
 	}
 	public function get_structured_text_bidi_override():gd.textserver.StructuredTextParser return __label3d_ptr().value.get_structured_text_bidi_override();
 	public function set_structured_text_bidi_override_options(p_args:gd.Array):gd.Array {
-		__label3d_ptr().value.set_structured_text_bidi_override_options(p_args);
+		__label3d_ptr().value.set_structured_text_bidi_override_options(((p_args : gd.Array)));
 		return p_args;
 	}
 	public function get_structured_text_bidi_override_options():gd.Array return __label3d_ptr().value.get_structured_text_bidi_override_options();
 	public function set_uppercase(p_enable:Bool):Bool {
-		__label3d_ptr().value.set_uppercase(p_enable);
+		__label3d_ptr().value.set_uppercase(((p_enable : Bool)));
 		return p_enable;
 	}
 	public function is_uppercase():Bool return __label3d_ptr().value.is_uppercase();
 	public function set_render_priority(p_priority:Int):Int {
-		__label3d_ptr().value.set_render_priority(p_priority);
+		__label3d_ptr().value.set_render_priority(((p_priority : Int)));
 		return p_priority;
 	}
 	public function get_render_priority():Int return __label3d_ptr().value.get_render_priority();
 	public function set_outline_render_priority(p_priority:Int):Int {
-		__label3d_ptr().value.set_outline_render_priority(p_priority);
+		__label3d_ptr().value.set_outline_render_priority(((p_priority : Int)));
 		return p_priority;
 	}
 	public function get_outline_render_priority():Int return __label3d_ptr().value.get_outline_render_priority();
 	public function set_font(p_font:gd.Font):gd.Font {
-		__label3d_ptr().value.set_font(p_font);
+		__label3d_ptr().value.set_font(((p_font : gd.Font)));
 		return p_font;
 	}
 	public function get_font():gd.Font return __label3d_ptr().value.get_font();
 	public function set_font_size(p_size:Int):Int {
-		__label3d_ptr().value.set_font_size(p_size);
+		__label3d_ptr().value.set_font_size(((p_size : Int)));
 		return p_size;
 	}
 	public function get_font_size():Int return __label3d_ptr().value.get_font_size();
 	public function set_outline_size(p_outline_size:Int):Int {
-		__label3d_ptr().value.set_outline_size(p_outline_size);
+		__label3d_ptr().value.set_outline_size(((p_outline_size : Int)));
 		return p_outline_size;
 	}
 	public function get_outline_size():Int return __label3d_ptr().value.get_outline_size();
 	public function set_line_spacing(p_line_spacing:Float):Float {
-		__label3d_ptr().value.set_line_spacing(p_line_spacing);
+		__label3d_ptr().value.set_line_spacing(((p_line_spacing : Float)));
 		return p_line_spacing;
 	}
 	public function get_line_spacing():Float return __label3d_ptr().value.get_line_spacing();
 	public function set_autowrap_mode(p_autowrap_mode:gd.textserver.AutowrapMode):gd.textserver.AutowrapMode {
-		__label3d_ptr().value.set_autowrap_mode(p_autowrap_mode);
+		__label3d_ptr().value.set_autowrap_mode(((p_autowrap_mode : gd.textserver.AutowrapMode)));
 		return p_autowrap_mode;
 	}
 	public function get_autowrap_mode():gd.textserver.AutowrapMode return __label3d_ptr().value.get_autowrap_mode();
 	public function set_justification_flags(p_justification_flags:Int):Int {
-		__label3d_ptr().value.set_justification_flags(p_justification_flags);
+		__label3d_ptr().value.set_justification_flags(((p_justification_flags : Int)));
 		return p_justification_flags;
 	}
 	public function get_justification_flags():Int return __label3d_ptr().value.get_justification_flags();
 	public function set_width(p_width:Float):Float {
-		__label3d_ptr().value.set_width(p_width);
+		__label3d_ptr().value.set_width(((p_width : Float)));
 		return p_width;
 	}
 	public function get_width():Float return __label3d_ptr().value.get_width();
 	public function set_pixel_size(p_pixel_size:Float):Float {
-		__label3d_ptr().value.set_pixel_size(p_pixel_size);
+		__label3d_ptr().value.set_pixel_size(((p_pixel_size : Float)));
 		return p_pixel_size;
 	}
 	public function get_pixel_size():Float return __label3d_ptr().value.get_pixel_size();
 	public function set_offset(p_offset:gd.Vector2):gd.Vector2 {
-		__label3d_ptr().value.set_offset(p_offset);
+		__label3d_ptr().value.set_offset(((p_offset : gd.Vector2)));
 		return p_offset;
 	}
 	public function get_offset():gd.Vector2 return __label3d_ptr().value.get_offset();
-	public function set_draw_flag(p_flag:gd.label3d.DrawFlags, p_enabled:Bool):Void __label3d_ptr().value.set_draw_flag(p_flag, p_enabled);
-	public function get_draw_flag(p_flag:gd.label3d.DrawFlags):Bool return __label3d_ptr().value.get_draw_flag(p_flag);
-	public function set_billboard_mode(p_mode:gd.basematerial3d.BillboardMode):Void __label3d_ptr().value.set_billboard_mode(p_mode);
+	public function set_draw_flag(p_flag:gd.label3d.DrawFlags, p_enabled:Bool):Void __label3d_ptr().value.set_draw_flag(((p_flag : gd.label3d.DrawFlags)), ((p_enabled : Bool)));
+	public function get_draw_flag(p_flag:gd.label3d.DrawFlags):Bool return __label3d_ptr().value.get_draw_flag(((p_flag : gd.label3d.DrawFlags)));
+	public function set_billboard_mode(p_mode:gd.basematerial3d.BillboardMode):Void __label3d_ptr().value.set_billboard_mode(((p_mode : gd.basematerial3d.BillboardMode)));
 	public function get_billboard_mode():gd.basematerial3d.BillboardMode return __label3d_ptr().value.get_billboard_mode();
-	public function set_alpha_cut_mode(p_mode:gd.label3d.AlphaCutMode):Void __label3d_ptr().value.set_alpha_cut_mode(p_mode);
+	public function set_alpha_cut_mode(p_mode:gd.label3d.AlphaCutMode):Void __label3d_ptr().value.set_alpha_cut_mode(((p_mode : gd.label3d.AlphaCutMode)));
 	public function get_alpha_cut_mode():gd.label3d.AlphaCutMode return __label3d_ptr().value.get_alpha_cut_mode();
 	public function set_alpha_scissor_threshold(p_threshold:Float):Float {
-		__label3d_ptr().value.set_alpha_scissor_threshold(p_threshold);
+		__label3d_ptr().value.set_alpha_scissor_threshold(((p_threshold : Float)));
 		return p_threshold;
 	}
 	public function get_alpha_scissor_threshold():Float return __label3d_ptr().value.get_alpha_scissor_threshold();
 	public function set_alpha_hash_scale(p_threshold:Float):Float {
-		__label3d_ptr().value.set_alpha_hash_scale(p_threshold);
+		__label3d_ptr().value.set_alpha_hash_scale(((p_threshold : Float)));
 		return p_threshold;
 	}
 	public function get_alpha_hash_scale():Float return __label3d_ptr().value.get_alpha_hash_scale();
-	public function set_alpha_antialiasing(p_alpha_aa:gd.basematerial3d.AlphaAntiAliasing):Void __label3d_ptr().value.set_alpha_antialiasing(p_alpha_aa);
+	public function set_alpha_antialiasing(p_alpha_aa:gd.basematerial3d.AlphaAntiAliasing):Void __label3d_ptr().value.set_alpha_antialiasing(((p_alpha_aa : gd.basematerial3d.AlphaAntiAliasing)));
 	public function get_alpha_antialiasing():gd.basematerial3d.AlphaAntiAliasing return __label3d_ptr().value.get_alpha_antialiasing();
 	public function set_alpha_antialiasing_edge(p_edge:Float):Float {
-		__label3d_ptr().value.set_alpha_antialiasing_edge(p_edge);
+		__label3d_ptr().value.set_alpha_antialiasing_edge(((p_edge : Float)));
 		return p_edge;
 	}
 	public function get_alpha_antialiasing_edge():Float return __label3d_ptr().value.get_alpha_antialiasing_edge();
 	public function set_texture_filter(p_mode:gd.basematerial3d.TextureFilter):gd.basematerial3d.TextureFilter {
-		__label3d_ptr().value.set_texture_filter(p_mode);
+		__label3d_ptr().value.set_texture_filter(((p_mode : gd.basematerial3d.TextureFilter)));
 		return p_mode;
 	}
 	public function get_texture_filter():gd.basematerial3d.TextureFilter return __label3d_ptr().value.get_texture_filter();

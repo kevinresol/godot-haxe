@@ -10,7 +10,7 @@ class VisualShaderNodeCurveXYZTexture extends gd.VisualShaderNodeResizableBase {
 	}
 	extern inline function __visualshadernodecurvexyztexture_ptr():cpp.Pointer<gdnative.VisualShaderNodeCurveXYZTexture.VisualShaderNodeCurveXYZTexture_extern> return cast __gd.ptr;
 	public function set_texture(p_texture:gd.CurveXYZTexture):gd.CurveXYZTexture {
-		__visualshadernodecurvexyztexture_ptr().value.set_texture(p_texture);
+		__visualshadernodecurvexyztexture_ptr().value.set_texture(((p_texture : gd.CurveXYZTexture)));
 		return p_texture;
 	}
 	public function get_texture():gd.CurveXYZTexture return __visualshadernodecurvexyztexture_ptr().value.get_texture();

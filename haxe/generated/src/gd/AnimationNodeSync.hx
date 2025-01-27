@@ -9,7 +9,7 @@ class AnimationNodeSync extends gd.AnimationNode {
 		super(native.reinterpret());
 	}
 	extern inline function __animationnodesync_ptr():cpp.Pointer<gdnative.AnimationNodeSync.AnimationNodeSync_extern> return cast __gd.ptr;
-	public function set_use_sync(p_enable:Bool):Void __animationnodesync_ptr().value.set_use_sync(p_enable);
+	public function set_use_sync(p_enable:Bool):Void __animationnodesync_ptr().value.set_use_sync(((p_enable : Bool)));
 	public function is_using_sync():Bool return __animationnodesync_ptr().value.is_using_sync();
 	var sync(get, set) : Bool;
 	function get_sync():Bool return is_using_sync();

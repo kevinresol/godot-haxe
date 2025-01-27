@@ -9,70 +9,70 @@ class Area2D extends gd.CollisionObject2D {
 		super(native.reinterpret());
 	}
 	extern inline function __area2d_ptr():cpp.Pointer<gdnative.Area2D.Area2D_extern> return cast __gd.ptr;
-	public function set_gravity_space_override_mode(p_space_override_mode:gd.area2d.SpaceOverride):Void __area2d_ptr().value.set_gravity_space_override_mode(p_space_override_mode);
+	public function set_gravity_space_override_mode(p_space_override_mode:gd.area2d.SpaceOverride):Void __area2d_ptr().value.set_gravity_space_override_mode(((p_space_override_mode : gd.area2d.SpaceOverride)));
 	public function get_gravity_space_override_mode():gd.area2d.SpaceOverride return __area2d_ptr().value.get_gravity_space_override_mode();
-	public function set_gravity_is_point(p_enable:Bool):Void __area2d_ptr().value.set_gravity_is_point(p_enable);
+	public function set_gravity_is_point(p_enable:Bool):Void __area2d_ptr().value.set_gravity_is_point(((p_enable : Bool)));
 	public function is_gravity_a_point():Bool return __area2d_ptr().value.is_gravity_a_point();
 	public function set_gravity_point_unit_distance(p_distance_scale:Float):Float {
-		__area2d_ptr().value.set_gravity_point_unit_distance(p_distance_scale);
+		__area2d_ptr().value.set_gravity_point_unit_distance(((p_distance_scale : Float)));
 		return p_distance_scale;
 	}
 	public function get_gravity_point_unit_distance():Float return __area2d_ptr().value.get_gravity_point_unit_distance();
 	public function set_gravity_point_center(p_center:gd.Vector2):gd.Vector2 {
-		__area2d_ptr().value.set_gravity_point_center(p_center);
+		__area2d_ptr().value.set_gravity_point_center(((p_center : gd.Vector2)));
 		return p_center;
 	}
 	public function get_gravity_point_center():gd.Vector2 return __area2d_ptr().value.get_gravity_point_center();
 	public function set_gravity_direction(p_direction:gd.Vector2):gd.Vector2 {
-		__area2d_ptr().value.set_gravity_direction(p_direction);
+		__area2d_ptr().value.set_gravity_direction(((p_direction : gd.Vector2)));
 		return p_direction;
 	}
 	public function get_gravity_direction():gd.Vector2 return __area2d_ptr().value.get_gravity_direction();
 	public function set_gravity(p_gravity:Float):Float {
-		__area2d_ptr().value.set_gravity(p_gravity);
+		__area2d_ptr().value.set_gravity(((p_gravity : Float)));
 		return p_gravity;
 	}
 	public function get_gravity():Float return __area2d_ptr().value.get_gravity();
-	public function set_linear_damp_space_override_mode(p_space_override_mode:gd.area2d.SpaceOverride):Void __area2d_ptr().value.set_linear_damp_space_override_mode(p_space_override_mode);
+	public function set_linear_damp_space_override_mode(p_space_override_mode:gd.area2d.SpaceOverride):Void __area2d_ptr().value.set_linear_damp_space_override_mode(((p_space_override_mode : gd.area2d.SpaceOverride)));
 	public function get_linear_damp_space_override_mode():gd.area2d.SpaceOverride return __area2d_ptr().value.get_linear_damp_space_override_mode();
-	public function set_angular_damp_space_override_mode(p_space_override_mode:gd.area2d.SpaceOverride):Void __area2d_ptr().value.set_angular_damp_space_override_mode(p_space_override_mode);
+	public function set_angular_damp_space_override_mode(p_space_override_mode:gd.area2d.SpaceOverride):Void __area2d_ptr().value.set_angular_damp_space_override_mode(((p_space_override_mode : gd.area2d.SpaceOverride)));
 	public function get_angular_damp_space_override_mode():gd.area2d.SpaceOverride return __area2d_ptr().value.get_angular_damp_space_override_mode();
 	public function set_linear_damp(p_linear_damp:Float):Float {
-		__area2d_ptr().value.set_linear_damp(p_linear_damp);
+		__area2d_ptr().value.set_linear_damp(((p_linear_damp : Float)));
 		return p_linear_damp;
 	}
 	public function get_linear_damp():Float return __area2d_ptr().value.get_linear_damp();
 	public function set_angular_damp(p_angular_damp:Float):Float {
-		__area2d_ptr().value.set_angular_damp(p_angular_damp);
+		__area2d_ptr().value.set_angular_damp(((p_angular_damp : Float)));
 		return p_angular_damp;
 	}
 	public function get_angular_damp():Float return __area2d_ptr().value.get_angular_damp();
 	public function set_priority(p_priority:Int):Int {
-		__area2d_ptr().value.set_priority(p_priority);
+		__area2d_ptr().value.set_priority(((p_priority : Int)));
 		return p_priority;
 	}
 	public function get_priority():Int return __area2d_ptr().value.get_priority();
 	public function set_monitoring(p_enable:Bool):Bool {
-		__area2d_ptr().value.set_monitoring(p_enable);
+		__area2d_ptr().value.set_monitoring(((p_enable : Bool)));
 		return p_enable;
 	}
 	public function is_monitoring():Bool return __area2d_ptr().value.is_monitoring();
 	public function set_monitorable(p_enable:Bool):Bool {
-		__area2d_ptr().value.set_monitorable(p_enable);
+		__area2d_ptr().value.set_monitorable(((p_enable : Bool)));
 		return p_enable;
 	}
 	public function is_monitorable():Bool return __area2d_ptr().value.is_monitorable();
 	public function has_overlapping_bodies():Bool return __area2d_ptr().value.has_overlapping_bodies();
 	public function has_overlapping_areas():Bool return __area2d_ptr().value.has_overlapping_areas();
-	public function overlaps_body(p_body:gd.Node):Bool return __area2d_ptr().value.overlaps_body(p_body);
-	public function overlaps_area(p_area:gd.Node):Bool return __area2d_ptr().value.overlaps_area(p_area);
+	public function overlaps_body(p_body:gd.Node):Bool return __area2d_ptr().value.overlaps_body(((p_body : gd.Node)));
+	public function overlaps_area(p_area:gd.Node):Bool return __area2d_ptr().value.overlaps_area(((p_area : gd.Node)));
 	public function set_audio_bus_name(p_name:std.String):std.String {
-		__area2d_ptr().value.set_audio_bus_name(p_name);
+		__area2d_ptr().value.set_audio_bus_name(((p_name : std.String)));
 		return p_name;
 	}
 	public function get_audio_bus_name():std.String return __area2d_ptr().value.get_audio_bus_name();
 	public function set_audio_bus_override(p_enable:Bool):Bool {
-		__area2d_ptr().value.set_audio_bus_override(p_enable);
+		__area2d_ptr().value.set_audio_bus_override(((p_enable : Bool)));
 		return p_enable;
 	}
 	public function is_overriding_audio_bus():Bool return __area2d_ptr().value.is_overriding_audio_bus();

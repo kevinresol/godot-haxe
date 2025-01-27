@@ -10,7 +10,7 @@ class VisualShaderNodeSample3D extends gd.VisualShaderNode {
 	}
 	extern inline function __visualshadernodesample3d_ptr():cpp.Pointer<gdnative.VisualShaderNodeSample3D.VisualShaderNodeSample3D_extern> return cast __gd.ptr;
 	public function set_source(p_value:gd.visualshadernodesample3d.Source):gd.visualshadernodesample3d.Source {
-		__visualshadernodesample3d_ptr().value.set_source(p_value);
+		__visualshadernodesample3d_ptr().value.set_source(((p_value : gd.visualshadernodesample3d.Source)));
 		return p_value;
 	}
 	public function get_source():gd.visualshadernodesample3d.Source return __visualshadernodesample3d_ptr().value.get_source();

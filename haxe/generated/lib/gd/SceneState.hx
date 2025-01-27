@@ -4,7 +4,7 @@ extern class SceneState extends gd.RefCounted {
 	function get_node_count():Int;
 	function get_node_type(p_idx:Int):std.String;
 	function get_node_name(p_idx:Int):std.String;
-	function get_node_path(p_idx:Int, ?p_for_parent:Bool = false):std.String;
+	function get_node_path(p_idx:Int, ?p_for_parent:Bool):std.String;
 	function get_node_owner_path(p_idx:Int):std.String;
 	function is_node_instance_placeholder(p_idx:Int):Bool;
 	function get_node_instance_placeholder(p_idx:Int):std.String;

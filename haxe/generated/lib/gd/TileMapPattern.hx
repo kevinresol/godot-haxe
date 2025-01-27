@@ -1,6 +1,7 @@
 package gd;
 extern class TileMapPattern extends gd.Resource {
 	function new(?owner:Dynamic);
+	function set_cell(p_coords:gd.Vector2i, ?p_source_id:Int, ?p_atlas_coords:gd.Vector2i, ?p_alternative_tile:Int):Void;
 	function has_cell(p_coords:gd.Vector2i):Bool;
 	function remove_cell(p_coords:gd.Vector2i, p_update_size:Bool):Void;
 	function get_cell_source_id(p_coords:gd.Vector2i):Int;

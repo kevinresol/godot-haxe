@@ -10,7 +10,7 @@ class QuadOccluder3D extends gd.Occluder3D {
 	}
 	extern inline function __quadoccluder3d_ptr():cpp.Pointer<gdnative.QuadOccluder3D.QuadOccluder3D_extern> return cast __gd.ptr;
 	public function set_size(p_size:gd.Vector2):gd.Vector2 {
-		__quadoccluder3d_ptr().value.set_size(p_size);
+		__quadoccluder3d_ptr().value.set_size(((p_size : gd.Vector2)));
 		return p_size;
 	}
 	public function get_size():gd.Vector2 return __quadoccluder3d_ptr().value.get_size();

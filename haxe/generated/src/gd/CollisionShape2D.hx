@@ -10,27 +10,27 @@ class CollisionShape2D extends gd.Node2D {
 	}
 	extern inline function __collisionshape2d_ptr():cpp.Pointer<gdnative.CollisionShape2D.CollisionShape2D_extern> return cast __gd.ptr;
 	public function set_shape(p_shape:gd.Shape2D):gd.Shape2D {
-		__collisionshape2d_ptr().value.set_shape(p_shape);
+		__collisionshape2d_ptr().value.set_shape(((p_shape : gd.Shape2D)));
 		return p_shape;
 	}
 	public function get_shape():gd.Shape2D return __collisionshape2d_ptr().value.get_shape();
 	public function set_disabled(p_disabled:Bool):Bool {
-		__collisionshape2d_ptr().value.set_disabled(p_disabled);
+		__collisionshape2d_ptr().value.set_disabled(((p_disabled : Bool)));
 		return p_disabled;
 	}
 	public function is_disabled():Bool return __collisionshape2d_ptr().value.is_disabled();
 	public function set_one_way_collision(p_enabled:Bool):Bool {
-		__collisionshape2d_ptr().value.set_one_way_collision(p_enabled);
+		__collisionshape2d_ptr().value.set_one_way_collision(((p_enabled : Bool)));
 		return p_enabled;
 	}
 	public function is_one_way_collision_enabled():Bool return __collisionshape2d_ptr().value.is_one_way_collision_enabled();
 	public function set_one_way_collision_margin(p_margin:Float):Float {
-		__collisionshape2d_ptr().value.set_one_way_collision_margin(p_margin);
+		__collisionshape2d_ptr().value.set_one_way_collision_margin(((p_margin : Float)));
 		return p_margin;
 	}
 	public function get_one_way_collision_margin():Float return __collisionshape2d_ptr().value.get_one_way_collision_margin();
 	public function set_debug_color(p_color:gd.Color):gd.Color {
-		__collisionshape2d_ptr().value.set_debug_color(p_color);
+		__collisionshape2d_ptr().value.set_debug_color(((p_color : gd.Color)));
 		return p_color;
 	}
 	public function get_debug_color():gd.Color return __collisionshape2d_ptr().value.get_debug_color();

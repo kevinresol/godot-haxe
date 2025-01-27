@@ -13,7 +13,7 @@ extern class AudioStreamInteractive extends gd.AudioStream {
 	function get_clip_auto_advance(p_clip_index:Int):gd.audiostreaminteractive.AutoAdvanceMode;
 	function set_clip_auto_advance_next_clip(p_clip_index:Int, p_auto_advance_next_clip:Int):Void;
 	function get_clip_auto_advance_next_clip(p_clip_index:Int):Int;
-	function add_transition(p_from_clip:Int, p_to_clip:Int, p_from_time:gd.audiostreaminteractive.TransitionFromTime, p_to_time:gd.audiostreaminteractive.TransitionToTime, p_fade_mode:gd.audiostreaminteractive.FadeMode, p_fade_beats:Float, ?p_use_filler_clip:Bool = false, ?p_filler_clip:Int = -1, ?p_hold_previous:Bool = false):Void;
+	function add_transition(p_from_clip:Int, p_to_clip:Int, p_from_time:gd.audiostreaminteractive.TransitionFromTime, p_to_time:gd.audiostreaminteractive.TransitionToTime, p_fade_mode:gd.audiostreaminteractive.FadeMode, p_fade_beats:Float, ?p_use_filler_clip:Bool, ?p_filler_clip:Int, ?p_hold_previous:Bool):Void;
 	function has_transition(p_from_clip:Int, p_to_clip:Int):Bool;
 	function erase_transition(p_from_clip:Int, p_to_clip:Int):Void;
 	function get_transition_list():gd.PackedInt32Array;

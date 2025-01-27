@@ -10,22 +10,22 @@ class AudioEffectLimiter extends gd.AudioEffect {
 	}
 	extern inline function __audioeffectlimiter_ptr():cpp.Pointer<gdnative.AudioEffectLimiter.AudioEffectLimiter_extern> return cast __gd.ptr;
 	public function set_ceiling_db(p_ceiling:Float):Float {
-		__audioeffectlimiter_ptr().value.set_ceiling_db(p_ceiling);
+		__audioeffectlimiter_ptr().value.set_ceiling_db(((p_ceiling : Float)));
 		return p_ceiling;
 	}
 	public function get_ceiling_db():Float return __audioeffectlimiter_ptr().value.get_ceiling_db();
 	public function set_threshold_db(p_threshold:Float):Float {
-		__audioeffectlimiter_ptr().value.set_threshold_db(p_threshold);
+		__audioeffectlimiter_ptr().value.set_threshold_db(((p_threshold : Float)));
 		return p_threshold;
 	}
 	public function get_threshold_db():Float return __audioeffectlimiter_ptr().value.get_threshold_db();
 	public function set_soft_clip_db(p_soft_clip:Float):Float {
-		__audioeffectlimiter_ptr().value.set_soft_clip_db(p_soft_clip);
+		__audioeffectlimiter_ptr().value.set_soft_clip_db(((p_soft_clip : Float)));
 		return p_soft_clip;
 	}
 	public function get_soft_clip_db():Float return __audioeffectlimiter_ptr().value.get_soft_clip_db();
 	public function set_soft_clip_ratio(p_soft_clip:Float):Float {
-		__audioeffectlimiter_ptr().value.set_soft_clip_ratio(p_soft_clip);
+		__audioeffectlimiter_ptr().value.set_soft_clip_ratio(((p_soft_clip : Float)));
 		return p_soft_clip;
 	}
 	public function get_soft_clip_ratio():Float return __audioeffectlimiter_ptr().value.get_soft_clip_ratio();

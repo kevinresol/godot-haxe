@@ -10,12 +10,12 @@ class XRHandModifier3D extends gd.SkeletonModifier3D {
 	}
 	extern inline function __xrhandmodifier3d_ptr():cpp.Pointer<gdnative.XRHandModifier3D.XRHandModifier3D_extern> return cast __gd.ptr;
 	public function set_hand_tracker(p_tracker_name:std.String):std.String {
-		__xrhandmodifier3d_ptr().value.set_hand_tracker(p_tracker_name);
+		__xrhandmodifier3d_ptr().value.set_hand_tracker(((p_tracker_name : std.String)));
 		return p_tracker_name;
 	}
 	public function get_hand_tracker():std.String return __xrhandmodifier3d_ptr().value.get_hand_tracker();
 	public function set_bone_update(p_bone_update:gd.xrhandmodifier3d.BoneUpdate):gd.xrhandmodifier3d.BoneUpdate {
-		__xrhandmodifier3d_ptr().value.set_bone_update(p_bone_update);
+		__xrhandmodifier3d_ptr().value.set_bone_update(((p_bone_update : gd.xrhandmodifier3d.BoneUpdate)));
 		return p_bone_update;
 	}
 	public function get_bone_update():gd.xrhandmodifier3d.BoneUpdate return __xrhandmodifier3d_ptr().value.get_bone_update();

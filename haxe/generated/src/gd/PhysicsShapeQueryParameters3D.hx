@@ -10,37 +10,37 @@ class PhysicsShapeQueryParameters3D extends gd.RefCounted {
 	}
 	extern inline function __physicsshapequeryparameters3d_ptr():cpp.Pointer<gdnative.PhysicsShapeQueryParameters3D.PhysicsShapeQueryParameters3D_extern> return cast __gd.ptr;
 	public function set_shape(p_shape:gd.Resource):gd.Resource {
-		__physicsshapequeryparameters3d_ptr().value.set_shape(p_shape);
+		__physicsshapequeryparameters3d_ptr().value.set_shape(((p_shape : gd.Resource)));
 		return p_shape;
 	}
 	public function get_shape():gd.Resource return __physicsshapequeryparameters3d_ptr().value.get_shape();
 	public function set_shape_rid(p_shape:gd.RID):gd.RID {
-		__physicsshapequeryparameters3d_ptr().value.set_shape_rid(p_shape);
+		__physicsshapequeryparameters3d_ptr().value.set_shape_rid(((p_shape : gd.RID)));
 		return p_shape;
 	}
 	public function get_shape_rid():gd.RID return __physicsshapequeryparameters3d_ptr().value.get_shape_rid();
 	public function set_motion(p_motion:gd.Vector3):gd.Vector3 {
-		__physicsshapequeryparameters3d_ptr().value.set_motion(p_motion);
+		__physicsshapequeryparameters3d_ptr().value.set_motion(((p_motion : gd.Vector3)));
 		return p_motion;
 	}
 	public function get_motion():gd.Vector3 return __physicsshapequeryparameters3d_ptr().value.get_motion();
 	public function set_margin(p_margin:Float):Float {
-		__physicsshapequeryparameters3d_ptr().value.set_margin(p_margin);
+		__physicsshapequeryparameters3d_ptr().value.set_margin(((p_margin : Float)));
 		return p_margin;
 	}
 	public function get_margin():Float return __physicsshapequeryparameters3d_ptr().value.get_margin();
 	public function set_collision_mask(p_collision_mask:Int):Int {
-		__physicsshapequeryparameters3d_ptr().value.set_collision_mask(p_collision_mask);
+		__physicsshapequeryparameters3d_ptr().value.set_collision_mask(((p_collision_mask : Int)));
 		return p_collision_mask;
 	}
 	public function get_collision_mask():Int return __physicsshapequeryparameters3d_ptr().value.get_collision_mask();
 	public function set_collide_with_bodies(p_enable:Bool):Bool {
-		__physicsshapequeryparameters3d_ptr().value.set_collide_with_bodies(p_enable);
+		__physicsshapequeryparameters3d_ptr().value.set_collide_with_bodies(((p_enable : Bool)));
 		return p_enable;
 	}
 	public function is_collide_with_bodies_enabled():Bool return __physicsshapequeryparameters3d_ptr().value.is_collide_with_bodies_enabled();
 	public function set_collide_with_areas(p_enable:Bool):Bool {
-		__physicsshapequeryparameters3d_ptr().value.set_collide_with_areas(p_enable);
+		__physicsshapequeryparameters3d_ptr().value.set_collide_with_areas(((p_enable : Bool)));
 		return p_enable;
 	}
 	public function is_collide_with_areas_enabled():Bool return __physicsshapequeryparameters3d_ptr().value.is_collide_with_areas_enabled();

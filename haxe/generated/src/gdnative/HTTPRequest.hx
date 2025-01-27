@@ -1,14 +1,14 @@
 package gdnative;
 @:include("godot_cpp/classes/http_request.hpp") @:native("godot::HTTPRequest") @:structAccess extern class HTTPRequest_extern extends gdnative.Node.Node_extern {
 	extern static inline function __alloc():cpp.Pointer<HTTPRequest_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::HTTPRequest"));
-	overload function request(p_url:gdnative.String, p_custom_headers:gdnative.PackedStringArray, p_method:gdnative.httpclient.Method, p_request_data:gdnative.String):gdnative.Error;
-	overload function request(p_url:gdnative.String, p_custom_headers:gdnative.PackedStringArray, p_method:gdnative.httpclient.Method):gdnative.Error;
-	overload function request(p_url:gdnative.String, p_custom_headers:gdnative.PackedStringArray):gdnative.Error;
 	overload function request(p_url:gdnative.String):gdnative.Error;
-	overload function request_raw(p_url:gdnative.String, p_custom_headers:gdnative.PackedStringArray, p_method:gdnative.httpclient.Method, p_request_data_raw:gdnative.PackedByteArray):gdnative.Error;
-	overload function request_raw(p_url:gdnative.String, p_custom_headers:gdnative.PackedStringArray, p_method:gdnative.httpclient.Method):gdnative.Error;
-	overload function request_raw(p_url:gdnative.String, p_custom_headers:gdnative.PackedStringArray):gdnative.Error;
+	overload function request(p_url:gdnative.String, p_custom_headers:gdnative.PackedStringArray):gdnative.Error;
+	overload function request(p_url:gdnative.String, p_custom_headers:gdnative.PackedStringArray, p_method:gdnative.httpclient.Method):gdnative.Error;
+	overload function request(p_url:gdnative.String, p_custom_headers:gdnative.PackedStringArray, p_method:gdnative.httpclient.Method, p_request_data:gdnative.String):gdnative.Error;
 	overload function request_raw(p_url:gdnative.String):gdnative.Error;
+	overload function request_raw(p_url:gdnative.String, p_custom_headers:gdnative.PackedStringArray):gdnative.Error;
+	overload function request_raw(p_url:gdnative.String, p_custom_headers:gdnative.PackedStringArray, p_method:gdnative.httpclient.Method):gdnative.Error;
+	overload function request_raw(p_url:gdnative.String, p_custom_headers:gdnative.PackedStringArray, p_method:gdnative.httpclient.Method, p_request_data_raw:gdnative.PackedByteArray):gdnative.Error;
 	function cancel_request():Void;
 	function set_tls_options(p_client_options:gdnative.TLSOptions):Void;
 	function get_http_client_status():gdnative.httpclient.Status;

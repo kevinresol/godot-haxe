@@ -10,7 +10,7 @@ class VisualShaderNodeSmoothStep extends gd.VisualShaderNode {
 	}
 	extern inline function __visualshadernodesmoothstep_ptr():cpp.Pointer<gdnative.VisualShaderNodeSmoothStep.VisualShaderNodeSmoothStep_extern> return cast __gd.ptr;
 	public function set_op_type(p_op_type:gd.visualshadernodesmoothstep.OpType):gd.visualshadernodesmoothstep.OpType {
-		__visualshadernodesmoothstep_ptr().value.set_op_type(p_op_type);
+		__visualshadernodesmoothstep_ptr().value.set_op_type(((p_op_type : gd.visualshadernodesmoothstep.OpType)));
 		return p_op_type;
 	}
 	public function get_op_type():gd.visualshadernodesmoothstep.OpType return __visualshadernodesmoothstep_ptr().value.get_op_type();

@@ -2,9 +2,9 @@ package gd;
 extern class GLTFPhysicsShape extends gd.Resource {
 	function new(?owner:Dynamic);
 	static function from_node(p_shape_node:gd.CollisionShape3D):gd.GLTFPhysicsShape;
-	function to_node(?p_cache_shapes:Bool = false):gd.CollisionShape3D;
+	function to_node(?p_cache_shapes:Bool):gd.CollisionShape3D;
 	static function from_resource(p_shape_resource:gd.Shape3D):gd.GLTFPhysicsShape;
-	function to_resource(?p_cache_shapes:Bool = false):gd.Shape3D;
+	function to_resource(?p_cache_shapes:Bool):gd.Shape3D;
 	static function from_dictionary(p_dictionary:gd.Dictionary):gd.GLTFPhysicsShape;
 	function to_dictionary():gd.Dictionary;
 	function get_shape_type():std.String;

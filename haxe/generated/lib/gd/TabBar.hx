@@ -29,6 +29,7 @@ extern class TabBar extends gd.Control {
 	function set_tab_metadata(p_tab_idx:Int, p_metadata:gd.Variant):Void;
 	function get_tab_metadata(p_tab_idx:Int):gd.Variant;
 	function remove_tab(p_tab_idx:Int):Void;
+	function add_tab(?p_title:std.String, ?p_icon:gd.Texture2D):Void;
 	function get_tab_idx_at_point(p_point:gd.Vector2):Int;
 	function set_tab_alignment(p_alignment:gd.tabbar.AlignmentMode):gd.tabbar.AlignmentMode;
 	function get_tab_alignment():gd.tabbar.AlignmentMode;

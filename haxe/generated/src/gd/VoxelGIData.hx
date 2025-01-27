@@ -15,37 +15,37 @@ class VoxelGIData extends gd.Resource {
 	public function get_data_cells():gd.PackedByteArray return __voxelgidata_ptr().value.get_data_cells();
 	public function get_level_counts():gd.PackedInt32Array return __voxelgidata_ptr().value.get_level_counts();
 	public function set_dynamic_range(p_dynamic_range:Float):Float {
-		__voxelgidata_ptr().value.set_dynamic_range(p_dynamic_range);
+		__voxelgidata_ptr().value.set_dynamic_range(((p_dynamic_range : Float)));
 		return p_dynamic_range;
 	}
 	public function get_dynamic_range():Float return __voxelgidata_ptr().value.get_dynamic_range();
 	public function set_energy(p_energy:Float):Float {
-		__voxelgidata_ptr().value.set_energy(p_energy);
+		__voxelgidata_ptr().value.set_energy(((p_energy : Float)));
 		return p_energy;
 	}
 	public function get_energy():Float return __voxelgidata_ptr().value.get_energy();
 	public function set_bias(p_bias:Float):Float {
-		__voxelgidata_ptr().value.set_bias(p_bias);
+		__voxelgidata_ptr().value.set_bias(((p_bias : Float)));
 		return p_bias;
 	}
 	public function get_bias():Float return __voxelgidata_ptr().value.get_bias();
 	public function set_normal_bias(p_bias:Float):Float {
-		__voxelgidata_ptr().value.set_normal_bias(p_bias);
+		__voxelgidata_ptr().value.set_normal_bias(((p_bias : Float)));
 		return p_bias;
 	}
 	public function get_normal_bias():Float return __voxelgidata_ptr().value.get_normal_bias();
 	public function set_propagation(p_propagation:Float):Float {
-		__voxelgidata_ptr().value.set_propagation(p_propagation);
+		__voxelgidata_ptr().value.set_propagation(((p_propagation : Float)));
 		return p_propagation;
 	}
 	public function get_propagation():Float return __voxelgidata_ptr().value.get_propagation();
 	public function set_interior(p_interior:Bool):Bool {
-		__voxelgidata_ptr().value.set_interior(p_interior);
+		__voxelgidata_ptr().value.set_interior(((p_interior : Bool)));
 		return p_interior;
 	}
 	public function is_interior():Bool return __voxelgidata_ptr().value.is_interior();
 	public function set_use_two_bounces(p_enable:Bool):Bool {
-		__voxelgidata_ptr().value.set_use_two_bounces(p_enable);
+		__voxelgidata_ptr().value.set_use_two_bounces(((p_enable : Bool)));
 		return p_enable;
 	}
 	public function is_using_two_bounces():Bool return __voxelgidata_ptr().value.is_using_two_bounces();

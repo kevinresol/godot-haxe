@@ -4,6 +4,7 @@ extern class ProjectSettings extends gd.Object {
 	static final singleton : gd.ProjectSettings;
 	function has_setting(p_name:std.String):Bool;
 	function set_setting(p_name:std.String, p_value:gd.Variant):Void;
+	function get_setting(p_name:std.String, ?p_default_value:gd.Variant):gd.Variant;
 	function get_setting_with_override(p_name:std.String):gd.Variant;
 	function set_order(p_name:std.String, p_position:Int):Void;
 	function get_order(p_name:std.String):Int;
@@ -16,6 +17,6 @@ extern class ProjectSettings extends gd.Object {
 	function localize_path(p_path:std.String):std.String;
 	function globalize_path(p_path:std.String):std.String;
 	function save():gd.Error;
-	function load_resource_pack(p_pack:std.String, ?p_replace_files:Bool = true, ?p_offset:Int = 0):Bool;
+	function load_resource_pack(p_pack:std.String, ?p_replace_files:Bool, ?p_offset:Int):Bool;
 	function save_custom(p_file:std.String):gd.Error;
 }

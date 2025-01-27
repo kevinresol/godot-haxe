@@ -9,11 +9,11 @@ class PropertyTweener extends gd.Tweener {
 		super(native.reinterpret());
 	}
 	extern inline function __propertytweener_ptr():cpp.Pointer<gdnative.PropertyTweener.PropertyTweener_extern> return cast __gd.ptr;
-	public function from(p_value:gd.Variant):gd.PropertyTweener return __propertytweener_ptr().value.from(p_value);
+	public function from(p_value:gd.Variant):gd.PropertyTweener return __propertytweener_ptr().value.from(((p_value : gd.Variant)));
 	public function from_current():gd.PropertyTweener return __propertytweener_ptr().value.from_current();
 	public function as_relative():gd.PropertyTweener return __propertytweener_ptr().value.as_relative();
-	public function set_trans(p_trans:gd.tween.TransitionType):gd.PropertyTweener return __propertytweener_ptr().value.set_trans(p_trans);
-	public function set_ease(p_ease:gd.tween.EaseType):gd.PropertyTweener return __propertytweener_ptr().value.set_ease(p_ease);
-	public function set_custom_interpolator(p_interpolator_method:gd.Callable):gd.PropertyTweener return __propertytweener_ptr().value.set_custom_interpolator(p_interpolator_method);
-	public function set_delay(p_delay:Float):gd.PropertyTweener return __propertytweener_ptr().value.set_delay(p_delay);
+	public function set_trans(p_trans:gd.tween.TransitionType):gd.PropertyTweener return __propertytweener_ptr().value.set_trans(((p_trans : gd.tween.TransitionType)));
+	public function set_ease(p_ease:gd.tween.EaseType):gd.PropertyTweener return __propertytweener_ptr().value.set_ease(((p_ease : gd.tween.EaseType)));
+	public function set_custom_interpolator(p_interpolator_method:gd.Callable):gd.PropertyTweener return __propertytweener_ptr().value.set_custom_interpolator(((p_interpolator_method : gd.Callable)));
+	public function set_delay(p_delay:Float):gd.PropertyTweener return __propertytweener_ptr().value.set_delay(((p_delay : Float)));
 }

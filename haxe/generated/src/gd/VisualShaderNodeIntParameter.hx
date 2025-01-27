@@ -10,32 +10,32 @@ class VisualShaderNodeIntParameter extends gd.VisualShaderNodeParameter {
 	}
 	extern inline function __visualshadernodeintparameter_ptr():cpp.Pointer<gdnative.VisualShaderNodeIntParameter.VisualShaderNodeIntParameter_extern> return cast __gd.ptr;
 	public function set_hint(p_hint:gd.visualshadernodeintparameter.Hint):gd.visualshadernodeintparameter.Hint {
-		__visualshadernodeintparameter_ptr().value.set_hint(p_hint);
+		__visualshadernodeintparameter_ptr().value.set_hint(((p_hint : gd.visualshadernodeintparameter.Hint)));
 		return p_hint;
 	}
 	public function get_hint():gd.visualshadernodeintparameter.Hint return __visualshadernodeintparameter_ptr().value.get_hint();
 	public function set_min(p_value:Int):Int {
-		__visualshadernodeintparameter_ptr().value.set_min(p_value);
+		__visualshadernodeintparameter_ptr().value.set_min(((p_value : Int)));
 		return p_value;
 	}
 	public function get_min():Int return __visualshadernodeintparameter_ptr().value.get_min();
 	public function set_max(p_value:Int):Int {
-		__visualshadernodeintparameter_ptr().value.set_max(p_value);
+		__visualshadernodeintparameter_ptr().value.set_max(((p_value : Int)));
 		return p_value;
 	}
 	public function get_max():Int return __visualshadernodeintparameter_ptr().value.get_max();
 	public function set_step(p_value:Int):Int {
-		__visualshadernodeintparameter_ptr().value.set_step(p_value);
+		__visualshadernodeintparameter_ptr().value.set_step(((p_value : Int)));
 		return p_value;
 	}
 	public function get_step():Int return __visualshadernodeintparameter_ptr().value.get_step();
 	public function set_default_value_enabled(p_enabled:Bool):Bool {
-		__visualshadernodeintparameter_ptr().value.set_default_value_enabled(p_enabled);
+		__visualshadernodeintparameter_ptr().value.set_default_value_enabled(((p_enabled : Bool)));
 		return p_enabled;
 	}
 	public function is_default_value_enabled():Bool return __visualshadernodeintparameter_ptr().value.is_default_value_enabled();
 	public function set_default_value(p_value:Int):Int {
-		__visualshadernodeintparameter_ptr().value.set_default_value(p_value);
+		__visualshadernodeintparameter_ptr().value.set_default_value(((p_value : Int)));
 		return p_value;
 	}
 	public function get_default_value():Int return __visualshadernodeintparameter_ptr().value.get_default_value();

@@ -9,26 +9,26 @@ class CameraAttributesPhysical extends gd.CameraAttributes {
 		super(native.reinterpret());
 	}
 	extern inline function __cameraattributesphysical_ptr():cpp.Pointer<gdnative.CameraAttributesPhysical.CameraAttributesPhysical_extern> return cast __gd.ptr;
-	public function set_aperture(p_aperture:Float):Void __cameraattributesphysical_ptr().value.set_aperture(p_aperture);
+	public function set_aperture(p_aperture:Float):Void __cameraattributesphysical_ptr().value.set_aperture(((p_aperture : Float)));
 	public function get_aperture():Float return __cameraattributesphysical_ptr().value.get_aperture();
-	public function set_shutter_speed(p_shutter_speed:Float):Void __cameraattributesphysical_ptr().value.set_shutter_speed(p_shutter_speed);
+	public function set_shutter_speed(p_shutter_speed:Float):Void __cameraattributesphysical_ptr().value.set_shutter_speed(((p_shutter_speed : Float)));
 	public function get_shutter_speed():Float return __cameraattributesphysical_ptr().value.get_shutter_speed();
-	public function set_focal_length(p_focal_length:Float):Void __cameraattributesphysical_ptr().value.set_focal_length(p_focal_length);
+	public function set_focal_length(p_focal_length:Float):Void __cameraattributesphysical_ptr().value.set_focal_length(((p_focal_length : Float)));
 	public function get_focal_length():Float return __cameraattributesphysical_ptr().value.get_focal_length();
-	public function set_focus_distance(p_focus_distance:Float):Void __cameraattributesphysical_ptr().value.set_focus_distance(p_focus_distance);
+	public function set_focus_distance(p_focus_distance:Float):Void __cameraattributesphysical_ptr().value.set_focus_distance(((p_focus_distance : Float)));
 	public function get_focus_distance():Float return __cameraattributesphysical_ptr().value.get_focus_distance();
-	public function set_near(p_near:Float):Void __cameraattributesphysical_ptr().value.set_near(p_near);
+	public function set_near(p_near:Float):Void __cameraattributesphysical_ptr().value.set_near(((p_near : Float)));
 	public function get_near():Float return __cameraattributesphysical_ptr().value.get_near();
-	public function set_far(p_far:Float):Void __cameraattributesphysical_ptr().value.set_far(p_far);
+	public function set_far(p_far:Float):Void __cameraattributesphysical_ptr().value.set_far(((p_far : Float)));
 	public function get_far():Float return __cameraattributesphysical_ptr().value.get_far();
 	public function get_fov():Float return __cameraattributesphysical_ptr().value.get_fov();
 	public function set_auto_exposure_max_exposure_value(p_exposure_value_max:Float):Float {
-		__cameraattributesphysical_ptr().value.set_auto_exposure_max_exposure_value(p_exposure_value_max);
+		__cameraattributesphysical_ptr().value.set_auto_exposure_max_exposure_value(((p_exposure_value_max : Float)));
 		return p_exposure_value_max;
 	}
 	public function get_auto_exposure_max_exposure_value():Float return __cameraattributesphysical_ptr().value.get_auto_exposure_max_exposure_value();
 	public function set_auto_exposure_min_exposure_value(p_exposure_value_min:Float):Float {
-		__cameraattributesphysical_ptr().value.set_auto_exposure_min_exposure_value(p_exposure_value_min);
+		__cameraattributesphysical_ptr().value.set_auto_exposure_min_exposure_value(((p_exposure_value_min : Float)));
 		return p_exposure_value_min;
 	}
 	public function get_auto_exposure_min_exposure_value():Float return __cameraattributesphysical_ptr().value.get_auto_exposure_min_exposure_value();

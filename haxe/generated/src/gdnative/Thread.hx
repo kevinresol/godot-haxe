@@ -1,8 +1,8 @@
 package gdnative;
 @:include("godot_cpp/classes/thread.hpp") @:native("godot::Thread") @:structAccess extern class Thread_extern extends gdnative.RefCounted.RefCounted_extern {
 	extern static inline function __alloc():cpp.Pointer<Thread_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::Thread"));
-	overload function start(p_callable:gdnative.Callable, p_priority:gdnative.thread.Priority):gdnative.Error;
 	overload function start(p_callable:gdnative.Callable):gdnative.Error;
+	overload function start(p_callable:gdnative.Callable, p_priority:gdnative.thread.Priority):gdnative.Error;
 	function get_id():gdnative.String;
 	function is_started():Bool;
 	function is_alive():Bool;

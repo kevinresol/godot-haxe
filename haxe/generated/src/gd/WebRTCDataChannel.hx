@@ -13,7 +13,7 @@ class WebRTCDataChannel extends gd.PacketPeer {
 	public function close():Void __webrtcdatachannel_ptr().value.close();
 	public function was_string_packet():Bool return __webrtcdatachannel_ptr().value.was_string_packet();
 	public function set_write_mode(p_write_mode:gd.webrtcdatachannel.WriteMode):gd.webrtcdatachannel.WriteMode {
-		__webrtcdatachannel_ptr().value.set_write_mode(p_write_mode);
+		__webrtcdatachannel_ptr().value.set_write_mode(((p_write_mode : gd.webrtcdatachannel.WriteMode)));
 		return p_write_mode;
 	}
 	public function get_write_mode():gd.webrtcdatachannel.WriteMode return __webrtcdatachannel_ptr().value.get_write_mode();

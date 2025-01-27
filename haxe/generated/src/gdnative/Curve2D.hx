@@ -3,10 +3,10 @@ package gdnative;
 	extern static inline function __alloc():cpp.Pointer<Curve2D_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::Curve2D"));
 	function get_point_count():Int;
 	function set_point_count(p_count:Int):Void;
-	overload function add_point(p_position:gdnative.Vector2, p_in:gdnative.Vector2, p_out:gdnative.Vector2, p_index:Int):Void;
-	overload function add_point(p_position:gdnative.Vector2, p_in:gdnative.Vector2, p_out:gdnative.Vector2):Void;
-	overload function add_point(p_position:gdnative.Vector2, p_in:gdnative.Vector2):Void;
 	overload function add_point(p_position:gdnative.Vector2):Void;
+	overload function add_point(p_position:gdnative.Vector2, p_in:gdnative.Vector2):Void;
+	overload function add_point(p_position:gdnative.Vector2, p_in:gdnative.Vector2, p_out:gdnative.Vector2):Void;
+	overload function add_point(p_position:gdnative.Vector2, p_in:gdnative.Vector2, p_out:gdnative.Vector2, p_index:Int):Void;
 	function set_point_position(p_idx:Int, p_position:gdnative.Vector2):Void;
 	function get_point_position(p_idx:Int):gdnative.Vector2;
 	function set_point_in(p_idx:Int, p_position:gdnative.Vector2):Void;
@@ -20,18 +20,18 @@ package gdnative;
 	function set_bake_interval(p_distance:Float):Void;
 	function get_bake_interval():Float;
 	function get_baked_length():Float;
-	overload function sample_baked(p_offset:Float, p_cubic:Bool):gdnative.Vector2;
-	overload function sample_baked(p_offset:Float):gdnative.Vector2;
 	overload function sample_baked():gdnative.Vector2;
+	overload function sample_baked(p_offset:Float):gdnative.Vector2;
+	overload function sample_baked(p_offset:Float, p_cubic:Bool):gdnative.Vector2;
 	function get_baked_points():gdnative.PackedVector2Array;
 	function get_closest_point(p_to_point:gdnative.Vector2):gdnative.Vector2;
 	function get_closest_offset(p_to_point:gdnative.Vector2):Float;
-	overload function tessellate(p_max_stages:Int, p_tolerance_degrees:Float):gdnative.PackedVector2Array;
-	overload function tessellate(p_max_stages:Int):gdnative.PackedVector2Array;
 	overload function tessellate():gdnative.PackedVector2Array;
-	overload function tessellate_even_length(p_max_stages:Int, p_tolerance_length:Float):gdnative.PackedVector2Array;
-	overload function tessellate_even_length(p_max_stages:Int):gdnative.PackedVector2Array;
+	overload function tessellate(p_max_stages:Int):gdnative.PackedVector2Array;
+	overload function tessellate(p_max_stages:Int, p_tolerance_degrees:Float):gdnative.PackedVector2Array;
 	overload function tessellate_even_length():gdnative.PackedVector2Array;
+	overload function tessellate_even_length(p_max_stages:Int):gdnative.PackedVector2Array;
+	overload function tessellate_even_length(p_max_stages:Int, p_tolerance_length:Float):gdnative.PackedVector2Array;
 }
 @:forward abstract Curve2D(gdnative.Ref<Curve2D_extern>) from gdnative.Ref<Curve2D_extern> to gdnative.Ref<Curve2D_extern> {
 	@:from

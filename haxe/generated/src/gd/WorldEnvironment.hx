@@ -10,17 +10,17 @@ class WorldEnvironment extends gd.Node {
 	}
 	extern inline function __worldenvironment_ptr():cpp.Pointer<gdnative.WorldEnvironment.WorldEnvironment_extern> return cast __gd.ptr;
 	public function set_environment(p_env:gd.Environment):gd.Environment {
-		__worldenvironment_ptr().value.set_environment(p_env);
+		__worldenvironment_ptr().value.set_environment(((p_env : gd.Environment)));
 		return p_env;
 	}
 	public function get_environment():gd.Environment return __worldenvironment_ptr().value.get_environment();
 	public function set_camera_attributes(p_camera_attributes:gd.CameraAttributes):gd.CameraAttributes {
-		__worldenvironment_ptr().value.set_camera_attributes(p_camera_attributes);
+		__worldenvironment_ptr().value.set_camera_attributes(((p_camera_attributes : gd.CameraAttributes)));
 		return p_camera_attributes;
 	}
 	public function get_camera_attributes():gd.CameraAttributes return __worldenvironment_ptr().value.get_camera_attributes();
 	public function set_compositor(p_compositor:gd.Compositor):gd.Compositor {
-		__worldenvironment_ptr().value.set_compositor(p_compositor);
+		__worldenvironment_ptr().value.set_compositor(((p_compositor : gd.Compositor)));
 		return p_compositor;
 	}
 	public function get_compositor():gd.Compositor return __worldenvironment_ptr().value.get_compositor();

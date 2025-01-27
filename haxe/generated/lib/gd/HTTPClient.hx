@@ -1,10 +1,11 @@
 package gd;
 extern class HTTPClient extends gd.RefCounted {
 	function new(?owner:Dynamic);
+	function connect_to_host(p_host:std.String, ?p_port:Int, ?p_tls_options:gd.TLSOptions):gd.Error;
 	function set_connection(p_connection:gd.StreamPeer):gd.StreamPeer;
 	function get_connection():gd.StreamPeer;
 	function request_raw(p_method:gd.httpclient.Method, p_url:std.String, p_headers:gd.PackedStringArray, p_body:gd.PackedByteArray):gd.Error;
-	function request(p_method:gd.httpclient.Method, p_url:std.String, p_headers:gd.PackedStringArray, ?p_body:std.String = "\"\""):gd.Error;
+	function request(p_method:gd.httpclient.Method, p_url:std.String, p_headers:gd.PackedStringArray, ?p_body:std.String):gd.Error;
 	function close():Void;
 	function has_response():Bool;
 	function is_response_chunked():Bool;

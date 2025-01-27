@@ -57,6 +57,8 @@ extern class Node3D extends gd.Node {
 	function translate(p_offset:gd.Vector3):Void;
 	function orthonormalize():Void;
 	function set_identity():Void;
+	function look_at(p_target:gd.Vector3, ?p_up:gd.Vector3, ?p_use_model_front:Bool):Void;
+	function look_at_from_position(p_position:gd.Vector3, p_target:gd.Vector3, ?p_up:gd.Vector3, ?p_use_model_front:Bool):Void;
 	function to_local(p_global_point:gd.Vector3):gd.Vector3;
 	function to_global(p_local_point:gd.Vector3):gd.Vector3;
 	var position(get, set) : gd.Vector3;

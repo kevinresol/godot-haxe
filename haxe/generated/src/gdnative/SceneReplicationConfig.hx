@@ -1,8 +1,8 @@
 package gdnative;
 @:include("godot_cpp/classes/scene_replication_config.hpp") @:native("godot::SceneReplicationConfig") @:structAccess extern class SceneReplicationConfig_extern extends gdnative.Resource.Resource_extern {
 	extern static inline function __alloc():cpp.Pointer<SceneReplicationConfig_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::SceneReplicationConfig"));
-	overload function add_property(p_path:gdnative.NodePath, p_index:Int):Void;
 	overload function add_property(p_path:gdnative.NodePath):Void;
+	overload function add_property(p_path:gdnative.NodePath, p_index:Int):Void;
 	function has_property(p_path:gdnative.NodePath):Bool;
 	function remove_property(p_path:gdnative.NodePath):Void;
 	function property_get_index(p_path:gdnative.NodePath):Int;

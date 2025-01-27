@@ -10,5 +10,5 @@ class ScriptEditorBase extends gd.VBoxContainer {
 	}
 	extern inline function __scripteditorbase_ptr():cpp.Pointer<gdnative.ScriptEditorBase.ScriptEditorBase_extern> return cast __gd.ptr;
 	public function get_base_editor():gd.Control return __scripteditorbase_ptr().value.get_base_editor();
-	public function add_syntax_highlighter(p_highlighter:gd.EditorSyntaxHighlighter):Void __scripteditorbase_ptr().value.add_syntax_highlighter(p_highlighter);
+	public function add_syntax_highlighter(p_highlighter:gd.EditorSyntaxHighlighter):Void __scripteditorbase_ptr().value.add_syntax_highlighter(((p_highlighter : gd.EditorSyntaxHighlighter)));
 }

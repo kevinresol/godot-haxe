@@ -12,5 +12,5 @@ class Container extends gd.Control {
 	public function _get_allowed_size_flags_horizontal():gd.PackedInt32Array return __container_ptr().value._get_allowed_size_flags_horizontal();
 	public function _get_allowed_size_flags_vertical():gd.PackedInt32Array return __container_ptr().value._get_allowed_size_flags_vertical();
 	public function queue_sort():Void __container_ptr().value.queue_sort();
-	public function fit_child_in_rect(p_child:gd.Control, p_rect:gd.Rect2):Void __container_ptr().value.fit_child_in_rect(p_child, p_rect);
+	public function fit_child_in_rect(p_child:gd.Control, p_rect:gd.Rect2):Void __container_ptr().value.fit_child_in_rect(((p_child : gd.Control)), ((p_rect : gd.Rect2)));
 }

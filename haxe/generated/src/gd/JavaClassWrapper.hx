@@ -10,5 +10,5 @@ class JavaClassWrapper extends gd.Object {
 	}
 	static public final singleton : gd.JavaClassWrapper = new JavaClassWrapper(gdnative.JavaClassWrapper.JavaClassWrapper_extern.get_singleton());
 	extern inline function __javaclasswrapper_ptr():cpp.Pointer<gdnative.JavaClassWrapper.JavaClassWrapper_extern> return cast __gd.ptr;
-	public function wrap(p_name:std.String):gd.JavaClass return __javaclasswrapper_ptr().value.wrap(p_name);
+	public function wrap(p_name:std.String):gd.JavaClass return __javaclasswrapper_ptr().value.wrap(((p_name : std.String)));
 }

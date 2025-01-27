@@ -10,30 +10,33 @@ class Timer extends gd.Node {
 	}
 	extern inline function __timer_ptr():cpp.Pointer<gdnative.Timer.Timer_extern> return cast __gd.ptr;
 	public function set_wait_time(p_time_sec:Float):Float {
-		__timer_ptr().value.set_wait_time(p_time_sec);
+		__timer_ptr().value.set_wait_time(((p_time_sec : Float)));
 		return p_time_sec;
 	}
 	public function get_wait_time():Float return __timer_ptr().value.get_wait_time();
 	public function set_one_shot(p_enable:Bool):Bool {
-		__timer_ptr().value.set_one_shot(p_enable);
+		__timer_ptr().value.set_one_shot(((p_enable : Bool)));
 		return p_enable;
 	}
 	public function is_one_shot():Bool return __timer_ptr().value.is_one_shot();
 	public function set_autostart(p_enable:Bool):Bool {
-		__timer_ptr().value.set_autostart(p_enable);
+		__timer_ptr().value.set_autostart(((p_enable : Bool)));
 		return p_enable;
 	}
 	public function has_autostart():Bool return __timer_ptr().value.has_autostart();
-	public function start(?p_time_sec:Float = -1.):Void __timer_ptr().value.start(p_time_sec);
+	public function start(?p_time_sec:Float):Void switch [p_time_sec] {
+		case [null]:__timer_ptr().value.start();
+		default:__timer_ptr().value.start(((p_time_sec : Float)));
+	};
 	public function stop():Void __timer_ptr().value.stop();
 	public function set_paused(p_paused:Bool):Bool {
-		__timer_ptr().value.set_paused(p_paused);
+		__timer_ptr().value.set_paused(((p_paused : Bool)));
 		return p_paused;
 	}
 	public function is_paused():Bool return __timer_ptr().value.is_paused();
 	public function is_stopped():Bool return __timer_ptr().value.is_stopped();
 	public function get_time_left():Float return __timer_ptr().value.get_time_left();
-	public function set_timer_process_callback(p_callback:gd.timer.TimerProcessCallback):Void __timer_ptr().value.set_timer_process_callback(p_callback);
+	public function set_timer_process_callback(p_callback:gd.timer.TimerProcessCallback):Void __timer_ptr().value.set_timer_process_callback(((p_callback : gd.timer.TimerProcessCallback)));
 	public function get_timer_process_callback():gd.timer.TimerProcessCallback return __timer_ptr().value.get_timer_process_callback();
 	var process_callback(get, set) : gd.timer.TimerProcessCallback;
 	function get_process_callback():gd.timer.TimerProcessCallback return get_timer_process_callback();

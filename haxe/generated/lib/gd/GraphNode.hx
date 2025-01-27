@@ -5,6 +5,7 @@ extern class GraphNode extends gd.GraphElement {
 	function set_title(p_title:std.String):std.String;
 	function get_title():std.String;
 	function get_titlebar_hbox():gd.HBoxContainer;
+	function set_slot(p_slot_index:Int, p_enable_left_port:Bool, p_type_left:Int, p_color_left:gd.Color, p_enable_right_port:Bool, p_type_right:Int, p_color_right:gd.Color, ?p_custom_icon_left:gd.Texture2D, ?p_custom_icon_right:gd.Texture2D, ?p_draw_stylebox:Bool):Void;
 	function clear_slot(p_slot_index:Int):Void;
 	function clear_all_slots():Void;
 	function is_slot_enabled_left(p_slot_index:Int):Bool;

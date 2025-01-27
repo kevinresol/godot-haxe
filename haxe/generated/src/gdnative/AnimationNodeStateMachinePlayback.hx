@@ -1,10 +1,10 @@
 package gdnative;
 @:include("godot_cpp/classes/animation_node_state_machine_playback.hpp") @:native("godot::AnimationNodeStateMachinePlayback") @:structAccess extern class AnimationNodeStateMachinePlayback_extern extends gdnative.Resource.Resource_extern {
 	extern static inline function __alloc():cpp.Pointer<AnimationNodeStateMachinePlayback_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::AnimationNodeStateMachinePlayback"));
-	overload function travel(p_to_node:gdnative.StringName, p_reset_on_teleport:Bool):Void;
 	overload function travel(p_to_node:gdnative.StringName):Void;
-	overload function start(p_node:gdnative.StringName, p_reset:Bool):Void;
+	overload function travel(p_to_node:gdnative.StringName, p_reset_on_teleport:Bool):Void;
 	overload function start(p_node:gdnative.StringName):Void;
+	overload function start(p_node:gdnative.StringName, p_reset:Bool):Void;
 	function next():Void;
 	function stop():Void;
 	function is_playing():Bool;

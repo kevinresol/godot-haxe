@@ -2,7 +2,7 @@ package gd;
 extern class EditorFileDialog extends gd.ConfirmationDialog {
 	function new(?owner:Dynamic);
 	function clear_filters():Void;
-	function add_filter(p_filter:std.String, ?p_description:std.String = "\"\""):Void;
+	function add_filter(p_filter:std.String, ?p_description:std.String):Void;
 	function set_filters(p_filters:gd.PackedStringArray):gd.PackedStringArray;
 	function get_filters():gd.PackedStringArray;
 	function get_option_name(p_option:Int):std.String;
@@ -33,7 +33,7 @@ extern class EditorFileDialog extends gd.ConfirmationDialog {
 	function get_display_mode():gd.editorfiledialog.DisplayMode;
 	function set_disable_overwrite_warning(p_disable:Bool):Bool;
 	function is_overwrite_warning_disabled():Bool;
-	function add_side_menu(p_menu:gd.Control, ?p_title:std.String = "\"\""):Void;
+	function add_side_menu(p_menu:gd.Control, ?p_title:std.String):Void;
 	function popup_file_dialog():Void;
 	function invalidate():Void;
 	var access(get, set) : gd.editorfiledialog.Access;

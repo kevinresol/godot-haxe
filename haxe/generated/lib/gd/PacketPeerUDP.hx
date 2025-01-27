@@ -1,7 +1,7 @@
 package gd;
 extern class PacketPeerUDP extends gd.PacketPeer {
 	function new(?owner:Dynamic);
-	function bind(p_port:Int, ?p_bind_address:std.String = "\"*\"", ?p_recv_buf_size:Int = 65536):gd.Error;
+	function bind(p_port:Int, ?p_bind_address:std.String, ?p_recv_buf_size:Int):gd.Error;
 	function close():Void;
 	function wait():gd.Error;
 	function is_bound():Bool;

@@ -10,7 +10,7 @@ class VisualShaderNodeParameterRef extends gd.VisualShaderNode {
 	}
 	extern inline function __visualshadernodeparameterref_ptr():cpp.Pointer<gdnative.VisualShaderNodeParameterRef.VisualShaderNodeParameterRef_extern> return cast __gd.ptr;
 	public function set_parameter_name(p_name:std.String):std.String {
-		__visualshadernodeparameterref_ptr().value.set_parameter_name(p_name);
+		__visualshadernodeparameterref_ptr().value.set_parameter_name(((p_name : std.String)));
 		return p_name;
 	}
 	public function get_parameter_name():std.String return __visualshadernodeparameterref_ptr().value.get_parameter_name();

@@ -10,7 +10,7 @@ class Marker2D extends gd.Node2D {
 	}
 	extern inline function __marker2d_ptr():cpp.Pointer<gdnative.Marker2D.Marker2D_extern> return cast __gd.ptr;
 	public function set_gizmo_extents(p_extents:Float):Float {
-		__marker2d_ptr().value.set_gizmo_extents(p_extents);
+		__marker2d_ptr().value.set_gizmo_extents(((p_extents : Float)));
 		return p_extents;
 	}
 	public function get_gizmo_extents():Float return __marker2d_ptr().value.get_gizmo_extents();

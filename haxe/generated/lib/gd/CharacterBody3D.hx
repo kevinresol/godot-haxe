@@ -44,6 +44,7 @@ extern class CharacterBody3D extends gd.PhysicsBody3D {
 	function get_last_motion():gd.Vector3;
 	function get_position_delta():gd.Vector3;
 	function get_real_velocity():gd.Vector3;
+	function get_floor_angle(?p_up_direction:gd.Vector3):Float;
 	function get_platform_velocity():gd.Vector3;
 	function get_platform_angular_velocity():gd.Vector3;
 	function get_slide_collision_count():Int;

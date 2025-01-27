@@ -19,7 +19,7 @@ extern class SkeletonIK3D extends gd.SkeletonModifier3D {
 	function get_min_distance():Float;
 	function set_max_iterations(p_iterations:Int):Int;
 	function get_max_iterations():Int;
-	function start(?p_one_time:Bool = false):Void;
+	function start(?p_one_time:Bool):Void;
 	function stop():Void;
 	function set_interpolation(p_interpolation:Float):Float;
 	function get_interpolation():Float;

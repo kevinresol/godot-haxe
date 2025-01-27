@@ -9,6 +9,9 @@ class EditorCommandPalette extends gd.ConfirmationDialog {
 		super(native.reinterpret());
 	}
 	extern inline function __editorcommandpalette_ptr():cpp.Pointer<gdnative.EditorCommandPalette.EditorCommandPalette_extern> return cast __gd.ptr;
-	public function add_command(p_command_name:std.String, p_key_name:std.String, p_binded_callable:gd.Callable, ?p_shortcut_text:std.String = "\"None\""):Void __editorcommandpalette_ptr().value.add_command(p_command_name, p_key_name, p_binded_callable, p_shortcut_text);
-	public function remove_command(p_key_name:std.String):Void __editorcommandpalette_ptr().value.remove_command(p_key_name);
+	public function add_command(p_command_name:std.String, p_key_name:std.String, p_binded_callable:gd.Callable, ?p_shortcut_text:std.String):Void switch [p_command_name, p_key_name, p_binded_callable, p_shortcut_text] {
+		case [_, _, _, null]:__editorcommandpalette_ptr().value.add_command(((p_command_name : std.String)), ((p_key_name : std.String)), ((p_binded_callable : gd.Callable)));
+		default:__editorcommandpalette_ptr().value.add_command(((p_command_name : std.String)), ((p_key_name : std.String)), ((p_binded_callable : gd.Callable)), ((p_shortcut_text : std.String)));
+	};
+	public function remove_command(p_key_name:std.String):Void __editorcommandpalette_ptr().value.remove_command(((p_key_name : std.String)));
 }

@@ -2,6 +2,7 @@ package gd;
 extern class ConfigFile extends gd.RefCounted {
 	function new(?owner:Dynamic);
 	function set_value(p_section:std.String, p_key:std.String, p_value:gd.Variant):Void;
+	function get_value(p_section:std.String, p_key:std.String, ?p_default:gd.Variant):gd.Variant;
 	function has_section(p_section:std.String):Bool;
 	function has_section_key(p_section:std.String, p_key:std.String):Bool;
 	function get_sections():gd.PackedStringArray;

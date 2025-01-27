@@ -13,7 +13,7 @@ class WebRTCDataChannelExtension extends gd.WebRTCDataChannel {
 	public function _get_max_packet_size():Int return __webrtcdatachannelextension_ptr().value._get_max_packet_size();
 	public function _poll():gd.Error return __webrtcdatachannelextension_ptr().value._poll();
 	public function _close():Void __webrtcdatachannelextension_ptr().value._close();
-	public function _set_write_mode(p_p_write_mode:gd.webrtcdatachannel.WriteMode):Void __webrtcdatachannelextension_ptr().value._set_write_mode(p_p_write_mode);
+	public function _set_write_mode(p_p_write_mode:gd.webrtcdatachannel.WriteMode):Void __webrtcdatachannelextension_ptr().value._set_write_mode(((p_p_write_mode : gd.webrtcdatachannel.WriteMode)));
 	public function _get_write_mode():gd.webrtcdatachannel.WriteMode return __webrtcdatachannelextension_ptr().value._get_write_mode();
 	public function _was_string_packet():Bool return __webrtcdatachannelextension_ptr().value._was_string_packet();
 	public function _get_ready_state():gd.webrtcdatachannel.ChannelState return __webrtcdatachannelextension_ptr().value._get_ready_state();

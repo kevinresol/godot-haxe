@@ -10,17 +10,17 @@ class MissingNode extends gd.Node {
 	}
 	extern inline function __missingnode_ptr():cpp.Pointer<gdnative.MissingNode.MissingNode_extern> return cast __gd.ptr;
 	public function set_original_class(p_name:std.String):std.String {
-		__missingnode_ptr().value.set_original_class(p_name);
+		__missingnode_ptr().value.set_original_class(((p_name : std.String)));
 		return p_name;
 	}
 	public function get_original_class():std.String return __missingnode_ptr().value.get_original_class();
 	public function set_original_scene(p_name:std.String):std.String {
-		__missingnode_ptr().value.set_original_scene(p_name);
+		__missingnode_ptr().value.set_original_scene(((p_name : std.String)));
 		return p_name;
 	}
 	public function get_original_scene():std.String return __missingnode_ptr().value.get_original_scene();
 	public function set_recording_properties(p_enable:Bool):Bool {
-		__missingnode_ptr().value.set_recording_properties(p_enable);
+		__missingnode_ptr().value.set_recording_properties(((p_enable : Bool)));
 		return p_enable;
 	}
 	public function is_recording_properties():Bool return __missingnode_ptr().value.is_recording_properties();

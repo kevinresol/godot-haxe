@@ -10,47 +10,47 @@ class AnimationNodeStateMachineTransition extends gd.Resource {
 	}
 	extern inline function __animationnodestatemachinetransition_ptr():cpp.Pointer<gdnative.AnimationNodeStateMachineTransition.AnimationNodeStateMachineTransition_extern> return cast __gd.ptr;
 	public function set_switch_mode(p_mode:gd.animationnodestatemachinetransition.SwitchMode):gd.animationnodestatemachinetransition.SwitchMode {
-		__animationnodestatemachinetransition_ptr().value.set_switch_mode(p_mode);
+		__animationnodestatemachinetransition_ptr().value.set_switch_mode(((p_mode : gd.animationnodestatemachinetransition.SwitchMode)));
 		return p_mode;
 	}
 	public function get_switch_mode():gd.animationnodestatemachinetransition.SwitchMode return __animationnodestatemachinetransition_ptr().value.get_switch_mode();
 	public function set_advance_mode(p_mode:gd.animationnodestatemachinetransition.AdvanceMode):gd.animationnodestatemachinetransition.AdvanceMode {
-		__animationnodestatemachinetransition_ptr().value.set_advance_mode(p_mode);
+		__animationnodestatemachinetransition_ptr().value.set_advance_mode(((p_mode : gd.animationnodestatemachinetransition.AdvanceMode)));
 		return p_mode;
 	}
 	public function get_advance_mode():gd.animationnodestatemachinetransition.AdvanceMode return __animationnodestatemachinetransition_ptr().value.get_advance_mode();
 	public function set_advance_condition(p_name:std.String):std.String {
-		__animationnodestatemachinetransition_ptr().value.set_advance_condition(p_name);
+		__animationnodestatemachinetransition_ptr().value.set_advance_condition(((p_name : std.String)));
 		return p_name;
 	}
 	public function get_advance_condition():std.String return __animationnodestatemachinetransition_ptr().value.get_advance_condition();
 	public function set_xfade_time(p_secs:Float):Float {
-		__animationnodestatemachinetransition_ptr().value.set_xfade_time(p_secs);
+		__animationnodestatemachinetransition_ptr().value.set_xfade_time(((p_secs : Float)));
 		return p_secs;
 	}
 	public function get_xfade_time():Float return __animationnodestatemachinetransition_ptr().value.get_xfade_time();
 	public function set_xfade_curve(p_curve:gd.Curve):gd.Curve {
-		__animationnodestatemachinetransition_ptr().value.set_xfade_curve(p_curve);
+		__animationnodestatemachinetransition_ptr().value.set_xfade_curve(((p_curve : gd.Curve)));
 		return p_curve;
 	}
 	public function get_xfade_curve():gd.Curve return __animationnodestatemachinetransition_ptr().value.get_xfade_curve();
 	public function set_break_loop_at_end(p_enable:Bool):Bool {
-		__animationnodestatemachinetransition_ptr().value.set_break_loop_at_end(p_enable);
+		__animationnodestatemachinetransition_ptr().value.set_break_loop_at_end(((p_enable : Bool)));
 		return p_enable;
 	}
 	public function is_loop_broken_at_end():Bool return __animationnodestatemachinetransition_ptr().value.is_loop_broken_at_end();
 	public function set_reset(p_reset:Bool):Bool {
-		__animationnodestatemachinetransition_ptr().value.set_reset(p_reset);
+		__animationnodestatemachinetransition_ptr().value.set_reset(((p_reset : Bool)));
 		return p_reset;
 	}
 	public function is_reset():Bool return __animationnodestatemachinetransition_ptr().value.is_reset();
 	public function set_priority(p_priority:Int):Int {
-		__animationnodestatemachinetransition_ptr().value.set_priority(p_priority);
+		__animationnodestatemachinetransition_ptr().value.set_priority(((p_priority : Int)));
 		return p_priority;
 	}
 	public function get_priority():Int return __animationnodestatemachinetransition_ptr().value.get_priority();
 	public function set_advance_expression(p_text:std.String):std.String {
-		__animationnodestatemachinetransition_ptr().value.set_advance_expression(p_text);
+		__animationnodestatemachinetransition_ptr().value.set_advance_expression(((p_text : std.String)));
 		return p_text;
 	}
 	public function get_advance_expression():std.String return __animationnodestatemachinetransition_ptr().value.get_advance_expression();

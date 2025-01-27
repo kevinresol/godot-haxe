@@ -5,7 +5,7 @@ extern class TileMap extends gd.Node2D {
 	function _tile_data_runtime_update(p_layer:Int, p_coords:gd.Vector2i, p_tile_data:gd.TileData):Void;
 	function set_navigation_map(p_layer:Int, p_map:gd.RID):Void;
 	function get_navigation_map(p_layer:Int):gd.RID;
-	function force_update(?p_layer:Int = -1):Void;
+	function force_update(?p_layer:Int):Void;
 	function set_tileset(p_tileset:gd.TileSet):Void;
 	function get_tileset():gd.TileSet;
 	function set_rendering_quadrant_size(p_size:Int):Int;
@@ -36,11 +36,12 @@ extern class TileMap extends gd.Node2D {
 	function get_collision_visibility_mode():gd.tilemap.VisibilityMode;
 	function set_navigation_visibility_mode(p_navigation_visibility_mode:gd.tilemap.VisibilityMode):gd.tilemap.VisibilityMode;
 	function get_navigation_visibility_mode():gd.tilemap.VisibilityMode;
+	function set_cell(p_layer:Int, p_coords:gd.Vector2i, ?p_source_id:Int, ?p_atlas_coords:gd.Vector2i, ?p_alternative_tile:Int):Void;
 	function erase_cell(p_layer:Int, p_coords:gd.Vector2i):Void;
-	function get_cell_source_id(p_layer:Int, p_coords:gd.Vector2i, ?p_use_proxies:Bool = false):Int;
-	function get_cell_atlas_coords(p_layer:Int, p_coords:gd.Vector2i, ?p_use_proxies:Bool = false):gd.Vector2i;
-	function get_cell_alternative_tile(p_layer:Int, p_coords:gd.Vector2i, ?p_use_proxies:Bool = false):Int;
-	function get_cell_tile_data(p_layer:Int, p_coords:gd.Vector2i, ?p_use_proxies:Bool = false):gd.TileData;
+	function get_cell_source_id(p_layer:Int, p_coords:gd.Vector2i, ?p_use_proxies:Bool):Int;
+	function get_cell_atlas_coords(p_layer:Int, p_coords:gd.Vector2i, ?p_use_proxies:Bool):gd.Vector2i;
+	function get_cell_alternative_tile(p_layer:Int, p_coords:gd.Vector2i, ?p_use_proxies:Bool):Int;
+	function get_cell_tile_data(p_layer:Int, p_coords:gd.Vector2i, ?p_use_proxies:Bool):gd.TileData;
 	function get_coords_for_body_rid(p_body:gd.RID):gd.Vector2i;
 	function get_layer_for_body_rid(p_body:gd.RID):Int;
 	function map_pattern(p_position_in_tilemap:gd.Vector2i, p_coords_in_pattern:gd.Vector2i, p_pattern:gd.TileMapPattern):gd.Vector2i;
@@ -49,7 +50,7 @@ extern class TileMap extends gd.Node2D {
 	function clear_layer(p_layer:Int):Void;
 	function clear():Void;
 	function update_internals():Void;
-	function notify_runtime_tile_data_update(?p_layer:Int = -1):Void;
+	function notify_runtime_tile_data_update(?p_layer:Int):Void;
 	function get_used_rect():gd.Rect2i;
 	function map_to_local(p_map_position:gd.Vector2i):gd.Vector2;
 	function local_to_map(p_local_position:gd.Vector2):gd.Vector2i;

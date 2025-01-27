@@ -10,12 +10,12 @@ class VisualShaderNodeVec4Parameter extends gd.VisualShaderNodeParameter {
 	}
 	extern inline function __visualshadernodevec4parameter_ptr():cpp.Pointer<gdnative.VisualShaderNodeVec4Parameter.VisualShaderNodeVec4Parameter_extern> return cast __gd.ptr;
 	public function set_default_value_enabled(p_enabled:Bool):Bool {
-		__visualshadernodevec4parameter_ptr().value.set_default_value_enabled(p_enabled);
+		__visualshadernodevec4parameter_ptr().value.set_default_value_enabled(((p_enabled : Bool)));
 		return p_enabled;
 	}
 	public function is_default_value_enabled():Bool return __visualshadernodevec4parameter_ptr().value.is_default_value_enabled();
 	public function set_default_value(p_value:gd.Vector4):gd.Vector4 {
-		__visualshadernodevec4parameter_ptr().value.set_default_value(p_value);
+		__visualshadernodevec4parameter_ptr().value.set_default_value(((p_value : gd.Vector4)));
 		return p_value;
 	}
 	public function get_default_value():gd.Vector4 return __visualshadernodevec4parameter_ptr().value.get_default_value();

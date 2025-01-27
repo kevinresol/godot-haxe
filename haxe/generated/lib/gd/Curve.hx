@@ -3,6 +3,7 @@ extern class Curve extends gd.Resource {
 	function new(?owner:Dynamic);
 	function get_point_count():Int;
 	function set_point_count(p_count:Int):Int;
+	function add_point(p_position:gd.Vector2, ?p_left_tangent:Float, ?p_right_tangent:Float, ?p_left_mode:gd.curve.TangentMode, ?p_right_mode:gd.curve.TangentMode):Int;
 	function remove_point(p_index:Int):Void;
 	function clear_points():Void;
 	function get_point_position(p_index:Int):gd.Vector2;

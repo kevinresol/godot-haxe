@@ -9,20 +9,20 @@ class Slider extends gd.Range {
 		super(native.reinterpret());
 	}
 	extern inline function __slider_ptr():cpp.Pointer<gdnative.Slider.Slider_extern> return cast __gd.ptr;
-	public function set_ticks(p_count:Int):Void __slider_ptr().value.set_ticks(p_count);
+	public function set_ticks(p_count:Int):Void __slider_ptr().value.set_ticks(((p_count : Int)));
 	public function get_ticks():Int return __slider_ptr().value.get_ticks();
 	public function get_ticks_on_borders():Bool return __slider_ptr().value.get_ticks_on_borders();
 	public function set_ticks_on_borders(p_ticks_on_border:Bool):Bool {
-		__slider_ptr().value.set_ticks_on_borders(p_ticks_on_border);
+		__slider_ptr().value.set_ticks_on_borders(((p_ticks_on_border : Bool)));
 		return p_ticks_on_border;
 	}
 	public function set_editable(p_editable:Bool):Bool {
-		__slider_ptr().value.set_editable(p_editable);
+		__slider_ptr().value.set_editable(((p_editable : Bool)));
 		return p_editable;
 	}
 	public function is_editable():Bool return __slider_ptr().value.is_editable();
 	public function set_scrollable(p_scrollable:Bool):Bool {
-		__slider_ptr().value.set_scrollable(p_scrollable);
+		__slider_ptr().value.set_scrollable(((p_scrollable : Bool)));
 		return p_scrollable;
 	}
 	public function is_scrollable():Bool return __slider_ptr().value.is_scrollable();

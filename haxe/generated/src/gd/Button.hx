@@ -10,56 +10,56 @@ class Button extends gd.BaseButton {
 	}
 	extern inline function __button_ptr():cpp.Pointer<gdnative.Button.Button_extern> return cast __gd.ptr;
 	public function set_text(p_text:std.String):std.String {
-		__button_ptr().value.set_text(p_text);
+		__button_ptr().value.set_text(((p_text : std.String)));
 		return p_text;
 	}
 	public function get_text():std.String return __button_ptr().value.get_text();
 	public function set_text_overrun_behavior(p_overrun_behavior:gd.textserver.OverrunBehavior):gd.textserver.OverrunBehavior {
-		__button_ptr().value.set_text_overrun_behavior(p_overrun_behavior);
+		__button_ptr().value.set_text_overrun_behavior(((p_overrun_behavior : gd.textserver.OverrunBehavior)));
 		return p_overrun_behavior;
 	}
 	public function get_text_overrun_behavior():gd.textserver.OverrunBehavior return __button_ptr().value.get_text_overrun_behavior();
 	public function set_autowrap_mode(p_autowrap_mode:gd.textserver.AutowrapMode):gd.textserver.AutowrapMode {
-		__button_ptr().value.set_autowrap_mode(p_autowrap_mode);
+		__button_ptr().value.set_autowrap_mode(((p_autowrap_mode : gd.textserver.AutowrapMode)));
 		return p_autowrap_mode;
 	}
 	public function get_autowrap_mode():gd.textserver.AutowrapMode return __button_ptr().value.get_autowrap_mode();
 	public function set_text_direction(p_direction:gd.control.TextDirection):gd.control.TextDirection {
-		__button_ptr().value.set_text_direction(p_direction);
+		__button_ptr().value.set_text_direction(((p_direction : gd.control.TextDirection)));
 		return p_direction;
 	}
 	public function get_text_direction():gd.control.TextDirection return __button_ptr().value.get_text_direction();
 	public function set_language(p_language:std.String):std.String {
-		__button_ptr().value.set_language(p_language);
+		__button_ptr().value.set_language(((p_language : std.String)));
 		return p_language;
 	}
 	public function get_language():std.String return __button_ptr().value.get_language();
-	public function set_button_icon(p_texture:gd.Texture2D):Void __button_ptr().value.set_button_icon(p_texture);
+	public function set_button_icon(p_texture:gd.Texture2D):Void __button_ptr().value.set_button_icon(((p_texture : gd.Texture2D)));
 	public function get_button_icon():gd.Texture2D return __button_ptr().value.get_button_icon();
 	public function set_flat(p_enabled:Bool):Bool {
-		__button_ptr().value.set_flat(p_enabled);
+		__button_ptr().value.set_flat(((p_enabled : Bool)));
 		return p_enabled;
 	}
 	public function is_flat():Bool return __button_ptr().value.is_flat();
 	public function set_clip_text(p_enabled:Bool):Bool {
-		__button_ptr().value.set_clip_text(p_enabled);
+		__button_ptr().value.set_clip_text(((p_enabled : Bool)));
 		return p_enabled;
 	}
 	public function get_clip_text():Bool return __button_ptr().value.get_clip_text();
-	public function set_text_alignment(p_alignment:gd.HorizontalAlignment):Void __button_ptr().value.set_text_alignment(p_alignment);
+	public function set_text_alignment(p_alignment:gd.HorizontalAlignment):Void __button_ptr().value.set_text_alignment(((p_alignment : gd.HorizontalAlignment)));
 	public function get_text_alignment():gd.HorizontalAlignment return __button_ptr().value.get_text_alignment();
 	public function set_icon_alignment(p_icon_alignment:gd.HorizontalAlignment):gd.HorizontalAlignment {
-		__button_ptr().value.set_icon_alignment(p_icon_alignment);
+		__button_ptr().value.set_icon_alignment(((p_icon_alignment : gd.HorizontalAlignment)));
 		return p_icon_alignment;
 	}
 	public function get_icon_alignment():gd.HorizontalAlignment return __button_ptr().value.get_icon_alignment();
 	public function set_vertical_icon_alignment(p_vertical_icon_alignment:gd.VerticalAlignment):gd.VerticalAlignment {
-		__button_ptr().value.set_vertical_icon_alignment(p_vertical_icon_alignment);
+		__button_ptr().value.set_vertical_icon_alignment(((p_vertical_icon_alignment : gd.VerticalAlignment)));
 		return p_vertical_icon_alignment;
 	}
 	public function get_vertical_icon_alignment():gd.VerticalAlignment return __button_ptr().value.get_vertical_icon_alignment();
 	public function set_expand_icon(p_enabled:Bool):Bool {
-		__button_ptr().value.set_expand_icon(p_enabled);
+		__button_ptr().value.set_expand_icon(((p_enabled : Bool)));
 		return p_enabled;
 	}
 	public function is_expand_icon():Bool return __button_ptr().value.is_expand_icon();

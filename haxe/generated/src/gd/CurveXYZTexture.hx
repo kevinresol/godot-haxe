@@ -9,19 +9,19 @@ class CurveXYZTexture extends gd.Texture2D {
 		super(native.reinterpret());
 	}
 	extern inline function __curvexyztexture_ptr():cpp.Pointer<gdnative.CurveXYZTexture.CurveXYZTexture_extern> return cast __gd.ptr;
-	public function set_width(p_width:Int):Void __curvexyztexture_ptr().value.set_width(p_width);
+	public function set_width(p_width:Int):Void __curvexyztexture_ptr().value.set_width(((p_width : Int)));
 	public function set_curve_x(p_curve:gd.Curve):gd.Curve {
-		__curvexyztexture_ptr().value.set_curve_x(p_curve);
+		__curvexyztexture_ptr().value.set_curve_x(((p_curve : gd.Curve)));
 		return p_curve;
 	}
 	public function get_curve_x():gd.Curve return __curvexyztexture_ptr().value.get_curve_x();
 	public function set_curve_y(p_curve:gd.Curve):gd.Curve {
-		__curvexyztexture_ptr().value.set_curve_y(p_curve);
+		__curvexyztexture_ptr().value.set_curve_y(((p_curve : gd.Curve)));
 		return p_curve;
 	}
 	public function get_curve_y():gd.Curve return __curvexyztexture_ptr().value.get_curve_y();
 	public function set_curve_z(p_curve:gd.Curve):gd.Curve {
-		__curvexyztexture_ptr().value.set_curve_z(p_curve);
+		__curvexyztexture_ptr().value.set_curve_z(((p_curve : gd.Curve)));
 		return p_curve;
 	}
 	public function get_curve_z():gd.Curve return __curvexyztexture_ptr().value.get_curve_z();

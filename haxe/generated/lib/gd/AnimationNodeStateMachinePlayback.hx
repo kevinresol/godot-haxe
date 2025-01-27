@@ -1,8 +1,8 @@
 package gd;
 extern class AnimationNodeStateMachinePlayback extends gd.Resource {
 	function new(?owner:Dynamic);
-	function travel(p_to_node:std.String, ?p_reset_on_teleport:Bool = true):Void;
-	function start(p_node:std.String, ?p_reset:Bool = true):Void;
+	function travel(p_to_node:std.String, ?p_reset_on_teleport:Bool):Void;
+	function start(p_node:std.String, ?p_reset:Bool):Void;
 	function next():Void;
 	function stop():Void;
 	function is_playing():Bool;

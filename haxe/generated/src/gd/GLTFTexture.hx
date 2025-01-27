@@ -11,12 +11,12 @@ class GLTFTexture extends gd.Resource {
 	extern inline function __gltftexture_ptr():cpp.Pointer<gdnative.GLTFTexture.GLTFTexture_extern> return cast __gd.ptr;
 	public function get_src_image():Int return __gltftexture_ptr().value.get_src_image();
 	public function set_src_image(p_src_image:Int):Int {
-		__gltftexture_ptr().value.set_src_image(p_src_image);
+		__gltftexture_ptr().value.set_src_image(((p_src_image : Int)));
 		return p_src_image;
 	}
 	public function get_sampler():Int return __gltftexture_ptr().value.get_sampler();
 	public function set_sampler(p_sampler:Int):Int {
-		__gltftexture_ptr().value.set_sampler(p_sampler);
+		__gltftexture_ptr().value.set_sampler(((p_sampler : Int)));
 		return p_sampler;
 	}
 	var src_image(get, set) : Int;

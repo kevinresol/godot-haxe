@@ -10,7 +10,7 @@ class AnimatableBody3D extends gd.StaticBody3D {
 	}
 	extern inline function __animatablebody3d_ptr():cpp.Pointer<gdnative.AnimatableBody3D.AnimatableBody3D_extern> return cast __gd.ptr;
 	public function set_sync_to_physics(p_enable:Bool):Bool {
-		__animatablebody3d_ptr().value.set_sync_to_physics(p_enable);
+		__animatablebody3d_ptr().value.set_sync_to_physics(((p_enable : Bool)));
 		return p_enable;
 	}
 	public function is_sync_to_physics_enabled():Bool return __animatablebody3d_ptr().value.is_sync_to_physics_enabled();

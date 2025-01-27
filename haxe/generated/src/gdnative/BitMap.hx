@@ -2,8 +2,8 @@ package gdnative;
 @:include("godot_cpp/classes/bit_map.hpp") @:native("godot::BitMap") @:structAccess extern class BitMap_extern extends gdnative.Resource.Resource_extern {
 	extern static inline function __alloc():cpp.Pointer<BitMap_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::BitMap"));
 	function create(p_size:gdnative.Vector2i):Void;
-	overload function create_from_image_alpha(p_image:gdnative.Image, p_threshold:Float):Void;
 	overload function create_from_image_alpha(p_image:gdnative.Image):Void;
+	overload function create_from_image_alpha(p_image:gdnative.Image, p_threshold:Float):Void;
 	function set_bitv(p_position:gdnative.Vector2i, p_bit:Bool):Void;
 	function set_bit(p_x:Int, p_y:Int, p_bit:Bool):Void;
 	function get_bitv(p_position:gdnative.Vector2i):Bool;

@@ -8,9 +8,9 @@ package gdnative;
 	function _parse_property(p_object:gdnative.Object, p_type:gdnative.variant.Type, p_name:gdnative.String, p_hint_type:gdnative.PropertyHint, p_hint_string:gdnative.String, p_usage_flags:Int, p_wide:Bool):Bool;
 	function _parse_end(p_object:gdnative.Object):Void;
 	function add_custom_control(p_control:gdnative.Control):Void;
-	overload function add_property_editor(p_property:gdnative.String, p_editor:gdnative.Control, p_add_to_end:Bool, p_label:gdnative.String):Void;
-	overload function add_property_editor(p_property:gdnative.String, p_editor:gdnative.Control, p_add_to_end:Bool):Void;
 	overload function add_property_editor(p_property:gdnative.String, p_editor:gdnative.Control):Void;
+	overload function add_property_editor(p_property:gdnative.String, p_editor:gdnative.Control, p_add_to_end:Bool):Void;
+	overload function add_property_editor(p_property:gdnative.String, p_editor:gdnative.Control, p_add_to_end:Bool, p_label:gdnative.String):Void;
 	function add_property_editor_for_multiple_properties(p_label:gdnative.String, p_properties:gdnative.PackedStringArray, p_editor:gdnative.Control):Void;
 }
 @:forward abstract EditorInspectorPlugin(gdnative.Ref<EditorInspectorPlugin_extern>) from gdnative.Ref<EditorInspectorPlugin_extern> to gdnative.Ref<EditorInspectorPlugin_extern> {

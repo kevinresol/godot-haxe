@@ -10,7 +10,7 @@ class SphereShape3D extends gd.Shape3D {
 	}
 	extern inline function __sphereshape3d_ptr():cpp.Pointer<gdnative.SphereShape3D.SphereShape3D_extern> return cast __gd.ptr;
 	public function set_radius(p_radius:Float):Float {
-		__sphereshape3d_ptr().value.set_radius(p_radius);
+		__sphereshape3d_ptr().value.set_radius(((p_radius : Float)));
 		return p_radius;
 	}
 	public function get_radius():Float return __sphereshape3d_ptr().value.get_radius();

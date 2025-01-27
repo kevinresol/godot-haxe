@@ -19,8 +19,8 @@ package gdnative;
 	function get_enter_cost():Float;
 	function set_travel_cost(p_travel_cost:Float):Void;
 	function get_travel_cost():Float;
-	overload function bake_navigation_mesh(p_on_thread:Bool):Void;
 	overload function bake_navigation_mesh():Void;
+	overload function bake_navigation_mesh(p_on_thread:Bool):Void;
 	function is_baking():Bool;
 }
 @:forward abstract NavigationRegion3D(cpp.Pointer<NavigationRegion3D_extern>) from cpp.Pointer<NavigationRegion3D_extern> to cpp.Pointer<NavigationRegion3D_extern> {

@@ -9,6 +9,6 @@ class ResourceImporterOggVorbis extends gd.ResourceImporter {
 		super(native.reinterpret());
 	}
 	extern inline function __resourceimporteroggvorbis_ptr():cpp.Pointer<gdnative.ResourceImporterOggVorbis.ResourceImporterOggVorbis_extern> return cast __gd.ptr;
-	public static function load_from_buffer(p_buffer:gd.PackedByteArray):gd.AudioStreamOggVorbis return gdnative.ResourceImporterOggVorbis.ResourceImporterOggVorbis_extern.load_from_buffer(p_buffer);
-	public static function load_from_file(p_path:std.String):gd.AudioStreamOggVorbis return gdnative.ResourceImporterOggVorbis.ResourceImporterOggVorbis_extern.load_from_file(p_path);
+	public static function load_from_buffer(p_buffer:gd.PackedByteArray):gd.AudioStreamOggVorbis return gdnative.ResourceImporterOggVorbis.ResourceImporterOggVorbis_extern.load_from_buffer(((p_buffer : gd.PackedByteArray)));
+	public static function load_from_file(p_path:std.String):gd.AudioStreamOggVorbis return gdnative.ResourceImporterOggVorbis.ResourceImporterOggVorbis_extern.load_from_file(((p_path : std.String)));
 }

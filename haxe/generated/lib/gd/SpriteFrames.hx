@@ -10,8 +10,8 @@ extern class SpriteFrames extends gd.Resource {
 	function get_animation_speed(p_anim:std.String):Float;
 	function set_animation_loop(p_anim:std.String, p_loop:Bool):Void;
 	function get_animation_loop(p_anim:std.String):Bool;
-	function add_frame(p_anim:std.String, p_texture:gd.Texture2D, ?p_duration:Float = 1., ?p_at_position:Int = -1):Void;
-	function set_frame(p_anim:std.String, p_idx:Int, p_texture:gd.Texture2D, ?p_duration:Float = 1.):Void;
+	function add_frame(p_anim:std.String, p_texture:gd.Texture2D, ?p_duration:Float, ?p_at_position:Int):Void;
+	function set_frame(p_anim:std.String, p_idx:Int, p_texture:gd.Texture2D, ?p_duration:Float):Void;
 	function remove_frame(p_anim:std.String, p_idx:Int):Void;
 	function get_frame_count(p_anim:std.String):Int;
 	function get_frame_texture(p_anim:std.String, p_idx:Int):gd.Texture2D;

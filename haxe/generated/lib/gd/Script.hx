@@ -6,7 +6,7 @@ extern class Script extends gd.Resource {
 	function has_source_code():Bool;
 	function get_source_code():std.String;
 	function set_source_code(p_source:std.String):std.String;
-	function reload(?p_keep_state:Bool = false):gd.Error;
+	function reload(?p_keep_state:Bool):gd.Error;
 	function get_base_script():gd.Script;
 	function get_instance_base_type():std.String;
 	function get_global_name():std.String;

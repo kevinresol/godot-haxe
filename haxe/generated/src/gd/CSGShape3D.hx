@@ -11,41 +11,41 @@ class CSGShape3D extends gd.GeometryInstance3D {
 	extern inline function __csgshape3d_ptr():cpp.Pointer<gdnative.CSGShape3D.CSGShape3D_extern> return cast __gd.ptr;
 	public function is_root_shape():Bool return __csgshape3d_ptr().value.is_root_shape();
 	public function set_operation(p_operation:gd.csgshape3d.Operation):gd.csgshape3d.Operation {
-		__csgshape3d_ptr().value.set_operation(p_operation);
+		__csgshape3d_ptr().value.set_operation(((p_operation : gd.csgshape3d.Operation)));
 		return p_operation;
 	}
 	public function get_operation():gd.csgshape3d.Operation return __csgshape3d_ptr().value.get_operation();
 	public function set_snap(p_snap:Float):Float {
-		__csgshape3d_ptr().value.set_snap(p_snap);
+		__csgshape3d_ptr().value.set_snap(((p_snap : Float)));
 		return p_snap;
 	}
 	public function get_snap():Float return __csgshape3d_ptr().value.get_snap();
 	public function set_use_collision(p_operation:Bool):Bool {
-		__csgshape3d_ptr().value.set_use_collision(p_operation);
+		__csgshape3d_ptr().value.set_use_collision(((p_operation : Bool)));
 		return p_operation;
 	}
 	public function is_using_collision():Bool return __csgshape3d_ptr().value.is_using_collision();
 	public function set_collision_layer(p_layer:Int):Int {
-		__csgshape3d_ptr().value.set_collision_layer(p_layer);
+		__csgshape3d_ptr().value.set_collision_layer(((p_layer : Int)));
 		return p_layer;
 	}
 	public function get_collision_layer():Int return __csgshape3d_ptr().value.get_collision_layer();
 	public function set_collision_mask(p_mask:Int):Int {
-		__csgshape3d_ptr().value.set_collision_mask(p_mask);
+		__csgshape3d_ptr().value.set_collision_mask(((p_mask : Int)));
 		return p_mask;
 	}
 	public function get_collision_mask():Int return __csgshape3d_ptr().value.get_collision_mask();
-	public function set_collision_mask_value(p_layer_number:Int, p_value:Bool):Void __csgshape3d_ptr().value.set_collision_mask_value(p_layer_number, p_value);
-	public function get_collision_mask_value(p_layer_number:Int):Bool return __csgshape3d_ptr().value.get_collision_mask_value(p_layer_number);
-	public function set_collision_layer_value(p_layer_number:Int, p_value:Bool):Void __csgshape3d_ptr().value.set_collision_layer_value(p_layer_number, p_value);
-	public function get_collision_layer_value(p_layer_number:Int):Bool return __csgshape3d_ptr().value.get_collision_layer_value(p_layer_number);
+	public function set_collision_mask_value(p_layer_number:Int, p_value:Bool):Void __csgshape3d_ptr().value.set_collision_mask_value(((p_layer_number : Int)), ((p_value : Bool)));
+	public function get_collision_mask_value(p_layer_number:Int):Bool return __csgshape3d_ptr().value.get_collision_mask_value(((p_layer_number : Int)));
+	public function set_collision_layer_value(p_layer_number:Int, p_value:Bool):Void __csgshape3d_ptr().value.set_collision_layer_value(((p_layer_number : Int)), ((p_value : Bool)));
+	public function get_collision_layer_value(p_layer_number:Int):Bool return __csgshape3d_ptr().value.get_collision_layer_value(((p_layer_number : Int)));
 	public function set_collision_priority(p_priority:Float):Float {
-		__csgshape3d_ptr().value.set_collision_priority(p_priority);
+		__csgshape3d_ptr().value.set_collision_priority(((p_priority : Float)));
 		return p_priority;
 	}
 	public function get_collision_priority():Float return __csgshape3d_ptr().value.get_collision_priority();
 	public function set_calculate_tangents(p_enabled:Bool):Bool {
-		__csgshape3d_ptr().value.set_calculate_tangents(p_enabled);
+		__csgshape3d_ptr().value.set_calculate_tangents(((p_enabled : Bool)));
 		return p_enabled;
 	}
 	public function is_calculating_tangents():Bool return __csgshape3d_ptr().value.is_calculating_tangents();

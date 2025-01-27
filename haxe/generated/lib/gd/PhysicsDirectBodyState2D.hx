@@ -15,7 +15,12 @@ extern class PhysicsDirectBodyState2D extends gd.Object {
 	function get_velocity_at_local_position(p_local_position:gd.Vector2):gd.Vector2;
 	function apply_central_impulse(p_impulse:gd.Vector2):Void;
 	function apply_torque_impulse(p_impulse:Float):Void;
+	function apply_impulse(p_impulse:gd.Vector2, ?p_position:gd.Vector2):Void;
+	function apply_central_force(?p_force:gd.Vector2):Void;
+	function apply_force(p_force:gd.Vector2, ?p_position:gd.Vector2):Void;
 	function apply_torque(p_torque:Float):Void;
+	function add_constant_central_force(?p_force:gd.Vector2):Void;
+	function add_constant_force(p_force:gd.Vector2, ?p_position:gd.Vector2):Void;
 	function add_constant_torque(p_torque:Float):Void;
 	function set_constant_force(p_force:gd.Vector2):Void;
 	function get_constant_force():gd.Vector2;

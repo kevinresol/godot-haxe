@@ -9,5 +9,5 @@ class RichTextEffect extends gd.Resource {
 		super(native.reinterpret());
 	}
 	extern inline function __richtexteffect_ptr():cpp.Pointer<gdnative.RichTextEffect.RichTextEffect_extern> return cast __gd.ptr;
-	public function _process_custom_fx(p_char_fx:gd.CharFXTransform):Bool return __richtexteffect_ptr().value._process_custom_fx(p_char_fx);
+	public function _process_custom_fx(p_char_fx:gd.CharFXTransform):Bool return __richtexteffect_ptr().value._process_custom_fx(((p_char_fx : gd.CharFXTransform)));
 }

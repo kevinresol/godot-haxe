@@ -13,12 +13,14 @@ extern class MeshInstance3D extends gd.GeometryInstance3D {
 	function get_surface_override_material(p_surface:Int):gd.Material;
 	function get_active_material(p_surface:Int):gd.Material;
 	function create_trimesh_collision():Void;
-	function create_convex_collision(?p_clean:Bool = true, ?p_simplify:Bool = false):Void;
+	function create_convex_collision(?p_clean:Bool, ?p_simplify:Bool):Void;
+	function create_multiple_convex_collisions(?p_settings:gd.MeshConvexDecompositionSettings):Void;
 	function get_blend_shape_count():Int;
 	function find_blend_shape_by_name(p_name:std.String):Int;
 	function get_blend_shape_value(p_blend_shape_idx:Int):Float;
 	function set_blend_shape_value(p_blend_shape_idx:Int, p_value:Float):Void;
 	function create_debug_tangents():Void;
+	function bake_mesh_from_current_blend_shape_mix(?p_existing:gd.ArrayMesh):gd.ArrayMesh;
 	var mesh(get, set) : gd.Mesh;
 	var skin(get, set) : gd.Skin;
 	var skeleton(get, set) : std.String;

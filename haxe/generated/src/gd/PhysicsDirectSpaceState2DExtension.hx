@@ -9,5 +9,5 @@ class PhysicsDirectSpaceState2DExtension extends gd.PhysicsDirectSpaceState2D {
 		super(native.reinterpret());
 	}
 	extern inline function __physicsdirectspacestate2dextension_ptr():cpp.Pointer<gdnative.PhysicsDirectSpaceState2DExtension.PhysicsDirectSpaceState2DExtension_extern> return cast __gd.ptr;
-	public function is_body_excluded_from_query(p_body:gd.RID):Bool return __physicsdirectspacestate2dextension_ptr().value.is_body_excluded_from_query(p_body);
+	public function is_body_excluded_from_query(p_body:gd.RID):Bool return __physicsdirectspacestate2dextension_ptr().value.is_body_excluded_from_query(((p_body : gd.RID)));
 }

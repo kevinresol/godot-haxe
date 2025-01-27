@@ -10,7 +10,7 @@ class VisualShaderNodeMix extends gd.VisualShaderNode {
 	}
 	extern inline function __visualshadernodemix_ptr():cpp.Pointer<gdnative.VisualShaderNodeMix.VisualShaderNodeMix_extern> return cast __gd.ptr;
 	public function set_op_type(p_op_type:gd.visualshadernodemix.OpType):gd.visualshadernodemix.OpType {
-		__visualshadernodemix_ptr().value.set_op_type(p_op_type);
+		__visualshadernodemix_ptr().value.set_op_type(((p_op_type : gd.visualshadernodemix.OpType)));
 		return p_op_type;
 	}
 	public function get_op_type():gd.visualshadernodemix.OpType return __visualshadernodemix_ptr().value.get_op_type();

@@ -1,6 +1,7 @@
 package gd;
 extern class ImmediateMesh extends gd.Mesh {
 	function new(?owner:Dynamic);
+	function surface_begin(p_primitive:gd.mesh.PrimitiveType, ?p_material:gd.Material):Void;
 	function surface_set_color(p_color:gd.Color):Void;
 	function surface_set_normal(p_normal:gd.Vector3):Void;
 	function surface_set_tangent(p_tangent:gd.Plane):Void;

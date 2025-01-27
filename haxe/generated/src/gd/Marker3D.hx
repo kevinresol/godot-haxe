@@ -10,7 +10,7 @@ class Marker3D extends gd.Node3D {
 	}
 	extern inline function __marker3d_ptr():cpp.Pointer<gdnative.Marker3D.Marker3D_extern> return cast __gd.ptr;
 	public function set_gizmo_extents(p_extents:Float):Float {
-		__marker3d_ptr().value.set_gizmo_extents(p_extents);
+		__marker3d_ptr().value.set_gizmo_extents(((p_extents : Float)));
 		return p_extents;
 	}
 	public function get_gizmo_extents():Float return __marker3d_ptr().value.get_gizmo_extents();

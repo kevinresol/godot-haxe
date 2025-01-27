@@ -10,7 +10,7 @@ class DirectionalLight2D extends gd.Light2D {
 	}
 	extern inline function __directionallight2d_ptr():cpp.Pointer<gdnative.DirectionalLight2D.DirectionalLight2D_extern> return cast __gd.ptr;
 	public function set_max_distance(p_pixels:Float):Float {
-		__directionallight2d_ptr().value.set_max_distance(p_pixels);
+		__directionallight2d_ptr().value.set_max_distance(((p_pixels : Float)));
 		return p_pixels;
 	}
 	public function get_max_distance():Float return __directionallight2d_ptr().value.get_max_distance();

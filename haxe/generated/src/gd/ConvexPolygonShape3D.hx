@@ -10,7 +10,7 @@ class ConvexPolygonShape3D extends gd.Shape3D {
 	}
 	extern inline function __convexpolygonshape3d_ptr():cpp.Pointer<gdnative.ConvexPolygonShape3D.ConvexPolygonShape3D_extern> return cast __gd.ptr;
 	public function set_points(p_points:gd.PackedVector3Array):gd.PackedVector3Array {
-		__convexpolygonshape3d_ptr().value.set_points(p_points);
+		__convexpolygonshape3d_ptr().value.set_points(((p_points : gd.PackedVector3Array)));
 		return p_points;
 	}
 	public function get_points():gd.PackedVector3Array return __convexpolygonshape3d_ptr().value.get_points();

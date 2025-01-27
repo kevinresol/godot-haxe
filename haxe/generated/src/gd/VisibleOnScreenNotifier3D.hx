@@ -9,6 +9,6 @@ class VisibleOnScreenNotifier3D extends gd.VisualInstance3D {
 		super(native.reinterpret());
 	}
 	extern inline function __visibleonscreennotifier3d_ptr():cpp.Pointer<gdnative.VisibleOnScreenNotifier3D.VisibleOnScreenNotifier3D_extern> return cast __gd.ptr;
-	public function set_aabb(p_rect:gd.AABB):Void __visibleonscreennotifier3d_ptr().value.set_aabb(p_rect);
+	public function set_aabb(p_rect:gd.AABB):Void __visibleonscreennotifier3d_ptr().value.set_aabb(((p_rect : gd.AABB)));
 	public function is_on_screen():Bool return __visibleonscreennotifier3d_ptr().value.is_on_screen();
 }

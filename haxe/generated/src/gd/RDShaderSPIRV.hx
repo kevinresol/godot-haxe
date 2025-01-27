@@ -9,10 +9,10 @@ class RDShaderSPIRV extends gd.Resource {
 		super(native.reinterpret());
 	}
 	extern inline function __rdshaderspirv_ptr():cpp.Pointer<gdnative.RDShaderSPIRV.RDShaderSPIRV_extern> return cast __gd.ptr;
-	public function set_stage_bytecode(p_stage:gd.renderingdevice.ShaderStage, p_bytecode:gd.PackedByteArray):Void __rdshaderspirv_ptr().value.set_stage_bytecode(p_stage, p_bytecode);
-	public function get_stage_bytecode(p_stage:gd.renderingdevice.ShaderStage):gd.PackedByteArray return __rdshaderspirv_ptr().value.get_stage_bytecode(p_stage);
-	public function set_stage_compile_error(p_stage:gd.renderingdevice.ShaderStage, p_compile_error:std.String):Void __rdshaderspirv_ptr().value.set_stage_compile_error(p_stage, p_compile_error);
-	public function get_stage_compile_error(p_stage:gd.renderingdevice.ShaderStage):std.String return __rdshaderspirv_ptr().value.get_stage_compile_error(p_stage);
+	public function set_stage_bytecode(p_stage:gd.renderingdevice.ShaderStage, p_bytecode:gd.PackedByteArray):Void __rdshaderspirv_ptr().value.set_stage_bytecode(((p_stage : gd.renderingdevice.ShaderStage)), ((p_bytecode : gd.PackedByteArray)));
+	public function get_stage_bytecode(p_stage:gd.renderingdevice.ShaderStage):gd.PackedByteArray return __rdshaderspirv_ptr().value.get_stage_bytecode(((p_stage : gd.renderingdevice.ShaderStage)));
+	public function set_stage_compile_error(p_stage:gd.renderingdevice.ShaderStage, p_compile_error:std.String):Void __rdshaderspirv_ptr().value.set_stage_compile_error(((p_stage : gd.renderingdevice.ShaderStage)), ((p_compile_error : std.String)));
+	public function get_stage_compile_error(p_stage:gd.renderingdevice.ShaderStage):std.String return __rdshaderspirv_ptr().value.get_stage_compile_error(((p_stage : gd.renderingdevice.ShaderStage)));
 	var bytecode_vertex(get, set) : gd.PackedByteArray;
 	function get_bytecode_vertex():gd.PackedByteArray return get_stage_bytecode(0);
 	function set_bytecode_vertex(v:gd.PackedByteArray):gd.PackedByteArray {

@@ -10,7 +10,7 @@ class VisualShaderNodeVec3Constant extends gd.VisualShaderNodeConstant {
 	}
 	extern inline function __visualshadernodevec3constant_ptr():cpp.Pointer<gdnative.VisualShaderNodeVec3Constant.VisualShaderNodeVec3Constant_extern> return cast __gd.ptr;
 	public function set_constant(p_constant:gd.Vector3):gd.Vector3 {
-		__visualshadernodevec3constant_ptr().value.set_constant(p_constant);
+		__visualshadernodevec3constant_ptr().value.set_constant(((p_constant : gd.Vector3)));
 		return p_constant;
 	}
 	public function get_constant():gd.Vector3 return __visualshadernodevec3constant_ptr().value.get_constant();

@@ -10,7 +10,7 @@ class VisualShaderNodeParticleAccelerator extends gd.VisualShaderNode {
 	}
 	extern inline function __visualshadernodeparticleaccelerator_ptr():cpp.Pointer<gdnative.VisualShaderNodeParticleAccelerator.VisualShaderNodeParticleAccelerator_extern> return cast __gd.ptr;
 	public function set_mode(p_mode:gd.visualshadernodeparticleaccelerator.Mode):gd.visualshadernodeparticleaccelerator.Mode {
-		__visualshadernodeparticleaccelerator_ptr().value.set_mode(p_mode);
+		__visualshadernodeparticleaccelerator_ptr().value.set_mode(((p_mode : gd.visualshadernodeparticleaccelerator.Mode)));
 		return p_mode;
 	}
 	public function get_mode():gd.visualshadernodeparticleaccelerator.Mode return __visualshadernodeparticleaccelerator_ptr().value.get_mode();

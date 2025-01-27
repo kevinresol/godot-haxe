@@ -13,7 +13,11 @@ extern class TextParagraph extends gd.RefCounted {
 	function set_preserve_control(p_enabled:Bool):Bool;
 	function get_preserve_control():Bool;
 	function set_bidi_override(p_override:gd.Array):Void;
+	function set_dropcap(p_text:std.String, p_font:gd.Font, p_font_size:Int, ?p_dropcap_margins:gd.Rect2, ?p_language:std.String):Bool;
 	function clear_dropcap():Void;
+	function add_string(p_text:std.String, p_font:gd.Font, p_font_size:Int, ?p_language:std.String, ?p_meta:gd.Variant):Bool;
+	function add_object(p_key:gd.Variant, p_size:gd.Vector2, ?p_inline_align:gd.InlineAlignment, ?p_length:Int, ?p_baseline:Float):Bool;
+	function resize_object(p_key:gd.Variant, p_size:gd.Vector2, ?p_inline_align:gd.InlineAlignment, ?p_baseline:Float):Bool;
 	function set_alignment(p_alignment:gd.HorizontalAlignment):gd.HorizontalAlignment;
 	function get_alignment():gd.HorizontalAlignment;
 	function tab_align(p_tab_stops:gd.PackedFloat32Array):Void;
@@ -46,6 +50,12 @@ extern class TextParagraph extends gd.RefCounted {
 	function get_line_underline_thickness(p_line:Int):Float;
 	function get_dropcap_size():gd.Vector2;
 	function get_dropcap_lines():Int;
+	function draw(p_canvas:gd.RID, p_pos:gd.Vector2, ?p_color:gd.Color, ?p_dc_color:gd.Color):Void;
+	function draw_outline(p_canvas:gd.RID, p_pos:gd.Vector2, ?p_outline_size:Int, ?p_color:gd.Color, ?p_dc_color:gd.Color):Void;
+	function draw_line(p_canvas:gd.RID, p_pos:gd.Vector2, p_line:Int, ?p_color:gd.Color):Void;
+	function draw_line_outline(p_canvas:gd.RID, p_pos:gd.Vector2, p_line:Int, ?p_outline_size:Int, ?p_color:gd.Color):Void;
+	function draw_dropcap(p_canvas:gd.RID, p_pos:gd.Vector2, ?p_color:gd.Color):Void;
+	function draw_dropcap_outline(p_canvas:gd.RID, p_pos:gd.Vector2, ?p_outline_size:Int, ?p_color:gd.Color):Void;
 	function hit_test(p_coords:gd.Vector2):Int;
 	var direction(get, set) : gd.textserver.Direction;
 	var custom_punctuation(get, set) : std.String;

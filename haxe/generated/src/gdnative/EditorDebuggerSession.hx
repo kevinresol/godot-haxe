@@ -1,10 +1,10 @@
 package gdnative;
 @:include("godot_cpp/classes/editor_debugger_session.hpp") @:native("godot::EditorDebuggerSession") @:structAccess extern class EditorDebuggerSession_extern extends gdnative.RefCounted.RefCounted_extern {
 	extern static inline function __alloc():cpp.Pointer<EditorDebuggerSession_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::EditorDebuggerSession"));
-	overload function send_message(p_message:gdnative.String, p_data:gdnative.Array):Void;
 	overload function send_message(p_message:gdnative.String):Void;
-	overload function toggle_profiler(p_profiler:gdnative.String, p_enable:Bool, p_data:gdnative.Array):Void;
+	overload function send_message(p_message:gdnative.String, p_data:gdnative.Array):Void;
 	overload function toggle_profiler(p_profiler:gdnative.String, p_enable:Bool):Void;
+	overload function toggle_profiler(p_profiler:gdnative.String, p_enable:Bool, p_data:gdnative.Array):Void;
 	function is_breaked():Bool;
 	function is_debuggable():Bool;
 	function is_active():Bool;

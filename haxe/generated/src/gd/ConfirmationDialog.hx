@@ -11,7 +11,7 @@ class ConfirmationDialog extends gd.AcceptDialog {
 	extern inline function __confirmationdialog_ptr():cpp.Pointer<gdnative.ConfirmationDialog.ConfirmationDialog_extern> return cast __gd.ptr;
 	public function get_cancel_button():gd.Button return __confirmationdialog_ptr().value.get_cancel_button();
 	public function set_cancel_button_text(p_text:std.String):std.String {
-		__confirmationdialog_ptr().value.set_cancel_button_text(p_text);
+		__confirmationdialog_ptr().value.set_cancel_button_text(((p_text : std.String)));
 		return p_text;
 	}
 	public function get_cancel_button_text():std.String return __confirmationdialog_ptr().value.get_cancel_button_text();

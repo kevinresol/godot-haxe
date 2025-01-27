@@ -22,9 +22,9 @@ package gdnative;
 	function update_property():Void;
 	function add_focusable(p_control:gdnative.Control):Void;
 	function set_bottom_editor(p_editor:gdnative.Control):Void;
-	overload function emit_changed(p_property:gdnative.StringName, p_value:gdnative.Variant, p_field:gdnative.StringName, p_changing:Bool):Void;
-	overload function emit_changed(p_property:gdnative.StringName, p_value:gdnative.Variant, p_field:gdnative.StringName):Void;
 	overload function emit_changed(p_property:gdnative.StringName, p_value:gdnative.Variant):Void;
+	overload function emit_changed(p_property:gdnative.StringName, p_value:gdnative.Variant, p_field:gdnative.StringName):Void;
+	overload function emit_changed(p_property:gdnative.StringName, p_value:gdnative.Variant, p_field:gdnative.StringName, p_changing:Bool):Void;
 }
 @:forward abstract EditorProperty(cpp.Pointer<EditorProperty_extern>) from cpp.Pointer<EditorProperty_extern> to cpp.Pointer<EditorProperty_extern> {
 	@:from

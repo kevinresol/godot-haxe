@@ -2,8 +2,8 @@ package gdnative;
 @:include("godot_cpp/classes/config_file.hpp") @:native("godot::ConfigFile") @:structAccess extern class ConfigFile_extern extends gdnative.RefCounted.RefCounted_extern {
 	extern static inline function __alloc():cpp.Pointer<ConfigFile_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::ConfigFile"));
 	function set_value(p_section:gdnative.String, p_key:gdnative.String, p_value:gdnative.Variant):Void;
-	overload function get_value(p_section:gdnative.String, p_key:gdnative.String, p_default:gdnative.Variant):gdnative.Variant;
 	overload function get_value(p_section:gdnative.String, p_key:gdnative.String):gdnative.Variant;
+	overload function get_value(p_section:gdnative.String, p_key:gdnative.String, p_default:gdnative.Variant):gdnative.Variant;
 	function has_section(p_section:gdnative.String):Bool;
 	function has_section_key(p_section:gdnative.String, p_key:gdnative.String):Bool;
 	function get_sections():gdnative.PackedStringArray;

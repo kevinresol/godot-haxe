@@ -10,13 +10,13 @@ class AudioStreamSynchronized extends gd.AudioStream {
 	}
 	extern inline function __audiostreamsynchronized_ptr():cpp.Pointer<gdnative.AudioStreamSynchronized.AudioStreamSynchronized_extern> return cast __gd.ptr;
 	public function set_stream_count(p_stream_count:Int):Int {
-		__audiostreamsynchronized_ptr().value.set_stream_count(p_stream_count);
+		__audiostreamsynchronized_ptr().value.set_stream_count(((p_stream_count : Int)));
 		return p_stream_count;
 	}
 	public function get_stream_count():Int return __audiostreamsynchronized_ptr().value.get_stream_count();
-	public function set_sync_stream(p_stream_index:Int, p_audio_stream:gd.AudioStream):Void __audiostreamsynchronized_ptr().value.set_sync_stream(p_stream_index, p_audio_stream);
-	public function get_sync_stream(p_stream_index:Int):gd.AudioStream return __audiostreamsynchronized_ptr().value.get_sync_stream(p_stream_index);
-	public function set_sync_stream_volume(p_stream_index:Int, p_volume_db:Float):Void __audiostreamsynchronized_ptr().value.set_sync_stream_volume(p_stream_index, p_volume_db);
-	public function get_sync_stream_volume(p_stream_index:Int):Float return __audiostreamsynchronized_ptr().value.get_sync_stream_volume(p_stream_index);
+	public function set_sync_stream(p_stream_index:Int, p_audio_stream:gd.AudioStream):Void __audiostreamsynchronized_ptr().value.set_sync_stream(((p_stream_index : Int)), ((p_audio_stream : gd.AudioStream)));
+	public function get_sync_stream(p_stream_index:Int):gd.AudioStream return __audiostreamsynchronized_ptr().value.get_sync_stream(((p_stream_index : Int)));
+	public function set_sync_stream_volume(p_stream_index:Int, p_volume_db:Float):Void __audiostreamsynchronized_ptr().value.set_sync_stream_volume(((p_stream_index : Int)), ((p_volume_db : Float)));
+	public function get_sync_stream_volume(p_stream_index:Int):Float return __audiostreamsynchronized_ptr().value.get_sync_stream_volume(((p_stream_index : Int)));
 	var stream_count(get, set) : Int;
 }

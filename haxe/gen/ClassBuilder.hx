@@ -109,7 +109,7 @@ class ClassBuilder extends EnumBuilder {
 						name: fname,
 						access: (optArgCount > 0 ? [AOverload] : []).concat(fn.is_static ? [AStatic] : []),
 						kind: FFun({
-							args: fargs.slice(0, fargs.length - i),
+							args: fargs.slice(0, fargs.length - optArgCount + i),
 							ret: rct,
 						}),
 					});
@@ -225,7 +225,9 @@ class ClassBuilder extends EnumBuilder {
 		for (fn in methods) {
 			final fname = fn.name;
 			final rtype = fn.return_value?.type ?? 'void';
-			final isSetter = false; // clazz.properties?.exists(p -> p.setter == fname);
+			final args = (fn.arguments ?? []).filter(arg -> arg.type != 'enum::Node.InternalMode'
+				&& arg.type != 'enum::ResourceLoader.CacheMode');
+			final optArgCount = args.count(a -> a.default_value != null);
 			try {
 				cls.fields.push({
 					pos: null,
@@ -239,28 +241,12 @@ class ClassBuilder extends EnumBuilder {
 						a;
 					},
 					kind: FFun({
-						args: (fn.arguments ?? []).filter(arg -> arg.type != 'enum::Node.InternalMode'
-							&& arg.type != 'enum::ResourceLoader.CacheMode')
-							.map(arg -> ({
-								name: 'p_${arg.name}',
-								type: makeHaxeType(arg.type),
-								value: switch [arg.default_value, arg.type] {
-									case [null, _]: null;
-									case [_, 'bool']: (macro $v{arg.default_value == 'true'});
-									case [_, 'int']: (macro $v{Std.parseInt(arg.default_value)});
-									case [_, 'float']: (macro $v{Std.parseFloat(arg.default_value)});
-									case [_, 'std.String' | 'String' | 'StringName']: (macro $v{arg.default_value});
-									case [_, t] if (t.startsWith('enum::')):
-										// macro $i{findEnumEntryName(t.split('::')[1], Std.parseInt(arg.default_value))};
-										trace('TODO: handle enum default value $t');
-										throw 0;
-									case [_, t]:
-										trace('TODO: handle default value $t');
-										throw 0;
-								},
-								opt: arg.default_value != null,
-							} : FunctionArg)),
-						ret: makeHaxeType(isSetter ? fn.arguments[0].type : rtype),
+						args: args.map(arg -> ({
+							name: 'p_${arg.name}',
+							type: makeHaxeType(arg.type),
+							opt: arg.default_value != null,
+						} : FunctionArg)),
+						ret: makeHaxeType(rtype),
 						expr: isScriptExtern ? null : {
 							final target = if (fn.is_static) {
 								macro $p{Config.nativeExtern.pack.concat([cname, '${cname}_extern'])};
@@ -268,21 +254,36 @@ class ClassBuilder extends EnumBuilder {
 								macro $i{getPointerHelperName(cname)}().value;
 							}
 
-							final e = macro $target.$fname($a{
-								(fn.arguments ?? []).filter(arg -> arg.type != 'enum::Node.InternalMode'
-									&& arg.type != 'enum::ResourceLoader.CacheMode')
-									.map(arg -> macro $i{'p_${arg.name}'})});
+							final callArgs = args.map(arg -> {
+								final ct = makeHaxeType(arg.type);
+								macro($i{'p_${arg.name}'} : $ct);
+							});
+							final fullArgCallExpr = macro $target.$fname($a{callArgs});
 
-							if (isSetter) {
-								macro {
-									$e;
-									return $i{'p_${fn.arguments[0].name}'};
+							// Due to the difference concept of optional arguments between Haxe and C++,
+							// we need to do null checks to find out what args are omitted and call the correct overload.
+							// TODO: perhaps there is a better way? e.g. overload functions for cppia?
+							final e = if (optArgCount > 0) {
+								{
+									pos: null,
+									expr: ESwitch(macro $a{args.map(a -> macro $i{'p_${a.name}'})}, [
+
+										for (i in 0...optArgCount) {
+											final specifiedArgCount = args.length - optArgCount + i;
+											{
+												values: {
+													final v = [for (j in 0...args.length) macro _];
+													v[specifiedArgCount] = macro null;
+													[macro $a{v}];
+												},
+												expr: macro $target.$fname($a{callArgs.slice(0, specifiedArgCount)})
+											}
+										}
+									], fullArgCallExpr)
 								}
-							} else if (rtype == 'void') {
-								e;
-							} else {
-								macro return $e;
-							}
+							} else fullArgCallExpr;
+
+							rtype == 'void' ? e : macro return $e;
 						}
 					})
 				});

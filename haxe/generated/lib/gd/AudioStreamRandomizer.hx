@@ -1,7 +1,7 @@
 package gd;
 extern class AudioStreamRandomizer extends gd.AudioStream {
 	function new(?owner:Dynamic);
-	function add_stream(p_index:Int, p_stream:gd.AudioStream, ?p_weight:Float = 1.):Void;
+	function add_stream(p_index:Int, p_stream:gd.AudioStream, ?p_weight:Float):Void;
 	function move_stream(p_index_from:Int, p_index_to:Int):Void;
 	function remove_stream(p_index:Int):Void;
 	function set_stream(p_index:Int, p_stream:gd.AudioStream):Void;

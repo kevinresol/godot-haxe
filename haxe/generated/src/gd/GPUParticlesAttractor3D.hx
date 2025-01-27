@@ -10,22 +10,22 @@ class GPUParticlesAttractor3D extends gd.VisualInstance3D {
 	}
 	extern inline function __gpuparticlesattractor3d_ptr():cpp.Pointer<gdnative.GPUParticlesAttractor3D.GPUParticlesAttractor3D_extern> return cast __gd.ptr;
 	public function set_cull_mask(p_mask:Int):Int {
-		__gpuparticlesattractor3d_ptr().value.set_cull_mask(p_mask);
+		__gpuparticlesattractor3d_ptr().value.set_cull_mask(((p_mask : Int)));
 		return p_mask;
 	}
 	public function get_cull_mask():Int return __gpuparticlesattractor3d_ptr().value.get_cull_mask();
 	public function set_strength(p_strength:Float):Float {
-		__gpuparticlesattractor3d_ptr().value.set_strength(p_strength);
+		__gpuparticlesattractor3d_ptr().value.set_strength(((p_strength : Float)));
 		return p_strength;
 	}
 	public function get_strength():Float return __gpuparticlesattractor3d_ptr().value.get_strength();
 	public function set_attenuation(p_attenuation:Float):Float {
-		__gpuparticlesattractor3d_ptr().value.set_attenuation(p_attenuation);
+		__gpuparticlesattractor3d_ptr().value.set_attenuation(((p_attenuation : Float)));
 		return p_attenuation;
 	}
 	public function get_attenuation():Float return __gpuparticlesattractor3d_ptr().value.get_attenuation();
 	public function set_directionality(p_amount:Float):Float {
-		__gpuparticlesattractor3d_ptr().value.set_directionality(p_amount);
+		__gpuparticlesattractor3d_ptr().value.set_directionality(((p_amount : Float)));
 		return p_amount;
 	}
 	public function get_directionality():Float return __gpuparticlesattractor3d_ptr().value.get_directionality();

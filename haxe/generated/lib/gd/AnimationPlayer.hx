@@ -15,10 +15,11 @@ extern class AnimationPlayer extends gd.AnimationMixer {
 	function get_auto_capture_transition_type():gd.tween.TransitionType;
 	function set_auto_capture_ease_type(p_auto_capture_ease_type:gd.tween.EaseType):Void;
 	function get_auto_capture_ease_type():gd.tween.EaseType;
-	function play(?p_name:std.String = "&\"\"", ?p_custom_blend:Float = -1., ?p_custom_speed:Float = 1., ?p_from_end:Bool = false):Void;
-	function play_backwards(?p_name:std.String = "&\"\"", ?p_custom_blend:Float = -1.):Void;
+	function play(?p_name:std.String, ?p_custom_blend:Float, ?p_custom_speed:Float, ?p_from_end:Bool):Void;
+	function play_backwards(?p_name:std.String, ?p_custom_blend:Float):Void;
+	function play_with_capture(?p_name:std.String, ?p_duration:Float, ?p_custom_blend:Float, ?p_custom_speed:Float, ?p_from_end:Bool, ?p_trans_type:gd.tween.TransitionType, ?p_ease_type:gd.tween.EaseType):Void;
 	function pause():Void;
-	function stop(?p_keep_state:Bool = false):Void;
+	function stop(?p_keep_state:Bool):Void;
 	function is_playing():Bool;
 	function set_current_animation(p_animation:std.String):std.String;
 	function get_current_animation():std.String;
@@ -36,7 +37,7 @@ extern class AnimationPlayer extends gd.AnimationMixer {
 	function is_movie_quit_on_finish_enabled():Bool;
 	function get_current_animation_position():Float;
 	function get_current_animation_length():Float;
-	function seek(p_seconds:Float, ?p_update:Bool = false, ?p_update_only:Bool = false):Void;
+	function seek(p_seconds:Float, ?p_update:Bool, ?p_update_only:Bool):Void;
 	function set_process_callback(p_mode:gd.animationplayer.AnimationProcessCallback):Void;
 	function get_process_callback():gd.animationplayer.AnimationProcessCallback;
 	function set_method_call_mode(p_mode:gd.animationplayer.AnimationMethodCallMode):Void;

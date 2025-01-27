@@ -11,7 +11,7 @@ extern class MultiplayerPeer extends gd.PacketPeer {
 	function get_packet_mode():gd.multiplayerpeer.TransferMode;
 	function poll():Void;
 	function close():Void;
-	function disconnect_peer(p_peer:Int, ?p_force:Bool = false):Void;
+	function disconnect_peer(p_peer:Int, ?p_force:Bool):Void;
 	function get_connection_status():gd.multiplayerpeer.ConnectionStatus;
 	function get_unique_id():Int;
 	function generate_unique_id():Int;

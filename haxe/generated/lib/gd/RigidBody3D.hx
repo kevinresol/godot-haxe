@@ -37,10 +37,13 @@ extern class RigidBody3D extends gd.PhysicsBody3D {
 	function is_using_continuous_collision_detection():Bool;
 	function set_axis_velocity(p_axis_velocity:gd.Vector3):Void;
 	function apply_central_impulse(p_impulse:gd.Vector3):Void;
+	function apply_impulse(p_impulse:gd.Vector3, ?p_position:gd.Vector3):Void;
 	function apply_torque_impulse(p_impulse:gd.Vector3):Void;
 	function apply_central_force(p_force:gd.Vector3):Void;
+	function apply_force(p_force:gd.Vector3, ?p_position:gd.Vector3):Void;
 	function apply_torque(p_torque:gd.Vector3):Void;
 	function add_constant_central_force(p_force:gd.Vector3):Void;
+	function add_constant_force(p_force:gd.Vector3, ?p_position:gd.Vector3):Void;
 	function add_constant_torque(p_torque:gd.Vector3):Void;
 	function set_constant_force(p_force:gd.Vector3):gd.Vector3;
 	function get_constant_force():gd.Vector3;

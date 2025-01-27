@@ -10,7 +10,7 @@ class VisualShaderNodeResizableBase extends gd.VisualShaderNode {
 	}
 	extern inline function __visualshadernoderesizablebase_ptr():cpp.Pointer<gdnative.VisualShaderNodeResizableBase.VisualShaderNodeResizableBase_extern> return cast __gd.ptr;
 	public function set_size(p_size:gd.Vector2):gd.Vector2 {
-		__visualshadernoderesizablebase_ptr().value.set_size(p_size);
+		__visualshadernoderesizablebase_ptr().value.set_size(((p_size : gd.Vector2)));
 		return p_size;
 	}
 	public function get_size():gd.Vector2 return __visualshadernoderesizablebase_ptr().value.get_size();

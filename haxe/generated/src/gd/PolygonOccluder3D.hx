@@ -10,7 +10,7 @@ class PolygonOccluder3D extends gd.Occluder3D {
 	}
 	extern inline function __polygonoccluder3d_ptr():cpp.Pointer<gdnative.PolygonOccluder3D.PolygonOccluder3D_extern> return cast __gd.ptr;
 	public function set_polygon(p_polygon:gd.PackedVector2Array):gd.PackedVector2Array {
-		__polygonoccluder3d_ptr().value.set_polygon(p_polygon);
+		__polygonoccluder3d_ptr().value.set_polygon(((p_polygon : gd.PackedVector2Array)));
 		return p_polygon;
 	}
 	public function get_polygon():gd.PackedVector2Array return __polygonoccluder3d_ptr().value.get_polygon();

@@ -9,58 +9,58 @@ class ColorPicker extends gd.VBoxContainer {
 		super(native.reinterpret());
 	}
 	extern inline function __colorpicker_ptr():cpp.Pointer<gdnative.ColorPicker.ColorPicker_extern> return cast __gd.ptr;
-	public function set_pick_color(p_color:gd.Color):Void __colorpicker_ptr().value.set_pick_color(p_color);
+	public function set_pick_color(p_color:gd.Color):Void __colorpicker_ptr().value.set_pick_color(((p_color : gd.Color)));
 	public function get_pick_color():gd.Color return __colorpicker_ptr().value.get_pick_color();
 	public function set_deferred_mode(p_mode:Bool):Bool {
-		__colorpicker_ptr().value.set_deferred_mode(p_mode);
+		__colorpicker_ptr().value.set_deferred_mode(((p_mode : Bool)));
 		return p_mode;
 	}
 	public function is_deferred_mode():Bool return __colorpicker_ptr().value.is_deferred_mode();
 	public function set_color_mode(p_color_mode:gd.colorpicker.ColorModeType):gd.colorpicker.ColorModeType {
-		__colorpicker_ptr().value.set_color_mode(p_color_mode);
+		__colorpicker_ptr().value.set_color_mode(((p_color_mode : gd.colorpicker.ColorModeType)));
 		return p_color_mode;
 	}
 	public function get_color_mode():gd.colorpicker.ColorModeType return __colorpicker_ptr().value.get_color_mode();
 	public function set_edit_alpha(p_show:Bool):Bool {
-		__colorpicker_ptr().value.set_edit_alpha(p_show);
+		__colorpicker_ptr().value.set_edit_alpha(((p_show : Bool)));
 		return p_show;
 	}
 	public function is_editing_alpha():Bool return __colorpicker_ptr().value.is_editing_alpha();
 	public function set_can_add_swatches(p_enabled:Bool):Bool {
-		__colorpicker_ptr().value.set_can_add_swatches(p_enabled);
+		__colorpicker_ptr().value.set_can_add_swatches(((p_enabled : Bool)));
 		return p_enabled;
 	}
 	public function are_swatches_enabled():Bool return __colorpicker_ptr().value.are_swatches_enabled();
 	public function set_presets_visible(p_visible:Bool):Bool {
-		__colorpicker_ptr().value.set_presets_visible(p_visible);
+		__colorpicker_ptr().value.set_presets_visible(((p_visible : Bool)));
 		return p_visible;
 	}
 	public function are_presets_visible():Bool return __colorpicker_ptr().value.are_presets_visible();
-	public function set_modes_visible(p_visible:Bool):Void __colorpicker_ptr().value.set_modes_visible(p_visible);
+	public function set_modes_visible(p_visible:Bool):Void __colorpicker_ptr().value.set_modes_visible(((p_visible : Bool)));
 	public function are_modes_visible():Bool return __colorpicker_ptr().value.are_modes_visible();
 	public function set_sampler_visible(p_visible:Bool):Bool {
-		__colorpicker_ptr().value.set_sampler_visible(p_visible);
+		__colorpicker_ptr().value.set_sampler_visible(((p_visible : Bool)));
 		return p_visible;
 	}
 	public function is_sampler_visible():Bool return __colorpicker_ptr().value.is_sampler_visible();
 	public function set_sliders_visible(p_visible:Bool):Bool {
-		__colorpicker_ptr().value.set_sliders_visible(p_visible);
+		__colorpicker_ptr().value.set_sliders_visible(((p_visible : Bool)));
 		return p_visible;
 	}
 	public function are_sliders_visible():Bool return __colorpicker_ptr().value.are_sliders_visible();
 	public function set_hex_visible(p_visible:Bool):Bool {
-		__colorpicker_ptr().value.set_hex_visible(p_visible);
+		__colorpicker_ptr().value.set_hex_visible(((p_visible : Bool)));
 		return p_visible;
 	}
 	public function is_hex_visible():Bool return __colorpicker_ptr().value.is_hex_visible();
-	public function add_preset(p_color:gd.Color):Void __colorpicker_ptr().value.add_preset(p_color);
-	public function erase_preset(p_color:gd.Color):Void __colorpicker_ptr().value.erase_preset(p_color);
+	public function add_preset(p_color:gd.Color):Void __colorpicker_ptr().value.add_preset(((p_color : gd.Color)));
+	public function erase_preset(p_color:gd.Color):Void __colorpicker_ptr().value.erase_preset(((p_color : gd.Color)));
 	public function get_presets():gd.PackedColorArray return __colorpicker_ptr().value.get_presets();
-	public function add_recent_preset(p_color:gd.Color):Void __colorpicker_ptr().value.add_recent_preset(p_color);
-	public function erase_recent_preset(p_color:gd.Color):Void __colorpicker_ptr().value.erase_recent_preset(p_color);
+	public function add_recent_preset(p_color:gd.Color):Void __colorpicker_ptr().value.add_recent_preset(((p_color : gd.Color)));
+	public function erase_recent_preset(p_color:gd.Color):Void __colorpicker_ptr().value.erase_recent_preset(((p_color : gd.Color)));
 	public function get_recent_presets():gd.PackedColorArray return __colorpicker_ptr().value.get_recent_presets();
 	public function set_picker_shape(p_shape:gd.colorpicker.PickerShapeType):gd.colorpicker.PickerShapeType {
-		__colorpicker_ptr().value.set_picker_shape(p_shape);
+		__colorpicker_ptr().value.set_picker_shape(((p_shape : gd.colorpicker.PickerShapeType)));
 		return p_shape;
 	}
 	public function get_picker_shape():gd.colorpicker.PickerShapeType return __colorpicker_ptr().value.get_picker_shape();

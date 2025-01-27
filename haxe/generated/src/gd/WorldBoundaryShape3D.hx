@@ -10,7 +10,7 @@ class WorldBoundaryShape3D extends gd.Shape3D {
 	}
 	extern inline function __worldboundaryshape3d_ptr():cpp.Pointer<gdnative.WorldBoundaryShape3D.WorldBoundaryShape3D_extern> return cast __gd.ptr;
 	public function set_plane(p_plane:gd.Plane):gd.Plane {
-		__worldboundaryshape3d_ptr().value.set_plane(p_plane);
+		__worldboundaryshape3d_ptr().value.set_plane(((p_plane : gd.Plane)));
 		return p_plane;
 	}
 	public function get_plane():gd.Plane return __worldboundaryshape3d_ptr().value.get_plane();

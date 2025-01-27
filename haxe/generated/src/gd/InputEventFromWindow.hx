@@ -10,7 +10,7 @@ class InputEventFromWindow extends gd.InputEvent {
 	}
 	extern inline function __inputeventfromwindow_ptr():cpp.Pointer<gdnative.InputEventFromWindow.InputEventFromWindow_extern> return cast __gd.ptr;
 	public function set_window_id(p_id:Int):Int {
-		__inputeventfromwindow_ptr().value.set_window_id(p_id);
+		__inputeventfromwindow_ptr().value.set_window_id(((p_id : Int)));
 		return p_id;
 	}
 	public function get_window_id():Int return __inputeventfromwindow_ptr().value.get_window_id();

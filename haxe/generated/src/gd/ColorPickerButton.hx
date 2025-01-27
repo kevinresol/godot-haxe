@@ -9,12 +9,12 @@ class ColorPickerButton extends gd.Button {
 		super(native.reinterpret());
 	}
 	extern inline function __colorpickerbutton_ptr():cpp.Pointer<gdnative.ColorPickerButton.ColorPickerButton_extern> return cast __gd.ptr;
-	public function set_pick_color(p_color:gd.Color):Void __colorpickerbutton_ptr().value.set_pick_color(p_color);
+	public function set_pick_color(p_color:gd.Color):Void __colorpickerbutton_ptr().value.set_pick_color(((p_color : gd.Color)));
 	public function get_pick_color():gd.Color return __colorpickerbutton_ptr().value.get_pick_color();
 	public function get_picker():gd.ColorPicker return __colorpickerbutton_ptr().value.get_picker();
 	public function get_popup():gd.PopupPanel return __colorpickerbutton_ptr().value.get_popup();
 	public function set_edit_alpha(p_show:Bool):Bool {
-		__colorpickerbutton_ptr().value.set_edit_alpha(p_show);
+		__colorpickerbutton_ptr().value.set_edit_alpha(((p_show : Bool)));
 		return p_show;
 	}
 	public function is_editing_alpha():Bool return __colorpickerbutton_ptr().value.is_editing_alpha();

@@ -10,7 +10,7 @@ class VisualShaderNodeVectorBase extends gd.VisualShaderNode {
 	}
 	extern inline function __visualshadernodevectorbase_ptr():cpp.Pointer<gdnative.VisualShaderNodeVectorBase.VisualShaderNodeVectorBase_extern> return cast __gd.ptr;
 	public function set_op_type(p_type:gd.visualshadernodevectorbase.OpType):gd.visualshadernodevectorbase.OpType {
-		__visualshadernodevectorbase_ptr().value.set_op_type(p_type);
+		__visualshadernodevectorbase_ptr().value.set_op_type(((p_type : gd.visualshadernodevectorbase.OpType)));
 		return p_type;
 	}
 	public function get_op_type():gd.visualshadernodevectorbase.OpType return __visualshadernodevectorbase_ptr().value.get_op_type();

@@ -10,22 +10,22 @@ class AspectRatioContainer extends gd.Container {
 	}
 	extern inline function __aspectratiocontainer_ptr():cpp.Pointer<gdnative.AspectRatioContainer.AspectRatioContainer_extern> return cast __gd.ptr;
 	public function set_ratio(p_ratio:Float):Float {
-		__aspectratiocontainer_ptr().value.set_ratio(p_ratio);
+		__aspectratiocontainer_ptr().value.set_ratio(((p_ratio : Float)));
 		return p_ratio;
 	}
 	public function get_ratio():Float return __aspectratiocontainer_ptr().value.get_ratio();
 	public function set_stretch_mode(p_stretch_mode:gd.aspectratiocontainer.StretchMode):gd.aspectratiocontainer.StretchMode {
-		__aspectratiocontainer_ptr().value.set_stretch_mode(p_stretch_mode);
+		__aspectratiocontainer_ptr().value.set_stretch_mode(((p_stretch_mode : gd.aspectratiocontainer.StretchMode)));
 		return p_stretch_mode;
 	}
 	public function get_stretch_mode():gd.aspectratiocontainer.StretchMode return __aspectratiocontainer_ptr().value.get_stretch_mode();
 	public function set_alignment_horizontal(p_alignment_horizontal:gd.aspectratiocontainer.AlignmentMode):gd.aspectratiocontainer.AlignmentMode {
-		__aspectratiocontainer_ptr().value.set_alignment_horizontal(p_alignment_horizontal);
+		__aspectratiocontainer_ptr().value.set_alignment_horizontal(((p_alignment_horizontal : gd.aspectratiocontainer.AlignmentMode)));
 		return p_alignment_horizontal;
 	}
 	public function get_alignment_horizontal():gd.aspectratiocontainer.AlignmentMode return __aspectratiocontainer_ptr().value.get_alignment_horizontal();
 	public function set_alignment_vertical(p_alignment_vertical:gd.aspectratiocontainer.AlignmentMode):gd.aspectratiocontainer.AlignmentMode {
-		__aspectratiocontainer_ptr().value.set_alignment_vertical(p_alignment_vertical);
+		__aspectratiocontainer_ptr().value.set_alignment_vertical(((p_alignment_vertical : gd.aspectratiocontainer.AlignmentMode)));
 		return p_alignment_vertical;
 	}
 	public function get_alignment_vertical():gd.aspectratiocontainer.AlignmentMode return __aspectratiocontainer_ptr().value.get_alignment_vertical();

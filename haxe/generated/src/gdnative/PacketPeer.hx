@@ -1,10 +1,10 @@
 package gdnative;
 @:include("godot_cpp/classes/packet_peer.hpp") @:native("godot::PacketPeer") @:structAccess extern class PacketPeer_extern extends gdnative.RefCounted.RefCounted_extern {
 	extern static inline function __alloc():cpp.Pointer<PacketPeer_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::PacketPeer"));
-	overload function get_var(p_allow_objects:Bool):gdnative.Variant;
 	overload function get_var():gdnative.Variant;
-	overload function put_var(p_var:gdnative.Variant, p_full_objects:Bool):gdnative.Error;
+	overload function get_var(p_allow_objects:Bool):gdnative.Variant;
 	overload function put_var(p_var:gdnative.Variant):gdnative.Error;
+	overload function put_var(p_var:gdnative.Variant, p_full_objects:Bool):gdnative.Error;
 	function get_packet():gdnative.PackedByteArray;
 	function put_packet(p_buffer:gdnative.PackedByteArray):gdnative.Error;
 	function get_packet_error():gdnative.Error;

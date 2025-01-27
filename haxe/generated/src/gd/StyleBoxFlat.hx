@@ -10,61 +10,61 @@ class StyleBoxFlat extends gd.StyleBox {
 	}
 	extern inline function __styleboxflat_ptr():cpp.Pointer<gdnative.StyleBoxFlat.StyleBoxFlat_extern> return cast __gd.ptr;
 	public function set_bg_color(p_color:gd.Color):gd.Color {
-		__styleboxflat_ptr().value.set_bg_color(p_color);
+		__styleboxflat_ptr().value.set_bg_color(((p_color : gd.Color)));
 		return p_color;
 	}
 	public function get_bg_color():gd.Color return __styleboxflat_ptr().value.get_bg_color();
 	public function set_border_color(p_color:gd.Color):gd.Color {
-		__styleboxflat_ptr().value.set_border_color(p_color);
+		__styleboxflat_ptr().value.set_border_color(((p_color : gd.Color)));
 		return p_color;
 	}
 	public function get_border_color():gd.Color return __styleboxflat_ptr().value.get_border_color();
-	public function set_border_width_all(p_width:Int):Void __styleboxflat_ptr().value.set_border_width_all(p_width);
+	public function set_border_width_all(p_width:Int):Void __styleboxflat_ptr().value.set_border_width_all(((p_width : Int)));
 	public function get_border_width_min():Int return __styleboxflat_ptr().value.get_border_width_min();
-	public function set_border_width(p_margin:gd.Side, p_width:Int):Void __styleboxflat_ptr().value.set_border_width(p_margin, p_width);
-	public function get_border_width(p_margin:gd.Side):Int return __styleboxflat_ptr().value.get_border_width(p_margin);
+	public function set_border_width(p_margin:gd.Side, p_width:Int):Void __styleboxflat_ptr().value.set_border_width(((p_margin : gd.Side)), ((p_width : Int)));
+	public function get_border_width(p_margin:gd.Side):Int return __styleboxflat_ptr().value.get_border_width(((p_margin : gd.Side)));
 	public function set_border_blend(p_blend:Bool):Bool {
-		__styleboxflat_ptr().value.set_border_blend(p_blend);
+		__styleboxflat_ptr().value.set_border_blend(((p_blend : Bool)));
 		return p_blend;
 	}
 	public function get_border_blend():Bool return __styleboxflat_ptr().value.get_border_blend();
-	public function set_corner_radius_all(p_radius:Int):Void __styleboxflat_ptr().value.set_corner_radius_all(p_radius);
-	public function set_corner_radius(p_corner:gd.Corner, p_radius:Int):Void __styleboxflat_ptr().value.set_corner_radius(p_corner, p_radius);
-	public function get_corner_radius(p_corner:gd.Corner):Int return __styleboxflat_ptr().value.get_corner_radius(p_corner);
-	public function set_expand_margin(p_margin:gd.Side, p_size:Float):Void __styleboxflat_ptr().value.set_expand_margin(p_margin, p_size);
-	public function set_expand_margin_all(p_size:Float):Void __styleboxflat_ptr().value.set_expand_margin_all(p_size);
-	public function get_expand_margin(p_margin:gd.Side):Float return __styleboxflat_ptr().value.get_expand_margin(p_margin);
+	public function set_corner_radius_all(p_radius:Int):Void __styleboxflat_ptr().value.set_corner_radius_all(((p_radius : Int)));
+	public function set_corner_radius(p_corner:gd.Corner, p_radius:Int):Void __styleboxflat_ptr().value.set_corner_radius(((p_corner : gd.Corner)), ((p_radius : Int)));
+	public function get_corner_radius(p_corner:gd.Corner):Int return __styleboxflat_ptr().value.get_corner_radius(((p_corner : gd.Corner)));
+	public function set_expand_margin(p_margin:gd.Side, p_size:Float):Void __styleboxflat_ptr().value.set_expand_margin(((p_margin : gd.Side)), ((p_size : Float)));
+	public function set_expand_margin_all(p_size:Float):Void __styleboxflat_ptr().value.set_expand_margin_all(((p_size : Float)));
+	public function get_expand_margin(p_margin:gd.Side):Float return __styleboxflat_ptr().value.get_expand_margin(((p_margin : gd.Side)));
 	public function set_draw_center(p_draw_center:Bool):Bool {
-		__styleboxflat_ptr().value.set_draw_center(p_draw_center);
+		__styleboxflat_ptr().value.set_draw_center(((p_draw_center : Bool)));
 		return p_draw_center;
 	}
 	public function is_draw_center_enabled():Bool return __styleboxflat_ptr().value.is_draw_center_enabled();
 	public function set_skew(p_skew:gd.Vector2):gd.Vector2 {
-		__styleboxflat_ptr().value.set_skew(p_skew);
+		__styleboxflat_ptr().value.set_skew(((p_skew : gd.Vector2)));
 		return p_skew;
 	}
 	public function get_skew():gd.Vector2 return __styleboxflat_ptr().value.get_skew();
 	public function set_shadow_color(p_color:gd.Color):gd.Color {
-		__styleboxflat_ptr().value.set_shadow_color(p_color);
+		__styleboxflat_ptr().value.set_shadow_color(((p_color : gd.Color)));
 		return p_color;
 	}
 	public function get_shadow_color():gd.Color return __styleboxflat_ptr().value.get_shadow_color();
 	public function set_shadow_size(p_size:Int):Int {
-		__styleboxflat_ptr().value.set_shadow_size(p_size);
+		__styleboxflat_ptr().value.set_shadow_size(((p_size : Int)));
 		return p_size;
 	}
 	public function get_shadow_size():Int return __styleboxflat_ptr().value.get_shadow_size();
 	public function set_shadow_offset(p_offset:gd.Vector2):gd.Vector2 {
-		__styleboxflat_ptr().value.set_shadow_offset(p_offset);
+		__styleboxflat_ptr().value.set_shadow_offset(((p_offset : gd.Vector2)));
 		return p_offset;
 	}
 	public function get_shadow_offset():gd.Vector2 return __styleboxflat_ptr().value.get_shadow_offset();
-	public function set_anti_aliased(p_anti_aliased:Bool):Void __styleboxflat_ptr().value.set_anti_aliased(p_anti_aliased);
+	public function set_anti_aliased(p_anti_aliased:Bool):Void __styleboxflat_ptr().value.set_anti_aliased(((p_anti_aliased : Bool)));
 	public function is_anti_aliased():Bool return __styleboxflat_ptr().value.is_anti_aliased();
-	public function set_aa_size(p_size:Float):Void __styleboxflat_ptr().value.set_aa_size(p_size);
+	public function set_aa_size(p_size:Float):Void __styleboxflat_ptr().value.set_aa_size(((p_size : Float)));
 	public function get_aa_size():Float return __styleboxflat_ptr().value.get_aa_size();
 	public function set_corner_detail(p_detail:Int):Int {
-		__styleboxflat_ptr().value.set_corner_detail(p_detail);
+		__styleboxflat_ptr().value.set_corner_detail(((p_detail : Int)));
 		return p_detail;
 	}
 	public function get_corner_detail():Int return __styleboxflat_ptr().value.get_corner_detail();

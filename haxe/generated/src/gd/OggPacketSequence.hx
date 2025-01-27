@@ -9,10 +9,10 @@ class OggPacketSequence extends gd.Resource {
 		super(native.reinterpret());
 	}
 	extern inline function __oggpacketsequence_ptr():cpp.Pointer<gdnative.OggPacketSequence.OggPacketSequence_extern> return cast __gd.ptr;
-	public function set_packet_granule_positions(p_granule_positions:gd.PackedInt64Array):Void __oggpacketsequence_ptr().value.set_packet_granule_positions(p_granule_positions);
+	public function set_packet_granule_positions(p_granule_positions:gd.PackedInt64Array):Void __oggpacketsequence_ptr().value.set_packet_granule_positions(((p_granule_positions : gd.PackedInt64Array)));
 	public function get_packet_granule_positions():gd.PackedInt64Array return __oggpacketsequence_ptr().value.get_packet_granule_positions();
 	public function set_sampling_rate(p_sampling_rate:Float):Float {
-		__oggpacketsequence_ptr().value.set_sampling_rate(p_sampling_rate);
+		__oggpacketsequence_ptr().value.set_sampling_rate(((p_sampling_rate : Float)));
 		return p_sampling_rate;
 	}
 	public function get_sampling_rate():Float return __oggpacketsequence_ptr().value.get_sampling_rate();

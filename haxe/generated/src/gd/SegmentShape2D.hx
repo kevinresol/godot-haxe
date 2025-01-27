@@ -10,12 +10,12 @@ class SegmentShape2D extends gd.Shape2D {
 	}
 	extern inline function __segmentshape2d_ptr():cpp.Pointer<gdnative.SegmentShape2D.SegmentShape2D_extern> return cast __gd.ptr;
 	public function set_a(p_a:gd.Vector2):gd.Vector2 {
-		__segmentshape2d_ptr().value.set_a(p_a);
+		__segmentshape2d_ptr().value.set_a(((p_a : gd.Vector2)));
 		return p_a;
 	}
 	public function get_a():gd.Vector2 return __segmentshape2d_ptr().value.get_a();
 	public function set_b(p_b:gd.Vector2):gd.Vector2 {
-		__segmentshape2d_ptr().value.set_b(p_b);
+		__segmentshape2d_ptr().value.set_b(((p_b : gd.Vector2)));
 		return p_b;
 	}
 	public function get_b():gd.Vector2 return __segmentshape2d_ptr().value.get_b();

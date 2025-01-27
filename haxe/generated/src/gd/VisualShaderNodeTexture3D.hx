@@ -10,7 +10,7 @@ class VisualShaderNodeTexture3D extends gd.VisualShaderNodeSample3D {
 	}
 	extern inline function __visualshadernodetexture3d_ptr():cpp.Pointer<gdnative.VisualShaderNodeTexture3D.VisualShaderNodeTexture3D_extern> return cast __gd.ptr;
 	public function set_texture(p_value:gd.Texture3D):gd.Texture3D {
-		__visualshadernodetexture3d_ptr().value.set_texture(p_value);
+		__visualshadernodetexture3d_ptr().value.set_texture(((p_value : gd.Texture3D)));
 		return p_value;
 	}
 	public function get_texture():gd.Texture3D return __visualshadernodetexture3d_ptr().value.get_texture();

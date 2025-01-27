@@ -10,7 +10,7 @@ class AudioEffectPanner extends gd.AudioEffect {
 	}
 	extern inline function __audioeffectpanner_ptr():cpp.Pointer<gdnative.AudioEffectPanner.AudioEffectPanner_extern> return cast __gd.ptr;
 	public function set_pan(p_cpanume:Float):Float {
-		__audioeffectpanner_ptr().value.set_pan(p_cpanume);
+		__audioeffectpanner_ptr().value.set_pan(((p_cpanume : Float)));
 		return p_cpanume;
 	}
 	public function get_pan():Float return __audioeffectpanner_ptr().value.get_pan();

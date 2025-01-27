@@ -13,6 +13,10 @@ class KinematicCollision2D extends gd.RefCounted {
 	public function get_normal():gd.Vector2 return __kinematiccollision2d_ptr().value.get_normal();
 	public function get_travel():gd.Vector2 return __kinematiccollision2d_ptr().value.get_travel();
 	public function get_remainder():gd.Vector2 return __kinematiccollision2d_ptr().value.get_remainder();
+	public function get_angle(?p_up_direction:gd.Vector2):Float return switch [p_up_direction] {
+		case [null]:__kinematiccollision2d_ptr().value.get_angle();
+		default:__kinematiccollision2d_ptr().value.get_angle(((p_up_direction : gd.Vector2)));
+	};
 	public function get_depth():Float return __kinematiccollision2d_ptr().value.get_depth();
 	public function get_local_shape():gd.Object return __kinematiccollision2d_ptr().value.get_local_shape();
 	public function get_collider():gd.Object return __kinematiccollision2d_ptr().value.get_collider();

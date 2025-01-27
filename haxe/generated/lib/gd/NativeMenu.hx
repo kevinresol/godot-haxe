@@ -19,7 +19,15 @@ extern class NativeMenu extends gd.Object {
 	function set_minimum_width(p_rid:gd.RID, p_width:Float):Void;
 	function get_minimum_width(p_rid:gd.RID):Float;
 	function is_opened(p_rid:gd.RID):Bool;
-	function add_separator(p_rid:gd.RID, ?p_index:Int = -1):Int;
+	function add_submenu_item(p_rid:gd.RID, p_label:std.String, p_submenu_rid:gd.RID, ?p_tag:gd.Variant, ?p_index:Int):Int;
+	function add_item(p_rid:gd.RID, p_label:std.String, ?p_callback:gd.Callable, ?p_key_callback:gd.Callable, ?p_tag:gd.Variant, ?p_accelerator:gd.Key, ?p_index:Int):Int;
+	function add_check_item(p_rid:gd.RID, p_label:std.String, ?p_callback:gd.Callable, ?p_key_callback:gd.Callable, ?p_tag:gd.Variant, ?p_accelerator:gd.Key, ?p_index:Int):Int;
+	function add_icon_item(p_rid:gd.RID, p_icon:gd.Texture2D, p_label:std.String, ?p_callback:gd.Callable, ?p_key_callback:gd.Callable, ?p_tag:gd.Variant, ?p_accelerator:gd.Key, ?p_index:Int):Int;
+	function add_icon_check_item(p_rid:gd.RID, p_icon:gd.Texture2D, p_label:std.String, ?p_callback:gd.Callable, ?p_key_callback:gd.Callable, ?p_tag:gd.Variant, ?p_accelerator:gd.Key, ?p_index:Int):Int;
+	function add_radio_check_item(p_rid:gd.RID, p_label:std.String, ?p_callback:gd.Callable, ?p_key_callback:gd.Callable, ?p_tag:gd.Variant, ?p_accelerator:gd.Key, ?p_index:Int):Int;
+	function add_icon_radio_check_item(p_rid:gd.RID, p_icon:gd.Texture2D, p_label:std.String, ?p_callback:gd.Callable, ?p_key_callback:gd.Callable, ?p_tag:gd.Variant, ?p_accelerator:gd.Key, ?p_index:Int):Int;
+	function add_multistate_item(p_rid:gd.RID, p_label:std.String, p_max_states:Int, p_default_state:Int, ?p_callback:gd.Callable, ?p_key_callback:gd.Callable, ?p_tag:gd.Variant, ?p_accelerator:gd.Key, ?p_index:Int):Int;
+	function add_separator(p_rid:gd.RID, ?p_index:Int):Int;
 	function find_item_index_with_text(p_rid:gd.RID, p_text:std.String):Int;
 	function find_item_index_with_tag(p_rid:gd.RID, p_tag:gd.Variant):Int;
 	function find_item_index_with_submenu(p_rid:gd.RID, p_submenu_rid:gd.RID):Int;

@@ -9,5 +9,5 @@ class PlaceholderMesh extends gd.Mesh {
 		super(native.reinterpret());
 	}
 	extern inline function __placeholdermesh_ptr():cpp.Pointer<gdnative.PlaceholderMesh.PlaceholderMesh_extern> return cast __gd.ptr;
-	public function set_aabb(p_aabb:gd.AABB):Void __placeholdermesh_ptr().value.set_aabb(p_aabb);
+	public function set_aabb(p_aabb:gd.AABB):Void __placeholdermesh_ptr().value.set_aabb(((p_aabb : gd.AABB)));
 }

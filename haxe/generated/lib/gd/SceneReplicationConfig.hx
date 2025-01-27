@@ -1,7 +1,7 @@
 package gd;
 extern class SceneReplicationConfig extends gd.Resource {
 	function new(?owner:Dynamic);
-	function add_property(p_path:std.String, ?p_index:Int = -1):Void;
+	function add_property(p_path:std.String, ?p_index:Int):Void;
 	function has_property(p_path:std.String):Bool;
 	function remove_property(p_path:std.String):Void;
 	function property_get_index(p_path:std.String):Int;

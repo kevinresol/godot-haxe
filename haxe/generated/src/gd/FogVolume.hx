@@ -10,17 +10,17 @@ class FogVolume extends gd.VisualInstance3D {
 	}
 	extern inline function __fogvolume_ptr():cpp.Pointer<gdnative.FogVolume.FogVolume_extern> return cast __gd.ptr;
 	public function set_size(p_size:gd.Vector3):gd.Vector3 {
-		__fogvolume_ptr().value.set_size(p_size);
+		__fogvolume_ptr().value.set_size(((p_size : gd.Vector3)));
 		return p_size;
 	}
 	public function get_size():gd.Vector3 return __fogvolume_ptr().value.get_size();
 	public function set_shape(p_shape:gd.renderingserver.FogVolumeShape):gd.renderingserver.FogVolumeShape {
-		__fogvolume_ptr().value.set_shape(p_shape);
+		__fogvolume_ptr().value.set_shape(((p_shape : gd.renderingserver.FogVolumeShape)));
 		return p_shape;
 	}
 	public function get_shape():gd.renderingserver.FogVolumeShape return __fogvolume_ptr().value.get_shape();
 	public function set_material(p_material:gd.Material):gd.Material {
-		__fogvolume_ptr().value.set_material(p_material);
+		__fogvolume_ptr().value.set_material(((p_material : gd.Material)));
 		return p_material;
 	}
 	public function get_material():gd.Material return __fogvolume_ptr().value.get_material();

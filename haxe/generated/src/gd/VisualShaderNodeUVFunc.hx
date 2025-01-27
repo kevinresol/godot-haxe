@@ -9,7 +9,7 @@ class VisualShaderNodeUVFunc extends gd.VisualShaderNode {
 		super(native.reinterpret());
 	}
 	extern inline function __visualshadernodeuvfunc_ptr():cpp.Pointer<gdnative.VisualShaderNodeUVFunc.VisualShaderNodeUVFunc_extern> return cast __gd.ptr;
-	public function set_function(p_func:gd.visualshadernodeuvfunc.Function):Void __visualshadernodeuvfunc_ptr().value.set_function(p_func);
+	public function set_function(p_func:gd.visualshadernodeuvfunc.Function):Void __visualshadernodeuvfunc_ptr().value.set_function(((p_func : gd.visualshadernodeuvfunc.Function)));
 	public function get_function():gd.visualshadernodeuvfunc.Function return __visualshadernodeuvfunc_ptr().value.get_function();
 	var function_(get, set) : gd.visualshadernodeuvfunc.Function;
 	function get_function_():gd.visualshadernodeuvfunc.Function return get_function();

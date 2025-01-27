@@ -1,8 +1,8 @@
 package gdnative;
 @:include("godot_cpp/classes/tcp_server.hpp") @:native("godot::TCPServer") @:structAccess extern class TCPServer_extern extends gdnative.RefCounted.RefCounted_extern {
 	extern static inline function __alloc():cpp.Pointer<TCPServer_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::TCPServer"));
-	overload function listen(p_port:Int, p_bind_address:gdnative.String):gdnative.Error;
 	overload function listen(p_port:Int):gdnative.Error;
+	overload function listen(p_port:Int, p_bind_address:gdnative.String):gdnative.Error;
 	function is_connection_available():Bool;
 	function is_listening():Bool;
 	function get_local_port():Int;

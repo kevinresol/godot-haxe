@@ -9,5 +9,5 @@ class CallbackTweener extends gd.Tweener {
 		super(native.reinterpret());
 	}
 	extern inline function __callbacktweener_ptr():cpp.Pointer<gdnative.CallbackTweener.CallbackTweener_extern> return cast __gd.ptr;
-	public function set_delay(p_delay:Float):gd.CallbackTweener return __callbacktweener_ptr().value.set_delay(p_delay);
+	public function set_delay(p_delay:Float):gd.CallbackTweener return __callbacktweener_ptr().value.set_delay(((p_delay : Float)));
 }

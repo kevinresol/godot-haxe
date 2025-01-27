@@ -14,13 +14,40 @@ class PhysicsTestMotionResult3D extends gd.RefCounted {
 	public function get_collision_safe_fraction():Float return __physicstestmotionresult3d_ptr().value.get_collision_safe_fraction();
 	public function get_collision_unsafe_fraction():Float return __physicstestmotionresult3d_ptr().value.get_collision_unsafe_fraction();
 	public function get_collision_count():Int return __physicstestmotionresult3d_ptr().value.get_collision_count();
-	public function get_collision_point(?p_collision_index:Int = 0):gd.Vector3 return __physicstestmotionresult3d_ptr().value.get_collision_point(p_collision_index);
-	public function get_collision_normal(?p_collision_index:Int = 0):gd.Vector3 return __physicstestmotionresult3d_ptr().value.get_collision_normal(p_collision_index);
-	public function get_collider_velocity(?p_collision_index:Int = 0):gd.Vector3 return __physicstestmotionresult3d_ptr().value.get_collider_velocity(p_collision_index);
-	public function get_collider_id(?p_collision_index:Int = 0):Int return __physicstestmotionresult3d_ptr().value.get_collider_id(p_collision_index);
-	public function get_collider_rid(?p_collision_index:Int = 0):gd.RID return __physicstestmotionresult3d_ptr().value.get_collider_rid(p_collision_index);
-	public function get_collider(?p_collision_index:Int = 0):gd.Object return __physicstestmotionresult3d_ptr().value.get_collider(p_collision_index);
-	public function get_collider_shape(?p_collision_index:Int = 0):Int return __physicstestmotionresult3d_ptr().value.get_collider_shape(p_collision_index);
-	public function get_collision_local_shape(?p_collision_index:Int = 0):Int return __physicstestmotionresult3d_ptr().value.get_collision_local_shape(p_collision_index);
-	public function get_collision_depth(?p_collision_index:Int = 0):Float return __physicstestmotionresult3d_ptr().value.get_collision_depth(p_collision_index);
+	public function get_collision_point(?p_collision_index:Int):gd.Vector3 return switch [p_collision_index] {
+		case [null]:__physicstestmotionresult3d_ptr().value.get_collision_point();
+		default:__physicstestmotionresult3d_ptr().value.get_collision_point(((p_collision_index : Int)));
+	};
+	public function get_collision_normal(?p_collision_index:Int):gd.Vector3 return switch [p_collision_index] {
+		case [null]:__physicstestmotionresult3d_ptr().value.get_collision_normal();
+		default:__physicstestmotionresult3d_ptr().value.get_collision_normal(((p_collision_index : Int)));
+	};
+	public function get_collider_velocity(?p_collision_index:Int):gd.Vector3 return switch [p_collision_index] {
+		case [null]:__physicstestmotionresult3d_ptr().value.get_collider_velocity();
+		default:__physicstestmotionresult3d_ptr().value.get_collider_velocity(((p_collision_index : Int)));
+	};
+	public function get_collider_id(?p_collision_index:Int):Int return switch [p_collision_index] {
+		case [null]:__physicstestmotionresult3d_ptr().value.get_collider_id();
+		default:__physicstestmotionresult3d_ptr().value.get_collider_id(((p_collision_index : Int)));
+	};
+	public function get_collider_rid(?p_collision_index:Int):gd.RID return switch [p_collision_index] {
+		case [null]:__physicstestmotionresult3d_ptr().value.get_collider_rid();
+		default:__physicstestmotionresult3d_ptr().value.get_collider_rid(((p_collision_index : Int)));
+	};
+	public function get_collider(?p_collision_index:Int):gd.Object return switch [p_collision_index] {
+		case [null]:__physicstestmotionresult3d_ptr().value.get_collider();
+		default:__physicstestmotionresult3d_ptr().value.get_collider(((p_collision_index : Int)));
+	};
+	public function get_collider_shape(?p_collision_index:Int):Int return switch [p_collision_index] {
+		case [null]:__physicstestmotionresult3d_ptr().value.get_collider_shape();
+		default:__physicstestmotionresult3d_ptr().value.get_collider_shape(((p_collision_index : Int)));
+	};
+	public function get_collision_local_shape(?p_collision_index:Int):Int return switch [p_collision_index] {
+		case [null]:__physicstestmotionresult3d_ptr().value.get_collision_local_shape();
+		default:__physicstestmotionresult3d_ptr().value.get_collision_local_shape(((p_collision_index : Int)));
+	};
+	public function get_collision_depth(?p_collision_index:Int):Float return switch [p_collision_index] {
+		case [null]:__physicstestmotionresult3d_ptr().value.get_collision_depth();
+		default:__physicstestmotionresult3d_ptr().value.get_collision_depth(((p_collision_index : Int)));
+	};
 }

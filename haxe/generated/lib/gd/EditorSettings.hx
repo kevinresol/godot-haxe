@@ -8,6 +8,7 @@ extern class EditorSettings extends gd.Resource {
 	function set_initial_value(p_name:std.String, p_value:gd.Variant, p_update_current:Bool):Void;
 	function add_property_info(p_info:gd.Dictionary):Void;
 	function set_project_metadata(p_section:std.String, p_key:std.String, p_data:gd.Variant):Void;
+	function get_project_metadata(p_section:std.String, p_key:std.String, ?p_default:gd.Variant):gd.Variant;
 	function set_favorites(p_dirs:gd.PackedStringArray):Void;
 	function get_favorites():gd.PackedStringArray;
 	function set_recent_dirs(p_dirs:gd.PackedStringArray):Void;

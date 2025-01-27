@@ -1,9 +1,9 @@
 package gd;
 extern class ENetPacketPeer extends gd.PacketPeer {
 	function new(?owner:Dynamic);
-	function peer_disconnect(?p_data:Int = 0):Void;
-	function peer_disconnect_later(?p_data:Int = 0):Void;
-	function peer_disconnect_now(?p_data:Int = 0):Void;
+	function peer_disconnect(?p_data:Int):Void;
+	function peer_disconnect_later(?p_data:Int):Void;
+	function peer_disconnect_now(?p_data:Int):Void;
 	function ping():Void;
 	function ping_interval(p_ping_interval:Int):Void;
 	function reset():Void;

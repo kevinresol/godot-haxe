@@ -10,7 +10,7 @@ class VisualShaderNodeClamp extends gd.VisualShaderNode {
 	}
 	extern inline function __visualshadernodeclamp_ptr():cpp.Pointer<gdnative.VisualShaderNodeClamp.VisualShaderNodeClamp_extern> return cast __gd.ptr;
 	public function set_op_type(p_op_type:gd.visualshadernodeclamp.OpType):gd.visualshadernodeclamp.OpType {
-		__visualshadernodeclamp_ptr().value.set_op_type(p_op_type);
+		__visualshadernodeclamp_ptr().value.set_op_type(((p_op_type : gd.visualshadernodeclamp.OpType)));
 		return p_op_type;
 	}
 	public function get_op_type():gd.visualshadernodeclamp.OpType return __visualshadernodeclamp_ptr().value.get_op_type();

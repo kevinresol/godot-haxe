@@ -14,9 +14,9 @@ package gdnative;
 	function _update(p_delta:Float):Void;
 	function _get_channels():Int;
 	function _get_mix_rate():Int;
-	overload function mix_audio(p_num_frames:Int, p_buffer:gdnative.PackedFloat32Array, p_offset:Int):Int;
-	overload function mix_audio(p_num_frames:Int, p_buffer:gdnative.PackedFloat32Array):Int;
 	overload function mix_audio(p_num_frames:Int):Int;
+	overload function mix_audio(p_num_frames:Int, p_buffer:gdnative.PackedFloat32Array):Int;
+	overload function mix_audio(p_num_frames:Int, p_buffer:gdnative.PackedFloat32Array, p_offset:Int):Int;
 }
 @:forward abstract VideoStreamPlayback(gdnative.Ref<VideoStreamPlayback_extern>) from gdnative.Ref<VideoStreamPlayback_extern> to gdnative.Ref<VideoStreamPlayback_extern> {
 	@:from

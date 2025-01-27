@@ -10,7 +10,7 @@ class GridContainer extends gd.Container {
 	}
 	extern inline function __gridcontainer_ptr():cpp.Pointer<gdnative.GridContainer.GridContainer_extern> return cast __gd.ptr;
 	public function set_columns(p_columns:Int):Int {
-		__gridcontainer_ptr().value.set_columns(p_columns);
+		__gridcontainer_ptr().value.set_columns(((p_columns : Int)));
 		return p_columns;
 	}
 	public function get_columns():Int return __gridcontainer_ptr().value.get_columns();

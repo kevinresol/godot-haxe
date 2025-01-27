@@ -9,7 +9,7 @@ class AudioEffectEQ extends gd.AudioEffect {
 		super(native.reinterpret());
 	}
 	extern inline function __audioeffecteq_ptr():cpp.Pointer<gdnative.AudioEffectEQ.AudioEffectEQ_extern> return cast __gd.ptr;
-	public function set_band_gain_db(p_band_idx:Int, p_volume_db:Float):Void __audioeffecteq_ptr().value.set_band_gain_db(p_band_idx, p_volume_db);
-	public function get_band_gain_db(p_band_idx:Int):Float return __audioeffecteq_ptr().value.get_band_gain_db(p_band_idx);
+	public function set_band_gain_db(p_band_idx:Int, p_volume_db:Float):Void __audioeffecteq_ptr().value.set_band_gain_db(((p_band_idx : Int)), ((p_volume_db : Float)));
+	public function get_band_gain_db(p_band_idx:Int):Float return __audioeffecteq_ptr().value.get_band_gain_db(((p_band_idx : Int)));
 	public function get_band_count():Int return __audioeffecteq_ptr().value.get_band_count();
 }

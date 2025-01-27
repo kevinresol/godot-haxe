@@ -20,7 +20,7 @@ extern class StreamPeer extends gd.RefCounted {
 	function put_double(p_value:Float):Void;
 	function put_string(p_value:std.String):Void;
 	function put_utf8_string(p_value:std.String):Void;
-	function put_var(p_value:gd.Variant, ?p_full_objects:Bool = false):Void;
+	function put_var(p_value:gd.Variant, ?p_full_objects:Bool):Void;
 	function get_8():Int;
 	function get_u8():Int;
 	function get_16():Int;
@@ -31,9 +31,9 @@ extern class StreamPeer extends gd.RefCounted {
 	function get_u64():Int;
 	function get_float():Float;
 	function get_double():Float;
-	function get_string(?p_bytes:Int = -1):std.String;
-	function get_utf8_string(?p_bytes:Int = -1):std.String;
-	function get_var(?p_allow_objects:Bool = false):gd.Variant;
+	function get_string(?p_bytes:Int):std.String;
+	function get_utf8_string(?p_bytes:Int):std.String;
+	function get_var(?p_allow_objects:Bool):gd.Variant;
 	var big_endian(get, set) : Bool;
 	function get_big_endian():Bool;
 }

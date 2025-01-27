@@ -10,12 +10,12 @@ class CSGMesh3D extends gd.CSGPrimitive3D {
 	}
 	extern inline function __csgmesh3d_ptr():cpp.Pointer<gdnative.CSGMesh3D.CSGMesh3D_extern> return cast __gd.ptr;
 	public function set_mesh(p_mesh:gd.Mesh):gd.Mesh {
-		__csgmesh3d_ptr().value.set_mesh(p_mesh);
+		__csgmesh3d_ptr().value.set_mesh(((p_mesh : gd.Mesh)));
 		return p_mesh;
 	}
 	public function get_mesh():gd.Mesh return __csgmesh3d_ptr().value.get_mesh();
 	public function set_material(p_material:gd.Material):gd.Material {
-		__csgmesh3d_ptr().value.set_material(p_material);
+		__csgmesh3d_ptr().value.set_material(((p_material : gd.Material)));
 		return p_material;
 	}
 	public function get_material():gd.Material return __csgmesh3d_ptr().value.get_material();

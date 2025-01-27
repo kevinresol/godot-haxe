@@ -9,6 +9,6 @@ class AudioStreamPlaybackInteractive extends gd.AudioStreamPlayback {
 		super(native.reinterpret());
 	}
 	extern inline function __audiostreamplaybackinteractive_ptr():cpp.Pointer<gdnative.AudioStreamPlaybackInteractive.AudioStreamPlaybackInteractive_extern> return cast __gd.ptr;
-	public function switch_to_clip_by_name(p_clip_name:std.String):Void __audiostreamplaybackinteractive_ptr().value.switch_to_clip_by_name(p_clip_name);
-	public function switch_to_clip(p_clip_index:Int):Void __audiostreamplaybackinteractive_ptr().value.switch_to_clip(p_clip_index);
+	public function switch_to_clip_by_name(p_clip_name:std.String):Void __audiostreamplaybackinteractive_ptr().value.switch_to_clip_by_name(((p_clip_name : std.String)));
+	public function switch_to_clip(p_clip_index:Int):Void __audiostreamplaybackinteractive_ptr().value.switch_to_clip(((p_clip_index : Int)));
 }

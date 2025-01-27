@@ -13,8 +13,14 @@ extern class PhysicsDirectBodyState3D extends gd.Object {
 	function set_angular_velocity(p_velocity:gd.Vector3):gd.Vector3;
 	function get_angular_velocity():gd.Vector3;
 	function get_velocity_at_local_position(p_local_position:gd.Vector3):gd.Vector3;
+	function apply_central_impulse(?p_impulse:gd.Vector3):Void;
+	function apply_impulse(p_impulse:gd.Vector3, ?p_position:gd.Vector3):Void;
 	function apply_torque_impulse(p_impulse:gd.Vector3):Void;
+	function apply_central_force(?p_force:gd.Vector3):Void;
+	function apply_force(p_force:gd.Vector3, ?p_position:gd.Vector3):Void;
 	function apply_torque(p_torque:gd.Vector3):Void;
+	function add_constant_central_force(?p_force:gd.Vector3):Void;
+	function add_constant_force(p_force:gd.Vector3, ?p_position:gd.Vector3):Void;
 	function add_constant_torque(p_torque:gd.Vector3):Void;
 	function set_constant_force(p_force:gd.Vector3):Void;
 	function get_constant_force():gd.Vector3;

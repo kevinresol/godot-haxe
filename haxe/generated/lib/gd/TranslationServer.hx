@@ -14,8 +14,8 @@ extern class TranslationServer extends gd.Object {
 	function get_all_countries():gd.PackedStringArray;
 	function get_country_name(p_country:std.String):std.String;
 	function get_locale_name(p_locale:std.String):std.String;
-	function translate(p_message:std.String, ?p_context:std.String = "&\"\""):std.String;
-	function translate_plural(p_message:std.String, p_plural_message:std.String, p_n:Int, ?p_context:std.String = "&\"\""):std.String;
+	function translate(p_message:std.String, ?p_context:std.String):std.String;
+	function translate_plural(p_message:std.String, p_plural_message:std.String, p_n:Int, ?p_context:std.String):std.String;
 	function add_translation(p_translation:gd.Translation):Void;
 	function remove_translation(p_translation:gd.Translation):Void;
 	function get_translation_object(p_locale:std.String):gd.Translation;

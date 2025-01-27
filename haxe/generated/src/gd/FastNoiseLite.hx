@@ -10,107 +10,107 @@ class FastNoiseLite extends gd.Noise {
 	}
 	extern inline function __fastnoiselite_ptr():cpp.Pointer<gdnative.FastNoiseLite.FastNoiseLite_extern> return cast __gd.ptr;
 	public function set_noise_type(p_type:gd.fastnoiselite.NoiseType):gd.fastnoiselite.NoiseType {
-		__fastnoiselite_ptr().value.set_noise_type(p_type);
+		__fastnoiselite_ptr().value.set_noise_type(((p_type : gd.fastnoiselite.NoiseType)));
 		return p_type;
 	}
 	public function get_noise_type():gd.fastnoiselite.NoiseType return __fastnoiselite_ptr().value.get_noise_type();
 	public function set_seed(p_seed:Int):Int {
-		__fastnoiselite_ptr().value.set_seed(p_seed);
+		__fastnoiselite_ptr().value.set_seed(((p_seed : Int)));
 		return p_seed;
 	}
 	public function get_seed():Int return __fastnoiselite_ptr().value.get_seed();
 	public function set_frequency(p_freq:Float):Float {
-		__fastnoiselite_ptr().value.set_frequency(p_freq);
+		__fastnoiselite_ptr().value.set_frequency(((p_freq : Float)));
 		return p_freq;
 	}
 	public function get_frequency():Float return __fastnoiselite_ptr().value.get_frequency();
 	public function set_offset(p_offset:gd.Vector3):gd.Vector3 {
-		__fastnoiselite_ptr().value.set_offset(p_offset);
+		__fastnoiselite_ptr().value.set_offset(((p_offset : gd.Vector3)));
 		return p_offset;
 	}
 	public function get_offset():gd.Vector3 return __fastnoiselite_ptr().value.get_offset();
 	public function set_fractal_type(p_type:gd.fastnoiselite.FractalType):gd.fastnoiselite.FractalType {
-		__fastnoiselite_ptr().value.set_fractal_type(p_type);
+		__fastnoiselite_ptr().value.set_fractal_type(((p_type : gd.fastnoiselite.FractalType)));
 		return p_type;
 	}
 	public function get_fractal_type():gd.fastnoiselite.FractalType return __fastnoiselite_ptr().value.get_fractal_type();
 	public function set_fractal_octaves(p_octave_count:Int):Int {
-		__fastnoiselite_ptr().value.set_fractal_octaves(p_octave_count);
+		__fastnoiselite_ptr().value.set_fractal_octaves(((p_octave_count : Int)));
 		return p_octave_count;
 	}
 	public function get_fractal_octaves():Int return __fastnoiselite_ptr().value.get_fractal_octaves();
 	public function set_fractal_lacunarity(p_lacunarity:Float):Float {
-		__fastnoiselite_ptr().value.set_fractal_lacunarity(p_lacunarity);
+		__fastnoiselite_ptr().value.set_fractal_lacunarity(((p_lacunarity : Float)));
 		return p_lacunarity;
 	}
 	public function get_fractal_lacunarity():Float return __fastnoiselite_ptr().value.get_fractal_lacunarity();
 	public function set_fractal_gain(p_gain:Float):Float {
-		__fastnoiselite_ptr().value.set_fractal_gain(p_gain);
+		__fastnoiselite_ptr().value.set_fractal_gain(((p_gain : Float)));
 		return p_gain;
 	}
 	public function get_fractal_gain():Float return __fastnoiselite_ptr().value.get_fractal_gain();
 	public function set_fractal_weighted_strength(p_weighted_strength:Float):Float {
-		__fastnoiselite_ptr().value.set_fractal_weighted_strength(p_weighted_strength);
+		__fastnoiselite_ptr().value.set_fractal_weighted_strength(((p_weighted_strength : Float)));
 		return p_weighted_strength;
 	}
 	public function get_fractal_weighted_strength():Float return __fastnoiselite_ptr().value.get_fractal_weighted_strength();
 	public function set_fractal_ping_pong_strength(p_ping_pong_strength:Float):Float {
-		__fastnoiselite_ptr().value.set_fractal_ping_pong_strength(p_ping_pong_strength);
+		__fastnoiselite_ptr().value.set_fractal_ping_pong_strength(((p_ping_pong_strength : Float)));
 		return p_ping_pong_strength;
 	}
 	public function get_fractal_ping_pong_strength():Float return __fastnoiselite_ptr().value.get_fractal_ping_pong_strength();
 	public function set_cellular_distance_function(p_func:gd.fastnoiselite.CellularDistanceFunction):gd.fastnoiselite.CellularDistanceFunction {
-		__fastnoiselite_ptr().value.set_cellular_distance_function(p_func);
+		__fastnoiselite_ptr().value.set_cellular_distance_function(((p_func : gd.fastnoiselite.CellularDistanceFunction)));
 		return p_func;
 	}
 	public function get_cellular_distance_function():gd.fastnoiselite.CellularDistanceFunction return __fastnoiselite_ptr().value.get_cellular_distance_function();
 	public function set_cellular_jitter(p_jitter:Float):Float {
-		__fastnoiselite_ptr().value.set_cellular_jitter(p_jitter);
+		__fastnoiselite_ptr().value.set_cellular_jitter(((p_jitter : Float)));
 		return p_jitter;
 	}
 	public function get_cellular_jitter():Float return __fastnoiselite_ptr().value.get_cellular_jitter();
 	public function set_cellular_return_type(p_ret:gd.fastnoiselite.CellularReturnType):gd.fastnoiselite.CellularReturnType {
-		__fastnoiselite_ptr().value.set_cellular_return_type(p_ret);
+		__fastnoiselite_ptr().value.set_cellular_return_type(((p_ret : gd.fastnoiselite.CellularReturnType)));
 		return p_ret;
 	}
 	public function get_cellular_return_type():gd.fastnoiselite.CellularReturnType return __fastnoiselite_ptr().value.get_cellular_return_type();
 	public function set_domain_warp_enabled(p_domain_warp_enabled:Bool):Bool {
-		__fastnoiselite_ptr().value.set_domain_warp_enabled(p_domain_warp_enabled);
+		__fastnoiselite_ptr().value.set_domain_warp_enabled(((p_domain_warp_enabled : Bool)));
 		return p_domain_warp_enabled;
 	}
 	public function is_domain_warp_enabled():Bool return __fastnoiselite_ptr().value.is_domain_warp_enabled();
 	public function set_domain_warp_type(p_domain_warp_type:gd.fastnoiselite.DomainWarpType):gd.fastnoiselite.DomainWarpType {
-		__fastnoiselite_ptr().value.set_domain_warp_type(p_domain_warp_type);
+		__fastnoiselite_ptr().value.set_domain_warp_type(((p_domain_warp_type : gd.fastnoiselite.DomainWarpType)));
 		return p_domain_warp_type;
 	}
 	public function get_domain_warp_type():gd.fastnoiselite.DomainWarpType return __fastnoiselite_ptr().value.get_domain_warp_type();
 	public function set_domain_warp_amplitude(p_domain_warp_amplitude:Float):Float {
-		__fastnoiselite_ptr().value.set_domain_warp_amplitude(p_domain_warp_amplitude);
+		__fastnoiselite_ptr().value.set_domain_warp_amplitude(((p_domain_warp_amplitude : Float)));
 		return p_domain_warp_amplitude;
 	}
 	public function get_domain_warp_amplitude():Float return __fastnoiselite_ptr().value.get_domain_warp_amplitude();
 	public function set_domain_warp_frequency(p_domain_warp_frequency:Float):Float {
-		__fastnoiselite_ptr().value.set_domain_warp_frequency(p_domain_warp_frequency);
+		__fastnoiselite_ptr().value.set_domain_warp_frequency(((p_domain_warp_frequency : Float)));
 		return p_domain_warp_frequency;
 	}
 	public function get_domain_warp_frequency():Float return __fastnoiselite_ptr().value.get_domain_warp_frequency();
 	public function set_domain_warp_fractal_type(p_domain_warp_fractal_type:gd.fastnoiselite.DomainWarpFractalType):gd.fastnoiselite.DomainWarpFractalType {
-		__fastnoiselite_ptr().value.set_domain_warp_fractal_type(p_domain_warp_fractal_type);
+		__fastnoiselite_ptr().value.set_domain_warp_fractal_type(((p_domain_warp_fractal_type : gd.fastnoiselite.DomainWarpFractalType)));
 		return p_domain_warp_fractal_type;
 	}
 	public function get_domain_warp_fractal_type():gd.fastnoiselite.DomainWarpFractalType return __fastnoiselite_ptr().value.get_domain_warp_fractal_type();
 	public function set_domain_warp_fractal_octaves(p_domain_warp_octave_count:Int):Int {
-		__fastnoiselite_ptr().value.set_domain_warp_fractal_octaves(p_domain_warp_octave_count);
+		__fastnoiselite_ptr().value.set_domain_warp_fractal_octaves(((p_domain_warp_octave_count : Int)));
 		return p_domain_warp_octave_count;
 	}
 	public function get_domain_warp_fractal_octaves():Int return __fastnoiselite_ptr().value.get_domain_warp_fractal_octaves();
 	public function set_domain_warp_fractal_lacunarity(p_domain_warp_lacunarity:Float):Float {
-		__fastnoiselite_ptr().value.set_domain_warp_fractal_lacunarity(p_domain_warp_lacunarity);
+		__fastnoiselite_ptr().value.set_domain_warp_fractal_lacunarity(((p_domain_warp_lacunarity : Float)));
 		return p_domain_warp_lacunarity;
 	}
 	public function get_domain_warp_fractal_lacunarity():Float return __fastnoiselite_ptr().value.get_domain_warp_fractal_lacunarity();
 	public function set_domain_warp_fractal_gain(p_domain_warp_gain:Float):Float {
-		__fastnoiselite_ptr().value.set_domain_warp_fractal_gain(p_domain_warp_gain);
+		__fastnoiselite_ptr().value.set_domain_warp_fractal_gain(((p_domain_warp_gain : Float)));
 		return p_domain_warp_gain;
 	}
 	public function get_domain_warp_fractal_gain():Float return __fastnoiselite_ptr().value.get_domain_warp_fractal_gain();

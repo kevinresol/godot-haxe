@@ -9,14 +9,14 @@ class LightOccluder2D extends gd.Node2D {
 		super(native.reinterpret());
 	}
 	extern inline function __lightoccluder2d_ptr():cpp.Pointer<gdnative.LightOccluder2D.LightOccluder2D_extern> return cast __gd.ptr;
-	public function set_occluder_polygon(p_polygon:gd.OccluderPolygon2D):Void __lightoccluder2d_ptr().value.set_occluder_polygon(p_polygon);
+	public function set_occluder_polygon(p_polygon:gd.OccluderPolygon2D):Void __lightoccluder2d_ptr().value.set_occluder_polygon(((p_polygon : gd.OccluderPolygon2D)));
 	public function get_occluder_polygon():gd.OccluderPolygon2D return __lightoccluder2d_ptr().value.get_occluder_polygon();
 	public function set_occluder_light_mask(p_mask:Int):Int {
-		__lightoccluder2d_ptr().value.set_occluder_light_mask(p_mask);
+		__lightoccluder2d_ptr().value.set_occluder_light_mask(((p_mask : Int)));
 		return p_mask;
 	}
 	public function get_occluder_light_mask():Int return __lightoccluder2d_ptr().value.get_occluder_light_mask();
-	public function set_as_sdf_collision(p_enable:Bool):Void __lightoccluder2d_ptr().value.set_as_sdf_collision(p_enable);
+	public function set_as_sdf_collision(p_enable:Bool):Void __lightoccluder2d_ptr().value.set_as_sdf_collision(((p_enable : Bool)));
 	public function is_set_as_sdf_collision():Bool return __lightoccluder2d_ptr().value.is_set_as_sdf_collision();
 	var occluder(get, set) : gd.OccluderPolygon2D;
 	function get_occluder():gd.OccluderPolygon2D return get_occluder_polygon();

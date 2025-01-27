@@ -10,27 +10,27 @@ class CameraAttributes extends gd.Resource {
 	}
 	extern inline function __cameraattributes_ptr():cpp.Pointer<gdnative.CameraAttributes.CameraAttributes_extern> return cast __gd.ptr;
 	public function set_exposure_multiplier(p_multiplier:Float):Float {
-		__cameraattributes_ptr().value.set_exposure_multiplier(p_multiplier);
+		__cameraattributes_ptr().value.set_exposure_multiplier(((p_multiplier : Float)));
 		return p_multiplier;
 	}
 	public function get_exposure_multiplier():Float return __cameraattributes_ptr().value.get_exposure_multiplier();
 	public function set_exposure_sensitivity(p_sensitivity:Float):Float {
-		__cameraattributes_ptr().value.set_exposure_sensitivity(p_sensitivity);
+		__cameraattributes_ptr().value.set_exposure_sensitivity(((p_sensitivity : Float)));
 		return p_sensitivity;
 	}
 	public function get_exposure_sensitivity():Float return __cameraattributes_ptr().value.get_exposure_sensitivity();
 	public function set_auto_exposure_enabled(p_enabled:Bool):Bool {
-		__cameraattributes_ptr().value.set_auto_exposure_enabled(p_enabled);
+		__cameraattributes_ptr().value.set_auto_exposure_enabled(((p_enabled : Bool)));
 		return p_enabled;
 	}
 	public function is_auto_exposure_enabled():Bool return __cameraattributes_ptr().value.is_auto_exposure_enabled();
 	public function set_auto_exposure_speed(p_exposure_speed:Float):Float {
-		__cameraattributes_ptr().value.set_auto_exposure_speed(p_exposure_speed);
+		__cameraattributes_ptr().value.set_auto_exposure_speed(((p_exposure_speed : Float)));
 		return p_exposure_speed;
 	}
 	public function get_auto_exposure_speed():Float return __cameraattributes_ptr().value.get_auto_exposure_speed();
 	public function set_auto_exposure_scale(p_exposure_grey:Float):Float {
-		__cameraattributes_ptr().value.set_auto_exposure_scale(p_exposure_grey);
+		__cameraattributes_ptr().value.set_auto_exposure_scale(((p_exposure_grey : Float)));
 		return p_exposure_grey;
 	}
 	public function get_auto_exposure_scale():Float return __cameraattributes_ptr().value.get_auto_exposure_scale();

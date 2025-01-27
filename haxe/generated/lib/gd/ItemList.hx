@@ -1,7 +1,8 @@
 package gd;
 extern class ItemList extends gd.Control {
 	function new(?owner:Dynamic);
-	function add_icon_item(p_icon:gd.Texture2D, ?p_selectable:Bool = true):Int;
+	function add_item(p_text:std.String, ?p_icon:gd.Texture2D, ?p_selectable:Bool):Int;
+	function add_icon_item(p_icon:gd.Texture2D, ?p_selectable:Bool):Int;
 	function set_item_text(p_idx:Int, p_text:std.String):Void;
 	function get_item_text(p_idx:Int):std.String;
 	function set_item_icon(p_idx:Int, p_icon:gd.Texture2D):Void;
@@ -26,12 +27,12 @@ extern class ItemList extends gd.Control {
 	function get_item_custom_bg_color(p_idx:Int):gd.Color;
 	function set_item_custom_fg_color(p_idx:Int, p_custom_fg_color:gd.Color):Void;
 	function get_item_custom_fg_color(p_idx:Int):gd.Color;
-	function get_item_rect(p_idx:Int, ?p_expand:Bool = true):gd.Rect2;
+	function get_item_rect(p_idx:Int, ?p_expand:Bool):gd.Rect2;
 	function set_item_tooltip_enabled(p_idx:Int, p_enable:Bool):Void;
 	function is_item_tooltip_enabled(p_idx:Int):Bool;
 	function set_item_tooltip(p_idx:Int, p_tooltip:std.String):Void;
 	function get_item_tooltip(p_idx:Int):std.String;
-	function select(p_idx:Int, ?p_single:Bool = true):Void;
+	function select(p_idx:Int, ?p_single:Bool):Void;
 	function deselect(p_idx:Int):Void;
 	function deselect_all():Void;
 	function is_selected(p_idx:Int):Bool;
@@ -67,7 +68,7 @@ extern class ItemList extends gd.Control {
 	function set_auto_height(p_enable:Bool):Bool;
 	function has_auto_height():Bool;
 	function is_anything_selected():Bool;
-	function get_item_at_position(p_position:gd.Vector2, ?p_exact:Bool = false):Int;
+	function get_item_at_position(p_position:gd.Vector2, ?p_exact:Bool):Int;
 	function ensure_current_is_visible():Void;
 	function get_v_scroll_bar():gd.VScrollBar;
 	function set_text_overrun_behavior(p_overrun_behavior:gd.textserver.OverrunBehavior):gd.textserver.OverrunBehavior;

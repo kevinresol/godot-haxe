@@ -11,14 +11,14 @@ class OpenXRExtensionWrapperExtension extends gd.Object {
 	extern inline function __openxrextensionwrapperextension_ptr():cpp.Pointer<gdnative.OpenXRExtensionWrapperExtension.OpenXRExtensionWrapperExtension_extern> return cast __gd.ptr;
 	public function _get_requested_extensions():gd.Dictionary return __openxrextensionwrapperextension_ptr().value._get_requested_extensions();
 	public function _get_composition_layer_count():Int return __openxrextensionwrapperextension_ptr().value._get_composition_layer_count();
-	public function _get_composition_layer(p_index:Int):Int return __openxrextensionwrapperextension_ptr().value._get_composition_layer(p_index);
-	public function _get_composition_layer_order(p_index:Int):Int return __openxrextensionwrapperextension_ptr().value._get_composition_layer_order(p_index);
+	public function _get_composition_layer(p_index:Int):Int return __openxrextensionwrapperextension_ptr().value._get_composition_layer(((p_index : Int)));
+	public function _get_composition_layer_order(p_index:Int):Int return __openxrextensionwrapperextension_ptr().value._get_composition_layer_order(((p_index : Int)));
 	public function _get_suggested_tracker_names():gd.PackedStringArray return __openxrextensionwrapperextension_ptr().value._get_suggested_tracker_names();
 	public function _on_register_metadata():Void __openxrextensionwrapperextension_ptr().value._on_register_metadata();
 	public function _on_before_instance_created():Void __openxrextensionwrapperextension_ptr().value._on_before_instance_created();
-	public function _on_instance_created(p_instance:Int):Void __openxrextensionwrapperextension_ptr().value._on_instance_created(p_instance);
+	public function _on_instance_created(p_instance:Int):Void __openxrextensionwrapperextension_ptr().value._on_instance_created(((p_instance : Int)));
 	public function _on_instance_destroyed():Void __openxrextensionwrapperextension_ptr().value._on_instance_destroyed();
-	public function _on_session_created(p_session:Int):Void __openxrextensionwrapperextension_ptr().value._on_session_created(p_session);
+	public function _on_session_created(p_session:Int):Void __openxrextensionwrapperextension_ptr().value._on_session_created(((p_session : Int)));
 	public function _on_process():Void __openxrextensionwrapperextension_ptr().value._on_process();
 	public function _on_pre_render():Void __openxrextensionwrapperextension_ptr().value._on_pre_render();
 	public function _on_main_swapchains_created():Void __openxrextensionwrapperextension_ptr().value._on_main_swapchains_created();

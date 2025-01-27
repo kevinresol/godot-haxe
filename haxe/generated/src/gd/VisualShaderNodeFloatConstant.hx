@@ -10,7 +10,7 @@ class VisualShaderNodeFloatConstant extends gd.VisualShaderNodeConstant {
 	}
 	extern inline function __visualshadernodefloatconstant_ptr():cpp.Pointer<gdnative.VisualShaderNodeFloatConstant.VisualShaderNodeFloatConstant_extern> return cast __gd.ptr;
 	public function set_constant(p_constant:Float):Float {
-		__visualshadernodefloatconstant_ptr().value.set_constant(p_constant);
+		__visualshadernodefloatconstant_ptr().value.set_constant(((p_constant : Float)));
 		return p_constant;
 	}
 	public function get_constant():Float return __visualshadernodefloatconstant_ptr().value.get_constant();

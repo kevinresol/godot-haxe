@@ -25,15 +25,15 @@ extern class AStarGrid2D extends gd.RefCounted {
 	function get_default_compute_heuristic():gd.astargrid2d.Heuristic;
 	function set_default_estimate_heuristic(p_heuristic:gd.astargrid2d.Heuristic):gd.astargrid2d.Heuristic;
 	function get_default_estimate_heuristic():gd.astargrid2d.Heuristic;
-	function set_point_solid(p_id:gd.Vector2i, ?p_solid:Bool = true):Void;
+	function set_point_solid(p_id:gd.Vector2i, ?p_solid:Bool):Void;
 	function is_point_solid(p_id:gd.Vector2i):Bool;
 	function set_point_weight_scale(p_id:gd.Vector2i, p_weight_scale:Float):Void;
 	function get_point_weight_scale(p_id:gd.Vector2i):Float;
-	function fill_solid_region(p_region:gd.Rect2i, ?p_solid:Bool = true):Void;
+	function fill_solid_region(p_region:gd.Rect2i, ?p_solid:Bool):Void;
 	function fill_weight_scale_region(p_region:gd.Rect2i, p_weight_scale:Float):Void;
 	function clear():Void;
 	function get_point_position(p_id:gd.Vector2i):gd.Vector2;
-	function get_point_path(p_from_id:gd.Vector2i, p_to_id:gd.Vector2i, ?p_allow_partial_path:Bool = false):gd.PackedVector2Array;
+	function get_point_path(p_from_id:gd.Vector2i, p_to_id:gd.Vector2i, ?p_allow_partial_path:Bool):gd.PackedVector2Array;
 	var region(get, set) : gd.Rect2i;
 	var size(get, set) : gd.Vector2i;
 	var offset(get, set) : gd.Vector2;

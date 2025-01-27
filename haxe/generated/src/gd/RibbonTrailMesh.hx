@@ -10,32 +10,32 @@ class RibbonTrailMesh extends gd.PrimitiveMesh {
 	}
 	extern inline function __ribbontrailmesh_ptr():cpp.Pointer<gdnative.RibbonTrailMesh.RibbonTrailMesh_extern> return cast __gd.ptr;
 	public function set_size(p_size:Float):Float {
-		__ribbontrailmesh_ptr().value.set_size(p_size);
+		__ribbontrailmesh_ptr().value.set_size(((p_size : Float)));
 		return p_size;
 	}
 	public function get_size():Float return __ribbontrailmesh_ptr().value.get_size();
 	public function set_sections(p_sections:Int):Int {
-		__ribbontrailmesh_ptr().value.set_sections(p_sections);
+		__ribbontrailmesh_ptr().value.set_sections(((p_sections : Int)));
 		return p_sections;
 	}
 	public function get_sections():Int return __ribbontrailmesh_ptr().value.get_sections();
 	public function set_section_length(p_section_length:Float):Float {
-		__ribbontrailmesh_ptr().value.set_section_length(p_section_length);
+		__ribbontrailmesh_ptr().value.set_section_length(((p_section_length : Float)));
 		return p_section_length;
 	}
 	public function get_section_length():Float return __ribbontrailmesh_ptr().value.get_section_length();
 	public function set_section_segments(p_section_segments:Int):Int {
-		__ribbontrailmesh_ptr().value.set_section_segments(p_section_segments);
+		__ribbontrailmesh_ptr().value.set_section_segments(((p_section_segments : Int)));
 		return p_section_segments;
 	}
 	public function get_section_segments():Int return __ribbontrailmesh_ptr().value.get_section_segments();
 	public function set_curve(p_curve:gd.Curve):gd.Curve {
-		__ribbontrailmesh_ptr().value.set_curve(p_curve);
+		__ribbontrailmesh_ptr().value.set_curve(((p_curve : gd.Curve)));
 		return p_curve;
 	}
 	public function get_curve():gd.Curve return __ribbontrailmesh_ptr().value.get_curve();
 	public function set_shape(p_shape:gd.ribbontrailmesh.Shape):gd.ribbontrailmesh.Shape {
-		__ribbontrailmesh_ptr().value.set_shape(p_shape);
+		__ribbontrailmesh_ptr().value.set_shape(((p_shape : gd.ribbontrailmesh.Shape)));
 		return p_shape;
 	}
 	public function get_shape():gd.ribbontrailmesh.Shape return __ribbontrailmesh_ptr().value.get_shape();
