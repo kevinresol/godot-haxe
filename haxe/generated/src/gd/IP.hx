@@ -10,6 +10,8 @@ class IP extends gd.Object {
 	}
 	static public final singleton : gd.IP = new IP(gdnative.IP.IP_extern.get_singleton());
 	extern inline function __ip_ptr():cpp.Pointer<gdnative.IP.IP_extern> return cast __gd.ptr;
+	static public final RESOLVER_MAX_QUERIES : Int = 256;
+	static public final RESOLVER_INVALID_ID : Int = -1;
 	public function resolve_hostname(p_host:std.String, ?p_ip_type:gd.ip.Type):std.String return switch [p_host, p_ip_type] {
 		case [_, null]:__ip_ptr().value.resolve_hostname(((p_host : std.String)));
 		default:__ip_ptr().value.resolve_hostname(((p_host : std.String)), ((p_ip_type : gd.ip.Type)));

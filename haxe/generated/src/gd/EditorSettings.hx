@@ -9,6 +9,7 @@ class EditorSettings extends gd.Resource {
 		super(native.reinterpret());
 	}
 	extern inline function __editorsettings_ptr():cpp.Pointer<gdnative.EditorSettings.EditorSettings_extern> return cast __gd.ptr;
+	static public final NOTIFICATION_EDITOR_SETTINGS_CHANGED : Int = 10000;
 	public function has_setting(p_name:std.String):Bool return __editorsettings_ptr().value.has_setting(((p_name : std.String)));
 	public function set_setting(p_name:std.String, p_value:gd.Variant):Void __editorsettings_ptr().value.set_setting(((p_name : std.String)), ((p_value : gd.Variant)));
 	public function get_setting(p_name:std.String):gd.Variant return __editorsettings_ptr().value.get_setting(((p_name : std.String)));

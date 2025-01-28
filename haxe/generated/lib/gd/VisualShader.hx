@@ -1,6 +1,8 @@
 package gd;
 extern class VisualShader extends gd.Shader {
 	function new(?owner:Dynamic);
+	static final NODE_ID_INVALID : Int;
+	static final NODE_ID_OUTPUT : Int;
 	function set_mode(p_mode:gd.shader.Mode):Void;
 	function add_node(p_type:gd.visualshader.Type, p_node:gd.VisualShaderNode, p_position:gd.Vector2, p_id:Int):Void;
 	function get_node(p_type:gd.visualshader.Type, p_id:Int):gd.VisualShaderNode;

@@ -1,6 +1,8 @@
 package gd;
 extern class Window extends gd.Viewport {
 	function new(?owner:Dynamic);
+	static final NOTIFICATION_VISIBILITY_CHANGED : Int;
+	static final NOTIFICATION_THEME_CHANGED : Int;
 	function _get_contents_minimum_size():gd.Vector2;
 	function set_title(p_title:std.String):std.String;
 	function get_title():std.String;

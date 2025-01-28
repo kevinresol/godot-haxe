@@ -1,6 +1,8 @@
 package gd;
 extern class RenderingDevice extends gd.Object {
 	function new(?owner:Dynamic);
+	static final INVALID_ID : Int;
+	static final INVALID_FORMAT_ID : Int;
 	function texture_create_shared(p_view:gd.RDTextureView, p_with_texture:gd.RID):gd.RID;
 	function texture_create_shared_from_slice(p_view:gd.RDTextureView, p_with_texture:gd.RID, p_layer:Int, p_mipmap:Int, ?p_mipmaps:Int, ?p_slice_type:gd.renderingdevice.TextureSliceType):gd.RID;
 	function texture_create_from_extension(p_type:gd.renderingdevice.TextureType, p_format:gd.renderingdevice.DataFormat, p_samples:gd.renderingdevice.TextureSamples, p_usage_flags:Int, p_image:Int, p_width:Int, p_height:Int, p_depth:Int, p_layers:Int):gd.RID;

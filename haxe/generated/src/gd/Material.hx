@@ -9,6 +9,8 @@ class Material extends gd.Resource {
 		super(native.reinterpret());
 	}
 	extern inline function __material_ptr():cpp.Pointer<gdnative.Material.Material_extern> return cast __gd.ptr;
+	static public final RENDER_PRIORITY_MAX : Int = 127;
+	static public final RENDER_PRIORITY_MIN : Int = -128;
 	public function _get_shader_rid():gd.RID return __material_ptr().value._get_shader_rid();
 	public function _get_shader_mode():gd.shader.Mode return __material_ptr().value._get_shader_mode();
 	public function _can_do_next_pass():Bool return __material_ptr().value._can_do_next_pass();

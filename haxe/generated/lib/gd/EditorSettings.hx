@@ -1,6 +1,7 @@
 package gd;
 extern class EditorSettings extends gd.Resource {
 	function new(?owner:Dynamic);
+	static final NOTIFICATION_EDITOR_SETTINGS_CHANGED : Int;
 	function has_setting(p_name:std.String):Bool;
 	function set_setting(p_name:std.String, p_value:gd.Variant):Void;
 	function get_setting(p_name:std.String):gd.Variant;

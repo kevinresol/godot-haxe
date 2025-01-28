@@ -10,6 +10,7 @@ class ResourceUID extends gd.Object {
 	}
 	static public final singleton : gd.ResourceUID = new ResourceUID(gdnative.ResourceUID.ResourceUID_extern.get_singleton());
 	extern inline function __resourceuid_ptr():cpp.Pointer<gdnative.ResourceUID.ResourceUID_extern> return cast __gd.ptr;
+	static public final INVALID_ID : Int = -1;
 	public function id_to_text(p_id:Int):std.String return __resourceuid_ptr().value.id_to_text(((p_id : Int)));
 	public function text_to_id(p_text_id:std.String):Int return __resourceuid_ptr().value.text_to_id(((p_text_id : std.String)));
 	public function create_id():Int return __resourceuid_ptr().value.create_id();

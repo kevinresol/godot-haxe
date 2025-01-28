@@ -1,6 +1,7 @@
 package gd;
 extern class Skeleton3D extends gd.Node3D {
 	function new(?owner:Dynamic);
+	static final NOTIFICATION_UPDATE_SKELETON : Int;
 	function add_bone(p_name:std.String):Int;
 	function find_bone(p_name:std.String):Int;
 	function get_bone_name(p_bone_idx:Int):std.String;

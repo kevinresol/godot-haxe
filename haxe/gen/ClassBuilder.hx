@@ -24,18 +24,9 @@ class ClassBuilder extends EnumBuilder {
 			final hppExists = sys.FileSystem.exists(hppPath);
 
 			if (hppExists) {
-				if (true
-					|| getClassInheritance('Sprite2D').contains(cname)
-					|| getClassInheritance('Texture2D').contains(cname)
-					|| getClassInheritance('Sky').contains(cname)
-					|| getClassInheritance('ResourceLoader').contains(cname)
-					|| getClassInheritance('ClassDB').contains(cname)
-					|| getClassInheritance('RDShaderSource').contains(cname)
-					|| getClassInheritance('Timer').contains(cname)) {
-					generateClassExtern(clazz, hpp);
-					generateClassWrapper(clazz, true);
-					generateClassWrapper(clazz, false);
-				}
+				generateClassExtern(clazz, hpp);
+				generateClassWrapper(clazz, true);
+				generateClassWrapper(clazz, false);
 			} else {
 				trace('Skipping ${cname} because ${hpp} does not exist');
 			}
@@ -215,6 +206,16 @@ class ClassBuilder extends EnumBuilder {
 			}).fields);
 		}
 
+		// constants
+		for (c in (clazz.constants ?? [])) {
+			cls.fields.push({
+				pos: null,
+				name: c.name,
+				access: [AStatic, AFinal].concat(isScriptExtern ? [] : [APublic]),
+				kind: FVar(macro :Int, isScriptExtern ? null : macro $v{c.value}),
+			});
+		}
+
 		// enums
 		for (e in (clazz.enums ?? [])) {
 			generateEnumWrapper({name: '$cname.${e.name}', values: e.values}, isScriptExtern);
@@ -386,7 +387,7 @@ class ClassBuilder extends EnumBuilder {
 		switch cname {
 			case 'Object':
 				if (isScriptExtern) {
-					cls.meta.push({pos: null, name: ':autoBuild', params: [macro gd.ObjectMacro.build()]});
+					cls.meta.push({pos: null, name: ':autoBuild', params: [macro gdutil.Macro.buildObject()]});
 
 					cls.fields = cls.fields.concat((macro class {
 						function cast_to<T:gd.Object>(cls:Class<T>):T;

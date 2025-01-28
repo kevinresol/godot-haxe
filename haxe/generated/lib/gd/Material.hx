@@ -1,6 +1,8 @@
 package gd;
 extern class Material extends gd.Resource {
 	function new(?owner:Dynamic);
+	static final RENDER_PRIORITY_MAX : Int;
+	static final RENDER_PRIORITY_MIN : Int;
 	function _get_shader_rid():gd.RID;
 	function _get_shader_mode():gd.shader.Mode;
 	function _can_do_next_pass():Bool;

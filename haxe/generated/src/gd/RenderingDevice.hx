@@ -9,6 +9,8 @@ class RenderingDevice extends gd.Object {
 		super(native.reinterpret());
 	}
 	extern inline function __renderingdevice_ptr():cpp.Pointer<gdnative.RenderingDevice.RenderingDevice_extern> return cast __gd.ptr;
+	static public final INVALID_ID : Int = -1;
+	static public final INVALID_FORMAT_ID : Int = -1;
 	public function texture_create_shared(p_view:gd.RDTextureView, p_with_texture:gd.RID):gd.RID return __renderingdevice_ptr().value.texture_create_shared(((p_view : gd.RDTextureView)), ((p_with_texture : gd.RID)));
 	public function texture_create_shared_from_slice(p_view:gd.RDTextureView, p_with_texture:gd.RID, p_layer:Int, p_mipmap:Int, ?p_mipmaps:Int, ?p_slice_type:gd.renderingdevice.TextureSliceType):gd.RID return switch [p_view, p_with_texture, p_layer, p_mipmap, p_mipmaps, p_slice_type] {
 		case [_, _, _, _, null, _]:__renderingdevice_ptr().value.texture_create_shared_from_slice(((p_view : gd.RDTextureView)), ((p_with_texture : gd.RID)), ((p_layer : Int)), ((p_mipmap : Int)));

@@ -1,6 +1,10 @@
 package gd;
 extern class GLTFState extends gd.Resource {
 	function new(?owner:Dynamic);
+	static final HANDLE_BINARY_DISCARD_TEXTURES : Int;
+	static final HANDLE_BINARY_EXTRACT_TEXTURES : Int;
+	static final HANDLE_BINARY_EMBED_AS_BASISU : Int;
+	static final HANDLE_BINARY_EMBED_AS_UNCOMPRESSED : Int;
 	function add_used_extension(p_extension_name:std.String, p_required:Bool):Void;
 	function append_data_to_buffers(p_data:gd.PackedByteArray, p_deduplication:Bool):Int;
 	function get_json():gd.Dictionary;

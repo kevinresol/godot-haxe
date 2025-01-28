@@ -9,6 +9,7 @@ class Skeleton3D extends gd.Node3D {
 		super(native.reinterpret());
 	}
 	extern inline function __skeleton3d_ptr():cpp.Pointer<gdnative.Skeleton3D.Skeleton3D_extern> return cast __gd.ptr;
+	static public final NOTIFICATION_UPDATE_SKELETON : Int = 50;
 	public function add_bone(p_name:std.String):Int return __skeleton3d_ptr().value.add_bone(((p_name : std.String)));
 	public function find_bone(p_name:std.String):Int return __skeleton3d_ptr().value.find_bone(((p_name : std.String)));
 	public function get_bone_name(p_bone_idx:Int):std.String return __skeleton3d_ptr().value.get_bone_name(((p_bone_idx : Int)));

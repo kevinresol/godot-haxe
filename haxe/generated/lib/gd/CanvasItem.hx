@@ -1,6 +1,13 @@
 package gd;
 extern class CanvasItem extends gd.Node {
 	function new(?owner:Dynamic);
+	static final NOTIFICATION_TRANSFORM_CHANGED : Int;
+	static final NOTIFICATION_LOCAL_TRANSFORM_CHANGED : Int;
+	static final NOTIFICATION_DRAW : Int;
+	static final NOTIFICATION_VISIBILITY_CHANGED : Int;
+	static final NOTIFICATION_ENTER_CANVAS : Int;
+	static final NOTIFICATION_EXIT_CANVAS : Int;
+	static final NOTIFICATION_WORLD_2D_CHANGED : Int;
 	function _draw():Void;
 	function get_canvas_item():gd.RID;
 	function set_visible(p_visible:Bool):Bool;

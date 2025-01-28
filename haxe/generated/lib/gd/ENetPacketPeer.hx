@@ -1,6 +1,11 @@
 package gd;
 extern class ENetPacketPeer extends gd.PacketPeer {
 	function new(?owner:Dynamic);
+	static final PACKET_LOSS_SCALE : Int;
+	static final PACKET_THROTTLE_SCALE : Int;
+	static final FLAG_RELIABLE : Int;
+	static final FLAG_UNSEQUENCED : Int;
+	static final FLAG_UNRELIABLE_FRAGMENT : Int;
 	function peer_disconnect(?p_data:Int):Void;
 	function peer_disconnect_later(?p_data:Int):Void;
 	function peer_disconnect_now(?p_data:Int):Void;

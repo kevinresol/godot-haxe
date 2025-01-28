@@ -9,6 +9,7 @@ class RDFramebufferPass extends gd.RefCounted {
 		super(native.reinterpret());
 	}
 	extern inline function __rdframebufferpass_ptr():cpp.Pointer<gdnative.RDFramebufferPass.RDFramebufferPass_extern> return cast __gd.ptr;
+	static public final ATTACHMENT_UNUSED : Int = -1;
 	public function set_color_attachments(p_p_member:gd.PackedInt32Array):gd.PackedInt32Array {
 		__rdframebufferpass_ptr().value.set_color_attachments(((p_p_member : gd.PackedInt32Array)));
 		return p_p_member;

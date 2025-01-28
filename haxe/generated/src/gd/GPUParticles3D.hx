@@ -9,6 +9,7 @@ class GPUParticles3D extends gd.GeometryInstance3D {
 		super(native.reinterpret());
 	}
 	extern inline function __gpuparticles3d_ptr():cpp.Pointer<gdnative.GPUParticles3D.GPUParticles3D_extern> return cast __gd.ptr;
+	static public final MAX_DRAW_PASSES : Int = 4;
 	public function set_emitting(p_emitting:Bool):Bool {
 		__gpuparticles3d_ptr().value.set_emitting(((p_emitting : Bool)));
 		return p_emitting;

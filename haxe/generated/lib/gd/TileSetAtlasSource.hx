@@ -1,6 +1,9 @@
 package gd;
 extern class TileSetAtlasSource extends gd.TileSetSource {
 	function new(?owner:Dynamic);
+	static final TRANSFORM_FLIP_H : Int;
+	static final TRANSFORM_FLIP_V : Int;
+	static final TRANSFORM_TRANSPOSE : Int;
 	function set_texture(p_texture:gd.Texture2D):gd.Texture2D;
 	function get_texture():gd.Texture2D;
 	function set_margins(p_margins:gd.Vector2i):gd.Vector2i;

@@ -1,6 +1,12 @@
 package gd;
 extern class AnimationNodeBlendTree extends gd.AnimationRootNode {
 	function new(?owner:Dynamic);
+	static final CONNECTION_OK : Int;
+	static final CONNECTION_ERROR_NO_INPUT : Int;
+	static final CONNECTION_ERROR_NO_INPUT_INDEX : Int;
+	static final CONNECTION_ERROR_NO_OUTPUT : Int;
+	static final CONNECTION_ERROR_SAME_NODE : Int;
+	static final CONNECTION_ERROR_CONNECTION_EXISTS : Int;
 	function add_node(p_name:std.String, p_node:gd.AnimationNode, ?p_position:gd.Vector2):Void;
 	function get_node(p_name:std.String):gd.AnimationNode;
 	function remove_node(p_name:std.String):Void;

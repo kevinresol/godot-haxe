@@ -9,6 +9,11 @@ class ENetPacketPeer extends gd.PacketPeer {
 		super(native.reinterpret());
 	}
 	extern inline function __enetpacketpeer_ptr():cpp.Pointer<gdnative.ENetPacketPeer.ENetPacketPeer_extern> return cast __gd.ptr;
+	static public final PACKET_LOSS_SCALE : Int = 65536;
+	static public final PACKET_THROTTLE_SCALE : Int = 32;
+	static public final FLAG_RELIABLE : Int = 1;
+	static public final FLAG_UNSEQUENCED : Int = 2;
+	static public final FLAG_UNRELIABLE_FRAGMENT : Int = 8;
 	public function peer_disconnect(?p_data:Int):Void switch [p_data] {
 		case [null]:__enetpacketpeer_ptr().value.peer_disconnect();
 		default:__enetpacketpeer_ptr().value.peer_disconnect(((p_data : Int)));

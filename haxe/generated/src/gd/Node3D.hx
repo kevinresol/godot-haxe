@@ -9,6 +9,11 @@ class Node3D extends gd.Node {
 		super(native.reinterpret());
 	}
 	extern inline function __node3d_ptr():cpp.Pointer<gdnative.Node3D.Node3D_extern> return cast __gd.ptr;
+	static public final NOTIFICATION_TRANSFORM_CHANGED : Int = 2000;
+	static public final NOTIFICATION_ENTER_WORLD : Int = 41;
+	static public final NOTIFICATION_EXIT_WORLD : Int = 42;
+	static public final NOTIFICATION_VISIBILITY_CHANGED : Int = 43;
+	static public final NOTIFICATION_LOCAL_TRANSFORM_CHANGED : Int = 44;
 	public function set_transform(p_local:gd.Transform3D):gd.Transform3D {
 		__node3d_ptr().value.set_transform(((p_local : gd.Transform3D)));
 		return p_local;

@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://ccpvn22epnitt" path="res://icon.svg" id="3_bcw0c"]
 
 [node name="Main" type="Node2D"]
-process_mode = 4
 position = Vector2(74.8526, 74.8526)
 script = ExtResource("1_3e77y")
 speed = 0

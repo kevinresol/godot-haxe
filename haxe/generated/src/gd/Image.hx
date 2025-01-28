@@ -9,6 +9,8 @@ class Image extends gd.Resource {
 		super(native.reinterpret());
 	}
 	extern inline function __image_ptr():cpp.Pointer<gdnative.Image.Image_extern> return cast __gd.ptr;
+	static public final MAX_WIDTH : Int = 16777216;
+	static public final MAX_HEIGHT : Int = 16777216;
 	public function get_width():Int return __image_ptr().value.get_width();
 	public function get_height():Int return __image_ptr().value.get_height();
 	public function get_size():gd.Vector2i return __image_ptr().value.get_size();

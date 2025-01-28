@@ -9,6 +9,7 @@ class AnimatedTexture extends gd.Texture2D {
 		super(native.reinterpret());
 	}
 	extern inline function __animatedtexture_ptr():cpp.Pointer<gdnative.AnimatedTexture.AnimatedTexture_extern> return cast __gd.ptr;
+	static public final MAX_FRAMES : Int = 256;
 	public function set_frames(p_frames:Int):Int {
 		__animatedtexture_ptr().value.set_frames(((p_frames : Int)));
 		return p_frames;

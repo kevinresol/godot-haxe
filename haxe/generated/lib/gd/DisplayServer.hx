@@ -2,6 +2,13 @@ package gd;
 extern class DisplayServer extends gd.Object {
 	function new(?owner:Dynamic);
 	static final singleton : gd.DisplayServer;
+	static final SCREEN_WITH_MOUSE_FOCUS : Int;
+	static final SCREEN_WITH_KEYBOARD_FOCUS : Int;
+	static final SCREEN_PRIMARY : Int;
+	static final SCREEN_OF_MAIN_WINDOW : Int;
+	static final MAIN_WINDOW_ID : Int;
+	static final INVALID_WINDOW_ID : Int;
+	static final INVALID_INDICATOR_ID : Int;
 	function has_feature(p_feature:gd.displayserver.Feature):Bool;
 	function get_name():std.String;
 	function help_set_search_callbacks(p_search_callback:gd.Callable, p_action_callback:gd.Callable):Void;

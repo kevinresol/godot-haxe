@@ -9,6 +9,8 @@ class MultiplayerPeer extends gd.PacketPeer {
 		super(native.reinterpret());
 	}
 	extern inline function __multiplayerpeer_ptr():cpp.Pointer<gdnative.MultiplayerPeer.MultiplayerPeer_extern> return cast __gd.ptr;
+	static public final TARGET_PEER_BROADCAST : Int = 0;
+	static public final TARGET_PEER_SERVER : Int = 1;
 	public function set_transfer_channel(p_channel:Int):Int {
 		__multiplayerpeer_ptr().value.set_transfer_channel(((p_channel : Int)));
 		return p_channel;

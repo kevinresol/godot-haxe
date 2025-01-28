@@ -1,6 +1,11 @@
 package gd;
 extern class Node3D extends gd.Node {
 	function new(?owner:Dynamic);
+	static final NOTIFICATION_TRANSFORM_CHANGED : Int;
+	static final NOTIFICATION_ENTER_WORLD : Int;
+	static final NOTIFICATION_EXIT_WORLD : Int;
+	static final NOTIFICATION_VISIBILITY_CHANGED : Int;
+	static final NOTIFICATION_LOCAL_TRANSFORM_CHANGED : Int;
 	function set_transform(p_local:gd.Transform3D):gd.Transform3D;
 	function get_transform():gd.Transform3D;
 	function set_position(p_position:gd.Vector3):gd.Vector3;

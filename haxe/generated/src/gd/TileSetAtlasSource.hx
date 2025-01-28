@@ -9,6 +9,9 @@ class TileSetAtlasSource extends gd.TileSetSource {
 		super(native.reinterpret());
 	}
 	extern inline function __tilesetatlassource_ptr():cpp.Pointer<gdnative.TileSetAtlasSource.TileSetAtlasSource_extern> return cast __gd.ptr;
+	static public final TRANSFORM_FLIP_H : Int = 4096;
+	static public final TRANSFORM_FLIP_V : Int = 8192;
+	static public final TRANSFORM_TRANSPOSE : Int = 16384;
 	public function set_texture(p_texture:gd.Texture2D):gd.Texture2D {
 		__tilesetatlassource_ptr().value.set_texture(((p_texture : gd.Texture2D)));
 		return p_texture;

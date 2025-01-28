@@ -9,6 +9,9 @@ class Object {
 		__gd = native;
 	}
 	extern inline function __object_ptr():cpp.Pointer<gdnative.Object.Object_extern> return cast __gd.ptr;
+	static public final NOTIFICATION_POSTINITIALIZE : Int = 0;
+	static public final NOTIFICATION_PREDELETE : Int = 1;
+	static public final NOTIFICATION_EXTENSION_RELOADED : Int = 2;
 	public function get_class():std.String return __object_ptr().value.get_class();
 	public function is_class(p_class:std.String):Bool return __object_ptr().value.is_class(((p_class : std.String)));
 	public function set(p_property:std.String, p_value:gd.Variant):Void __object_ptr().value.set(((p_property : std.String)), ((p_value : gd.Variant)));

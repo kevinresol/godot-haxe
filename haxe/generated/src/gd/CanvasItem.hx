@@ -9,6 +9,13 @@ class CanvasItem extends gd.Node {
 		super(native.reinterpret());
 	}
 	extern inline function __canvasitem_ptr():cpp.Pointer<gdnative.CanvasItem.CanvasItem_extern> return cast __gd.ptr;
+	static public final NOTIFICATION_TRANSFORM_CHANGED : Int = 2000;
+	static public final NOTIFICATION_LOCAL_TRANSFORM_CHANGED : Int = 35;
+	static public final NOTIFICATION_DRAW : Int = 30;
+	static public final NOTIFICATION_VISIBILITY_CHANGED : Int = 31;
+	static public final NOTIFICATION_ENTER_CANVAS : Int = 32;
+	static public final NOTIFICATION_EXIT_CANVAS : Int = 33;
+	static public final NOTIFICATION_WORLD_2D_CHANGED : Int = 36;
 	public function _draw():Void __canvasitem_ptr().value._draw();
 	public function get_canvas_item():gd.RID return __canvasitem_ptr().value.get_canvas_item();
 	public function set_visible(p_visible:Bool):Bool {

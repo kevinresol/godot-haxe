@@ -1,6 +1,7 @@
 package gd;
 extern class AudioStreamPlaybackPolyphonic extends gd.AudioStreamPlayback {
 	function new(?owner:Dynamic);
+	static final INVALID_ID : Int;
 	function play_stream(p_stream:gd.AudioStream, ?p_from_offset:Float, ?p_volume_db:Float, ?p_pitch_scale:Float, ?p_playback_type:gd.audioserver.PlaybackType, ?p_bus:std.String):Int;
 	function set_stream_volume(p_stream:Int, p_volume_db:Float):Void;
 	function set_stream_pitch_scale(p_stream:Int, p_pitch_scale:Float):Void;

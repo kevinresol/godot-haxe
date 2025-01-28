@@ -9,6 +9,10 @@ class GLTFState extends gd.Resource {
 		super(native.reinterpret());
 	}
 	extern inline function __gltfstate_ptr():cpp.Pointer<gdnative.GLTFState.GLTFState_extern> return cast __gd.ptr;
+	static public final HANDLE_BINARY_DISCARD_TEXTURES : Int = 0;
+	static public final HANDLE_BINARY_EXTRACT_TEXTURES : Int = 1;
+	static public final HANDLE_BINARY_EMBED_AS_BASISU : Int = 2;
+	static public final HANDLE_BINARY_EMBED_AS_UNCOMPRESSED : Int = 3;
 	public function add_used_extension(p_extension_name:std.String, p_required:Bool):Void __gltfstate_ptr().value.add_used_extension(((p_extension_name : std.String)), ((p_required : Bool)));
 	public function append_data_to_buffers(p_data:gd.PackedByteArray, p_deduplication:Bool):Int return __gltfstate_ptr().value.append_data_to_buffers(((p_data : gd.PackedByteArray)), ((p_deduplication : Bool)));
 	public function get_json():gd.Dictionary return __gltfstate_ptr().value.get_json();

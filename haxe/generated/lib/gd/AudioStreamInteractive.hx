@@ -1,6 +1,7 @@
 package gd;
 extern class AudioStreamInteractive extends gd.AudioStream {
 	function new(?owner:Dynamic);
+	static final CLIP_ANY : Int;
 	function set_clip_count(p_clip_count:Int):Int;
 	function get_clip_count():Int;
 	function set_initial_clip(p_clip_index:Int):Int;

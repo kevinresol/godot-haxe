@@ -1,6 +1,7 @@
 package gd;
 extern class InputEvent extends gd.Resource {
 	function new(?owner:Dynamic);
+	static final DEVICE_ID_EMULATION : Int;
 	function set_device(p_device:Int):Int;
 	function get_device():Int;
 	function is_action(p_action:std.String, ?p_exact_match:Bool):Bool;

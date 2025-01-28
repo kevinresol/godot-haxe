@@ -10,6 +10,22 @@ class RenderingServer extends gd.Object {
 	}
 	static public final singleton : gd.RenderingServer = new RenderingServer(gdnative.RenderingServer.RenderingServer_extern.get_singleton());
 	extern inline function __renderingserver_ptr():cpp.Pointer<gdnative.RenderingServer.RenderingServer_extern> return cast __gd.ptr;
+	static public final NO_INDEX_ARRAY : Int = -1;
+	static public final ARRAY_WEIGHTS_SIZE : Int = 4;
+	static public final CANVAS_ITEM_Z_MIN : Int = -4096;
+	static public final CANVAS_ITEM_Z_MAX : Int = 4096;
+	static public final MAX_GLOW_LEVELS : Int = 7;
+	static public final MAX_CURSORS : Int = 8;
+	static public final MAX_2D_DIRECTIONAL_LIGHTS : Int = 8;
+	static public final MAX_MESH_SURFACES : Int = 256;
+	static public final MATERIAL_RENDER_PRIORITY_MIN : Int = -128;
+	static public final MATERIAL_RENDER_PRIORITY_MAX : Int = 127;
+	static public final ARRAY_CUSTOM_COUNT : Int = 4;
+	static public final PARTICLES_EMIT_FLAG_POSITION : Int = 1;
+	static public final PARTICLES_EMIT_FLAG_ROTATION_SCALE : Int = 2;
+	static public final PARTICLES_EMIT_FLAG_VELOCITY : Int = 4;
+	static public final PARTICLES_EMIT_FLAG_COLOR : Int = 8;
+	static public final PARTICLES_EMIT_FLAG_CUSTOM : Int = 16;
 	public function texture_2d_create(p_image:gd.Image):gd.RID return __renderingserver_ptr().value.texture_2d_create(((p_image : gd.Image)));
 	public function texture_proxy_create(p_base:gd.RID):gd.RID return __renderingserver_ptr().value.texture_proxy_create(((p_base : gd.RID)));
 	public function texture_2d_update(p_texture:gd.RID, p_image:gd.Image, p_layer:Int):Void __renderingserver_ptr().value.texture_2d_update(((p_texture : gd.RID)), ((p_image : gd.Image)), ((p_layer : Int)));

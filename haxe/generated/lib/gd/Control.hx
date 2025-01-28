@@ -1,6 +1,17 @@
 package gd;
 extern class Control extends gd.CanvasItem {
 	function new(?owner:Dynamic);
+	static final NOTIFICATION_RESIZED : Int;
+	static final NOTIFICATION_MOUSE_ENTER : Int;
+	static final NOTIFICATION_MOUSE_EXIT : Int;
+	static final NOTIFICATION_MOUSE_ENTER_SELF : Int;
+	static final NOTIFICATION_MOUSE_EXIT_SELF : Int;
+	static final NOTIFICATION_FOCUS_ENTER : Int;
+	static final NOTIFICATION_FOCUS_EXIT : Int;
+	static final NOTIFICATION_THEME_CHANGED : Int;
+	static final NOTIFICATION_SCROLL_BEGIN : Int;
+	static final NOTIFICATION_SCROLL_END : Int;
+	static final NOTIFICATION_LAYOUT_DIRECTION_CHANGED : Int;
 	function _has_point(p_point:gd.Vector2):Bool;
 	function _get_minimum_size():gd.Vector2;
 	function _get_tooltip(p_at_position:gd.Vector2):std.String;

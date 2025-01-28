@@ -9,6 +9,7 @@ class InputEvent extends gd.Resource {
 		super(native.reinterpret());
 	}
 	extern inline function __inputevent_ptr():cpp.Pointer<gdnative.InputEvent.InputEvent_extern> return cast __gd.ptr;
+	static public final DEVICE_ID_EMULATION : Int = -1;
 	public function set_device(p_device:Int):Int {
 		__inputevent_ptr().value.set_device(((p_device : Int)));
 		return p_device;

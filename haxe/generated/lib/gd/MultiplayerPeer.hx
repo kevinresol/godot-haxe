@@ -1,6 +1,8 @@
 package gd;
 extern class MultiplayerPeer extends gd.PacketPeer {
 	function new(?owner:Dynamic);
+	static final TARGET_PEER_BROADCAST : Int;
+	static final TARGET_PEER_SERVER : Int;
 	function set_transfer_channel(p_channel:Int):Int;
 	function get_transfer_channel():Int;
 	function set_transfer_mode(p_mode:gd.multiplayerpeer.TransferMode):gd.multiplayerpeer.TransferMode;

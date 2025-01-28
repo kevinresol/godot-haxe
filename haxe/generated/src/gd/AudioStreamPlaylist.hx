@@ -9,6 +9,7 @@ class AudioStreamPlaylist extends gd.AudioStream {
 		super(native.reinterpret());
 	}
 	extern inline function __audiostreamplaylist_ptr():cpp.Pointer<gdnative.AudioStreamPlaylist.AudioStreamPlaylist_extern> return cast __gd.ptr;
+	static public final MAX_STREAMS : Int = 64;
 	public function set_stream_count(p_stream_count:Int):Int {
 		__audiostreamplaylist_ptr().value.set_stream_count(((p_stream_count : Int)));
 		return p_stream_count;

@@ -1,0 +1,21 @@
+[{
+	access: null
+	doc: null
+	kind: null <- expected value
+	meta: null
+	name: null <- expected value
+	pos: null <- expected value
+}, {
+	access: null
+	doc: null
+	kind: null <- expected value
+	meta: null
+	name: null <- expected value
+	pos: null <- expected value
+}]
+line 4: expected value
+line 6: expected value
+line 7: expected value
+line 11: expected value
+line 13: expected value
+line 14: expected value

@@ -9,6 +9,7 @@ class AudioStreamPlaybackPolyphonic extends gd.AudioStreamPlayback {
 		super(native.reinterpret());
 	}
 	extern inline function __audiostreamplaybackpolyphonic_ptr():cpp.Pointer<gdnative.AudioStreamPlaybackPolyphonic.AudioStreamPlaybackPolyphonic_extern> return cast __gd.ptr;
+	static public final INVALID_ID : Int = -1;
 	public function play_stream(p_stream:gd.AudioStream, ?p_from_offset:Float, ?p_volume_db:Float, ?p_pitch_scale:Float, ?p_playback_type:gd.audioserver.PlaybackType, ?p_bus:std.String):Int return switch [p_stream, p_from_offset, p_volume_db, p_pitch_scale, p_playback_type, p_bus] {
 		case [_, null, _, _, _, _]:__audiostreamplaybackpolyphonic_ptr().value.play_stream(((p_stream : gd.AudioStream)));
 		case [_, _, null, _, _, _]:__audiostreamplaybackpolyphonic_ptr().value.play_stream(((p_stream : gd.AudioStream)), ((p_from_offset : Float)));

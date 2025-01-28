@@ -10,6 +10,13 @@ class DisplayServer extends gd.Object {
 	}
 	static public final singleton : gd.DisplayServer = new DisplayServer(gdnative.DisplayServer.DisplayServer_extern.get_singleton());
 	extern inline function __displayserver_ptr():cpp.Pointer<gdnative.DisplayServer.DisplayServer_extern> return cast __gd.ptr;
+	static public final SCREEN_WITH_MOUSE_FOCUS : Int = -4;
+	static public final SCREEN_WITH_KEYBOARD_FOCUS : Int = -3;
+	static public final SCREEN_PRIMARY : Int = -2;
+	static public final SCREEN_OF_MAIN_WINDOW : Int = -1;
+	static public final MAIN_WINDOW_ID : Int = 0;
+	static public final INVALID_WINDOW_ID : Int = -1;
+	static public final INVALID_INDICATOR_ID : Int = -1;
 	public function has_feature(p_feature:gd.displayserver.Feature):Bool return __displayserver_ptr().value.has_feature(((p_feature : gd.displayserver.Feature)));
 	public function get_name():std.String return __displayserver_ptr().value.get_name();
 	public function help_set_search_callbacks(p_search_callback:gd.Callable, p_action_callback:gd.Callable):Void __displayserver_ptr().value.help_set_search_callbacks(((p_search_callback : gd.Callable)), ((p_action_callback : gd.Callable)));

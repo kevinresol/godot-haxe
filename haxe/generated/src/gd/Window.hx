@@ -9,6 +9,8 @@ class Window extends gd.Viewport {
 		super(native.reinterpret());
 	}
 	extern inline function __window_ptr():cpp.Pointer<gdnative.Window.Window_extern> return cast __gd.ptr;
+	static public final NOTIFICATION_VISIBILITY_CHANGED : Int = 30;
+	static public final NOTIFICATION_THEME_CHANGED : Int = 32;
 	public function _get_contents_minimum_size():gd.Vector2 return __window_ptr().value._get_contents_minimum_size();
 	public function set_title(p_title:std.String):std.String {
 		__window_ptr().value.set_title(((p_title : std.String)));

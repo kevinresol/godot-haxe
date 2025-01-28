@@ -1,6 +1,9 @@
 package gd;
-@:autoBuild(gd.ObjectMacro.build()) extern class Object {
+@:autoBuild(gdutil.Macro.buildObject()) extern class Object {
 	function new(?owner:Dynamic);
+	static final NOTIFICATION_POSTINITIALIZE : Int;
+	static final NOTIFICATION_PREDELETE : Int;
+	static final NOTIFICATION_EXTENSION_RELOADED : Int;
 	function get_class():std.String;
 	function is_class(p_class:std.String):Bool;
 	function set(p_property:std.String, p_value:gd.Variant):Void;

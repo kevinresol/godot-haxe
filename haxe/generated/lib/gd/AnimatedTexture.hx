@@ -1,6 +1,7 @@
 package gd;
 extern class AnimatedTexture extends gd.Texture2D {
 	function new(?owner:Dynamic);
+	static final MAX_FRAMES : Int;
 	function set_frames(p_frames:Int):Int;
 	function get_frames():Int;
 	function set_current_frame(p_frame:Int):Int;

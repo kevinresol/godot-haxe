@@ -9,6 +9,17 @@ class Control extends gd.CanvasItem {
 		super(native.reinterpret());
 	}
 	extern inline function __control_ptr():cpp.Pointer<gdnative.Control.Control_extern> return cast __gd.ptr;
+	static public final NOTIFICATION_RESIZED : Int = 40;
+	static public final NOTIFICATION_MOUSE_ENTER : Int = 41;
+	static public final NOTIFICATION_MOUSE_EXIT : Int = 42;
+	static public final NOTIFICATION_MOUSE_ENTER_SELF : Int = 60;
+	static public final NOTIFICATION_MOUSE_EXIT_SELF : Int = 61;
+	static public final NOTIFICATION_FOCUS_ENTER : Int = 43;
+	static public final NOTIFICATION_FOCUS_EXIT : Int = 44;
+	static public final NOTIFICATION_THEME_CHANGED : Int = 45;
+	static public final NOTIFICATION_SCROLL_BEGIN : Int = 47;
+	static public final NOTIFICATION_SCROLL_END : Int = 48;
+	static public final NOTIFICATION_LAYOUT_DIRECTION_CHANGED : Int = 49;
 	public function _has_point(p_point:gd.Vector2):Bool return __control_ptr().value._has_point(((p_point : gd.Vector2)));
 	public function _get_minimum_size():gd.Vector2 return __control_ptr().value._get_minimum_size();
 	public function _get_tooltip(p_at_position:gd.Vector2):std.String return __control_ptr().value._get_tooltip(((p_at_position : gd.Vector2)));

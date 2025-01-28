@@ -1,6 +1,7 @@
 package gd;
 extern class RDFramebufferPass extends gd.RefCounted {
 	function new(?owner:Dynamic);
+	static final ATTACHMENT_UNUSED : Int;
 	function set_color_attachments(p_p_member:gd.PackedInt32Array):gd.PackedInt32Array;
 	function get_color_attachments():gd.PackedInt32Array;
 	function set_input_attachments(p_p_member:gd.PackedInt32Array):gd.PackedInt32Array;

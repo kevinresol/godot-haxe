@@ -9,6 +9,7 @@ class GridMap extends gd.Node3D {
 		super(native.reinterpret());
 	}
 	extern inline function __gridmap_ptr():cpp.Pointer<gdnative.GridMap.GridMap_extern> return cast __gd.ptr;
+	static public final INVALID_CELL_ITEM : Int = -1;
 	public function set_collision_layer(p_layer:Int):Int {
 		__gridmap_ptr().value.set_collision_layer(((p_layer : Int)));
 		return p_layer;

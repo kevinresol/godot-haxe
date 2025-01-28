@@ -9,6 +9,7 @@ class AudioStreamInteractive extends gd.AudioStream {
 		super(native.reinterpret());
 	}
 	extern inline function __audiostreaminteractive_ptr():cpp.Pointer<gdnative.AudioStreamInteractive.AudioStreamInteractive_extern> return cast __gd.ptr;
+	static public final CLIP_ANY : Int = -1;
 	public function set_clip_count(p_clip_count:Int):Int {
 		__audiostreaminteractive_ptr().value.set_clip_count(((p_clip_count : Int)));
 		return p_clip_count;

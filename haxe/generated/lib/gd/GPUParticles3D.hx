@@ -1,6 +1,7 @@
 package gd;
 extern class GPUParticles3D extends gd.GeometryInstance3D {
 	function new(?owner:Dynamic);
+	static final MAX_DRAW_PASSES : Int;
 	function set_emitting(p_emitting:Bool):Bool;
 	function set_amount(p_amount:Int):Int;
 	function set_lifetime(p_secs:Float):Float;

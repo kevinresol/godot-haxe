@@ -9,6 +9,8 @@ class VisualShader extends gd.Shader {
 		super(native.reinterpret());
 	}
 	extern inline function __visualshader_ptr():cpp.Pointer<gdnative.VisualShader.VisualShader_extern> return cast __gd.ptr;
+	static public final NODE_ID_INVALID : Int = -1;
+	static public final NODE_ID_OUTPUT : Int = 0;
 	public function set_mode(p_mode:gd.shader.Mode):Void __visualshader_ptr().value.set_mode(((p_mode : gd.shader.Mode)));
 	public function add_node(p_type:gd.visualshader.Type, p_node:gd.VisualShaderNode, p_position:gd.Vector2, p_id:Int):Void __visualshader_ptr().value.add_node(((p_type : gd.visualshader.Type)), ((p_node : gd.VisualShaderNode)), ((p_position : gd.Vector2)), ((p_id : Int)));
 	public function get_node(p_type:gd.visualshader.Type, p_id:Int):gd.VisualShaderNode return __visualshader_ptr().value.get_node(((p_type : gd.visualshader.Type)), ((p_id : Int)));

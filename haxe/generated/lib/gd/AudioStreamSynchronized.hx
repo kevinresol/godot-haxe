@@ -1,6 +1,7 @@
 package gd;
 extern class AudioStreamSynchronized extends gd.AudioStream {
 	function new(?owner:Dynamic);
+	static final MAX_STREAMS : Int;
 	function set_stream_count(p_stream_count:Int):Int;
 	function get_stream_count():Int;
 	function set_sync_stream(p_stream_index:Int, p_audio_stream:gd.AudioStream):Void;

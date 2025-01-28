@@ -9,6 +9,12 @@ class AnimationNodeBlendTree extends gd.AnimationRootNode {
 		super(native.reinterpret());
 	}
 	extern inline function __animationnodeblendtree_ptr():cpp.Pointer<gdnative.AnimationNodeBlendTree.AnimationNodeBlendTree_extern> return cast __gd.ptr;
+	static public final CONNECTION_OK : Int = 0;
+	static public final CONNECTION_ERROR_NO_INPUT : Int = 1;
+	static public final CONNECTION_ERROR_NO_INPUT_INDEX : Int = 2;
+	static public final CONNECTION_ERROR_NO_OUTPUT : Int = 3;
+	static public final CONNECTION_ERROR_SAME_NODE : Int = 4;
+	static public final CONNECTION_ERROR_CONNECTION_EXISTS : Int = 5;
 	public function add_node(p_name:std.String, p_node:gd.AnimationNode, ?p_position:gd.Vector2):Void switch [p_name, p_node, p_position] {
 		case [_, _, null]:__animationnodeblendtree_ptr().value.add_node(((p_name : std.String)), ((p_node : gd.AnimationNode)));
 		default:__animationnodeblendtree_ptr().value.add_node(((p_name : std.String)), ((p_node : gd.AnimationNode)), ((p_position : gd.Vector2)));

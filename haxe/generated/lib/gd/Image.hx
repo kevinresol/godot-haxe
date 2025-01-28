@@ -1,6 +1,8 @@
 package gd;
 extern class Image extends gd.Resource {
 	function new(?owner:Dynamic);
+	static final MAX_WIDTH : Int;
+	static final MAX_HEIGHT : Int;
 	function get_width():Int;
 	function get_height():Int;
 	function get_size():gd.Vector2i;

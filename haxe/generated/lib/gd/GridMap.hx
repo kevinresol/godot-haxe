@@ -1,6 +1,7 @@
 package gd;
 extern class GridMap extends gd.Node3D {
 	function new(?owner:Dynamic);
+	static final INVALID_CELL_ITEM : Int;
 	function set_collision_layer(p_layer:Int):Int;
 	function get_collision_layer():Int;
 	function set_collision_mask(p_mask:Int):Int;
