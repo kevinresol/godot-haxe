@@ -8,7 +8,11 @@ class ProjectSettings extends gd.Object {
 		};
 		super(native.reinterpret());
 	}
-	static public final singleton : gd.ProjectSettings = new ProjectSettings(gdnative.ProjectSettings.ProjectSettings_extern.get_singleton());
+	static public var singleton(get, null) : gd.ProjectSettings;
+	static function get_singleton():gd.ProjectSettings {
+		if (singleton == null) singleton = new gd.ProjectSettings(gdnative.ProjectSettings.ProjectSettings_extern.get_singleton());
+		return singleton;
+	}
 	extern inline function __projectsettings_ptr():cpp.Pointer<gdnative.ProjectSettings.ProjectSettings_extern> return cast __gd.ptr;
 	public function has_setting(p_name:std.String):Bool return __projectsettings_ptr().value.has_setting(((p_name : std.String)));
 	public function set_setting(p_name:std.String, p_value:gd.Variant):Void __projectsettings_ptr().value.set_setting(((p_name : std.String)), ((p_value : gd.Variant)));

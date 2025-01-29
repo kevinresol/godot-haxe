@@ -1,7 +1,8 @@
 package gd;
 extern class InputMap extends gd.Object {
 	function new(?owner:Dynamic);
-	static final singleton : gd.InputMap;
+	static var singleton(get, null) : gd.InputMap;
+	static function get_singleton():gd.InputMap;
 	function has_action(p_action:std.String):Bool;
 	function add_action(p_action:std.String, ?p_deadzone:Float):Void;
 	function erase_action(p_action:std.String):Void;

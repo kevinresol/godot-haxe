@@ -1,7 +1,8 @@
 package gd;
 extern class ThemeDB extends gd.Object {
 	function new(?owner:Dynamic);
-	static final singleton : gd.ThemeDB;
+	static var singleton(get, null) : gd.ThemeDB;
+	static function get_singleton():gd.ThemeDB;
 	function get_default_theme():gd.Theme;
 	function get_project_theme():gd.Theme;
 	function set_fallback_base_scale(p_base_scale:Float):Float;

@@ -1,7 +1,8 @@
 package gd;
 extern class OS extends gd.Object {
 	function new(?owner:Dynamic);
-	static final singleton : gd.OS;
+	static var singleton(get, null) : gd.OS;
+	static function get_singleton():gd.OS;
 	function get_entropy(p_size:Int):gd.PackedByteArray;
 	function get_system_ca_certificates():std.String;
 	function get_connected_midi_inputs():gd.PackedStringArray;

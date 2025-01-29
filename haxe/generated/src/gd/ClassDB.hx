@@ -8,7 +8,11 @@ class ClassDB extends gd.Object {
 		};
 		super(native.reinterpret());
 	}
-	static public final singleton : gd.ClassDB = new ClassDB(gdnative.ClassDB.ClassDB_extern.get_singleton());
+	static public var singleton(get, null) : gd.ClassDB;
+	static function get_singleton():gd.ClassDB {
+		if (singleton == null) singleton = new gd.ClassDB(gdnative.ClassDB.ClassDB_extern.get_singleton());
+		return singleton;
+	}
 	extern inline function __classdb_ptr():cpp.Pointer<gdnative.ClassDB.ClassDB_extern> return cast __gd.ptr;
 	public function get_class_list():gd.PackedStringArray return __classdb_ptr().value.get_class_list();
 	public function get_inheriters_from_class(p_class:std.String):gd.PackedStringArray return __classdb_ptr().value.get_inheriters_from_class(((p_class : std.String)));

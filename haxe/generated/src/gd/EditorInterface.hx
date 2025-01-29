@@ -8,7 +8,11 @@ class EditorInterface extends gd.Object {
 		};
 		super(native.reinterpret());
 	}
-	static public final singleton : gd.EditorInterface = new EditorInterface(gdnative.EditorInterface.EditorInterface_extern.get_singleton());
+	static public var singleton(get, null) : gd.EditorInterface;
+	static function get_singleton():gd.EditorInterface {
+		if (singleton == null) singleton = new gd.EditorInterface(gdnative.EditorInterface.EditorInterface_extern.get_singleton());
+		return singleton;
+	}
 	extern inline function __editorinterface_ptr():cpp.Pointer<gdnative.EditorInterface.EditorInterface_extern> return cast __gd.ptr;
 	public function restart_editor(?p_save:Bool):Void switch [p_save] {
 		case [null]:__editorinterface_ptr().value.restart_editor();

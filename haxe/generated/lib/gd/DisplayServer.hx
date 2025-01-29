@@ -1,7 +1,8 @@
 package gd;
 extern class DisplayServer extends gd.Object {
 	function new(?owner:Dynamic);
-	static final singleton : gd.DisplayServer;
+	static var singleton(get, null) : gd.DisplayServer;
+	static function get_singleton():gd.DisplayServer;
 	static final SCREEN_WITH_MOUSE_FOCUS : Int;
 	static final SCREEN_WITH_KEYBOARD_FOCUS : Int;
 	static final SCREEN_PRIMARY : Int;

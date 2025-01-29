@@ -8,7 +8,11 @@ class Marshalls extends gd.Object {
 		};
 		super(native.reinterpret());
 	}
-	static public final singleton : gd.Marshalls = new Marshalls(gdnative.Marshalls.Marshalls_extern.get_singleton());
+	static public var singleton(get, null) : gd.Marshalls;
+	static function get_singleton():gd.Marshalls {
+		if (singleton == null) singleton = new gd.Marshalls(gdnative.Marshalls.Marshalls_extern.get_singleton());
+		return singleton;
+	}
 	extern inline function __marshalls_ptr():cpp.Pointer<gdnative.Marshalls.Marshalls_extern> return cast __gd.ptr;
 	public function variant_to_base64(p_variant:gd.Variant, ?p_full_objects:Bool):std.String return switch [p_variant, p_full_objects] {
 		case [_, null]:__marshalls_ptr().value.variant_to_base64(((p_variant : gd.Variant)));

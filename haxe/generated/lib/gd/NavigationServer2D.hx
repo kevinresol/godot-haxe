@@ -1,7 +1,8 @@
 package gd;
 extern class NavigationServer2D extends gd.Object {
 	function new(?owner:Dynamic);
-	static final singleton : gd.NavigationServer2D;
+	static var singleton(get, null) : gd.NavigationServer2D;
+	static function get_singleton():gd.NavigationServer2D;
 	function map_create():gd.RID;
 	function map_set_active(p_map:gd.RID, p_active:Bool):Void;
 	function map_is_active(p_map:gd.RID):Bool;

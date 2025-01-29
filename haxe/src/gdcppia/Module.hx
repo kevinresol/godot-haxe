@@ -9,7 +9,7 @@ import cpp.UInt32;
 using Lambda;
 
 @:headerInclude('hx/Scriptable.h') // https://github.com/HaxeFoundation/hxcpp/issues/816
-@:unreflective
+// @:unreflective
 class Module {
 	final module:cpp.cppia.Module;
 	final cache:Map<String, ClassInfo> = new Map();
@@ -42,31 +42,12 @@ class Module {
 		if (classType == null) {
 			return null;
 		} else {
-			trace("createInstance");
-			trace(owner);
-			// can't use createEmptyInstance because in that case instance variables will not be initialized
-			final inst:Dynamic = Type.createInstance(classType, [owner]);
-			switch Std.downcast(inst, gd.Object) {
-				case null:
-					// TODO: we should probably throw an error here.
-					trace('Instance is not a gd.Object');
-				case node:
-					node.__gd = owner;
-			}
-			switch Std.downcast(inst, gd.RefCounted) {
-				case null:
-					trace('Instance is not a gd.RefCounted');
-				case node:
-					node.__ref = cast owner;
-			}
-			return inst;
+			return gd.Utils.createClassWrapper(owner, classType);
 		}
 	}
 
 	function makeClassInfo(className:String):ClassInfo {
 		static final cache = new Map<String, ClassInfo>();
-
-		trace('makeClassInfo $className');
 
 		return switch cache.get(className) {
 			case null:

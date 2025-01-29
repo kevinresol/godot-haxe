@@ -8,7 +8,11 @@ class CameraServer extends gd.Object {
 		};
 		super(native.reinterpret());
 	}
-	static public final singleton : gd.CameraServer = new CameraServer(gdnative.CameraServer.CameraServer_extern.get_singleton());
+	static public var singleton(get, null) : gd.CameraServer;
+	static function get_singleton():gd.CameraServer {
+		if (singleton == null) singleton = new gd.CameraServer(gdnative.CameraServer.CameraServer_extern.get_singleton());
+		return singleton;
+	}
 	extern inline function __cameraserver_ptr():cpp.Pointer<gdnative.CameraServer.CameraServer_extern> return cast __gd.ptr;
 	public function get_feed(p_index:Int):gd.CameraFeed return __cameraserver_ptr().value.get_feed(((p_index : Int)));
 	public function get_feed_count():Int return __cameraserver_ptr().value.get_feed_count();

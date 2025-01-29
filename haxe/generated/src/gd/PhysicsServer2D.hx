@@ -8,7 +8,11 @@ class PhysicsServer2D extends gd.Object {
 		};
 		super(native.reinterpret());
 	}
-	static public final singleton : gd.PhysicsServer2D = new PhysicsServer2D(gdnative.PhysicsServer2D.PhysicsServer2D_extern.get_singleton());
+	static public var singleton(get, null) : gd.PhysicsServer2D;
+	static function get_singleton():gd.PhysicsServer2D {
+		if (singleton == null) singleton = new gd.PhysicsServer2D(gdnative.PhysicsServer2D.PhysicsServer2D_extern.get_singleton());
+		return singleton;
+	}
 	extern inline function __physicsserver2d_ptr():cpp.Pointer<gdnative.PhysicsServer2D.PhysicsServer2D_extern> return cast __gd.ptr;
 	public function world_boundary_shape_create():gd.RID return __physicsserver2d_ptr().value.world_boundary_shape_create();
 	public function separation_ray_shape_create():gd.RID return __physicsserver2d_ptr().value.separation_ray_shape_create();

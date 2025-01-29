@@ -1,7 +1,8 @@
 package gd;
 extern class AudioServer extends gd.Object {
 	function new(?owner:Dynamic);
-	static final singleton : gd.AudioServer;
+	static var singleton(get, null) : gd.AudioServer;
+	static function get_singleton():gd.AudioServer;
 	function set_bus_count(p_amount:Int):Int;
 	function get_bus_count():Int;
 	function remove_bus(p_index:Int):Void;

@@ -8,7 +8,11 @@ class AudioServer extends gd.Object {
 		};
 		super(native.reinterpret());
 	}
-	static public final singleton : gd.AudioServer = new AudioServer(gdnative.AudioServer.AudioServer_extern.get_singleton());
+	static public var singleton(get, null) : gd.AudioServer;
+	static function get_singleton():gd.AudioServer {
+		if (singleton == null) singleton = new gd.AudioServer(gdnative.AudioServer.AudioServer_extern.get_singleton());
+		return singleton;
+	}
 	extern inline function __audioserver_ptr():cpp.Pointer<gdnative.AudioServer.AudioServer_extern> return cast __gd.ptr;
 	public function set_bus_count(p_amount:Int):Int {
 		__audioserver_ptr().value.set_bus_count(((p_amount : Int)));

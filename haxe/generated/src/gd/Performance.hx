@@ -8,7 +8,11 @@ class Performance extends gd.Object {
 		};
 		super(native.reinterpret());
 	}
-	static public final singleton : gd.Performance = new Performance(gdnative.Performance.Performance_extern.get_singleton());
+	static public var singleton(get, null) : gd.Performance;
+	static function get_singleton():gd.Performance {
+		if (singleton == null) singleton = new gd.Performance(gdnative.Performance.Performance_extern.get_singleton());
+		return singleton;
+	}
 	extern inline function __performance_ptr():cpp.Pointer<gdnative.Performance.Performance_extern> return cast __gd.ptr;
 	public function get_monitor(p_monitor:gd.performance.Monitor):Float return __performance_ptr().value.get_monitor(((p_monitor : gd.performance.Monitor)));
 	public function add_custom_monitor(p_id:std.String, p_callable:gd.Callable, ?p_arguments:gd.Array):Void switch [p_id, p_callable, p_arguments] {

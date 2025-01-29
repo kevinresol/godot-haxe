@@ -8,7 +8,11 @@ class XRServer extends gd.Object {
 		};
 		super(native.reinterpret());
 	}
-	static public final singleton : gd.XRServer = new XRServer(gdnative.XRServer.XRServer_extern.get_singleton());
+	static public var singleton(get, null) : gd.XRServer;
+	static function get_singleton():gd.XRServer {
+		if (singleton == null) singleton = new gd.XRServer(gdnative.XRServer.XRServer_extern.get_singleton());
+		return singleton;
+	}
 	extern inline function __xrserver_ptr():cpp.Pointer<gdnative.XRServer.XRServer_extern> return cast __gd.ptr;
 	public function get_world_scale():Float return __xrserver_ptr().value.get_world_scale();
 	public function set_world_scale(p_scale:Float):Float {

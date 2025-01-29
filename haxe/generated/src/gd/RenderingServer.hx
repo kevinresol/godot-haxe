@@ -8,7 +8,11 @@ class RenderingServer extends gd.Object {
 		};
 		super(native.reinterpret());
 	}
-	static public final singleton : gd.RenderingServer = new RenderingServer(gdnative.RenderingServer.RenderingServer_extern.get_singleton());
+	static public var singleton(get, null) : gd.RenderingServer;
+	static function get_singleton():gd.RenderingServer {
+		if (singleton == null) singleton = new gd.RenderingServer(gdnative.RenderingServer.RenderingServer_extern.get_singleton());
+		return singleton;
+	}
 	extern inline function __renderingserver_ptr():cpp.Pointer<gdnative.RenderingServer.RenderingServer_extern> return cast __gd.ptr;
 	static public final NO_INDEX_ARRAY : Int = -1;
 	static public final ARRAY_WEIGHTS_SIZE : Int = 4;

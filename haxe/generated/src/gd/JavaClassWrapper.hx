@@ -8,7 +8,11 @@ class JavaClassWrapper extends gd.Object {
 		};
 		super(native.reinterpret());
 	}
-	static public final singleton : gd.JavaClassWrapper = new JavaClassWrapper(gdnative.JavaClassWrapper.JavaClassWrapper_extern.get_singleton());
+	static public var singleton(get, null) : gd.JavaClassWrapper;
+	static function get_singleton():gd.JavaClassWrapper {
+		if (singleton == null) singleton = new gd.JavaClassWrapper(gdnative.JavaClassWrapper.JavaClassWrapper_extern.get_singleton());
+		return singleton;
+	}
 	extern inline function __javaclasswrapper_ptr():cpp.Pointer<gdnative.JavaClassWrapper.JavaClassWrapper_extern> return cast __gd.ptr;
 	public function wrap(p_name:std.String):gd.JavaClass return __javaclasswrapper_ptr().value.wrap(((p_name : std.String)));
 }

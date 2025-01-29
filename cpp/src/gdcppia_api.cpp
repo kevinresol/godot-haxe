@@ -135,7 +135,6 @@ const GDExtensionMethodInfo* instance_get_method_list(
   for (int i = 0; i < *r_count; i++) {
     auto fn = (gdcppia::MethodInfo)info->methods[i];
 
-    printf("method %s\n", (const char*)fn->name);
     ret[i].name = memnew(godot::StringName((const char*)fn->name));
 
     ret[i].return_value.type = GDEXTENSION_VARIANT_TYPE_NIL;

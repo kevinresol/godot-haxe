@@ -8,7 +8,11 @@ class OS extends gd.Object {
 		};
 		super(native.reinterpret());
 	}
-	static public final singleton : gd.OS = new OS(gdnative.OS.OS_extern.get_singleton());
+	static public var singleton(get, null) : gd.OS;
+	static function get_singleton():gd.OS {
+		if (singleton == null) singleton = new gd.OS(gdnative.OS.OS_extern.get_singleton());
+		return singleton;
+	}
 	extern inline function __os_ptr():cpp.Pointer<gdnative.OS.OS_extern> return cast __gd.ptr;
 	public function get_entropy(p_size:Int):gd.PackedByteArray return __os_ptr().value.get_entropy(((p_size : Int)));
 	public function get_system_ca_certificates():std.String return __os_ptr().value.get_system_ca_certificates();

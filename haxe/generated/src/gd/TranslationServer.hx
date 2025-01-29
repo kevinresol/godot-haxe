@@ -8,7 +8,11 @@ class TranslationServer extends gd.Object {
 		};
 		super(native.reinterpret());
 	}
-	static public final singleton : gd.TranslationServer = new TranslationServer(gdnative.TranslationServer.TranslationServer_extern.get_singleton());
+	static public var singleton(get, null) : gd.TranslationServer;
+	static function get_singleton():gd.TranslationServer {
+		if (singleton == null) singleton = new gd.TranslationServer(gdnative.TranslationServer.TranslationServer_extern.get_singleton());
+		return singleton;
+	}
 	extern inline function __translationserver_ptr():cpp.Pointer<gdnative.TranslationServer.TranslationServer_extern> return cast __gd.ptr;
 	public function set_locale(p_locale:std.String):Void __translationserver_ptr().value.set_locale(((p_locale : std.String)));
 	public function get_locale():std.String return __translationserver_ptr().value.get_locale();

@@ -1,7 +1,8 @@
 package gd;
 extern class TextServerManager extends gd.Object {
 	function new(?owner:Dynamic);
-	static final singleton : gd.TextServerManager;
+	static var singleton(get, null) : gd.TextServerManager;
+	static function get_singleton():gd.TextServerManager;
 	function add_interface(p_interface:gd.TextServer):Void;
 	function get_interface_count():Int;
 	function remove_interface(p_interface:gd.TextServer):Void;

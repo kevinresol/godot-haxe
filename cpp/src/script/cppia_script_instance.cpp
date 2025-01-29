@@ -142,13 +142,10 @@ void CppiaScriptInstance::call(const StringName *p_method,
 }
 
 void CppiaScriptInstance::notification(int32_t p_what, bool p_reversed) {
-  if (gdcppia::instance_has_method(_cppia_handle, "_notification")) {
-    ::Array<::Dynamic> args = ::Array_obj<::Dynamic>::__new(2);
-    args[0] = p_what;
-    args[1] = p_reversed;
-
-    gdcppia::instance_call(_cppia_handle, "_notification", args);
-  }
+  ::Array<::Dynamic> args = ::Array_obj<::Dynamic>::__new(2);
+  args[0] = p_what;
+  args[1] = p_reversed;
+  gdcppia::instance_call(_cppia_handle, "_notification", args);
 }
 
 void CppiaScriptInstance::to_string(GDExtensionBool *r_is_valid,

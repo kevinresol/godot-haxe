@@ -26,7 +26,7 @@ class Main extends Base {
 	}
 
 	override function _ready() {
-		process_mode = ALWAYS;
+		process_mode = INHERIT;
 
 		trace('UtilityFunctions::print checks (cppia)');
 		print(42);
@@ -63,28 +63,19 @@ class Main extends Base {
 
 		final sprite = get_node("Node2D/Sprite2D").cast_to(Sprite2D);
 		trace('get_node: ${sprite.get_name()}');
-		final texture = sprite.get_texture();
-		print(texture);
-		print(texture.get_width());
-		print(texture.get_height());
-		print(texture.get_reference_count());
-		final texture2 = sprite.get_texture();
-		print(texture.get_reference_count());
-		print(texture2.get_reference_count());
 		sprite.set_flip_v(true);
 
 		// position = new Vector2(-100, -100);
 
 		final timer = new Timer();
-		trace("Allocating Timer at " + Date.now());
 		add_child(timer);
 		timer.set_name("Timer");
 		timer.set_wait_time(3);
-		// timer.set_one_shot(true);
+		timer.set_one_shot(true);
 		timer.connect("timeout", new Callable(this, "_on_timer_timeout"), 0);
 		timer.connect("tree_exiting", new Callable(this, "_on_timer_tree_exiting"), 0);
 		print(timer);
-		print(timer.get_name());
+		print(timer.name); // prop w/ getter
 		timer.start();
 
 		trace('load');
@@ -99,11 +90,10 @@ class Main extends Base {
 		print(sub.can_instantiate());
 		final scn = sub.instantiate();
 		print(scn);
-		// add_child(scn);
+		add_child(scn);
 	}
 
 	function _notification(what:Int, ?p_reversed:Bool) {
-		trace('_notification', what, p_reversed);
 		if (what == Node.NOTIFICATION_PARENTED) {
 			trace('Node.NOTIFICATION_PARENTED');
 		} else if (what == Node.NOTIFICATION_CHILD_ORDER_CHANGED) {

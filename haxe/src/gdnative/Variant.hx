@@ -90,25 +90,43 @@ abstract Variant(cpp.Struct<Variant_extern>) from cpp.Struct<Variant_extern> to 
 	public function toHaxe():Dynamic {
 		// switch-case won't work: https://github.com/HaxeFoundation/hxcpp/issues/1131
 		final type = this.get_type();
+		final typeName:std.String = this.get_type_name(type);
+		trace('Type is ${(type : Int)}, $typeName, ${gdnative.variant.Type.OBJECT}');
 
-		return if (type == BOOL) {
+		return if ((type : Int) == (gdnative.variant.Type.NIL : Int)) {
+			null;
+		} else if ((type : Int) == (gdnative.variant.Type.BOOL : Int)) {
 			final v = (cast val() : Bool);
 			v;
-		} else if (type == INT) {
+		} else if ((type : Int) == (gdnative.variant.Type.INT : Int)) {
 			final v = (cast val() : Int);
 			v;
-		} else if (type == FLOAT) {
+		} else if ((type : Int) == (gdnative.variant.Type.FLOAT : Int)) {
 			final v = (cast val() : Float);
 			v;
-		} else if (type == STRING) {
+		} else if ((type : Int) == (gdnative.variant.Type.STRING : Int)) {
 			toHaxeString();
+		} else if ((type : Int) == (gdnative.variant.Type.OBJECT : Int)) {
+			final name:std.String = this.call("get_class");
+			trace('name is $name');
+			final cls = Type.resolveClass('gd.$name');
+			trace('cls is $cls');
+			// TODO: is there a chance the class doesn't exist?
+			final inst:Dynamic = gd.Utils.createClassWrapper(toObjectPointer(), cls);
+			trace('inst is $inst');
+			inst;
 		} else {
-			null;
+			trace("Unhandled type");
+			throw "Unhandled type";
 		}
 	}
 
 	@:to inline function toHaxeString():std.String {
 		return ((untyped __cpp__('{0}.operator godot::String()', val()) : gdnative.String) : std.String);
+	}
+
+	@:to inline function toObjectPointer():gdnative.Object {
+		return (untyped __cpp__('(godot::Object*){0}', val()) : gdnative.Object);
 	}
 
 	inline function val():Variant_extern {
@@ -134,5 +152,8 @@ extern class Variant_extern {
 	function new();
 
 	function get_type():gdnative.variant.Type;
+	function get_type_name(type:gdnative.variant.Type):gdnative.String;
+	overload function call(p_method:gdnative.StringName):gdnative.Variant;
+	overload function call(p_method:gdnative.StringName, p_arg0:gdnative.Variant):gdnative.Variant;
 	static function print(v:Variant_extern):Void;
 }

@@ -8,7 +8,11 @@ class Time extends gd.Object {
 		};
 		super(native.reinterpret());
 	}
-	static public final singleton : gd.Time = new Time(gdnative.Time.Time_extern.get_singleton());
+	static public var singleton(get, null) : gd.Time;
+	static function get_singleton():gd.Time {
+		if (singleton == null) singleton = new gd.Time(gdnative.Time.Time_extern.get_singleton());
+		return singleton;
+	}
 	extern inline function __time_ptr():cpp.Pointer<gdnative.Time.Time_extern> return cast __gd.ptr;
 	public function get_datetime_dict_from_unix_time(p_unix_time_val:Int):gd.Dictionary return __time_ptr().value.get_datetime_dict_from_unix_time(((p_unix_time_val : Int)));
 	public function get_date_dict_from_unix_time(p_unix_time_val:Int):gd.Dictionary return __time_ptr().value.get_date_dict_from_unix_time(((p_unix_time_val : Int)));

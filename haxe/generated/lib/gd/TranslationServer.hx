@@ -1,7 +1,8 @@
 package gd;
 extern class TranslationServer extends gd.Object {
 	function new(?owner:Dynamic);
-	static final singleton : gd.TranslationServer;
+	static var singleton(get, null) : gd.TranslationServer;
+	static function get_singleton():gd.TranslationServer;
 	function set_locale(p_locale:std.String):Void;
 	function get_locale():std.String;
 	function get_tool_locale():std.String;

@@ -1,7 +1,8 @@
 package gd;
 extern class Geometry3D extends gd.Object {
 	function new(?owner:Dynamic);
-	static final singleton : gd.Geometry3D;
+	static var singleton(get, null) : gd.Geometry3D;
+	static function get_singleton():gd.Geometry3D;
 	function get_closest_points_between_segments(p_p1:gd.Vector3, p_p2:gd.Vector3, p_q1:gd.Vector3, p_q2:gd.Vector3):gd.PackedVector3Array;
 	function get_closest_point_to_segment(p_point:gd.Vector3, p_s1:gd.Vector3, p_s2:gd.Vector3):gd.Vector3;
 	function get_closest_point_to_segment_uncapped(p_point:gd.Vector3, p_s1:gd.Vector3, p_s2:gd.Vector3):gd.Vector3;

@@ -186,13 +186,49 @@ class ClassBuilder extends EnumBuilder {
 
 		// singleton
 		if (isSingleton(cname)) {
-			final tp = {pack: [], name: cname}
-			cls.fields.push({
-				pos: null,
-				access: [AStatic, AFinal].concat(isScriptExtern ? [] : [APublic]),
-				name: 'singleton',
-				kind: FVar(macro :gd.$cname, isScriptExtern ? null : macro new $tp($p{['gdnative', cname, '${cname}_extern']}.get_singleton()))
-			});
+			final tp = {pack: ['gd'], name: cname}
+			final ct = macro :gd.$cname;
+			final expr = macro new $tp($p{['gdnative', cname, '${cname}_extern']}.get_singleton());
+			switch cname {
+				case 'Engine':
+					// Engine class has a get_singleton method which is incompatible with a haxe getter
+					cls.fields.push({
+						pos: null,
+						access: [AStatic, AFinal].concat(isScriptExtern ? [] : [APublic]),
+						name: 'singleton',
+						kind: FVar(ct, expr),
+					});
+				default:
+					// other classes can have a singleton getter which is lazy
+					cls.fields.push({
+						pos: null,
+						access: [AStatic].concat(isScriptExtern ? [] : [APublic]),
+						name: 'singleton',
+						kind: FProp('get', 'null', ct),
+						// meta: isScriptExtern ? [] : [
+						// 	{
+						// 		pos: null,
+						// 		name: ':isVar'
+						// 	}
+						// ]
+					});
+
+					// TODO: no need to declare getter function in script extern once this is fixed: https://github.com/HaxeFoundation/hxcpp/issues/1183
+					cls.fields.push({
+						pos: null,
+						access: [AStatic],
+						name: 'get_singleton',
+						kind: FFun({
+							args: [],
+							ret: ct,
+							expr: isScriptExtern ? null : macro {
+								if (singleton == null)
+									singleton = $expr;
+								return singleton;
+							},
+						})
+					});
+			}
 		}
 
 		// helper

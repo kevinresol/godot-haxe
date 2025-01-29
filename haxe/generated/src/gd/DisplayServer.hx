@@ -8,7 +8,11 @@ class DisplayServer extends gd.Object {
 		};
 		super(native.reinterpret());
 	}
-	static public final singleton : gd.DisplayServer = new DisplayServer(gdnative.DisplayServer.DisplayServer_extern.get_singleton());
+	static public var singleton(get, null) : gd.DisplayServer;
+	static function get_singleton():gd.DisplayServer {
+		if (singleton == null) singleton = new gd.DisplayServer(gdnative.DisplayServer.DisplayServer_extern.get_singleton());
+		return singleton;
+	}
 	extern inline function __displayserver_ptr():cpp.Pointer<gdnative.DisplayServer.DisplayServer_extern> return cast __gd.ptr;
 	static public final SCREEN_WITH_MOUSE_FOCUS : Int = -4;
 	static public final SCREEN_WITH_KEYBOARD_FOCUS : Int = -3;

@@ -8,7 +8,11 @@ class WorkerThreadPool extends gd.Object {
 		};
 		super(native.reinterpret());
 	}
-	static public final singleton : gd.WorkerThreadPool = new WorkerThreadPool(gdnative.WorkerThreadPool.WorkerThreadPool_extern.get_singleton());
+	static public var singleton(get, null) : gd.WorkerThreadPool;
+	static function get_singleton():gd.WorkerThreadPool {
+		if (singleton == null) singleton = new gd.WorkerThreadPool(gdnative.WorkerThreadPool.WorkerThreadPool_extern.get_singleton());
+		return singleton;
+	}
 	extern inline function __workerthreadpool_ptr():cpp.Pointer<gdnative.WorkerThreadPool.WorkerThreadPool_extern> return cast __gd.ptr;
 	public function add_task(p_action:gd.Callable, ?p_high_priority:Bool, ?p_description:std.String):Int return switch [p_action, p_high_priority, p_description] {
 		case [_, null, _]:__workerthreadpool_ptr().value.add_task(((p_action : gd.Callable)));

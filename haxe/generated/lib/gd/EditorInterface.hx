@@ -1,7 +1,8 @@
 package gd;
 extern class EditorInterface extends gd.Object {
 	function new(?owner:Dynamic);
-	static final singleton : gd.EditorInterface;
+	static var singleton(get, null) : gd.EditorInterface;
+	static function get_singleton():gd.EditorInterface;
 	function restart_editor(?p_save:Bool):Void;
 	function get_command_palette():gd.EditorCommandPalette;
 	function get_resource_filesystem():gd.EditorFileSystem;

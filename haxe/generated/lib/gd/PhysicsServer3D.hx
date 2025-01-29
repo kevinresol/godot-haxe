@@ -1,7 +1,8 @@
 package gd;
 extern class PhysicsServer3D extends gd.Object {
 	function new(?owner:Dynamic);
-	static final singleton : gd.PhysicsServer3D;
+	static var singleton(get, null) : gd.PhysicsServer3D;
+	static function get_singleton():gd.PhysicsServer3D;
 	function world_boundary_shape_create():gd.RID;
 	function separation_ray_shape_create():gd.RID;
 	function sphere_shape_create():gd.RID;

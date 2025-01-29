@@ -1,7 +1,8 @@
 package gd;
 extern class Time extends gd.Object {
 	function new(?owner:Dynamic);
-	static final singleton : gd.Time;
+	static var singleton(get, null) : gd.Time;
+	static function get_singleton():gd.Time;
 	function get_datetime_dict_from_unix_time(p_unix_time_val:Int):gd.Dictionary;
 	function get_date_dict_from_unix_time(p_unix_time_val:Int):gd.Dictionary;
 	function get_time_dict_from_unix_time(p_unix_time_val:Int):gd.Dictionary;

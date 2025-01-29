@@ -1,7 +1,8 @@
 package gd;
 extern class ProjectSettings extends gd.Object {
 	function new(?owner:Dynamic);
-	static final singleton : gd.ProjectSettings;
+	static var singleton(get, null) : gd.ProjectSettings;
+	static function get_singleton():gd.ProjectSettings;
 	function has_setting(p_name:std.String):Bool;
 	function set_setting(p_name:std.String, p_value:gd.Variant):Void;
 	function get_setting(p_name:std.String, ?p_default_value:gd.Variant):gd.Variant;

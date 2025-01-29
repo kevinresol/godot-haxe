@@ -8,7 +8,11 @@ class TextServerManager extends gd.Object {
 		};
 		super(native.reinterpret());
 	}
-	static public final singleton : gd.TextServerManager = new TextServerManager(gdnative.TextServerManager.TextServerManager_extern.get_singleton());
+	static public var singleton(get, null) : gd.TextServerManager;
+	static function get_singleton():gd.TextServerManager {
+		if (singleton == null) singleton = new gd.TextServerManager(gdnative.TextServerManager.TextServerManager_extern.get_singleton());
+		return singleton;
+	}
 	extern inline function __textservermanager_ptr():cpp.Pointer<gdnative.TextServerManager.TextServerManager_extern> return cast __gd.ptr;
 	public function add_interface(p_interface:gd.TextServer):Void __textservermanager_ptr().value.add_interface(((p_interface : gd.TextServer)));
 	public function get_interface_count():Int return __textservermanager_ptr().value.get_interface_count();

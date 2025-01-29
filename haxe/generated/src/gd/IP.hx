@@ -8,7 +8,11 @@ class IP extends gd.Object {
 		};
 		super(native.reinterpret());
 	}
-	static public final singleton : gd.IP = new IP(gdnative.IP.IP_extern.get_singleton());
+	static public var singleton(get, null) : gd.IP;
+	static function get_singleton():gd.IP {
+		if (singleton == null) singleton = new gd.IP(gdnative.IP.IP_extern.get_singleton());
+		return singleton;
+	}
 	extern inline function __ip_ptr():cpp.Pointer<gdnative.IP.IP_extern> return cast __gd.ptr;
 	static public final RESOLVER_MAX_QUERIES : Int = 256;
 	static public final RESOLVER_INVALID_ID : Int = -1;

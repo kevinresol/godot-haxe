@@ -8,7 +8,11 @@ class Input extends gd.Object {
 		};
 		super(native.reinterpret());
 	}
-	static public final singleton : gd.Input = new Input(gdnative.Input.Input_extern.get_singleton());
+	static public var singleton(get, null) : gd.Input;
+	static function get_singleton():gd.Input {
+		if (singleton == null) singleton = new gd.Input(gdnative.Input.Input_extern.get_singleton());
+		return singleton;
+	}
 	extern inline function __input_ptr():cpp.Pointer<gdnative.Input.Input_extern> return cast __gd.ptr;
 	public function is_anything_pressed():Bool return __input_ptr().value.is_anything_pressed();
 	public function is_key_pressed(p_keycode:gd.Key):Bool return __input_ptr().value.is_key_pressed(((p_keycode : gd.Key)));

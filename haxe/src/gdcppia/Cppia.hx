@@ -51,6 +51,8 @@ class Cppia {
 
 		trace(gdnative.Error.OK);
 		trace(gdnative.sky.ProcessMode.QUALITY);
+
+		UtilityFunctions.print(gd.ResourceLoader.singleton.load('res://sub.tscn'));
 	}
 
 	static var module:Module;

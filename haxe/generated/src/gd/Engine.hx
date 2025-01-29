@@ -8,7 +8,7 @@ class Engine extends gd.Object {
 		};
 		super(native.reinterpret());
 	}
-	static public final singleton : gd.Engine = new Engine(gdnative.Engine.Engine_extern.get_singleton());
+	static public final singleton : gd.Engine = new gd.Engine(gdnative.Engine.Engine_extern.get_singleton());
 	extern inline function __engine_ptr():cpp.Pointer<gdnative.Engine.Engine_extern> return cast __gd.ptr;
 	public function set_physics_ticks_per_second(p_physics_ticks_per_second:Int):Int {
 		__engine_ptr().value.set_physics_ticks_per_second(((p_physics_ticks_per_second : Int)));

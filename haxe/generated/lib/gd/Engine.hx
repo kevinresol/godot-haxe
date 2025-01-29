@@ -1,7 +1,7 @@
 package gd;
 extern class Engine extends gd.Object {
 	function new(?owner:Dynamic);
-	static final singleton : gd.Engine;
+	static final singleton : gd.Engine = new gd.Engine(gdnative.Engine.Engine_extern.get_singleton());
 	function set_physics_ticks_per_second(p_physics_ticks_per_second:Int):Int;
 	function get_physics_ticks_per_second():Int;
 	function set_max_physics_steps_per_frame(p_max_physics_steps:Int):Int;

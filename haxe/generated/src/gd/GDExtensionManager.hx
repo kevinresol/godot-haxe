@@ -8,7 +8,11 @@ class GDExtensionManager extends gd.Object {
 		};
 		super(native.reinterpret());
 	}
-	static public final singleton : gd.GDExtensionManager = new GDExtensionManager(gdnative.GDExtensionManager.GDExtensionManager_extern.get_singleton());
+	static public var singleton(get, null) : gd.GDExtensionManager;
+	static function get_singleton():gd.GDExtensionManager {
+		if (singleton == null) singleton = new gd.GDExtensionManager(gdnative.GDExtensionManager.GDExtensionManager_extern.get_singleton());
+		return singleton;
+	}
 	extern inline function __gdextensionmanager_ptr():cpp.Pointer<gdnative.GDExtensionManager.GDExtensionManager_extern> return cast __gd.ptr;
 	public function load_extension(p_path:std.String):gd.gdextensionmanager.LoadStatus return __gdextensionmanager_ptr().value.load_extension(((p_path : std.String)));
 	public function reload_extension(p_path:std.String):gd.gdextensionmanager.LoadStatus return __gdextensionmanager_ptr().value.reload_extension(((p_path : std.String)));

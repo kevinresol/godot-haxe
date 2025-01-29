@@ -1,7 +1,8 @@
 package gd;
 extern class XRServer extends gd.Object {
 	function new(?owner:Dynamic);
-	static final singleton : gd.XRServer;
+	static var singleton(get, null) : gd.XRServer;
+	static function get_singleton():gd.XRServer;
 	function get_world_scale():Float;
 	function set_world_scale(p_scale:Float):Float;
 	function get_world_origin():gd.Transform3D;

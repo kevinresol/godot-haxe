@@ -1,7 +1,8 @@
 package gd;
 extern class JavaScriptBridge extends gd.Object {
 	function new(?owner:Dynamic);
-	static final singleton : gd.JavaScriptBridge;
+	static var singleton(get, null) : gd.JavaScriptBridge;
+	static function get_singleton():gd.JavaScriptBridge;
 	function eval(p_code:std.String, ?p_use_global_execution_context:Bool):gd.Variant;
 	function get_interface(p_interface:std.String):gd.JavaScriptObject;
 	function create_callback(p_callable:gd.Callable):gd.JavaScriptObject;

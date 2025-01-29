@@ -8,7 +8,11 @@ class NavigationServer2D extends gd.Object {
 		};
 		super(native.reinterpret());
 	}
-	static public final singleton : gd.NavigationServer2D = new NavigationServer2D(gdnative.NavigationServer2D.NavigationServer2D_extern.get_singleton());
+	static public var singleton(get, null) : gd.NavigationServer2D;
+	static function get_singleton():gd.NavigationServer2D {
+		if (singleton == null) singleton = new gd.NavigationServer2D(gdnative.NavigationServer2D.NavigationServer2D_extern.get_singleton());
+		return singleton;
+	}
 	extern inline function __navigationserver2d_ptr():cpp.Pointer<gdnative.NavigationServer2D.NavigationServer2D_extern> return cast __gd.ptr;
 	public function map_create():gd.RID return __navigationserver2d_ptr().value.map_create();
 	public function map_set_active(p_map:gd.RID, p_active:Bool):Void __navigationserver2d_ptr().value.map_set_active(((p_map : gd.RID)), ((p_active : Bool)));

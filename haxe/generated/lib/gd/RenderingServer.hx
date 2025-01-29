@@ -1,7 +1,8 @@
 package gd;
 extern class RenderingServer extends gd.Object {
 	function new(?owner:Dynamic);
-	static final singleton : gd.RenderingServer;
+	static var singleton(get, null) : gd.RenderingServer;
+	static function get_singleton():gd.RenderingServer;
 	static final NO_INDEX_ARRAY : Int;
 	static final ARRAY_WEIGHTS_SIZE : Int;
 	static final CANVAS_ITEM_Z_MIN : Int;

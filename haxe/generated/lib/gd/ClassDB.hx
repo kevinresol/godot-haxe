@@ -1,7 +1,8 @@
 package gd;
 extern class ClassDB extends gd.Object {
 	function new(?owner:Dynamic);
-	static final singleton : gd.ClassDB;
+	static var singleton(get, null) : gd.ClassDB;
+	static function get_singleton():gd.ClassDB;
 	function get_class_list():gd.PackedStringArray;
 	function get_inheriters_from_class(p_class:std.String):gd.PackedStringArray;
 	function get_parent_class(p_class:std.String):std.String;

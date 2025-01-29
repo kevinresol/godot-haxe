@@ -8,7 +8,11 @@ class NativeMenu extends gd.Object {
 		};
 		super(native.reinterpret());
 	}
-	static public final singleton : gd.NativeMenu = new NativeMenu(gdnative.NativeMenu.NativeMenu_extern.get_singleton());
+	static public var singleton(get, null) : gd.NativeMenu;
+	static function get_singleton():gd.NativeMenu {
+		if (singleton == null) singleton = new gd.NativeMenu(gdnative.NativeMenu.NativeMenu_extern.get_singleton());
+		return singleton;
+	}
 	extern inline function __nativemenu_ptr():cpp.Pointer<gdnative.NativeMenu.NativeMenu_extern> return cast __gd.ptr;
 	public function has_feature(p_feature:gd.nativemenu.Feature):Bool return __nativemenu_ptr().value.has_feature(((p_feature : gd.nativemenu.Feature)));
 	public function has_system_menu(p_menu_id:gd.nativemenu.SystemMenus):Bool return __nativemenu_ptr().value.has_system_menu(((p_menu_id : gd.nativemenu.SystemMenus)));

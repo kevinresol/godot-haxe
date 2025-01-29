@@ -1,7 +1,8 @@
 package gd;
 extern class Input extends gd.Object {
 	function new(?owner:Dynamic);
-	static final singleton : gd.Input;
+	static var singleton(get, null) : gd.Input;
+	static function get_singleton():gd.Input;
 	function is_anything_pressed():Bool;
 	function is_key_pressed(p_keycode:gd.Key):Bool;
 	function is_physical_key_pressed(p_keycode:gd.Key):Bool;

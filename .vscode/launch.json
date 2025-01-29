@@ -5,12 +5,20 @@
 	"version": "0.2.0",
 	"configurations": [
 		{
-			"name": "Debug",
+			"name": "Debug Editor",
 			"type": "lldb",
 			"request": "launch",
 			"preLaunchTask": "Build",
 			"program": "~/Codes/godot/bin/godot.macos.editor.dev.arm64",
 			"args": ["demo/project.godot", "--verbose"],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"name": "Debug Game",
+			"type": "lldb",
+			"request": "launch",
+			"program": "~/Codes/godot/bin/godot.macos.editor.dev.arm64",
+			"args": ["--path", "demo", "--verbose", "main.tscn"],
 			"cwd": "${workspaceFolder}"
 		}
 	]

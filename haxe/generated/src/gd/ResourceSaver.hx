@@ -8,7 +8,11 @@ class ResourceSaver extends gd.Object {
 		};
 		super(native.reinterpret());
 	}
-	static public final singleton : gd.ResourceSaver = new ResourceSaver(gdnative.ResourceSaver.ResourceSaver_extern.get_singleton());
+	static public var singleton(get, null) : gd.ResourceSaver;
+	static function get_singleton():gd.ResourceSaver {
+		if (singleton == null) singleton = new gd.ResourceSaver(gdnative.ResourceSaver.ResourceSaver_extern.get_singleton());
+		return singleton;
+	}
 	extern inline function __resourcesaver_ptr():cpp.Pointer<gdnative.ResourceSaver.ResourceSaver_extern> return cast __gd.ptr;
 	public function save(p_resource:gd.Resource, ?p_path:std.String, ?p_flags:Int):gd.Error return switch [p_resource, p_path, p_flags] {
 		case [_, null, _]:__resourcesaver_ptr().value.save(((p_resource : gd.Resource)));

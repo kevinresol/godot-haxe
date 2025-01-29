@@ -8,7 +8,11 @@ class ResourceLoader extends gd.Object {
 		};
 		super(native.reinterpret());
 	}
-	static public final singleton : gd.ResourceLoader = new ResourceLoader(gdnative.ResourceLoader.ResourceLoader_extern.get_singleton());
+	static public var singleton(get, null) : gd.ResourceLoader;
+	static function get_singleton():gd.ResourceLoader {
+		if (singleton == null) singleton = new gd.ResourceLoader(gdnative.ResourceLoader.ResourceLoader_extern.get_singleton());
+		return singleton;
+	}
 	extern inline function __resourceloader_ptr():cpp.Pointer<gdnative.ResourceLoader.ResourceLoader_extern> return cast __gd.ptr;
 	public function load_threaded_request(p_path:std.String, ?p_type_hint:std.String, ?p_use_sub_threads:Bool, ?p_cache_mode:gd.resourceloader.CacheMode):gd.Error return switch [p_path, p_type_hint, p_use_sub_threads, p_cache_mode] {
 		case [_, null, _, _]:__resourceloader_ptr().value.load_threaded_request(((p_path : std.String)));

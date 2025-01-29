@@ -1,7 +1,8 @@
 package gd;
 extern class EngineDebugger extends gd.Object {
 	function new(?owner:Dynamic);
-	static final singleton : gd.EngineDebugger;
+	static var singleton(get, null) : gd.EngineDebugger;
+	static function get_singleton():gd.EngineDebugger;
 	function is_active():Bool;
 	function register_profiler(p_name:std.String, p_profiler:gd.EngineProfiler):Void;
 	function unregister_profiler(p_name:std.String):Void;

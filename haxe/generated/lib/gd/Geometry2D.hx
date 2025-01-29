@@ -1,7 +1,8 @@
 package gd;
 extern class Geometry2D extends gd.Object {
 	function new(?owner:Dynamic);
-	static final singleton : gd.Geometry2D;
+	static var singleton(get, null) : gd.Geometry2D;
+	static function get_singleton():gd.Geometry2D;
 	function is_point_in_circle(p_point:gd.Vector2, p_circle_position:gd.Vector2, p_circle_radius:Float):Bool;
 	function segment_intersects_circle(p_segment_from:gd.Vector2, p_segment_to:gd.Vector2, p_circle_position:gd.Vector2, p_circle_radius:Float):Float;
 	function segment_intersects_segment(p_from_a:gd.Vector2, p_to_a:gd.Vector2, p_from_b:gd.Vector2, p_to_b:gd.Vector2):gd.Variant;

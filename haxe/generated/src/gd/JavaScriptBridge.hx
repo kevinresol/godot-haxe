@@ -8,7 +8,11 @@ class JavaScriptBridge extends gd.Object {
 		};
 		super(native.reinterpret());
 	}
-	static public final singleton : gd.JavaScriptBridge = new JavaScriptBridge(gdnative.JavaScriptBridge.JavaScriptBridge_extern.get_singleton());
+	static public var singleton(get, null) : gd.JavaScriptBridge;
+	static function get_singleton():gd.JavaScriptBridge {
+		if (singleton == null) singleton = new gd.JavaScriptBridge(gdnative.JavaScriptBridge.JavaScriptBridge_extern.get_singleton());
+		return singleton;
+	}
 	extern inline function __javascriptbridge_ptr():cpp.Pointer<gdnative.JavaScriptBridge.JavaScriptBridge_extern> return cast __gd.ptr;
 	public function eval(p_code:std.String, ?p_use_global_execution_context:Bool):gd.Variant return switch [p_code, p_use_global_execution_context] {
 		case [_, null]:__javascriptbridge_ptr().value.eval(((p_code : std.String)));

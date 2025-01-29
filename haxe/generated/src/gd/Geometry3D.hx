@@ -8,7 +8,11 @@ class Geometry3D extends gd.Object {
 		};
 		super(native.reinterpret());
 	}
-	static public final singleton : gd.Geometry3D = new Geometry3D(gdnative.Geometry3D.Geometry3D_extern.get_singleton());
+	static public var singleton(get, null) : gd.Geometry3D;
+	static function get_singleton():gd.Geometry3D {
+		if (singleton == null) singleton = new gd.Geometry3D(gdnative.Geometry3D.Geometry3D_extern.get_singleton());
+		return singleton;
+	}
 	extern inline function __geometry3d_ptr():cpp.Pointer<gdnative.Geometry3D.Geometry3D_extern> return cast __gd.ptr;
 	public function get_closest_points_between_segments(p_p1:gd.Vector3, p_p2:gd.Vector3, p_q1:gd.Vector3, p_q2:gd.Vector3):gd.PackedVector3Array return __geometry3d_ptr().value.get_closest_points_between_segments(((p_p1 : gd.Vector3)), ((p_p2 : gd.Vector3)), ((p_q1 : gd.Vector3)), ((p_q2 : gd.Vector3)));
 	public function get_closest_point_to_segment(p_point:gd.Vector3, p_s1:gd.Vector3, p_s2:gd.Vector3):gd.Vector3 return __geometry3d_ptr().value.get_closest_point_to_segment(((p_point : gd.Vector3)), ((p_s1 : gd.Vector3)), ((p_s2 : gd.Vector3)));

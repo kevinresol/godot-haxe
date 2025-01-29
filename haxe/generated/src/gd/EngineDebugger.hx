@@ -8,7 +8,11 @@ class EngineDebugger extends gd.Object {
 		};
 		super(native.reinterpret());
 	}
-	static public final singleton : gd.EngineDebugger = new EngineDebugger(gdnative.EngineDebugger.EngineDebugger_extern.get_singleton());
+	static public var singleton(get, null) : gd.EngineDebugger;
+	static function get_singleton():gd.EngineDebugger {
+		if (singleton == null) singleton = new gd.EngineDebugger(gdnative.EngineDebugger.EngineDebugger_extern.get_singleton());
+		return singleton;
+	}
 	extern inline function __enginedebugger_ptr():cpp.Pointer<gdnative.EngineDebugger.EngineDebugger_extern> return cast __gd.ptr;
 	public function is_active():Bool return __enginedebugger_ptr().value.is_active();
 	public function register_profiler(p_name:std.String, p_profiler:gd.EngineProfiler):Void __enginedebugger_ptr().value.register_profiler(((p_name : std.String)), ((p_profiler : gd.EngineProfiler)));

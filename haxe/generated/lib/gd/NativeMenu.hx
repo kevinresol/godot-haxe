@@ -1,7 +1,8 @@
 package gd;
 extern class NativeMenu extends gd.Object {
 	function new(?owner:Dynamic);
-	static final singleton : gd.NativeMenu;
+	static var singleton(get, null) : gd.NativeMenu;
+	static function get_singleton():gd.NativeMenu;
 	function has_feature(p_feature:gd.nativemenu.Feature):Bool;
 	function has_system_menu(p_menu_id:gd.nativemenu.SystemMenus):Bool;
 	function get_system_menu(p_menu_id:gd.nativemenu.SystemMenus):gd.RID;

@@ -8,7 +8,11 @@ class InputMap extends gd.Object {
 		};
 		super(native.reinterpret());
 	}
-	static public final singleton : gd.InputMap = new InputMap(gdnative.InputMap.InputMap_extern.get_singleton());
+	static public var singleton(get, null) : gd.InputMap;
+	static function get_singleton():gd.InputMap {
+		if (singleton == null) singleton = new gd.InputMap(gdnative.InputMap.InputMap_extern.get_singleton());
+		return singleton;
+	}
 	extern inline function __inputmap_ptr():cpp.Pointer<gdnative.InputMap.InputMap_extern> return cast __gd.ptr;
 	public function has_action(p_action:std.String):Bool return __inputmap_ptr().value.has_action(((p_action : std.String)));
 	public function add_action(p_action:std.String, ?p_deadzone:Float):Void switch [p_action, p_deadzone] {

@@ -8,7 +8,11 @@ class NavigationServer3D extends gd.Object {
 		};
 		super(native.reinterpret());
 	}
-	static public final singleton : gd.NavigationServer3D = new NavigationServer3D(gdnative.NavigationServer3D.NavigationServer3D_extern.get_singleton());
+	static public var singleton(get, null) : gd.NavigationServer3D;
+	static function get_singleton():gd.NavigationServer3D {
+		if (singleton == null) singleton = new gd.NavigationServer3D(gdnative.NavigationServer3D.NavigationServer3D_extern.get_singleton());
+		return singleton;
+	}
 	extern inline function __navigationserver3d_ptr():cpp.Pointer<gdnative.NavigationServer3D.NavigationServer3D_extern> return cast __gd.ptr;
 	public function map_create():gd.RID return __navigationserver3d_ptr().value.map_create();
 	public function map_set_active(p_map:gd.RID, p_active:Bool):Void __navigationserver3d_ptr().value.map_set_active(((p_map : gd.RID)), ((p_active : Bool)));

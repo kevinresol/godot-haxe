@@ -1,7 +1,8 @@
 package gd;
 extern class GDExtensionManager extends gd.Object {
 	function new(?owner:Dynamic);
-	static final singleton : gd.GDExtensionManager;
+	static var singleton(get, null) : gd.GDExtensionManager;
+	static function get_singleton():gd.GDExtensionManager;
 	function load_extension(p_path:std.String):gd.gdextensionmanager.LoadStatus;
 	function reload_extension(p_path:std.String):gd.gdextensionmanager.LoadStatus;
 	function unload_extension(p_path:std.String):gd.gdextensionmanager.LoadStatus;

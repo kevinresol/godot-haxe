@@ -8,7 +8,11 @@ class NavigationMeshGenerator extends gd.Object {
 		};
 		super(native.reinterpret());
 	}
-	static public final singleton : gd.NavigationMeshGenerator = new NavigationMeshGenerator(gdnative.NavigationMeshGenerator.NavigationMeshGenerator_extern.get_singleton());
+	static public var singleton(get, null) : gd.NavigationMeshGenerator;
+	static function get_singleton():gd.NavigationMeshGenerator {
+		if (singleton == null) singleton = new gd.NavigationMeshGenerator(gdnative.NavigationMeshGenerator.NavigationMeshGenerator_extern.get_singleton());
+		return singleton;
+	}
 	extern inline function __navigationmeshgenerator_ptr():cpp.Pointer<gdnative.NavigationMeshGenerator.NavigationMeshGenerator_extern> return cast __gd.ptr;
 	public function bake(p_navigation_mesh:gd.NavigationMesh, p_root_node:gd.Node):Void __navigationmeshgenerator_ptr().value.bake(((p_navigation_mesh : gd.NavigationMesh)), ((p_root_node : gd.Node)));
 	public function clear(p_navigation_mesh:gd.NavigationMesh):Void __navigationmeshgenerator_ptr().value.clear(((p_navigation_mesh : gd.NavigationMesh)));

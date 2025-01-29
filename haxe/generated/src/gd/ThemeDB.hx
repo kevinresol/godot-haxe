@@ -8,7 +8,11 @@ class ThemeDB extends gd.Object {
 		};
 		super(native.reinterpret());
 	}
-	static public final singleton : gd.ThemeDB = new ThemeDB(gdnative.ThemeDB.ThemeDB_extern.get_singleton());
+	static public var singleton(get, null) : gd.ThemeDB;
+	static function get_singleton():gd.ThemeDB {
+		if (singleton == null) singleton = new gd.ThemeDB(gdnative.ThemeDB.ThemeDB_extern.get_singleton());
+		return singleton;
+	}
 	extern inline function __themedb_ptr():cpp.Pointer<gdnative.ThemeDB.ThemeDB_extern> return cast __gd.ptr;
 	public function get_default_theme():gd.Theme return __themedb_ptr().value.get_default_theme();
 	public function get_project_theme():gd.Theme return __themedb_ptr().value.get_project_theme();

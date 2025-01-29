@@ -8,7 +8,11 @@ class Geometry2D extends gd.Object {
 		};
 		super(native.reinterpret());
 	}
-	static public final singleton : gd.Geometry2D = new Geometry2D(gdnative.Geometry2D.Geometry2D_extern.get_singleton());
+	static public var singleton(get, null) : gd.Geometry2D;
+	static function get_singleton():gd.Geometry2D {
+		if (singleton == null) singleton = new gd.Geometry2D(gdnative.Geometry2D.Geometry2D_extern.get_singleton());
+		return singleton;
+	}
 	extern inline function __geometry2d_ptr():cpp.Pointer<gdnative.Geometry2D.Geometry2D_extern> return cast __gd.ptr;
 	public function is_point_in_circle(p_point:gd.Vector2, p_circle_position:gd.Vector2, p_circle_radius:Float):Bool return __geometry2d_ptr().value.is_point_in_circle(((p_point : gd.Vector2)), ((p_circle_position : gd.Vector2)), ((p_circle_radius : Float)));
 	public function segment_intersects_circle(p_segment_from:gd.Vector2, p_segment_to:gd.Vector2, p_circle_position:gd.Vector2, p_circle_radius:Float):Float return __geometry2d_ptr().value.segment_intersects_circle(((p_segment_from : gd.Vector2)), ((p_segment_to : gd.Vector2)), ((p_circle_position : gd.Vector2)), ((p_circle_radius : Float)));

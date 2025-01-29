@@ -162,10 +162,13 @@ void CppiaScript::load_from_disk(const String &p_path) {
 
 void CppiaScript::did_hot_reload() {
   printf("CppiaScript::did_hot_reload\n");
-  _update_exports();
-  auto editor_interface = EditorInterface::get_singleton();
-  if (editor_interface) {
-    editor_interface->get_resource_filesystem()->update_file(path);
+  if (Engine::get_singleton()->is_editor_hint()) {
+    _update_exports();
+
+    auto editor_interface = EditorInterface::get_singleton();
+    if (editor_interface) {
+      editor_interface->get_resource_filesystem()->update_file(path);
+    }
   }
 }
 
