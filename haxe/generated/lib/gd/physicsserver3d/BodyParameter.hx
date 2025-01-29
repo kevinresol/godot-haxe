@@ -1,5 +1,5 @@
 package gd.physicsserver3d;
-enum abstract BodyParameter(Int) to Int {
+enum abstract BodyParameter(Int) from Int to Int {
 	final BOUNCE = 0;
 	final FRICTION = 1;
 	final MASS = 2;

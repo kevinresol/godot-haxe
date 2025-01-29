@@ -1,9 +1,8 @@
 package gdnative.basebutton;
 @:native("godot::BaseButton::DrawMode") extern enum abstract DrawMode(DrawMode_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):DrawMode return untyped __cpp__("(static_cast<godot::BaseButton::DrawMode>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:DrawMode, v2:DrawMode):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:DrawMode):DrawMode_extern return untyped __cpp__("(cpp::Struct<godot::BaseButton::DrawMode, cpp::EnumHandler>){0}", v);
 	@:native("godot::BaseButton::DrawMode::DRAW_NORMAL")
 	final NORMAL;
 	@:native("godot::BaseButton::DrawMode::DRAW_PRESSED")

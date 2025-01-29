@@ -1,9 +1,8 @@
 package gdnative;
 @:native("godot::Key") extern enum abstract Key(Key_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):Key return untyped __cpp__("(static_cast<godot::Key>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:Key, v2:Key):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:Key):Key_extern return untyped __cpp__("(cpp::Struct<godot::Key, cpp::EnumHandler>){0}", v);
 	@:native("godot::Key::KEY_NONE")
 	final NONE;
 	@:native("godot::Key::KEY_SPECIAL")

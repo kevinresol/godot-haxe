@@ -1,9 +1,8 @@
 package gdnative.openxrinterface;
 @:native("godot::OpenXRInterface::HandJoints") extern enum abstract HandJoints(HandJoints_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):HandJoints return untyped __cpp__("(static_cast<godot::OpenXRInterface::HandJoints>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:HandJoints, v2:HandJoints):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:HandJoints):HandJoints_extern return untyped __cpp__("(cpp::Struct<godot::OpenXRInterface::HandJoints, cpp::EnumHandler>){0}", v);
 	@:native("godot::OpenXRInterface::HandJoints::HAND_JOINT_PALM")
 	final PALM;
 	@:native("godot::OpenXRInterface::HandJoints::HAND_JOINT_WRIST")

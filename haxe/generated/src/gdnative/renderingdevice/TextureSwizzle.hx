@@ -1,9 +1,8 @@
 package gdnative.renderingdevice;
 @:native("godot::RenderingDevice::TextureSwizzle") extern enum abstract TextureSwizzle(TextureSwizzle_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):TextureSwizzle return untyped __cpp__("(static_cast<godot::RenderingDevice::TextureSwizzle>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:TextureSwizzle, v2:TextureSwizzle):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:TextureSwizzle):TextureSwizzle_extern return untyped __cpp__("(cpp::Struct<godot::RenderingDevice::TextureSwizzle, cpp::EnumHandler>){0}", v);
 	@:native("godot::RenderingDevice::TextureSwizzle::TEXTURE_SWIZZLE_IDENTITY")
 	final IDENTITY;
 	@:native("godot::RenderingDevice::TextureSwizzle::TEXTURE_SWIZZLE_ZERO")

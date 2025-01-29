@@ -1,5 +1,5 @@
 package gd.astargrid2d;
-enum abstract DiagonalMode(Int) to Int {
+enum abstract DiagonalMode(Int) from Int to Int {
 	final ALWAYS = 0;
 	final NEVER = 1;
 	final AT_LEAST_ONE_WALKABLE = 2;

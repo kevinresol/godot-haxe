@@ -1,5 +1,5 @@
 package gd.upnpdevice;
-enum abstract IGDStatus(Int) to Int {
+enum abstract IGDStatus(Int) from Int to Int {
 	final OK = 0;
 	final HTTP_ERROR = 1;
 	final HTTP_EMPTY = 2;

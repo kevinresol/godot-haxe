@@ -1,9 +1,8 @@
 package gdnative.textserver;
 @:native("godot::TextServer::ContourPointTag") extern enum abstract ContourPointTag(ContourPointTag_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):ContourPointTag return untyped __cpp__("(static_cast<godot::TextServer::ContourPointTag>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:ContourPointTag, v2:ContourPointTag):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:ContourPointTag):ContourPointTag_extern return untyped __cpp__("(cpp::Struct<godot::TextServer::ContourPointTag, cpp::EnumHandler>){0}", v);
 	@:native("godot::TextServer::ContourPointTag::CONTOUR_CURVE_TAG_ON")
 	final ON;
 	@:native("godot::TextServer::ContourPointTag::CONTOUR_CURVE_TAG_OFF_CONIC")

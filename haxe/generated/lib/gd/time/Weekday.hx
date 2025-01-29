@@ -1,5 +1,5 @@
 package gd.time;
-enum abstract Weekday(Int) to Int {
+enum abstract Weekday(Int) from Int to Int {
 	final SUNDAY = 0;
 	final MONDAY = 1;
 	final TUESDAY = 2;

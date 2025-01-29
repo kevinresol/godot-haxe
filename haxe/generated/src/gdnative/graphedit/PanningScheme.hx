@@ -1,9 +1,8 @@
 package gdnative.graphedit;
 @:native("godot::GraphEdit::PanningScheme") extern enum abstract PanningScheme(PanningScheme_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):PanningScheme return untyped __cpp__("(static_cast<godot::GraphEdit::PanningScheme>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:PanningScheme, v2:PanningScheme):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:PanningScheme):PanningScheme_extern return untyped __cpp__("(cpp::Struct<godot::GraphEdit::PanningScheme, cpp::EnumHandler>){0}", v);
 	@:native("godot::GraphEdit::PanningScheme::SCROLL_ZOOMS")
 	final ZOOMS;
 	@:native("godot::GraphEdit::PanningScheme::SCROLL_PANS")

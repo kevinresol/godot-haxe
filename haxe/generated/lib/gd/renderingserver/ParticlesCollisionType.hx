@@ -1,5 +1,5 @@
 package gd.renderingserver;
-enum abstract ParticlesCollisionType(Int) to Int {
+enum abstract ParticlesCollisionType(Int) from Int to Int {
 	final SPHERE_ATTRACT = 0;
 	final BOX_ATTRACT = 1;
 	final VECTOR_FIELD_ATTRACT = 2;

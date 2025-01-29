@@ -1,9 +1,8 @@
 package gdnative.visualshadernodetextureparameter;
 @:native("godot::VisualShaderNodeTextureParameter::TextureRepeat") extern enum abstract TextureRepeat(TextureRepeat_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):TextureRepeat return untyped __cpp__("(static_cast<godot::VisualShaderNodeTextureParameter::TextureRepeat>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:TextureRepeat, v2:TextureRepeat):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:TextureRepeat):TextureRepeat_extern return untyped __cpp__("(cpp::Struct<godot::VisualShaderNodeTextureParameter::TextureRepeat, cpp::EnumHandler>){0}", v);
 	@:native("godot::VisualShaderNodeTextureParameter::TextureRepeat::REPEAT_DEFAULT")
 	final DEFAULT;
 	@:native("godot::VisualShaderNodeTextureParameter::TextureRepeat::REPEAT_ENABLED")

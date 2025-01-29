@@ -1,9 +1,8 @@
 package gdnative.displayserver;
 @:native("godot::DisplayServer::VirtualKeyboardType") extern enum abstract VirtualKeyboardType(VirtualKeyboardType_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):VirtualKeyboardType return untyped __cpp__("(static_cast<godot::DisplayServer::VirtualKeyboardType>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:VirtualKeyboardType, v2:VirtualKeyboardType):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:VirtualKeyboardType):VirtualKeyboardType_extern return untyped __cpp__("(cpp::Struct<godot::DisplayServer::VirtualKeyboardType, cpp::EnumHandler>){0}", v);
 	@:native("godot::DisplayServer::VirtualKeyboardType::KEYBOARD_TYPE_DEFAULT")
 	final DEFAULT;
 	@:native("godot::DisplayServer::VirtualKeyboardType::KEYBOARD_TYPE_MULTILINE")

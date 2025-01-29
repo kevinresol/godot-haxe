@@ -1,9 +1,8 @@
 package gdnative.richtextlabel;
 @:native("godot::RichTextLabel::MetaUnderline") extern enum abstract MetaUnderline(MetaUnderline_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):MetaUnderline return untyped __cpp__("(static_cast<godot::RichTextLabel::MetaUnderline>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:MetaUnderline, v2:MetaUnderline):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:MetaUnderline):MetaUnderline_extern return untyped __cpp__("(cpp::Struct<godot::RichTextLabel::MetaUnderline, cpp::EnumHandler>){0}", v);
 	@:native("godot::RichTextLabel::MetaUnderline::META_UNDERLINE_NEVER")
 	final NEVER;
 	@:native("godot::RichTextLabel::MetaUnderline::META_UNDERLINE_ALWAYS")

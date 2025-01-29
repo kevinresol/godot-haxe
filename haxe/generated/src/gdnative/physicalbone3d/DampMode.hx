@@ -1,9 +1,8 @@
 package gdnative.physicalbone3d;
 @:native("godot::PhysicalBone3D::DampMode") extern enum abstract DampMode(DampMode_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):DampMode return untyped __cpp__("(static_cast<godot::PhysicalBone3D::DampMode>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:DampMode, v2:DampMode):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:DampMode):DampMode_extern return untyped __cpp__("(cpp::Struct<godot::PhysicalBone3D::DampMode, cpp::EnumHandler>){0}", v);
 	@:native("godot::PhysicalBone3D::DampMode::DAMP_MODE_COMBINE")
 	final COMBINE;
 	@:native("godot::PhysicalBone3D::DampMode::DAMP_MODE_REPLACE")

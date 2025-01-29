@@ -1,9 +1,8 @@
 package gdnative.canvasitem;
 @:native("godot::CanvasItem::TextureFilter") extern enum abstract TextureFilter(TextureFilter_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):TextureFilter return untyped __cpp__("(static_cast<godot::CanvasItem::TextureFilter>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:TextureFilter, v2:TextureFilter):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:TextureFilter):TextureFilter_extern return untyped __cpp__("(cpp::Struct<godot::CanvasItem::TextureFilter, cpp::EnumHandler>){0}", v);
 	@:native("godot::CanvasItem::TextureFilter::TEXTURE_FILTER_PARENT_NODE")
 	final PARENT_NODE;
 	@:native("godot::CanvasItem::TextureFilter::TEXTURE_FILTER_NEAREST")

@@ -1,9 +1,8 @@
 package gdnative.navigationpathqueryparameters3d;
 @:native("godot::NavigationPathQueryParameters3D::PathMetadataFlags") extern enum abstract PathMetadataFlags(PathMetadataFlags_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):PathMetadataFlags return untyped __cpp__("(static_cast<godot::NavigationPathQueryParameters3D::PathMetadataFlags>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:PathMetadataFlags, v2:PathMetadataFlags):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:PathMetadataFlags):PathMetadataFlags_extern return untyped __cpp__("(cpp::Struct<godot::NavigationPathQueryParameters3D::PathMetadataFlags, cpp::EnumHandler>){0}", v);
 	@:native("godot::NavigationPathQueryParameters3D::PathMetadataFlags::PATH_METADATA_INCLUDE_NONE")
 	final NONE;
 	@:native("godot::NavigationPathQueryParameters3D::PathMetadataFlags::PATH_METADATA_INCLUDE_TYPES")

@@ -1,9 +1,8 @@
 package gdnative.scenereplicationconfig;
 @:native("godot::SceneReplicationConfig::ReplicationMode") extern enum abstract ReplicationMode(ReplicationMode_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):ReplicationMode return untyped __cpp__("(static_cast<godot::SceneReplicationConfig::ReplicationMode>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:ReplicationMode, v2:ReplicationMode):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:ReplicationMode):ReplicationMode_extern return untyped __cpp__("(cpp::Struct<godot::SceneReplicationConfig::ReplicationMode, cpp::EnumHandler>){0}", v);
 	@:native("godot::SceneReplicationConfig::ReplicationMode::REPLICATION_MODE_NEVER")
 	final NEVER;
 	@:native("godot::SceneReplicationConfig::ReplicationMode::REPLICATION_MODE_ALWAYS")

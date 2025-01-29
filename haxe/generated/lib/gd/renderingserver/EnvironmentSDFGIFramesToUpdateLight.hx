@@ -1,5 +1,5 @@
 package gd.renderingserver;
-enum abstract EnvironmentSDFGIFramesToUpdateLight(Int) to Int {
+enum abstract EnvironmentSDFGIFramesToUpdateLight(Int) from Int to Int {
 	final IN_1_FRAME = 0;
 	final IN_2_FRAMES = 1;
 	final IN_4_FRAMES = 2;

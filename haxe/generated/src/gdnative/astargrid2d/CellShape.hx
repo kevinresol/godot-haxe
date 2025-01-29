@@ -1,9 +1,8 @@
 package gdnative.astargrid2d;
 @:native("godot::AStarGrid2D::CellShape") extern enum abstract CellShape(CellShape_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):CellShape return untyped __cpp__("(static_cast<godot::AStarGrid2D::CellShape>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:CellShape, v2:CellShape):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:CellShape):CellShape_extern return untyped __cpp__("(cpp::Struct<godot::AStarGrid2D::CellShape, cpp::EnumHandler>){0}", v);
 	@:native("godot::AStarGrid2D::CellShape::CELL_SHAPE_SQUARE")
 	final SQUARE;
 	@:native("godot::AStarGrid2D::CellShape::CELL_SHAPE_ISOMETRIC_RIGHT")

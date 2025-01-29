@@ -1,5 +1,5 @@
 package gd.displayserver;
-enum abstract Feature(Int) to Int {
+enum abstract Feature(Int) from Int to Int {
 	final GLOBAL_MENU = 0;
 	final SUBWINDOWS = 1;
 	final TOUCHSCREEN = 2;

@@ -1,5 +1,5 @@
 package gd.physicsserver2d;
-enum abstract SpaceParameter(Int) to Int {
+enum abstract SpaceParameter(Int) from Int to Int {
 	final CONTACT_RECYCLE_RADIUS = 0;
 	final CONTACT_MAX_SEPARATION = 1;
 	final CONTACT_MAX_ALLOWED_PENETRATION = 2;

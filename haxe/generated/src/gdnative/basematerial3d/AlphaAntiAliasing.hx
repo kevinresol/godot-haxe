@@ -1,9 +1,8 @@
 package gdnative.basematerial3d;
 @:native("godot::BaseMaterial3D::AlphaAntiAliasing") extern enum abstract AlphaAntiAliasing(AlphaAntiAliasing_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):AlphaAntiAliasing return untyped __cpp__("(static_cast<godot::BaseMaterial3D::AlphaAntiAliasing>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:AlphaAntiAliasing, v2:AlphaAntiAliasing):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:AlphaAntiAliasing):AlphaAntiAliasing_extern return untyped __cpp__("(cpp::Struct<godot::BaseMaterial3D::AlphaAntiAliasing, cpp::EnumHandler>){0}", v);
 	@:native("godot::BaseMaterial3D::AlphaAntiAliasing::ALPHA_ANTIALIASING_OFF")
 	final OFF;
 	@:native("godot::BaseMaterial3D::AlphaAntiAliasing::ALPHA_ANTIALIASING_ALPHA_TO_COVERAGE")

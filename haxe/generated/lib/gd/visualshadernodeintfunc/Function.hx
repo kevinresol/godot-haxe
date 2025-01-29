@@ -1,5 +1,5 @@
 package gd.visualshadernodeintfunc;
-enum abstract Function(Int) to Int {
+enum abstract Function(Int) from Int to Int {
 	final ABS = 0;
 	final NEGATE = 1;
 	final SIGN = 2;

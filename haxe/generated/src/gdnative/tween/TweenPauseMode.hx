@@ -1,9 +1,8 @@
 package gdnative.tween;
 @:native("godot::Tween::TweenPauseMode") extern enum abstract TweenPauseMode(TweenPauseMode_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):TweenPauseMode return untyped __cpp__("(static_cast<godot::Tween::TweenPauseMode>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:TweenPauseMode, v2:TweenPauseMode):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:TweenPauseMode):TweenPauseMode_extern return untyped __cpp__("(cpp::Struct<godot::Tween::TweenPauseMode, cpp::EnumHandler>){0}", v);
 	@:native("godot::Tween::TweenPauseMode::TWEEN_PAUSE_BOUND")
 	final BOUND;
 	@:native("godot::Tween::TweenPauseMode::TWEEN_PAUSE_STOP")

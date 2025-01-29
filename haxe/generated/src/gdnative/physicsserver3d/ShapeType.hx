@@ -1,9 +1,8 @@
 package gdnative.physicsserver3d;
 @:native("godot::PhysicsServer3D::ShapeType") extern enum abstract ShapeType(ShapeType_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):ShapeType return untyped __cpp__("(static_cast<godot::PhysicsServer3D::ShapeType>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:ShapeType, v2:ShapeType):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:ShapeType):ShapeType_extern return untyped __cpp__("(cpp::Struct<godot::PhysicsServer3D::ShapeType, cpp::EnumHandler>){0}", v);
 	@:native("godot::PhysicsServer3D::ShapeType::SHAPE_WORLD_BOUNDARY")
 	final WORLD_BOUNDARY;
 	@:native("godot::PhysicsServer3D::ShapeType::SHAPE_SEPARATION_RAY")

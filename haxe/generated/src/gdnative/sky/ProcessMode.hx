@@ -1,9 +1,8 @@
 package gdnative.sky;
 @:native("godot::Sky::ProcessMode") extern enum abstract ProcessMode(ProcessMode_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):ProcessMode return untyped __cpp__("(static_cast<godot::Sky::ProcessMode>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:ProcessMode, v2:ProcessMode):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:ProcessMode):ProcessMode_extern return untyped __cpp__("(cpp::Struct<godot::Sky::ProcessMode, cpp::EnumHandler>){0}", v);
 	@:native("godot::Sky::ProcessMode::PROCESS_MODE_AUTOMATIC")
 	final AUTOMATIC;
 	@:native("godot::Sky::ProcessMode::PROCESS_MODE_QUALITY")

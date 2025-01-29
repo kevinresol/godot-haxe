@@ -1,9 +1,8 @@
 package gdnative.openxrinterface;
 @:native("godot::OpenXRInterface::HandMotionRange") extern enum abstract HandMotionRange(HandMotionRange_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):HandMotionRange return untyped __cpp__("(static_cast<godot::OpenXRInterface::HandMotionRange>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:HandMotionRange, v2:HandMotionRange):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:HandMotionRange):HandMotionRange_extern return untyped __cpp__("(cpp::Struct<godot::OpenXRInterface::HandMotionRange, cpp::EnumHandler>){0}", v);
 	@:native("godot::OpenXRInterface::HandMotionRange::HAND_MOTION_RANGE_UNOBSTRUCTED")
 	final UNOBSTRUCTED;
 	@:native("godot::OpenXRInterface::HandMotionRange::HAND_MOTION_RANGE_CONFORM_TO_CONTROLLER")

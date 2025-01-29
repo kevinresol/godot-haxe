@@ -1,9 +1,8 @@
 package gdnative.gradient;
 @:native("godot::Gradient::InterpolationMode") extern enum abstract InterpolationMode(InterpolationMode_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):InterpolationMode return untyped __cpp__("(static_cast<godot::Gradient::InterpolationMode>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:InterpolationMode, v2:InterpolationMode):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:InterpolationMode):InterpolationMode_extern return untyped __cpp__("(cpp::Struct<godot::Gradient::InterpolationMode, cpp::EnumHandler>){0}", v);
 	@:native("godot::Gradient::InterpolationMode::GRADIENT_INTERPOLATE_LINEAR")
 	final LINEAR;
 	@:native("godot::Gradient::InterpolationMode::GRADIENT_INTERPOLATE_CONSTANT")

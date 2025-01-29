@@ -1,9 +1,8 @@
 package gdnative.textserver;
 @:native("godot::TextServer::FixedSizeScaleMode") extern enum abstract FixedSizeScaleMode(FixedSizeScaleMode_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):FixedSizeScaleMode return untyped __cpp__("(static_cast<godot::TextServer::FixedSizeScaleMode>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:FixedSizeScaleMode, v2:FixedSizeScaleMode):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:FixedSizeScaleMode):FixedSizeScaleMode_extern return untyped __cpp__("(cpp::Struct<godot::TextServer::FixedSizeScaleMode, cpp::EnumHandler>){0}", v);
 	@:native("godot::TextServer::FixedSizeScaleMode::FIXED_SIZE_SCALE_DISABLE")
 	final DISABLE;
 	@:native("godot::TextServer::FixedSizeScaleMode::FIXED_SIZE_SCALE_INTEGER_ONLY")

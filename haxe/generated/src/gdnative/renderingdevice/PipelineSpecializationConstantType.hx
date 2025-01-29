@@ -1,9 +1,8 @@
 package gdnative.renderingdevice;
 @:native("godot::RenderingDevice::PipelineSpecializationConstantType") extern enum abstract PipelineSpecializationConstantType(PipelineSpecializationConstantType_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):PipelineSpecializationConstantType return untyped __cpp__("(static_cast<godot::RenderingDevice::PipelineSpecializationConstantType>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:PipelineSpecializationConstantType, v2:PipelineSpecializationConstantType):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:PipelineSpecializationConstantType):PipelineSpecializationConstantType_extern return untyped __cpp__("(cpp::Struct<godot::RenderingDevice::PipelineSpecializationConstantType, cpp::EnumHandler>){0}", v);
 	@:native("godot::RenderingDevice::PipelineSpecializationConstantType::PIPELINE_SPECIALIZATION_CONSTANT_TYPE_BOOL")
 	final BOOL;
 	@:native("godot::RenderingDevice::PipelineSpecializationConstantType::PIPELINE_SPECIALIZATION_CONSTANT_TYPE_INT")

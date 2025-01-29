@@ -1,5 +1,5 @@
 package gd.physicsserver3d;
-enum abstract BodyAxis(Int) to Int {
+enum abstract BodyAxis(Int) from Int to Int {
 	final LINEAR_X = 1;
 	final LINEAR_Y = 2;
 	final LINEAR_Z = 4;

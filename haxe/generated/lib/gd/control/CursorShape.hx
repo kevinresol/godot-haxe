@@ -1,5 +1,5 @@
 package gd.control;
-enum abstract CursorShape(Int) to Int {
+enum abstract CursorShape(Int) from Int to Int {
 	final ARROW = 0;
 	final IBEAM = 1;
 	final POINTING_HAND = 2;

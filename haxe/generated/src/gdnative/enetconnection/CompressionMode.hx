@@ -1,9 +1,8 @@
 package gdnative.enetconnection;
 @:native("godot::ENetConnection::CompressionMode") extern enum abstract CompressionMode(CompressionMode_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):CompressionMode return untyped __cpp__("(static_cast<godot::ENetConnection::CompressionMode>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:CompressionMode, v2:CompressionMode):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:CompressionMode):CompressionMode_extern return untyped __cpp__("(cpp::Struct<godot::ENetConnection::CompressionMode, cpp::EnumHandler>){0}", v);
 	@:native("godot::ENetConnection::CompressionMode::COMPRESS_NONE")
 	final NONE;
 	@:native("godot::ENetConnection::CompressionMode::COMPRESS_RANGE_CODER")

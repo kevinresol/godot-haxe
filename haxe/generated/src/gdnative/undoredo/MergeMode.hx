@@ -1,9 +1,8 @@
 package gdnative.undoredo;
 @:native("godot::UndoRedo::MergeMode") extern enum abstract MergeMode(MergeMode_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):MergeMode return untyped __cpp__("(static_cast<godot::UndoRedo::MergeMode>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:MergeMode, v2:MergeMode):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:MergeMode):MergeMode_extern return untyped __cpp__("(cpp::Struct<godot::UndoRedo::MergeMode, cpp::EnumHandler>){0}", v);
 	@:native("godot::UndoRedo::MergeMode::MERGE_DISABLE")
 	final DISABLE;
 	@:native("godot::UndoRedo::MergeMode::MERGE_ENDS")

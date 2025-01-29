@@ -1,5 +1,5 @@
 package gd.tabbar;
-enum abstract AlignmentMode(Int) to Int {
+enum abstract AlignmentMode(Int) from Int to Int {
 	final LEFT = 0;
 	final CENTER = 1;
 	final RIGHT = 2;

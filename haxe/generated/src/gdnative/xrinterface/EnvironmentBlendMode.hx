@@ -1,9 +1,8 @@
 package gdnative.xrinterface;
 @:native("godot::XRInterface::EnvironmentBlendMode") extern enum abstract EnvironmentBlendMode(EnvironmentBlendMode_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):EnvironmentBlendMode return untyped __cpp__("(static_cast<godot::XRInterface::EnvironmentBlendMode>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:EnvironmentBlendMode, v2:EnvironmentBlendMode):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:EnvironmentBlendMode):EnvironmentBlendMode_extern return untyped __cpp__("(cpp::Struct<godot::XRInterface::EnvironmentBlendMode, cpp::EnumHandler>){0}", v);
 	@:native("godot::XRInterface::EnvironmentBlendMode::XR_ENV_BLEND_MODE_OPAQUE")
 	final OPAQUE;
 	@:native("godot::XRInterface::EnvironmentBlendMode::XR_ENV_BLEND_MODE_ADDITIVE")

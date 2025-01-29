@@ -1,9 +1,8 @@
 package gdnative;
 @:native("godot::JoyAxis") extern enum abstract JoyAxis(JoyAxis_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):JoyAxis return untyped __cpp__("(static_cast<godot::JoyAxis>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:JoyAxis, v2:JoyAxis):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:JoyAxis):JoyAxis_extern return untyped __cpp__("(cpp::Struct<godot::JoyAxis, cpp::EnumHandler>){0}", v);
 	@:native("godot::JoyAxis::JOY_AXIS_INVALID")
 	final INVALID;
 	@:native("godot::JoyAxis::JOY_AXIS_LEFT_X")

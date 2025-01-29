@@ -1,9 +1,8 @@
 package gdnative.renderingdevice;
 @:native("godot::RenderingDevice::RenderPrimitive") extern enum abstract RenderPrimitive(RenderPrimitive_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):RenderPrimitive return untyped __cpp__("(static_cast<godot::RenderingDevice::RenderPrimitive>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:RenderPrimitive, v2:RenderPrimitive):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:RenderPrimitive):RenderPrimitive_extern return untyped __cpp__("(cpp::Struct<godot::RenderingDevice::RenderPrimitive, cpp::EnumHandler>){0}", v);
 	@:native("godot::RenderingDevice::RenderPrimitive::RENDER_PRIMITIVE_POINTS")
 	final POINTS;
 	@:native("godot::RenderingDevice::RenderPrimitive::RENDER_PRIMITIVE_LINES")

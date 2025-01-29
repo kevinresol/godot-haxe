@@ -1,5 +1,5 @@
 package gd.displayserver;
-enum abstract VirtualKeyboardType(Int) to Int {
+enum abstract VirtualKeyboardType(Int) from Int to Int {
 	final DEFAULT = 0;
 	final MULTILINE = 1;
 	final NUMBER = 2;

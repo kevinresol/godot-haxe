@@ -1,9 +1,8 @@
 package gdnative.lightmapgi;
 @:native("godot::LightmapGI::EnvironmentMode") extern enum abstract EnvironmentMode(EnvironmentMode_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):EnvironmentMode return untyped __cpp__("(static_cast<godot::LightmapGI::EnvironmentMode>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:EnvironmentMode, v2:EnvironmentMode):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:EnvironmentMode):EnvironmentMode_extern return untyped __cpp__("(cpp::Struct<godot::LightmapGI::EnvironmentMode, cpp::EnumHandler>){0}", v);
 	@:native("godot::LightmapGI::EnvironmentMode::ENVIRONMENT_MODE_DISABLED")
 	final DISABLED;
 	@:native("godot::LightmapGI::EnvironmentMode::ENVIRONMENT_MODE_SCENE")

@@ -1,5 +1,5 @@
 package gd.physicsserver3d;
-enum abstract SliderJointParam(Int) to Int {
+enum abstract SliderJointParam(Int) from Int to Int {
 	final LINEAR_LIMIT_UPPER = 0;
 	final LINEAR_LIMIT_LOWER = 1;
 	final LINEAR_LIMIT_SOFTNESS = 2;

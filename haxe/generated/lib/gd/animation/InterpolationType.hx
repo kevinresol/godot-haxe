@@ -1,5 +1,5 @@
 package gd.animation;
-enum abstract InterpolationType(Int) to Int {
+enum abstract InterpolationType(Int) from Int to Int {
 	final NEAREST = 0;
 	final LINEAR = 1;
 	final CUBIC = 2;

@@ -1,9 +1,8 @@
 package gdnative.physicsserver2d;
 @:native("godot::PhysicsServer2D::AreaSpaceOverrideMode") extern enum abstract AreaSpaceOverrideMode(AreaSpaceOverrideMode_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):AreaSpaceOverrideMode return untyped __cpp__("(static_cast<godot::PhysicsServer2D::AreaSpaceOverrideMode>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:AreaSpaceOverrideMode, v2:AreaSpaceOverrideMode):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:AreaSpaceOverrideMode):AreaSpaceOverrideMode_extern return untyped __cpp__("(cpp::Struct<godot::PhysicsServer2D::AreaSpaceOverrideMode, cpp::EnumHandler>){0}", v);
 	@:native("godot::PhysicsServer2D::AreaSpaceOverrideMode::AREA_SPACE_OVERRIDE_DISABLED")
 	final DISABLED;
 	@:native("godot::PhysicsServer2D::AreaSpaceOverrideMode::AREA_SPACE_OVERRIDE_COMBINE")

@@ -1,9 +1,8 @@
 package gdnative.physicsserver2d;
 @:native("godot::PhysicsServer2D::ProcessInfo") extern enum abstract ProcessInfo(ProcessInfo_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):ProcessInfo return untyped __cpp__("(static_cast<godot::PhysicsServer2D::ProcessInfo>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:ProcessInfo, v2:ProcessInfo):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:ProcessInfo):ProcessInfo_extern return untyped __cpp__("(cpp::Struct<godot::PhysicsServer2D::ProcessInfo, cpp::EnumHandler>){0}", v);
 	@:native("godot::PhysicsServer2D::ProcessInfo::INFO_ACTIVE_OBJECTS")
 	final ACTIVE_OBJECTS;
 	@:native("godot::PhysicsServer2D::ProcessInfo::INFO_COLLISION_PAIRS")

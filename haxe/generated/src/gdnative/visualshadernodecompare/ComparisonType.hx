@@ -1,9 +1,8 @@
 package gdnative.visualshadernodecompare;
 @:native("godot::VisualShaderNodeCompare::ComparisonType") extern enum abstract ComparisonType(ComparisonType_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):ComparisonType return untyped __cpp__("(static_cast<godot::VisualShaderNodeCompare::ComparisonType>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:ComparisonType, v2:ComparisonType):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:ComparisonType):ComparisonType_extern return untyped __cpp__("(cpp::Struct<godot::VisualShaderNodeCompare::ComparisonType, cpp::EnumHandler>){0}", v);
 	@:native("godot::VisualShaderNodeCompare::ComparisonType::CTYPE_SCALAR")
 	final SCALAR;
 	@:native("godot::VisualShaderNodeCompare::ComparisonType::CTYPE_SCALAR_INT")

@@ -1,5 +1,5 @@
 package gd.renderingserver;
-enum abstract ViewportScaling3DMode(Int) to Int {
+enum abstract ViewportScaling3DMode(Int) from Int to Int {
 	final BILINEAR = 0;
 	final FSR = 1;
 	final FSR2 = 2;

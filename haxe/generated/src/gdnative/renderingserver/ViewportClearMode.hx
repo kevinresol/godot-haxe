@@ -1,9 +1,8 @@
 package gdnative.renderingserver;
 @:native("godot::RenderingServer::ViewportClearMode") extern enum abstract ViewportClearMode(ViewportClearMode_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):ViewportClearMode return untyped __cpp__("(static_cast<godot::RenderingServer::ViewportClearMode>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:ViewportClearMode, v2:ViewportClearMode):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:ViewportClearMode):ViewportClearMode_extern return untyped __cpp__("(cpp::Struct<godot::RenderingServer::ViewportClearMode, cpp::EnumHandler>){0}", v);
 	@:native("godot::RenderingServer::ViewportClearMode::VIEWPORT_CLEAR_ALWAYS")
 	final ALWAYS;
 	@:native("godot::RenderingServer::ViewportClearMode::VIEWPORT_CLEAR_NEVER")

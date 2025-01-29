@@ -1,5 +1,5 @@
 package gd.visualshader;
-enum abstract VaryingType(Int) to Int {
+enum abstract VaryingType(Int) from Int to Int {
 	final FLOAT = 0;
 	final INT = 1;
 	final UINT = 2;

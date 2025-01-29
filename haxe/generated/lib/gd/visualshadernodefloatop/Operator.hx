@@ -1,5 +1,5 @@
 package gd.visualshadernodefloatop;
-enum abstract Operator(Int) to Int {
+enum abstract Operator(Int) from Int to Int {
 	final ADD = 0;
 	final SUB = 1;
 	final MUL = 2;

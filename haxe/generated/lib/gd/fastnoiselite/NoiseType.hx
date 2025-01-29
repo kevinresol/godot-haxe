@@ -1,5 +1,5 @@
 package gd.fastnoiselite;
-enum abstract NoiseType(Int) to Int {
+enum abstract NoiseType(Int) from Int to Int {
 	final VALUE = 5;
 	final VALUE_CUBIC = 4;
 	final PERLIN = 3;

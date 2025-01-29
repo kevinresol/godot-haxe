@@ -1,5 +1,5 @@
 package gd.environment;
-enum abstract BGMode(Int) to Int {
+enum abstract BGMode(Int) from Int to Int {
 	final CLEAR_COLOR = 0;
 	final COLOR = 1;
 	final SKY = 2;

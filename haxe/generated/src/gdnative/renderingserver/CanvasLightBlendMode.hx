@@ -1,9 +1,8 @@
 package gdnative.renderingserver;
 @:native("godot::RenderingServer::CanvasLightBlendMode") extern enum abstract CanvasLightBlendMode(CanvasLightBlendMode_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):CanvasLightBlendMode return untyped __cpp__("(static_cast<godot::RenderingServer::CanvasLightBlendMode>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:CanvasLightBlendMode, v2:CanvasLightBlendMode):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:CanvasLightBlendMode):CanvasLightBlendMode_extern return untyped __cpp__("(cpp::Struct<godot::RenderingServer::CanvasLightBlendMode, cpp::EnumHandler>){0}", v);
 	@:native("godot::RenderingServer::CanvasLightBlendMode::CANVAS_LIGHT_BLEND_MODE_ADD")
 	final ADD;
 	@:native("godot::RenderingServer::CanvasLightBlendMode::CANVAS_LIGHT_BLEND_MODE_SUB")

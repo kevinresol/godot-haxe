@@ -1,5 +1,5 @@
 package gd.geometryinstance3d;
-enum abstract LightmapScale(Int) to Int {
+enum abstract LightmapScale(Int) from Int to Int {
 	final _1X = 0;
 	final _2X = 1;
 	final _4X = 2;

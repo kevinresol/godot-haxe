@@ -1,5 +1,5 @@
 package gd.gdextensionmanager;
-enum abstract LoadStatus(Int) to Int {
+enum abstract LoadStatus(Int) from Int to Int {
 	final OK = 0;
 	final FAILED = 1;
 	final ALREADY_LOADED = 2;

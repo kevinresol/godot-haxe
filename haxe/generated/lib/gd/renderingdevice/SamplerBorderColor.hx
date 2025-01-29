@@ -1,5 +1,5 @@
 package gd.renderingdevice;
-enum abstract SamplerBorderColor(Int) to Int {
+enum abstract SamplerBorderColor(Int) from Int to Int {
 	final FLOAT_TRANSPARENT_BLACK = 0;
 	final INT_TRANSPARENT_BLACK = 1;
 	final FLOAT_OPAQUE_BLACK = 2;

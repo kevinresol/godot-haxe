@@ -1,9 +1,8 @@
 package gdnative.renderingserver;
 @:native("godot::RenderingServer::CanvasTextureChannel") extern enum abstract CanvasTextureChannel(CanvasTextureChannel_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):CanvasTextureChannel return untyped __cpp__("(static_cast<godot::RenderingServer::CanvasTextureChannel>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:CanvasTextureChannel, v2:CanvasTextureChannel):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:CanvasTextureChannel):CanvasTextureChannel_extern return untyped __cpp__("(cpp::Struct<godot::RenderingServer::CanvasTextureChannel, cpp::EnumHandler>){0}", v);
 	@:native("godot::RenderingServer::CanvasTextureChannel::CANVAS_TEXTURE_CHANNEL_DIFFUSE")
 	final DIFFUSE;
 	@:native("godot::RenderingServer::CanvasTextureChannel::CANVAS_TEXTURE_CHANNEL_NORMAL")

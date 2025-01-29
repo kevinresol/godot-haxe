@@ -1,9 +1,8 @@
 package gdnative;
 @:native("godot::MIDIMessage") extern enum abstract MIDIMessage(MIDIMessage_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):MIDIMessage return untyped __cpp__("(static_cast<godot::MIDIMessage>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:MIDIMessage, v2:MIDIMessage):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:MIDIMessage):MIDIMessage_extern return untyped __cpp__("(cpp::Struct<godot::MIDIMessage, cpp::EnumHandler>){0}", v);
 	@:native("godot::MIDIMessage::MIDI_MESSAGE_NONE")
 	final NONE;
 	@:native("godot::MIDIMessage::MIDI_MESSAGE_NOTE_OFF")

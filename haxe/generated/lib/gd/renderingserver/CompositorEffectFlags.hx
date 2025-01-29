@@ -1,5 +1,5 @@
 package gd.renderingserver;
-enum abstract CompositorEffectFlags(Int) to Int {
+enum abstract CompositorEffectFlags(Int) from Int to Int {
 	final ACCESS_RESOLVED_COLOR = 1;
 	final ACCESS_RESOLVED_DEPTH = 2;
 	final NEEDS_MOTION_VECTORS = 4;

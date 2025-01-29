@@ -1,5 +1,5 @@
 package gd.xrserver;
-enum abstract TrackerType(Int) to Int {
+enum abstract TrackerType(Int) from Int to Int {
 	final HEAD = 1;
 	final CONTROLLER = 2;
 	final BASESTATION = 4;

@@ -1,9 +1,8 @@
 package gdnative.performance;
 @:native("godot::Performance::Monitor") extern enum abstract Monitor(Monitor_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):Monitor return untyped __cpp__("(static_cast<godot::Performance::Monitor>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:Monitor, v2:Monitor):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:Monitor):Monitor_extern return untyped __cpp__("(cpp::Struct<godot::Performance::Monitor, cpp::EnumHandler>){0}", v);
 	final TIME_FPS;
 	final TIME_PROCESS;
 	final TIME_PHYSICS_PROCESS;

@@ -107,6 +107,33 @@ class Main extends Base {
 
 	final target = new Vector2(100, 100);
 
+	override function _input(event:InputEvent) {
+		// no type narrowing in haxe with the "is" keyword :(
+		// https://github.com/HaxeFoundation/haxe/issues/5167
+		switch Std.downcast(event, InputEventKey) {
+			case null:
+			case e:
+				if (e.is_pressed()) {
+					final pos = position;
+					switch e.keycode {
+						case UP:
+							pos.y -= 1;
+							position = pos;
+						case DOWN:
+							pos.y += 1;
+							position = pos;
+						case LEFT:
+							pos.x -= 1;
+							position = pos;
+						case RIGHT:
+							pos.x += 1;
+							position = pos;
+						case _:
+					}
+				}
+		}
+	}
+
 	override function _process(delta:Float) {
 		if (processed == 0) {
 			trace('_process($delta) $processed');

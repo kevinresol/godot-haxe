@@ -1,9 +1,8 @@
 package gdnative.directionallight3d;
 @:native("godot::DirectionalLight3D::SkyMode") extern enum abstract SkyMode(SkyMode_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):SkyMode return untyped __cpp__("(static_cast<godot::DirectionalLight3D::SkyMode>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:SkyMode, v2:SkyMode):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:SkyMode):SkyMode_extern return untyped __cpp__("(cpp::Struct<godot::DirectionalLight3D::SkyMode, cpp::EnumHandler>){0}", v);
 	@:native("godot::DirectionalLight3D::SkyMode::SKY_MODE_LIGHT_AND_SKY")
 	final LIGHT_AND_SKY;
 	@:native("godot::DirectionalLight3D::SkyMode::SKY_MODE_LIGHT_ONLY")

@@ -1,9 +1,8 @@
 package gdnative.visualshadernodetexture;
 @:native("godot::VisualShaderNodeTexture::TextureType") extern enum abstract TextureType(TextureType_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):TextureType return untyped __cpp__("(static_cast<godot::VisualShaderNodeTexture::TextureType>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:TextureType, v2:TextureType):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:TextureType):TextureType_extern return untyped __cpp__("(cpp::Struct<godot::VisualShaderNodeTexture::TextureType, cpp::EnumHandler>){0}", v);
 	@:native("godot::VisualShaderNodeTexture::TextureType::TYPE_DATA")
 	final DATA;
 	@:native("godot::VisualShaderNodeTexture::TextureType::TYPE_COLOR")

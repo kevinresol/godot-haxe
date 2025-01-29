@@ -1,9 +1,8 @@
 package gdnative.hashingcontext;
 @:native("godot::HashingContext::HashType") extern enum abstract HashType(HashType_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):HashType return untyped __cpp__("(static_cast<godot::HashingContext::HashType>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:HashType, v2:HashType):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:HashType):HashType_extern return untyped __cpp__("(cpp::Struct<godot::HashingContext::HashType, cpp::EnumHandler>){0}", v);
 	@:native("godot::HashingContext::HashType::HASH_MD5")
 	final MD5;
 	@:native("godot::HashingContext::HashType::HASH_SHA1")

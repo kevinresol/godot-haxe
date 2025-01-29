@@ -1,5 +1,5 @@
 package gd.renderingdevice;
-enum abstract CompareOperator(Int) to Int {
+enum abstract CompareOperator(Int) from Int to Int {
 	final NEVER = 0;
 	final LESS = 1;
 	final EQUAL = 2;

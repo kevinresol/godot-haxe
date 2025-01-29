@@ -1,9 +1,8 @@
 package gdnative.scriptlanguageextension;
 @:native("godot::ScriptLanguageExtension::LookupResultType") extern enum abstract LookupResultType(LookupResultType_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):LookupResultType return untyped __cpp__("(static_cast<godot::ScriptLanguageExtension::LookupResultType>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:LookupResultType, v2:LookupResultType):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:LookupResultType):LookupResultType_extern return untyped __cpp__("(cpp::Struct<godot::ScriptLanguageExtension::LookupResultType, cpp::EnumHandler>){0}", v);
 	@:native("godot::ScriptLanguageExtension::LookupResultType::LOOKUP_RESULT_SCRIPT_LOCATION")
 	final SCRIPT_LOCATION;
 	@:native("godot::ScriptLanguageExtension::LookupResultType::LOOKUP_RESULT_CLASS")

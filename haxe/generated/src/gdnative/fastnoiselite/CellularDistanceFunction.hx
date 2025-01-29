@@ -1,9 +1,8 @@
 package gdnative.fastnoiselite;
 @:native("godot::FastNoiseLite::CellularDistanceFunction") extern enum abstract CellularDistanceFunction(CellularDistanceFunction_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):CellularDistanceFunction return untyped __cpp__("(static_cast<godot::FastNoiseLite::CellularDistanceFunction>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:CellularDistanceFunction, v2:CellularDistanceFunction):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:CellularDistanceFunction):CellularDistanceFunction_extern return untyped __cpp__("(cpp::Struct<godot::FastNoiseLite::CellularDistanceFunction, cpp::EnumHandler>){0}", v);
 	@:native("godot::FastNoiseLite::CellularDistanceFunction::DISTANCE_EUCLIDEAN")
 	final EUCLIDEAN;
 	@:native("godot::FastNoiseLite::CellularDistanceFunction::DISTANCE_EUCLIDEAN_SQUARED")

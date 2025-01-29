@@ -1,9 +1,8 @@
 package gdnative.animation;
 @:native("godot::Animation::LoopedFlag") extern enum abstract LoopedFlag(LoopedFlag_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):LoopedFlag return untyped __cpp__("(static_cast<godot::Animation::LoopedFlag>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:LoopedFlag, v2:LoopedFlag):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:LoopedFlag):LoopedFlag_extern return untyped __cpp__("(cpp::Struct<godot::Animation::LoopedFlag, cpp::EnumHandler>){0}", v);
 	@:native("godot::Animation::LoopedFlag::LOOPED_FLAG_NONE")
 	final NONE;
 	@:native("godot::Animation::LoopedFlag::LOOPED_FLAG_END")

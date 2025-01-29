@@ -1,5 +1,5 @@
 package gd.voxelgi;
-enum abstract Subdiv(Int) to Int {
+enum abstract Subdiv(Int) from Int to Int {
 	final _64 = 0;
 	final _128 = 1;
 	final _256 = 2;

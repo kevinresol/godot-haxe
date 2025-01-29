@@ -1,9 +1,8 @@
 package gdnative.textserver;
 @:native("godot::TextServer::SpacingType") extern enum abstract SpacingType(SpacingType_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):SpacingType return untyped __cpp__("(static_cast<godot::TextServer::SpacingType>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:SpacingType, v2:SpacingType):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:SpacingType):SpacingType_extern return untyped __cpp__("(cpp::Struct<godot::TextServer::SpacingType, cpp::EnumHandler>){0}", v);
 	@:native("godot::TextServer::SpacingType::SPACING_GLYPH")
 	final GLYPH;
 	@:native("godot::TextServer::SpacingType::SPACING_SPACE")

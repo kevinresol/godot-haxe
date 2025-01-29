@@ -1,5 +1,5 @@
 package gd.tween;
-enum abstract TweenProcessMode(Int) to Int {
+enum abstract TweenProcessMode(Int) from Int to Int {
 	final PHYSICS = 0;
 	final IDLE = 1;
 }

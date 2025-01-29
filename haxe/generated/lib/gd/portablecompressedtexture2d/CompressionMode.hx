@@ -1,5 +1,5 @@
 package gd.portablecompressedtexture2d;
-enum abstract CompressionMode(Int) to Int {
+enum abstract CompressionMode(Int) from Int to Int {
 	final LOSSLESS = 0;
 	final LOSSY = 1;
 	final BASIS_UNIVERSAL = 2;

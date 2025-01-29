@@ -1,5 +1,5 @@
 package gd.renderingdevice;
-enum abstract Limit(Int) to Int {
+enum abstract Limit(Int) from Int to Int {
 	final MAX_BOUND_UNIFORM_SETS = 0;
 	final MAX_FRAMEBUFFER_COLOR_ATTACHMENTS = 1;
 	final MAX_TEXTURES_PER_UNIFORM_SET = 2;

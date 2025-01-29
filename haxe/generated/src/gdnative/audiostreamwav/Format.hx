@@ -1,9 +1,8 @@
 package gdnative.audiostreamwav;
 @:native("godot::AudioStreamWAV::Format") extern enum abstract Format(Format_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):Format return untyped __cpp__("(static_cast<godot::AudioStreamWAV::Format>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:Format, v2:Format):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:Format):Format_extern return untyped __cpp__("(cpp::Struct<godot::AudioStreamWAV::Format, cpp::EnumHandler>){0}", v);
 	@:native("godot::AudioStreamWAV::Format::FORMAT_8_BITS")
 	final _8_BITS;
 	@:native("godot::AudioStreamWAV::Format::FORMAT_16_BITS")

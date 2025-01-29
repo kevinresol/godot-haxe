@@ -1,5 +1,5 @@
 package gd.renderingserver;
-enum abstract CanvasItemTextureRepeat(Int) to Int {
+enum abstract CanvasItemTextureRepeat(Int) from Int to Int {
 	final DEFAULT = 0;
 	final DISABLED = 1;
 	final ENABLED = 2;

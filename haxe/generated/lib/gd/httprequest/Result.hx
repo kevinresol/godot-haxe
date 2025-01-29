@@ -1,5 +1,5 @@
 package gd.httprequest;
-enum abstract Result(Int) to Int {
+enum abstract Result(Int) from Int to Int {
 	final SUCCESS = 0;
 	final CHUNKED_BODY_SIZE_MISMATCH = 1;
 	final CANT_CONNECT = 2;

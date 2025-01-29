@@ -1,5 +1,5 @@
 package gd.control;
-enum abstract SizeFlags(Int) to Int {
+enum abstract SizeFlags(cpp.UInt64) from cpp.UInt64 to cpp.UInt64 {
 	final SHRINK_BEGIN = 0;
 	final FILL = 1;
 	final EXPAND = 2;

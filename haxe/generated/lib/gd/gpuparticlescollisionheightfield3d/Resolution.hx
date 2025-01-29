@@ -1,5 +1,5 @@
 package gd.gpuparticlescollisionheightfield3d;
-enum abstract Resolution(Int) to Int {
+enum abstract Resolution(Int) from Int to Int {
 	final _256 = 0;
 	final _512 = 1;
 	final _1024 = 2;

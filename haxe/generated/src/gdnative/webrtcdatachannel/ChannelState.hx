@@ -1,9 +1,8 @@
 package gdnative.webrtcdatachannel;
 @:native("godot::WebRTCDataChannel::ChannelState") extern enum abstract ChannelState(ChannelState_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):ChannelState return untyped __cpp__("(static_cast<godot::WebRTCDataChannel::ChannelState>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:ChannelState, v2:ChannelState):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:ChannelState):ChannelState_extern return untyped __cpp__("(cpp::Struct<godot::WebRTCDataChannel::ChannelState, cpp::EnumHandler>){0}", v);
 	@:native("godot::WebRTCDataChannel::ChannelState::STATE_CONNECTING")
 	final CONNECTING;
 	@:native("godot::WebRTCDataChannel::ChannelState::STATE_OPEN")

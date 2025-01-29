@@ -1,5 +1,5 @@
 package gd.xmlparser;
-enum abstract NodeType(Int) to Int {
+enum abstract NodeType(Int) from Int to Int {
 	final NONE = 0;
 	final ELEMENT = 1;
 	final ELEMENT_END = 2;

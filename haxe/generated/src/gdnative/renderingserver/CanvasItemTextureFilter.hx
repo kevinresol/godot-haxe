@@ -1,9 +1,8 @@
 package gdnative.renderingserver;
 @:native("godot::RenderingServer::CanvasItemTextureFilter") extern enum abstract CanvasItemTextureFilter(CanvasItemTextureFilter_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):CanvasItemTextureFilter return untyped __cpp__("(static_cast<godot::RenderingServer::CanvasItemTextureFilter>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:CanvasItemTextureFilter, v2:CanvasItemTextureFilter):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:CanvasItemTextureFilter):CanvasItemTextureFilter_extern return untyped __cpp__("(cpp::Struct<godot::RenderingServer::CanvasItemTextureFilter, cpp::EnumHandler>){0}", v);
 	@:native("godot::RenderingServer::CanvasItemTextureFilter::CANVAS_ITEM_TEXTURE_FILTER_DEFAULT")
 	final DEFAULT;
 	@:native("godot::RenderingServer::CanvasItemTextureFilter::CANVAS_ITEM_TEXTURE_FILTER_NEAREST")

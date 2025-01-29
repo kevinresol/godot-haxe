@@ -1,5 +1,5 @@
 package gd.renderingdevice;
-enum abstract TextureUsageBits(Int) to Int {
+enum abstract TextureUsageBits(cpp.UInt64) from cpp.UInt64 to cpp.UInt64 {
 	final SAMPLING_BIT = 1;
 	final COLOR_ATTACHMENT_BIT = 2;
 	final DEPTH_STENCIL_ATTACHMENT_BIT = 4;

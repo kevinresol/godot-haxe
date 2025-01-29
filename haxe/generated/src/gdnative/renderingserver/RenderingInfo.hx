@@ -1,9 +1,8 @@
 package gdnative.renderingserver;
 @:native("godot::RenderingServer::RenderingInfo") extern enum abstract RenderingInfo(RenderingInfo_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):RenderingInfo return untyped __cpp__("(static_cast<godot::RenderingServer::RenderingInfo>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:RenderingInfo, v2:RenderingInfo):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:RenderingInfo):RenderingInfo_extern return untyped __cpp__("(cpp::Struct<godot::RenderingServer::RenderingInfo, cpp::EnumHandler>){0}", v);
 	@:native("godot::RenderingServer::RenderingInfo::RENDERING_INFO_TOTAL_OBJECTS_IN_FRAME")
 	final TOTAL_OBJECTS_IN_FRAME;
 	@:native("godot::RenderingServer::RenderingInfo::RENDERING_INFO_TOTAL_PRIMITIVES_IN_FRAME")

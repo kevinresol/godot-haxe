@@ -1,5 +1,5 @@
 package gd.renderingserver;
-enum abstract FogVolumeShape(Int) to Int {
+enum abstract FogVolumeShape(Int) from Int to Int {
 	final ELLIPSOID = 0;
 	final CONE = 1;
 	final CYLINDER = 2;

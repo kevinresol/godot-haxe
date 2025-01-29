@@ -1,5 +1,5 @@
 package gd.renderingdevice;
-enum abstract TextureType(Int) to Int {
+enum abstract TextureType(Int) from Int to Int {
 	final _1D = 0;
 	final _2D = 1;
 	final _3D = 2;

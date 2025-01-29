@@ -1,9 +1,8 @@
 package gdnative.rigidbody3d;
 @:native("godot::RigidBody3D::FreezeMode") extern enum abstract FreezeMode(FreezeMode_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):FreezeMode return untyped __cpp__("(static_cast<godot::RigidBody3D::FreezeMode>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:FreezeMode, v2:FreezeMode):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:FreezeMode):FreezeMode_extern return untyped __cpp__("(cpp::Struct<godot::RigidBody3D::FreezeMode, cpp::EnumHandler>){0}", v);
 	@:native("godot::RigidBody3D::FreezeMode::FREEZE_MODE_STATIC")
 	final STATIC;
 	@:native("godot::RigidBody3D::FreezeMode::FREEZE_MODE_KINEMATIC")

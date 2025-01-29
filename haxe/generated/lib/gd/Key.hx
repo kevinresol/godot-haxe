@@ -1,5 +1,5 @@
 package gd;
-enum abstract Key(Int) to Int {
+enum abstract Key(Int) from Int to Int {
 	final NONE = 0;
 	final SPECIAL = 4194304;
 	final ESCAPE = 4194305;

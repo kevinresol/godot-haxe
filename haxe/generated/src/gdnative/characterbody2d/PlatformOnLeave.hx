@@ -1,9 +1,8 @@
 package gdnative.characterbody2d;
 @:native("godot::CharacterBody2D::PlatformOnLeave") extern enum abstract PlatformOnLeave(PlatformOnLeave_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):PlatformOnLeave return untyped __cpp__("(static_cast<godot::CharacterBody2D::PlatformOnLeave>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:PlatformOnLeave, v2:PlatformOnLeave):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:PlatformOnLeave):PlatformOnLeave_extern return untyped __cpp__("(cpp::Struct<godot::CharacterBody2D::PlatformOnLeave, cpp::EnumHandler>){0}", v);
 	@:native("godot::CharacterBody2D::PlatformOnLeave::PLATFORM_ON_LEAVE_ADD_VELOCITY")
 	final ADD_VELOCITY;
 	@:native("godot::CharacterBody2D::PlatformOnLeave::PLATFORM_ON_LEAVE_ADD_UPWARD_VELOCITY")

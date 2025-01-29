@@ -1,5 +1,5 @@
 package gd.audiostreamwav;
-enum abstract Format(Int) to Int {
+enum abstract Format(Int) from Int to Int {
 	final _8_BITS = 0;
 	final _16_BITS = 1;
 	final IMA_ADPCM = 2;

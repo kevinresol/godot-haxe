@@ -1,5 +1,5 @@
 package gd;
-enum abstract MouseButton(Int) to Int {
+enum abstract MouseButton(Int) from Int to Int {
 	final NONE = 0;
 	final LEFT = 1;
 	final RIGHT = 2;

@@ -1,9 +1,8 @@
 package gdnative.skeletonprofile;
 @:native("godot::SkeletonProfile::TailDirection") extern enum abstract TailDirection(TailDirection_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):TailDirection return untyped __cpp__("(static_cast<godot::SkeletonProfile::TailDirection>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:TailDirection, v2:TailDirection):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:TailDirection):TailDirection_extern return untyped __cpp__("(cpp::Struct<godot::SkeletonProfile::TailDirection, cpp::EnumHandler>){0}", v);
 	@:native("godot::SkeletonProfile::TailDirection::TAIL_DIRECTION_AVERAGE_CHILDREN")
 	final AVERAGE_CHILDREN;
 	@:native("godot::SkeletonProfile::TailDirection::TAIL_DIRECTION_SPECIFIC_CHILD")

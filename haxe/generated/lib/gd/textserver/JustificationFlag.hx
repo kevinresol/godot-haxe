@@ -1,5 +1,5 @@
 package gd.textserver;
-enum abstract JustificationFlag(Int) to Int {
+enum abstract JustificationFlag(cpp.UInt64) from cpp.UInt64 to cpp.UInt64 {
 	final NONE = 0;
 	final KASHIDA = 1;
 	final WORD_BOUND = 2;

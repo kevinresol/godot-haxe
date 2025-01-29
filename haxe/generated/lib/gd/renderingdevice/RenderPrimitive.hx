@@ -1,5 +1,5 @@
 package gd.renderingdevice;
-enum abstract RenderPrimitive(Int) to Int {
+enum abstract RenderPrimitive(Int) from Int to Int {
 	final POINTS = 0;
 	final LINES = 1;
 	final LINES_WITH_ADJACENCY = 2;

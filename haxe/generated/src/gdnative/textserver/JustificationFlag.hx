@@ -1,9 +1,8 @@
 package gdnative.textserver;
 @:native("godot::TextServer::JustificationFlag") extern enum abstract JustificationFlag(JustificationFlag_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):JustificationFlag return untyped __cpp__("(static_cast<godot::TextServer::JustificationFlag>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:JustificationFlag, v2:JustificationFlag):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:JustificationFlag):JustificationFlag_extern return untyped __cpp__("(cpp::Struct<godot::TextServer::JustificationFlag, cpp::EnumHandler>){0}", v);
 	@:native("godot::TextServer::JustificationFlag::JUSTIFICATION_NONE")
 	final NONE;
 	@:native("godot::TextServer::JustificationFlag::JUSTIFICATION_KASHIDA")

@@ -1,9 +1,8 @@
 package gdnative.line2d;
 @:native("godot::Line2D::LineTextureMode") extern enum abstract LineTextureMode(LineTextureMode_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):LineTextureMode return untyped __cpp__("(static_cast<godot::Line2D::LineTextureMode>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:LineTextureMode, v2:LineTextureMode):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:LineTextureMode):LineTextureMode_extern return untyped __cpp__("(cpp::Struct<godot::Line2D::LineTextureMode, cpp::EnumHandler>){0}", v);
 	@:native("godot::Line2D::LineTextureMode::LINE_TEXTURE_NONE")
 	final NONE;
 	@:native("godot::Line2D::LineTextureMode::LINE_TEXTURE_TILE")

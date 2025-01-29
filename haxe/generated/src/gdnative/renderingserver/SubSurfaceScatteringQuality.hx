@@ -1,9 +1,8 @@
 package gdnative.renderingserver;
 @:native("godot::RenderingServer::SubSurfaceScatteringQuality") extern enum abstract SubSurfaceScatteringQuality(SubSurfaceScatteringQuality_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):SubSurfaceScatteringQuality return untyped __cpp__("(static_cast<godot::RenderingServer::SubSurfaceScatteringQuality>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:SubSurfaceScatteringQuality, v2:SubSurfaceScatteringQuality):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:SubSurfaceScatteringQuality):SubSurfaceScatteringQuality_extern return untyped __cpp__("(cpp::Struct<godot::RenderingServer::SubSurfaceScatteringQuality, cpp::EnumHandler>){0}", v);
 	@:native("godot::RenderingServer::SubSurfaceScatteringQuality::SUB_SURFACE_SCATTERING_QUALITY_DISABLED")
 	final DISABLED;
 	@:native("godot::RenderingServer::SubSurfaceScatteringQuality::SUB_SURFACE_SCATTERING_QUALITY_LOW")

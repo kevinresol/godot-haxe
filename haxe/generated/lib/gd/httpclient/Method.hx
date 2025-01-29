@@ -1,5 +1,5 @@
 package gd.httpclient;
-enum abstract Method(Int) to Int {
+enum abstract Method(Int) from Int to Int {
 	final GET = 0;
 	final HEAD = 1;
 	final POST = 2;

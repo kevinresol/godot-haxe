@@ -1,9 +1,8 @@
 package gdnative.physicsserver2d;
 @:native("godot::PhysicsServer2D::SpaceParameter") extern enum abstract SpaceParameter(SpaceParameter_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):SpaceParameter return untyped __cpp__("(static_cast<godot::PhysicsServer2D::SpaceParameter>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:SpaceParameter, v2:SpaceParameter):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:SpaceParameter):SpaceParameter_extern return untyped __cpp__("(cpp::Struct<godot::PhysicsServer2D::SpaceParameter, cpp::EnumHandler>){0}", v);
 	@:native("godot::PhysicsServer2D::SpaceParameter::SPACE_PARAM_CONTACT_RECYCLE_RADIUS")
 	final CONTACT_RECYCLE_RADIUS;
 	@:native("godot::PhysicsServer2D::SpaceParameter::SPACE_PARAM_CONTACT_MAX_SEPARATION")

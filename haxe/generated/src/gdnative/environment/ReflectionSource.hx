@@ -1,9 +1,8 @@
 package gdnative.environment;
 @:native("godot::Environment::ReflectionSource") extern enum abstract ReflectionSource(ReflectionSource_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):ReflectionSource return untyped __cpp__("(static_cast<godot::Environment::ReflectionSource>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:ReflectionSource, v2:ReflectionSource):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:ReflectionSource):ReflectionSource_extern return untyped __cpp__("(cpp::Struct<godot::Environment::ReflectionSource, cpp::EnumHandler>){0}", v);
 	@:native("godot::Environment::ReflectionSource::REFLECTION_SOURCE_BG")
 	final BG;
 	@:native("godot::Environment::ReflectionSource::REFLECTION_SOURCE_DISABLED")

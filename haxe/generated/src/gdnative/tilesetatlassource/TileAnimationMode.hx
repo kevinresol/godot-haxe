@@ -1,9 +1,8 @@
 package gdnative.tilesetatlassource;
 @:native("godot::TileSetAtlasSource::TileAnimationMode") extern enum abstract TileAnimationMode(TileAnimationMode_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):TileAnimationMode return untyped __cpp__("(static_cast<godot::TileSetAtlasSource::TileAnimationMode>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:TileAnimationMode, v2:TileAnimationMode):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:TileAnimationMode):TileAnimationMode_extern return untyped __cpp__("(cpp::Struct<godot::TileSetAtlasSource::TileAnimationMode, cpp::EnumHandler>){0}", v);
 	@:native("godot::TileSetAtlasSource::TileAnimationMode::TILE_ANIMATION_MODE_DEFAULT")
 	final DEFAULT;
 	@:native("godot::TileSetAtlasSource::TileAnimationMode::TILE_ANIMATION_MODE_RANDOM_START_TIMES")

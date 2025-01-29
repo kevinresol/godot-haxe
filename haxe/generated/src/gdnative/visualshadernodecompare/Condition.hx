@@ -1,9 +1,8 @@
 package gdnative.visualshadernodecompare;
 @:native("godot::VisualShaderNodeCompare::Condition") extern enum abstract Condition(Condition_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):Condition return untyped __cpp__("(static_cast<godot::VisualShaderNodeCompare::Condition>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:Condition, v2:Condition):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:Condition):Condition_extern return untyped __cpp__("(cpp::Struct<godot::VisualShaderNodeCompare::Condition, cpp::EnumHandler>){0}", v);
 	@:native("godot::VisualShaderNodeCompare::Condition::COND_ALL")
 	final ALL;
 	@:native("godot::VisualShaderNodeCompare::Condition::COND_ANY")

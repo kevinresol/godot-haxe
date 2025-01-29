@@ -1,5 +1,5 @@
 package gd.renderingserver;
-enum abstract CanvasItemTextureFilter(Int) to Int {
+enum abstract CanvasItemTextureFilter(Int) from Int to Int {
 	final DEFAULT = 0;
 	final NEAREST = 1;
 	final LINEAR = 2;

@@ -1,9 +1,8 @@
 package gdnative.websocketpeer;
 @:native("godot::WebSocketPeer::WriteMode") extern enum abstract WriteMode(WriteMode_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):WriteMode return untyped __cpp__("(static_cast<godot::WebSocketPeer::WriteMode>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:WriteMode, v2:WriteMode):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:WriteMode):WriteMode_extern return untyped __cpp__("(cpp::Struct<godot::WebSocketPeer::WriteMode, cpp::EnumHandler>){0}", v);
 	@:native("godot::WebSocketPeer::WriteMode::WRITE_MODE_TEXT")
 	final TEXT;
 	@:native("godot::WebSocketPeer::WriteMode::WRITE_MODE_BINARY")

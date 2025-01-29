@@ -1,9 +1,8 @@
 package gdnative.renderingserver;
 @:native("godot::RenderingServer::ParticlesCollisionHeightfieldResolution") extern enum abstract ParticlesCollisionHeightfieldResolution(ParticlesCollisionHeightfieldResolution_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):ParticlesCollisionHeightfieldResolution return untyped __cpp__("(static_cast<godot::RenderingServer::ParticlesCollisionHeightfieldResolution>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:ParticlesCollisionHeightfieldResolution, v2:ParticlesCollisionHeightfieldResolution):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:ParticlesCollisionHeightfieldResolution):ParticlesCollisionHeightfieldResolution_extern return untyped __cpp__("(cpp::Struct<godot::RenderingServer::ParticlesCollisionHeightfieldResolution, cpp::EnumHandler>){0}", v);
 	@:native("godot::RenderingServer::ParticlesCollisionHeightfieldResolution::PARTICLES_COLLISION_HEIGHTFIELD_RESOLUTION_256")
 	final _256;
 	@:native("godot::RenderingServer::ParticlesCollisionHeightfieldResolution::PARTICLES_COLLISION_HEIGHTFIELD_RESOLUTION_512")

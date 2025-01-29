@@ -1,5 +1,5 @@
 package gd.filedialog;
-enum abstract FileMode(Int) to Int {
+enum abstract FileMode(Int) from Int to Int {
 	final OPEN_FILE = 0;
 	final OPEN_FILES = 1;
 	final OPEN_DIR = 2;

@@ -1,5 +1,5 @@
 package gd.textserver;
-enum abstract OverrunBehavior(Int) to Int {
+enum abstract OverrunBehavior(Int) from Int to Int {
 	final NO_TRIMMING = 0;
 	final TRIM_CHAR = 1;
 	final TRIM_WORD = 2;

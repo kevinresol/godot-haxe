@@ -1,5 +1,5 @@
 package gd.renderingdevice;
-enum abstract LogicOperation(Int) to Int {
+enum abstract LogicOperation(Int) from Int to Int {
 	final CLEAR = 0;
 	final AND = 1;
 	final AND_REVERSE = 2;

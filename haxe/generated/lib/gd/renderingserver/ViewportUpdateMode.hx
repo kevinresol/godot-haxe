@@ -1,5 +1,5 @@
 package gd.renderingserver;
-enum abstract ViewportUpdateMode(Int) to Int {
+enum abstract ViewportUpdateMode(Int) from Int to Int {
 	final DISABLED = 0;
 	final ONCE = 1;
 	final WHEN_VISIBLE = 2;

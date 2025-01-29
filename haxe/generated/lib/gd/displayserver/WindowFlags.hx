@@ -1,5 +1,5 @@
 package gd.displayserver;
-enum abstract WindowFlags(Int) to Int {
+enum abstract WindowFlags(Int) from Int to Int {
 	final RESIZE_DISABLED = 0;
 	final BORDERLESS = 1;
 	final ALWAYS_ON_TOP = 2;

@@ -1,9 +1,8 @@
 package gdnative.control;
 @:native("godot::Control::LayoutPreset") extern enum abstract LayoutPreset(LayoutPreset_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):LayoutPreset return untyped __cpp__("(static_cast<godot::Control::LayoutPreset>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:LayoutPreset, v2:LayoutPreset):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:LayoutPreset):LayoutPreset_extern return untyped __cpp__("(cpp::Struct<godot::Control::LayoutPreset, cpp::EnumHandler>){0}", v);
 	@:native("godot::Control::LayoutPreset::PRESET_TOP_LEFT")
 	final TOP_LEFT;
 	@:native("godot::Control::LayoutPreset::PRESET_TOP_RIGHT")

@@ -39,10 +39,10 @@ class Module {
 
 	public function createInstance(className:String, owner:gdnative.Object) {
 		final classType = module.resolveClass(className);
-		if (classType == null) {
-			return null;
+		return if (classType == null) {
+			null;
 		} else {
-			return gd.Utils.createClassWrapper(owner, classType);
+			gd.Utils.createClassWrapper(owner, classType);
 		}
 	}
 
@@ -94,7 +94,7 @@ class Module {
 												className: '',
 												hint: PropertyHint.NONE,
 												hintString: '',
-												usage: (PropertyUsageFlags.DEFAULT : Int) | (PropertyUsageFlags.NIL_IS_VARIANT : Int),
+												usage: PropertyUsageFlags.DEFAULT | PropertyUsageFlags.NIL_IS_VARIANT,
 											},
 											flags: 1,
 											id: 0,
@@ -141,9 +141,9 @@ class PropertyInfo {
 	public final type:gdnative.variant.Type;
 	public final name:String;
 	public final className:String;
-	public final hint:cpp.UInt32; // Bitfield of `PropertyHint` (defined in `extension_api.json`).
+	public final hint:cpp.UInt64; // Bitfield of `PropertyHint` (defined in `extension_api.json`).
 	public final hintString:String;
-	public final usage:cpp.UInt32; // Bitfield of `PropertyUsageFlags` (defined in `extension_api.json`).
+	public final usage:cpp.UInt64; // Bitfield of `PropertyUsageFlags` (defined in `extension_api.json`).
 }
 
 @:structInit

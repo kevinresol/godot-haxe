@@ -1,9 +1,8 @@
 package gdnative.fileaccess;
 @:native("godot::FileAccess::ModeFlags") extern enum abstract ModeFlags(ModeFlags_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):ModeFlags return untyped __cpp__("(static_cast<godot::FileAccess::ModeFlags>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:ModeFlags, v2:ModeFlags):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:ModeFlags):ModeFlags_extern return untyped __cpp__("(cpp::Struct<godot::FileAccess::ModeFlags, cpp::EnumHandler>){0}", v);
 	final READ;
 	final WRITE;
 	final READ_WRITE;

@@ -1,9 +1,8 @@
 package gdnative.openxraction;
 @:native("godot::OpenXRAction::ActionType") extern enum abstract ActionType(ActionType_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):ActionType return untyped __cpp__("(static_cast<godot::OpenXRAction::ActionType>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:ActionType, v2:ActionType):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:ActionType):ActionType_extern return untyped __cpp__("(cpp::Struct<godot::OpenXRAction::ActionType, cpp::EnumHandler>){0}", v);
 	@:native("godot::OpenXRAction::ActionType::OPENXR_ACTION_BOOL")
 	final BOOL;
 	@:native("godot::OpenXRAction::ActionType::OPENXR_ACTION_FLOAT")

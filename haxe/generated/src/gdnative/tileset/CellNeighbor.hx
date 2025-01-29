@@ -1,9 +1,8 @@
 package gdnative.tileset;
 @:native("godot::TileSet::CellNeighbor") extern enum abstract CellNeighbor(CellNeighbor_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):CellNeighbor return untyped __cpp__("(static_cast<godot::TileSet::CellNeighbor>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:CellNeighbor, v2:CellNeighbor):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:CellNeighbor):CellNeighbor_extern return untyped __cpp__("(cpp::Struct<godot::TileSet::CellNeighbor, cpp::EnumHandler>){0}", v);
 	@:native("godot::TileSet::CellNeighbor::CELL_NEIGHBOR_RIGHT_SIDE")
 	final RIGHT_SIDE;
 	@:native("godot::TileSet::CellNeighbor::CELL_NEIGHBOR_RIGHT_CORNER")

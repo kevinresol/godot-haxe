@@ -1,9 +1,8 @@
 package gdnative;
 @:native("godot::VerticalAlignment") extern enum abstract VerticalAlignment(VerticalAlignment_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):VerticalAlignment return untyped __cpp__("(static_cast<godot::VerticalAlignment>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:VerticalAlignment, v2:VerticalAlignment):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:VerticalAlignment):VerticalAlignment_extern return untyped __cpp__("(cpp::Struct<godot::VerticalAlignment, cpp::EnumHandler>){0}", v);
 	@:native("godot::VerticalAlignment::VERTICAL_ALIGNMENT_TOP")
 	final TOP;
 	@:native("godot::VerticalAlignment::VERTICAL_ALIGNMENT_CENTER")

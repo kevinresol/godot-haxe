@@ -1,5 +1,5 @@
 package gd.textedit;
-enum abstract MenuItems(Int) to Int {
+enum abstract MenuItems(Int) from Int to Int {
 	final CUT = 0;
 	final COPY = 1;
 	final PASTE = 2;

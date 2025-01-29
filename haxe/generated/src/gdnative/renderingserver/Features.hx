@@ -1,9 +1,8 @@
 package gdnative.renderingserver;
 @:native("godot::RenderingServer::Features") extern enum abstract Features(Features_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):Features return untyped __cpp__("(static_cast<godot::RenderingServer::Features>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:Features, v2:Features):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:Features):Features_extern return untyped __cpp__("(cpp::Struct<godot::RenderingServer::Features, cpp::EnumHandler>){0}", v);
 	@:native("godot::RenderingServer::Features::FEATURE_SHADERS")
 	final SHADERS;
 	@:native("godot::RenderingServer::Features::FEATURE_MULTITHREADED")

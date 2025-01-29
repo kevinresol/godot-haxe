@@ -1,5 +1,5 @@
 package gd.xrinterface;
-enum abstract Capabilities(Int) to Int {
+enum abstract Capabilities(Int) from Int to Int {
 	final NONE = 0;
 	final MONO = 1;
 	final STEREO = 2;

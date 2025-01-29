@@ -1,5 +1,5 @@
 package gd.colorpicker;
-enum abstract PickerShapeType(Int) to Int {
+enum abstract PickerShapeType(Int) from Int to Int {
 	final HSV_RECTANGLE = 0;
 	final HSV_WHEEL = 1;
 	final VHS_CIRCLE = 2;

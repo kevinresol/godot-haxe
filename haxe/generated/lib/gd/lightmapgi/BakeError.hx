@@ -1,5 +1,5 @@
 package gd.lightmapgi;
-enum abstract BakeError(Int) to Int {
+enum abstract BakeError(Int) from Int to Int {
 	final OK = 0;
 	final NO_SCENE_ROOT = 1;
 	final FOREIGN_DATA = 2;

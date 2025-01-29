@@ -1,9 +1,8 @@
 package gdnative.renderingserver;
 @:native("godot::RenderingServer::ParticlesTransformAlign") extern enum abstract ParticlesTransformAlign(ParticlesTransformAlign_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):ParticlesTransformAlign return untyped __cpp__("(static_cast<godot::RenderingServer::ParticlesTransformAlign>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:ParticlesTransformAlign, v2:ParticlesTransformAlign):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:ParticlesTransformAlign):ParticlesTransformAlign_extern return untyped __cpp__("(cpp::Struct<godot::RenderingServer::ParticlesTransformAlign, cpp::EnumHandler>){0}", v);
 	@:native("godot::RenderingServer::ParticlesTransformAlign::PARTICLES_TRANSFORM_ALIGN_DISABLED")
 	final DISABLED;
 	@:native("godot::RenderingServer::ParticlesTransformAlign::PARTICLES_TRANSFORM_ALIGN_Z_BILLBOARD")

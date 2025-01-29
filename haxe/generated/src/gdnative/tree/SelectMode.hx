@@ -1,9 +1,8 @@
 package gdnative.tree;
 @:native("godot::Tree::SelectMode") extern enum abstract SelectMode(SelectMode_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):SelectMode return untyped __cpp__("(static_cast<godot::Tree::SelectMode>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:SelectMode, v2:SelectMode):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:SelectMode):SelectMode_extern return untyped __cpp__("(cpp::Struct<godot::Tree::SelectMode, cpp::EnumHandler>){0}", v);
 	@:native("godot::Tree::SelectMode::SELECT_SINGLE")
 	final SINGLE;
 	@:native("godot::Tree::SelectMode::SELECT_ROW")

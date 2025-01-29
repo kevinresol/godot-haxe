@@ -1,9 +1,8 @@
 package gdnative.xrbodytracker;
 @:native("godot::XRBodyTracker::BodyFlags") extern enum abstract BodyFlags(BodyFlags_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):BodyFlags return untyped __cpp__("(static_cast<godot::XRBodyTracker::BodyFlags>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:BodyFlags, v2:BodyFlags):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:BodyFlags):BodyFlags_extern return untyped __cpp__("(cpp::Struct<godot::XRBodyTracker::BodyFlags, cpp::EnumHandler>){0}", v);
 	@:native("godot::XRBodyTracker::BodyFlags::BODY_FLAG_UPPER_BODY_SUPPORTED")
 	final UPPER_BODY_SUPPORTED;
 	@:native("godot::XRBodyTracker::BodyFlags::BODY_FLAG_LOWER_BODY_SUPPORTED")

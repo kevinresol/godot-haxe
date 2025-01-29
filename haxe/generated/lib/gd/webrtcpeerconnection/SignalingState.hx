@@ -1,5 +1,5 @@
 package gd.webrtcpeerconnection;
-enum abstract SignalingState(Int) to Int {
+enum abstract SignalingState(Int) from Int to Int {
 	final STABLE = 0;
 	final HAVE_LOCAL_OFFER = 1;
 	final HAVE_REMOTE_OFFER = 2;

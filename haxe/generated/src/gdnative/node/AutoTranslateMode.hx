@@ -1,9 +1,8 @@
 package gdnative.node;
 @:native("godot::Node::AutoTranslateMode") extern enum abstract AutoTranslateMode(AutoTranslateMode_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):AutoTranslateMode return untyped __cpp__("(static_cast<godot::Node::AutoTranslateMode>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:AutoTranslateMode, v2:AutoTranslateMode):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:AutoTranslateMode):AutoTranslateMode_extern return untyped __cpp__("(cpp::Struct<godot::Node::AutoTranslateMode, cpp::EnumHandler>){0}", v);
 	@:native("godot::Node::AutoTranslateMode::AUTO_TRANSLATE_MODE_INHERIT")
 	final INHERIT;
 	@:native("godot::Node::AutoTranslateMode::AUTO_TRANSLATE_MODE_ALWAYS")

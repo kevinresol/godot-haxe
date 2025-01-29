@@ -1,9 +1,8 @@
 package gdnative.renderingdevice;
 @:native("godot::RenderingDevice::SamplerRepeatMode") extern enum abstract SamplerRepeatMode(SamplerRepeatMode_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):SamplerRepeatMode return untyped __cpp__("(static_cast<godot::RenderingDevice::SamplerRepeatMode>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:SamplerRepeatMode, v2:SamplerRepeatMode):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:SamplerRepeatMode):SamplerRepeatMode_extern return untyped __cpp__("(cpp::Struct<godot::RenderingDevice::SamplerRepeatMode, cpp::EnumHandler>){0}", v);
 	@:native("godot::RenderingDevice::SamplerRepeatMode::SAMPLER_REPEAT_MODE_REPEAT")
 	final REPEAT;
 	@:native("godot::RenderingDevice::SamplerRepeatMode::SAMPLER_REPEAT_MODE_MIRRORED_REPEAT")

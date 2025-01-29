@@ -1,9 +1,8 @@
 package gdnative.physicsserver3d;
 @:native("godot::PhysicsServer3D::SliderJointParam") extern enum abstract SliderJointParam(SliderJointParam_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):SliderJointParam return untyped __cpp__("(static_cast<godot::PhysicsServer3D::SliderJointParam>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:SliderJointParam, v2:SliderJointParam):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:SliderJointParam):SliderJointParam_extern return untyped __cpp__("(cpp::Struct<godot::PhysicsServer3D::SliderJointParam, cpp::EnumHandler>){0}", v);
 	@:native("godot::PhysicsServer3D::SliderJointParam::SLIDER_JOINT_LINEAR_LIMIT_UPPER")
 	final LINEAR_LIMIT_UPPER;
 	@:native("godot::PhysicsServer3D::SliderJointParam::SLIDER_JOINT_LINEAR_LIMIT_LOWER")

@@ -1,5 +1,5 @@
 package gd.window;
-enum abstract Mode(Int) to Int {
+enum abstract Mode(Int) from Int to Int {
 	final WINDOWED = 0;
 	final MINIMIZED = 1;
 	final MAXIMIZED = 2;

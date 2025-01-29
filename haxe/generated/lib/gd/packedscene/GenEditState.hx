@@ -1,5 +1,5 @@
 package gd.packedscene;
-enum abstract GenEditState(Int) to Int {
+enum abstract GenEditState(Int) from Int to Int {
 	final DISABLED = 0;
 	final INSTANCE = 1;
 	final MAIN = 2;

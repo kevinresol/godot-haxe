@@ -1,9 +1,8 @@
 package gdnative.audiostreaminteractive;
 @:native("godot::AudioStreamInteractive::AutoAdvanceMode") extern enum abstract AutoAdvanceMode(AutoAdvanceMode_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):AutoAdvanceMode return untyped __cpp__("(static_cast<godot::AudioStreamInteractive::AutoAdvanceMode>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:AutoAdvanceMode, v2:AutoAdvanceMode):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:AutoAdvanceMode):AutoAdvanceMode_extern return untyped __cpp__("(cpp::Struct<godot::AudioStreamInteractive::AutoAdvanceMode, cpp::EnumHandler>){0}", v);
 	@:native("godot::AudioStreamInteractive::AutoAdvanceMode::AUTO_ADVANCE_DISABLED")
 	final DISABLED;
 	@:native("godot::AudioStreamInteractive::AutoAdvanceMode::AUTO_ADVANCE_ENABLED")

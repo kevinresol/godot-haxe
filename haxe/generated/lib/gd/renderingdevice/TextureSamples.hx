@@ -1,5 +1,5 @@
 package gd.renderingdevice;
-enum abstract TextureSamples(Int) to Int {
+enum abstract TextureSamples(Int) from Int to Int {
 	final _1 = 0;
 	final _2 = 1;
 	final _4 = 2;

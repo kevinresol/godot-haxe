@@ -1,9 +1,8 @@
 package gdnative.viewport;
 @:native("godot::Viewport::DebugDraw") extern enum abstract DebugDraw(DebugDraw_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):DebugDraw return untyped __cpp__("(static_cast<godot::Viewport::DebugDraw>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:DebugDraw, v2:DebugDraw):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:DebugDraw):DebugDraw_extern return untyped __cpp__("(cpp::Struct<godot::Viewport::DebugDraw, cpp::EnumHandler>){0}", v);
 	@:native("godot::Viewport::DebugDraw::DEBUG_DRAW_DISABLED")
 	final DISABLED;
 	@:native("godot::Viewport::DebugDraw::DEBUG_DRAW_UNSHADED")

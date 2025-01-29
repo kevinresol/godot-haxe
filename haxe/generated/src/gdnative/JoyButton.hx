@@ -1,9 +1,8 @@
 package gdnative;
 @:native("godot::JoyButton") extern enum abstract JoyButton(JoyButton_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):JoyButton return untyped __cpp__("(static_cast<godot::JoyButton>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:JoyButton, v2:JoyButton):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:JoyButton):JoyButton_extern return untyped __cpp__("(cpp::Struct<godot::JoyButton, cpp::EnumHandler>){0}", v);
 	@:native("godot::JoyButton::JOY_BUTTON_INVALID")
 	final INVALID;
 	@:native("godot::JoyButton::JOY_BUTTON_A")

@@ -1,9 +1,8 @@
 package gdnative.graphedit;
 @:native("godot::GraphEdit::GridPattern") extern enum abstract GridPattern(GridPattern_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):GridPattern return untyped __cpp__("(static_cast<godot::GraphEdit::GridPattern>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:GridPattern, v2:GridPattern):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:GridPattern):GridPattern_extern return untyped __cpp__("(cpp::Struct<godot::GraphEdit::GridPattern, cpp::EnumHandler>){0}", v);
 	@:native("godot::GraphEdit::GridPattern::GRID_PATTERN_LINES")
 	final LINES;
 	@:native("godot::GraphEdit::GridPattern::GRID_PATTERN_DOTS")

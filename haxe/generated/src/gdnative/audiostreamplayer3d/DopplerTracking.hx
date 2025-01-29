@@ -1,9 +1,8 @@
 package gdnative.audiostreamplayer3d;
 @:native("godot::AudioStreamPlayer3D::DopplerTracking") extern enum abstract DopplerTracking(DopplerTracking_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):DopplerTracking return untyped __cpp__("(static_cast<godot::AudioStreamPlayer3D::DopplerTracking>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:DopplerTracking, v2:DopplerTracking):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:DopplerTracking):DopplerTracking_extern return untyped __cpp__("(cpp::Struct<godot::AudioStreamPlayer3D::DopplerTracking, cpp::EnumHandler>){0}", v);
 	@:native("godot::AudioStreamPlayer3D::DopplerTracking::DOPPLER_TRACKING_DISABLED")
 	final DISABLED;
 	@:native("godot::AudioStreamPlayer3D::DopplerTracking::DOPPLER_TRACKING_IDLE_STEP")

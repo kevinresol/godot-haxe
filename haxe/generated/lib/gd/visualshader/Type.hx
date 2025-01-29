@@ -1,5 +1,5 @@
 package gd.visualshader;
-enum abstract Type(Int) to Int {
+enum abstract Type(Int) from Int to Int {
 	final VERTEX = 0;
 	final FRAGMENT = 1;
 	final LIGHT = 2;

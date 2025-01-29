@@ -1,5 +1,5 @@
 package gd.treeitem;
-enum abstract TreeCellMode(Int) to Int {
+enum abstract TreeCellMode(Int) from Int to Int {
 	final STRING = 0;
 	final CHECK = 1;
 	final RANGE = 2;

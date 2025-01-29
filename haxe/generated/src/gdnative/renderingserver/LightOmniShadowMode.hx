@@ -1,9 +1,8 @@
 package gdnative.renderingserver;
 @:native("godot::RenderingServer::LightOmniShadowMode") extern enum abstract LightOmniShadowMode(LightOmniShadowMode_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):LightOmniShadowMode return untyped __cpp__("(static_cast<godot::RenderingServer::LightOmniShadowMode>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:LightOmniShadowMode, v2:LightOmniShadowMode):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:LightOmniShadowMode):LightOmniShadowMode_extern return untyped __cpp__("(cpp::Struct<godot::RenderingServer::LightOmniShadowMode, cpp::EnumHandler>){0}", v);
 	@:native("godot::RenderingServer::LightOmniShadowMode::LIGHT_OMNI_SHADOW_DUAL_PARABOLOID")
 	final DUAL_PARABOLOID;
 	@:native("godot::RenderingServer::LightOmniShadowMode::LIGHT_OMNI_SHADOW_CUBE")

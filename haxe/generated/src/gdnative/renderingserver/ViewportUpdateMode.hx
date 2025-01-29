@@ -1,9 +1,8 @@
 package gdnative.renderingserver;
 @:native("godot::RenderingServer::ViewportUpdateMode") extern enum abstract ViewportUpdateMode(ViewportUpdateMode_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):ViewportUpdateMode return untyped __cpp__("(static_cast<godot::RenderingServer::ViewportUpdateMode>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:ViewportUpdateMode, v2:ViewportUpdateMode):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:ViewportUpdateMode):ViewportUpdateMode_extern return untyped __cpp__("(cpp::Struct<godot::RenderingServer::ViewportUpdateMode, cpp::EnumHandler>){0}", v);
 	@:native("godot::RenderingServer::ViewportUpdateMode::VIEWPORT_UPDATE_DISABLED")
 	final DISABLED;
 	@:native("godot::RenderingServer::ViewportUpdateMode::VIEWPORT_UPDATE_ONCE")

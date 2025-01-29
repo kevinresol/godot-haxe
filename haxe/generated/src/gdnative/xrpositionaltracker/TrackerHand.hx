@@ -1,9 +1,8 @@
 package gdnative.xrpositionaltracker;
 @:native("godot::XRPositionalTracker::TrackerHand") extern enum abstract TrackerHand(TrackerHand_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):TrackerHand return untyped __cpp__("(static_cast<godot::XRPositionalTracker::TrackerHand>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:TrackerHand, v2:TrackerHand):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:TrackerHand):TrackerHand_extern return untyped __cpp__("(cpp::Struct<godot::XRPositionalTracker::TrackerHand, cpp::EnumHandler>){0}", v);
 	@:native("godot::XRPositionalTracker::TrackerHand::TRACKER_HAND_UNKNOWN")
 	final UNKNOWN;
 	@:native("godot::XRPositionalTracker::TrackerHand::TRACKER_HAND_LEFT")

@@ -1,9 +1,8 @@
 package gdnative.fileaccess;
 @:native("godot::FileAccess::CompressionMode") extern enum abstract CompressionMode(CompressionMode_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):CompressionMode return untyped __cpp__("(static_cast<godot::FileAccess::CompressionMode>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:CompressionMode, v2:CompressionMode):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:CompressionMode):CompressionMode_extern return untyped __cpp__("(cpp::Struct<godot::FileAccess::CompressionMode, cpp::EnumHandler>){0}", v);
 	@:native("godot::FileAccess::CompressionMode::COMPRESSION_FASTLZ")
 	final FASTLZ;
 	@:native("godot::FileAccess::CompressionMode::COMPRESSION_DEFLATE")

@@ -1,9 +1,8 @@
 package gdnative.displayserver;
 @:native("godot::DisplayServer::WindowEvent") extern enum abstract WindowEvent(WindowEvent_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):WindowEvent return untyped __cpp__("(static_cast<godot::DisplayServer::WindowEvent>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:WindowEvent, v2:WindowEvent):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:WindowEvent):WindowEvent_extern return untyped __cpp__("(cpp::Struct<godot::DisplayServer::WindowEvent, cpp::EnumHandler>){0}", v);
 	@:native("godot::DisplayServer::WindowEvent::WINDOW_EVENT_MOUSE_ENTER")
 	final MOUSE_ENTER;
 	@:native("godot::DisplayServer::WindowEvent::WINDOW_EVENT_MOUSE_EXIT")

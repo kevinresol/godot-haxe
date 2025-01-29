@@ -1,9 +1,8 @@
 package gdnative.basematerial3d;
 @:native("godot::BaseMaterial3D::Flags") extern enum abstract Flags(Flags_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):Flags return untyped __cpp__("(static_cast<godot::BaseMaterial3D::Flags>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:Flags, v2:Flags):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:Flags):Flags_extern return untyped __cpp__("(cpp::Struct<godot::BaseMaterial3D::Flags, cpp::EnumHandler>){0}", v);
 	@:native("godot::BaseMaterial3D::Flags::FLAG_DISABLE_DEPTH_TEST")
 	final DISABLE_DEPTH_TEST;
 	@:native("godot::BaseMaterial3D::Flags::FLAG_ALBEDO_FROM_VERTEX_COLOR")

@@ -1,9 +1,8 @@
 package gdnative.generic6dofjoint3d;
 @:native("godot::Generic6DOFJoint3D::Flag") extern enum abstract Flag(Flag_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):Flag return untyped __cpp__("(static_cast<godot::Generic6DOFJoint3D::Flag>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:Flag, v2:Flag):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:Flag):Flag_extern return untyped __cpp__("(cpp::Struct<godot::Generic6DOFJoint3D::Flag, cpp::EnumHandler>){0}", v);
 	@:native("godot::Generic6DOFJoint3D::Flag::FLAG_ENABLE_LINEAR_LIMIT")
 	final ENABLE_LINEAR_LIMIT;
 	@:native("godot::Generic6DOFJoint3D::Flag::FLAG_ENABLE_ANGULAR_LIMIT")

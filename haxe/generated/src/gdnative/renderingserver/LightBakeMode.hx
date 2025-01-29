@@ -1,9 +1,8 @@
 package gdnative.renderingserver;
 @:native("godot::RenderingServer::LightBakeMode") extern enum abstract LightBakeMode(LightBakeMode_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):LightBakeMode return untyped __cpp__("(static_cast<godot::RenderingServer::LightBakeMode>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:LightBakeMode, v2:LightBakeMode):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:LightBakeMode):LightBakeMode_extern return untyped __cpp__("(cpp::Struct<godot::RenderingServer::LightBakeMode, cpp::EnumHandler>){0}", v);
 	@:native("godot::RenderingServer::LightBakeMode::LIGHT_BAKE_DISABLED")
 	final DISABLED;
 	@:native("godot::RenderingServer::LightBakeMode::LIGHT_BAKE_STATIC")

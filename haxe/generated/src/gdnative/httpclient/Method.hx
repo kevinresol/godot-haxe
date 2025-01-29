@@ -1,9 +1,8 @@
 package gdnative.httpclient;
 @:native("godot::HTTPClient::Method") extern enum abstract Method(Method_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):Method return untyped __cpp__("(static_cast<godot::HTTPClient::Method>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:Method, v2:Method):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:Method):Method_extern return untyped __cpp__("(cpp::Struct<godot::HTTPClient::Method, cpp::EnumHandler>){0}", v);
 	@:native("godot::HTTPClient::Method::METHOD_GET")
 	final GET;
 	@:native("godot::HTTPClient::Method::METHOD_HEAD")

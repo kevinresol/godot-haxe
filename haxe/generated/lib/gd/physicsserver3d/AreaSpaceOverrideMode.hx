@@ -1,5 +1,5 @@
 package gd.physicsserver3d;
-enum abstract AreaSpaceOverrideMode(Int) to Int {
+enum abstract AreaSpaceOverrideMode(Int) from Int to Int {
 	final DISABLED = 0;
 	final COMBINE = 1;
 	final COMBINE_REPLACE = 2;

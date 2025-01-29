@@ -1,5 +1,5 @@
 package gd.physicsserver3d;
-enum abstract BodyMode(Int) to Int {
+enum abstract BodyMode(Int) from Int to Int {
 	final STATIC = 0;
 	final KINEMATIC = 1;
 	final RIGID = 2;

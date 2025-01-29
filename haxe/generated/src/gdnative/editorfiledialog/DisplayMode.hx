@@ -1,9 +1,8 @@
 package gdnative.editorfiledialog;
 @:native("godot::EditorFileDialog::DisplayMode") extern enum abstract DisplayMode(DisplayMode_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):DisplayMode return untyped __cpp__("(static_cast<godot::EditorFileDialog::DisplayMode>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:DisplayMode, v2:DisplayMode):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:DisplayMode):DisplayMode_extern return untyped __cpp__("(cpp::Struct<godot::EditorFileDialog::DisplayMode, cpp::EnumHandler>){0}", v);
 	@:native("godot::EditorFileDialog::DisplayMode::DISPLAY_THUMBNAILS")
 	final THUMBNAILS;
 	@:native("godot::EditorFileDialog::DisplayMode::DISPLAY_LIST")

@@ -1,5 +1,5 @@
 package gd.renderingserver;
-enum abstract EnvironmentSSILQuality(Int) to Int {
+enum abstract EnvironmentSSILQuality(Int) from Int to Int {
 	final VERY_LOW = 0;
 	final LOW = 1;
 	final MEDIUM = 2;

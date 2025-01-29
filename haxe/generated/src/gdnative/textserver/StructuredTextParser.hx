@@ -1,9 +1,8 @@
 package gdnative.textserver;
 @:native("godot::TextServer::StructuredTextParser") extern enum abstract StructuredTextParser(StructuredTextParser_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):StructuredTextParser return untyped __cpp__("(static_cast<godot::TextServer::StructuredTextParser>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:StructuredTextParser, v2:StructuredTextParser):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:StructuredTextParser):StructuredTextParser_extern return untyped __cpp__("(cpp::Struct<godot::TextServer::StructuredTextParser, cpp::EnumHandler>){0}", v);
 	@:native("godot::TextServer::StructuredTextParser::STRUCTURED_TEXT_DEFAULT")
 	final DEFAULT;
 	@:native("godot::TextServer::StructuredTextParser::STRUCTURED_TEXT_URI")

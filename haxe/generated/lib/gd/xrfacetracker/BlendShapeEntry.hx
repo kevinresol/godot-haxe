@@ -1,5 +1,5 @@
 package gd.xrfacetracker;
-enum abstract BlendShapeEntry(Int) to Int {
+enum abstract BlendShapeEntry(Int) from Int to Int {
 	final EYE_LOOK_OUT_RIGHT = 0;
 	final EYE_LOOK_IN_RIGHT = 1;
 	final EYE_LOOK_UP_RIGHT = 2;

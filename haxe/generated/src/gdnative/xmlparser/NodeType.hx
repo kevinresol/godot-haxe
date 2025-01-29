@@ -1,9 +1,8 @@
 package gdnative.xmlparser;
 @:native("godot::XMLParser::NodeType") extern enum abstract NodeType(NodeType_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):NodeType return untyped __cpp__("(static_cast<godot::XMLParser::NodeType>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:NodeType, v2:NodeType):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:NodeType):NodeType_extern return untyped __cpp__("(cpp::Struct<godot::XMLParser::NodeType, cpp::EnumHandler>){0}", v);
 	@:native("godot::XMLParser::NodeType::NODE_NONE")
 	final NONE;
 	@:native("godot::XMLParser::NodeType::NODE_ELEMENT")

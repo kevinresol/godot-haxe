@@ -1,5 +1,5 @@
 package gd.variant;
-enum abstract Type(Int) to Int {
+enum abstract Type(Int) from Int to Int {
 	final NIL = 0;
 	final BOOL = 1;
 	final INT = 2;

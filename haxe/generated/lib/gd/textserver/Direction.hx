@@ -1,5 +1,5 @@
 package gd.textserver;
-enum abstract Direction(Int) to Int {
+enum abstract Direction(Int) from Int to Int {
 	final AUTO = 0;
 	final LTR = 1;
 	final RTL = 2;

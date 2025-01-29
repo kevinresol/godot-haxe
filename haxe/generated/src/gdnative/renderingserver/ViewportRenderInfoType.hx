@@ -1,9 +1,8 @@
 package gdnative.renderingserver;
 @:native("godot::RenderingServer::ViewportRenderInfoType") extern enum abstract ViewportRenderInfoType(ViewportRenderInfoType_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):ViewportRenderInfoType return untyped __cpp__("(static_cast<godot::RenderingServer::ViewportRenderInfoType>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:ViewportRenderInfoType, v2:ViewportRenderInfoType):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:ViewportRenderInfoType):ViewportRenderInfoType_extern return untyped __cpp__("(cpp::Struct<godot::RenderingServer::ViewportRenderInfoType, cpp::EnumHandler>){0}", v);
 	@:native("godot::RenderingServer::ViewportRenderInfoType::VIEWPORT_RENDER_INFO_TYPE_VISIBLE")
 	final VISIBLE;
 	@:native("godot::RenderingServer::ViewportRenderInfoType::VIEWPORT_RENDER_INFO_TYPE_SHADOW")

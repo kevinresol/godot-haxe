@@ -1,9 +1,8 @@
 package gdnative.texturerect;
 @:native("godot::TextureRect::StretchMode") extern enum abstract StretchMode(StretchMode_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):StretchMode return untyped __cpp__("(static_cast<godot::TextureRect::StretchMode>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:StretchMode, v2:StretchMode):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:StretchMode):StretchMode_extern return untyped __cpp__("(cpp::Struct<godot::TextureRect::StretchMode, cpp::EnumHandler>){0}", v);
 	@:native("godot::TextureRect::StretchMode::STRETCH_SCALE")
 	final SCALE;
 	@:native("godot::TextureRect::StretchMode::STRETCH_TILE")

@@ -1,5 +1,5 @@
 package gd.viewport;
-enum abstract VRSUpdateMode(Int) to Int {
+enum abstract VRSUpdateMode(Int) from Int to Int {
 	final DISABLED = 0;
 	final ONCE = 1;
 	final ALWAYS = 2;

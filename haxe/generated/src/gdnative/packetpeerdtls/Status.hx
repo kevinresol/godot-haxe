@@ -1,9 +1,8 @@
 package gdnative.packetpeerdtls;
 @:native("godot::PacketPeerDTLS::Status") extern enum abstract Status(Status_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):Status return untyped __cpp__("(static_cast<godot::PacketPeerDTLS::Status>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:Status, v2:Status):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:Status):Status_extern return untyped __cpp__("(cpp::Struct<godot::PacketPeerDTLS::Status, cpp::EnumHandler>){0}", v);
 	@:native("godot::PacketPeerDTLS::Status::STATUS_DISCONNECTED")
 	final DISCONNECTED;
 	@:native("godot::PacketPeerDTLS::Status::STATUS_HANDSHAKING")

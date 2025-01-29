@@ -1,9 +1,8 @@
 package gdnative.displayserver;
 @:native("godot::DisplayServer::MouseMode") extern enum abstract MouseMode(MouseMode_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):MouseMode return untyped __cpp__("(static_cast<godot::DisplayServer::MouseMode>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:MouseMode, v2:MouseMode):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:MouseMode):MouseMode_extern return untyped __cpp__("(cpp::Struct<godot::DisplayServer::MouseMode, cpp::EnumHandler>){0}", v);
 	@:native("godot::DisplayServer::MouseMode::MOUSE_MODE_VISIBLE")
 	final VISIBLE;
 	@:native("godot::DisplayServer::MouseMode::MOUSE_MODE_HIDDEN")

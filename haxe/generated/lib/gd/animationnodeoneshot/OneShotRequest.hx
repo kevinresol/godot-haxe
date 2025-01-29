@@ -1,5 +1,5 @@
 package gd.animationnodeoneshot;
-enum abstract OneShotRequest(Int) to Int {
+enum abstract OneShotRequest(Int) from Int to Int {
 	final NONE = 0;
 	final FIRE = 1;
 	final ABORT = 2;

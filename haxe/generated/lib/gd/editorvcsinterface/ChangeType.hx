@@ -1,5 +1,5 @@
 package gd.editorvcsinterface;
-enum abstract ChangeType(Int) to Int {
+enum abstract ChangeType(Int) from Int to Int {
 	final NEW = 0;
 	final MODIFIED = 1;
 	final RENAMED = 2;

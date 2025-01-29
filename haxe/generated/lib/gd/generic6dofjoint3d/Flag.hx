@@ -1,5 +1,5 @@
 package gd.generic6dofjoint3d;
-enum abstract Flag(Int) to Int {
+enum abstract Flag(Int) from Int to Int {
 	final ENABLE_LINEAR_LIMIT = 0;
 	final ENABLE_ANGULAR_LIMIT = 1;
 	final ENABLE_LINEAR_SPRING = 3;

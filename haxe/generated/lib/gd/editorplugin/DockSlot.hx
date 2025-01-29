@@ -1,5 +1,5 @@
 package gd.editorplugin;
-enum abstract DockSlot(Int) to Int {
+enum abstract DockSlot(Int) from Int to Int {
 	final LEFT_UL = 0;
 	final LEFT_BL = 1;
 	final LEFT_UR = 2;

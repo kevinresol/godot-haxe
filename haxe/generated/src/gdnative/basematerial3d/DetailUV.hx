@@ -1,9 +1,8 @@
 package gdnative.basematerial3d;
 @:native("godot::BaseMaterial3D::DetailUV") extern enum abstract DetailUV(DetailUV_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):DetailUV return untyped __cpp__("(static_cast<godot::BaseMaterial3D::DetailUV>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:DetailUV, v2:DetailUV):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:DetailUV):DetailUV_extern return untyped __cpp__("(cpp::Struct<godot::BaseMaterial3D::DetailUV, cpp::EnumHandler>){0}", v);
 	@:native("godot::BaseMaterial3D::DetailUV::DETAIL_UV_1")
 	final _1;
 	@:native("godot::BaseMaterial3D::DetailUV::DETAIL_UV_2")

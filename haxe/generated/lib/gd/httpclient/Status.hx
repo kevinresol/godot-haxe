@@ -1,5 +1,5 @@
 package gd.httpclient;
-enum abstract Status(Int) to Int {
+enum abstract Status(Int) from Int to Int {
 	final DISCONNECTED = 0;
 	final RESOLVING = 1;
 	final CANT_RESOLVE = 2;

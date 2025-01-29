@@ -1,9 +1,8 @@
 package gdnative.tileset;
 @:native("godot::TileSet::TileLayout") extern enum abstract TileLayout(TileLayout_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):TileLayout return untyped __cpp__("(static_cast<godot::TileSet::TileLayout>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:TileLayout, v2:TileLayout):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:TileLayout):TileLayout_extern return untyped __cpp__("(cpp::Struct<godot::TileSet::TileLayout, cpp::EnumHandler>){0}", v);
 	@:native("godot::TileSet::TileLayout::TILE_LAYOUT_STACKED")
 	final STACKED;
 	@:native("godot::TileSet::TileLayout::TILE_LAYOUT_STACKED_OFFSET")

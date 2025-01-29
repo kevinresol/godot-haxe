@@ -1,9 +1,8 @@
 package gdnative.visualshadernodetextureparameter;
 @:native("godot::VisualShaderNodeTextureParameter::TextureSource") extern enum abstract TextureSource(TextureSource_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):TextureSource return untyped __cpp__("(static_cast<godot::VisualShaderNodeTextureParameter::TextureSource>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:TextureSource, v2:TextureSource):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:TextureSource):TextureSource_extern return untyped __cpp__("(cpp::Struct<godot::VisualShaderNodeTextureParameter::TextureSource, cpp::EnumHandler>){0}", v);
 	@:native("godot::VisualShaderNodeTextureParameter::TextureSource::SOURCE_NONE")
 	final NONE;
 	@:native("godot::VisualShaderNodeTextureParameter::TextureSource::SOURCE_SCREEN")

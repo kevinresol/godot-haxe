@@ -1,9 +1,8 @@
 package gdnative.linkbutton;
 @:native("godot::LinkButton::UnderlineMode") extern enum abstract UnderlineMode(UnderlineMode_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):UnderlineMode return untyped __cpp__("(static_cast<godot::LinkButton::UnderlineMode>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:UnderlineMode, v2:UnderlineMode):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:UnderlineMode):UnderlineMode_extern return untyped __cpp__("(cpp::Struct<godot::LinkButton::UnderlineMode, cpp::EnumHandler>){0}", v);
 	@:native("godot::LinkButton::UnderlineMode::UNDERLINE_MODE_ALWAYS")
 	final ALWAYS;
 	@:native("godot::LinkButton::UnderlineMode::UNDERLINE_MODE_ON_HOVER")

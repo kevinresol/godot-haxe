@@ -1,9 +1,8 @@
 package gdnative.control;
 @:native("godot::Control::MouseFilter") extern enum abstract MouseFilter(MouseFilter_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):MouseFilter return untyped __cpp__("(static_cast<godot::Control::MouseFilter>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:MouseFilter, v2:MouseFilter):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:MouseFilter):MouseFilter_extern return untyped __cpp__("(cpp::Struct<godot::Control::MouseFilter, cpp::EnumHandler>){0}", v);
 	@:native("godot::Control::MouseFilter::MOUSE_FILTER_STOP")
 	final STOP;
 	@:native("godot::Control::MouseFilter::MOUSE_FILTER_PASS")

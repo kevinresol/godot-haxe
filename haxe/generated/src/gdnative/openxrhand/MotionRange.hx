@@ -1,9 +1,8 @@
 package gdnative.openxrhand;
 @:native("godot::OpenXRHand::MotionRange") extern enum abstract MotionRange(MotionRange_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):MotionRange return untyped __cpp__("(static_cast<godot::OpenXRHand::MotionRange>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:MotionRange, v2:MotionRange):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:MotionRange):MotionRange_extern return untyped __cpp__("(cpp::Struct<godot::OpenXRHand::MotionRange, cpp::EnumHandler>){0}", v);
 	@:native("godot::OpenXRHand::MotionRange::MOTION_RANGE_UNOBSTRUCTED")
 	final UNOBSTRUCTED;
 	@:native("godot::OpenXRHand::MotionRange::MOTION_RANGE_CONFORM_TO_CONTROLLER")

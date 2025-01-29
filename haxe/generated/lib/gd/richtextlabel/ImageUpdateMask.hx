@@ -1,5 +1,5 @@
 package gd.richtextlabel;
-enum abstract ImageUpdateMask(Int) to Int {
+enum abstract ImageUpdateMask(cpp.UInt64) from cpp.UInt64 to cpp.UInt64 {
 	final TEXTURE = 1;
 	final SIZE = 2;
 	final COLOR = 4;

@@ -1,9 +1,8 @@
 package gdnative.fileaccess;
 @:native("godot::FileAccess::UnixPermissionFlags") extern enum abstract UnixPermissionFlags(UnixPermissionFlags_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):UnixPermissionFlags return untyped __cpp__("(static_cast<godot::FileAccess::UnixPermissionFlags>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:UnixPermissionFlags, v2:UnixPermissionFlags):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:UnixPermissionFlags):UnixPermissionFlags_extern return untyped __cpp__("(cpp::Struct<godot::FileAccess::UnixPermissionFlags, cpp::EnumHandler>){0}", v);
 	@:native("godot::FileAccess::UnixPermissionFlags::UNIX_READ_OWNER")
 	final READ_OWNER;
 	@:native("godot::FileAccess::UnixPermissionFlags::UNIX_WRITE_OWNER")

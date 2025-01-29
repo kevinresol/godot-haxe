@@ -1,5 +1,5 @@
 package gd.enetpacketpeer;
-enum abstract PeerState(Int) to Int {
+enum abstract PeerState(Int) from Int to Int {
 	final DISCONNECTED = 0;
 	final CONNECTING = 1;
 	final ACKNOWLEDGING_CONNECT = 2;

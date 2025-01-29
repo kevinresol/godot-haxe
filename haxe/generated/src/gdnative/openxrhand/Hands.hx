@@ -1,9 +1,8 @@
 package gdnative.openxrhand;
 @:native("godot::OpenXRHand::Hands") extern enum abstract Hands(Hands_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):Hands return untyped __cpp__("(static_cast<godot::OpenXRHand::Hands>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:Hands, v2:Hands):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:Hands):Hands_extern return untyped __cpp__("(cpp::Struct<godot::OpenXRHand::Hands, cpp::EnumHandler>){0}", v);
 	@:native("godot::OpenXRHand::Hands::HAND_LEFT")
 	final LEFT;
 	@:native("godot::OpenXRHand::Hands::HAND_RIGHT")

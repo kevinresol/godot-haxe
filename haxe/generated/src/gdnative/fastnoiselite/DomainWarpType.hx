@@ -1,9 +1,8 @@
 package gdnative.fastnoiselite;
 @:native("godot::FastNoiseLite::DomainWarpType") extern enum abstract DomainWarpType(DomainWarpType_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):DomainWarpType return untyped __cpp__("(static_cast<godot::FastNoiseLite::DomainWarpType>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:DomainWarpType, v2:DomainWarpType):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:DomainWarpType):DomainWarpType_extern return untyped __cpp__("(cpp::Struct<godot::FastNoiseLite::DomainWarpType, cpp::EnumHandler>){0}", v);
 	@:native("godot::FastNoiseLite::DomainWarpType::DOMAIN_WARP_SIMPLEX")
 	final SIMPLEX;
 	@:native("godot::FastNoiseLite::DomainWarpType::DOMAIN_WARP_SIMPLEX_REDUCED")

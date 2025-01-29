@@ -1,5 +1,5 @@
 package gd.mesh;
-enum abstract PrimitiveType(Int) to Int {
+enum abstract PrimitiveType(Int) from Int to Int {
 	final POINTS = 0;
 	final LINES = 1;
 	final LINE_STRIP = 2;

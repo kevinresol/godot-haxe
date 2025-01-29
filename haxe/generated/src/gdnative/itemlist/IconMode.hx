@@ -1,9 +1,8 @@
 package gdnative.itemlist;
 @:native("godot::ItemList::IconMode") extern enum abstract IconMode(IconMode_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):IconMode return untyped __cpp__("(static_cast<godot::ItemList::IconMode>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:IconMode, v2:IconMode):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:IconMode):IconMode_extern return untyped __cpp__("(cpp::Struct<godot::ItemList::IconMode, cpp::EnumHandler>){0}", v);
 	@:native("godot::ItemList::IconMode::ICON_MODE_TOP")
 	final TOP;
 	@:native("godot::ItemList::IconMode::ICON_MODE_LEFT")

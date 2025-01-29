@@ -1,5 +1,5 @@
 package gd.environment;
-enum abstract GlowBlendMode(Int) to Int {
+enum abstract GlowBlendMode(Int) from Int to Int {
 	final ADDITIVE = 0;
 	final SCREEN = 1;
 	final SOFTLIGHT = 2;

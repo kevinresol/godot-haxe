@@ -1,5 +1,5 @@
 package gd.xrhandtracker;
-enum abstract HandJointFlags(Int) to Int {
+enum abstract HandJointFlags(cpp.UInt64) from cpp.UInt64 to cpp.UInt64 {
 	final ORIENTATION_VALID = 1;
 	final ORIENTATION_TRACKED = 2;
 	final POSITION_VALID = 4;

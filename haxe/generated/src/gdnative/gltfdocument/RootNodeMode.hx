@@ -1,9 +1,8 @@
 package gdnative.gltfdocument;
 @:native("godot::GLTFDocument::RootNodeMode") extern enum abstract RootNodeMode(RootNodeMode_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):RootNodeMode return untyped __cpp__("(static_cast<godot::GLTFDocument::RootNodeMode>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:RootNodeMode, v2:RootNodeMode):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:RootNodeMode):RootNodeMode_extern return untyped __cpp__("(cpp::Struct<godot::GLTFDocument::RootNodeMode, cpp::EnumHandler>){0}", v);
 	@:native("godot::GLTFDocument::RootNodeMode::ROOT_NODE_MODE_SINGLE_ROOT")
 	final SINGLE_ROOT;
 	@:native("godot::GLTFDocument::RootNodeMode::ROOT_NODE_MODE_KEEP_ROOT")

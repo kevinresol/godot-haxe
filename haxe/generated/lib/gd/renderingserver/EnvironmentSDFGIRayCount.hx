@@ -1,5 +1,5 @@
 package gd.renderingserver;
-enum abstract EnvironmentSDFGIRayCount(Int) to Int {
+enum abstract EnvironmentSDFGIRayCount(Int) from Int to Int {
 	final _4 = 0;
 	final _8 = 1;
 	final _16 = 2;

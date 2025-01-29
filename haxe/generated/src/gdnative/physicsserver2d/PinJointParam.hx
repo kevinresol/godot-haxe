@@ -1,9 +1,8 @@
 package gdnative.physicsserver2d;
 @:native("godot::PhysicsServer2D::PinJointParam") extern enum abstract PinJointParam(PinJointParam_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):PinJointParam return untyped __cpp__("(static_cast<godot::PhysicsServer2D::PinJointParam>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:PinJointParam, v2:PinJointParam):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:PinJointParam):PinJointParam_extern return untyped __cpp__("(cpp::Struct<godot::PhysicsServer2D::PinJointParam, cpp::EnumHandler>){0}", v);
 	@:native("godot::PhysicsServer2D::PinJointParam::PIN_JOINT_SOFTNESS")
 	final SOFTNESS;
 	@:native("godot::PhysicsServer2D::PinJointParam::PIN_JOINT_LIMIT_UPPER")

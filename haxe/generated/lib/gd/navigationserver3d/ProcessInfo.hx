@@ -1,5 +1,5 @@
 package gd.navigationserver3d;
-enum abstract ProcessInfo(Int) to Int {
+enum abstract ProcessInfo(Int) from Int to Int {
 	final ACTIVE_MAPS = 0;
 	final REGION_COUNT = 1;
 	final AGENT_COUNT = 2;

@@ -1,9 +1,8 @@
 package gdnative.renderingserver;
 @:native("godot::RenderingServer::InstanceType") extern enum abstract InstanceType(InstanceType_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):InstanceType return untyped __cpp__("(static_cast<godot::RenderingServer::InstanceType>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:InstanceType, v2:InstanceType):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:InstanceType):InstanceType_extern return untyped __cpp__("(cpp::Struct<godot::RenderingServer::InstanceType, cpp::EnumHandler>){0}", v);
 	@:native("godot::RenderingServer::InstanceType::INSTANCE_NONE")
 	final NONE;
 	@:native("godot::RenderingServer::InstanceType::INSTANCE_MESH")

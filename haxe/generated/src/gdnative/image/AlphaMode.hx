@@ -1,9 +1,8 @@
 package gdnative.image;
 @:native("godot::Image::AlphaMode") extern enum abstract AlphaMode(AlphaMode_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):AlphaMode return untyped __cpp__("(static_cast<godot::Image::AlphaMode>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:AlphaMode, v2:AlphaMode):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:AlphaMode):AlphaMode_extern return untyped __cpp__("(cpp::Struct<godot::Image::AlphaMode, cpp::EnumHandler>){0}", v);
 	@:native("godot::Image::AlphaMode::ALPHA_NONE")
 	final NONE;
 	@:native("godot::Image::AlphaMode::ALPHA_BIT")

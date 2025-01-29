@@ -1,9 +1,8 @@
 package gdnative.renderingserver;
 @:native("godot::RenderingServer::ViewportRenderInfo") extern enum abstract ViewportRenderInfo(ViewportRenderInfo_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):ViewportRenderInfo return untyped __cpp__("(static_cast<godot::RenderingServer::ViewportRenderInfo>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:ViewportRenderInfo, v2:ViewportRenderInfo):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:ViewportRenderInfo):ViewportRenderInfo_extern return untyped __cpp__("(cpp::Struct<godot::RenderingServer::ViewportRenderInfo, cpp::EnumHandler>){0}", v);
 	@:native("godot::RenderingServer::ViewportRenderInfo::VIEWPORT_RENDER_INFO_OBJECTS_IN_FRAME")
 	final OBJECTS_IN_FRAME;
 	@:native("godot::RenderingServer::ViewportRenderInfo::VIEWPORT_RENDER_INFO_PRIMITIVES_IN_FRAME")

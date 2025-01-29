@@ -1,5 +1,5 @@
 package gd.compositoreffect;
-enum abstract EffectCallbackType(Int) to Int {
+enum abstract EffectCallbackType(Int) from Int to Int {
 	final PRE_OPAQUE = 0;
 	final POST_OPAQUE = 1;
 	final POST_SKY = 2;

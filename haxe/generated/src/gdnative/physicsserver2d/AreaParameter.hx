@@ -1,9 +1,8 @@
 package gdnative.physicsserver2d;
 @:native("godot::PhysicsServer2D::AreaParameter") extern enum abstract AreaParameter(AreaParameter_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):AreaParameter return untyped __cpp__("(static_cast<godot::PhysicsServer2D::AreaParameter>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:AreaParameter, v2:AreaParameter):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:AreaParameter):AreaParameter_extern return untyped __cpp__("(cpp::Struct<godot::PhysicsServer2D::AreaParameter, cpp::EnumHandler>){0}", v);
 	@:native("godot::PhysicsServer2D::AreaParameter::AREA_PARAM_GRAVITY_OVERRIDE_MODE")
 	final GRAVITY_OVERRIDE_MODE;
 	@:native("godot::PhysicsServer2D::AreaParameter::AREA_PARAM_GRAVITY")

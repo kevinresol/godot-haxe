@@ -1,9 +1,8 @@
 package gdnative.renderingserver;
 @:native("godot::RenderingServer::EnvironmentSDFGIFramesToConverge") extern enum abstract EnvironmentSDFGIFramesToConverge(EnvironmentSDFGIFramesToConverge_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):EnvironmentSDFGIFramesToConverge return untyped __cpp__("(static_cast<godot::RenderingServer::EnvironmentSDFGIFramesToConverge>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:EnvironmentSDFGIFramesToConverge, v2:EnvironmentSDFGIFramesToConverge):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:EnvironmentSDFGIFramesToConverge):EnvironmentSDFGIFramesToConverge_extern return untyped __cpp__("(cpp::Struct<godot::RenderingServer::EnvironmentSDFGIFramesToConverge, cpp::EnumHandler>){0}", v);
 	@:native("godot::RenderingServer::EnvironmentSDFGIFramesToConverge::ENV_SDFGI_CONVERGE_IN_5_FRAMES")
 	final IN_5_FRAMES;
 	@:native("godot::RenderingServer::EnvironmentSDFGIFramesToConverge::ENV_SDFGI_CONVERGE_IN_10_FRAMES")

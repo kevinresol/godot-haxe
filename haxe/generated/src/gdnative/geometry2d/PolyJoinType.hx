@@ -1,9 +1,8 @@
 package gdnative.geometry2d;
 @:native("godot::Geometry2D::PolyJoinType") extern enum abstract PolyJoinType(PolyJoinType_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):PolyJoinType return untyped __cpp__("(static_cast<godot::Geometry2D::PolyJoinType>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:PolyJoinType, v2:PolyJoinType):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:PolyJoinType):PolyJoinType_extern return untyped __cpp__("(cpp::Struct<godot::Geometry2D::PolyJoinType, cpp::EnumHandler>){0}", v);
 	@:native("godot::Geometry2D::PolyJoinType::JOIN_SQUARE")
 	final SQUARE;
 	@:native("godot::Geometry2D::PolyJoinType::JOIN_ROUND")

@@ -1,9 +1,8 @@
 package gdnative.tween;
 @:native("godot::Tween::EaseType") extern enum abstract EaseType(EaseType_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):EaseType return untyped __cpp__("(static_cast<godot::Tween::EaseType>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:EaseType, v2:EaseType):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:EaseType):EaseType_extern return untyped __cpp__("(cpp::Struct<godot::Tween::EaseType, cpp::EnumHandler>){0}", v);
 	@:native("godot::Tween::EaseType::EASE_IN")
 	final IN;
 	@:native("godot::Tween::EaseType::EASE_OUT")

@@ -1,9 +1,8 @@
 package gdnative.navigationmesh;
 @:native("godot::NavigationMesh::SamplePartitionType") extern enum abstract SamplePartitionType(SamplePartitionType_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):SamplePartitionType return untyped __cpp__("(static_cast<godot::NavigationMesh::SamplePartitionType>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:SamplePartitionType, v2:SamplePartitionType):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:SamplePartitionType):SamplePartitionType_extern return untyped __cpp__("(cpp::Struct<godot::NavigationMesh::SamplePartitionType, cpp::EnumHandler>){0}", v);
 	@:native("godot::NavigationMesh::SamplePartitionType::SAMPLE_PARTITION_WATERSHED")
 	final WATERSHED;
 	@:native("godot::NavigationMesh::SamplePartitionType::SAMPLE_PARTITION_MONOTONE")

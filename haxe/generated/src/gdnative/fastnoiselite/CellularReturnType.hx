@@ -1,9 +1,8 @@
 package gdnative.fastnoiselite;
 @:native("godot::FastNoiseLite::CellularReturnType") extern enum abstract CellularReturnType(CellularReturnType_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):CellularReturnType return untyped __cpp__("(static_cast<godot::FastNoiseLite::CellularReturnType>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:CellularReturnType, v2:CellularReturnType):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:CellularReturnType):CellularReturnType_extern return untyped __cpp__("(cpp::Struct<godot::FastNoiseLite::CellularReturnType, cpp::EnumHandler>){0}", v);
 	@:native("godot::FastNoiseLite::CellularReturnType::RETURN_CELL_VALUE")
 	final CELL_VALUE;
 	@:native("godot::FastNoiseLite::CellularReturnType::RETURN_DISTANCE")

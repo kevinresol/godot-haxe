@@ -1,9 +1,8 @@
 package gdnative.visualshadernodeintop;
 @:native("godot::VisualShaderNodeIntOp::Operator") extern enum abstract Operator(Operator_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):Operator return untyped __cpp__("(static_cast<godot::VisualShaderNodeIntOp::Operator>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:Operator, v2:Operator):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:Operator):Operator_extern return untyped __cpp__("(cpp::Struct<godot::VisualShaderNodeIntOp::Operator, cpp::EnumHandler>){0}", v);
 	@:native("godot::VisualShaderNodeIntOp::Operator::OP_ADD")
 	final ADD;
 	@:native("godot::VisualShaderNodeIntOp::Operator::OP_SUB")

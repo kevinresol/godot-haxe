@@ -1,9 +1,8 @@
 package gdnative.renderingserver;
 @:native("godot::RenderingServer::DOFBlurQuality") extern enum abstract DOFBlurQuality(DOFBlurQuality_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):DOFBlurQuality return untyped __cpp__("(static_cast<godot::RenderingServer::DOFBlurQuality>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:DOFBlurQuality, v2:DOFBlurQuality):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:DOFBlurQuality):DOFBlurQuality_extern return untyped __cpp__("(cpp::Struct<godot::RenderingServer::DOFBlurQuality, cpp::EnumHandler>){0}", v);
 	@:native("godot::RenderingServer::DOFBlurQuality::DOF_BLUR_QUALITY_VERY_LOW")
 	final VERY_LOW;
 	@:native("godot::RenderingServer::DOFBlurQuality::DOF_BLUR_QUALITY_LOW")

@@ -1,9 +1,8 @@
 package gdnative.control;
 @:native("godot::Control::Anchor") extern enum abstract Anchor(Anchor_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):Anchor return untyped __cpp__("(static_cast<godot::Control::Anchor>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:Anchor, v2:Anchor):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:Anchor):Anchor_extern return untyped __cpp__("(cpp::Struct<godot::Control::Anchor, cpp::EnumHandler>){0}", v);
 	@:native("godot::Control::Anchor::ANCHOR_BEGIN")
 	final BEGIN;
 	@:native("godot::Control::Anchor::ANCHOR_END")

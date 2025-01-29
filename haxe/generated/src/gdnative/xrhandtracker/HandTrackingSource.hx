@@ -1,9 +1,8 @@
 package gdnative.xrhandtracker;
 @:native("godot::XRHandTracker::HandTrackingSource") extern enum abstract HandTrackingSource(HandTrackingSource_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):HandTrackingSource return untyped __cpp__("(static_cast<godot::XRHandTracker::HandTrackingSource>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:HandTrackingSource, v2:HandTrackingSource):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:HandTrackingSource):HandTrackingSource_extern return untyped __cpp__("(cpp::Struct<godot::XRHandTracker::HandTrackingSource, cpp::EnumHandler>){0}", v);
 	@:native("godot::XRHandTracker::HandTrackingSource::HAND_TRACKING_SOURCE_UNKNOWN")
 	final UNKNOWN;
 	@:native("godot::XRHandTracker::HandTrackingSource::HAND_TRACKING_SOURCE_UNOBSTRUCTED")

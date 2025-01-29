@@ -1,9 +1,8 @@
 package gdnative.basematerial3d;
 @:native("godot::BaseMaterial3D::SpecularMode") extern enum abstract SpecularMode(SpecularMode_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):SpecularMode return untyped __cpp__("(static_cast<godot::BaseMaterial3D::SpecularMode>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:SpecularMode, v2:SpecularMode):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:SpecularMode):SpecularMode_extern return untyped __cpp__("(cpp::Struct<godot::BaseMaterial3D::SpecularMode, cpp::EnumHandler>){0}", v);
 	@:native("godot::BaseMaterial3D::SpecularMode::SPECULAR_SCHLICK_GGX")
 	final SCHLICK_GGX;
 	@:native("godot::BaseMaterial3D::SpecularMode::SPECULAR_TOON")

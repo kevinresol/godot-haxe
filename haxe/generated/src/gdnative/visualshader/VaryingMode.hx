@@ -1,9 +1,8 @@
 package gdnative.visualshader;
 @:native("godot::VisualShader::VaryingMode") extern enum abstract VaryingMode(VaryingMode_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):VaryingMode return untyped __cpp__("(static_cast<godot::VisualShader::VaryingMode>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:VaryingMode, v2:VaryingMode):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:VaryingMode):VaryingMode_extern return untyped __cpp__("(cpp::Struct<godot::VisualShader::VaryingMode, cpp::EnumHandler>){0}", v);
 	@:native("godot::VisualShader::VaryingMode::VARYING_MODE_VERTEX_TO_FRAG_LIGHT")
 	final VERTEX_TO_FRAG_LIGHT;
 	@:native("godot::VisualShader::VaryingMode::VARYING_MODE_FRAG_TO_LIGHT")

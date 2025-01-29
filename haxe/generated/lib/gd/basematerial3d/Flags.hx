@@ -1,5 +1,5 @@
 package gd.basematerial3d;
-enum abstract Flags(Int) to Int {
+enum abstract Flags(Int) from Int to Int {
 	final DISABLE_DEPTH_TEST = 0;
 	final ALBEDO_FROM_VERTEX_COLOR = 1;
 	final SRGB_VERTEX_COLOR = 2;

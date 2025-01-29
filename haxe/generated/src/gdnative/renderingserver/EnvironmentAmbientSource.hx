@@ -1,9 +1,8 @@
 package gdnative.renderingserver;
 @:native("godot::RenderingServer::EnvironmentAmbientSource") extern enum abstract EnvironmentAmbientSource(EnvironmentAmbientSource_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):EnvironmentAmbientSource return untyped __cpp__("(static_cast<godot::RenderingServer::EnvironmentAmbientSource>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:EnvironmentAmbientSource, v2:EnvironmentAmbientSource):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:EnvironmentAmbientSource):EnvironmentAmbientSource_extern return untyped __cpp__("(cpp::Struct<godot::RenderingServer::EnvironmentAmbientSource, cpp::EnumHandler>){0}", v);
 	@:native("godot::RenderingServer::EnvironmentAmbientSource::ENV_AMBIENT_SOURCE_BG")
 	final BG;
 	@:native("godot::RenderingServer::EnvironmentAmbientSource::ENV_AMBIENT_SOURCE_DISABLED")

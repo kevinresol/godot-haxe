@@ -1,9 +1,8 @@
 package gdnative.filedialog;
 @:native("godot::FileDialog::FileMode") extern enum abstract FileMode(FileMode_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):FileMode return untyped __cpp__("(static_cast<godot::FileDialog::FileMode>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:FileMode, v2:FileMode):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:FileMode):FileMode_extern return untyped __cpp__("(cpp::Struct<godot::FileDialog::FileMode, cpp::EnumHandler>){0}", v);
 	@:native("godot::FileDialog::FileMode::FILE_MODE_OPEN_FILE")
 	final OPEN_FILE;
 	@:native("godot::FileDialog::FileMode::FILE_MODE_OPEN_FILES")

@@ -1,5 +1,5 @@
 package gd.codeedit;
-enum abstract CodeCompletionKind(Int) to Int {
+enum abstract CodeCompletionKind(Int) from Int to Int {
 	final CLASS = 0;
 	final FUNCTION = 1;
 	final SIGNAL = 2;

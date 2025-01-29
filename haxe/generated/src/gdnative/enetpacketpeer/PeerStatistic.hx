@@ -1,9 +1,8 @@
 package gdnative.enetpacketpeer;
 @:native("godot::ENetPacketPeer::PeerStatistic") extern enum abstract PeerStatistic(PeerStatistic_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):PeerStatistic return untyped __cpp__("(static_cast<godot::ENetPacketPeer::PeerStatistic>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:PeerStatistic, v2:PeerStatistic):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:PeerStatistic):PeerStatistic_extern return untyped __cpp__("(cpp::Struct<godot::ENetPacketPeer::PeerStatistic, cpp::EnumHandler>){0}", v);
 	@:native("godot::ENetPacketPeer::PeerStatistic::PEER_PACKET_LOSS")
 	final PACKET_LOSS;
 	@:native("godot::ENetPacketPeer::PeerStatistic::PEER_PACKET_LOSS_VARIANCE")

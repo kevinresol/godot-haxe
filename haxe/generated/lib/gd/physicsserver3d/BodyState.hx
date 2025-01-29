@@ -1,5 +1,5 @@
 package gd.physicsserver3d;
-enum abstract BodyState(Int) to Int {
+enum abstract BodyState(Int) from Int to Int {
 	final TRANSFORM = 0;
 	final LINEAR_VELOCITY = 1;
 	final ANGULAR_VELOCITY = 2;

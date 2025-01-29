@@ -1,5 +1,5 @@
 package gd.tileset;
-enum abstract TileLayout(Int) to Int {
+enum abstract TileLayout(Int) from Int to Int {
 	final STACKED = 0;
 	final STACKED_OFFSET = 1;
 	final STAIRS_RIGHT = 2;

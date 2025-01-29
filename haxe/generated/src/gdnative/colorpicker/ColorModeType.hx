@@ -1,9 +1,8 @@
 package gdnative.colorpicker;
 @:native("godot::ColorPicker::ColorModeType") extern enum abstract ColorModeType(ColorModeType_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):ColorModeType return untyped __cpp__("(static_cast<godot::ColorPicker::ColorModeType>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:ColorModeType, v2:ColorModeType):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:ColorModeType):ColorModeType_extern return untyped __cpp__("(cpp::Struct<godot::ColorPicker::ColorModeType, cpp::EnumHandler>){0}", v);
 	@:native("godot::ColorPicker::ColorModeType::MODE_RGB")
 	final RGB;
 	@:native("godot::ColorPicker::ColorModeType::MODE_HSV")

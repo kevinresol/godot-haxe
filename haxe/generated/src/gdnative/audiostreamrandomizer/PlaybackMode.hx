@@ -1,9 +1,8 @@
 package gdnative.audiostreamrandomizer;
 @:native("godot::AudioStreamRandomizer::PlaybackMode") extern enum abstract PlaybackMode(PlaybackMode_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):PlaybackMode return untyped __cpp__("(static_cast<godot::AudioStreamRandomizer::PlaybackMode>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:PlaybackMode, v2:PlaybackMode):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:PlaybackMode):PlaybackMode_extern return untyped __cpp__("(cpp::Struct<godot::AudioStreamRandomizer::PlaybackMode, cpp::EnumHandler>){0}", v);
 	@:native("godot::AudioStreamRandomizer::PlaybackMode::PLAYBACK_RANDOM_NO_REPEATS")
 	final RANDOM_NO_REPEATS;
 	@:native("godot::AudioStreamRandomizer::PlaybackMode::PLAYBACK_RANDOM")

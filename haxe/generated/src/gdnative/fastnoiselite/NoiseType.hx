@@ -1,9 +1,8 @@
 package gdnative.fastnoiselite;
 @:native("godot::FastNoiseLite::NoiseType") extern enum abstract NoiseType(NoiseType_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):NoiseType return untyped __cpp__("(static_cast<godot::FastNoiseLite::NoiseType>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:NoiseType, v2:NoiseType):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:NoiseType):NoiseType_extern return untyped __cpp__("(cpp::Struct<godot::FastNoiseLite::NoiseType, cpp::EnumHandler>){0}", v);
 	@:native("godot::FastNoiseLite::NoiseType::TYPE_VALUE")
 	final VALUE;
 	@:native("godot::FastNoiseLite::NoiseType::TYPE_VALUE_CUBIC")

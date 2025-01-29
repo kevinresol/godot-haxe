@@ -1,5 +1,5 @@
 package gd.renderingdevice;
-enum abstract DeviceType(Int) to Int {
+enum abstract DeviceType(Int) from Int to Int {
 	final OTHER = 0;
 	final INTEGRATED_GPU = 1;
 	final DISCRETE_GPU = 2;

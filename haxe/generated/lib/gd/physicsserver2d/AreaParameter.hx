@@ -1,5 +1,5 @@
 package gd.physicsserver2d;
-enum abstract AreaParameter(Int) to Int {
+enum abstract AreaParameter(Int) from Int to Int {
 	final GRAVITY_OVERRIDE_MODE = 0;
 	final GRAVITY = 1;
 	final GRAVITY_VECTOR = 2;

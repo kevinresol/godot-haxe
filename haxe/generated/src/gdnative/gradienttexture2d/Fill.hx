@@ -1,9 +1,8 @@
 package gdnative.gradienttexture2d;
 @:native("godot::GradientTexture2D::Fill") extern enum abstract Fill(Fill_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):Fill return untyped __cpp__("(static_cast<godot::GradientTexture2D::Fill>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:Fill, v2:Fill):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:Fill):Fill_extern return untyped __cpp__("(cpp::Struct<godot::GradientTexture2D::Fill, cpp::EnumHandler>){0}", v);
 	@:native("godot::GradientTexture2D::Fill::FILL_LINEAR")
 	final LINEAR;
 	@:native("godot::GradientTexture2D::Fill::FILL_RADIAL")

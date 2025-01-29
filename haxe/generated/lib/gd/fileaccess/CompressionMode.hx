@@ -1,5 +1,5 @@
 package gd.fileaccess;
-enum abstract CompressionMode(Int) to Int {
+enum abstract CompressionMode(Int) from Int to Int {
 	final FASTLZ = 0;
 	final DEFLATE = 1;
 	final ZSTD = 2;

@@ -1,5 +1,5 @@
 package gd.resourcesaver;
-enum abstract SaverFlags(Int) to Int {
+enum abstract SaverFlags(cpp.UInt64) from cpp.UInt64 to cpp.UInt64 {
 	final NONE = 0;
 	final RELATIVE_PATHS = 1;
 	final BUNDLE_RESOURCES = 2;

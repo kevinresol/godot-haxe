@@ -1,9 +1,8 @@
 package gdnative.webrtcpeerconnection;
 @:native("godot::WebRTCPeerConnection::SignalingState") extern enum abstract SignalingState(SignalingState_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):SignalingState return untyped __cpp__("(static_cast<godot::WebRTCPeerConnection::SignalingState>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:SignalingState, v2:SignalingState):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:SignalingState):SignalingState_extern return untyped __cpp__("(cpp::Struct<godot::WebRTCPeerConnection::SignalingState, cpp::EnumHandler>){0}", v);
 	@:native("godot::WebRTCPeerConnection::SignalingState::SIGNALING_STATE_STABLE")
 	final STABLE;
 	@:native("godot::WebRTCPeerConnection::SignalingState::SIGNALING_STATE_HAVE_LOCAL_OFFER")

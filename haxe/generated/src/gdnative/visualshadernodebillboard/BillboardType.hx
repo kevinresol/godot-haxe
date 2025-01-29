@@ -1,9 +1,8 @@
 package gdnative.visualshadernodebillboard;
 @:native("godot::VisualShaderNodeBillboard::BillboardType") extern enum abstract BillboardType(BillboardType_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):BillboardType return untyped __cpp__("(static_cast<godot::VisualShaderNodeBillboard::BillboardType>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:BillboardType, v2:BillboardType):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:BillboardType):BillboardType_extern return untyped __cpp__("(cpp::Struct<godot::VisualShaderNodeBillboard::BillboardType, cpp::EnumHandler>){0}", v);
 	@:native("godot::VisualShaderNodeBillboard::BillboardType::BILLBOARD_TYPE_DISABLED")
 	final DISABLED;
 	@:native("godot::VisualShaderNodeBillboard::BillboardType::BILLBOARD_TYPE_ENABLED")

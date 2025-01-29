@@ -1,5 +1,5 @@
 package gd.renderingdevice;
-enum abstract TextureSwizzle(Int) to Int {
+enum abstract TextureSwizzle(Int) from Int to Int {
 	final IDENTITY = 0;
 	final ZERO = 1;
 	final ONE = 2;

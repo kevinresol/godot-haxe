@@ -1,9 +1,8 @@
 package gdnative.textserver;
 @:native("godot::TextServer::GraphemeFlag") extern enum abstract GraphemeFlag(GraphemeFlag_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):GraphemeFlag return untyped __cpp__("(static_cast<godot::TextServer::GraphemeFlag>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:GraphemeFlag, v2:GraphemeFlag):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:GraphemeFlag):GraphemeFlag_extern return untyped __cpp__("(cpp::Struct<godot::TextServer::GraphemeFlag, cpp::EnumHandler>){0}", v);
 	@:native("godot::TextServer::GraphemeFlag::GRAPHEME_IS_VALID")
 	final VALID;
 	@:native("godot::TextServer::GraphemeFlag::GRAPHEME_IS_RTL")

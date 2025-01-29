@@ -1,9 +1,8 @@
 package gdnative.window;
 @:native("godot::Window::WindowInitialPosition") extern enum abstract WindowInitialPosition(WindowInitialPosition_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):WindowInitialPosition return untyped __cpp__("(static_cast<godot::Window::WindowInitialPosition>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:WindowInitialPosition, v2:WindowInitialPosition):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:WindowInitialPosition):WindowInitialPosition_extern return untyped __cpp__("(cpp::Struct<godot::Window::WindowInitialPosition, cpp::EnumHandler>){0}", v);
 	@:native("godot::Window::WindowInitialPosition::WINDOW_INITIAL_POSITION_ABSOLUTE")
 	final ABSOLUTE;
 	@:native("godot::Window::WindowInitialPosition::WINDOW_INITIAL_POSITION_CENTER_PRIMARY_SCREEN")

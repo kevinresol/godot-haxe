@@ -1,5 +1,5 @@
 package gd.light3d;
-enum abstract Param(Int) to Int {
+enum abstract Param(Int) from Int to Int {
 	final ENERGY = 0;
 	final INDIRECT_ENERGY = 1;
 	final VOLUMETRIC_FOG_ENERGY = 2;

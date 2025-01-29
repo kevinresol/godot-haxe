@@ -1,9 +1,8 @@
 package gdnative.visualshadernodeparticleemit;
 @:native("godot::VisualShaderNodeParticleEmit::EmitFlags") extern enum abstract EmitFlags(EmitFlags_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):EmitFlags return untyped __cpp__("(static_cast<godot::VisualShaderNodeParticleEmit::EmitFlags>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:EmitFlags, v2:EmitFlags):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:EmitFlags):EmitFlags_extern return untyped __cpp__("(cpp::Struct<godot::VisualShaderNodeParticleEmit::EmitFlags, cpp::EnumHandler>){0}", v);
 	@:native("godot::VisualShaderNodeParticleEmit::EmitFlags::EMIT_FLAG_POSITION")
 	final POSITION;
 	@:native("godot::VisualShaderNodeParticleEmit::EmitFlags::EMIT_FLAG_ROT_SCALE")

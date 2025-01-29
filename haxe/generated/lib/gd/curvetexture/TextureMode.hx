@@ -1,5 +1,5 @@
 package gd.curvetexture;
-enum abstract TextureMode(Int) to Int {
+enum abstract TextureMode(Int) from Int to Int {
 	final RGB = 0;
 	final RED = 1;
 }

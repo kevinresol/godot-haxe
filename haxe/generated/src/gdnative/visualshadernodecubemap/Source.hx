@@ -1,9 +1,8 @@
 package gdnative.visualshadernodecubemap;
 @:native("godot::VisualShaderNodeCubemap::Source") extern enum abstract Source(Source_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):Source return untyped __cpp__("(static_cast<godot::VisualShaderNodeCubemap::Source>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:Source, v2:Source):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:Source):Source_extern return untyped __cpp__("(cpp::Struct<godot::VisualShaderNodeCubemap::Source, cpp::EnumHandler>){0}", v);
 	@:native("godot::VisualShaderNodeCubemap::Source::SOURCE_TEXTURE")
 	final TEXTURE;
 	@:native("godot::VisualShaderNodeCubemap::Source::SOURCE_PORT")

@@ -1,9 +1,8 @@
 package gdnative.tween;
 @:native("godot::Tween::TransitionType") extern enum abstract TransitionType(TransitionType_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):TransitionType return untyped __cpp__("(static_cast<godot::Tween::TransitionType>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:TransitionType, v2:TransitionType):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:TransitionType):TransitionType_extern return untyped __cpp__("(cpp::Struct<godot::Tween::TransitionType, cpp::EnumHandler>){0}", v);
 	@:native("godot::Tween::TransitionType::TRANS_LINEAR")
 	final LINEAR;
 	@:native("godot::Tween::TransitionType::TRANS_SINE")

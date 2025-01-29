@@ -1,5 +1,5 @@
 package gd.renderingserver;
-enum abstract LightParam(Int) to Int {
+enum abstract LightParam(Int) from Int to Int {
 	final ENERGY = 0;
 	final INDIRECT_ENERGY = 1;
 	final VOLUMETRIC_FOG_ENERGY = 2;

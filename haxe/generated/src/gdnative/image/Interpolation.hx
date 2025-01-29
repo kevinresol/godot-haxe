@@ -1,9 +1,8 @@
 package gdnative.image;
 @:native("godot::Image::Interpolation") extern enum abstract Interpolation(Interpolation_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):Interpolation return untyped __cpp__("(static_cast<godot::Image::Interpolation>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:Interpolation, v2:Interpolation):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:Interpolation):Interpolation_extern return untyped __cpp__("(cpp::Struct<godot::Image::Interpolation, cpp::EnumHandler>){0}", v);
 	@:native("godot::Image::Interpolation::INTERPOLATE_NEAREST")
 	final NEAREST;
 	@:native("godot::Image::Interpolation::INTERPOLATE_BILINEAR")

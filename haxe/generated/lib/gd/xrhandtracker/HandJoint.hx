@@ -1,5 +1,5 @@
 package gd.xrhandtracker;
-enum abstract HandJoint(Int) to Int {
+enum abstract HandJoint(Int) from Int to Int {
 	final PALM = 0;
 	final WRIST = 1;
 	final THUMB_METACARPAL = 2;

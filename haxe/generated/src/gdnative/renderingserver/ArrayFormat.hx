@@ -1,9 +1,8 @@
 package gdnative.renderingserver;
 @:native("godot::RenderingServer::ArrayFormat") extern enum abstract ArrayFormat(ArrayFormat_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):ArrayFormat return untyped __cpp__("(static_cast<godot::RenderingServer::ArrayFormat>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:ArrayFormat, v2:ArrayFormat):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:ArrayFormat):ArrayFormat_extern return untyped __cpp__("(cpp::Struct<godot::RenderingServer::ArrayFormat, cpp::EnumHandler>){0}", v);
 	@:native("godot::RenderingServer::ArrayFormat::ARRAY_FORMAT_VERTEX")
 	final FORMAT_VERTEX;
 	@:native("godot::RenderingServer::ArrayFormat::ARRAY_FORMAT_NORMAL")

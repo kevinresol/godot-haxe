@@ -1,9 +1,8 @@
 package gdnative.audiostreaminteractive;
 @:native("godot::AudioStreamInteractive::FadeMode") extern enum abstract FadeMode(FadeMode_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):FadeMode return untyped __cpp__("(static_cast<godot::AudioStreamInteractive::FadeMode>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:FadeMode, v2:FadeMode):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:FadeMode):FadeMode_extern return untyped __cpp__("(cpp::Struct<godot::AudioStreamInteractive::FadeMode, cpp::EnumHandler>){0}", v);
 	@:native("godot::AudioStreamInteractive::FadeMode::FADE_DISABLED")
 	final DISABLED;
 	@:native("godot::AudioStreamInteractive::FadeMode::FADE_IN")

@@ -1,5 +1,5 @@
 package gd;
-enum abstract InlineAlignment(Int) to Int {
+enum abstract InlineAlignment(Int) from Int to Int {
 	final TOP_TO = 0;
 	final CENTER_TO = 1;
 	final BASELINE_TO = 3;

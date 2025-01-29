@@ -1,9 +1,8 @@
 package gdnative.resourceloader;
 @:native("godot::ResourceLoader::ThreadLoadStatus") extern enum abstract ThreadLoadStatus(ThreadLoadStatus_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):ThreadLoadStatus return untyped __cpp__("(static_cast<godot::ResourceLoader::ThreadLoadStatus>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:ThreadLoadStatus, v2:ThreadLoadStatus):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:ThreadLoadStatus):ThreadLoadStatus_extern return untyped __cpp__("(cpp::Struct<godot::ResourceLoader::ThreadLoadStatus, cpp::EnumHandler>){0}", v);
 	@:native("godot::ResourceLoader::ThreadLoadStatus::THREAD_LOAD_INVALID_RESOURCE")
 	final INVALID_RESOURCE;
 	@:native("godot::ResourceLoader::ThreadLoadStatus::THREAD_LOAD_IN_PROGRESS")

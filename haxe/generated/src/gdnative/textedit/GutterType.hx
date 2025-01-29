@@ -1,9 +1,8 @@
 package gdnative.textedit;
 @:native("godot::TextEdit::GutterType") extern enum abstract GutterType(GutterType_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):GutterType return untyped __cpp__("(static_cast<godot::TextEdit::GutterType>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:GutterType, v2:GutterType):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:GutterType):GutterType_extern return untyped __cpp__("(cpp::Struct<godot::TextEdit::GutterType, cpp::EnumHandler>){0}", v);
 	@:native("godot::TextEdit::GutterType::GUTTER_TYPE_STRING")
 	final STRING;
 	@:native("godot::TextEdit::GutterType::GUTTER_TYPE_ICON")

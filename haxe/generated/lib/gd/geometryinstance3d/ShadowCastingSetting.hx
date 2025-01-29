@@ -1,5 +1,5 @@
 package gd.geometryinstance3d;
-enum abstract ShadowCastingSetting(Int) to Int {
+enum abstract ShadowCastingSetting(Int) from Int to Int {
 	final OFF = 0;
 	final ON = 1;
 	final DOUBLE_SIDED = 2;

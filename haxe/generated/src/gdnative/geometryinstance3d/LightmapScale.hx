@@ -1,9 +1,8 @@
 package gdnative.geometryinstance3d;
 @:native("godot::GeometryInstance3D::LightmapScale") extern enum abstract LightmapScale(LightmapScale_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):LightmapScale return untyped __cpp__("(static_cast<godot::GeometryInstance3D::LightmapScale>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:LightmapScale, v2:LightmapScale):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:LightmapScale):LightmapScale_extern return untyped __cpp__("(cpp::Struct<godot::GeometryInstance3D::LightmapScale, cpp::EnumHandler>){0}", v);
 	@:native("godot::GeometryInstance3D::LightmapScale::LIGHTMAP_SCALE_1X")
 	final _1X;
 	@:native("godot::GeometryInstance3D::LightmapScale::LIGHTMAP_SCALE_2X")

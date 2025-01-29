@@ -1,9 +1,8 @@
 package gdnative.textedit;
 @:native("godot::TextEdit::CaretType") extern enum abstract CaretType(CaretType_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):CaretType return untyped __cpp__("(static_cast<godot::TextEdit::CaretType>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:CaretType, v2:CaretType):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:CaretType):CaretType_extern return untyped __cpp__("(cpp::Struct<godot::TextEdit::CaretType, cpp::EnumHandler>){0}", v);
 	@:native("godot::TextEdit::CaretType::CARET_TYPE_LINE")
 	final LINE;
 	@:native("godot::TextEdit::CaretType::CARET_TYPE_BLOCK")

@@ -1,5 +1,5 @@
 package gd.gpuparticlescollisionsdf3d;
-enum abstract Resolution(Int) to Int {
+enum abstract Resolution(Int) from Int to Int {
 	final _16 = 0;
 	final _32 = 1;
 	final _64 = 2;

@@ -1,9 +1,8 @@
 package gdnative.viewport;
 @:native("godot::Viewport::DefaultCanvasItemTextureFilter") extern enum abstract DefaultCanvasItemTextureFilter(DefaultCanvasItemTextureFilter_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):DefaultCanvasItemTextureFilter return untyped __cpp__("(static_cast<godot::Viewport::DefaultCanvasItemTextureFilter>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:DefaultCanvasItemTextureFilter, v2:DefaultCanvasItemTextureFilter):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:DefaultCanvasItemTextureFilter):DefaultCanvasItemTextureFilter_extern return untyped __cpp__("(cpp::Struct<godot::Viewport::DefaultCanvasItemTextureFilter, cpp::EnumHandler>){0}", v);
 	@:native("godot::Viewport::DefaultCanvasItemTextureFilter::DEFAULT_CANVAS_ITEM_TEXTURE_FILTER_NEAREST")
 	final NEAREST;
 	@:native("godot::Viewport::DefaultCanvasItemTextureFilter::DEFAULT_CANVAS_ITEM_TEXTURE_FILTER_LINEAR")

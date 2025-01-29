@@ -1,9 +1,8 @@
 package gdnative.zippacker;
 @:native("godot::ZIPPacker::ZipAppend") extern enum abstract ZipAppend(ZipAppend_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):ZipAppend return untyped __cpp__("(static_cast<godot::ZIPPacker::ZipAppend>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:ZipAppend, v2:ZipAppend):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:ZipAppend):ZipAppend_extern return untyped __cpp__("(cpp::Struct<godot::ZIPPacker::ZipAppend, cpp::EnumHandler>){0}", v);
 	@:native("godot::ZIPPacker::ZipAppend::APPEND_CREATE")
 	final CREATE;
 	@:native("godot::ZIPPacker::ZipAppend::APPEND_CREATEAFTER")

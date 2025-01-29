@@ -1,9 +1,8 @@
 package gdnative.visualshadernodetransformvecmult;
 @:native("godot::VisualShaderNodeTransformVecMult::Operator") extern enum abstract Operator(Operator_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):Operator return untyped __cpp__("(static_cast<godot::VisualShaderNodeTransformVecMult::Operator>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:Operator, v2:Operator):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:Operator):Operator_extern return untyped __cpp__("(cpp::Struct<godot::VisualShaderNodeTransformVecMult::Operator, cpp::EnumHandler>){0}", v);
 	@:native("godot::VisualShaderNodeTransformVecMult::Operator::OP_AxB")
 	final AxB;
 	@:native("godot::VisualShaderNodeTransformVecMult::Operator::OP_BxA")

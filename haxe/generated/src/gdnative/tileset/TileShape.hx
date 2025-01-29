@@ -1,9 +1,8 @@
 package gdnative.tileset;
 @:native("godot::TileSet::TileShape") extern enum abstract TileShape(TileShape_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):TileShape return untyped __cpp__("(static_cast<godot::TileSet::TileShape>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:TileShape, v2:TileShape):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:TileShape):TileShape_extern return untyped __cpp__("(cpp::Struct<godot::TileSet::TileShape, cpp::EnumHandler>){0}", v);
 	@:native("godot::TileSet::TileShape::TILE_SHAPE_SQUARE")
 	final SQUARE;
 	@:native("godot::TileSet::TileShape::TILE_SHAPE_ISOMETRIC")

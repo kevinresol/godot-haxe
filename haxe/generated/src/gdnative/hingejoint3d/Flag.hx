@@ -1,9 +1,8 @@
 package gdnative.hingejoint3d;
 @:native("godot::HingeJoint3D::Flag") extern enum abstract Flag(Flag_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):Flag return untyped __cpp__("(static_cast<godot::HingeJoint3D::Flag>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:Flag, v2:Flag):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:Flag):Flag_extern return untyped __cpp__("(cpp::Struct<godot::HingeJoint3D::Flag, cpp::EnumHandler>){0}", v);
 	@:native("godot::HingeJoint3D::Flag::FLAG_USE_LIMIT")
 	final USE_LIMIT;
 	@:native("godot::HingeJoint3D::Flag::FLAG_ENABLE_MOTOR")

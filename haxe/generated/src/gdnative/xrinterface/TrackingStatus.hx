@@ -1,9 +1,8 @@
 package gdnative.xrinterface;
 @:native("godot::XRInterface::TrackingStatus") extern enum abstract TrackingStatus(TrackingStatus_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):TrackingStatus return untyped __cpp__("(static_cast<godot::XRInterface::TrackingStatus>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:TrackingStatus, v2:TrackingStatus):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:TrackingStatus):TrackingStatus_extern return untyped __cpp__("(cpp::Struct<godot::XRInterface::TrackingStatus, cpp::EnumHandler>){0}", v);
 	@:native("godot::XRInterface::TrackingStatus::XR_NORMAL_TRACKING")
 	final NORMAL_TRACKING;
 	@:native("godot::XRInterface::TrackingStatus::XR_EXCESSIVE_MOTION")

@@ -1,5 +1,5 @@
 package gd.image;
-enum abstract Interpolation(Int) to Int {
+enum abstract Interpolation(Int) from Int to Int {
 	final NEAREST = 0;
 	final BILINEAR = 1;
 	final CUBIC = 2;

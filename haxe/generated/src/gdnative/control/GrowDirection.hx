@@ -1,9 +1,8 @@
 package gdnative.control;
 @:native("godot::Control::GrowDirection") extern enum abstract GrowDirection(GrowDirection_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):GrowDirection return untyped __cpp__("(static_cast<godot::Control::GrowDirection>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:GrowDirection, v2:GrowDirection):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:GrowDirection):GrowDirection_extern return untyped __cpp__("(cpp::Struct<godot::Control::GrowDirection, cpp::EnumHandler>){0}", v);
 	@:native("godot::Control::GrowDirection::GROW_DIRECTION_BEGIN")
 	final BEGIN;
 	@:native("godot::Control::GrowDirection::GROW_DIRECTION_END")

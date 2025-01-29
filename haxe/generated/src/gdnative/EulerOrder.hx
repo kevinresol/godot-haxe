@@ -1,9 +1,8 @@
 package gdnative;
 @:native("godot::EulerOrder") extern enum abstract EulerOrder(EulerOrder_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):EulerOrder return untyped __cpp__("(static_cast<godot::EulerOrder>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:EulerOrder, v2:EulerOrder):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:EulerOrder):EulerOrder_extern return untyped __cpp__("(cpp::Struct<godot::EulerOrder, cpp::EnumHandler>){0}", v);
 	@:native("godot::EulerOrder::EULER_ORDER_XYZ")
 	final XYZ;
 	@:native("godot::EulerOrder::EULER_ORDER_XZY")

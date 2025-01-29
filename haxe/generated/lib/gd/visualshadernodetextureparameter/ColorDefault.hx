@@ -1,5 +1,5 @@
 package gd.visualshadernodetextureparameter;
-enum abstract ColorDefault(Int) to Int {
+enum abstract ColorDefault(Int) from Int to Int {
 	final WHITE = 0;
 	final BLACK = 1;
 	final TRANSPARENT = 2;

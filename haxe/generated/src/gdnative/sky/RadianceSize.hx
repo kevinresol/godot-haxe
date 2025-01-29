@@ -1,9 +1,8 @@
 package gdnative.sky;
 @:native("godot::Sky::RadianceSize") extern enum abstract RadianceSize(RadianceSize_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):RadianceSize return untyped __cpp__("(static_cast<godot::Sky::RadianceSize>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:RadianceSize, v2:RadianceSize):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:RadianceSize):RadianceSize_extern return untyped __cpp__("(cpp::Struct<godot::Sky::RadianceSize, cpp::EnumHandler>){0}", v);
 	@:native("godot::Sky::RadianceSize::RADIANCE_SIZE_32")
 	final _32;
 	@:native("godot::Sky::RadianceSize::RADIANCE_SIZE_64")

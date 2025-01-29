@@ -1,9 +1,8 @@
 package gdnative.viewport;
 @:native("godot::Viewport::ScreenSpaceAA") extern enum abstract ScreenSpaceAA(ScreenSpaceAA_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):ScreenSpaceAA return untyped __cpp__("(static_cast<godot::Viewport::ScreenSpaceAA>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:ScreenSpaceAA, v2:ScreenSpaceAA):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:ScreenSpaceAA):ScreenSpaceAA_extern return untyped __cpp__("(cpp::Struct<godot::Viewport::ScreenSpaceAA, cpp::EnumHandler>){0}", v);
 	@:native("godot::Viewport::ScreenSpaceAA::SCREEN_SPACE_AA_DISABLED")
 	final DISABLED;
 	@:native("godot::Viewport::ScreenSpaceAA::SCREEN_SPACE_AA_FXAA")

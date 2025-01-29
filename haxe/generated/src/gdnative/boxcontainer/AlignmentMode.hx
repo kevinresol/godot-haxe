@@ -1,9 +1,8 @@
 package gdnative.boxcontainer;
 @:native("godot::BoxContainer::AlignmentMode") extern enum abstract AlignmentMode(AlignmentMode_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):AlignmentMode return untyped __cpp__("(static_cast<godot::BoxContainer::AlignmentMode>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:AlignmentMode, v2:AlignmentMode):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:AlignmentMode):AlignmentMode_extern return untyped __cpp__("(cpp::Struct<godot::BoxContainer::AlignmentMode, cpp::EnumHandler>){0}", v);
 	@:native("godot::BoxContainer::AlignmentMode::ALIGNMENT_BEGIN")
 	final BEGIN;
 	@:native("godot::BoxContainer::AlignmentMode::ALIGNMENT_CENTER")

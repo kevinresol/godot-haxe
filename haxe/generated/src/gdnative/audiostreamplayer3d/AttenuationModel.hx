@@ -1,9 +1,8 @@
 package gdnative.audiostreamplayer3d;
 @:native("godot::AudioStreamPlayer3D::AttenuationModel") extern enum abstract AttenuationModel(AttenuationModel_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):AttenuationModel return untyped __cpp__("(static_cast<godot::AudioStreamPlayer3D::AttenuationModel>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:AttenuationModel, v2:AttenuationModel):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:AttenuationModel):AttenuationModel_extern return untyped __cpp__("(cpp::Struct<godot::AudioStreamPlayer3D::AttenuationModel, cpp::EnumHandler>){0}", v);
 	@:native("godot::AudioStreamPlayer3D::AttenuationModel::ATTENUATION_INVERSE_DISTANCE")
 	final INVERSE_DISTANCE;
 	@:native("godot::AudioStreamPlayer3D::AttenuationModel::ATTENUATION_INVERSE_SQUARE_DISTANCE")

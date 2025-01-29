@@ -1,5 +1,5 @@
 package gd.httpclient;
-enum abstract ResponseCode(Int) to Int {
+enum abstract ResponseCode(Int) from Int to Int {
 	final CONTINUE = 100;
 	final SWITCHING_PROTOCOLS = 101;
 	final PROCESSING = 102;

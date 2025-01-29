@@ -1,9 +1,8 @@
 package gdnative.textserver;
 @:native("godot::TextServer::Hinting") extern enum abstract Hinting(Hinting_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):Hinting return untyped __cpp__("(static_cast<godot::TextServer::Hinting>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:Hinting, v2:Hinting):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:Hinting):Hinting_extern return untyped __cpp__("(cpp::Struct<godot::TextServer::Hinting, cpp::EnumHandler>){0}", v);
 	@:native("godot::TextServer::Hinting::HINTING_NONE")
 	final NONE;
 	@:native("godot::TextServer::Hinting::HINTING_LIGHT")

@@ -1,5 +1,5 @@
 package gd.renderingdevice;
-enum abstract FinalAction(Int) to Int {
+enum abstract FinalAction(Int) from Int to Int {
 	final STORE = 0;
 	final DISCARD = 1;
 	final MAX = 2;

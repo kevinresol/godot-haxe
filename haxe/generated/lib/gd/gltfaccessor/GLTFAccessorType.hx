@@ -1,5 +1,5 @@
 package gd.gltfaccessor;
-enum abstract GLTFAccessorType(Int) to Int {
+enum abstract GLTFAccessorType(Int) from Int to Int {
 	final SCALAR = 0;
 	final VEC2 = 1;
 	final VEC3 = 2;

@@ -1,9 +1,8 @@
 package gdnative;
 @:native("godot::ClockDirection") extern enum abstract ClockDirection(ClockDirection_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):ClockDirection return untyped __cpp__("(static_cast<godot::ClockDirection>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:ClockDirection, v2:ClockDirection):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:ClockDirection):ClockDirection_extern return untyped __cpp__("(cpp::Struct<godot::ClockDirection, cpp::EnumHandler>){0}", v);
 	final CLOCKWISE;
 	final COUNTERCLOCKWISE;
 }

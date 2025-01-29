@@ -1,9 +1,8 @@
 package gdnative.viewport;
 @:native("godot::Viewport::RenderInfo") extern enum abstract RenderInfo(RenderInfo_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):RenderInfo return untyped __cpp__("(static_cast<godot::Viewport::RenderInfo>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:RenderInfo, v2:RenderInfo):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:RenderInfo):RenderInfo_extern return untyped __cpp__("(cpp::Struct<godot::Viewport::RenderInfo, cpp::EnumHandler>){0}", v);
 	@:native("godot::Viewport::RenderInfo::RENDER_INFO_OBJECTS_IN_FRAME")
 	final OBJECTS_IN_FRAME;
 	@:native("godot::Viewport::RenderInfo::RENDER_INFO_PRIMITIVES_IN_FRAME")

@@ -1,9 +1,8 @@
 package gdnative.node;
 @:native("godot::Node::PhysicsInterpolationMode") extern enum abstract PhysicsInterpolationMode(PhysicsInterpolationMode_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):PhysicsInterpolationMode return untyped __cpp__("(static_cast<godot::Node::PhysicsInterpolationMode>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:PhysicsInterpolationMode, v2:PhysicsInterpolationMode):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:PhysicsInterpolationMode):PhysicsInterpolationMode_extern return untyped __cpp__("(cpp::Struct<godot::Node::PhysicsInterpolationMode, cpp::EnumHandler>){0}", v);
 	@:native("godot::Node::PhysicsInterpolationMode::PHYSICS_INTERPOLATION_MODE_INHERIT")
 	final INHERIT;
 	@:native("godot::Node::PhysicsInterpolationMode::PHYSICS_INTERPOLATION_MODE_ON")

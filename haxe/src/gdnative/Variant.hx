@@ -90,34 +90,29 @@ abstract Variant(cpp.Struct<Variant_extern>) from cpp.Struct<Variant_extern> to 
 	public function toHaxe():Dynamic {
 		// switch-case won't work: https://github.com/HaxeFoundation/hxcpp/issues/1131
 		final type = this.get_type();
-		final typeName:std.String = this.get_type_name(type);
-		trace('Type is ${(type : Int)}, $typeName, ${gdnative.variant.Type.OBJECT}');
+		// final typeName:std.String = this.get_type_name(type);
+		// trace('Type is $type, $typeName');
 
-		return if ((type : Int) == (gdnative.variant.Type.NIL : Int)) {
+		return if (type == gdnative.variant.Type.NIL) {
 			null;
-		} else if ((type : Int) == (gdnative.variant.Type.BOOL : Int)) {
+		} else if (type == gdnative.variant.Type.BOOL) {
 			final v = (cast val() : Bool);
 			v;
-		} else if ((type : Int) == (gdnative.variant.Type.INT : Int)) {
+		} else if (type == gdnative.variant.Type.INT) {
 			final v = (cast val() : Int);
 			v;
-		} else if ((type : Int) == (gdnative.variant.Type.FLOAT : Int)) {
+		} else if (type == gdnative.variant.Type.FLOAT) {
 			final v = (cast val() : Float);
 			v;
-		} else if ((type : Int) == (gdnative.variant.Type.STRING : Int)) {
+		} else if (type == gdnative.variant.Type.STRING) {
 			toHaxeString();
-		} else if ((type : Int) == (gdnative.variant.Type.OBJECT : Int)) {
+		} else if (type == gdnative.variant.Type.OBJECT) {
 			final name:std.String = this.call("get_class");
-			trace('name is $name');
-			final cls = Type.resolveClass('gd.$name');
-			trace('cls is $cls');
 			// TODO: is there a chance the class doesn't exist?
-			final inst:Dynamic = gd.Utils.createClassWrapper(toObjectPointer(), cls);
-			trace('inst is $inst');
-			inst;
+			gd.Utils.createClassWrapper(toObjectPointer(), Type.resolveClass('gd.$name'));
 		} else {
-			trace("Unhandled type");
-			throw "Unhandled type";
+			trace('Unhandled type $type');
+			throw 'Unhandled type $type';
 		}
 	}
 

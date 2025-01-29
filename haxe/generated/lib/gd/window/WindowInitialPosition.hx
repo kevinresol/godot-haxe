@@ -1,5 +1,5 @@
 package gd.window;
-enum abstract WindowInitialPosition(Int) to Int {
+enum abstract WindowInitialPosition(Int) from Int to Int {
 	final ABSOLUTE = 0;
 	final CENTER_PRIMARY_SCREEN = 1;
 	final CENTER_MAIN_WINDOW_SCREEN = 2;

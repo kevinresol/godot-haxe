@@ -1,5 +1,5 @@
 package gd.renderingserver;
-enum abstract EnvironmentToneMapper(Int) to Int {
+enum abstract EnvironmentToneMapper(Int) from Int to Int {
 	final LINEAR = 0;
 	final REINHARD = 1;
 	final FILMIC = 2;

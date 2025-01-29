@@ -1,9 +1,8 @@
 package gdnative.occluderpolygon2d;
 @:native("godot::OccluderPolygon2D::CullMode") extern enum abstract CullMode(CullMode_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):CullMode return untyped __cpp__("(static_cast<godot::OccluderPolygon2D::CullMode>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:CullMode, v2:CullMode):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:CullMode):CullMode_extern return untyped __cpp__("(cpp::Struct<godot::OccluderPolygon2D::CullMode, cpp::EnumHandler>){0}", v);
 	@:native("godot::OccluderPolygon2D::CullMode::CULL_DISABLED")
 	final DISABLED;
 	@:native("godot::OccluderPolygon2D::CullMode::CULL_CLOCKWISE")

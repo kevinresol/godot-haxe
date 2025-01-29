@@ -1,5 +1,5 @@
 package gd.basematerial3d;
-enum abstract Feature(Int) to Int {
+enum abstract Feature(Int) from Int to Int {
 	final EMISSION = 0;
 	final NORMAL_MAPPING = 1;
 	final RIM = 2;

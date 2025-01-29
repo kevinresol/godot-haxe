@@ -4,7 +4,7 @@
 			"name": "Mac",
 			"includePath": [
 				"${workspaceFolder}/**",
-				"~/haxe/haxelib/hxcpp/4,3,2/include"
+				"~/haxe/haxelib/hxcpp/git/include"
 			],
 			"defines": ["HXCPP_SCRIPTABLE"],
 			"macFrameworkPath": [

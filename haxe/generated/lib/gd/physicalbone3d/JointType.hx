@@ -1,5 +1,5 @@
 package gd.physicalbone3d;
-enum abstract JointType(Int) to Int {
+enum abstract JointType(Int) from Int to Int {
 	final NONE = 0;
 	final PIN = 1;
 	final CONE = 2;

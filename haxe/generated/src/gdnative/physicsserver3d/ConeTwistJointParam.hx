@@ -1,9 +1,8 @@
 package gdnative.physicsserver3d;
 @:native("godot::PhysicsServer3D::ConeTwistJointParam") extern enum abstract ConeTwistJointParam(ConeTwistJointParam_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):ConeTwistJointParam return untyped __cpp__("(static_cast<godot::PhysicsServer3D::ConeTwistJointParam>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:ConeTwistJointParam, v2:ConeTwistJointParam):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:ConeTwistJointParam):ConeTwistJointParam_extern return untyped __cpp__("(cpp::Struct<godot::PhysicsServer3D::ConeTwistJointParam, cpp::EnumHandler>){0}", v);
 	@:native("godot::PhysicsServer3D::ConeTwistJointParam::CONE_TWIST_JOINT_SWING_SPAN")
 	final SWING_SPAN;
 	@:native("godot::PhysicsServer3D::ConeTwistJointParam::CONE_TWIST_JOINT_TWIST_SPAN")

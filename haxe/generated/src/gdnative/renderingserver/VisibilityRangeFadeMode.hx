@@ -1,9 +1,8 @@
 package gdnative.renderingserver;
 @:native("godot::RenderingServer::VisibilityRangeFadeMode") extern enum abstract VisibilityRangeFadeMode(VisibilityRangeFadeMode_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):VisibilityRangeFadeMode return untyped __cpp__("(static_cast<godot::RenderingServer::VisibilityRangeFadeMode>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:VisibilityRangeFadeMode, v2:VisibilityRangeFadeMode):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:VisibilityRangeFadeMode):VisibilityRangeFadeMode_extern return untyped __cpp__("(cpp::Struct<godot::RenderingServer::VisibilityRangeFadeMode, cpp::EnumHandler>){0}", v);
 	@:native("godot::RenderingServer::VisibilityRangeFadeMode::VISIBILITY_RANGE_FADE_DISABLED")
 	final DISABLED;
 	@:native("godot::RenderingServer::VisibilityRangeFadeMode::VISIBILITY_RANGE_FADE_SELF")

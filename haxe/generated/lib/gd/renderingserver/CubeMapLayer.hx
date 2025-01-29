@@ -1,5 +1,5 @@
 package gd.renderingserver;
-enum abstract CubeMapLayer(Int) to Int {
+enum abstract CubeMapLayer(Int) from Int to Int {
 	final LEFT = 0;
 	final RIGHT = 1;
 	final BOTTOM = 2;

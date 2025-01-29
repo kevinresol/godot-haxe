@@ -1,9 +1,8 @@
 package gdnative;
 @:native("godot::KeyModifierMask") extern enum abstract KeyModifierMask(KeyModifierMask_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):KeyModifierMask return untyped __cpp__("(static_cast<godot::KeyModifierMask>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:KeyModifierMask, v2:KeyModifierMask):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:KeyModifierMask):KeyModifierMask_extern return untyped __cpp__("(cpp::Struct<godot::KeyModifierMask, cpp::EnumHandler>){0}", v);
 	final KEY_CODE_MASK;
 	final KEY_MODIFIER_MASK;
 	@:native("godot::KeyModifierMask::KEY_MASK_CMD_OR_CTRL")

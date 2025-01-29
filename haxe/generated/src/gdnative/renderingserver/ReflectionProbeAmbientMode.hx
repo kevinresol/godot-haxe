@@ -1,9 +1,8 @@
 package gdnative.renderingserver;
 @:native("godot::RenderingServer::ReflectionProbeAmbientMode") extern enum abstract ReflectionProbeAmbientMode(ReflectionProbeAmbientMode_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):ReflectionProbeAmbientMode return untyped __cpp__("(static_cast<godot::RenderingServer::ReflectionProbeAmbientMode>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:ReflectionProbeAmbientMode, v2:ReflectionProbeAmbientMode):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:ReflectionProbeAmbientMode):ReflectionProbeAmbientMode_extern return untyped __cpp__("(cpp::Struct<godot::RenderingServer::ReflectionProbeAmbientMode, cpp::EnumHandler>){0}", v);
 	@:native("godot::RenderingServer::ReflectionProbeAmbientMode::REFLECTION_PROBE_AMBIENT_DISABLED")
 	final DISABLED;
 	@:native("godot::RenderingServer::ReflectionProbeAmbientMode::REFLECTION_PROBE_AMBIENT_ENVIRONMENT")

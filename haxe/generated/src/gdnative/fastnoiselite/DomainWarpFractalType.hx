@@ -1,9 +1,8 @@
 package gdnative.fastnoiselite;
 @:native("godot::FastNoiseLite::DomainWarpFractalType") extern enum abstract DomainWarpFractalType(DomainWarpFractalType_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):DomainWarpFractalType return untyped __cpp__("(static_cast<godot::FastNoiseLite::DomainWarpFractalType>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:DomainWarpFractalType, v2:DomainWarpFractalType):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:DomainWarpFractalType):DomainWarpFractalType_extern return untyped __cpp__("(cpp::Struct<godot::FastNoiseLite::DomainWarpFractalType, cpp::EnumHandler>){0}", v);
 	@:native("godot::FastNoiseLite::DomainWarpFractalType::DOMAIN_WARP_FRACTAL_NONE")
 	final NONE;
 	@:native("godot::FastNoiseLite::DomainWarpFractalType::DOMAIN_WARP_FRACTAL_PROGRESSIVE")

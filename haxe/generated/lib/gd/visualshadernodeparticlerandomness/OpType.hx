@@ -1,5 +1,5 @@
 package gd.visualshadernodeparticlerandomness;
-enum abstract OpType(Int) to Int {
+enum abstract OpType(Int) from Int to Int {
 	final SCALAR = 0;
 	final VECTOR_2D = 1;
 	final VECTOR_3D = 2;

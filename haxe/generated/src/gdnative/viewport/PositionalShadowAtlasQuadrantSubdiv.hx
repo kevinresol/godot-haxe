@@ -1,9 +1,8 @@
 package gdnative.viewport;
 @:native("godot::Viewport::PositionalShadowAtlasQuadrantSubdiv") extern enum abstract PositionalShadowAtlasQuadrantSubdiv(PositionalShadowAtlasQuadrantSubdiv_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):PositionalShadowAtlasQuadrantSubdiv return untyped __cpp__("(static_cast<godot::Viewport::PositionalShadowAtlasQuadrantSubdiv>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:PositionalShadowAtlasQuadrantSubdiv, v2:PositionalShadowAtlasQuadrantSubdiv):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:PositionalShadowAtlasQuadrantSubdiv):PositionalShadowAtlasQuadrantSubdiv_extern return untyped __cpp__("(cpp::Struct<godot::Viewport::PositionalShadowAtlasQuadrantSubdiv, cpp::EnumHandler>){0}", v);
 	@:native("godot::Viewport::PositionalShadowAtlasQuadrantSubdiv::SHADOW_ATLAS_QUADRANT_SUBDIV_DISABLED")
 	final DISABLED;
 	@:native("godot::Viewport::PositionalShadowAtlasQuadrantSubdiv::SHADOW_ATLAS_QUADRANT_SUBDIV_1")

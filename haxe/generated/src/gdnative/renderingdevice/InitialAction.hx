@@ -1,9 +1,8 @@
 package gdnative.renderingdevice;
 @:native("godot::RenderingDevice::InitialAction") extern enum abstract InitialAction(InitialAction_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):InitialAction return untyped __cpp__("(static_cast<godot::RenderingDevice::InitialAction>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:InitialAction, v2:InitialAction):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:InitialAction):InitialAction_extern return untyped __cpp__("(cpp::Struct<godot::RenderingDevice::InitialAction, cpp::EnumHandler>){0}", v);
 	@:native("godot::RenderingDevice::InitialAction::INITIAL_ACTION_LOAD")
 	final LOAD;
 	@:native("godot::RenderingDevice::InitialAction::INITIAL_ACTION_CLEAR")

@@ -1,9 +1,8 @@
 package gdnative.image;
 @:native("godot::Image::CompressSource") extern enum abstract CompressSource(CompressSource_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):CompressSource return untyped __cpp__("(static_cast<godot::Image::CompressSource>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:CompressSource, v2:CompressSource):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:CompressSource):CompressSource_extern return untyped __cpp__("(cpp::Struct<godot::Image::CompressSource, cpp::EnumHandler>){0}", v);
 	@:native("godot::Image::CompressSource::COMPRESS_SOURCE_GENERIC")
 	final GENERIC;
 	@:native("godot::Image::CompressSource::COMPRESS_SOURCE_SRGB")

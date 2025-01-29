@@ -1,5 +1,5 @@
 package gd.visualshadernodevectorfunc;
-enum abstract Function(Int) to Int {
+enum abstract Function(Int) from Int to Int {
 	final NORMALIZE = 0;
 	final SATURATE = 1;
 	final NEGATE = 2;

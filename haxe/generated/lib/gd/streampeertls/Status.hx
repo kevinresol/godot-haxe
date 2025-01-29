@@ -1,5 +1,5 @@
 package gd.streampeertls;
-enum abstract Status(Int) to Int {
+enum abstract Status(Int) from Int to Int {
 	final DISCONNECTED = 0;
 	final HANDSHAKING = 1;
 	final CONNECTED = 2;

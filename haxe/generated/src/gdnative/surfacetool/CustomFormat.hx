@@ -1,9 +1,8 @@
 package gdnative.surfacetool;
 @:native("godot::SurfaceTool::CustomFormat") extern enum abstract CustomFormat(CustomFormat_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):CustomFormat return untyped __cpp__("(static_cast<godot::SurfaceTool::CustomFormat>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:CustomFormat, v2:CustomFormat):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:CustomFormat):CustomFormat_extern return untyped __cpp__("(cpp::Struct<godot::SurfaceTool::CustomFormat, cpp::EnumHandler>){0}", v);
 	@:native("godot::SurfaceTool::CustomFormat::CUSTOM_RGBA8_UNORM")
 	final RGBA8_UNORM;
 	@:native("godot::SurfaceTool::CustomFormat::CUSTOM_RGBA8_SNORM")

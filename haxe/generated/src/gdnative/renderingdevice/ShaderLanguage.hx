@@ -1,9 +1,8 @@
 package gdnative.renderingdevice;
 @:native("godot::RenderingDevice::ShaderLanguage") extern enum abstract ShaderLanguage(ShaderLanguage_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):ShaderLanguage return untyped __cpp__("(static_cast<godot::RenderingDevice::ShaderLanguage>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:ShaderLanguage, v2:ShaderLanguage):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:ShaderLanguage):ShaderLanguage_extern return untyped __cpp__("(cpp::Struct<godot::RenderingDevice::ShaderLanguage, cpp::EnumHandler>){0}", v);
 	@:native("godot::RenderingDevice::ShaderLanguage::SHADER_LANGUAGE_GLSL")
 	final GLSL;
 	@:native("godot::RenderingDevice::ShaderLanguage::SHADER_LANGUAGE_HLSL")

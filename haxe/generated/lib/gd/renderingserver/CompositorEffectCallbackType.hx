@@ -1,5 +1,5 @@
 package gd.renderingserver;
-enum abstract CompositorEffectCallbackType(Int) to Int {
+enum abstract CompositorEffectCallbackType(Int) from Int to Int {
 	final PRE_OPAQUE = 0;
 	final POST_OPAQUE = 1;
 	final POST_SKY = 2;

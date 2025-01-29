@@ -1,9 +1,8 @@
 package gdnative.renderingdevice;
 @:native("godot::RenderingDevice::TextureUsageBits") extern enum abstract TextureUsageBits(TextureUsageBits_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):TextureUsageBits return untyped __cpp__("(static_cast<godot::RenderingDevice::TextureUsageBits>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:TextureUsageBits, v2:TextureUsageBits):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:TextureUsageBits):TextureUsageBits_extern return untyped __cpp__("(cpp::Struct<godot::RenderingDevice::TextureUsageBits, cpp::EnumHandler>){0}", v);
 	@:native("godot::RenderingDevice::TextureUsageBits::TEXTURE_USAGE_SAMPLING_BIT")
 	final SAMPLING_BIT;
 	@:native("godot::RenderingDevice::TextureUsageBits::TEXTURE_USAGE_COLOR_ATTACHMENT_BIT")

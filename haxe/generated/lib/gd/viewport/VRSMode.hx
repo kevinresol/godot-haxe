@@ -1,5 +1,5 @@
 package gd.viewport;
-enum abstract VRSMode(Int) to Int {
+enum abstract VRSMode(Int) from Int to Int {
 	final DISABLED = 0;
 	final TEXTURE = 1;
 	final XR = 2;

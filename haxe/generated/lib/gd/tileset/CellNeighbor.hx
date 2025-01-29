@@ -1,5 +1,5 @@
 package gd.tileset;
-enum abstract CellNeighbor(Int) to Int {
+enum abstract CellNeighbor(Int) from Int to Int {
 	final RIGHT_SIDE = 0;
 	final RIGHT_CORNER = 1;
 	final BOTTOM_RIGHT_SIDE = 2;

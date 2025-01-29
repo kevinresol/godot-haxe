@@ -1,5 +1,5 @@
 package gd.renderingdevice;
-enum abstract BlendOperation(Int) to Int {
+enum abstract BlendOperation(Int) from Int to Int {
 	final ADD = 0;
 	final SUBTRACT = 1;
 	final REVERSE_SUBTRACT = 2;

@@ -1,5 +1,5 @@
 package gd;
-enum abstract JoyButton(Int) to Int {
+enum abstract JoyButton(Int) from Int to Int {
 	final INVALID = -1;
 	final A = 0;
 	final B = 1;

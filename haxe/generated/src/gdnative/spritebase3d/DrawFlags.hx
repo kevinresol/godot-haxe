@@ -1,9 +1,8 @@
 package gdnative.spritebase3d;
 @:native("godot::SpriteBase3D::DrawFlags") extern enum abstract DrawFlags(DrawFlags_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):DrawFlags return untyped __cpp__("(static_cast<godot::SpriteBase3D::DrawFlags>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:DrawFlags, v2:DrawFlags):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:DrawFlags):DrawFlags_extern return untyped __cpp__("(cpp::Struct<godot::SpriteBase3D::DrawFlags, cpp::EnumHandler>){0}", v);
 	@:native("godot::SpriteBase3D::DrawFlags::FLAG_TRANSPARENT")
 	final TRANSPARENT;
 	@:native("godot::SpriteBase3D::DrawFlags::FLAG_SHADED")

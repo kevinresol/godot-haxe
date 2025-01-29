@@ -1,5 +1,5 @@
 package gd.renderingdevice;
-enum abstract DriverResource(Int) to Int {
+enum abstract DriverResource(Int) from Int to Int {
 	final LOGICAL_DEVICE = 0;
 	final PHYSICAL_DEVICE = 1;
 	final TOPMOST_OBJECT = 2;

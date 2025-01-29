@@ -1,9 +1,8 @@
 package gdnative.renderingserver;
 @:native("godot::RenderingServer::EnvironmentToneMapper") extern enum abstract EnvironmentToneMapper(EnvironmentToneMapper_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):EnvironmentToneMapper return untyped __cpp__("(static_cast<godot::RenderingServer::EnvironmentToneMapper>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:EnvironmentToneMapper, v2:EnvironmentToneMapper):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:EnvironmentToneMapper):EnvironmentToneMapper_extern return untyped __cpp__("(cpp::Struct<godot::RenderingServer::EnvironmentToneMapper, cpp::EnumHandler>){0}", v);
 	@:native("godot::RenderingServer::EnvironmentToneMapper::ENV_TONE_MAPPER_LINEAR")
 	final LINEAR;
 	@:native("godot::RenderingServer::EnvironmentToneMapper::ENV_TONE_MAPPER_REINHARD")

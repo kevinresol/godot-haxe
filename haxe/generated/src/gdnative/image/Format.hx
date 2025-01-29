@@ -1,9 +1,8 @@
 package gdnative.image;
 @:native("godot::Image::Format") extern enum abstract Format(Format_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):Format return untyped __cpp__("(static_cast<godot::Image::Format>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:Format, v2:Format):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:Format):Format_extern return untyped __cpp__("(cpp::Struct<godot::Image::Format, cpp::EnumHandler>){0}", v);
 	@:native("godot::Image::Format::FORMAT_L8")
 	final L8;
 	@:native("godot::Image::Format::FORMAT_LA8")

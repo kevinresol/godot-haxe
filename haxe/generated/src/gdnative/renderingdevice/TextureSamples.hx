@@ -1,9 +1,8 @@
 package gdnative.renderingdevice;
 @:native("godot::RenderingDevice::TextureSamples") extern enum abstract TextureSamples(TextureSamples_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):TextureSamples return untyped __cpp__("(static_cast<godot::RenderingDevice::TextureSamples>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:TextureSamples, v2:TextureSamples):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:TextureSamples):TextureSamples_extern return untyped __cpp__("(cpp::Struct<godot::RenderingDevice::TextureSamples, cpp::EnumHandler>){0}", v);
 	@:native("godot::RenderingDevice::TextureSamples::TEXTURE_SAMPLES_1")
 	final _1;
 	@:native("godot::RenderingDevice::TextureSamples::TEXTURE_SAMPLES_2")

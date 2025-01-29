@@ -1,5 +1,5 @@
 package gd.characterbody3d;
-enum abstract MotionMode(Int) to Int {
+enum abstract MotionMode(Int) from Int to Int {
 	final GROUNDED = 0;
 	final FLOATING = 1;
 }

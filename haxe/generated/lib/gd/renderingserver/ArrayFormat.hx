@@ -1,5 +1,5 @@
 package gd.renderingserver;
-enum abstract ArrayFormat(Int) to Int {
+enum abstract ArrayFormat(cpp.UInt64) from cpp.UInt64 to cpp.UInt64 {
 	final FORMAT_VERTEX = 1;
 	final FORMAT_NORMAL = 2;
 	final FORMAT_TANGENT = 4;
@@ -30,7 +30,5 @@ enum abstract ArrayFormat(Int) to Int {
 	final FLAG_FORMAT_VERSION_BASE = 35;
 	final FLAG_FORMAT_VERSION_SHIFT = 35;
 	final FLAG_FORMAT_VERSION_1 = 0;
-	final FLAG_FORMAT_VERSION_2 = 34359738368.;
-	final FLAG_FORMAT_CURRENT_VERSION = 34359738368.;
 	final FLAG_FORMAT_VERSION_MASK = 255;
 }

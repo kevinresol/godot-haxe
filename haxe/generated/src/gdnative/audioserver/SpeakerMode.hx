@@ -1,9 +1,8 @@
 package gdnative.audioserver;
 @:native("godot::AudioServer::SpeakerMode") extern enum abstract SpeakerMode(SpeakerMode_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):SpeakerMode return untyped __cpp__("(static_cast<godot::AudioServer::SpeakerMode>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:SpeakerMode, v2:SpeakerMode):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:SpeakerMode):SpeakerMode_extern return untyped __cpp__("(cpp::Struct<godot::AudioServer::SpeakerMode, cpp::EnumHandler>){0}", v);
 	@:native("godot::AudioServer::SpeakerMode::SPEAKER_MODE_STEREO")
 	final MODE_STEREO;
 	@:native("godot::AudioServer::SpeakerMode::SPEAKER_SURROUND_31")

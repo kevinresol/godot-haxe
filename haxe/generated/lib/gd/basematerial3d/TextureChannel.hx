@@ -1,5 +1,5 @@
 package gd.basematerial3d;
-enum abstract TextureChannel(Int) to Int {
+enum abstract TextureChannel(Int) from Int to Int {
 	final RED = 0;
 	final GREEN = 1;
 	final BLUE = 2;

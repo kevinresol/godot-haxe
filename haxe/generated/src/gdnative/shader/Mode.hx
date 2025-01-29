@@ -1,9 +1,8 @@
 package gdnative.shader;
 @:native("godot::Shader::Mode") extern enum abstract Mode(Mode_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):Mode return untyped __cpp__("(static_cast<godot::Shader::Mode>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:Mode, v2:Mode):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:Mode):Mode_extern return untyped __cpp__("(cpp::Struct<godot::Shader::Mode, cpp::EnumHandler>){0}", v);
 	@:native("godot::Shader::Mode::MODE_SPATIAL")
 	final SPATIAL;
 	@:native("godot::Shader::Mode::MODE_CANVAS_ITEM")

@@ -1,5 +1,5 @@
 package gd.renderingserver;
-enum abstract GlobalShaderParameterType(Int) to Int {
+enum abstract GlobalShaderParameterType(Int) from Int to Int {
 	final BOOL = 0;
 	final BVEC2 = 1;
 	final BVEC3 = 2;

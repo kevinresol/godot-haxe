@@ -1,5 +1,5 @@
 package gd.editorscenepostimportplugin;
-enum abstract InternalImportCategory(Int) to Int {
+enum abstract InternalImportCategory(Int) from Int to Int {
 	final NODE = 0;
 	final MESH_3D_NODE = 1;
 	final MESH = 2;

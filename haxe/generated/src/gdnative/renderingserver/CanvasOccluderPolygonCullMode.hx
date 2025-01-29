@@ -1,9 +1,8 @@
 package gdnative.renderingserver;
 @:native("godot::RenderingServer::CanvasOccluderPolygonCullMode") extern enum abstract CanvasOccluderPolygonCullMode(CanvasOccluderPolygonCullMode_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):CanvasOccluderPolygonCullMode return untyped __cpp__("(static_cast<godot::RenderingServer::CanvasOccluderPolygonCullMode>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:CanvasOccluderPolygonCullMode, v2:CanvasOccluderPolygonCullMode):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:CanvasOccluderPolygonCullMode):CanvasOccluderPolygonCullMode_extern return untyped __cpp__("(cpp::Struct<godot::RenderingServer::CanvasOccluderPolygonCullMode, cpp::EnumHandler>){0}", v);
 	@:native("godot::RenderingServer::CanvasOccluderPolygonCullMode::CANVAS_OCCLUDER_POLYGON_CULL_DISABLED")
 	final DISABLED;
 	@:native("godot::RenderingServer::CanvasOccluderPolygonCullMode::CANVAS_OCCLUDER_POLYGON_CULL_CLOCKWISE")

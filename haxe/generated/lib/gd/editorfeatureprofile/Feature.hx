@@ -1,5 +1,5 @@
 package gd.editorfeatureprofile;
-enum abstract Feature(Int) to Int {
+enum abstract Feature(Int) from Int to Int {
 	final _3D = 0;
 	final SCRIPT = 1;
 	final ASSET_LIB = 2;

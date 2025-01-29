@@ -1,5 +1,5 @@
 package gd.visualshadernodefloatfunc;
-enum abstract Function(Int) to Int {
+enum abstract Function(Int) from Int to Int {
 	final SIN = 0;
 	final COS = 1;
 	final TAN = 2;

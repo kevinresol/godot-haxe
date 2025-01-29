@@ -1,5 +1,5 @@
 package gd.xrbodytracker;
-enum abstract Joint(Int) to Int {
+enum abstract Joint(Int) from Int to Int {
 	final ROOT = 0;
 	final HIPS = 1;
 	final SPINE = 2;

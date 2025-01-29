@@ -1,9 +1,8 @@
 package gdnative.streampeertls;
 @:native("godot::StreamPeerTLS::Status") extern enum abstract Status(Status_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):Status return untyped __cpp__("(static_cast<godot::StreamPeerTLS::Status>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:Status, v2:Status):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:Status):Status_extern return untyped __cpp__("(cpp::Struct<godot::StreamPeerTLS::Status, cpp::EnumHandler>){0}", v);
 	@:native("godot::StreamPeerTLS::Status::STATUS_DISCONNECTED")
 	final DISCONNECTED;
 	@:native("godot::StreamPeerTLS::Status::STATUS_HANDSHAKING")

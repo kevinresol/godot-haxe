@@ -1,9 +1,8 @@
 package gdnative;
 @:native("godot::HorizontalAlignment") extern enum abstract HorizontalAlignment(HorizontalAlignment_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):HorizontalAlignment return untyped __cpp__("(static_cast<godot::HorizontalAlignment>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:HorizontalAlignment, v2:HorizontalAlignment):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:HorizontalAlignment):HorizontalAlignment_extern return untyped __cpp__("(cpp::Struct<godot::HorizontalAlignment, cpp::EnumHandler>){0}", v);
 	@:native("godot::HorizontalAlignment::HORIZONTAL_ALIGNMENT_LEFT")
 	final LEFT;
 	@:native("godot::HorizontalAlignment::HORIZONTAL_ALIGNMENT_CENTER")

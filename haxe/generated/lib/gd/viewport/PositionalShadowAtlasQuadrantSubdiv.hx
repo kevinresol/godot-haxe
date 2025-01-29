@@ -1,5 +1,5 @@
 package gd.viewport;
-enum abstract PositionalShadowAtlasQuadrantSubdiv(Int) to Int {
+enum abstract PositionalShadowAtlasQuadrantSubdiv(Int) from Int to Int {
 	final DISABLED = 0;
 	final _1 = 1;
 	final _4 = 2;

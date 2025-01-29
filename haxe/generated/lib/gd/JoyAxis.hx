@@ -1,5 +1,5 @@
 package gd;
-enum abstract JoyAxis(Int) to Int {
+enum abstract JoyAxis(Int) from Int to Int {
 	final INVALID = -1;
 	final LEFT_X = 0;
 	final LEFT_Y = 1;

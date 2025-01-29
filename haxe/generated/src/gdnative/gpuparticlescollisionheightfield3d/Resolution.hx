@@ -1,9 +1,8 @@
 package gdnative.gpuparticlescollisionheightfield3d;
 @:native("godot::GPUParticlesCollisionHeightField3D::Resolution") extern enum abstract Resolution(Resolution_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):Resolution return untyped __cpp__("(static_cast<godot::GPUParticlesCollisionHeightField3D::Resolution>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:Resolution, v2:Resolution):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:Resolution):Resolution_extern return untyped __cpp__("(cpp::Struct<godot::GPUParticlesCollisionHeightField3D::Resolution, cpp::EnumHandler>){0}", v);
 	@:native("godot::GPUParticlesCollisionHeightField3D::Resolution::RESOLUTION_256")
 	final _256;
 	@:native("godot::GPUParticlesCollisionHeightField3D::Resolution::RESOLUTION_512")

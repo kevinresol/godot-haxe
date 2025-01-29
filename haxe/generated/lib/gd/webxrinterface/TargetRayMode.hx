@@ -1,5 +1,5 @@
 package gd.webxrinterface;
-enum abstract TargetRayMode(Int) to Int {
+enum abstract TargetRayMode(Int) from Int to Int {
 	final UNKNOWN = 0;
 	final GAZE = 1;
 	final TRACKED_POINTER = 2;

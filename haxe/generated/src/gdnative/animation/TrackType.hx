@@ -1,9 +1,8 @@
 package gdnative.animation;
 @:native("godot::Animation::TrackType") extern enum abstract TrackType(TrackType_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):TrackType return untyped __cpp__("(static_cast<godot::Animation::TrackType>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:TrackType, v2:TrackType):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:TrackType):TrackType_extern return untyped __cpp__("(cpp::Struct<godot::Animation::TrackType, cpp::EnumHandler>){0}", v);
 	@:native("godot::Animation::TrackType::TYPE_VALUE")
 	final VALUE;
 	@:native("godot::Animation::TrackType::TYPE_POSITION_3D")

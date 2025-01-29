@@ -1,9 +1,8 @@
 package gdnative.visualshadernode;
 @:native("godot::VisualShaderNode::PortType") extern enum abstract PortType(PortType_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):PortType return untyped __cpp__("(static_cast<godot::VisualShaderNode::PortType>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:PortType, v2:PortType):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:PortType):PortType_extern return untyped __cpp__("(cpp::Struct<godot::VisualShaderNode::PortType, cpp::EnumHandler>){0}", v);
 	@:native("godot::VisualShaderNode::PortType::PORT_TYPE_SCALAR")
 	final SCALAR;
 	@:native("godot::VisualShaderNode::PortType::PORT_TYPE_SCALAR_INT")

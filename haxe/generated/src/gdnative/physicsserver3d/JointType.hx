@@ -1,9 +1,8 @@
 package gdnative.physicsserver3d;
 @:native("godot::PhysicsServer3D::JointType") extern enum abstract JointType(JointType_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):JointType return untyped __cpp__("(static_cast<godot::PhysicsServer3D::JointType>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:JointType, v2:JointType):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:JointType):JointType_extern return untyped __cpp__("(cpp::Struct<godot::PhysicsServer3D::JointType, cpp::EnumHandler>){0}", v);
 	@:native("godot::PhysicsServer3D::JointType::JOINT_TYPE_PIN")
 	final PIN;
 	@:native("godot::PhysicsServer3D::JointType::JOINT_TYPE_HINGE")

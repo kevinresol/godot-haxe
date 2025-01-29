@@ -1,5 +1,5 @@
 package gd.renderingserver;
-enum abstract EnvironmentBG(Int) to Int {
+enum abstract EnvironmentBG(Int) from Int to Int {
 	final CLEAR_COLOR = 0;
 	final COLOR = 1;
 	final SKY = 2;

@@ -1,5 +1,5 @@
 package gd.renderingdevice;
-enum abstract DataFormat(Int) to Int {
+enum abstract DataFormat(Int) from Int to Int {
 	final R4G4_UNORM_PACK8 = 0;
 	final R4G4B4A4_UNORM_PACK16 = 1;
 	final B4G4R4A4_UNORM_PACK16 = 2;

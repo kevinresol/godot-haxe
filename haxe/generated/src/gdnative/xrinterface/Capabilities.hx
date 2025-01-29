@@ -1,9 +1,8 @@
 package gdnative.xrinterface;
 @:native("godot::XRInterface::Capabilities") extern enum abstract Capabilities(Capabilities_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):Capabilities return untyped __cpp__("(static_cast<godot::XRInterface::Capabilities>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:Capabilities, v2:Capabilities):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:Capabilities):Capabilities_extern return untyped __cpp__("(cpp::Struct<godot::XRInterface::Capabilities, cpp::EnumHandler>){0}", v);
 	@:native("godot::XRInterface::Capabilities::XR_NONE")
 	final NONE;
 	@:native("godot::XRInterface::Capabilities::XR_MONO")

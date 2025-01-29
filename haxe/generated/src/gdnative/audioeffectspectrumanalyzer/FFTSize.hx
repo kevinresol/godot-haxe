@@ -1,9 +1,8 @@
 package gdnative.audioeffectspectrumanalyzer;
 @:native("godot::AudioEffectSpectrumAnalyzer::FFTSize") extern enum abstract FFTSize(FFTSize_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):FFTSize return untyped __cpp__("(static_cast<godot::AudioEffectSpectrumAnalyzer::FFTSize>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:FFTSize, v2:FFTSize):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:FFTSize):FFTSize_extern return untyped __cpp__("(cpp::Struct<godot::AudioEffectSpectrumAnalyzer::FFTSize, cpp::EnumHandler>){0}", v);
 	@:native("godot::AudioEffectSpectrumAnalyzer::FFTSize::FFT_SIZE_256")
 	final _256;
 	@:native("godot::AudioEffectSpectrumAnalyzer::FFTSize::FFT_SIZE_512")

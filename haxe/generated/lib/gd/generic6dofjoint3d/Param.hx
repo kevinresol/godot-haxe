@@ -1,5 +1,5 @@
 package gd.generic6dofjoint3d;
-enum abstract Param(Int) to Int {
+enum abstract Param(Int) from Int to Int {
 	final LINEAR_LOWER_LIMIT = 0;
 	final LINEAR_UPPER_LIMIT = 1;
 	final LINEAR_LIMIT_SOFTNESS = 2;

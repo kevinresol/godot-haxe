@@ -1,5 +1,5 @@
 package gd.physicsserver3d;
-enum abstract HingeJointParam(Int) to Int {
+enum abstract HingeJointParam(Int) from Int to Int {
 	final BIAS = 0;
 	final LIMIT_UPPER = 1;
 	final LIMIT_LOWER = 2;

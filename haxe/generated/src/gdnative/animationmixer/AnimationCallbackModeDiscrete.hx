@@ -1,9 +1,8 @@
 package gdnative.animationmixer;
 @:native("godot::AnimationMixer::AnimationCallbackModeDiscrete") extern enum abstract AnimationCallbackModeDiscrete(AnimationCallbackModeDiscrete_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):AnimationCallbackModeDiscrete return untyped __cpp__("(static_cast<godot::AnimationMixer::AnimationCallbackModeDiscrete>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:AnimationCallbackModeDiscrete, v2:AnimationCallbackModeDiscrete):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:AnimationCallbackModeDiscrete):AnimationCallbackModeDiscrete_extern return untyped __cpp__("(cpp::Struct<godot::AnimationMixer::AnimationCallbackModeDiscrete, cpp::EnumHandler>){0}", v);
 	@:native("godot::AnimationMixer::AnimationCallbackModeDiscrete::ANIMATION_CALLBACK_MODE_DISCRETE_DOMINANT")
 	final DOMINANT;
 	@:native("godot::AnimationMixer::AnimationCallbackModeDiscrete::ANIMATION_CALLBACK_MODE_DISCRETE_RECESSIVE")

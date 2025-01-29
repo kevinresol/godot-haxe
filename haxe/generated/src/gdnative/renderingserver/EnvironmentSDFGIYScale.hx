@@ -1,9 +1,8 @@
 package gdnative.renderingserver;
 @:native("godot::RenderingServer::EnvironmentSDFGIYScale") extern enum abstract EnvironmentSDFGIYScale(EnvironmentSDFGIYScale_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):EnvironmentSDFGIYScale return untyped __cpp__("(static_cast<godot::RenderingServer::EnvironmentSDFGIYScale>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:EnvironmentSDFGIYScale, v2:EnvironmentSDFGIYScale):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:EnvironmentSDFGIYScale):EnvironmentSDFGIYScale_extern return untyped __cpp__("(cpp::Struct<godot::RenderingServer::EnvironmentSDFGIYScale, cpp::EnumHandler>){0}", v);
 	@:native("godot::RenderingServer::EnvironmentSDFGIYScale::ENV_SDFGI_Y_SCALE_50_PERCENT")
 	final _50_PERCENT;
 	@:native("godot::RenderingServer::EnvironmentSDFGIYScale::ENV_SDFGI_Y_SCALE_75_PERCENT")

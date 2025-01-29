@@ -1,9 +1,8 @@
 package gdnative.renderingserver;
 @:native("godot::RenderingServer::ViewportEnvironmentMode") extern enum abstract ViewportEnvironmentMode(ViewportEnvironmentMode_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):ViewportEnvironmentMode return untyped __cpp__("(static_cast<godot::RenderingServer::ViewportEnvironmentMode>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:ViewportEnvironmentMode, v2:ViewportEnvironmentMode):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:ViewportEnvironmentMode):ViewportEnvironmentMode_extern return untyped __cpp__("(cpp::Struct<godot::RenderingServer::ViewportEnvironmentMode, cpp::EnumHandler>){0}", v);
 	@:native("godot::RenderingServer::ViewportEnvironmentMode::VIEWPORT_ENVIRONMENT_DISABLED")
 	final DISABLED;
 	@:native("godot::RenderingServer::ViewportEnvironmentMode::VIEWPORT_ENVIRONMENT_ENABLED")

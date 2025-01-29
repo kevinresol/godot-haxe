@@ -1,5 +1,5 @@
 package gd.basematerial3d;
-enum abstract TextureParam(Int) to Int {
+enum abstract TextureParam(Int) from Int to Int {
 	final ALBEDO = 0;
 	final METALLIC = 1;
 	final ROUGHNESS = 2;

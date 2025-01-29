@@ -1,9 +1,8 @@
 package gdnative.time;
 @:native("godot::Time::Weekday") extern enum abstract Weekday(Weekday_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):Weekday return untyped __cpp__("(static_cast<godot::Time::Weekday>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:Weekday, v2:Weekday):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:Weekday):Weekday_extern return untyped __cpp__("(cpp::Struct<godot::Time::Weekday, cpp::EnumHandler>){0}", v);
 	@:native("godot::Time::Weekday::WEEKDAY_SUNDAY")
 	final SUNDAY;
 	@:native("godot::Time::Weekday::WEEKDAY_MONDAY")

@@ -1,9 +1,8 @@
 package gdnative.tileset;
 @:native("godot::TileSet::TileOffsetAxis") extern enum abstract TileOffsetAxis(TileOffsetAxis_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):TileOffsetAxis return untyped __cpp__("(static_cast<godot::TileSet::TileOffsetAxis>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:TileOffsetAxis, v2:TileOffsetAxis):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:TileOffsetAxis):TileOffsetAxis_extern return untyped __cpp__("(cpp::Struct<godot::TileSet::TileOffsetAxis, cpp::EnumHandler>){0}", v);
 	@:native("godot::TileSet::TileOffsetAxis::TILE_OFFSET_AXIS_HORIZONTAL")
 	final HORIZONTAL;
 	@:native("godot::TileSet::TileOffsetAxis::TILE_OFFSET_AXIS_VERTICAL")

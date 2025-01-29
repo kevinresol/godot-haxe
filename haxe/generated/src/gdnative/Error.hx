@@ -1,9 +1,8 @@
 package gdnative;
 @:native("godot::Error") extern enum abstract Error(Error_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):Error return untyped __cpp__("(static_cast<godot::Error>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:Error, v2:Error):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:Error):Error_extern return untyped __cpp__("(cpp::Struct<godot::Error, cpp::EnumHandler>){0}", v);
 	final OK;
 	final FAILED;
 	@:native("godot::Error::ERR_UNAVAILABLE")

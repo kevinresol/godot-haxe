@@ -1,5 +1,5 @@
 package gd.visualshadernodecompare;
-enum abstract Function(Int) to Int {
+enum abstract Function(Int) from Int to Int {
 	final EQUAL = 0;
 	final NOT_EQUAL = 1;
 	final GREATER_THAN = 2;

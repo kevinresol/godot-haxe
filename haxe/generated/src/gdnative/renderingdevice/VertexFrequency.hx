@@ -1,9 +1,8 @@
 package gdnative.renderingdevice;
 @:native("godot::RenderingDevice::VertexFrequency") extern enum abstract VertexFrequency(VertexFrequency_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):VertexFrequency return untyped __cpp__("(static_cast<godot::RenderingDevice::VertexFrequency>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:VertexFrequency, v2:VertexFrequency):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:VertexFrequency):VertexFrequency_extern return untyped __cpp__("(cpp::Struct<godot::RenderingDevice::VertexFrequency, cpp::EnumHandler>){0}", v);
 	@:native("godot::RenderingDevice::VertexFrequency::VERTEX_FREQUENCY_VERTEX")
 	final VERTEX;
 	@:native("godot::RenderingDevice::VertexFrequency::VERTEX_FREQUENCY_INSTANCE")

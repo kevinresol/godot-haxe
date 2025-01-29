@@ -1,5 +1,5 @@
 package gd.renderingserver;
-enum abstract InstanceType(Int) to Int {
+enum abstract InstanceType(Int) from Int to Int {
 	final NONE = 0;
 	final MESH = 1;
 	final MULTIMESH = 2;

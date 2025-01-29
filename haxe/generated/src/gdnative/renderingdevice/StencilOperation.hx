@@ -1,9 +1,8 @@
 package gdnative.renderingdevice;
 @:native("godot::RenderingDevice::StencilOperation") extern enum abstract StencilOperation(StencilOperation_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):StencilOperation return untyped __cpp__("(static_cast<godot::RenderingDevice::StencilOperation>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:StencilOperation, v2:StencilOperation):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:StencilOperation):StencilOperation_extern return untyped __cpp__("(cpp::Struct<godot::RenderingDevice::StencilOperation, cpp::EnumHandler>){0}", v);
 	@:native("godot::RenderingDevice::StencilOperation::STENCIL_OP_KEEP")
 	final KEEP;
 	@:native("godot::RenderingDevice::StencilOperation::STENCIL_OP_ZERO")

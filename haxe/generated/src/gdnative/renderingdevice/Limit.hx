@@ -1,9 +1,8 @@
 package gdnative.renderingdevice;
 @:native("godot::RenderingDevice::Limit") extern enum abstract Limit(Limit_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):Limit return untyped __cpp__("(static_cast<godot::RenderingDevice::Limit>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:Limit, v2:Limit):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:Limit):Limit_extern return untyped __cpp__("(cpp::Struct<godot::RenderingDevice::Limit, cpp::EnumHandler>){0}", v);
 	@:native("godot::RenderingDevice::Limit::LIMIT_MAX_BOUND_UNIFORM_SETS")
 	final MAX_BOUND_UNIFORM_SETS;
 	@:native("godot::RenderingDevice::Limit::LIMIT_MAX_FRAMEBUFFER_COLOR_ATTACHMENTS")

@@ -1,9 +1,8 @@
 package gdnative.renderingdevice;
 @:native("godot::RenderingDevice::FinalAction") extern enum abstract FinalAction(FinalAction_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):FinalAction return untyped __cpp__("(static_cast<godot::RenderingDevice::FinalAction>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:FinalAction, v2:FinalAction):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:FinalAction):FinalAction_extern return untyped __cpp__("(cpp::Struct<godot::RenderingDevice::FinalAction, cpp::EnumHandler>){0}", v);
 	@:native("godot::RenderingDevice::FinalAction::FINAL_ACTION_STORE")
 	final STORE;
 	@:native("godot::RenderingDevice::FinalAction::FINAL_ACTION_DISCARD")

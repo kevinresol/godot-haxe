@@ -1,9 +1,8 @@
 package gdnative.renderingdevice;
 @:native("godot::RenderingDevice::DataFormat") extern enum abstract DataFormat(DataFormat_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):DataFormat return untyped __cpp__("(static_cast<godot::RenderingDevice::DataFormat>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:DataFormat, v2:DataFormat):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:DataFormat):DataFormat_extern return untyped __cpp__("(cpp::Struct<godot::RenderingDevice::DataFormat, cpp::EnumHandler>){0}", v);
 	@:native("godot::RenderingDevice::DataFormat::DATA_FORMAT_R4G4_UNORM_PACK8")
 	final R4G4_UNORM_PACK8;
 	@:native("godot::RenderingDevice::DataFormat::DATA_FORMAT_R4G4B4A4_UNORM_PACK16")

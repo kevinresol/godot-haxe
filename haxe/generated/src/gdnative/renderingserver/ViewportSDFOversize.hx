@@ -1,9 +1,8 @@
 package gdnative.renderingserver;
 @:native("godot::RenderingServer::ViewportSDFOversize") extern enum abstract ViewportSDFOversize(ViewportSDFOversize_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):ViewportSDFOversize return untyped __cpp__("(static_cast<godot::RenderingServer::ViewportSDFOversize>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:ViewportSDFOversize, v2:ViewportSDFOversize):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:ViewportSDFOversize):ViewportSDFOversize_extern return untyped __cpp__("(cpp::Struct<godot::RenderingServer::ViewportSDFOversize, cpp::EnumHandler>){0}", v);
 	@:native("godot::RenderingServer::ViewportSDFOversize::VIEWPORT_SDF_OVERSIZE_100_PERCENT")
 	final _100_PERCENT;
 	@:native("godot::RenderingServer::ViewportSDFOversize::VIEWPORT_SDF_OVERSIZE_120_PERCENT")

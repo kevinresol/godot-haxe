@@ -1,5 +1,5 @@
 package gd.displayserver;
-enum abstract ScreenOrientation(Int) to Int {
+enum abstract ScreenOrientation(Int) from Int to Int {
 	final LANDSCAPE = 0;
 	final PORTRAIT = 1;
 	final REVERSE_LANDSCAPE = 2;

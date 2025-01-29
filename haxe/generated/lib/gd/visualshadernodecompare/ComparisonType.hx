@@ -1,5 +1,5 @@
 package gd.visualshadernodecompare;
-enum abstract ComparisonType(Int) to Int {
+enum abstract ComparisonType(Int) from Int to Int {
 	final SCALAR = 0;
 	final SCALAR_INT = 1;
 	final SCALAR_UINT = 2;

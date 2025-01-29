@@ -1,9 +1,8 @@
 package gdnative.os;
 @:native("godot::OS::SystemDir") extern enum abstract SystemDir(SystemDir_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):SystemDir return untyped __cpp__("(static_cast<godot::OS::SystemDir>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:SystemDir, v2:SystemDir):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:SystemDir):SystemDir_extern return untyped __cpp__("(cpp::Struct<godot::OS::SystemDir, cpp::EnumHandler>){0}", v);
 	@:native("godot::OS::SystemDir::SYSTEM_DIR_DESKTOP")
 	final DESKTOP;
 	@:native("godot::OS::SystemDir::SYSTEM_DIR_DCIM")

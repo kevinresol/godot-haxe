@@ -1,5 +1,5 @@
 package gd.textserver;
-enum abstract SpacingType(Int) to Int {
+enum abstract SpacingType(Int) from Int to Int {
 	final GLYPH = 0;
 	final SPACE = 1;
 	final TOP = 2;

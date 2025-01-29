@@ -1,9 +1,8 @@
 package gdnative.visualshadernodeparameter;
 @:native("godot::VisualShaderNodeParameter::Qualifier") extern enum abstract Qualifier(Qualifier_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):Qualifier return untyped __cpp__("(static_cast<godot::VisualShaderNodeParameter::Qualifier>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:Qualifier, v2:Qualifier):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:Qualifier):Qualifier_extern return untyped __cpp__("(cpp::Struct<godot::VisualShaderNodeParameter::Qualifier, cpp::EnumHandler>){0}", v);
 	@:native("godot::VisualShaderNodeParameter::Qualifier::QUAL_NONE")
 	final NONE;
 	@:native("godot::VisualShaderNodeParameter::Qualifier::QUAL_GLOBAL")

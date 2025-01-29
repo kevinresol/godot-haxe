@@ -1,9 +1,8 @@
 package gdnative.animationtree;
 @:native("godot::AnimationTree::AnimationProcessCallback") extern enum abstract AnimationProcessCallback(AnimationProcessCallback_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):AnimationProcessCallback return untyped __cpp__("(static_cast<godot::AnimationTree::AnimationProcessCallback>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:AnimationProcessCallback, v2:AnimationProcessCallback):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:AnimationProcessCallback):AnimationProcessCallback_extern return untyped __cpp__("(cpp::Struct<godot::AnimationTree::AnimationProcessCallback, cpp::EnumHandler>){0}", v);
 	@:native("godot::AnimationTree::AnimationProcessCallback::ANIMATION_PROCESS_PHYSICS")
 	final PHYSICS;
 	@:native("godot::AnimationTree::AnimationProcessCallback::ANIMATION_PROCESS_IDLE")

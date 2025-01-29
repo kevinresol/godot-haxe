@@ -1,9 +1,8 @@
 package gdnative.multiplayersynchronizer;
 @:native("godot::MultiplayerSynchronizer::VisibilityUpdateMode") extern enum abstract VisibilityUpdateMode(VisibilityUpdateMode_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):VisibilityUpdateMode return untyped __cpp__("(static_cast<godot::MultiplayerSynchronizer::VisibilityUpdateMode>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:VisibilityUpdateMode, v2:VisibilityUpdateMode):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:VisibilityUpdateMode):VisibilityUpdateMode_extern return untyped __cpp__("(cpp::Struct<godot::MultiplayerSynchronizer::VisibilityUpdateMode, cpp::EnumHandler>){0}", v);
 	@:native("godot::MultiplayerSynchronizer::VisibilityUpdateMode::VISIBILITY_PROCESS_IDLE")
 	final IDLE;
 	@:native("godot::MultiplayerSynchronizer::VisibilityUpdateMode::VISIBILITY_PROCESS_PHYSICS")

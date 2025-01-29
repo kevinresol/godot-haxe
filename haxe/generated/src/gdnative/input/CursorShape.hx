@@ -1,9 +1,8 @@
 package gdnative.input;
 @:native("godot::Input::CursorShape") extern enum abstract CursorShape(CursorShape_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):CursorShape return untyped __cpp__("(static_cast<godot::Input::CursorShape>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:CursorShape, v2:CursorShape):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:CursorShape):CursorShape_extern return untyped __cpp__("(cpp::Struct<godot::Input::CursorShape, cpp::EnumHandler>){0}", v);
 	@:native("godot::Input::CursorShape::CURSOR_ARROW")
 	final ARROW;
 	@:native("godot::Input::CursorShape::CURSOR_IBEAM")

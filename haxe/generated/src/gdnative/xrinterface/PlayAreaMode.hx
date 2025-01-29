@@ -1,9 +1,8 @@
 package gdnative.xrinterface;
 @:native("godot::XRInterface::PlayAreaMode") extern enum abstract PlayAreaMode(PlayAreaMode_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):PlayAreaMode return untyped __cpp__("(static_cast<godot::XRInterface::PlayAreaMode>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:PlayAreaMode, v2:PlayAreaMode):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:PlayAreaMode):PlayAreaMode_extern return untyped __cpp__("(cpp::Struct<godot::XRInterface::PlayAreaMode, cpp::EnumHandler>){0}", v);
 	@:native("godot::XRInterface::PlayAreaMode::XR_PLAY_AREA_UNKNOWN")
 	final UNKNOWN;
 	@:native("godot::XRInterface::PlayAreaMode::XR_PLAY_AREA_3DOF")

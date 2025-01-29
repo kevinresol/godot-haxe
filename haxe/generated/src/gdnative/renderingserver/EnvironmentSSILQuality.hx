@@ -1,9 +1,8 @@
 package gdnative.renderingserver;
 @:native("godot::RenderingServer::EnvironmentSSILQuality") extern enum abstract EnvironmentSSILQuality(EnvironmentSSILQuality_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):EnvironmentSSILQuality return untyped __cpp__("(static_cast<godot::RenderingServer::EnvironmentSSILQuality>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:EnvironmentSSILQuality, v2:EnvironmentSSILQuality):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:EnvironmentSSILQuality):EnvironmentSSILQuality_extern return untyped __cpp__("(cpp::Struct<godot::RenderingServer::EnvironmentSSILQuality, cpp::EnumHandler>){0}", v);
 	@:native("godot::RenderingServer::EnvironmentSSILQuality::ENV_SSIL_QUALITY_VERY_LOW")
 	final VERY_LOW;
 	@:native("godot::RenderingServer::EnvironmentSSILQuality::ENV_SSIL_QUALITY_LOW")

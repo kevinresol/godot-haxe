@@ -1,5 +1,5 @@
 package gd.textserver;
-enum abstract Feature(Int) to Int {
+enum abstract Feature(Int) from Int to Int {
 	final SIMPLE_LAYOUT = 1;
 	final BIDI_LAYOUT = 2;
 	final VERTICAL_LAYOUT = 4;

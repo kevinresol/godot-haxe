@@ -1,5 +1,5 @@
 package gd.visualshadernodetextureparameter;
-enum abstract TextureSource(Int) to Int {
+enum abstract TextureSource(Int) from Int to Int {
 	final NONE = 0;
 	final SCREEN = 1;
 	final DEPTH = 2;

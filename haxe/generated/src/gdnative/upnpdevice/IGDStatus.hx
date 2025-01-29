@@ -1,9 +1,8 @@
 package gdnative.upnpdevice;
 @:native("godot::UPNPDevice::IGDStatus") extern enum abstract IGDStatus(IGDStatus_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):IGDStatus return untyped __cpp__("(static_cast<godot::UPNPDevice::IGDStatus>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:IGDStatus, v2:IGDStatus):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:IGDStatus):IGDStatus_extern return untyped __cpp__("(cpp::Struct<godot::UPNPDevice::IGDStatus, cpp::EnumHandler>){0}", v);
 	@:native("godot::UPNPDevice::IGDStatus::IGD_STATUS_OK")
 	final OK;
 	@:native("godot::UPNPDevice::IGDStatus::IGD_STATUS_HTTP_ERROR")

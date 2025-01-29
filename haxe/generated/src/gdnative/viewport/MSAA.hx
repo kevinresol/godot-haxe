@@ -1,9 +1,8 @@
 package gdnative.viewport;
 @:native("godot::Viewport::MSAA") extern enum abstract MSAA(MSAA_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):MSAA return untyped __cpp__("(static_cast<godot::Viewport::MSAA>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:MSAA, v2:MSAA):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:MSAA):MSAA_extern return untyped __cpp__("(cpp::Struct<godot::Viewport::MSAA, cpp::EnumHandler>){0}", v);
 	@:native("godot::Viewport::MSAA::MSAA_DISABLED")
 	final DISABLED;
 	@:native("godot::Viewport::MSAA::MSAA_2X")

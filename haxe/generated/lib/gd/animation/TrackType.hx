@@ -1,5 +1,5 @@
 package gd.animation;
-enum abstract TrackType(Int) to Int {
+enum abstract TrackType(Int) from Int to Int {
 	final VALUE = 0;
 	final POSITION_3D = 1;
 	final ROTATION_3D = 2;

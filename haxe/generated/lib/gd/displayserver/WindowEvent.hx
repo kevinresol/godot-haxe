@@ -1,5 +1,5 @@
 package gd.displayserver;
-enum abstract WindowEvent(Int) to Int {
+enum abstract WindowEvent(Int) from Int to Int {
 	final MOUSE_ENTER = 0;
 	final MOUSE_EXIT = 1;
 	final FOCUS_IN = 2;

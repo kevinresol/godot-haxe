@@ -1,5 +1,5 @@
 package gd.visualshadernodetransformvecmult;
-enum abstract Operator(Int) to Int {
+enum abstract Operator(Int) from Int to Int {
 	final AxB = 0;
 	final BxA = 1;
 	final _3x3_AxB = 2;

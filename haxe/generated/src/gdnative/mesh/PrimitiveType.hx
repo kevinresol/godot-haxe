@@ -1,9 +1,8 @@
 package gdnative.mesh;
 @:native("godot::Mesh::PrimitiveType") extern enum abstract PrimitiveType(PrimitiveType_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):PrimitiveType return untyped __cpp__("(static_cast<godot::Mesh::PrimitiveType>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:PrimitiveType, v2:PrimitiveType):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:PrimitiveType):PrimitiveType_extern return untyped __cpp__("(cpp::Struct<godot::Mesh::PrimitiveType, cpp::EnumHandler>){0}", v);
 	@:native("godot::Mesh::PrimitiveType::PRIMITIVE_POINTS")
 	final POINTS;
 	@:native("godot::Mesh::PrimitiveType::PRIMITIVE_LINES")

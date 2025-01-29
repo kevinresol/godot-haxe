@@ -1,5 +1,5 @@
 package gd.visualshadernodecolorop;
-enum abstract Operator(Int) to Int {
+enum abstract Operator(Int) from Int to Int {
 	final SCREEN = 0;
 	final DIFFERENCE = 1;
 	final DARKEN = 2;

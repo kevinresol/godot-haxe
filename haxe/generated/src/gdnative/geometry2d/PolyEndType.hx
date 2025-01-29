@@ -1,9 +1,8 @@
 package gdnative.geometry2d;
 @:native("godot::Geometry2D::PolyEndType") extern enum abstract PolyEndType(PolyEndType_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):PolyEndType return untyped __cpp__("(static_cast<godot::Geometry2D::PolyEndType>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:PolyEndType, v2:PolyEndType):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:PolyEndType):PolyEndType_extern return untyped __cpp__("(cpp::Struct<godot::Geometry2D::PolyEndType, cpp::EnumHandler>){0}", v);
 	@:native("godot::Geometry2D::PolyEndType::END_POLYGON")
 	final POLYGON;
 	@:native("godot::Geometry2D::PolyEndType::END_JOINED")

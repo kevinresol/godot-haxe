@@ -1,5 +1,5 @@
 package gd.cpuparticles3d;
-enum abstract EmissionShape(Int) to Int {
+enum abstract EmissionShape(Int) from Int to Int {
 	final POINT = 0;
 	final SPHERE = 1;
 	final SPHERE_SURFACE = 2;

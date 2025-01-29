@@ -1,9 +1,8 @@
 package gdnative.characterbody3d;
 @:native("godot::CharacterBody3D::MotionMode") extern enum abstract MotionMode(MotionMode_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):MotionMode return untyped __cpp__("(static_cast<godot::CharacterBody3D::MotionMode>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:MotionMode, v2:MotionMode):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:MotionMode):MotionMode_extern return untyped __cpp__("(cpp::Struct<godot::CharacterBody3D::MotionMode, cpp::EnumHandler>){0}", v);
 	@:native("godot::CharacterBody3D::MotionMode::MOTION_MODE_GROUNDED")
 	final GROUNDED;
 	@:native("godot::CharacterBody3D::MotionMode::MOTION_MODE_FLOATING")

@@ -1,9 +1,8 @@
 package gdnative.control;
 @:native("godot::Control::LayoutPresetMode") extern enum abstract LayoutPresetMode(LayoutPresetMode_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):LayoutPresetMode return untyped __cpp__("(static_cast<godot::Control::LayoutPresetMode>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:LayoutPresetMode, v2:LayoutPresetMode):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:LayoutPresetMode):LayoutPresetMode_extern return untyped __cpp__("(cpp::Struct<godot::Control::LayoutPresetMode, cpp::EnumHandler>){0}", v);
 	@:native("godot::Control::LayoutPresetMode::PRESET_MODE_MINSIZE")
 	final MINSIZE;
 	@:native("godot::Control::LayoutPresetMode::PRESET_MODE_KEEP_WIDTH")

@@ -1,9 +1,8 @@
 package gdnative.cpuparticles3d;
 @:native("godot::CPUParticles3D::DrawOrder") extern enum abstract DrawOrder(DrawOrder_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):DrawOrder return untyped __cpp__("(static_cast<godot::CPUParticles3D::DrawOrder>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:DrawOrder, v2:DrawOrder):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:DrawOrder):DrawOrder_extern return untyped __cpp__("(cpp::Struct<godot::CPUParticles3D::DrawOrder, cpp::EnumHandler>){0}", v);
 	@:native("godot::CPUParticles3D::DrawOrder::DRAW_ORDER_INDEX")
 	final INDEX;
 	@:native("godot::CPUParticles3D::DrawOrder::DRAW_ORDER_LIFETIME")

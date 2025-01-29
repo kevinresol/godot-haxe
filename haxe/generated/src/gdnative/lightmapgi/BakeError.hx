@@ -1,9 +1,8 @@
 package gdnative.lightmapgi;
 @:native("godot::LightmapGI::BakeError") extern enum abstract BakeError(BakeError_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):BakeError return untyped __cpp__("(static_cast<godot::LightmapGI::BakeError>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:BakeError, v2:BakeError):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:BakeError):BakeError_extern return untyped __cpp__("(cpp::Struct<godot::LightmapGI::BakeError, cpp::EnumHandler>){0}", v);
 	@:native("godot::LightmapGI::BakeError::BAKE_ERROR_OK")
 	final OK;
 	@:native("godot::LightmapGI::BakeError::BAKE_ERROR_NO_SCENE_ROOT")

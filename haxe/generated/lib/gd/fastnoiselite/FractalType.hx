@@ -1,5 +1,5 @@
 package gd.fastnoiselite;
-enum abstract FractalType(Int) to Int {
+enum abstract FractalType(Int) from Int to Int {
 	final NONE = 0;
 	final FBM = 1;
 	final RIDGED = 2;

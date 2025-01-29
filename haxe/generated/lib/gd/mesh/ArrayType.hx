@@ -1,5 +1,5 @@
 package gd.mesh;
-enum abstract ArrayType(Int) to Int {
+enum abstract ArrayType(Int) from Int to Int {
 	final VERTEX = 0;
 	final NORMAL = 1;
 	final TANGENT = 2;

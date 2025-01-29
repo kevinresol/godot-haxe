@@ -1,9 +1,8 @@
 package gdnative.gdextension;
 @:native("godot::GDExtension::InitializationLevel") extern enum abstract InitializationLevel(InitializationLevel_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):InitializationLevel return untyped __cpp__("(static_cast<godot::GDExtension::InitializationLevel>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:InitializationLevel, v2:InitializationLevel):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:InitializationLevel):InitializationLevel_extern return untyped __cpp__("(cpp::Struct<godot::GDExtension::InitializationLevel, cpp::EnumHandler>){0}", v);
 	@:native("godot::GDExtension::InitializationLevel::INITIALIZATION_LEVEL_CORE")
 	final CORE;
 	@:native("godot::GDExtension::InitializationLevel::INITIALIZATION_LEVEL_SERVERS")

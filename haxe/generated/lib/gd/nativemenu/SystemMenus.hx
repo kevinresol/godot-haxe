@@ -1,5 +1,5 @@
 package gd.nativemenu;
-enum abstract SystemMenus(Int) to Int {
+enum abstract SystemMenus(Int) from Int to Int {
 	final INVALID_MENU_ID = 0;
 	final MAIN_MENU_ID = 1;
 	final APPLICATION_MENU_ID = 2;

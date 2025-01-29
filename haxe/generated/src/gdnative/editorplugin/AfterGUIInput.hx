@@ -1,9 +1,8 @@
 package gdnative.editorplugin;
 @:native("godot::EditorPlugin::AfterGUIInput") extern enum abstract AfterGUIInput(AfterGUIInput_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):AfterGUIInput return untyped __cpp__("(static_cast<godot::EditorPlugin::AfterGUIInput>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:AfterGUIInput, v2:AfterGUIInput):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:AfterGUIInput):AfterGUIInput_extern return untyped __cpp__("(cpp::Struct<godot::EditorPlugin::AfterGUIInput, cpp::EnumHandler>){0}", v);
 	@:native("godot::EditorPlugin::AfterGUIInput::AFTER_GUI_INPUT_PASS")
 	final PASS;
 	@:native("godot::EditorPlugin::AfterGUIInput::AFTER_GUI_INPUT_STOP")

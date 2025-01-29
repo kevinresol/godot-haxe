@@ -1,9 +1,8 @@
 package gdnative;
 @:native("godot::MouseButton") extern enum abstract MouseButton(MouseButton_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):MouseButton return untyped __cpp__("(static_cast<godot::MouseButton>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:MouseButton, v2:MouseButton):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:MouseButton):MouseButton_extern return untyped __cpp__("(cpp::Struct<godot::MouseButton, cpp::EnumHandler>){0}", v);
 	@:native("godot::MouseButton::MOUSE_BUTTON_NONE")
 	final NONE;
 	@:native("godot::MouseButton::MOUSE_BUTTON_LEFT")

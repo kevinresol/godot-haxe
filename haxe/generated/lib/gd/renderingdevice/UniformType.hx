@@ -1,5 +1,5 @@
 package gd.renderingdevice;
-enum abstract UniformType(Int) to Int {
+enum abstract UniformType(Int) from Int to Int {
 	final SAMPLER = 0;
 	final SAMPLER_WITH_TEXTURE = 1;
 	final TEXTURE = 2;

@@ -1,5 +1,5 @@
 package gd.upnp;
-enum abstract UPNPResult(Int) to Int {
+enum abstract UPNPResult(Int) from Int to Int {
 	final SUCCESS = 0;
 	final NOT_AUTHORIZED = 1;
 	final PORT_MAPPING_NOT_FOUND = 2;

@@ -1,9 +1,8 @@
 package gdnative.renderingserver;
 @:native("godot::RenderingServer::EnvironmentBG") extern enum abstract EnvironmentBG(EnvironmentBG_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):EnvironmentBG return untyped __cpp__("(static_cast<godot::RenderingServer::EnvironmentBG>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:EnvironmentBG, v2:EnvironmentBG):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:EnvironmentBG):EnvironmentBG_extern return untyped __cpp__("(cpp::Struct<godot::RenderingServer::EnvironmentBG, cpp::EnumHandler>){0}", v);
 	@:native("godot::RenderingServer::EnvironmentBG::ENV_BG_CLEAR_COLOR")
 	final CLEAR_COLOR;
 	@:native("godot::RenderingServer::EnvironmentBG::ENV_BG_COLOR")

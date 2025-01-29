@@ -1,5 +1,5 @@
 package gd.node;
-enum abstract DuplicateFlags(Int) to Int {
+enum abstract DuplicateFlags(Int) from Int to Int {
 	final SIGNALS = 1;
 	final GROUPS = 2;
 	final SCRIPTS = 4;

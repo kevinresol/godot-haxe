@@ -1,9 +1,8 @@
 package gdnative.viewport;
 @:native("godot::Viewport::SDFScale") extern enum abstract SDFScale(SDFScale_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):SDFScale return untyped __cpp__("(static_cast<godot::Viewport::SDFScale>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:SDFScale, v2:SDFScale):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:SDFScale):SDFScale_extern return untyped __cpp__("(cpp::Struct<godot::Viewport::SDFScale, cpp::EnumHandler>){0}", v);
 	@:native("godot::Viewport::SDFScale::SDF_SCALE_100_PERCENT")
 	final _100_PERCENT;
 	@:native("godot::Viewport::SDFScale::SDF_SCALE_50_PERCENT")

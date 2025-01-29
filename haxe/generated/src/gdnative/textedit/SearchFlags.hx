@@ -1,9 +1,8 @@
 package gdnative.textedit;
 @:native("godot::TextEdit::SearchFlags") extern enum abstract SearchFlags(SearchFlags_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):SearchFlags return untyped __cpp__("(static_cast<godot::TextEdit::SearchFlags>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:SearchFlags, v2:SearchFlags):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:SearchFlags):SearchFlags_extern return untyped __cpp__("(cpp::Struct<godot::TextEdit::SearchFlags, cpp::EnumHandler>){0}", v);
 	@:native("godot::TextEdit::SearchFlags::SEARCH_MATCH_CASE")
 	final MATCH_CASE;
 	@:native("godot::TextEdit::SearchFlags::SEARCH_WHOLE_WORDS")

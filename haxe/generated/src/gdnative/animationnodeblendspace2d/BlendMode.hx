@@ -1,9 +1,8 @@
 package gdnative.animationnodeblendspace2d;
 @:native("godot::AnimationNodeBlendSpace2D::BlendMode") extern enum abstract BlendMode(BlendMode_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):BlendMode return untyped __cpp__("(static_cast<godot::AnimationNodeBlendSpace2D::BlendMode>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:BlendMode, v2:BlendMode):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:BlendMode):BlendMode_extern return untyped __cpp__("(cpp::Struct<godot::AnimationNodeBlendSpace2D::BlendMode, cpp::EnumHandler>){0}", v);
 	@:native("godot::AnimationNodeBlendSpace2D::BlendMode::BLEND_MODE_INTERPOLATED")
 	final INTERPOLATED;
 	@:native("godot::AnimationNodeBlendSpace2D::BlendMode::BLEND_MODE_DISCRETE")

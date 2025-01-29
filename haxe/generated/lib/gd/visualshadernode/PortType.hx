@@ -1,5 +1,5 @@
 package gd.visualshadernode;
-enum abstract PortType(Int) to Int {
+enum abstract PortType(Int) from Int to Int {
 	final SCALAR = 0;
 	final SCALAR_INT = 1;
 	final SCALAR_UINT = 2;

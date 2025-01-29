@@ -1,9 +1,8 @@
 package gdnative.xrhandtracker;
 @:native("godot::XRHandTracker::HandJoint") extern enum abstract HandJoint(HandJoint_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):HandJoint return untyped __cpp__("(static_cast<godot::XRHandTracker::HandJoint>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:HandJoint, v2:HandJoint):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:HandJoint):HandJoint_extern return untyped __cpp__("(cpp::Struct<godot::XRHandTracker::HandJoint, cpp::EnumHandler>){0}", v);
 	@:native("godot::XRHandTracker::HandJoint::HAND_JOINT_PALM")
 	final PALM;
 	@:native("godot::XRHandTracker::HandJoint::HAND_JOINT_WRIST")

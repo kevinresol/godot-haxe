@@ -1,5 +1,5 @@
 package gd.performance;
-enum abstract Monitor(Int) to Int {
+enum abstract Monitor(Int) from Int to Int {
 	final TIME_FPS = 0;
 	final TIME_PROCESS = 1;
 	final TIME_PHYSICS_PROCESS = 2;

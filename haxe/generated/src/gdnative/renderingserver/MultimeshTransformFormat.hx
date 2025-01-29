@@ -1,9 +1,8 @@
 package gdnative.renderingserver;
 @:native("godot::RenderingServer::MultimeshTransformFormat") extern enum abstract MultimeshTransformFormat(MultimeshTransformFormat_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):MultimeshTransformFormat return untyped __cpp__("(static_cast<godot::RenderingServer::MultimeshTransformFormat>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:MultimeshTransformFormat, v2:MultimeshTransformFormat):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:MultimeshTransformFormat):MultimeshTransformFormat_extern return untyped __cpp__("(cpp::Struct<godot::RenderingServer::MultimeshTransformFormat, cpp::EnumHandler>){0}", v);
 	@:native("godot::RenderingServer::MultimeshTransformFormat::MULTIMESH_TRANSFORM_2D")
 	final _2D;
 	@:native("godot::RenderingServer::MultimeshTransformFormat::MULTIMESH_TRANSFORM_3D")

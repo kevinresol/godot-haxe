@@ -1,9 +1,8 @@
 package gdnative.renderingserver;
 @:native("godot::RenderingServer::EnvironmentSDFGIFramesToUpdateLight") extern enum abstract EnvironmentSDFGIFramesToUpdateLight(EnvironmentSDFGIFramesToUpdateLight_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):EnvironmentSDFGIFramesToUpdateLight return untyped __cpp__("(static_cast<godot::RenderingServer::EnvironmentSDFGIFramesToUpdateLight>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:EnvironmentSDFGIFramesToUpdateLight, v2:EnvironmentSDFGIFramesToUpdateLight):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:EnvironmentSDFGIFramesToUpdateLight):EnvironmentSDFGIFramesToUpdateLight_extern return untyped __cpp__("(cpp::Struct<godot::RenderingServer::EnvironmentSDFGIFramesToUpdateLight, cpp::EnumHandler>){0}", v);
 	@:native("godot::RenderingServer::EnvironmentSDFGIFramesToUpdateLight::ENV_SDFGI_UPDATE_LIGHT_IN_1_FRAME")
 	final IN_1_FRAME;
 	@:native("godot::RenderingServer::EnvironmentSDFGIFramesToUpdateLight::ENV_SDFGI_UPDATE_LIGHT_IN_2_FRAMES")

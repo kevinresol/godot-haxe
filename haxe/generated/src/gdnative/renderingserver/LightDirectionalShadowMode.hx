@@ -1,9 +1,8 @@
 package gdnative.renderingserver;
 @:native("godot::RenderingServer::LightDirectionalShadowMode") extern enum abstract LightDirectionalShadowMode(LightDirectionalShadowMode_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):LightDirectionalShadowMode return untyped __cpp__("(static_cast<godot::RenderingServer::LightDirectionalShadowMode>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:LightDirectionalShadowMode, v2:LightDirectionalShadowMode):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:LightDirectionalShadowMode):LightDirectionalShadowMode_extern return untyped __cpp__("(cpp::Struct<godot::RenderingServer::LightDirectionalShadowMode, cpp::EnumHandler>){0}", v);
 	@:native("godot::RenderingServer::LightDirectionalShadowMode::LIGHT_DIRECTIONAL_SHADOW_ORTHOGONAL")
 	final ORTHOGONAL;
 	@:native("godot::RenderingServer::LightDirectionalShadowMode::LIGHT_DIRECTIONAL_SHADOW_PARALLEL_2_SPLITS")

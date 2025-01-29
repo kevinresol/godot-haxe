@@ -1,9 +1,8 @@
 package gdnative.textserver;
 @:native("godot::TextServer::VisibleCharactersBehavior") extern enum abstract VisibleCharactersBehavior(VisibleCharactersBehavior_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):VisibleCharactersBehavior return untyped __cpp__("(static_cast<godot::TextServer::VisibleCharactersBehavior>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:VisibleCharactersBehavior, v2:VisibleCharactersBehavior):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:VisibleCharactersBehavior):VisibleCharactersBehavior_extern return untyped __cpp__("(cpp::Struct<godot::TextServer::VisibleCharactersBehavior, cpp::EnumHandler>){0}", v);
 	@:native("godot::TextServer::VisibleCharactersBehavior::VC_CHARS_BEFORE_SHAPING")
 	final CHARS_BEFORE_SHAPING;
 	@:native("godot::TextServer::VisibleCharactersBehavior::VC_CHARS_AFTER_SHAPING")

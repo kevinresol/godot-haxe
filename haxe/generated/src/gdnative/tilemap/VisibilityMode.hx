@@ -1,9 +1,8 @@
 package gdnative.tilemap;
 @:native("godot::TileMap::VisibilityMode") extern enum abstract VisibilityMode(VisibilityMode_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):VisibilityMode return untyped __cpp__("(static_cast<godot::TileMap::VisibilityMode>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:VisibilityMode, v2:VisibilityMode):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:VisibilityMode):VisibilityMode_extern return untyped __cpp__("(cpp::Struct<godot::TileMap::VisibilityMode, cpp::EnumHandler>){0}", v);
 	@:native("godot::TileMap::VisibilityMode::VISIBILITY_MODE_DEFAULT")
 	final DEFAULT;
 	@:native("godot::TileMap::VisibilityMode::VISIBILITY_MODE_FORCE_HIDE")

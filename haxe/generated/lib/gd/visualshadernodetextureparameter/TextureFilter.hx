@@ -1,5 +1,5 @@
 package gd.visualshadernodetextureparameter;
-enum abstract TextureFilter(Int) to Int {
+enum abstract TextureFilter(Int) from Int to Int {
 	final DEFAULT = 0;
 	final NEAREST = 1;
 	final LINEAR = 2;

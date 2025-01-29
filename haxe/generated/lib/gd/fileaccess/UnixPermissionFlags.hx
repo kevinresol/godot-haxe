@@ -1,5 +1,5 @@
 package gd.fileaccess;
-enum abstract UnixPermissionFlags(Int) to Int {
+enum abstract UnixPermissionFlags(cpp.UInt64) from cpp.UInt64 to cpp.UInt64 {
 	final READ_OWNER = 256;
 	final WRITE_OWNER = 128;
 	final EXECUTE_OWNER = 64;

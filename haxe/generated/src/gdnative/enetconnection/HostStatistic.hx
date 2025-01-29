@@ -1,9 +1,8 @@
 package gdnative.enetconnection;
 @:native("godot::ENetConnection::HostStatistic") extern enum abstract HostStatistic(HostStatistic_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):HostStatistic return untyped __cpp__("(static_cast<godot::ENetConnection::HostStatistic>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:HostStatistic, v2:HostStatistic):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:HostStatistic):HostStatistic_extern return untyped __cpp__("(cpp::Struct<godot::ENetConnection::HostStatistic, cpp::EnumHandler>){0}", v);
 	@:native("godot::ENetConnection::HostStatistic::HOST_TOTAL_SENT_DATA")
 	final SENT_DATA;
 	@:native("godot::ENetConnection::HostStatistic::HOST_TOTAL_SENT_PACKETS")

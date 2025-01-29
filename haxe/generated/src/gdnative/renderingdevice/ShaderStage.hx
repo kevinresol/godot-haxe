@@ -1,9 +1,8 @@
 package gdnative.renderingdevice;
 @:native("godot::RenderingDevice::ShaderStage") extern enum abstract ShaderStage(ShaderStage_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):ShaderStage return untyped __cpp__("(static_cast<godot::RenderingDevice::ShaderStage>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:ShaderStage, v2:ShaderStage):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:ShaderStage):ShaderStage_extern return untyped __cpp__("(cpp::Struct<godot::RenderingDevice::ShaderStage, cpp::EnumHandler>){0}", v);
 	@:native("godot::RenderingDevice::ShaderStage::SHADER_STAGE_VERTEX")
 	final VERTEX;
 	@:native("godot::RenderingDevice::ShaderStage::SHADER_STAGE_FRAGMENT")

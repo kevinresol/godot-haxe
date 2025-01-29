@@ -1,9 +1,8 @@
 package gdnative.editorfeatureprofile;
 @:native("godot::EditorFeatureProfile::Feature") extern enum abstract Feature(Feature_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):Feature return untyped __cpp__("(static_cast<godot::EditorFeatureProfile::Feature>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:Feature, v2:Feature):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:Feature):Feature_extern return untyped __cpp__("(cpp::Struct<godot::EditorFeatureProfile::Feature, cpp::EnumHandler>){0}", v);
 	@:native("godot::EditorFeatureProfile::Feature::FEATURE_3D")
 	final _3D;
 	@:native("godot::EditorFeatureProfile::Feature::FEATURE_SCRIPT")

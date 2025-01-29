@@ -1,5 +1,5 @@
 package gd.renderingserver;
-enum abstract ParticlesTransformAlign(Int) to Int {
+enum abstract ParticlesTransformAlign(Int) from Int to Int {
 	final DISABLED = 0;
 	final Z_BILLBOARD = 1;
 	final Y_TO_VELOCITY = 2;

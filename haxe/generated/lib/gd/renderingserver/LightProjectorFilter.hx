@@ -1,5 +1,5 @@
 package gd.renderingserver;
-enum abstract LightProjectorFilter(Int) to Int {
+enum abstract LightProjectorFilter(Int) from Int to Int {
 	final NEAREST = 0;
 	final LINEAR = 1;
 	final NEAREST_MIPMAPS = 2;

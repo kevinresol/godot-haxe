@@ -1,5 +1,5 @@
 package gd.control;
-enum abstract LayoutPreset(Int) to Int {
+enum abstract LayoutPreset(Int) from Int to Int {
 	final TOP_LEFT = 0;
 	final TOP_RIGHT = 1;
 	final BOTTOM_LEFT = 2;

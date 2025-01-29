@@ -1,9 +1,8 @@
 package gdnative.renderingdevice;
 @:native("godot::RenderingDevice::PipelineDynamicStateFlags") extern enum abstract PipelineDynamicStateFlags(PipelineDynamicStateFlags_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):PipelineDynamicStateFlags return untyped __cpp__("(static_cast<godot::RenderingDevice::PipelineDynamicStateFlags>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:PipelineDynamicStateFlags, v2:PipelineDynamicStateFlags):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:PipelineDynamicStateFlags):PipelineDynamicStateFlags_extern return untyped __cpp__("(cpp::Struct<godot::RenderingDevice::PipelineDynamicStateFlags, cpp::EnumHandler>){0}", v);
 	@:native("godot::RenderingDevice::PipelineDynamicStateFlags::DYNAMIC_STATE_LINE_WIDTH")
 	final LINE_WIDTH;
 	@:native("godot::RenderingDevice::PipelineDynamicStateFlags::DYNAMIC_STATE_DEPTH_BIAS")

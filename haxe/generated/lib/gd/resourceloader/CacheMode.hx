@@ -1,5 +1,5 @@
 package gd.resourceloader;
-enum abstract CacheMode(Int) to Int {
+enum abstract CacheMode(Int) from Int to Int {
 	final IGNORE = 0;
 	final REUSE = 1;
 	final REPLACE = 2;

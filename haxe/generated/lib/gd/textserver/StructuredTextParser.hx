@@ -1,5 +1,5 @@
 package gd.textserver;
-enum abstract StructuredTextParser(Int) to Int {
+enum abstract StructuredTextParser(Int) from Int to Int {
 	final DEFAULT = 0;
 	final URI = 1;
 	final FILE = 2;

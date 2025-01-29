@@ -1,9 +1,8 @@
 package gdnative.richtextlabel;
 @:native("godot::RichTextLabel::ListType") extern enum abstract ListType(ListType_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):ListType return untyped __cpp__("(static_cast<godot::RichTextLabel::ListType>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:ListType, v2:ListType):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:ListType):ListType_extern return untyped __cpp__("(cpp::Struct<godot::RichTextLabel::ListType, cpp::EnumHandler>){0}", v);
 	@:native("godot::RichTextLabel::ListType::LIST_NUMBERS")
 	final NUMBERS;
 	@:native("godot::RichTextLabel::ListType::LIST_LETTERS")

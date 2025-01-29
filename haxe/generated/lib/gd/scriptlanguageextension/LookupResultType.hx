@@ -1,5 +1,5 @@
 package gd.scriptlanguageextension;
-enum abstract LookupResultType(Int) to Int {
+enum abstract LookupResultType(Int) from Int to Int {
 	final SCRIPT_LOCATION = 0;
 	final CLASS = 1;
 	final CLASS_CONSTANT = 2;

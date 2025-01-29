@@ -1,5 +1,5 @@
 package gd.basematerial3d;
-enum abstract BlendMode(Int) to Int {
+enum abstract BlendMode(Int) from Int to Int {
 	final MIX = 0;
 	final ADD = 1;
 	final SUB = 2;

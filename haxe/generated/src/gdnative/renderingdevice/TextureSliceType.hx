@@ -1,9 +1,8 @@
 package gdnative.renderingdevice;
 @:native("godot::RenderingDevice::TextureSliceType") extern enum abstract TextureSliceType(TextureSliceType_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):TextureSliceType return untyped __cpp__("(static_cast<godot::RenderingDevice::TextureSliceType>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:TextureSliceType, v2:TextureSliceType):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:TextureSliceType):TextureSliceType_extern return untyped __cpp__("(cpp::Struct<godot::RenderingDevice::TextureSliceType, cpp::EnumHandler>){0}", v);
 	@:native("godot::RenderingDevice::TextureSliceType::TEXTURE_SLICE_2D")
 	final _2D;
 	@:native("godot::RenderingDevice::TextureSliceType::TEXTURE_SLICE_CUBEMAP")

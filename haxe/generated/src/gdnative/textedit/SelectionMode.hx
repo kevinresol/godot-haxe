@@ -1,9 +1,8 @@
 package gdnative.textedit;
 @:native("godot::TextEdit::SelectionMode") extern enum abstract SelectionMode(SelectionMode_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):SelectionMode return untyped __cpp__("(static_cast<godot::TextEdit::SelectionMode>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:SelectionMode, v2:SelectionMode):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:SelectionMode):SelectionMode_extern return untyped __cpp__("(cpp::Struct<godot::TextEdit::SelectionMode, cpp::EnumHandler>){0}", v);
 	@:native("godot::TextEdit::SelectionMode::SELECTION_MODE_NONE")
 	final NONE;
 	@:native("godot::TextEdit::SelectionMode::SELECTION_MODE_SHIFT")

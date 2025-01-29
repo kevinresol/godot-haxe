@@ -1,9 +1,8 @@
 package gdnative.astargrid2d;
 @:native("godot::AStarGrid2D::DiagonalMode") extern enum abstract DiagonalMode(DiagonalMode_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):DiagonalMode return untyped __cpp__("(static_cast<godot::AStarGrid2D::DiagonalMode>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:DiagonalMode, v2:DiagonalMode):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:DiagonalMode):DiagonalMode_extern return untyped __cpp__("(cpp::Struct<godot::AStarGrid2D::DiagonalMode, cpp::EnumHandler>){0}", v);
 	@:native("godot::AStarGrid2D::DiagonalMode::DIAGONAL_MODE_ALWAYS")
 	final ALWAYS;
 	@:native("godot::AStarGrid2D::DiagonalMode::DIAGONAL_MODE_NEVER")

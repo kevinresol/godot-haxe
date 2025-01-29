@@ -1,5 +1,5 @@
 package gd.editorplugin;
-enum abstract CustomControlContainer(Int) to Int {
+enum abstract CustomControlContainer(Int) from Int to Int {
 	final TOOLBAR = 0;
 	final SPATIAL_EDITOR_MENU = 1;
 	final SPATIAL_EDITOR_SIDE_LEFT = 2;

@@ -1,5 +1,5 @@
 package gd.texturebutton;
-enum abstract StretchMode(Int) to Int {
+enum abstract StretchMode(Int) from Int to Int {
 	final SCALE = 0;
 	final TILE = 1;
 	final KEEP = 2;

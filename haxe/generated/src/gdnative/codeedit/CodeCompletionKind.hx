@@ -1,9 +1,8 @@
 package gdnative.codeedit;
 @:native("godot::CodeEdit::CodeCompletionKind") extern enum abstract CodeCompletionKind(CodeCompletionKind_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):CodeCompletionKind return untyped __cpp__("(static_cast<godot::CodeEdit::CodeCompletionKind>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:CodeCompletionKind, v2:CodeCompletionKind):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:CodeCompletionKind):CodeCompletionKind_extern return untyped __cpp__("(cpp::Struct<godot::CodeEdit::CodeCompletionKind, cpp::EnumHandler>){0}", v);
 	@:native("godot::CodeEdit::CodeCompletionKind::KIND_CLASS")
 	final CLASS;
 	@:native("godot::CodeEdit::CodeCompletionKind::KIND_FUNCTION")

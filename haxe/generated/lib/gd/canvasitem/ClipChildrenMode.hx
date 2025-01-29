@@ -1,5 +1,5 @@
 package gd.canvasitem;
-enum abstract ClipChildrenMode(Int) to Int {
+enum abstract ClipChildrenMode(Int) from Int to Int {
 	final DISABLED = 0;
 	final ONLY = 1;
 	final AND_DRAW = 2;

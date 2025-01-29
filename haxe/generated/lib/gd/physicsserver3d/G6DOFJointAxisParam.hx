@@ -1,5 +1,5 @@
 package gd.physicsserver3d;
-enum abstract G6DOFJointAxisParam(Int) to Int {
+enum abstract G6DOFJointAxisParam(Int) from Int to Int {
 	final LINEAR_LOWER_LIMIT = 0;
 	final LINEAR_UPPER_LIMIT = 1;
 	final LINEAR_LIMIT_SOFTNESS = 2;

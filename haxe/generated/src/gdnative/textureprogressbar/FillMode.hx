@@ -1,9 +1,8 @@
 package gdnative.textureprogressbar;
 @:native("godot::TextureProgressBar::FillMode") extern enum abstract FillMode(FillMode_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):FillMode return untyped __cpp__("(static_cast<godot::TextureProgressBar::FillMode>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:FillMode, v2:FillMode):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:FillMode):FillMode_extern return untyped __cpp__("(cpp::Struct<godot::TextureProgressBar::FillMode, cpp::EnumHandler>){0}", v);
 	@:native("godot::TextureProgressBar::FillMode::FILL_LEFT_TO_RIGHT")
 	final LEFT_TO_RIGHT;
 	@:native("godot::TextureProgressBar::FillMode::FILL_RIGHT_TO_LEFT")

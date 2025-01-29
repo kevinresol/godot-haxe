@@ -1,9 +1,8 @@
 package gdnative.renderingdevice;
 @:native("godot::RenderingDevice::PolygonFrontFace") extern enum abstract PolygonFrontFace(PolygonFrontFace_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):PolygonFrontFace return untyped __cpp__("(static_cast<godot::RenderingDevice::PolygonFrontFace>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:PolygonFrontFace, v2:PolygonFrontFace):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:PolygonFrontFace):PolygonFrontFace_extern return untyped __cpp__("(cpp::Struct<godot::RenderingDevice::PolygonFrontFace, cpp::EnumHandler>){0}", v);
 	@:native("godot::RenderingDevice::PolygonFrontFace::POLYGON_FRONT_FACE_CLOCKWISE")
 	final CLOCKWISE;
 	@:native("godot::RenderingDevice::PolygonFrontFace::POLYGON_FRONT_FACE_COUNTER_CLOCKWISE")

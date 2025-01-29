@@ -1,9 +1,8 @@
 package gdnative.enetpacketpeer;
 @:native("godot::ENetPacketPeer::PeerState") extern enum abstract PeerState(PeerState_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):PeerState return untyped __cpp__("(static_cast<godot::ENetPacketPeer::PeerState>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:PeerState, v2:PeerState):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:PeerState):PeerState_extern return untyped __cpp__("(cpp::Struct<godot::ENetPacketPeer::PeerState, cpp::EnumHandler>){0}", v);
 	@:native("godot::ENetPacketPeer::PeerState::STATE_DISCONNECTED")
 	final DISCONNECTED;
 	@:native("godot::ENetPacketPeer::PeerState::STATE_CONNECTING")

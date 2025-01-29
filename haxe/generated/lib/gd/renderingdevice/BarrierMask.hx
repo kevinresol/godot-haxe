@@ -1,5 +1,5 @@
 package gd.renderingdevice;
-enum abstract BarrierMask(Int) to Int {
+enum abstract BarrierMask(cpp.UInt64) from cpp.UInt64 to cpp.UInt64 {
 	final VERTEX = 1;
 	final FRAGMENT = 8;
 	final COMPUTE = 2;

@@ -1,9 +1,8 @@
 package gdnative.visualshadernodederivativefunc;
 @:native("godot::VisualShaderNodeDerivativeFunc::Precision") extern enum abstract Precision(Precision_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):Precision return untyped __cpp__("(static_cast<godot::VisualShaderNodeDerivativeFunc::Precision>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:Precision, v2:Precision):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:Precision):Precision_extern return untyped __cpp__("(cpp::Struct<godot::VisualShaderNodeDerivativeFunc::Precision, cpp::EnumHandler>){0}", v);
 	@:native("godot::VisualShaderNodeDerivativeFunc::Precision::PRECISION_NONE")
 	final NONE;
 	@:native("godot::VisualShaderNodeDerivativeFunc::Precision::PRECISION_COARSE")

@@ -1,9 +1,8 @@
 package gdnative.audiostreaminteractive;
 @:native("godot::AudioStreamInteractive::TransitionFromTime") extern enum abstract TransitionFromTime(TransitionFromTime_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):TransitionFromTime return untyped __cpp__("(static_cast<godot::AudioStreamInteractive::TransitionFromTime>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:TransitionFromTime, v2:TransitionFromTime):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:TransitionFromTime):TransitionFromTime_extern return untyped __cpp__("(cpp::Struct<godot::AudioStreamInteractive::TransitionFromTime, cpp::EnumHandler>){0}", v);
 	@:native("godot::AudioStreamInteractive::TransitionFromTime::TRANSITION_FROM_TIME_IMMEDIATE")
 	final IMMEDIATE;
 	@:native("godot::AudioStreamInteractive::TransitionFromTime::TRANSITION_FROM_TIME_NEXT_BEAT")

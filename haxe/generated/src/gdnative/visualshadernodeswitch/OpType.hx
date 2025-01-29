@@ -1,9 +1,8 @@
 package gdnative.visualshadernodeswitch;
 @:native("godot::VisualShaderNodeSwitch::OpType") extern enum abstract OpType(OpType_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):OpType return untyped __cpp__("(static_cast<godot::VisualShaderNodeSwitch::OpType>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:OpType, v2:OpType):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:OpType):OpType_extern return untyped __cpp__("(cpp::Struct<godot::VisualShaderNodeSwitch::OpType, cpp::EnumHandler>){0}", v);
 	@:native("godot::VisualShaderNodeSwitch::OpType::OP_TYPE_FLOAT")
 	final FLOAT;
 	@:native("godot::VisualShaderNodeSwitch::OpType::OP_TYPE_INT")

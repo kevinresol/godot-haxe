@@ -1,9 +1,8 @@
 package gdnative.renderingdevice;
 @:native("godot::RenderingDevice::StorageBufferUsage") extern enum abstract StorageBufferUsage(StorageBufferUsage_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):StorageBufferUsage return untyped __cpp__("(static_cast<godot::RenderingDevice::StorageBufferUsage>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:StorageBufferUsage, v2:StorageBufferUsage):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:StorageBufferUsage):StorageBufferUsage_extern return untyped __cpp__("(cpp::Struct<godot::RenderingDevice::StorageBufferUsage, cpp::EnumHandler>){0}", v);
 	@:native("godot::RenderingDevice::StorageBufferUsage::STORAGE_BUFFER_USAGE_DISPATCH_INDIRECT")
 	final INDIRECT;
 }

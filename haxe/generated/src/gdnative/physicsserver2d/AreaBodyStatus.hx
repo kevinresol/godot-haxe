@@ -1,9 +1,8 @@
 package gdnative.physicsserver2d;
 @:native("godot::PhysicsServer2D::AreaBodyStatus") extern enum abstract AreaBodyStatus(AreaBodyStatus_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):AreaBodyStatus return untyped __cpp__("(static_cast<godot::PhysicsServer2D::AreaBodyStatus>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:AreaBodyStatus, v2:AreaBodyStatus):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:AreaBodyStatus):AreaBodyStatus_extern return untyped __cpp__("(cpp::Struct<godot::PhysicsServer2D::AreaBodyStatus, cpp::EnumHandler>){0}", v);
 	@:native("godot::PhysicsServer2D::AreaBodyStatus::AREA_BODY_ADDED")
 	final ADDED;
 	@:native("godot::PhysicsServer2D::AreaBodyStatus::AREA_BODY_REMOVED")

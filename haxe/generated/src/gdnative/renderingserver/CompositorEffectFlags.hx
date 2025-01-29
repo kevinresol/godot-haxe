@@ -1,9 +1,8 @@
 package gdnative.renderingserver;
 @:native("godot::RenderingServer::CompositorEffectFlags") extern enum abstract CompositorEffectFlags(CompositorEffectFlags_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):CompositorEffectFlags return untyped __cpp__("(static_cast<godot::RenderingServer::CompositorEffectFlags>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:CompositorEffectFlags, v2:CompositorEffectFlags):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:CompositorEffectFlags):CompositorEffectFlags_extern return untyped __cpp__("(cpp::Struct<godot::RenderingServer::CompositorEffectFlags, cpp::EnumHandler>){0}", v);
 	@:native("godot::RenderingServer::CompositorEffectFlags::COMPOSITOR_EFFECT_FLAG_ACCESS_RESOLVED_COLOR")
 	final ACCESS_RESOLVED_COLOR;
 	@:native("godot::RenderingServer::CompositorEffectFlags::COMPOSITOR_EFFECT_FLAG_ACCESS_RESOLVED_DEPTH")

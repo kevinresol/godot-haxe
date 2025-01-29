@@ -1,5 +1,5 @@
 package gd.streampeertcp;
-enum abstract Status(Int) to Int {
+enum abstract Status(Int) from Int to Int {
 	final NONE = 0;
 	final CONNECTING = 1;
 	final CONNECTED = 2;

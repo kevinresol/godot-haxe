@@ -1,9 +1,8 @@
 package gdnative.gdextensionmanager;
 @:native("godot::GDExtensionManager::LoadStatus") extern enum abstract LoadStatus(LoadStatus_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):LoadStatus return untyped __cpp__("(static_cast<godot::GDExtensionManager::LoadStatus>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:LoadStatus, v2:LoadStatus):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:LoadStatus):LoadStatus_extern return untyped __cpp__("(cpp::Struct<godot::GDExtensionManager::LoadStatus, cpp::EnumHandler>){0}", v);
 	@:native("godot::GDExtensionManager::LoadStatus::LOAD_STATUS_OK")
 	final OK;
 	@:native("godot::GDExtensionManager::LoadStatus::LOAD_STATUS_FAILED")

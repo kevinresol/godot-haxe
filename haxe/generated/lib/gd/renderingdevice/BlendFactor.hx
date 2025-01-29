@@ -1,5 +1,5 @@
 package gd.renderingdevice;
-enum abstract BlendFactor(Int) to Int {
+enum abstract BlendFactor(Int) from Int to Int {
 	final ZERO = 0;
 	final ONE = 1;
 	final SRC_COLOR = 2;

@@ -1,5 +1,5 @@
 package gd.visualshadernodeswitch;
-enum abstract OpType(Int) to Int {
+enum abstract OpType(Int) from Int to Int {
 	final FLOAT = 0;
 	final INT = 1;
 	final UINT = 2;

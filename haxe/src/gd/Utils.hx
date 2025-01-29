@@ -11,12 +11,10 @@ class Utils {
 	}
 
 	public static function createClassWrapper<T>(native:gdnative.Object, classType:Class<T>):T {
-		trace('Creating class wrapper for $classType');
-		trace('native is $native');
 		final inst:Dynamic = Type.createInstance(classType, [native]);
 		switch Std.downcast(inst, gd.RefCounted) {
 			case null:
-				trace('Instance is not a gd.RefCounted');
+				// trace('Instance is not a gd.RefCounted');
 			case node:
 				node.__ref = untyped __cpp__('godot::Ref(reinterpret_cast<godot::RefCounted*>({0}))', native.ptr);
 		}

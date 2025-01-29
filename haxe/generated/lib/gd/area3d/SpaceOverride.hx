@@ -1,5 +1,5 @@
 package gd.area3d;
-enum abstract SpaceOverride(Int) to Int {
+enum abstract SpaceOverride(Int) from Int to Int {
 	final DISABLED = 0;
 	final COMBINE = 1;
 	final COMBINE_REPLACE = 2;

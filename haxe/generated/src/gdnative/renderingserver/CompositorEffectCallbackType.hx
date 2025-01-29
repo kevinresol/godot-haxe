@@ -1,9 +1,8 @@
 package gdnative.renderingserver;
 @:native("godot::RenderingServer::CompositorEffectCallbackType") extern enum abstract CompositorEffectCallbackType(CompositorEffectCallbackType_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):CompositorEffectCallbackType return untyped __cpp__("(static_cast<godot::RenderingServer::CompositorEffectCallbackType>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:CompositorEffectCallbackType, v2:CompositorEffectCallbackType):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:CompositorEffectCallbackType):CompositorEffectCallbackType_extern return untyped __cpp__("(cpp::Struct<godot::RenderingServer::CompositorEffectCallbackType, cpp::EnumHandler>){0}", v);
 	@:native("godot::RenderingServer::CompositorEffectCallbackType::COMPOSITOR_EFFECT_CALLBACK_TYPE_PRE_OPAQUE")
 	final PRE_OPAQUE;
 	@:native("godot::RenderingServer::CompositorEffectCallbackType::COMPOSITOR_EFFECT_CALLBACK_TYPE_POST_OPAQUE")

@@ -1,9 +1,8 @@
 package gdnative.textedit;
 @:native("godot::TextEdit::MenuItems") extern enum abstract MenuItems(MenuItems_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):MenuItems return untyped __cpp__("(static_cast<godot::TextEdit::MenuItems>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:MenuItems, v2:MenuItems):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:MenuItems):MenuItems_extern return untyped __cpp__("(cpp::Struct<godot::TextEdit::MenuItems, cpp::EnumHandler>){0}", v);
 	@:native("godot::TextEdit::MenuItems::MENU_CUT")
 	final CUT;
 	@:native("godot::TextEdit::MenuItems::MENU_COPY")

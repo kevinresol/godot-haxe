@@ -1,9 +1,8 @@
 package gdnative.renderingserver;
 @:native("godot::RenderingServer::GlobalShaderParameterType") extern enum abstract GlobalShaderParameterType(GlobalShaderParameterType_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):GlobalShaderParameterType return untyped __cpp__("(static_cast<godot::RenderingServer::GlobalShaderParameterType>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:GlobalShaderParameterType, v2:GlobalShaderParameterType):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:GlobalShaderParameterType):GlobalShaderParameterType_extern return untyped __cpp__("(cpp::Struct<godot::RenderingServer::GlobalShaderParameterType, cpp::EnumHandler>){0}", v);
 	@:native("godot::RenderingServer::GlobalShaderParameterType::GLOBAL_VAR_TYPE_BOOL")
 	final BOOL;
 	@:native("godot::RenderingServer::GlobalShaderParameterType::GLOBAL_VAR_TYPE_BVEC2")

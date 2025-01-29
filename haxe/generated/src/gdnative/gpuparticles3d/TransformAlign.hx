@@ -1,9 +1,8 @@
 package gdnative.gpuparticles3d;
 @:native("godot::GPUParticles3D::TransformAlign") extern enum abstract TransformAlign(TransformAlign_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):TransformAlign return untyped __cpp__("(static_cast<godot::GPUParticles3D::TransformAlign>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:TransformAlign, v2:TransformAlign):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:TransformAlign):TransformAlign_extern return untyped __cpp__("(cpp::Struct<godot::GPUParticles3D::TransformAlign, cpp::EnumHandler>){0}", v);
 	@:native("godot::GPUParticles3D::TransformAlign::TRANSFORM_ALIGN_DISABLED")
 	final DISABLED;
 	@:native("godot::GPUParticles3D::TransformAlign::TRANSFORM_ALIGN_Z_BILLBOARD")

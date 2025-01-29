@@ -1,5 +1,5 @@
 package gd;
-enum abstract MIDIMessage(Int) to Int {
+enum abstract MIDIMessage(Int) from Int to Int {
 	final NONE = 0;
 	final NOTE_OFF = 8;
 	final NOTE_ON = 9;

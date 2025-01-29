@@ -1,9 +1,8 @@
 package gdnative.particleprocessmaterial;
 @:native("godot::ParticleProcessMaterial::ParticleFlags") extern enum abstract ParticleFlags(ParticleFlags_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):ParticleFlags return untyped __cpp__("(static_cast<godot::ParticleProcessMaterial::ParticleFlags>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:ParticleFlags, v2:ParticleFlags):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:ParticleFlags):ParticleFlags_extern return untyped __cpp__("(cpp::Struct<godot::ParticleProcessMaterial::ParticleFlags, cpp::EnumHandler>){0}", v);
 	@:native("godot::ParticleProcessMaterial::ParticleFlags::PARTICLE_FLAG_ALIGN_Y_TO_VELOCITY")
 	final ALIGN_Y_TO_VELOCITY;
 	@:native("godot::ParticleProcessMaterial::ParticleFlags::PARTICLE_FLAG_ROTATE_Y")

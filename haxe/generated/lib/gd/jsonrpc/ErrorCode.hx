@@ -1,5 +1,5 @@
 package gd.jsonrpc;
-enum abstract ErrorCode(Int) to Int {
+enum abstract ErrorCode(Int) from Int to Int {
 	final PARSE_ERROR = -32700;
 	final INVALID_REQUEST = -32600;
 	final METHOD_NOT_FOUND = -32601;

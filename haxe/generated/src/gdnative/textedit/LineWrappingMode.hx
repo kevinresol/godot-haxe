@@ -1,9 +1,8 @@
 package gdnative.textedit;
 @:native("godot::TextEdit::LineWrappingMode") extern enum abstract LineWrappingMode(LineWrappingMode_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):LineWrappingMode return untyped __cpp__("(static_cast<godot::TextEdit::LineWrappingMode>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:LineWrappingMode, v2:LineWrappingMode):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:LineWrappingMode):LineWrappingMode_extern return untyped __cpp__("(cpp::Struct<godot::TextEdit::LineWrappingMode, cpp::EnumHandler>){0}", v);
 	@:native("godot::TextEdit::LineWrappingMode::LINE_WRAPPING_NONE")
 	final NONE;
 	@:native("godot::TextEdit::LineWrappingMode::LINE_WRAPPING_BOUNDARY")

@@ -1,9 +1,8 @@
 package gdnative.physicsserver3d;
 @:native("godot::PhysicsServer3D::G6DOFJointAxisParam") extern enum abstract G6DOFJointAxisParam(G6DOFJointAxisParam_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):G6DOFJointAxisParam return untyped __cpp__("(static_cast<godot::PhysicsServer3D::G6DOFJointAxisParam>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:G6DOFJointAxisParam, v2:G6DOFJointAxisParam):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:G6DOFJointAxisParam):G6DOFJointAxisParam_extern return untyped __cpp__("(cpp::Struct<godot::PhysicsServer3D::G6DOFJointAxisParam, cpp::EnumHandler>){0}", v);
 	@:native("godot::PhysicsServer3D::G6DOFJointAxisParam::G6DOF_JOINT_LINEAR_LOWER_LIMIT")
 	final LINEAR_LOWER_LIMIT;
 	@:native("godot::PhysicsServer3D::G6DOFJointAxisParam::G6DOF_JOINT_LINEAR_UPPER_LIMIT")

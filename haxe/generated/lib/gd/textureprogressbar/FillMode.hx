@@ -1,5 +1,5 @@
 package gd.textureprogressbar;
-enum abstract FillMode(Int) to Int {
+enum abstract FillMode(Int) from Int to Int {
 	final LEFT_TO_RIGHT = 0;
 	final RIGHT_TO_LEFT = 1;
 	final TOP_TO_BOTTOM = 2;

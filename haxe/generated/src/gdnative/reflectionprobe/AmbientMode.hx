@@ -1,9 +1,8 @@
 package gdnative.reflectionprobe;
 @:native("godot::ReflectionProbe::AmbientMode") extern enum abstract AmbientMode(AmbientMode_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):AmbientMode return untyped __cpp__("(static_cast<godot::ReflectionProbe::AmbientMode>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:AmbientMode, v2:AmbientMode):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:AmbientMode):AmbientMode_extern return untyped __cpp__("(cpp::Struct<godot::ReflectionProbe::AmbientMode, cpp::EnumHandler>){0}", v);
 	@:native("godot::ReflectionProbe::AmbientMode::AMBIENT_DISABLED")
 	final DISABLED;
 	@:native("godot::ReflectionProbe::AmbientMode::AMBIENT_ENVIRONMENT")

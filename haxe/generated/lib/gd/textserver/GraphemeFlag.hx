@@ -1,5 +1,5 @@
 package gd.textserver;
-enum abstract GraphemeFlag(Int) to Int {
+enum abstract GraphemeFlag(cpp.UInt64) from cpp.UInt64 to cpp.UInt64 {
 	final VALID = 1;
 	final RTL = 2;
 	final VIRTUAL = 4;

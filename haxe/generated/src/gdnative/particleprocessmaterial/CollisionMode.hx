@@ -1,9 +1,8 @@
 package gdnative.particleprocessmaterial;
 @:native("godot::ParticleProcessMaterial::CollisionMode") extern enum abstract CollisionMode(CollisionMode_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):CollisionMode return untyped __cpp__("(static_cast<godot::ParticleProcessMaterial::CollisionMode>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:CollisionMode, v2:CollisionMode):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:CollisionMode):CollisionMode_extern return untyped __cpp__("(cpp::Struct<godot::ParticleProcessMaterial::CollisionMode, cpp::EnumHandler>){0}", v);
 	@:native("godot::ParticleProcessMaterial::CollisionMode::COLLISION_DISABLED")
 	final DISABLED;
 	@:native("godot::ParticleProcessMaterial::CollisionMode::COLLISION_RIGID")

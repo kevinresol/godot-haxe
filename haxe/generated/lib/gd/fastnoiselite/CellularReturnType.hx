@@ -1,5 +1,5 @@
 package gd.fastnoiselite;
-enum abstract CellularReturnType(Int) to Int {
+enum abstract CellularReturnType(Int) from Int to Int {
 	final CELL_VALUE = 0;
 	final DISTANCE = 1;
 	final DISTANCE2 = 2;

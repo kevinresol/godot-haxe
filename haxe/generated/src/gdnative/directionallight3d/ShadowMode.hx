@@ -1,9 +1,8 @@
 package gdnative.directionallight3d;
 @:native("godot::DirectionalLight3D::ShadowMode") extern enum abstract ShadowMode(ShadowMode_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):ShadowMode return untyped __cpp__("(static_cast<godot::DirectionalLight3D::ShadowMode>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:ShadowMode, v2:ShadowMode):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:ShadowMode):ShadowMode_extern return untyped __cpp__("(cpp::Struct<godot::DirectionalLight3D::ShadowMode, cpp::EnumHandler>){0}", v);
 	@:native("godot::DirectionalLight3D::ShadowMode::SHADOW_ORTHOGONAL")
 	final ORTHOGONAL;
 	@:native("godot::DirectionalLight3D::ShadowMode::SHADOW_PARALLEL_2_SPLITS")

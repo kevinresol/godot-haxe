@@ -1,5 +1,5 @@
 package gd.enetpacketpeer;
-enum abstract PeerStatistic(Int) to Int {
+enum abstract PeerStatistic(Int) from Int to Int {
 	final PACKET_LOSS = 0;
 	final PACKET_LOSS_VARIANCE = 1;
 	final PACKET_LOSS_EPOCH = 2;

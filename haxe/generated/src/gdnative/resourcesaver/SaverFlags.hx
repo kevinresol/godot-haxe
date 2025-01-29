@@ -1,9 +1,8 @@
 package gdnative.resourcesaver;
 @:native("godot::ResourceSaver::SaverFlags") extern enum abstract SaverFlags(SaverFlags_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):SaverFlags return untyped __cpp__("(static_cast<godot::ResourceSaver::SaverFlags>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:SaverFlags, v2:SaverFlags):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:SaverFlags):SaverFlags_extern return untyped __cpp__("(cpp::Struct<godot::ResourceSaver::SaverFlags, cpp::EnumHandler>){0}", v);
 	@:native("godot::ResourceSaver::SaverFlags::FLAG_NONE")
 	final NONE;
 	@:native("godot::ResourceSaver::SaverFlags::FLAG_RELATIVE_PATHS")

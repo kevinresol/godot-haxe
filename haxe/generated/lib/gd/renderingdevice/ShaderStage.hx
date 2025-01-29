@@ -1,5 +1,5 @@
 package gd.renderingdevice;
-enum abstract ShaderStage(Int) to Int {
+enum abstract ShaderStage(Int) from Int to Int {
 	final VERTEX = 0;
 	final FRAGMENT = 1;
 	final TESSELATION_CONTROL = 2;

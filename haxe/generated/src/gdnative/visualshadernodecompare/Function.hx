@@ -1,9 +1,8 @@
 package gdnative.visualshadernodecompare;
 @:native("godot::VisualShaderNodeCompare::Function") extern enum abstract Function(Function_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):Function return untyped __cpp__("(static_cast<godot::VisualShaderNodeCompare::Function>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:Function, v2:Function):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:Function):Function_extern return untyped __cpp__("(cpp::Struct<godot::VisualShaderNodeCompare::Function, cpp::EnumHandler>){0}", v);
 	@:native("godot::VisualShaderNodeCompare::Function::FUNC_EQUAL")
 	final EQUAL;
 	@:native("godot::VisualShaderNodeCompare::Function::FUNC_NOT_EQUAL")

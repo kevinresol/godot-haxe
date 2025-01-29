@@ -1,9 +1,8 @@
 package gdnative.textserver;
 @:native("godot::TextServer::FontLCDSubpixelLayout") extern enum abstract FontLCDSubpixelLayout(FontLCDSubpixelLayout_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):FontLCDSubpixelLayout return untyped __cpp__("(static_cast<godot::TextServer::FontLCDSubpixelLayout>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:FontLCDSubpixelLayout, v2:FontLCDSubpixelLayout):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:FontLCDSubpixelLayout):FontLCDSubpixelLayout_extern return untyped __cpp__("(cpp::Struct<godot::TextServer::FontLCDSubpixelLayout, cpp::EnumHandler>){0}", v);
 	@:native("godot::TextServer::FontLCDSubpixelLayout::FONT_LCD_SUBPIXEL_LAYOUT_NONE")
 	final NONE;
 	@:native("godot::TextServer::FontLCDSubpixelLayout::FONT_LCD_SUBPIXEL_LAYOUT_HRGB")

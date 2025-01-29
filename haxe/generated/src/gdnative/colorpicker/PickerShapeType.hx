@@ -1,9 +1,8 @@
 package gdnative.colorpicker;
 @:native("godot::ColorPicker::PickerShapeType") extern enum abstract PickerShapeType(PickerShapeType_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):PickerShapeType return untyped __cpp__("(static_cast<godot::ColorPicker::PickerShapeType>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:PickerShapeType, v2:PickerShapeType):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:PickerShapeType):PickerShapeType_extern return untyped __cpp__("(cpp::Struct<godot::ColorPicker::PickerShapeType, cpp::EnumHandler>){0}", v);
 	@:native("godot::ColorPicker::PickerShapeType::SHAPE_HSV_RECTANGLE")
 	final HSV_RECTANGLE;
 	@:native("godot::ColorPicker::PickerShapeType::SHAPE_HSV_WHEEL")

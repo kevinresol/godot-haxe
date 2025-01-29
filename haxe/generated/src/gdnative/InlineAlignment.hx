@@ -1,9 +1,8 @@
 package gdnative;
 @:native("godot::InlineAlignment") extern enum abstract InlineAlignment(InlineAlignment_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):InlineAlignment return untyped __cpp__("(static_cast<godot::InlineAlignment>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:InlineAlignment, v2:InlineAlignment):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:InlineAlignment):InlineAlignment_extern return untyped __cpp__("(cpp::Struct<godot::InlineAlignment, cpp::EnumHandler>){0}", v);
 	@:native("godot::InlineAlignment::INLINE_ALIGNMENT_TOP_TO")
 	final TOP_TO;
 	@:native("godot::InlineAlignment::INLINE_ALIGNMENT_CENTER_TO")

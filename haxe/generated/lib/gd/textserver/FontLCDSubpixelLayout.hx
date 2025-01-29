@@ -1,5 +1,5 @@
 package gd.textserver;
-enum abstract FontLCDSubpixelLayout(Int) to Int {
+enum abstract FontLCDSubpixelLayout(Int) from Int to Int {
 	final NONE = 0;
 	final HRGB = 1;
 	final HBGR = 2;

@@ -1,9 +1,8 @@
 package gdnative.cpuparticles2d;
 @:native("godot::CPUParticles2D::EmissionShape") extern enum abstract EmissionShape(EmissionShape_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):EmissionShape return untyped __cpp__("(static_cast<godot::CPUParticles2D::EmissionShape>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:EmissionShape, v2:EmissionShape):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:EmissionShape):EmissionShape_extern return untyped __cpp__("(cpp::Struct<godot::CPUParticles2D::EmissionShape, cpp::EnumHandler>){0}", v);
 	@:native("godot::CPUParticles2D::EmissionShape::EMISSION_SHAPE_POINT")
 	final POINT;
 	@:native("godot::CPUParticles2D::EmissionShape::EMISSION_SHAPE_SPHERE")

@@ -1,9 +1,8 @@
 package gdnative.packedscene;
 @:native("godot::PackedScene::GenEditState") extern enum abstract GenEditState(GenEditState_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):GenEditState return untyped __cpp__("(static_cast<godot::PackedScene::GenEditState>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:GenEditState, v2:GenEditState):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:GenEditState):GenEditState_extern return untyped __cpp__("(cpp::Struct<godot::PackedScene::GenEditState, cpp::EnumHandler>){0}", v);
 	@:native("godot::PackedScene::GenEditState::GEN_EDIT_STATE_DISABLED")
 	final DISABLED;
 	@:native("godot::PackedScene::GenEditState::GEN_EDIT_STATE_INSTANCE")

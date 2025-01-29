@@ -1,9 +1,8 @@
 package gdnative.textserver;
 @:native("godot::TextServer::TextOverrunFlag") extern enum abstract TextOverrunFlag(TextOverrunFlag_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):TextOverrunFlag return untyped __cpp__("(static_cast<godot::TextServer::TextOverrunFlag>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:TextOverrunFlag, v2:TextOverrunFlag):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:TextOverrunFlag):TextOverrunFlag_extern return untyped __cpp__("(cpp::Struct<godot::TextServer::TextOverrunFlag, cpp::EnumHandler>){0}", v);
 	@:native("godot::TextServer::TextOverrunFlag::OVERRUN_NO_TRIM")
 	final NO_TRIM;
 	@:native("godot::TextServer::TextOverrunFlag::OVERRUN_TRIM")

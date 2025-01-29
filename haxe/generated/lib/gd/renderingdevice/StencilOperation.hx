@@ -1,5 +1,5 @@
 package gd.renderingdevice;
-enum abstract StencilOperation(Int) to Int {
+enum abstract StencilOperation(Int) from Int to Int {
 	final KEEP = 0;
 	final ZERO = 1;
 	final REPLACE = 2;

@@ -1,9 +1,8 @@
 package gdnative.renderingdevice;
 @:native("godot::RenderingDevice::SamplerBorderColor") extern enum abstract SamplerBorderColor(SamplerBorderColor_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):SamplerBorderColor return untyped __cpp__("(static_cast<godot::RenderingDevice::SamplerBorderColor>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:SamplerBorderColor, v2:SamplerBorderColor):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:SamplerBorderColor):SamplerBorderColor_extern return untyped __cpp__("(cpp::Struct<godot::RenderingDevice::SamplerBorderColor, cpp::EnumHandler>){0}", v);
 	@:native("godot::RenderingDevice::SamplerBorderColor::SAMPLER_BORDER_COLOR_FLOAT_TRANSPARENT_BLACK")
 	final FLOAT_TRANSPARENT_BLACK;
 	@:native("godot::RenderingDevice::SamplerBorderColor::SAMPLER_BORDER_COLOR_INT_TRANSPARENT_BLACK")

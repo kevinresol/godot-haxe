@@ -1,9 +1,8 @@
 package gdnative.canvasitemmaterial;
 @:native("godot::CanvasItemMaterial::LightMode") extern enum abstract LightMode(LightMode_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):LightMode return untyped __cpp__("(static_cast<godot::CanvasItemMaterial::LightMode>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:LightMode, v2:LightMode):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:LightMode):LightMode_extern return untyped __cpp__("(cpp::Struct<godot::CanvasItemMaterial::LightMode, cpp::EnumHandler>){0}", v);
 	@:native("godot::CanvasItemMaterial::LightMode::LIGHT_MODE_NORMAL")
 	final NORMAL;
 	@:native("godot::CanvasItemMaterial::LightMode::LIGHT_MODE_UNSHADED")

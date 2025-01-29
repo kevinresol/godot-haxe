@@ -1,9 +1,8 @@
 package gdnative.geometryinstance3d;
 @:native("godot::GeometryInstance3D::GIMode") extern enum abstract GIMode(GIMode_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):GIMode return untyped __cpp__("(static_cast<godot::GeometryInstance3D::GIMode>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:GIMode, v2:GIMode):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:GIMode):GIMode_extern return untyped __cpp__("(cpp::Struct<godot::GeometryInstance3D::GIMode, cpp::EnumHandler>){0}", v);
 	@:native("godot::GeometryInstance3D::GIMode::GI_MODE_DISABLED")
 	final DISABLED;
 	@:native("godot::GeometryInstance3D::GIMode::GI_MODE_STATIC")

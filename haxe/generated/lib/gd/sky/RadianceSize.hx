@@ -1,5 +1,5 @@
 package gd.sky;
-enum abstract RadianceSize(Int) to Int {
+enum abstract RadianceSize(Int) from Int to Int {
 	final _32 = 0;
 	final _64 = 1;
 	final _128 = 2;

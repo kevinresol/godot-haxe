@@ -1,5 +1,5 @@
 package gd.image;
-enum abstract Format(Int) to Int {
+enum abstract Format(Int) from Int to Int {
 	final L8 = 0;
 	final LA8 = 1;
 	final R8 = 2;

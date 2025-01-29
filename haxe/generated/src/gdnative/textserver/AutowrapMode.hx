@@ -1,9 +1,8 @@
 package gdnative.textserver;
 @:native("godot::TextServer::AutowrapMode") extern enum abstract AutowrapMode(AutowrapMode_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):AutowrapMode return untyped __cpp__("(static_cast<godot::TextServer::AutowrapMode>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:AutowrapMode, v2:AutowrapMode):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:AutowrapMode):AutowrapMode_extern return untyped __cpp__("(cpp::Struct<godot::TextServer::AutowrapMode, cpp::EnumHandler>){0}", v);
 	@:native("godot::TextServer::AutowrapMode::AUTOWRAP_OFF")
 	final OFF;
 	@:native("godot::TextServer::AutowrapMode::AUTOWRAP_ARBITRARY")

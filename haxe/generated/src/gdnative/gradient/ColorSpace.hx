@@ -1,9 +1,8 @@
 package gdnative.gradient;
 @:native("godot::Gradient::ColorSpace") extern enum abstract ColorSpace(ColorSpace_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):ColorSpace return untyped __cpp__("(static_cast<godot::Gradient::ColorSpace>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:ColorSpace, v2:ColorSpace):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:ColorSpace):ColorSpace_extern return untyped __cpp__("(cpp::Struct<godot::Gradient::ColorSpace, cpp::EnumHandler>){0}", v);
 	@:native("godot::Gradient::ColorSpace::GRADIENT_COLOR_SPACE_SRGB")
 	final SRGB;
 	@:native("godot::Gradient::ColorSpace::GRADIENT_COLOR_SPACE_LINEAR_SRGB")

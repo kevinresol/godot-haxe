@@ -1,9 +1,8 @@
 package gdnative.curve;
 @:native("godot::Curve::TangentMode") extern enum abstract TangentMode(TangentMode_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):TangentMode return untyped __cpp__("(static_cast<godot::Curve::TangentMode>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:TangentMode, v2:TangentMode):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:TangentMode):TangentMode_extern return untyped __cpp__("(cpp::Struct<godot::Curve::TangentMode, cpp::EnumHandler>){0}", v);
 	@:native("godot::Curve::TangentMode::TANGENT_FREE")
 	final FREE;
 	@:native("godot::Curve::TangentMode::TANGENT_LINEAR")

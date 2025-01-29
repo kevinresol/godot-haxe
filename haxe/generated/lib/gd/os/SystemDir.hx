@@ -1,5 +1,5 @@
 package gd.os;
-enum abstract SystemDir(Int) to Int {
+enum abstract SystemDir(Int) from Int to Int {
 	final DESKTOP = 0;
 	final DCIM = 1;
 	final DOCUMENTS = 2;

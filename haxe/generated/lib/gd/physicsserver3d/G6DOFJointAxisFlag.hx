@@ -1,5 +1,5 @@
 package gd.physicsserver3d;
-enum abstract G6DOFJointAxisFlag(Int) to Int {
+enum abstract G6DOFJointAxisFlag(Int) from Int to Int {
 	final ENABLE_LINEAR_LIMIT = 0;
 	final ENABLE_ANGULAR_LIMIT = 1;
 	final ENABLE_ANGULAR_SPRING = 2;

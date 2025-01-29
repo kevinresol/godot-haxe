@@ -1,5 +1,5 @@
 package gd;
-enum abstract Error(Int) to Int {
+enum abstract Error(Int) from Int to Int {
 	final OK = 0;
 	final FAILED = 1;
 	final UNAVAILABLE = 2;

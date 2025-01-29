@@ -1,9 +1,8 @@
 package gdnative.renderingserver;
 @:native("godot::RenderingServer::FogVolumeShape") extern enum abstract FogVolumeShape(FogVolumeShape_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):FogVolumeShape return untyped __cpp__("(static_cast<godot::RenderingServer::FogVolumeShape>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:FogVolumeShape, v2:FogVolumeShape):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:FogVolumeShape):FogVolumeShape_extern return untyped __cpp__("(cpp::Struct<godot::RenderingServer::FogVolumeShape, cpp::EnumHandler>){0}", v);
 	@:native("godot::RenderingServer::FogVolumeShape::FOG_VOLUME_SHAPE_ELLIPSOID")
 	final ELLIPSOID;
 	@:native("godot::RenderingServer::FogVolumeShape::FOG_VOLUME_SHAPE_CONE")

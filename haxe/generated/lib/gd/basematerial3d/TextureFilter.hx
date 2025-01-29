@@ -1,5 +1,5 @@
 package gd.basematerial3d;
-enum abstract TextureFilter(Int) to Int {
+enum abstract TextureFilter(Int) from Int to Int {
 	final NEAREST = 0;
 	final LINEAR = 1;
 	final NEAREST_WITH_MIPMAPS = 2;

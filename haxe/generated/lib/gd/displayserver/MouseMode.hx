@@ -1,5 +1,5 @@
 package gd.displayserver;
-enum abstract MouseMode(Int) to Int {
+enum abstract MouseMode(Int) from Int to Int {
 	final VISIBLE = 0;
 	final HIDDEN = 1;
 	final CAPTURED = 2;

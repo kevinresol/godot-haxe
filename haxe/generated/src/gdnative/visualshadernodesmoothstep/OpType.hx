@@ -1,9 +1,8 @@
 package gdnative.visualshadernodesmoothstep;
 @:native("godot::VisualShaderNodeSmoothStep::OpType") extern enum abstract OpType(OpType_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):OpType return untyped __cpp__("(static_cast<godot::VisualShaderNodeSmoothStep::OpType>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:OpType, v2:OpType):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:OpType):OpType_extern return untyped __cpp__("(cpp::Struct<godot::VisualShaderNodeSmoothStep::OpType, cpp::EnumHandler>){0}", v);
 	@:native("godot::VisualShaderNodeSmoothStep::OpType::OP_TYPE_SCALAR")
 	final SCALAR;
 	@:native("godot::VisualShaderNodeSmoothStep::OpType::OP_TYPE_VECTOR_2D")

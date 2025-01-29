@@ -1,9 +1,8 @@
 package gdnative.audioeffectfilter;
 @:native("godot::AudioEffectFilter::FilterDB") extern enum abstract FilterDB(FilterDB_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):FilterDB return untyped __cpp__("(static_cast<godot::AudioEffectFilter::FilterDB>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:FilterDB, v2:FilterDB):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:FilterDB):FilterDB_extern return untyped __cpp__("(cpp::Struct<godot::AudioEffectFilter::FilterDB, cpp::EnumHandler>){0}", v);
 	@:native("godot::AudioEffectFilter::FilterDB::FILTER_6DB")
 	final _6DB;
 	@:native("godot::AudioEffectFilter::FilterDB::FILTER_12DB")

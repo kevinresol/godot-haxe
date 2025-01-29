@@ -1,5 +1,5 @@
 package gd;
-enum abstract EulerOrder(Int) to Int {
+enum abstract EulerOrder(Int) from Int to Int {
 	final XYZ = 0;
 	final XZY = 1;
 	final YXZ = 2;

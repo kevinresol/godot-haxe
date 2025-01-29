@@ -1,2 +1,14 @@
 package gd.characterbody2d;
-typedef PlatformOnLeave = gdnative.characterbody2d.PlatformOnLeave;
+enum abstract PlatformOnLeave(Int) from Int to Int {
+	@:op(A | B)
+	extern static inline function or(a:PlatformOnLeave, b:PlatformOnLeave):PlatformOnLeave {
+		return untyped __cpp__('({0}) | ({1})', a, b);
+	}
+	@:to
+	extern inline function toNative():gdnative.characterbody2d.PlatformOnLeave return untyped __cpp__("static_cast<godot::CharacterBody2D::PlatformOnLeave>({0})", this);
+	@:from
+	extern static inline function fromNative(v:gdnative.characterbody2d.PlatformOnLeave):PlatformOnLeave return untyped __cpp__("static_cast<int32_t>({0})", v);
+	final ADD_VELOCITY = 0;
+	final ADD_UPWARD_VELOCITY = 1;
+	final DO_NOTHING = 2;
+}

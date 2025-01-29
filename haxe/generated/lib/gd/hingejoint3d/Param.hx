@@ -1,5 +1,5 @@
 package gd.hingejoint3d;
-enum abstract Param(Int) to Int {
+enum abstract Param(Int) from Int to Int {
 	final BIAS = 0;
 	final LIMIT_UPPER = 1;
 	final LIMIT_LOWER = 2;

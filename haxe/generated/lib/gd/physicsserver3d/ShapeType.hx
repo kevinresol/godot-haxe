@@ -1,5 +1,5 @@
 package gd.physicsserver3d;
-enum abstract ShapeType(Int) to Int {
+enum abstract ShapeType(Int) from Int to Int {
 	final WORLD_BOUNDARY = 0;
 	final SEPARATION_RAY = 1;
 	final SPHERE = 2;

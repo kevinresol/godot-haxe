@@ -1,9 +1,8 @@
 package gdnative.image;
 @:native("godot::Image::UsedChannels") extern enum abstract UsedChannels(UsedChannels_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):UsedChannels return untyped __cpp__("(static_cast<godot::Image::UsedChannels>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:UsedChannels, v2:UsedChannels):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:UsedChannels):UsedChannels_extern return untyped __cpp__("(cpp::Struct<godot::Image::UsedChannels, cpp::EnumHandler>){0}", v);
 	@:native("godot::Image::UsedChannels::USED_CHANNELS_L")
 	final L;
 	@:native("godot::Image::UsedChannels::USED_CHANNELS_LA")

@@ -1,9 +1,8 @@
 package gdnative.renderingdevice;
 @:native("godot::RenderingDevice::UniformType") extern enum abstract UniformType(UniformType_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):UniformType return untyped __cpp__("(static_cast<godot::RenderingDevice::UniformType>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:UniformType, v2:UniformType):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:UniformType):UniformType_extern return untyped __cpp__("(cpp::Struct<godot::RenderingDevice::UniformType, cpp::EnumHandler>){0}", v);
 	@:native("godot::RenderingDevice::UniformType::UNIFORM_TYPE_SAMPLER")
 	final SAMPLER;
 	@:native("godot::RenderingDevice::UniformType::UNIFORM_TYPE_SAMPLER_WITH_TEXTURE")

@@ -1,9 +1,8 @@
 package gdnative.environment;
 @:native("godot::Environment::GlowBlendMode") extern enum abstract GlowBlendMode(GlowBlendMode_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):GlowBlendMode return untyped __cpp__("(static_cast<godot::Environment::GlowBlendMode>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:GlowBlendMode, v2:GlowBlendMode):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:GlowBlendMode):GlowBlendMode_extern return untyped __cpp__("(cpp::Struct<godot::Environment::GlowBlendMode, cpp::EnumHandler>){0}", v);
 	@:native("godot::Environment::GlowBlendMode::GLOW_BLEND_MODE_ADDITIVE")
 	final ADDITIVE;
 	@:native("godot::Environment::GlowBlendMode::GLOW_BLEND_MODE_SCREEN")

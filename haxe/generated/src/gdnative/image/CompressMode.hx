@@ -1,9 +1,8 @@
 package gdnative.image;
 @:native("godot::Image::CompressMode") extern enum abstract CompressMode(CompressMode_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):CompressMode return untyped __cpp__("(static_cast<godot::Image::CompressMode>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:CompressMode, v2:CompressMode):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:CompressMode):CompressMode_extern return untyped __cpp__("(cpp::Struct<godot::Image::CompressMode, cpp::EnumHandler>){0}", v);
 	@:native("godot::Image::CompressMode::COMPRESS_S3TC")
 	final S3TC;
 	@:native("godot::Image::CompressMode::COMPRESS_ETC")

@@ -1,9 +1,8 @@
 package gdnative.thread;
 @:native("godot::Thread::Priority") extern enum abstract Priority(Priority_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):Priority return untyped __cpp__("(static_cast<godot::Thread::Priority>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:Priority, v2:Priority):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:Priority):Priority_extern return untyped __cpp__("(cpp::Struct<godot::Thread::Priority, cpp::EnumHandler>){0}", v);
 	@:native("godot::Thread::Priority::PRIORITY_LOW")
 	final LOW;
 	@:native("godot::Thread::Priority::PRIORITY_NORMAL")

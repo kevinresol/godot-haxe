@@ -1,5 +1,5 @@
 package gd.theme;
-enum abstract DataType(Int) to Int {
+enum abstract DataType(Int) from Int to Int {
 	final COLOR = 0;
 	final CONSTANT = 1;
 	final FONT = 2;

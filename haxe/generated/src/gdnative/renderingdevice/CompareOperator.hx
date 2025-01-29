@@ -1,9 +1,8 @@
 package gdnative.renderingdevice;
 @:native("godot::RenderingDevice::CompareOperator") extern enum abstract CompareOperator(CompareOperator_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):CompareOperator return untyped __cpp__("(static_cast<godot::RenderingDevice::CompareOperator>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:CompareOperator, v2:CompareOperator):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:CompareOperator):CompareOperator_extern return untyped __cpp__("(cpp::Struct<godot::RenderingDevice::CompareOperator, cpp::EnumHandler>){0}", v);
 	@:native("godot::RenderingDevice::CompareOperator::COMPARE_OP_NEVER")
 	final NEVER;
 	@:native("godot::RenderingDevice::CompareOperator::COMPARE_OP_LESS")

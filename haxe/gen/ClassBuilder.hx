@@ -78,7 +78,7 @@ class ClassBuilder extends EnumBuilder {
 
 		// enums
 		for (e in (clazz.enums ?? [])) {
-			generateEnumExtern({name: '$cname.${e.name}', values: e.values}, hpp);
+			generateEnumExtern({name: '$cname.${e.name}', values: e.values, is_bitfield: e.is_bitfield}, hpp);
 		}
 
 		// methods
@@ -254,7 +254,7 @@ class ClassBuilder extends EnumBuilder {
 
 		// enums
 		for (e in (clazz.enums ?? [])) {
-			generateEnumWrapper({name: '$cname.${e.name}', values: e.values}, isScriptExtern);
+			generateEnumWrapper({name: '$cname.${e.name}', values: e.values, is_bitfield: e.is_bitfield}, isScriptExtern);
 		}
 
 		// methods

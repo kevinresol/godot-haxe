@@ -1,9 +1,8 @@
 package gdnative.xrpose;
 @:native("godot::XRPose::TrackingConfidence") extern enum abstract TrackingConfidence(TrackingConfidence_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):TrackingConfidence return untyped __cpp__("(static_cast<godot::XRPose::TrackingConfidence>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:TrackingConfidence, v2:TrackingConfidence):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:TrackingConfidence):TrackingConfidence_extern return untyped __cpp__("(cpp::Struct<godot::XRPose::TrackingConfidence, cpp::EnumHandler>){0}", v);
 	@:native("godot::XRPose::TrackingConfidence::XR_TRACKING_CONFIDENCE_NONE")
 	final NONE;
 	@:native("godot::XRPose::TrackingConfidence::XR_TRACKING_CONFIDENCE_LOW")

@@ -1,5 +1,5 @@
 package gd.basematerial3d;
-enum abstract Transparency(Int) to Int {
+enum abstract Transparency(Int) from Int to Int {
 	final DISABLED = 0;
 	final ALPHA = 1;
 	final ALPHA_SCISSOR = 2;

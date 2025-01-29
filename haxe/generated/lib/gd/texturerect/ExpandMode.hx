@@ -1,5 +1,5 @@
 package gd.texturerect;
-enum abstract ExpandMode(Int) to Int {
+enum abstract ExpandMode(Int) from Int to Int {
 	final KEEP_SIZE = 0;
 	final IGNORE_SIZE = 1;
 	final FIT_WIDTH = 2;

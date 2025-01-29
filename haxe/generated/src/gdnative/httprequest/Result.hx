@@ -1,9 +1,8 @@
 package gdnative.httprequest;
 @:native("godot::HTTPRequest::Result") extern enum abstract Result(Result_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):Result return untyped __cpp__("(static_cast<godot::HTTPRequest::Result>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:Result, v2:Result):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:Result):Result_extern return untyped __cpp__("(cpp::Struct<godot::HTTPRequest::Result, cpp::EnumHandler>){0}", v);
 	@:native("godot::HTTPRequest::Result::RESULT_SUCCESS")
 	final SUCCESS;
 	@:native("godot::HTTPRequest::Result::RESULT_CHUNKED_BODY_SIZE_MISMATCH")

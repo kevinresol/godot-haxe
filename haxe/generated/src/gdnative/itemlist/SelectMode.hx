@@ -1,9 +1,8 @@
 package gdnative.itemlist;
 @:native("godot::ItemList::SelectMode") extern enum abstract SelectMode(SelectMode_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):SelectMode return untyped __cpp__("(static_cast<godot::ItemList::SelectMode>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:SelectMode, v2:SelectMode):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:SelectMode):SelectMode_extern return untyped __cpp__("(cpp::Struct<godot::ItemList::SelectMode, cpp::EnumHandler>){0}", v);
 	@:native("godot::ItemList::SelectMode::SELECT_SINGLE")
 	final SINGLE;
 	@:native("godot::ItemList::SelectMode::SELECT_MULTI")

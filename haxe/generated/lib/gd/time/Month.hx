@@ -1,5 +1,5 @@
 package gd.time;
-enum abstract Month(Int) to Int {
+enum abstract Month(Int) from Int to Int {
 	final JANUARY = 1;
 	final FEBRUARY = 2;
 	final MARCH = 3;

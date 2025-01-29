@@ -1,9 +1,8 @@
 package gdnative.treeitem;
 @:native("godot::TreeItem::TreeCellMode") extern enum abstract TreeCellMode(TreeCellMode_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):TreeCellMode return untyped __cpp__("(static_cast<godot::TreeItem::TreeCellMode>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:TreeCellMode, v2:TreeCellMode):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:TreeCellMode):TreeCellMode_extern return untyped __cpp__("(cpp::Struct<godot::TreeItem::TreeCellMode, cpp::EnumHandler>){0}", v);
 	@:native("godot::TreeItem::TreeCellMode::CELL_MODE_STRING")
 	final STRING;
 	@:native("godot::TreeItem::TreeCellMode::CELL_MODE_CHECK")

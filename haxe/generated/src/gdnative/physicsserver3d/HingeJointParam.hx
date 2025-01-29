@@ -1,9 +1,8 @@
 package gdnative.physicsserver3d;
 @:native("godot::PhysicsServer3D::HingeJointParam") extern enum abstract HingeJointParam(HingeJointParam_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):HingeJointParam return untyped __cpp__("(static_cast<godot::PhysicsServer3D::HingeJointParam>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:HingeJointParam, v2:HingeJointParam):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:HingeJointParam):HingeJointParam_extern return untyped __cpp__("(cpp::Struct<godot::PhysicsServer3D::HingeJointParam, cpp::EnumHandler>){0}", v);
 	@:native("godot::PhysicsServer3D::HingeJointParam::HINGE_JOINT_BIAS")
 	final BIAS;
 	@:native("godot::PhysicsServer3D::HingeJointParam::HINGE_JOINT_LIMIT_UPPER")

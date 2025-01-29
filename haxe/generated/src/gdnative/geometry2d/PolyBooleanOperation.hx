@@ -1,9 +1,8 @@
 package gdnative.geometry2d;
 @:native("godot::Geometry2D::PolyBooleanOperation") extern enum abstract PolyBooleanOperation(PolyBooleanOperation_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):PolyBooleanOperation return untyped __cpp__("(static_cast<godot::Geometry2D::PolyBooleanOperation>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:PolyBooleanOperation, v2:PolyBooleanOperation):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:PolyBooleanOperation):PolyBooleanOperation_extern return untyped __cpp__("(cpp::Struct<godot::Geometry2D::PolyBooleanOperation, cpp::EnumHandler>){0}", v);
 	@:native("godot::Geometry2D::PolyBooleanOperation::OPERATION_UNION")
 	final UNION;
 	@:native("godot::Geometry2D::PolyBooleanOperation::OPERATION_DIFFERENCE")

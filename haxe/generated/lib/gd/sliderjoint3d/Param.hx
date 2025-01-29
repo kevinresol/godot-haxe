@@ -1,5 +1,5 @@
 package gd.sliderjoint3d;
-enum abstract Param(Int) to Int {
+enum abstract Param(Int) from Int to Int {
 	final LINEAR_LIMIT_UPPER = 0;
 	final LINEAR_LIMIT_LOWER = 1;
 	final LINEAR_LIMIT_SOFTNESS = 2;

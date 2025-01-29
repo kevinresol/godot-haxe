@@ -1,9 +1,8 @@
 package gdnative.multiplayerapi;
 @:native("godot::MultiplayerAPI::RPCMode") extern enum abstract RPCMode(RPCMode_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):RPCMode return untyped __cpp__("(static_cast<godot::MultiplayerAPI::RPCMode>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:RPCMode, v2:RPCMode):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:RPCMode):RPCMode_extern return untyped __cpp__("(cpp::Struct<godot::MultiplayerAPI::RPCMode, cpp::EnumHandler>){0}", v);
 	@:native("godot::MultiplayerAPI::RPCMode::RPC_MODE_DISABLED")
 	final DISABLED;
 	@:native("godot::MultiplayerAPI::RPCMode::RPC_MODE_ANY_PEER")

@@ -14,6 +14,15 @@ class Cppia {
 	public static function main() {
 		trace("Hello from Haxe!");
 
+		final up = gd.Key.UP;
+		final nativeup = gdnative.Key.UP;
+		trace(up);
+		trace(nativeup);
+		trace(up == UP);
+		trace(nativeup == UP);
+		trace(nativeup == up);
+		trace(up == nativeup);
+
 		final oldTrace = haxe.Log.trace;
 		haxe.Log.trace = (v:Dynamic, ?infos:haxe.PosInfos) -> {
 			// oldTrace(v, infos);

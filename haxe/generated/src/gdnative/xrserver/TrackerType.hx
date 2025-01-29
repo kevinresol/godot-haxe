@@ -1,9 +1,8 @@
 package gdnative.xrserver;
 @:native("godot::XRServer::TrackerType") extern enum abstract TrackerType(TrackerType_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):TrackerType return untyped __cpp__("(static_cast<godot::XRServer::TrackerType>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:TrackerType, v2:TrackerType):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:TrackerType):TrackerType_extern return untyped __cpp__("(cpp::Struct<godot::XRServer::TrackerType, cpp::EnumHandler>){0}", v);
 	@:native("godot::XRServer::TrackerType::TRACKER_HEAD")
 	final HEAD;
 	@:native("godot::XRServer::TrackerType::TRACKER_CONTROLLER")

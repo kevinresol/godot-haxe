@@ -1,5 +1,5 @@
 package gd.renderingdevice;
-enum abstract InitialAction(Int) to Int {
+enum abstract InitialAction(Int) from Int to Int {
 	final LOAD = 0;
 	final CLEAR = 1;
 	final DISCARD = 2;

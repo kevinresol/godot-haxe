@@ -1,5 +1,5 @@
 package gd;
-enum abstract MouseButtonMask(Int) to Int {
+enum abstract MouseButtonMask(cpp.UInt64) from cpp.UInt64 to cpp.UInt64 {
 	final LEFT = 1;
 	final RIGHT = 2;
 	final MIDDLE = 4;

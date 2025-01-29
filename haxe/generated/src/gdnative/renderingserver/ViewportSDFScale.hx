@@ -1,9 +1,8 @@
 package gdnative.renderingserver;
 @:native("godot::RenderingServer::ViewportSDFScale") extern enum abstract ViewportSDFScale(ViewportSDFScale_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):ViewportSDFScale return untyped __cpp__("(static_cast<godot::RenderingServer::ViewportSDFScale>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:ViewportSDFScale, v2:ViewportSDFScale):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:ViewportSDFScale):ViewportSDFScale_extern return untyped __cpp__("(cpp::Struct<godot::RenderingServer::ViewportSDFScale, cpp::EnumHandler>){0}", v);
 	@:native("godot::RenderingServer::ViewportSDFScale::VIEWPORT_SDF_SCALE_100_PERCENT")
 	final _100_PERCENT;
 	@:native("godot::RenderingServer::ViewportSDFScale::VIEWPORT_SDF_SCALE_50_PERCENT")

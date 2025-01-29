@@ -1,5 +1,5 @@
 package gd.visualshadernodetexture;
-enum abstract Source(Int) to Int {
+enum abstract Source(Int) from Int to Int {
 	final TEXTURE = 0;
 	final SCREEN = 1;
 	final _2D_TEXTURE = 2;

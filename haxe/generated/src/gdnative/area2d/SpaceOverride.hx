@@ -1,9 +1,8 @@
 package gdnative.area2d;
 @:native("godot::Area2D::SpaceOverride") extern enum abstract SpaceOverride(SpaceOverride_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):SpaceOverride return untyped __cpp__("(static_cast<godot::Area2D::SpaceOverride>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:SpaceOverride, v2:SpaceOverride):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:SpaceOverride):SpaceOverride_extern return untyped __cpp__("(cpp::Struct<godot::Area2D::SpaceOverride, cpp::EnumHandler>){0}", v);
 	@:native("godot::Area2D::SpaceOverride::SPACE_OVERRIDE_DISABLED")
 	final DISABLED;
 	@:native("godot::Area2D::SpaceOverride::SPACE_OVERRIDE_COMBINE")

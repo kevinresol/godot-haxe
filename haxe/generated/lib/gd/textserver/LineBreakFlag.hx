@@ -1,5 +1,5 @@
 package gd.textserver;
-enum abstract LineBreakFlag(Int) to Int {
+enum abstract LineBreakFlag(cpp.UInt64) from cpp.UInt64 to cpp.UInt64 {
 	final NONE = 0;
 	final MANDATORY = 1;
 	final WORD_BOUND = 2;

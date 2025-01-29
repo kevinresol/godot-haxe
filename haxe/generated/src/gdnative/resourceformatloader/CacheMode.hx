@@ -1,9 +1,8 @@
 package gdnative.resourceformatloader;
 @:native("godot::ResourceFormatLoader::CacheMode") extern enum abstract CacheMode(CacheMode_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):CacheMode return untyped __cpp__("(static_cast<godot::ResourceFormatLoader::CacheMode>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:CacheMode, v2:CacheMode):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:CacheMode):CacheMode_extern return untyped __cpp__("(cpp::Struct<godot::ResourceFormatLoader::CacheMode, cpp::EnumHandler>){0}", v);
 	@:native("godot::ResourceFormatLoader::CacheMode::CACHE_MODE_IGNORE")
 	final IGNORE;
 	@:native("godot::ResourceFormatLoader::CacheMode::CACHE_MODE_REUSE")

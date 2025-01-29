@@ -1,5 +1,5 @@
 package gd.physicsserver3d;
-enum abstract JointType(Int) to Int {
+enum abstract JointType(Int) from Int to Int {
 	final PIN = 0;
 	final HINGE = 1;
 	final SLIDER = 2;

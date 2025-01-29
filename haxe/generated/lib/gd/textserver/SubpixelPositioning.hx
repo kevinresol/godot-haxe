@@ -1,5 +1,5 @@
 package gd.textserver;
-enum abstract SubpixelPositioning(Int) to Int {
+enum abstract SubpixelPositioning(Int) from Int to Int {
 	final DISABLED = 0;
 	final AUTO = 1;
 	final ONE_HALF = 2;

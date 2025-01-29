@@ -1,9 +1,8 @@
 package gdnative.renderingserver;
 @:native("godot::RenderingServer::CanvasLightShadowFilter") extern enum abstract CanvasLightShadowFilter(CanvasLightShadowFilter_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):CanvasLightShadowFilter return untyped __cpp__("(static_cast<godot::RenderingServer::CanvasLightShadowFilter>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:CanvasLightShadowFilter, v2:CanvasLightShadowFilter):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:CanvasLightShadowFilter):CanvasLightShadowFilter_extern return untyped __cpp__("(cpp::Struct<godot::RenderingServer::CanvasLightShadowFilter, cpp::EnumHandler>){0}", v);
 	@:native("godot::RenderingServer::CanvasLightShadowFilter::CANVAS_LIGHT_FILTER_NONE")
 	final NONE;
 	@:native("godot::RenderingServer::CanvasLightShadowFilter::CANVAS_LIGHT_FILTER_PCF5")

@@ -1,5 +1,5 @@
 package gd.audioeffectdistortion;
-enum abstract Mode(Int) to Int {
+enum abstract Mode(Int) from Int to Int {
 	final CLIP = 0;
 	final ATAN = 1;
 	final LOFI = 2;

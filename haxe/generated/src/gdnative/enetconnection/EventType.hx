@@ -1,9 +1,8 @@
 package gdnative.enetconnection;
 @:native("godot::ENetConnection::EventType") extern enum abstract EventType(EventType_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):EventType return untyped __cpp__("(static_cast<godot::ENetConnection::EventType>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:EventType, v2:EventType):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:EventType):EventType_extern return untyped __cpp__("(cpp::Struct<godot::ENetConnection::EventType, cpp::EnumHandler>){0}", v);
 	@:native("godot::ENetConnection::EventType::EVENT_ERROR")
 	final ERROR;
 	@:native("godot::ENetConnection::EventType::EVENT_NONE")

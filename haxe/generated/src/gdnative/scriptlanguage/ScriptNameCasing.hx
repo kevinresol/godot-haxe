@@ -1,9 +1,8 @@
 package gdnative.scriptlanguage;
 @:native("godot::ScriptLanguage::ScriptNameCasing") extern enum abstract ScriptNameCasing(ScriptNameCasing_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):ScriptNameCasing return untyped __cpp__("(static_cast<godot::ScriptLanguage::ScriptNameCasing>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:ScriptNameCasing, v2:ScriptNameCasing):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:ScriptNameCasing):ScriptNameCasing_extern return untyped __cpp__("(cpp::Struct<godot::ScriptLanguage::ScriptNameCasing, cpp::EnumHandler>){0}", v);
 	@:native("godot::ScriptLanguage::ScriptNameCasing::SCRIPT_NAME_CASING_AUTO")
 	final AUTO;
 	@:native("godot::ScriptLanguage::ScriptNameCasing::SCRIPT_NAME_CASING_PASCAL_CASE")

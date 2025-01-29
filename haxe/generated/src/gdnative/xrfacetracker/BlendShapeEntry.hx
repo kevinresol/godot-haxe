@@ -1,9 +1,8 @@
 package gdnative.xrfacetracker;
 @:native("godot::XRFaceTracker::BlendShapeEntry") extern enum abstract BlendShapeEntry(BlendShapeEntry_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):BlendShapeEntry return untyped __cpp__("(static_cast<godot::XRFaceTracker::BlendShapeEntry>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:BlendShapeEntry, v2:BlendShapeEntry):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:BlendShapeEntry):BlendShapeEntry_extern return untyped __cpp__("(cpp::Struct<godot::XRFaceTracker::BlendShapeEntry, cpp::EnumHandler>){0}", v);
 	@:native("godot::XRFaceTracker::BlendShapeEntry::FT_EYE_LOOK_OUT_RIGHT")
 	final EYE_LOOK_OUT_RIGHT;
 	@:native("godot::XRFaceTracker::BlendShapeEntry::FT_EYE_LOOK_IN_RIGHT")

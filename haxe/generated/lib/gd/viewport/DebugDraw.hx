@@ -1,5 +1,5 @@
 package gd.viewport;
-enum abstract DebugDraw(Int) to Int {
+enum abstract DebugDraw(Int) from Int to Int {
 	final DISABLED = 0;
 	final UNSHADED = 1;
 	final LIGHTING = 2;

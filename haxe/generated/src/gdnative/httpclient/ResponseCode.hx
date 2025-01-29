@@ -1,9 +1,8 @@
 package gdnative.httpclient;
 @:native("godot::HTTPClient::ResponseCode") extern enum abstract ResponseCode(ResponseCode_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):ResponseCode return untyped __cpp__("(static_cast<godot::HTTPClient::ResponseCode>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:ResponseCode, v2:ResponseCode):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:ResponseCode):ResponseCode_extern return untyped __cpp__("(cpp::Struct<godot::HTTPClient::ResponseCode, cpp::EnumHandler>){0}", v);
 	@:native("godot::HTTPClient::ResponseCode::RESPONSE_CONTINUE")
 	final CONTINUE;
 	@:native("godot::HTTPClient::ResponseCode::RESPONSE_SWITCHING_PROTOCOLS")

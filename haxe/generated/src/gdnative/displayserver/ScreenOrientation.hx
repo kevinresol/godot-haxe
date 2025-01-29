@@ -1,9 +1,8 @@
 package gdnative.displayserver;
 @:native("godot::DisplayServer::ScreenOrientation") extern enum abstract ScreenOrientation(ScreenOrientation_extern) {
-	@:from
-	extern inline static function fromInt(v:Int):ScreenOrientation return untyped __cpp__("(static_cast<godot::DisplayServer::ScreenOrientation>({0}))", v);
-	@:to
-	extern inline function toInt():Int return untyped __cpp__('(static_cast<int>({0}))', this);
+	@:op(A == B)
+	static inline function eq(v1:ScreenOrientation, v2:ScreenOrientation):Bool return __cast(v1) == __cast(v2);
+	static inline function __cast(v:ScreenOrientation):ScreenOrientation_extern return untyped __cpp__("(cpp::Struct<godot::DisplayServer::ScreenOrientation, cpp::EnumHandler>){0}", v);
 	@:native("godot::DisplayServer::ScreenOrientation::SCREEN_LANDSCAPE")
 	final LANDSCAPE;
 	@:native("godot::DisplayServer::ScreenOrientation::SCREEN_PORTRAIT")
