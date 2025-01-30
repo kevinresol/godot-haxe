@@ -16,6 +16,16 @@ class Gen {
 
 		final gen = new Gen(api);
 		// gen.findType('Plane');
+
+		for (c in api.classes.filter(c -> c.methods?.exists(m -> m.is_vararg))) {
+			trace('Vararg method in ${c.name}');
+			trace(c.methods.filter(m -> m.is_vararg).map(m -> ('  ${m.name}')));
+		}
+		for (c in api.builtin_classes.filter(c -> c.methods?.exists(m -> m.is_vararg))) {
+			trace('Vararg method in built-in ${c.name}');
+			trace(c.methods.filter(m -> m.is_vararg).map(m -> ('  ${m.name}')));
+		}
+
 		gen.generate();
 
 		// final e = [for (c in api.classes) for (e in (c.enums ?? [])) '${e.name}:${c.name}'];

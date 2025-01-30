@@ -20,6 +20,7 @@ CppiaScriptLanguage *CppiaScriptLanguage::singleton = nullptr;
 CppiaScriptLanguage::CppiaScriptLanguage() { singleton = this; }
 CppiaScriptLanguage::~CppiaScriptLanguage() {
   gdcppia::gc_compact();
+  hx::SetTopOfStack((int *)0, true);
   singleton = nullptr;
 }
 
