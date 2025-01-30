@@ -30,7 +30,8 @@ package gdnative;
 	overload function class_has_method(p_class:gdnative.StringName, p_method:gdnative.StringName, p_no_inheritance:Bool):Bool;
 	overload function class_get_method_argument_count(p_class:gdnative.StringName, p_method:gdnative.StringName):Int;
 	overload function class_get_method_argument_count(p_class:gdnative.StringName, p_method:gdnative.StringName, p_no_inheritance:Bool):Int;
-	function class_call_static(p_class:gdnative.StringName, p_method:gdnative.StringName):gdnative.Variant;
+	@:native("class_call_static_internal")
+	function class_call_static(p_args:cpp.ConstStar<cpp.Star<gdnative.Variant.Variant_extern>>, p_count:Int):gdnative.Variant;
 	overload function class_get_integer_constant_list(p_class:gdnative.StringName):gdnative.PackedStringArray;
 	overload function class_get_integer_constant_list(p_class:gdnative.StringName, p_no_inheritance:Bool):gdnative.PackedStringArray;
 	function class_has_integer_constant(p_class:gdnative.StringName, p_name:gdnative.StringName):Bool;

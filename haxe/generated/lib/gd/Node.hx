@@ -153,13 +153,13 @@ extern class Node extends gd.Object {
 	function is_unique_name_in_owner():Bool;
 	function atr(p_message:std.String, ?p_context:std.String):std.String;
 	function atr_n(p_message:std.String, p_plural_message:std.String, p_n:Int, ?p_context:std.String):std.String;
-	function rpc(p_method:std.String):gd.Error;
-	function rpc_id(p_peer_id:Int, p_method:std.String):gd.Error;
+	function rpc(p_method:std.String, p_args:haxe.Rest<gd.Variant>):gd.Error;
+	function rpc_id(p_peer_id:Int, p_method:std.String, p_args:haxe.Rest<gd.Variant>):gd.Error;
 	function update_configuration_warnings():Void;
-	function call_deferred_thread_group(p_method:std.String):gd.Variant;
+	function call_deferred_thread_group(p_method:std.String, p_args:haxe.Rest<gd.Variant>):gd.Variant;
 	function set_deferred_thread_group(p_property:std.String, p_value:gd.Variant):Void;
 	function notify_deferred_thread_group(p_what:Int):Void;
-	function call_thread_safe(p_method:std.String):gd.Variant;
+	function call_thread_safe(p_method:std.String, p_args:haxe.Rest<gd.Variant>):gd.Variant;
 	function set_thread_safe(p_property:std.String, p_value:gd.Variant):Void;
 	function notify_thread_safe(p_what:Int):Void;
 	var name(get, set) : std.String;

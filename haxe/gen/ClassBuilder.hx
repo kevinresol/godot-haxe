@@ -3,7 +3,6 @@ package gen;
 import haxe.macro.Expr;
 import gen.Api;
 import gen.Config;
-import gen.Type.*;
 import gen.Utils.*;
 
 using Lambda;
@@ -109,10 +108,8 @@ class ClassBuilder extends EnumBuilder {
 				final rct = makeGodotType(rtype);
 				final args = (fn.arguments ?? []);
 				final optArgCount = args.count(a -> a.default_value != null);
-				final fargs = args.map(arg -> ({
-					name: 'p_${arg.name}',
-					type: makeGodotType(arg.type),
-				} : FunctionArg));
+				final fargs = makeArgumentsForNativeExtern(args, fn.is_vararg);
+
 				for (i in 0...optArgCount + 1) {
 					cls.fields.push({
 						pos: null,
@@ -122,6 +119,13 @@ class ClassBuilder extends EnumBuilder {
 							args: fargs.slice(0, fargs.length - optArgCount + i),
 							ret: rct,
 						}),
+						meta: fn.is_vararg ? [
+							{
+								pos: null,
+								name: ':native',
+								params: [macro $v{'${fname}_internal'}],
+							}
+						] : [],
 					});
 				}
 			} catch (e) {}
@@ -295,11 +299,7 @@ class ClassBuilder extends EnumBuilder {
 						a;
 					},
 					kind: FFun({
-						args: args.map(arg -> ({
-							name: 'p_${arg.name}',
-							type: makeHaxeType(arg.type),
-							opt: arg.default_value != null,
-						} : FunctionArg)),
+						args: makeArgumentsForWrapper(args, fn.is_vararg),
 						ret: makeHaxeType(rtype),
 						expr: isScriptExtern ? null : {
 							final target = if (fn.is_static) {
@@ -308,34 +308,39 @@ class ClassBuilder extends EnumBuilder {
 								macro $i{getPointerHelperName(cname)}().value;
 							}
 
-							final callArgs = args.map(arg -> {
-								final ct = makeHaxeType(arg.type);
-								macro($i{'p_${arg.name}'} : $ct);
-							});
-							final fullArgCallExpr = macro $target.$fname($a{callArgs});
+							final e = if (fn.is_vararg) {
+								makeVarArgCall(args, macro $target.$fname);
+							} else {
+								final callArgs = args.map(arg -> {
+									final ct = makeHaxeType(arg.type);
+									macro($i{'p_${arg.name}'} : $ct);
+								});
+								final fullArgCallExpr = macro $target.$fname($a{callArgs});
 
-							// Due to the difference concept of optional arguments between Haxe and C++,
-							// we need to do null checks to find out what args are omitted and call the correct overload.
-							// TODO: perhaps there is a better way? e.g. overload functions for cppia?
-							final e = if (optArgCount > 0) {
-								{
-									pos: null,
-									expr: ESwitch(macro $a{args.map(a -> macro $i{'p_${a.name}'})}, [
+								// Due to the difference concept of optional arguments between Haxe and C++,
+								// we need to do null checks to find out what args are omitted and call the correct overload.
+								// TODO: perhaps there is a better way? e.g. overload functions for cppia?
+								if (optArgCount > 0) {
+									{
+										pos: null,
+										expr: ESwitch(macro $a{args.map(a -> macro $i{'p_${a.name}'})}, [
 
-										for (i in 0...optArgCount) {
-											final specifiedArgCount = args.length - optArgCount + i;
-											{
-												values: {
-													final v = [for (j in 0...args.length) macro _];
-													v[specifiedArgCount] = macro null;
-													[macro $a{v}];
-												},
-												expr: macro $target.$fname($a{callArgs.slice(0, specifiedArgCount)})
+											for (i in 0...optArgCount) {
+												final specifiedArgCount = args.length - optArgCount + i;
+												{
+													values: {
+														final v = [for (j in 0...args.length) macro _];
+														v[specifiedArgCount] = macro null;
+														[macro $a{v}];
+													},
+													expr: macro $target.$fname($a{callArgs.slice(0, specifiedArgCount)})
+												}
 											}
-										}
-									], fullArgCallExpr)
-								}
-							} else fullArgCallExpr;
+										], fullArgCallExpr)
+									}
+								} else
+									fullArgCallExpr;
+							}
 
 							rtype == 'void' ? e : macro return $e;
 						}

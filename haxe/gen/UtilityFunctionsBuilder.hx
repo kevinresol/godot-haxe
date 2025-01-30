@@ -2,7 +2,6 @@ package gen;
 
 import haxe.macro.Expr;
 import gen.Api;
-import gen.Type.*;
 
 class UtilityFunctionsBuilder extends Builder {
 	public function generate() {
@@ -29,19 +28,7 @@ class UtilityFunctionsBuilder extends Builder {
 					name: fname,
 					access: [AStatic],
 					kind: FFun({
-						args: fn.is_vararg ? [
-							{
-								name: 'p_args',
-								type: macro :cpp.Star<cpp.Star<gdnative.Variant.Variant_extern>>,
-							},
-							{
-								name: 'p_count',
-								type: macro :Int,
-							}
-						] : (fn.arguments ?? []).map(arg -> ({
-							name: 'p_${arg.name}',
-							type: makeGodotType(arg.type),
-							} : FunctionArg)),
+						args: makeArgumentsForNativeExtern(fn.arguments ?? [], fn.is_vararg),
 						ret: makeGodotType(rtype),
 					}),
 
@@ -83,40 +70,15 @@ class UtilityFunctionsBuilder extends Builder {
 					name: fname,
 					access: isScriptExtern ? [AStatic] : [APublic, AStatic],
 					kind: FFun({
-						args: arguments.map(arg -> ({
-							name: 'p_${arg.name}',
-							type: makeHaxeType(arg.type),
-						} : FunctionArg)).concat(fn.is_vararg ? [
-							{
-								name: 'p_args',
-								type: macro :haxe.Rest<gd.Variant>,
-							}
-							] : []),
+						args: makeArgumentsForWrapper(arguments, fn.is_vararg),
 						ret: makeHaxeType(rtype),
 						expr: isScriptExtern ? null : {
 							final f = macro gdnative.UtilityFunctions.$fname;
-							final callArgs = arguments.map(arg -> macro $i{'p_${arg.name}'});
-							final e = if (fn.is_vararg) {
-								final exprs = [];
-								exprs.push(macro final vlen = p_args.length, len = $v{callArgs.length} + vlen);
-								exprs.push(macro untyped __cpp__('std::vector<const godot::Variant*> ptrs; ptrs.resize({0})', len));
 
-								for (i => a in callArgs) {
-									if (arguments[i].type == 'Variant') {
-										exprs.push(macro untyped __cpp__('ptrs[{0}] = &{1}.value', $v{i}, @:privateAccess $a.__gd));
-									} else {
-										final name = 'arg$i';
-										exprs.push(macro final $name:gdnative.Variant = $a);
-										exprs.push(macro untyped __cpp__('ptrs[{0}] = &{1}.value', $v{i}, $i{name}));
-									}
-								}
-								exprs.push(macro for (i in 0...vlen) {
-									// untyped __cpp__('args[{0}] = {1}.value', i, (p_args[i] : gdnative.Variant));
-									untyped __cpp__('ptrs[{0}] = &{1}.value', $v{callArgs.length} + i, (p_args[i] : gdnative.Variant));
-								});
-								exprs.push(macro $f(untyped __cpp__('ptrs.data()'), len));
-								macro $b{exprs};
+							final e = if (fn.is_vararg) {
+								makeVarArgCall(arguments, f);
 							} else {
+								final callArgs = arguments.map(arg -> macro $i{'p_${arg.name}'});
 								macro $f($a{callArgs});
 							}
 							rtype == 'void' ? e : macro return $e;

@@ -245,13 +245,51 @@ class Node extends gd.Object {
 		case [_, _, _, null]:__node_ptr().value.atr_n(((p_message : std.String)), ((p_plural_message : std.String)), ((p_n : Int)));
 		default:__node_ptr().value.atr_n(((p_message : std.String)), ((p_plural_message : std.String)), ((p_n : Int)), ((p_context : std.String)));
 	};
-	public function rpc(p_method:std.String):gd.Error return __node_ptr().value.rpc(((p_method : std.String)));
-	public function rpc_id(p_peer_id:Int, p_method:std.String):gd.Error return __node_ptr().value.rpc_id(((p_peer_id : Int)), ((p_method : std.String)));
+	public function rpc(p_method:std.String, p_args:haxe.Rest<gd.Variant>):gd.Error return {
+		final vlen = p_args.length, len = 1 + vlen;
+		untyped __cpp__('std::vector<const godot::Variant*> ptrs; ptrs.resize({0})', len);
+		final arg0:gdnative.Variant = p_method;
+		untyped __cpp__('ptrs[{0}] = &{1}.value', 0, arg0);
+		for (i in 0 ... vlen) {
+			untyped __cpp__('ptrs[{0}] = &{1}.value', 1 + i, ((p_args[i] : gdnative.Variant)));
+		};
+		__node_ptr().value.rpc(untyped __cpp__('ptrs.data()'), len);
+	};
+	public function rpc_id(p_peer_id:Int, p_method:std.String, p_args:haxe.Rest<gd.Variant>):gd.Error return {
+		final vlen = p_args.length, len = 2 + vlen;
+		untyped __cpp__('std::vector<const godot::Variant*> ptrs; ptrs.resize({0})', len);
+		final arg0:gdnative.Variant = p_peer_id;
+		untyped __cpp__('ptrs[{0}] = &{1}.value', 0, arg0);
+		final arg1:gdnative.Variant = p_method;
+		untyped __cpp__('ptrs[{0}] = &{1}.value', 1, arg1);
+		for (i in 0 ... vlen) {
+			untyped __cpp__('ptrs[{0}] = &{1}.value', 2 + i, ((p_args[i] : gdnative.Variant)));
+		};
+		__node_ptr().value.rpc_id(untyped __cpp__('ptrs.data()'), len);
+	};
 	public function update_configuration_warnings():Void __node_ptr().value.update_configuration_warnings();
-	public function call_deferred_thread_group(p_method:std.String):gd.Variant return __node_ptr().value.call_deferred_thread_group(((p_method : std.String)));
+	public function call_deferred_thread_group(p_method:std.String, p_args:haxe.Rest<gd.Variant>):gd.Variant return {
+		final vlen = p_args.length, len = 1 + vlen;
+		untyped __cpp__('std::vector<const godot::Variant*> ptrs; ptrs.resize({0})', len);
+		final arg0:gdnative.Variant = p_method;
+		untyped __cpp__('ptrs[{0}] = &{1}.value', 0, arg0);
+		for (i in 0 ... vlen) {
+			untyped __cpp__('ptrs[{0}] = &{1}.value', 1 + i, ((p_args[i] : gdnative.Variant)));
+		};
+		__node_ptr().value.call_deferred_thread_group(untyped __cpp__('ptrs.data()'), len);
+	};
 	public function set_deferred_thread_group(p_property:std.String, p_value:gd.Variant):Void __node_ptr().value.set_deferred_thread_group(((p_property : std.String)), ((p_value : gd.Variant)));
 	public function notify_deferred_thread_group(p_what:Int):Void __node_ptr().value.notify_deferred_thread_group(((p_what : Int)));
-	public function call_thread_safe(p_method:std.String):gd.Variant return __node_ptr().value.call_thread_safe(((p_method : std.String)));
+	public function call_thread_safe(p_method:std.String, p_args:haxe.Rest<gd.Variant>):gd.Variant return {
+		final vlen = p_args.length, len = 1 + vlen;
+		untyped __cpp__('std::vector<const godot::Variant*> ptrs; ptrs.resize({0})', len);
+		final arg0:gdnative.Variant = p_method;
+		untyped __cpp__('ptrs[{0}] = &{1}.value', 0, arg0);
+		for (i in 0 ... vlen) {
+			untyped __cpp__('ptrs[{0}] = &{1}.value', 1 + i, ((p_args[i] : gdnative.Variant)));
+		};
+		__node_ptr().value.call_thread_safe(untyped __cpp__('ptrs.data()'), len);
+	};
 	public function set_thread_safe(p_property:std.String, p_value:gd.Variant):Void __node_ptr().value.set_thread_safe(((p_property : std.String)), ((p_value : gd.Variant)));
 	public function notify_thread_safe(p_what:Int):Void __node_ptr().value.notify_thread_safe(((p_what : Int)));
 	public var name(get, set) : std.String;

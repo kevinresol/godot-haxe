@@ -137,13 +137,17 @@ package gdnative;
 	overload function atr(p_message:gdnative.String, p_context:gdnative.StringName):gdnative.String;
 	overload function atr_n(p_message:gdnative.String, p_plural_message:gdnative.StringName, p_n:Int):gdnative.String;
 	overload function atr_n(p_message:gdnative.String, p_plural_message:gdnative.StringName, p_n:Int, p_context:gdnative.StringName):gdnative.String;
-	function rpc(p_method:gdnative.StringName):gdnative.Error;
-	function rpc_id(p_peer_id:Int, p_method:gdnative.StringName):gdnative.Error;
+	@:native("rpc_internal")
+	function rpc(p_args:cpp.ConstStar<cpp.Star<gdnative.Variant.Variant_extern>>, p_count:Int):gdnative.Error;
+	@:native("rpc_id_internal")
+	function rpc_id(p_args:cpp.ConstStar<cpp.Star<gdnative.Variant.Variant_extern>>, p_count:Int):gdnative.Error;
 	function update_configuration_warnings():Void;
-	function call_deferred_thread_group(p_method:gdnative.StringName):gdnative.Variant;
+	@:native("call_deferred_thread_group_internal")
+	function call_deferred_thread_group(p_args:cpp.ConstStar<cpp.Star<gdnative.Variant.Variant_extern>>, p_count:Int):gdnative.Variant;
 	function set_deferred_thread_group(p_property:gdnative.StringName, p_value:gdnative.Variant):Void;
 	function notify_deferred_thread_group(p_what:Int):Void;
-	function call_thread_safe(p_method:gdnative.StringName):gdnative.Variant;
+	@:native("call_thread_safe_internal")
+	function call_thread_safe(p_args:cpp.ConstStar<cpp.Star<gdnative.Variant.Variant_extern>>, p_count:Int):gdnative.Variant;
 	function set_thread_safe(p_property:gdnative.StringName, p_value:gdnative.Variant):Void;
 	function notify_thread_safe(p_what:Int):Void;
 }

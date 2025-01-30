@@ -37,7 +37,18 @@ class ClassDB extends gd.Object {
 		case [_, _, null]:__classdb_ptr().value.class_get_method_argument_count(((p_class : std.String)), ((p_method : std.String)));
 		default:__classdb_ptr().value.class_get_method_argument_count(((p_class : std.String)), ((p_method : std.String)), ((p_no_inheritance : Bool)));
 	};
-	public function class_call_static(p_class:std.String, p_method:std.String):gd.Variant return __classdb_ptr().value.class_call_static(((p_class : std.String)), ((p_method : std.String)));
+	public function class_call_static(p_class:std.String, p_method:std.String, p_args:haxe.Rest<gd.Variant>):gd.Variant return {
+		final vlen = p_args.length, len = 2 + vlen;
+		untyped __cpp__('std::vector<const godot::Variant*> ptrs; ptrs.resize({0})', len);
+		final arg0:gdnative.Variant = p_class;
+		untyped __cpp__('ptrs[{0}] = &{1}.value', 0, arg0);
+		final arg1:gdnative.Variant = p_method;
+		untyped __cpp__('ptrs[{0}] = &{1}.value', 1, arg1);
+		for (i in 0 ... vlen) {
+			untyped __cpp__('ptrs[{0}] = &{1}.value', 2 + i, ((p_args[i] : gdnative.Variant)));
+		};
+		__classdb_ptr().value.class_call_static(untyped __cpp__('ptrs.data()'), len);
+	};
 	public function class_get_integer_constant_list(p_class:std.String, ?p_no_inheritance:Bool):gd.PackedStringArray return switch [p_class, p_no_inheritance] {
 		case [_, null]:__classdb_ptr().value.class_get_integer_constant_list(((p_class : std.String)));
 		default:__classdb_ptr().value.class_get_integer_constant_list(((p_class : std.String)), ((p_no_inheritance : Bool)));

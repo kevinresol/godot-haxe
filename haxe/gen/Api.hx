@@ -64,20 +64,6 @@ typedef EnumVal = {
 	value:Int,
 }
 
-typedef UtilityFunction = {
-	name:String,
-	?return_type:String,
-	category:String,
-	is_vararg:Bool,
-	hash:Int,
-	?arguments:Array<Argument>,
-}
-
-typedef Argument = {
-	name:String,
-	type:String,
-}
-
 typedef BuiltinClass = {
 	name:String,
 	is_keyed:Bool,
@@ -109,7 +95,7 @@ typedef BuiltinClassMethod = {
 	is_const:Bool,
 	is_static:Bool,
 	hash:Int,
-	?arguments:Array<BuiltinClassMethodArgument>,
+	?arguments:Array<Argument>,
 }
 
 typedef ClassMethod = {
@@ -120,12 +106,24 @@ typedef ClassMethod = {
 	is_virtual:Bool,
 	?hash:Int,
 	?return_value:ReturnValue,
-	?arguments:Array<ClassMethodArgument>,
+	?arguments:Array<Argument>,
 	?hash_compatibility:Array<Int>,
 }
 
-typedef BuiltinClassMethodArgument = Argument & {
+typedef UtilityFunction = {
+	name:String,
+	?return_type:String,
+	category:String,
+	is_vararg:Bool,
+	hash:Int,
+	?arguments:Array<Argument>,
+}
+
+typedef Argument = {
+	name:String,
+	type:String,
 	?default_value:String,
+	?meta:String,
 }
 
 typedef BuiltinClassMember = {
@@ -165,13 +163,6 @@ typedef ClassEnum = {
 
 typedef ReturnValue = {
 	type:String,
-	?meta:String,
-}
-
-typedef ClassMethodArgument = {
-	name:String,
-	type:String,
-	?default_value:String,
 	?meta:String,
 }
 

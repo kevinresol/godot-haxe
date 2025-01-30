@@ -1,7 +1,6 @@
 package gen;
 
 import gen.Api;
-import gen.Type.*;
 import gen.Utils.*;
 import haxe.macro.Expr;
 
@@ -576,21 +575,21 @@ class BuiltinClassBuilder extends Builder {
 				clazz.constructors.concat([
 					{
 						index: clazz.constructors.length,
-						arguments: ['xx', 'xy', 'xz', 'yx', 'yy', 'yz', 'zx', 'zy', 'zz'].map(n -> {name: n, type: 'float'})
+						arguments: ['xx', 'xy', 'xz', 'yx', 'yy', 'yz', 'zx', 'zy', 'zz'].map(n -> ({name: n, type: 'float'} : Argument))
 					}
 				]);
 			case 'Transform2D':
 				clazz.constructors.concat([
 					{
 						index: clazz.constructors.length,
-						arguments: ['xx', 'xy', 'yx', 'yy', 'ox', 'oy'].map(n -> {name: n, type: 'float'})
+						arguments: ['xx', 'xy', 'yx', 'yy', 'ox', 'oy'].map(n -> ({name: n, type: 'float'} : Argument))
 					}
 				]);
 			case 'Transform3D':
 				clazz.constructors.concat([
 					{
 						index: clazz.constructors.length,
-						arguments: ['xx', 'xy', 'xz', 'yx', 'yy', 'yz', 'zx', 'zy', 'zz', 'tx', 'ty', 'tz'].map(n -> {name: n, type: 'float'})
+						arguments: ['xx', 'xy', 'xz', 'yx', 'yy', 'yz', 'zx', 'zy', 'zz', 'tx', 'ty', 'tz'].map(n -> ({name: n, type: 'float'} : Argument))
 					}
 				]);
 			default:
@@ -598,7 +597,7 @@ class BuiltinClassBuilder extends Builder {
 		}
 	}
 
-	function patchArgs(cls:String, fn:String, args:Null<Array<BuiltinClassMethodArgument>>):Array<BuiltinClassMethodArgument> {
+	function patchArgs(cls:String, fn:String, args:Null<Array<Argument>>):Array<Argument> {
 		return if (args == null) [] else switch [cls, fn] {
 			case ['Transform3D', 'looking_at']:
 				args.slice(0, 2);

@@ -33,9 +33,12 @@ package gdnative;
 	overload function add_user_signal(p_signal:gdnative.String, p_arguments:gdnative.Array):Void;
 	function has_user_signal(p_signal:gdnative.StringName):Bool;
 	function remove_user_signal(p_signal:gdnative.StringName):Void;
-	function emit_signal(p_signal:gdnative.StringName):gdnative.Error;
-	function call(p_method:gdnative.StringName):gdnative.Variant;
-	function call_deferred(p_method:gdnative.StringName):gdnative.Variant;
+	@:native("emit_signal_internal")
+	function emit_signal(p_args:cpp.ConstStar<cpp.Star<gdnative.Variant.Variant_extern>>, p_count:Int):gdnative.Error;
+	@:native("call_internal")
+	function call(p_args:cpp.ConstStar<cpp.Star<gdnative.Variant.Variant_extern>>, p_count:Int):gdnative.Variant;
+	@:native("call_deferred_internal")
+	function call_deferred(p_args:cpp.ConstStar<cpp.Star<gdnative.Variant.Variant_extern>>, p_count:Int):gdnative.Variant;
 	function set_deferred(p_property:gdnative.StringName, p_value:gdnative.Variant):Void;
 	function callv(p_method:gdnative.StringName, p_arg_array:gdnative.Array):gdnative.Variant;
 	function has_method(p_method:gdnative.StringName):Bool;

@@ -41,9 +41,36 @@ class Object {
 	};
 	public function has_user_signal(p_signal:std.String):Bool return __object_ptr().value.has_user_signal(((p_signal : std.String)));
 	public function remove_user_signal(p_signal:std.String):Void __object_ptr().value.remove_user_signal(((p_signal : std.String)));
-	public function emit_signal(p_signal:std.String):gd.Error return __object_ptr().value.emit_signal(((p_signal : std.String)));
-	public function call(p_method:std.String):gd.Variant return __object_ptr().value.call(((p_method : std.String)));
-	public function call_deferred(p_method:std.String):gd.Variant return __object_ptr().value.call_deferred(((p_method : std.String)));
+	public function emit_signal(p_signal:std.String, p_args:haxe.Rest<gd.Variant>):gd.Error return {
+		final vlen = p_args.length, len = 1 + vlen;
+		untyped __cpp__('std::vector<const godot::Variant*> ptrs; ptrs.resize({0})', len);
+		final arg0:gdnative.Variant = p_signal;
+		untyped __cpp__('ptrs[{0}] = &{1}.value', 0, arg0);
+		for (i in 0 ... vlen) {
+			untyped __cpp__('ptrs[{0}] = &{1}.value', 1 + i, ((p_args[i] : gdnative.Variant)));
+		};
+		__object_ptr().value.emit_signal(untyped __cpp__('ptrs.data()'), len);
+	};
+	public function call(p_method:std.String, p_args:haxe.Rest<gd.Variant>):gd.Variant return {
+		final vlen = p_args.length, len = 1 + vlen;
+		untyped __cpp__('std::vector<const godot::Variant*> ptrs; ptrs.resize({0})', len);
+		final arg0:gdnative.Variant = p_method;
+		untyped __cpp__('ptrs[{0}] = &{1}.value', 0, arg0);
+		for (i in 0 ... vlen) {
+			untyped __cpp__('ptrs[{0}] = &{1}.value', 1 + i, ((p_args[i] : gdnative.Variant)));
+		};
+		__object_ptr().value.call(untyped __cpp__('ptrs.data()'), len);
+	};
+	public function call_deferred(p_method:std.String, p_args:haxe.Rest<gd.Variant>):gd.Variant return {
+		final vlen = p_args.length, len = 1 + vlen;
+		untyped __cpp__('std::vector<const godot::Variant*> ptrs; ptrs.resize({0})', len);
+		final arg0:gdnative.Variant = p_method;
+		untyped __cpp__('ptrs[{0}] = &{1}.value', 0, arg0);
+		for (i in 0 ... vlen) {
+			untyped __cpp__('ptrs[{0}] = &{1}.value', 1 + i, ((p_args[i] : gdnative.Variant)));
+		};
+		__object_ptr().value.call_deferred(untyped __cpp__('ptrs.data()'), len);
+	};
 	public function set_deferred(p_property:std.String, p_value:gd.Variant):Void __object_ptr().value.set_deferred(((p_property : std.String)), ((p_value : gd.Variant)));
 	public function callv(p_method:std.String, p_arg_array:gd.Array):gd.Variant return __object_ptr().value.callv(((p_method : std.String)), ((p_arg_array : gd.Array)));
 	public function has_method(p_method:std.String):Bool return __object_ptr().value.has_method(((p_method : std.String)));

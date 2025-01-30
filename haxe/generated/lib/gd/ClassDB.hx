@@ -20,7 +20,7 @@ extern class ClassDB extends gd.Object {
 	function class_get_property_default_value(p_class:std.String, p_property:std.String):gd.Variant;
 	function class_has_method(p_class:std.String, p_method:std.String, ?p_no_inheritance:Bool):Bool;
 	function class_get_method_argument_count(p_class:std.String, p_method:std.String, ?p_no_inheritance:Bool):Int;
-	function class_call_static(p_class:std.String, p_method:std.String):gd.Variant;
+	function class_call_static(p_class:std.String, p_method:std.String, p_args:haxe.Rest<gd.Variant>):gd.Variant;
 	function class_get_integer_constant_list(p_class:std.String, ?p_no_inheritance:Bool):gd.PackedStringArray;
 	function class_has_integer_constant(p_class:std.String, p_name:std.String):Bool;
 	function class_get_integer_constant(p_class:std.String, p_name:std.String):Int;
