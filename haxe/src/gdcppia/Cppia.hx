@@ -62,6 +62,10 @@ class Cppia {
 		UtilityFunctions.print(UtilityFunctions.typeof(new gd.Vector2(42, 44)));
 		// UtilityFunctions.print(UtilityFunctions.typeof(('Node/Path' : gd.NodePath)));
 
+		trace('varargs checks (host)');
+		UtilityFunctions.print(UtilityFunctions.min(1, 2, 3));
+		UtilityFunctions.print(UtilityFunctions.max(1, 2, 3));
+
 		trace('Enum checks (host)');
 		UtilityFunctions.print(gd.variant.Type.INT);
 		UtilityFunctions.print(gd.variant.Type.FLOAT);

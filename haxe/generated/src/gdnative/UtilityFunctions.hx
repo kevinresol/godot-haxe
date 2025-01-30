@@ -67,10 +67,12 @@ package gdnative;
 	static function wrap(p_value:gdnative.Variant, p_min:gdnative.Variant, p_max:gdnative.Variant):gdnative.Variant;
 	static function wrapi(p_value:Int, p_min:Int, p_max:Int):Int;
 	static function wrapf(p_value:Float, p_min:Float, p_max:Float):Float;
-	static function max(p_arg1:gdnative.Variant, p_arg2:gdnative.Variant):gdnative.Variant;
+	@:native("godot::UtilityFunctions::max_internal")
+	static function max(p_args:cpp.Star<cpp.Star<gdnative.Variant.Variant_extern>>, p_count:Int):gdnative.Variant;
 	static function maxi(p_a:Int, p_b:Int):Int;
 	static function maxf(p_a:Float, p_b:Float):Float;
-	static function min(p_arg1:gdnative.Variant, p_arg2:gdnative.Variant):gdnative.Variant;
+	@:native("godot::UtilityFunctions::min_internal")
+	static function min(p_args:cpp.Star<cpp.Star<gdnative.Variant.Variant_extern>>, p_count:Int):gdnative.Variant;
 	static function mini(p_a:Int, p_b:Int):Int;
 	static function minf(p_a:Float, p_b:Float):Float;
 	static function clamp(p_value:gdnative.Variant, p_min:gdnative.Variant, p_max:gdnative.Variant):gdnative.Variant;
@@ -90,18 +92,28 @@ package gdnative;
 	@:native("godot::UtilityFunctions::type_of")
 	static function typeof(p_variable:gdnative.Variant):Int;
 	static function type_convert(p_variant:gdnative.Variant, p_type:Int):gdnative.Variant;
-	static function str(p_arg1:gdnative.Variant):gdnative.String;
+	@:native("godot::UtilityFunctions::str_internal")
+	static function str(p_args:cpp.Star<cpp.Star<gdnative.Variant.Variant_extern>>, p_count:Int):gdnative.String;
 	static function error_string(p_error:Int):gdnative.String;
 	static function type_string(p_type:Int):gdnative.String;
-	static function print(p_arg1:gdnative.Variant):Void;
-	static function print_rich(p_arg1:gdnative.Variant):Void;
-	static function printerr(p_arg1:gdnative.Variant):Void;
-	static function printt(p_arg1:gdnative.Variant):Void;
-	static function prints(p_arg1:gdnative.Variant):Void;
-	static function printraw(p_arg1:gdnative.Variant):Void;
-	static function print_verbose(p_arg1:gdnative.Variant):Void;
-	static function push_error(p_arg1:gdnative.Variant):Void;
-	static function push_warning(p_arg1:gdnative.Variant):Void;
+	@:native("godot::UtilityFunctions::print_internal")
+	static function print(p_args:cpp.Star<cpp.Star<gdnative.Variant.Variant_extern>>, p_count:Int):Void;
+	@:native("godot::UtilityFunctions::print_rich_internal")
+	static function print_rich(p_args:cpp.Star<cpp.Star<gdnative.Variant.Variant_extern>>, p_count:Int):Void;
+	@:native("godot::UtilityFunctions::printerr_internal")
+	static function printerr(p_args:cpp.Star<cpp.Star<gdnative.Variant.Variant_extern>>, p_count:Int):Void;
+	@:native("godot::UtilityFunctions::printt_internal")
+	static function printt(p_args:cpp.Star<cpp.Star<gdnative.Variant.Variant_extern>>, p_count:Int):Void;
+	@:native("godot::UtilityFunctions::prints_internal")
+	static function prints(p_args:cpp.Star<cpp.Star<gdnative.Variant.Variant_extern>>, p_count:Int):Void;
+	@:native("godot::UtilityFunctions::printraw_internal")
+	static function printraw(p_args:cpp.Star<cpp.Star<gdnative.Variant.Variant_extern>>, p_count:Int):Void;
+	@:native("godot::UtilityFunctions::print_verbose_internal")
+	static function print_verbose(p_args:cpp.Star<cpp.Star<gdnative.Variant.Variant_extern>>, p_count:Int):Void;
+	@:native("godot::UtilityFunctions::push_error_internal")
+	static function push_error(p_args:cpp.Star<cpp.Star<gdnative.Variant.Variant_extern>>, p_count:Int):Void;
+	@:native("godot::UtilityFunctions::push_warning_internal")
+	static function push_warning(p_args:cpp.Star<cpp.Star<gdnative.Variant.Variant_extern>>, p_count:Int):Void;
 	static function var_to_str(p_variable:gdnative.Variant):gdnative.String;
 	static function str_to_var(p_string:gdnative.String):gdnative.Variant;
 	static function var_to_bytes(p_variable:gdnative.Variant):gdnative.PackedByteArray;

@@ -1,5 +1,5 @@
 package gd;
-extern class UtilityFunctions {
+@:include("vector") extern class UtilityFunctions {
 	static function sin(p_angle_rad:Float):Float;
 	static function cos(p_angle_rad:Float):Float;
 	static function tan(p_angle_rad:Float):Float;
@@ -67,10 +67,10 @@ extern class UtilityFunctions {
 	static function wrap(p_value:gd.Variant, p_min:gd.Variant, p_max:gd.Variant):gd.Variant;
 	static function wrapi(p_value:Int, p_min:Int, p_max:Int):Int;
 	static function wrapf(p_value:Float, p_min:Float, p_max:Float):Float;
-	static function max(p_arg1:gd.Variant, p_arg2:gd.Variant):gd.Variant;
+	static function max(p_arg1:gd.Variant, p_arg2:gd.Variant, p_args:haxe.Rest<gd.Variant>):gd.Variant;
 	static function maxi(p_a:Int, p_b:Int):Int;
 	static function maxf(p_a:Float, p_b:Float):Float;
-	static function min(p_arg1:gd.Variant, p_arg2:gd.Variant):gd.Variant;
+	static function min(p_arg1:gd.Variant, p_arg2:gd.Variant, p_args:haxe.Rest<gd.Variant>):gd.Variant;
 	static function mini(p_a:Int, p_b:Int):Int;
 	static function minf(p_a:Float, p_b:Float):Float;
 	static function clamp(p_value:gd.Variant, p_min:gd.Variant, p_max:gd.Variant):gd.Variant;
@@ -89,18 +89,18 @@ extern class UtilityFunctions {
 	static function weakref(p_obj:gd.Variant):gd.Variant;
 	static function typeof(p_variable:gd.Variant):Int;
 	static function type_convert(p_variant:gd.Variant, p_type:Int):gd.Variant;
-	static function str(p_arg1:gd.Variant):std.String;
+	static function str(p_arg1:gd.Variant, p_args:haxe.Rest<gd.Variant>):std.String;
 	static function error_string(p_error:Int):std.String;
 	static function type_string(p_type:Int):std.String;
-	static function print(p_arg1:gd.Variant):Void;
-	static function print_rich(p_arg1:gd.Variant):Void;
-	static function printerr(p_arg1:gd.Variant):Void;
-	static function printt(p_arg1:gd.Variant):Void;
-	static function prints(p_arg1:gd.Variant):Void;
-	static function printraw(p_arg1:gd.Variant):Void;
-	static function print_verbose(p_arg1:gd.Variant):Void;
-	static function push_error(p_arg1:gd.Variant):Void;
-	static function push_warning(p_arg1:gd.Variant):Void;
+	static function print(p_arg1:gd.Variant, p_args:haxe.Rest<gd.Variant>):Void;
+	static function print_rich(p_arg1:gd.Variant, p_args:haxe.Rest<gd.Variant>):Void;
+	static function printerr(p_arg1:gd.Variant, p_args:haxe.Rest<gd.Variant>):Void;
+	static function printt(p_arg1:gd.Variant, p_args:haxe.Rest<gd.Variant>):Void;
+	static function prints(p_arg1:gd.Variant, p_args:haxe.Rest<gd.Variant>):Void;
+	static function printraw(p_arg1:gd.Variant, p_args:haxe.Rest<gd.Variant>):Void;
+	static function print_verbose(p_arg1:gd.Variant, p_args:haxe.Rest<gd.Variant>):Void;
+	static function push_error(p_arg1:gd.Variant, p_args:haxe.Rest<gd.Variant>):Void;
+	static function push_warning(p_arg1:gd.Variant, p_args:haxe.Rest<gd.Variant>):Void;
 	static function var_to_str(p_variable:gd.Variant):std.String;
 	static function str_to_var(p_string:std.String):gd.Variant;
 	static function var_to_bytes(p_variable:gd.Variant):gd.PackedByteArray;

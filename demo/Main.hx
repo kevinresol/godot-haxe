@@ -48,6 +48,10 @@ class Main extends Base {
 		print(typeof(new Vector2(42, 44)));
 		print(typeof(new NodePath('Node/Path')));
 
+		trace('varargs checks (cppia)');
+		print(min(1, 2, 3));
+		print(max(1, 2, 3));
+
 		trace('Enum checks (cppia)');
 		print(gd.variant.Type.INT);
 		print(gd.variant.Type.FLOAT);

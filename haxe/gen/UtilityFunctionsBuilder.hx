@@ -29,20 +29,36 @@ class UtilityFunctionsBuilder extends Builder {
 					name: fname,
 					access: [AStatic],
 					kind: FFun({
-						args: fn.arguments?.map(arg -> ({
+						args: fn.is_vararg ? [
+							{
+								name: 'p_args',
+								type: macro :cpp.Star<cpp.Star<gdnative.Variant.Variant_extern>>,
+							},
+							{
+								name: 'p_count',
+								type: macro :Int,
+							}
+						] : (fn.arguments ?? []).map(arg -> ({
 							name: 'p_${arg.name}',
 							type: makeGodotType(arg.type),
-						} : FunctionArg)) ?? [],
+							} : FunctionArg)),
 						ret: makeGodotType(rtype),
 					}),
-					meta: switch fname {
+
+					meta: (fn.is_vararg ? [
+						{
+							pos: null,
+							name: ':native',
+							params: [macro $v{'godot::UtilityFunctions::${fname}_internal'}],
+						}
+					] : []).concat(switch fname {
 						case 'typeof': // Special case
 							[
 								{pos: null, name: ':native', params: [macro $v{'godot::UtilityFunctions::type_of'}]}
 							];
 						default:
 							[];
-					},
+						}),
 				});
 			} catch (e) {}
 		}
@@ -56,6 +72,7 @@ class UtilityFunctionsBuilder extends Builder {
 		final def = macro class UtilityFunctions {}
 		def.isExtern = isScriptExtern;
 		def.pack = config.pack;
+		def.meta = [{pos: null, name: ':include', params: [macro "vector"]},];
 		for (fn in api.utility_functions) {
 			final fname = fn.name;
 			final rtype = fn.return_type ?? 'void';
@@ -65,13 +82,39 @@ class UtilityFunctionsBuilder extends Builder {
 					name: fname,
 					access: isScriptExtern ? [AStatic] : [APublic, AStatic],
 					kind: FFun({
-						args: fn.arguments?.map(arg -> ({
+						args: (fn.arguments ?? []).map(arg -> ({
 							name: 'p_${arg.name}',
 							type: makeHaxeType(arg.type),
-						} : FunctionArg)) ?? [],
+						} : FunctionArg)).concat(fn.is_vararg ? [
+							{
+								name: 'p_args',
+								type: macro :haxe.Rest<gd.Variant>,
+							}
+							] : []),
 						ret: makeHaxeType(rtype),
 						expr: isScriptExtern ? null : {
-							final e = macro gdnative.UtilityFunctions.$fname($a{(fn.arguments ?? []).map(arg -> macro $i{'p_${arg.name}'})});
+							final f = macro gdnative.UtilityFunctions.$fname;
+							final callArgs = (fn.arguments ?? []).map(arg -> macro $i{'p_${arg.name}'});
+							final e = if (fn.is_vararg) {
+								macro {
+									final len = $v{callArgs.length} + p_args.length;
+									untyped __cpp__('std::vector<godot::Variant> args; args.resize({0})', len);
+									$b{
+										[
+											for (i => v in callArgs)
+												macro untyped __cpp__('args[{0}] = {1}.value', $v{i}, ($v : gdnative.Variant))
+										]
+									};
+									for (i in 0...p_args.length)
+										untyped __cpp__('args[{0}] = {1}.value', $v{callArgs.length} + i, (p_args[i] : gdnative.Variant));
+									untyped __cpp__('std::vector<const godot::Variant*> ptrs; ptrs.resize({0})', len);
+									for (i in 0...len)
+										untyped __cpp__('ptrs[{0}] = &args[{0}]', i);
+									$f(untyped __cpp__('ptrs.data()', cpp.NativeArray.address(pointers, 0)), len);
+								}
+							} else {
+								macro $f($a{callArgs});
+							}
 							rtype == 'void' ? e : macro return $e;
 						},
 					})

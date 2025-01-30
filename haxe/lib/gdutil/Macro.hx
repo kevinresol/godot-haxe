@@ -4,6 +4,7 @@ import haxe.macro.Context;
 import haxe.macro.Expr;
 
 using haxe.macro.TypeTools;
+using StringTools;
 
 class Macro {
 	static macro function buildObject():std.Array<Field> {
@@ -33,7 +34,7 @@ class Macro {
 		final cls = Context.getLocalClass().get();
 		final fields = Context.getBuildFields();
 
-		switch cls.meta.extract(':forward') {
+		switch cls.meta.extract(':forwardMethods') {
 			case [{params: [macro $a{fns}]}]:
 				for (fn in fns) {
 					final name = switch fn.expr {
@@ -55,7 +56,9 @@ class Macro {
 										opt: a.opt,
 									} : FunctionArg)),
 									ret: ret.toComplexType(),
-									expr: macro @:pos(fn.pos) return ${fn}($a{args.map(a -> macro $i{a.name})}),
+									expr: macro @:pos(fn.pos) return ${fn}($a{
+										args.map(a -> a.t.toString().startsWith('haxe.Rest') ? macro...$i{a.name} : macro $i{a.name})
+									}),
 								}),
 							});
 						case _:

@@ -1,6 +1,6 @@
 package gdutil;
 
-@:build(gdutil.Macro.buildGlobal()) @:forward([
+@:build(gdutil.Macro.buildGlobal()) @:forwardMethods([
 	gd.ResourceLoader.singleton.load,
 	gd.UtilityFunctions.abs,
 	gd.UtilityFunctions.absf,
