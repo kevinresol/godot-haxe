@@ -14,3 +14,4 @@ haxe/bin
 export_classes.info
 
 run.sh
+extension_api.json
