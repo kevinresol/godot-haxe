@@ -101,14 +101,11 @@ class Main extends Base {
 		switch json.parse('{"foo": 42, "bar": true, "baz": ["hello", "world"]}') {
 			case OK:
 				final data = json.data;
-				print(data.get_type());
-				print(data);
-				print(data["foo"]);
-				print(data["bar"]);
-				print(data["baz"]);
-				print(type_string(typeof(data["foo"])));
-				print(type_string(typeof(data["bar"])));
-				print(type_string(typeof(data["baz"])));
+				print(data, type_string(typeof(data)));
+				print(data["foo"], type_string(typeof(data["foo"])));
+				print(data["bar"], type_string(typeof(data["bar"])));
+				print(data["baz"], type_string(typeof(data["baz"])));
+				print(data["baz"][0], type_string(typeof(data["baz"][0])));
 			case err:
 				trace('Error parsing JSON: $err');
 		}
@@ -176,9 +173,9 @@ class Main extends Base {
 
 	function _on_timer_timeout() {
 		trace("_on_timer_timeout callback at " + Date.now());
-		// final timer = get_node('Timer').cast_to(Timer);
-		// trace(timer);
-		// timer.queue_free();
+		final timer = get_node('Timer').cast_to(Timer);
+		trace(timer);
+		timer.queue_free();
 	}
 
 	function _on_timer_tree_exiting() {

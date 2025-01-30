@@ -83,14 +83,11 @@ class Cppia {
 		switch json.parse('{"foo": 42, "bar": true, "baz": ["hello", "world"]}') {
 			case OK:
 				final data = json.data;
-				UtilityFunctions.print(data.get_type());
-				UtilityFunctions.print(data);
-				UtilityFunctions.print(data["foo"]);
-				UtilityFunctions.print(data["bar"]);
-				UtilityFunctions.print(data["baz"]);
-				UtilityFunctions.print(UtilityFunctions.type_string(UtilityFunctions.typeof(data["foo"])));
-				UtilityFunctions.print(UtilityFunctions.type_string(UtilityFunctions.typeof(data["bar"])));
-				UtilityFunctions.print(UtilityFunctions.type_string(UtilityFunctions.typeof(data["baz"])));
+				UtilityFunctions.print(data, UtilityFunctions.type_string(UtilityFunctions.typeof(data)));
+				UtilityFunctions.print(data["foo"], UtilityFunctions.type_string(UtilityFunctions.typeof(data["foo"])));
+				UtilityFunctions.print(data["bar"], UtilityFunctions.type_string(UtilityFunctions.typeof(data["bar"])));
+				UtilityFunctions.print(data["baz"], UtilityFunctions.type_string(UtilityFunctions.typeof(data["baz"])));
+				UtilityFunctions.print(data["baz"][0], UtilityFunctions.type_string(UtilityFunctions.typeof(data["baz"][0])));
 			case err:
 				trace('Error parsing JSON: $err');
 		}

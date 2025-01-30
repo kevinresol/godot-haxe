@@ -16,7 +16,7 @@ class Type {
 			case 'String' | 'Vector2' | 'Vector2i' | 'Rect2' | 'Rect2i' | 'Vector3' | 'Vector3i' | 'Transform2D' | 'Vector4' | 'Vector4i' | 'Plane' |
 				'Quaternion' | 'AABB' | 'Basis' | 'Transform3D' | 'Projection' | 'Color' | 'StringName' | 'NodePath' | 'RID' | 'Callable' | 'Signal' |
 				'Dictionary' | 'Array' | 'PackedByteArray' | 'PackedInt32Array' | 'PackedInt64Array' | 'PackedFloat32Array' | 'PackedFloat64Array' |
-				'PackedStringArray' | 'PackedVector2Array' | 'PackedVector3Array' | 'PackedColorArray' | 'PackedVector4Array' | 'Variant' | 'Timer': TPath({
+				'PackedStringArray' | 'PackedVector2Array' | 'PackedVector3Array' | 'PackedColorArray' | 'PackedVector4Array' | 'Variant': TPath({
 					pack: ['gdnative'],
 					name: gdType
 				});
@@ -59,7 +59,7 @@ class Type {
 			case 'Vector2' | 'Vector2i' | 'Rect2' | 'Rect2i' | 'Vector3' | 'Vector3i' | 'Transform2D' | 'Vector4' | 'Vector4i' | 'Plane' | 'Quaternion' |
 				'AABB' | 'Basis' | 'Transform3D' | 'Projection' | 'Color' | 'RID' | 'Callable' | 'Signal' | 'Dictionary' | 'Array' | 'PackedByteArray' |
 				'PackedInt32Array' | 'PackedInt64Array' | 'PackedFloat32Array' | 'PackedFloat64Array' | 'PackedStringArray' | 'PackedVector2Array' |
-				'PackedVector3Array' | 'PackedColorArray' | 'PackedVector4Array' | 'Variant' | 'Timer': TPath({
+				'PackedVector3Array' | 'PackedColorArray' | 'PackedVector4Array' | 'Variant': TPath({
 					pack: ['gd'],
 					name: gdType
 				});
