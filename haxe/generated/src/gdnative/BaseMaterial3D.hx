@@ -1,4 +1,17 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract BaseMaterial3D(gdnative.Ref<BaseMaterial3D_extern>) from gdnative.Ref<BaseMaterial3D_extern> to gdnative.Ref<BaseMaterial3D_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.BaseMaterial3D):gdnative.BaseMaterial3D return @:privateAccess v.__ref.ptr().reinterpret();
+	@:to
+	inline function toWrapper():gd.BaseMaterial3D {
+		final v = new gd.BaseMaterial3D(this.ptr());
+		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+		return v;
+	}
+}
 @:include("godot_cpp/classes/base_material3d.hpp") @:native("godot::BaseMaterial3D") @:structAccess extern class BaseMaterial3D_extern extends gdnative.Material.Material_extern {
 	extern static inline function __alloc():cpp.Pointer<BaseMaterial3D_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::BaseMaterial3D"));
 	function set_albedo(p_albedo:gdnative.Color):Void;
@@ -137,14 +150,4 @@ package gdnative;
 	function get_distance_fade_max_distance():Float;
 	function set_distance_fade_min_distance(p_distance:Float):Void;
 	function get_distance_fade_min_distance():Float;
-}
-@:forward abstract BaseMaterial3D(gdnative.Ref<BaseMaterial3D_extern>) from gdnative.Ref<BaseMaterial3D_extern> to gdnative.Ref<BaseMaterial3D_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.BaseMaterial3D):gdnative.BaseMaterial3D return @:privateAccess v.__ref.ptr().reinterpret();
-	@:to
-	inline function toWrapper():gd.BaseMaterial3D {
-		final v = new gd.BaseMaterial3D(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
 }

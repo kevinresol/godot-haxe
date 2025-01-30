@@ -1,4 +1,17 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract SkeletonModification2DCCDIK(gdnative.Ref<SkeletonModification2DCCDIK_extern>) from gdnative.Ref<SkeletonModification2DCCDIK_extern> to gdnative.Ref<SkeletonModification2DCCDIK_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.SkeletonModification2DCCDIK):gdnative.SkeletonModification2DCCDIK return @:privateAccess v.__ref.ptr().reinterpret();
+	@:to
+	inline function toWrapper():gd.SkeletonModification2DCCDIK {
+		final v = new gd.SkeletonModification2DCCDIK(this.ptr());
+		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+		return v;
+	}
+}
 @:include("godot_cpp/classes/skeleton_modification2dccdik.hpp") @:native("godot::SkeletonModification2DCCDIK") @:structAccess extern class SkeletonModification2DCCDIK_extern extends gdnative.SkeletonModification2D.SkeletonModification2D_extern {
 	extern static inline function __alloc():cpp.Pointer<SkeletonModification2DCCDIK_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::SkeletonModification2DCCDIK"));
 	function set_target_node(p_target_nodepath:gdnative.NodePath):Void;
@@ -21,14 +34,4 @@ package gdnative;
 	function get_ccdik_joint_constraint_angle_max(p_joint_idx:Int):Float;
 	function set_ccdik_joint_constraint_angle_invert(p_joint_idx:Int, p_invert:Bool):Void;
 	function get_ccdik_joint_constraint_angle_invert(p_joint_idx:Int):Bool;
-}
-@:forward abstract SkeletonModification2DCCDIK(gdnative.Ref<SkeletonModification2DCCDIK_extern>) from gdnative.Ref<SkeletonModification2DCCDIK_extern> to gdnative.Ref<SkeletonModification2DCCDIK_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.SkeletonModification2DCCDIK):gdnative.SkeletonModification2DCCDIK return @:privateAccess v.__ref.ptr().reinterpret();
-	@:to
-	inline function toWrapper():gd.SkeletonModification2DCCDIK {
-		final v = new gd.SkeletonModification2DCCDIK(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
 }

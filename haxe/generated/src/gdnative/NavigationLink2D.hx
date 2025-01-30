@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract NavigationLink2D(cpp.Pointer<NavigationLink2D_extern>) from cpp.Pointer<NavigationLink2D_extern> to cpp.Pointer<NavigationLink2D_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.NavigationLink2D):gdnative.NavigationLink2D return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.NavigationLink2D return new gd.NavigationLink2D(this);
+}
 @:include("godot_cpp/classes/navigation_link2d.hpp") @:native("godot::NavigationLink2D") @:structAccess extern class NavigationLink2D_extern extends gdnative.Node2D.Node2D_extern {
 	extern static inline function __alloc():cpp.Pointer<NavigationLink2D_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::NavigationLink2D"));
 	function get_rid():gdnative.RID;
@@ -22,13 +31,4 @@ package gdnative;
 	function get_enter_cost():Float;
 	function set_travel_cost(p_travel_cost:Float):Void;
 	function get_travel_cost():Float;
-}
-@:forward abstract NavigationLink2D(cpp.Pointer<NavigationLink2D_extern>) from cpp.Pointer<NavigationLink2D_extern> to cpp.Pointer<NavigationLink2D_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.NavigationLink2D):gdnative.NavigationLink2D return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.NavigationLink2D {
-		final v = new gd.NavigationLink2D(this);
-		return v;
-	}
 }

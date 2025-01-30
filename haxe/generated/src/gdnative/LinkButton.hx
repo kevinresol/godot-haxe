@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract LinkButton(cpp.Pointer<LinkButton_extern>) from cpp.Pointer<LinkButton_extern> to cpp.Pointer<LinkButton_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.LinkButton):gdnative.LinkButton return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.LinkButton return new gd.LinkButton(this);
+}
 @:include("godot_cpp/classes/link_button.hpp") @:native("godot::LinkButton") @:structAccess extern class LinkButton_extern extends gdnative.BaseButton.BaseButton_extern {
 	extern static inline function __alloc():cpp.Pointer<LinkButton_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::LinkButton"));
 	function set_text(p_text:gdnative.String):Void;
@@ -15,13 +24,4 @@ package gdnative;
 	function get_structured_text_bidi_override():gdnative.textserver.StructuredTextParser;
 	function set_structured_text_bidi_override_options(p_args:gdnative.Array):Void;
 	function get_structured_text_bidi_override_options():gdnative.Array;
-}
-@:forward abstract LinkButton(cpp.Pointer<LinkButton_extern>) from cpp.Pointer<LinkButton_extern> to cpp.Pointer<LinkButton_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.LinkButton):gdnative.LinkButton return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.LinkButton {
-		final v = new gd.LinkButton(this);
-		return v;
-	}
 }

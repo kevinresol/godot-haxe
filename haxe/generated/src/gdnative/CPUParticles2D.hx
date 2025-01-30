@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract CPUParticles2D(cpp.Pointer<CPUParticles2D_extern>) from cpp.Pointer<CPUParticles2D_extern> to cpp.Pointer<CPUParticles2D_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.CPUParticles2D):gdnative.CPUParticles2D return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.CPUParticles2D return new gd.CPUParticles2D(this);
+}
 @:include("godot_cpp/classes/cpu_particles2d.hpp") @:native("godot::CPUParticles2D") @:structAccess extern class CPUParticles2D_extern extends gdnative.Node2D.Node2D_extern {
 	extern static inline function __alloc():cpp.Pointer<CPUParticles2D_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::CPUParticles2D"));
 	function set_emitting(p_emitting:Bool):Void;
@@ -69,13 +78,4 @@ package gdnative;
 	function get_scale_curve_y():gdnative.Curve;
 	function set_scale_curve_y(p_scale_curve:gdnative.Curve):Void;
 	function convert_from_particles(p_particles:gdnative.Node):Void;
-}
-@:forward abstract CPUParticles2D(cpp.Pointer<CPUParticles2D_extern>) from cpp.Pointer<CPUParticles2D_extern> to cpp.Pointer<CPUParticles2D_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.CPUParticles2D):gdnative.CPUParticles2D return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.CPUParticles2D {
-		final v = new gd.CPUParticles2D(this);
-		return v;
-	}
 }

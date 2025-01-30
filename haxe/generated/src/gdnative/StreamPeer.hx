@@ -1,4 +1,17 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract StreamPeer(gdnative.Ref<StreamPeer_extern>) from gdnative.Ref<StreamPeer_extern> to gdnative.Ref<StreamPeer_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.StreamPeer):gdnative.StreamPeer return @:privateAccess v.__ref.ptr().reinterpret();
+	@:to
+	inline function toWrapper():gd.StreamPeer {
+		final v = new gd.StreamPeer(this.ptr());
+		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+		return v;
+	}
+}
 @:include("godot_cpp/classes/stream_peer.hpp") @:native("godot::StreamPeer") @:structAccess extern class StreamPeer_extern extends gdnative.RefCounted.RefCounted_extern {
 	extern static inline function __alloc():cpp.Pointer<StreamPeer_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::StreamPeer"));
 	function put_data(p_data:gdnative.PackedByteArray):gdnative.Error;
@@ -38,14 +51,4 @@ package gdnative;
 	overload function get_utf8_string(p_bytes:Int):gdnative.String;
 	overload function get_var():gdnative.Variant;
 	overload function get_var(p_allow_objects:Bool):gdnative.Variant;
-}
-@:forward abstract StreamPeer(gdnative.Ref<StreamPeer_extern>) from gdnative.Ref<StreamPeer_extern> to gdnative.Ref<StreamPeer_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.StreamPeer):gdnative.StreamPeer return @:privateAccess v.__ref.ptr().reinterpret();
-	@:to
-	inline function toWrapper():gd.StreamPeer {
-		final v = new gd.StreamPeer(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
 }

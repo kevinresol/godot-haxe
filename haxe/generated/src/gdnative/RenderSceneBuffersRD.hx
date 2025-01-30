@@ -1,4 +1,17 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract RenderSceneBuffersRD(gdnative.Ref<RenderSceneBuffersRD_extern>) from gdnative.Ref<RenderSceneBuffersRD_extern> to gdnative.Ref<RenderSceneBuffersRD_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.RenderSceneBuffersRD):gdnative.RenderSceneBuffersRD return @:privateAccess v.__ref.ptr().reinterpret();
+	@:to
+	inline function toWrapper():gd.RenderSceneBuffersRD {
+		final v = new gd.RenderSceneBuffersRD(this.ptr());
+		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+		return v;
+	}
+}
 @:include("godot_cpp/classes/render_scene_buffers_rd.hpp") @:native("godot::RenderSceneBuffersRD") @:structAccess extern class RenderSceneBuffersRD_extern extends gdnative.RenderSceneBuffers.RenderSceneBuffers_extern {
 	extern static inline function __alloc():cpp.Pointer<RenderSceneBuffersRD_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::RenderSceneBuffersRD"));
 	function has_texture(p_context:gdnative.StringName, p_name:gdnative.StringName):Bool;
@@ -34,14 +47,4 @@ package gdnative;
 	function get_screen_space_aa():gdnative.renderingserver.ViewportScreenSpaceAA;
 	function get_use_taa():Bool;
 	function get_use_debanding():Bool;
-}
-@:forward abstract RenderSceneBuffersRD(gdnative.Ref<RenderSceneBuffersRD_extern>) from gdnative.Ref<RenderSceneBuffersRD_extern> to gdnative.Ref<RenderSceneBuffersRD_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.RenderSceneBuffersRD):gdnative.RenderSceneBuffersRD return @:privateAccess v.__ref.ptr().reinterpret();
-	@:to
-	inline function toWrapper():gd.RenderSceneBuffersRD {
-		final v = new gd.RenderSceneBuffersRD(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
 }

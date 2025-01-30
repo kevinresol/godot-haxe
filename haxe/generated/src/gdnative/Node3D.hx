@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract Node3D(cpp.Pointer<Node3D_extern>) from cpp.Pointer<Node3D_extern> to cpp.Pointer<Node3D_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.Node3D):gdnative.Node3D return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.Node3D return new gd.Node3D(this);
+}
 @:include("godot_cpp/classes/node3d.hpp") @:native("godot::Node3D") @:structAccess extern class Node3D_extern extends gdnative.Node.Node_extern {
 	extern static inline function __alloc():cpp.Pointer<Node3D_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::Node3D"));
 	function set_transform(p_local:gdnative.Transform3D):Void;
@@ -74,13 +83,4 @@ package gdnative;
 	overload function look_at_from_position(p_position:gdnative.Vector3, p_target:gdnative.Vector3, p_up:gdnative.Vector3, p_use_model_front:Bool):Void;
 	function to_local(p_global_point:gdnative.Vector3):gdnative.Vector3;
 	function to_global(p_local_point:gdnative.Vector3):gdnative.Vector3;
-}
-@:forward abstract Node3D(cpp.Pointer<Node3D_extern>) from cpp.Pointer<Node3D_extern> to cpp.Pointer<Node3D_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.Node3D):gdnative.Node3D return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.Node3D {
-		final v = new gd.Node3D(this);
-		return v;
-	}
 }

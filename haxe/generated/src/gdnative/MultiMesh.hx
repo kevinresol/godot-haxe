@@ -1,4 +1,17 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract MultiMesh(gdnative.Ref<MultiMesh_extern>) from gdnative.Ref<MultiMesh_extern> to gdnative.Ref<MultiMesh_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.MultiMesh):gdnative.MultiMesh return @:privateAccess v.__ref.ptr().reinterpret();
+	@:to
+	inline function toWrapper():gd.MultiMesh {
+		final v = new gd.MultiMesh(this.ptr());
+		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+		return v;
+	}
+}
 @:include("godot_cpp/classes/multi_mesh.hpp") @:native("godot::MultiMesh") @:structAccess extern class MultiMesh_extern extends gdnative.Resource.Resource_extern {
 	extern static inline function __alloc():cpp.Pointer<MultiMesh_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::MultiMesh"));
 	function set_mesh(p_mesh:gdnative.Mesh):Void;
@@ -26,14 +39,4 @@ package gdnative;
 	function get_aabb():gdnative.AABB;
 	function get_buffer():gdnative.PackedFloat32Array;
 	function set_buffer(p_buffer:gdnative.PackedFloat32Array):Void;
-}
-@:forward abstract MultiMesh(gdnative.Ref<MultiMesh_extern>) from gdnative.Ref<MultiMesh_extern> to gdnative.Ref<MultiMesh_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.MultiMesh):gdnative.MultiMesh return @:privateAccess v.__ref.ptr().reinterpret();
-	@:to
-	inline function toWrapper():gd.MultiMesh {
-		final v = new gd.MultiMesh(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
 }

@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract RenderingServer(cpp.Pointer<RenderingServer_extern>) from cpp.Pointer<RenderingServer_extern> to cpp.Pointer<RenderingServer_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.RenderingServer):gdnative.RenderingServer return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.RenderingServer return new gd.RenderingServer(this);
+}
 @:include("godot_cpp/classes/rendering_server.hpp") @:native("godot::RenderingServer") @:structAccess extern class RenderingServer_extern extends gdnative.Object.Object_extern {
 	extern static inline function __alloc():cpp.Pointer<RenderingServer_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::RenderingServer"));
 	static function get_singleton():cpp.Pointer<RenderingServer_extern>;
@@ -546,13 +555,4 @@ package gdnative;
 	function is_on_render_thread():Bool;
 	function call_on_render_thread(p_callable:gdnative.Callable):Void;
 	function has_feature(p_feature:gdnative.renderingserver.Features):Bool;
-}
-@:forward abstract RenderingServer(cpp.Pointer<RenderingServer_extern>) from cpp.Pointer<RenderingServer_extern> to cpp.Pointer<RenderingServer_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.RenderingServer):gdnative.RenderingServer return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.RenderingServer {
-		final v = new gd.RenderingServer(this);
-		return v;
-	}
 }

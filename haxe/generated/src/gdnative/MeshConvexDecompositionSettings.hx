@@ -1,4 +1,17 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract MeshConvexDecompositionSettings(gdnative.Ref<MeshConvexDecompositionSettings_extern>) from gdnative.Ref<MeshConvexDecompositionSettings_extern> to gdnative.Ref<MeshConvexDecompositionSettings_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.MeshConvexDecompositionSettings):gdnative.MeshConvexDecompositionSettings return @:privateAccess v.__ref.ptr().reinterpret();
+	@:to
+	inline function toWrapper():gd.MeshConvexDecompositionSettings {
+		final v = new gd.MeshConvexDecompositionSettings(this.ptr());
+		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+		return v;
+	}
+}
 @:include("godot_cpp/classes/mesh_convex_decomposition_settings.hpp") @:native("godot::MeshConvexDecompositionSettings") @:structAccess extern class MeshConvexDecompositionSettings_extern extends gdnative.RefCounted.RefCounted_extern {
 	extern static inline function __alloc():cpp.Pointer<MeshConvexDecompositionSettings_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::MeshConvexDecompositionSettings"));
 	function set_max_concavity(p_max_concavity:Float):Void;
@@ -27,14 +40,4 @@ package gdnative;
 	function get_max_convex_hulls():Int;
 	function set_project_hull_vertices(p_project_hull_vertices:Bool):Void;
 	function get_project_hull_vertices():Bool;
-}
-@:forward abstract MeshConvexDecompositionSettings(gdnative.Ref<MeshConvexDecompositionSettings_extern>) from gdnative.Ref<MeshConvexDecompositionSettings_extern> to gdnative.Ref<MeshConvexDecompositionSettings_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.MeshConvexDecompositionSettings):gdnative.MeshConvexDecompositionSettings return @:privateAccess v.__ref.ptr().reinterpret();
-	@:to
-	inline function toWrapper():gd.MeshConvexDecompositionSettings {
-		final v = new gd.MeshConvexDecompositionSettings(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
 }

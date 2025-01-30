@@ -1,4 +1,17 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract Animation(gdnative.Ref<Animation_extern>) from gdnative.Ref<Animation_extern> to gdnative.Ref<Animation_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.Animation):gdnative.Animation return @:privateAccess v.__ref.ptr().reinterpret();
+	@:to
+	inline function toWrapper():gd.Animation {
+		final v = new gd.Animation(this.ptr());
+		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+		return v;
+	}
+}
 @:include("godot_cpp/classes/animation.hpp") @:native("godot::Animation") @:structAccess extern class Animation_extern extends gdnative.Resource.Resource_extern {
 	extern static inline function __alloc():cpp.Pointer<Animation_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::Animation"));
 	overload function add_track(p_type:gdnative.animation.TrackType):Int;
@@ -94,14 +107,4 @@ package gdnative;
 	overload function compress(p_page_size:Int, p_fps:Int):Void;
 	overload function compress(p_page_size:Int, p_fps:Int, p_split_tolerance:Float):Void;
 	function is_capture_included():Bool;
-}
-@:forward abstract Animation(gdnative.Ref<Animation_extern>) from gdnative.Ref<Animation_extern> to gdnative.Ref<Animation_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.Animation):gdnative.Animation return @:privateAccess v.__ref.ptr().reinterpret();
-	@:to
-	inline function toWrapper():gd.Animation {
-		final v = new gd.Animation(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
 }

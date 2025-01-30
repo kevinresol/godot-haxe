@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract OpenXRExtensionWrapperExtension(cpp.Pointer<OpenXRExtensionWrapperExtension_extern>) from cpp.Pointer<OpenXRExtensionWrapperExtension_extern> to cpp.Pointer<OpenXRExtensionWrapperExtension_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.OpenXRExtensionWrapperExtension):gdnative.OpenXRExtensionWrapperExtension return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.OpenXRExtensionWrapperExtension return new gd.OpenXRExtensionWrapperExtension(this);
+}
 @:include("godot_cpp/classes/open_xr_extension_wrapper_extension.hpp") @:native("godot::OpenXRExtensionWrapperExtension") @:structAccess extern class OpenXRExtensionWrapperExtension_extern extends gdnative.Object.Object_extern {
 	extern static inline function __alloc():cpp.Pointer<OpenXRExtensionWrapperExtension_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::OpenXRExtensionWrapperExtension"));
 	function _get_requested_extensions():gdnative.Dictionary;
@@ -26,13 +35,4 @@ package gdnative;
 	function _get_viewport_composition_layer_extension_property_defaults():gdnative.Dictionary;
 	function get_openxr_api():gdnative.OpenXRAPIExtension;
 	function register_extension_wrapper():Void;
-}
-@:forward abstract OpenXRExtensionWrapperExtension(cpp.Pointer<OpenXRExtensionWrapperExtension_extern>) from cpp.Pointer<OpenXRExtensionWrapperExtension_extern> to cpp.Pointer<OpenXRExtensionWrapperExtension_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.OpenXRExtensionWrapperExtension):gdnative.OpenXRExtensionWrapperExtension return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.OpenXRExtensionWrapperExtension {
-		final v = new gd.OpenXRExtensionWrapperExtension(this);
-		return v;
-	}
 }

@@ -1,4 +1,17 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract GLTFDocument(gdnative.Ref<GLTFDocument_extern>) from gdnative.Ref<GLTFDocument_extern> to gdnative.Ref<GLTFDocument_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.GLTFDocument):gdnative.GLTFDocument return @:privateAccess v.__ref.ptr().reinterpret();
+	@:to
+	inline function toWrapper():gd.GLTFDocument {
+		final v = new gd.GLTFDocument(this.ptr());
+		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+		return v;
+	}
+}
 @:include("godot_cpp/classes/gltf_document.hpp") @:native("godot::GLTFDocument") @:structAccess extern class GLTFDocument_extern extends gdnative.Resource.Resource_extern {
 	extern static inline function __alloc():cpp.Pointer<GLTFDocument_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::GLTFDocument"));
 	function set_image_format(p_image_format:gdnative.String):Void;
@@ -23,14 +36,4 @@ package gdnative;
 	overload static function register_gltf_document_extension(p_extension:gdnative.GLTFDocumentExtension):Void;
 	overload static function register_gltf_document_extension(p_extension:gdnative.GLTFDocumentExtension, p_first_priority:Bool):Void;
 	static function unregister_gltf_document_extension(p_extension:gdnative.GLTFDocumentExtension):Void;
-}
-@:forward abstract GLTFDocument(gdnative.Ref<GLTFDocument_extern>) from gdnative.Ref<GLTFDocument_extern> to gdnative.Ref<GLTFDocument_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.GLTFDocument):gdnative.GLTFDocument return @:privateAccess v.__ref.ptr().reinterpret();
-	@:to
-	inline function toWrapper():gd.GLTFDocument {
-		final v = new gd.GLTFDocument(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
 }

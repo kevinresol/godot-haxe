@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract Engine(cpp.Pointer<Engine_extern>) from cpp.Pointer<Engine_extern> to cpp.Pointer<Engine_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.Engine):gdnative.Engine return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.Engine return new gd.Engine(this);
+}
 @:include("godot_cpp/classes/engine.hpp") @:native("godot::Engine") @:structAccess extern class Engine_extern extends gdnative.Object.Object_extern {
 	extern static inline function __alloc():cpp.Pointer<Engine_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::Engine"));
 	static function get_singleton():cpp.Pointer<Engine_extern>;
@@ -38,13 +47,4 @@ package gdnative;
 	function get_write_movie_path():gdnative.String;
 	function set_print_error_messages(p_enabled:Bool):Void;
 	function is_printing_error_messages():Bool;
-}
-@:forward abstract Engine(cpp.Pointer<Engine_extern>) from cpp.Pointer<Engine_extern> to cpp.Pointer<Engine_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.Engine):gdnative.Engine return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.Engine {
-		final v = new gd.Engine(this);
-		return v;
-	}
 }

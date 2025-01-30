@@ -1,4 +1,17 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract RandomNumberGenerator(gdnative.Ref<RandomNumberGenerator_extern>) from gdnative.Ref<RandomNumberGenerator_extern> to gdnative.Ref<RandomNumberGenerator_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.RandomNumberGenerator):gdnative.RandomNumberGenerator return @:privateAccess v.__ref.ptr().reinterpret();
+	@:to
+	inline function toWrapper():gd.RandomNumberGenerator {
+		final v = new gd.RandomNumberGenerator(this.ptr());
+		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+		return v;
+	}
+}
 @:include("godot_cpp/classes/random_number_generator.hpp") @:native("godot::RandomNumberGenerator") @:structAccess extern class RandomNumberGenerator_extern extends gdnative.RefCounted.RefCounted_extern {
 	extern static inline function __alloc():cpp.Pointer<RandomNumberGenerator_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::RandomNumberGenerator"));
 	function set_seed(p_seed:Int):Void;
@@ -14,14 +27,4 @@ package gdnative;
 	function randi_range(p_from:Int, p_to:Int):Int;
 	function rand_weighted(p_weights:gdnative.PackedFloat32Array):Int;
 	function randomize():Void;
-}
-@:forward abstract RandomNumberGenerator(gdnative.Ref<RandomNumberGenerator_extern>) from gdnative.Ref<RandomNumberGenerator_extern> to gdnative.Ref<RandomNumberGenerator_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.RandomNumberGenerator):gdnative.RandomNumberGenerator return @:privateAccess v.__ref.ptr().reinterpret();
-	@:to
-	inline function toWrapper():gd.RandomNumberGenerator {
-		final v = new gd.RandomNumberGenerator(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
 }

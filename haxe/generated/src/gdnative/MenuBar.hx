@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract MenuBar(cpp.Pointer<MenuBar_extern>) from cpp.Pointer<MenuBar_extern> to cpp.Pointer<MenuBar_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.MenuBar):gdnative.MenuBar return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.MenuBar return new gd.MenuBar(this);
+}
 @:include("godot_cpp/classes/menu_bar.hpp") @:native("godot::MenuBar") @:structAccess extern class MenuBar_extern extends gdnative.Control.Control_extern {
 	extern static inline function __alloc():cpp.Pointer<MenuBar_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::MenuBar"));
 	function set_switch_on_hover(p_enable:Bool):Void;
@@ -25,13 +34,4 @@ package gdnative;
 	function set_menu_hidden(p_menu:Int, p_hidden:Bool):Void;
 	function is_menu_hidden(p_menu:Int):Bool;
 	function get_menu_popup(p_menu:Int):gdnative.PopupMenu;
-}
-@:forward abstract MenuBar(cpp.Pointer<MenuBar_extern>) from cpp.Pointer<MenuBar_extern> to cpp.Pointer<MenuBar_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.MenuBar):gdnative.MenuBar return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.MenuBar {
-		final v = new gd.MenuBar(this);
-		return v;
-	}
 }

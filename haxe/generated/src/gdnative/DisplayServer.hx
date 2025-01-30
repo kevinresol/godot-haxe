@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract DisplayServer(cpp.Pointer<DisplayServer_extern>) from cpp.Pointer<DisplayServer_extern> to cpp.Pointer<DisplayServer_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.DisplayServer):gdnative.DisplayServer return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.DisplayServer return new gd.DisplayServer(this);
+}
 @:include("godot_cpp/classes/display_server.hpp") @:native("godot::DisplayServer") @:structAccess extern class DisplayServer_extern extends gdnative.Object.Object_extern {
 	extern static inline function __alloc():cpp.Pointer<DisplayServer_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::DisplayServer"));
 	static function get_singleton():cpp.Pointer<DisplayServer_extern>;
@@ -278,13 +287,4 @@ package gdnative;
 	function register_additional_output(p_object:gdnative.Object):Void;
 	function unregister_additional_output(p_object:gdnative.Object):Void;
 	function has_additional_outputs():Bool;
-}
-@:forward abstract DisplayServer(cpp.Pointer<DisplayServer_extern>) from cpp.Pointer<DisplayServer_extern> to cpp.Pointer<DisplayServer_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.DisplayServer):gdnative.DisplayServer return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.DisplayServer {
-		final v = new gd.DisplayServer(this);
-		return v;
-	}
 }

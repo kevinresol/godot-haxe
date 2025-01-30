@@ -1,4 +1,17 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract TileSetScenesCollectionSource(gdnative.Ref<TileSetScenesCollectionSource_extern>) from gdnative.Ref<TileSetScenesCollectionSource_extern> to gdnative.Ref<TileSetScenesCollectionSource_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.TileSetScenesCollectionSource):gdnative.TileSetScenesCollectionSource return @:privateAccess v.__ref.ptr().reinterpret();
+	@:to
+	inline function toWrapper():gd.TileSetScenesCollectionSource {
+		final v = new gd.TileSetScenesCollectionSource(this.ptr());
+		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+		return v;
+	}
+}
 @:include("godot_cpp/classes/tile_set_scenes_collection_source.hpp") @:native("godot::TileSetScenesCollectionSource") @:structAccess extern class TileSetScenesCollectionSource_extern extends gdnative.TileSetSource.TileSetSource_extern {
 	extern static inline function __alloc():cpp.Pointer<TileSetScenesCollectionSource_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::TileSetScenesCollectionSource"));
 	function get_scene_tiles_count():Int;
@@ -13,14 +26,4 @@ package gdnative;
 	function get_scene_tile_display_placeholder(p_id:Int):Bool;
 	function remove_scene_tile(p_id:Int):Void;
 	function get_next_scene_tile_id():Int;
-}
-@:forward abstract TileSetScenesCollectionSource(gdnative.Ref<TileSetScenesCollectionSource_extern>) from gdnative.Ref<TileSetScenesCollectionSource_extern> to gdnative.Ref<TileSetScenesCollectionSource_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.TileSetScenesCollectionSource):gdnative.TileSetScenesCollectionSource return @:privateAccess v.__ref.ptr().reinterpret();
-	@:to
-	inline function toWrapper():gd.TileSetScenesCollectionSource {
-		final v = new gd.TileSetScenesCollectionSource(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
 }

@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract ReflectionProbe(cpp.Pointer<ReflectionProbe_extern>) from cpp.Pointer<ReflectionProbe_extern> to cpp.Pointer<ReflectionProbe_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.ReflectionProbe):gdnative.ReflectionProbe return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.ReflectionProbe return new gd.ReflectionProbe(this);
+}
 @:include("godot_cpp/classes/reflection_probe.hpp") @:native("godot::ReflectionProbe") @:structAccess extern class ReflectionProbe_extern extends gdnative.VisualInstance3D.VisualInstance3D_extern {
 	extern static inline function __alloc():cpp.Pointer<ReflectionProbe_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::ReflectionProbe"));
 	function set_intensity(p_intensity:Float):Void;
@@ -29,13 +38,4 @@ package gdnative;
 	function get_reflection_mask():Int;
 	function set_update_mode(p_mode:gdnative.reflectionprobe.UpdateMode):Void;
 	function get_update_mode():gdnative.reflectionprobe.UpdateMode;
-}
-@:forward abstract ReflectionProbe(cpp.Pointer<ReflectionProbe_extern>) from cpp.Pointer<ReflectionProbe_extern> to cpp.Pointer<ReflectionProbe_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.ReflectionProbe):gdnative.ReflectionProbe return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.ReflectionProbe {
-		final v = new gd.ReflectionProbe(this);
-		return v;
-	}
 }

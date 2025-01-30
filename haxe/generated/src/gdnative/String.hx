@@ -1,4 +1,29 @@
 package gdnative;
+/**
+	Built-in Class
+**/
+@:forward abstract String(cpp.Struct<String_extern>) from cpp.Struct<String_extern> to cpp.Struct<String_extern> {
+	@:to
+	extern inline function toHaxe():std.String {
+		untyped __cpp__('auto __utf8 = {0}.value.utf8()', this);
+		return untyped __cpp__('::String::create(__utf8.get_data(), __utf8.length())');
+	}
+	@:from
+	extern static inline function fromHaxe(v:std.String):String {
+		return untyped __cpp__('godot::String({0})', cpp.NativeString.c_str(v));
+	}
+	@:from
+	static inline function fromWrapper(v:gd.String):gdnative.String return fromWrapperInternal(v);
+	@:from
+	static inline function fromWrapperInternal(v:gd.String.String_wrapper):gdnative.String return untyped __cpp__('{0}.get()', @:privateAccess v.__gd);
+	@:to
+	inline function toWrapper():gd.String return toWrapperInternal();
+	@:to
+	inline function toWrapperInternal():gd.String.String_wrapper return new gd.String.String_wrapper(this);
+	public extern overload inline function new() this = new gdnative.String.String_extern();
+	public extern overload inline function new(p_from:std.String) this = new gdnative.String.String_extern(p_from);
+}
+
 @:include("godot_cpp/variant/string.hpp") @:native("godot::String") @:structAccess extern class String_extern {
 	@:overload(function(p_from:gdnative.String):Void { })
 	@:overload(function(p_from:gdnative.StringName):Void { })
@@ -140,26 +165,4 @@ package gdnative;
 	overload function num_uint64(p_number:Int):gdnative.String;
 	function chr(p_char:Int):gdnative.String;
 	function humanize_size(p_size:Int):gdnative.String;
-}
-
-@:forward abstract String(cpp.Struct<String_extern>) from cpp.Struct<String_extern> to cpp.Struct<String_extern> {
-	@:to
-	extern inline function toHaxe():std.String {
-		untyped __cpp__('auto __utf8 = {0}.value.utf8()', this);
-		return untyped __cpp__('::String::create(__utf8.get_data(), __utf8.length())');
-	}
-	@:from
-	extern static inline function fromHaxe(v:std.String):String {
-		return untyped __cpp__('godot::String({0})', cpp.NativeString.c_str(v));
-	}
-	@:from
-	static inline function fromWrapper(v:gd.String):gdnative.String return fromWrapperInternal(v);
-	@:from
-	static inline function fromWrapperInternal(v:gd.String.String_wrapper):gdnative.String return untyped __cpp__('{0}.get()', @:privateAccess v.__gd);
-	@:to
-	inline function toWrapper():gd.String return toWrapperInternal();
-	@:to
-	inline function toWrapperInternal():gd.String.String_wrapper return new gd.String.String_wrapper(this);
-	public extern overload inline function new() this = new gdnative.String.String_extern();
-	public extern overload inline function new(p_from:std.String) this = new gdnative.String.String_extern(p_from);
 }

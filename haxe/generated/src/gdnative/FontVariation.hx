@@ -1,4 +1,17 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract FontVariation(gdnative.Ref<FontVariation_extern>) from gdnative.Ref<FontVariation_extern> to gdnative.Ref<FontVariation_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.FontVariation):gdnative.FontVariation return @:privateAccess v.__ref.ptr().reinterpret();
+	@:to
+	inline function toWrapper():gd.FontVariation {
+		final v = new gd.FontVariation(this.ptr());
+		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+		return v;
+	}
+}
 @:include("godot_cpp/classes/font_variation.hpp") @:native("godot::FontVariation") @:structAccess extern class FontVariation_extern extends gdnative.Font.Font_extern {
 	extern static inline function __alloc():cpp.Pointer<FontVariation_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::FontVariation"));
 	function set_base_font(p_font:gdnative.Font):Void;
@@ -15,14 +28,4 @@ package gdnative;
 	function set_spacing(p_spacing:gdnative.textserver.SpacingType, p_value:Int):Void;
 	function set_baseline_offset(p_baseline_offset:Float):Void;
 	function get_baseline_offset():Float;
-}
-@:forward abstract FontVariation(gdnative.Ref<FontVariation_extern>) from gdnative.Ref<FontVariation_extern> to gdnative.Ref<FontVariation_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.FontVariation):gdnative.FontVariation return @:privateAccess v.__ref.ptr().reinterpret();
-	@:to
-	inline function toWrapper():gd.FontVariation {
-		final v = new gd.FontVariation(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
 }

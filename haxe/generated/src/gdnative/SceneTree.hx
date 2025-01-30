@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract SceneTree(cpp.Pointer<SceneTree_extern>) from cpp.Pointer<SceneTree_extern> to cpp.Pointer<SceneTree_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.SceneTree):gdnative.SceneTree return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.SceneTree return new gd.SceneTree(this);
+}
 @:include("godot_cpp/classes/scene_tree.hpp") @:native("godot::SceneTree") @:structAccess extern class SceneTree_extern extends gdnative.MainLoop.MainLoop_extern {
 	extern static inline function __alloc():cpp.Pointer<SceneTree_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::SceneTree"));
 	function get_root():gdnative.Window;
@@ -49,13 +58,4 @@ package gdnative;
 	overload function get_multiplayer(p_for_path:gdnative.NodePath):gdnative.MultiplayerAPI;
 	function set_multiplayer_poll_enabled(p_enabled:Bool):Void;
 	function is_multiplayer_poll_enabled():Bool;
-}
-@:forward abstract SceneTree(cpp.Pointer<SceneTree_extern>) from cpp.Pointer<SceneTree_extern> to cpp.Pointer<SceneTree_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.SceneTree):gdnative.SceneTree return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.SceneTree {
-		final v = new gd.SceneTree(this);
-		return v;
-	}
 }

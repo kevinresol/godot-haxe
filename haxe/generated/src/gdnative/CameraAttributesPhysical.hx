@@ -1,4 +1,17 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract CameraAttributesPhysical(gdnative.Ref<CameraAttributesPhysical_extern>) from gdnative.Ref<CameraAttributesPhysical_extern> to gdnative.Ref<CameraAttributesPhysical_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.CameraAttributesPhysical):gdnative.CameraAttributesPhysical return @:privateAccess v.__ref.ptr().reinterpret();
+	@:to
+	inline function toWrapper():gd.CameraAttributesPhysical {
+		final v = new gd.CameraAttributesPhysical(this.ptr());
+		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+		return v;
+	}
+}
 @:include("godot_cpp/classes/camera_attributes_physical.hpp") @:native("godot::CameraAttributesPhysical") @:structAccess extern class CameraAttributesPhysical_extern extends gdnative.CameraAttributes.CameraAttributes_extern {
 	extern static inline function __alloc():cpp.Pointer<CameraAttributesPhysical_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::CameraAttributesPhysical"));
 	function set_aperture(p_aperture:Float):Void;
@@ -18,14 +31,4 @@ package gdnative;
 	function get_auto_exposure_max_exposure_value():Float;
 	function set_auto_exposure_min_exposure_value(p_exposure_value_min:Float):Void;
 	function get_auto_exposure_min_exposure_value():Float;
-}
-@:forward abstract CameraAttributesPhysical(gdnative.Ref<CameraAttributesPhysical_extern>) from gdnative.Ref<CameraAttributesPhysical_extern> to gdnative.Ref<CameraAttributesPhysical_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.CameraAttributesPhysical):gdnative.CameraAttributesPhysical return @:privateAccess v.__ref.ptr().reinterpret();
-	@:to
-	inline function toWrapper():gd.CameraAttributesPhysical {
-		final v = new gd.CameraAttributesPhysical(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
 }

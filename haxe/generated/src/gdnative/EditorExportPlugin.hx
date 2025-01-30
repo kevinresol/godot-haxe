@@ -1,4 +1,17 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract EditorExportPlugin(gdnative.Ref<EditorExportPlugin_extern>) from gdnative.Ref<EditorExportPlugin_extern> to gdnative.Ref<EditorExportPlugin_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.EditorExportPlugin):gdnative.EditorExportPlugin return @:privateAccess v.__ref.ptr().reinterpret();
+	@:to
+	inline function toWrapper():gd.EditorExportPlugin {
+		final v = new gd.EditorExportPlugin(this.ptr());
+		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+		return v;
+	}
+}
 @:include("godot_cpp/classes/editor_export_plugin.hpp") @:native("godot::EditorExportPlugin") @:structAccess extern class EditorExportPlugin_extern extends gdnative.RefCounted.RefCounted_extern {
 	extern static inline function __alloc():cpp.Pointer<EditorExportPlugin_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::EditorExportPlugin"));
 	function _export_file(p_path:gdnative.String, p_type:gdnative.String, p_features:gdnative.PackedStringArray):Void;
@@ -35,14 +48,4 @@ package gdnative;
 	function add_macos_plugin_file(p_path:gdnative.String):Void;
 	function skip():Void;
 	function get_option(p_name:gdnative.StringName):gdnative.Variant;
-}
-@:forward abstract EditorExportPlugin(gdnative.Ref<EditorExportPlugin_extern>) from gdnative.Ref<EditorExportPlugin_extern> to gdnative.Ref<EditorExportPlugin_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.EditorExportPlugin):gdnative.EditorExportPlugin return @:privateAccess v.__ref.ptr().reinterpret();
-	@:to
-	inline function toWrapper():gd.EditorExportPlugin {
-		final v = new gd.EditorExportPlugin(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
 }

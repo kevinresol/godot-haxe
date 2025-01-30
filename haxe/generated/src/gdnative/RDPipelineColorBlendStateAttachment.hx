@@ -1,4 +1,17 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract RDPipelineColorBlendStateAttachment(gdnative.Ref<RDPipelineColorBlendStateAttachment_extern>) from gdnative.Ref<RDPipelineColorBlendStateAttachment_extern> to gdnative.Ref<RDPipelineColorBlendStateAttachment_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.RDPipelineColorBlendStateAttachment):gdnative.RDPipelineColorBlendStateAttachment return @:privateAccess v.__ref.ptr().reinterpret();
+	@:to
+	inline function toWrapper():gd.RDPipelineColorBlendStateAttachment {
+		final v = new gd.RDPipelineColorBlendStateAttachment(this.ptr());
+		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+		return v;
+	}
+}
 @:include("godot_cpp/classes/rd_pipeline_color_blend_state_attachment.hpp") @:native("godot::RDPipelineColorBlendStateAttachment") @:structAccess extern class RDPipelineColorBlendStateAttachment_extern extends gdnative.RefCounted.RefCounted_extern {
 	extern static inline function __alloc():cpp.Pointer<RDPipelineColorBlendStateAttachment_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::RDPipelineColorBlendStateAttachment"));
 	function set_as_mix():Void;
@@ -24,14 +37,4 @@ package gdnative;
 	function get_write_b():Bool;
 	function set_write_a(p_p_member:Bool):Void;
 	function get_write_a():Bool;
-}
-@:forward abstract RDPipelineColorBlendStateAttachment(gdnative.Ref<RDPipelineColorBlendStateAttachment_extern>) from gdnative.Ref<RDPipelineColorBlendStateAttachment_extern> to gdnative.Ref<RDPipelineColorBlendStateAttachment_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.RDPipelineColorBlendStateAttachment):gdnative.RDPipelineColorBlendStateAttachment return @:privateAccess v.__ref.ptr().reinterpret();
-	@:to
-	inline function toWrapper():gd.RDPipelineColorBlendStateAttachment {
-		final v = new gd.RDPipelineColorBlendStateAttachment(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
 }

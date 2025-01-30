@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract InputMap(cpp.Pointer<InputMap_extern>) from cpp.Pointer<InputMap_extern> to cpp.Pointer<InputMap_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.InputMap):gdnative.InputMap return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.InputMap return new gd.InputMap(this);
+}
 @:include("godot_cpp/classes/input_map.hpp") @:native("godot::InputMap") @:structAccess extern class InputMap_extern extends gdnative.Object.Object_extern {
 	extern static inline function __alloc():cpp.Pointer<InputMap_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::InputMap"));
 	static function get_singleton():cpp.Pointer<InputMap_extern>;
@@ -15,13 +24,4 @@ package gdnative;
 	overload function event_is_action(p_event:gdnative.InputEvent, p_action:gdnative.StringName):Bool;
 	overload function event_is_action(p_event:gdnative.InputEvent, p_action:gdnative.StringName, p_exact_match:Bool):Bool;
 	function load_from_project_settings():Void;
-}
-@:forward abstract InputMap(cpp.Pointer<InputMap_extern>) from cpp.Pointer<InputMap_extern> to cpp.Pointer<InputMap_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.InputMap):gdnative.InputMap return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.InputMap {
-		final v = new gd.InputMap(this);
-		return v;
-	}
 }

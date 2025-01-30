@@ -1,4 +1,17 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract ArrayMesh(gdnative.Ref<ArrayMesh_extern>) from gdnative.Ref<ArrayMesh_extern> to gdnative.Ref<ArrayMesh_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.ArrayMesh):gdnative.ArrayMesh return @:privateAccess v.__ref.ptr().reinterpret();
+	@:to
+	inline function toWrapper():gd.ArrayMesh {
+		final v = new gd.ArrayMesh(this.ptr());
+		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+		return v;
+	}
+}
 @:include("godot_cpp/classes/array_mesh.hpp") @:native("godot::ArrayMesh") @:structAccess extern class ArrayMesh_extern extends gdnative.Mesh.Mesh_extern {
 	extern static inline function __alloc():cpp.Pointer<ArrayMesh_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::ArrayMesh"));
 	function add_blend_shape(p_name:gdnative.StringName):Void;
@@ -25,14 +38,4 @@ package gdnative;
 	function get_custom_aabb():gdnative.AABB;
 	function set_shadow_mesh(p_mesh:gdnative.ArrayMesh):Void;
 	function get_shadow_mesh():gdnative.ArrayMesh;
-}
-@:forward abstract ArrayMesh(gdnative.Ref<ArrayMesh_extern>) from gdnative.Ref<ArrayMesh_extern> to gdnative.Ref<ArrayMesh_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.ArrayMesh):gdnative.ArrayMesh return @:privateAccess v.__ref.ptr().reinterpret();
-	@:to
-	inline function toWrapper():gd.ArrayMesh {
-		final v = new gd.ArrayMesh(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
 }

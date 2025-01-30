@@ -1,4 +1,17 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract WebSocketPeer(gdnative.Ref<WebSocketPeer_extern>) from gdnative.Ref<WebSocketPeer_extern> to gdnative.Ref<WebSocketPeer_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.WebSocketPeer):gdnative.WebSocketPeer return @:privateAccess v.__ref.ptr().reinterpret();
+	@:to
+	inline function toWrapper():gd.WebSocketPeer {
+		final v = new gd.WebSocketPeer(this.ptr());
+		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+		return v;
+	}
+}
 @:include("godot_cpp/classes/web_socket_peer.hpp") @:native("godot::WebSocketPeer") @:structAccess extern class WebSocketPeer_extern extends gdnative.PacketPeer.PacketPeer_extern {
 	extern static inline function __alloc():cpp.Pointer<WebSocketPeer_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::WebSocketPeer"));
 	overload function connect_to_url(p_url:gdnative.String):gdnative.Error;
@@ -31,14 +44,4 @@ package gdnative;
 	function set_outbound_buffer_size(p_buffer_size:Int):Void;
 	function set_max_queued_packets(p_buffer_size:Int):Void;
 	function get_max_queued_packets():Int;
-}
-@:forward abstract WebSocketPeer(gdnative.Ref<WebSocketPeer_extern>) from gdnative.Ref<WebSocketPeer_extern> to gdnative.Ref<WebSocketPeer_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.WebSocketPeer):gdnative.WebSocketPeer return @:privateAccess v.__ref.ptr().reinterpret();
-	@:to
-	inline function toWrapper():gd.WebSocketPeer {
-		final v = new gd.WebSocketPeer(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
 }

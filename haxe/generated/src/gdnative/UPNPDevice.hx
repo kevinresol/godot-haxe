@@ -1,4 +1,17 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract UPNPDevice(gdnative.Ref<UPNPDevice_extern>) from gdnative.Ref<UPNPDevice_extern> to gdnative.Ref<UPNPDevice_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.UPNPDevice):gdnative.UPNPDevice return @:privateAccess v.__ref.ptr().reinterpret();
+	@:to
+	inline function toWrapper():gd.UPNPDevice {
+		final v = new gd.UPNPDevice(this.ptr());
+		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+		return v;
+	}
+}
 @:include("godot_cpp/classes/upnp_device.hpp") @:native("godot::UPNPDevice") @:structAccess extern class UPNPDevice_extern extends gdnative.RefCounted.RefCounted_extern {
 	extern static inline function __alloc():cpp.Pointer<UPNPDevice_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::UPNPDevice"));
 	function is_valid_gateway():Bool;
@@ -22,14 +35,4 @@ package gdnative;
 	function get_igd_our_addr():gdnative.String;
 	function set_igd_status(p_status:gdnative.upnpdevice.IGDStatus):Void;
 	function get_igd_status():gdnative.upnpdevice.IGDStatus;
-}
-@:forward abstract UPNPDevice(gdnative.Ref<UPNPDevice_extern>) from gdnative.Ref<UPNPDevice_extern> to gdnative.Ref<UPNPDevice_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.UPNPDevice):gdnative.UPNPDevice return @:privateAccess v.__ref.ptr().reinterpret();
-	@:to
-	inline function toWrapper():gd.UPNPDevice {
-		final v = new gd.UPNPDevice(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
 }

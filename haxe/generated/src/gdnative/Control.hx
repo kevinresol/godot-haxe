@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract Control(cpp.Pointer<Control_extern>) from cpp.Pointer<Control_extern> to cpp.Pointer<Control_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.Control):gdnative.Control return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.Control return new gd.Control(this);
+}
 @:include("godot_cpp/classes/control.hpp") @:native("godot::Control") @:structAccess extern class Control_extern extends gdnative.CanvasItem.CanvasItem_extern {
 	extern static inline function __alloc():cpp.Pointer<Control_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::Control"));
 	function _has_point(p_point:gdnative.Vector2):Bool;
@@ -162,13 +171,4 @@ package gdnative;
 	function is_auto_translating():Bool;
 	function set_localize_numeral_system(p_enable:Bool):Void;
 	function is_localizing_numeral_system():Bool;
-}
-@:forward abstract Control(cpp.Pointer<Control_extern>) from cpp.Pointer<Control_extern> to cpp.Pointer<Control_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.Control):gdnative.Control return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.Control {
-		final v = new gd.Control(this);
-		return v;
-	}
 }

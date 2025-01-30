@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract NinePatchRect(cpp.Pointer<NinePatchRect_extern>) from cpp.Pointer<NinePatchRect_extern> to cpp.Pointer<NinePatchRect_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.NinePatchRect):gdnative.NinePatchRect return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.NinePatchRect return new gd.NinePatchRect(this);
+}
 @:include("godot_cpp/classes/nine_patch_rect.hpp") @:native("godot::NinePatchRect") @:structAccess extern class NinePatchRect_extern extends gdnative.Control.Control_extern {
 	extern static inline function __alloc():cpp.Pointer<NinePatchRect_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::NinePatchRect"));
 	function set_texture(p_texture:gdnative.Texture2D):Void;
@@ -13,13 +22,4 @@ package gdnative;
 	function get_h_axis_stretch_mode():gdnative.ninepatchrect.AxisStretchMode;
 	function set_v_axis_stretch_mode(p_mode:gdnative.ninepatchrect.AxisStretchMode):Void;
 	function get_v_axis_stretch_mode():gdnative.ninepatchrect.AxisStretchMode;
-}
-@:forward abstract NinePatchRect(cpp.Pointer<NinePatchRect_extern>) from cpp.Pointer<NinePatchRect_extern> to cpp.Pointer<NinePatchRect_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.NinePatchRect):gdnative.NinePatchRect return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.NinePatchRect {
-		final v = new gd.NinePatchRect(this);
-		return v;
-	}
 }

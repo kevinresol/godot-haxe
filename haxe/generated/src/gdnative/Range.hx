@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract Range(cpp.Pointer<Range_extern>) from cpp.Pointer<Range_extern> to cpp.Pointer<Range_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.Range):gdnative.Range return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.Range return new gd.Range(this);
+}
 @:include("godot_cpp/classes/range.hpp") @:native("godot::Range") @:structAccess extern class Range_extern extends gdnative.Control.Control_extern {
 	extern static inline function __alloc():cpp.Pointer<Range_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::Range"));
 	function _value_changed(p_new_value:Float):Void;
@@ -25,13 +34,4 @@ package gdnative;
 	function is_lesser_allowed():Bool;
 	function share(p_with:gdnative.Node):Void;
 	function unshare():Void;
-}
-@:forward abstract Range(cpp.Pointer<Range_extern>) from cpp.Pointer<Range_extern> to cpp.Pointer<Range_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.Range):gdnative.Range return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.Range {
-		final v = new gd.Range(this);
-		return v;
-	}
 }

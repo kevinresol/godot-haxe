@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract OpenXRCompositionLayerCylinder(cpp.Pointer<OpenXRCompositionLayerCylinder_extern>) from cpp.Pointer<OpenXRCompositionLayerCylinder_extern> to cpp.Pointer<OpenXRCompositionLayerCylinder_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.OpenXRCompositionLayerCylinder):gdnative.OpenXRCompositionLayerCylinder return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.OpenXRCompositionLayerCylinder return new gd.OpenXRCompositionLayerCylinder(this);
+}
 @:include("godot_cpp/classes/open_xr_composition_layer_cylinder.hpp") @:native("godot::OpenXRCompositionLayerCylinder") @:structAccess extern class OpenXRCompositionLayerCylinder_extern extends gdnative.OpenXRCompositionLayer.OpenXRCompositionLayer_extern {
 	extern static inline function __alloc():cpp.Pointer<OpenXRCompositionLayerCylinder_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::OpenXRCompositionLayerCylinder"));
 	function set_radius(p_radius:Float):Void;
@@ -9,13 +18,4 @@ package gdnative;
 	function get_central_angle():Float;
 	function set_fallback_segments(p_segments:Int):Void;
 	function get_fallback_segments():Int;
-}
-@:forward abstract OpenXRCompositionLayerCylinder(cpp.Pointer<OpenXRCompositionLayerCylinder_extern>) from cpp.Pointer<OpenXRCompositionLayerCylinder_extern> to cpp.Pointer<OpenXRCompositionLayerCylinder_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.OpenXRCompositionLayerCylinder):gdnative.OpenXRCompositionLayerCylinder return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.OpenXRCompositionLayerCylinder {
-		final v = new gd.OpenXRCompositionLayerCylinder(this);
-		return v;
-	}
 }

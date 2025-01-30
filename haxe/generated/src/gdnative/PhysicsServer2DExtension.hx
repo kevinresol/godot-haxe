@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract PhysicsServer2DExtension(cpp.Pointer<PhysicsServer2DExtension_extern>) from cpp.Pointer<PhysicsServer2DExtension_extern> to cpp.Pointer<PhysicsServer2DExtension_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.PhysicsServer2DExtension):gdnative.PhysicsServer2DExtension return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.PhysicsServer2DExtension return new gd.PhysicsServer2DExtension(this);
+}
 @:include("godot_cpp/classes/physics_server2d_extension.hpp") @:native("godot::PhysicsServer2DExtension") @:structAccess extern class PhysicsServer2DExtension_extern extends gdnative.PhysicsServer2D.PhysicsServer2D_extern {
 	extern static inline function __alloc():cpp.Pointer<PhysicsServer2DExtension_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::PhysicsServer2DExtension"));
 	function _world_boundary_shape_create():gdnative.RID;
@@ -137,13 +146,4 @@ package gdnative;
 	function _get_process_info(p_process_info:gdnative.physicsserver2d.ProcessInfo):Int;
 	function body_test_motion_is_excluding_body(p_body:gdnative.RID):Bool;
 	function body_test_motion_is_excluding_object(p_object:Int):Bool;
-}
-@:forward abstract PhysicsServer2DExtension(cpp.Pointer<PhysicsServer2DExtension_extern>) from cpp.Pointer<PhysicsServer2DExtension_extern> to cpp.Pointer<PhysicsServer2DExtension_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.PhysicsServer2DExtension):gdnative.PhysicsServer2DExtension return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.PhysicsServer2DExtension {
-		final v = new gd.PhysicsServer2DExtension(this);
-		return v;
-	}
 }

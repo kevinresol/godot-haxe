@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract AnimationPlayer(cpp.Pointer<AnimationPlayer_extern>) from cpp.Pointer<AnimationPlayer_extern> to cpp.Pointer<AnimationPlayer_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.AnimationPlayer):gdnative.AnimationPlayer return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.AnimationPlayer return new gd.AnimationPlayer(this);
+}
 @:include("godot_cpp/classes/animation_player.hpp") @:native("godot::AnimationPlayer") @:structAccess extern class AnimationPlayer_extern extends gdnative.AnimationMixer.AnimationMixer_extern {
 	extern static inline function __alloc():cpp.Pointer<AnimationPlayer_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::AnimationPlayer"));
 	function animation_set_next(p_animation_from:gdnative.StringName, p_animation_to:gdnative.StringName):Void;
@@ -60,13 +69,4 @@ package gdnative;
 	function get_method_call_mode():gdnative.animationplayer.AnimationMethodCallMode;
 	function set_root(p_path:gdnative.NodePath):Void;
 	function get_root():gdnative.NodePath;
-}
-@:forward abstract AnimationPlayer(cpp.Pointer<AnimationPlayer_extern>) from cpp.Pointer<AnimationPlayer_extern> to cpp.Pointer<AnimationPlayer_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.AnimationPlayer):gdnative.AnimationPlayer return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.AnimationPlayer {
-		final v = new gd.AnimationPlayer(this);
-		return v;
-	}
 }

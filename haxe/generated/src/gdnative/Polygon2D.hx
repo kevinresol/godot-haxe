@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract Polygon2D(cpp.Pointer<Polygon2D_extern>) from cpp.Pointer<Polygon2D_extern> to cpp.Pointer<Polygon2D_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.Polygon2D):gdnative.Polygon2D return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.Polygon2D return new gd.Polygon2D(this);
+}
 @:include("godot_cpp/classes/polygon2d.hpp") @:native("godot::Polygon2D") @:structAccess extern class Polygon2D_extern extends gdnative.Node2D.Node2D_extern {
 	extern static inline function __alloc():cpp.Pointer<Polygon2D_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::Polygon2D"));
 	function set_polygon(p_polygon:gdnative.PackedVector2Array):Void;
@@ -39,13 +48,4 @@ package gdnative;
 	function get_skeleton():gdnative.NodePath;
 	function set_internal_vertex_count(p_internal_vertex_count:Int):Void;
 	function get_internal_vertex_count():Int;
-}
-@:forward abstract Polygon2D(cpp.Pointer<Polygon2D_extern>) from cpp.Pointer<Polygon2D_extern> to cpp.Pointer<Polygon2D_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.Polygon2D):gdnative.Polygon2D return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.Polygon2D {
-		final v = new gd.Polygon2D(this);
-		return v;
-	}
 }

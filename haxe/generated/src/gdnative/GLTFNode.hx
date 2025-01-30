@@ -1,4 +1,17 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract GLTFNode(gdnative.Ref<GLTFNode_extern>) from gdnative.Ref<GLTFNode_extern> to gdnative.Ref<GLTFNode_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.GLTFNode):gdnative.GLTFNode return @:privateAccess v.__ref.ptr().reinterpret();
+	@:to
+	inline function toWrapper():gd.GLTFNode {
+		final v = new gd.GLTFNode(this.ptr());
+		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+		return v;
+	}
+}
 @:include("godot_cpp/classes/gltf_node.hpp") @:native("godot::GLTFNode") @:structAccess extern class GLTFNode_extern extends gdnative.Resource.Resource_extern {
 	extern static inline function __alloc():cpp.Pointer<GLTFNode_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::GLTFNode"));
 	function get_original_name():gdnative.String;
@@ -29,14 +42,4 @@ package gdnative;
 	function set_light(p_light:Int):Void;
 	function get_additional_data(p_extension_name:gdnative.StringName):gdnative.Variant;
 	function set_additional_data(p_extension_name:gdnative.StringName, p_additional_data:gdnative.Variant):Void;
-}
-@:forward abstract GLTFNode(gdnative.Ref<GLTFNode_extern>) from gdnative.Ref<GLTFNode_extern> to gdnative.Ref<GLTFNode_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.GLTFNode):gdnative.GLTFNode return @:privateAccess v.__ref.ptr().reinterpret();
-	@:to
-	inline function toWrapper():gd.GLTFNode {
-		final v = new gd.GLTFNode(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
 }

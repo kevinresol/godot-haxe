@@ -1,4 +1,17 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract NavigationMesh(gdnative.Ref<NavigationMesh_extern>) from gdnative.Ref<NavigationMesh_extern> to gdnative.Ref<NavigationMesh_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.NavigationMesh):gdnative.NavigationMesh return @:privateAccess v.__ref.ptr().reinterpret();
+	@:to
+	inline function toWrapper():gd.NavigationMesh {
+		final v = new gd.NavigationMesh(this.ptr());
+		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+		return v;
+	}
+}
 @:include("godot_cpp/classes/navigation_mesh.hpp") @:native("godot::NavigationMesh") @:structAccess extern class NavigationMesh_extern extends gdnative.Resource.Resource_extern {
 	extern static inline function __alloc():cpp.Pointer<NavigationMesh_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::NavigationMesh"));
 	function set_sample_partition_type(p_sample_partition_type:gdnative.navigationmesh.SamplePartitionType):Void;
@@ -59,14 +72,4 @@ package gdnative;
 	function clear_polygons():Void;
 	function create_from_mesh(p_mesh:gdnative.Mesh):Void;
 	function clear():Void;
-}
-@:forward abstract NavigationMesh(gdnative.Ref<NavigationMesh_extern>) from gdnative.Ref<NavigationMesh_extern> to gdnative.Ref<NavigationMesh_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.NavigationMesh):gdnative.NavigationMesh return @:privateAccess v.__ref.ptr().reinterpret();
-	@:to
-	inline function toWrapper():gd.NavigationMesh {
-		final v = new gd.NavigationMesh(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
 }

@@ -1,4 +1,17 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract VisualShader(gdnative.Ref<VisualShader_extern>) from gdnative.Ref<VisualShader_extern> to gdnative.Ref<VisualShader_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.VisualShader):gdnative.VisualShader return @:privateAccess v.__ref.ptr().reinterpret();
+	@:to
+	inline function toWrapper():gd.VisualShader {
+		final v = new gd.VisualShader(this.ptr());
+		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+		return v;
+	}
+}
 @:include("godot_cpp/classes/visual_shader.hpp") @:native("godot::VisualShader") @:structAccess extern class VisualShader_extern extends gdnative.Shader.Shader_extern {
 	extern static inline function __alloc():cpp.Pointer<VisualShader_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::VisualShader"));
 	function set_mode(p_mode:gdnative.shader.Mode):Void;
@@ -22,14 +35,4 @@ package gdnative;
 	function add_varying(p_name:gdnative.String, p_mode:gdnative.visualshader.VaryingMode, p_type:gdnative.visualshader.VaryingType):Void;
 	function remove_varying(p_name:gdnative.String):Void;
 	function has_varying(p_name:gdnative.String):Bool;
-}
-@:forward abstract VisualShader(gdnative.Ref<VisualShader_extern>) from gdnative.Ref<VisualShader_extern> to gdnative.Ref<VisualShader_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.VisualShader):gdnative.VisualShader return @:privateAccess v.__ref.ptr().reinterpret();
-	@:to
-	inline function toWrapper():gd.VisualShader {
-		final v = new gd.VisualShader(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
 }

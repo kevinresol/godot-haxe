@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract TreeItem(cpp.Pointer<TreeItem_extern>) from cpp.Pointer<TreeItem_extern> to cpp.Pointer<TreeItem_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.TreeItem):gdnative.TreeItem return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.TreeItem return new gd.TreeItem(this);
+}
 @:include("godot_cpp/classes/tree_item.hpp") @:native("godot::TreeItem") @:structAccess extern class TreeItem_extern extends gdnative.Object.Object_extern {
 	extern static inline function __alloc():cpp.Pointer<TreeItem_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::TreeItem"));
 	function set_cell_mode(p_column:Int, p_mode:gdnative.treeitem.TreeCellMode):Void;
@@ -123,13 +132,4 @@ package gdnative;
 	function move_before(p_item:gdnative.TreeItem):Void;
 	function move_after(p_item:gdnative.TreeItem):Void;
 	function call_recursive(p_method:gdnative.StringName):Void;
-}
-@:forward abstract TreeItem(cpp.Pointer<TreeItem_extern>) from cpp.Pointer<TreeItem_extern> to cpp.Pointer<TreeItem_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.TreeItem):gdnative.TreeItem return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.TreeItem {
-		final v = new gd.TreeItem(this);
-		return v;
-	}
 }

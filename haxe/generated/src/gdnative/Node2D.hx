@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract Node2D(cpp.Pointer<Node2D_extern>) from cpp.Pointer<Node2D_extern> to cpp.Pointer<Node2D_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.Node2D):gdnative.Node2D return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.Node2D return new gd.Node2D(this);
+}
 @:include("godot_cpp/classes/node2d.hpp") @:native("godot::Node2D") @:structAccess extern class Node2D_extern extends gdnative.CanvasItem.CanvasItem_extern {
 	extern static inline function __alloc():cpp.Pointer<Node2D_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::Node2D"));
 	function set_position(p_position:gdnative.Vector2):Void;
@@ -36,13 +45,4 @@ package gdnative;
 	function to_local(p_global_point:gdnative.Vector2):gdnative.Vector2;
 	function to_global(p_local_point:gdnative.Vector2):gdnative.Vector2;
 	function get_relative_transform_to_parent(p_parent:gdnative.Node):gdnative.Transform2D;
-}
-@:forward abstract Node2D(cpp.Pointer<Node2D_extern>) from cpp.Pointer<Node2D_extern> to cpp.Pointer<Node2D_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.Node2D):gdnative.Node2D return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.Node2D {
-		final v = new gd.Node2D(this);
-		return v;
-	}
 }

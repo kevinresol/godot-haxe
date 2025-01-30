@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract ShapeCast3D(cpp.Pointer<ShapeCast3D_extern>) from cpp.Pointer<ShapeCast3D_extern> to cpp.Pointer<ShapeCast3D_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.ShapeCast3D):gdnative.ShapeCast3D return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.ShapeCast3D return new gd.ShapeCast3D(this);
+}
 @:include("godot_cpp/classes/shape_cast3d.hpp") @:native("godot::ShapeCast3D") @:structAccess extern class ShapeCast3D_extern extends gdnative.Node3D.Node3D_extern {
 	extern static inline function __alloc():cpp.Pointer<ShapeCast3D_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::ShapeCast3D"));
 	function resource_changed(p_resource:gdnative.Resource):Void;
@@ -39,13 +48,4 @@ package gdnative;
 	function is_collide_with_bodies_enabled():Bool;
 	function set_debug_shape_custom_color(p_debug_shape_custom_color:gdnative.Color):Void;
 	function get_debug_shape_custom_color():gdnative.Color;
-}
-@:forward abstract ShapeCast3D(cpp.Pointer<ShapeCast3D_extern>) from cpp.Pointer<ShapeCast3D_extern> to cpp.Pointer<ShapeCast3D_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.ShapeCast3D):gdnative.ShapeCast3D return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.ShapeCast3D {
-		final v = new gd.ShapeCast3D(this);
-		return v;
-	}
 }

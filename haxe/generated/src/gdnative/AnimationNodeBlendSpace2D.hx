@@ -1,4 +1,17 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract AnimationNodeBlendSpace2D(gdnative.Ref<AnimationNodeBlendSpace2D_extern>) from gdnative.Ref<AnimationNodeBlendSpace2D_extern> to gdnative.Ref<AnimationNodeBlendSpace2D_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.AnimationNodeBlendSpace2D):gdnative.AnimationNodeBlendSpace2D return @:privateAccess v.__ref.ptr().reinterpret();
+	@:to
+	inline function toWrapper():gd.AnimationNodeBlendSpace2D {
+		final v = new gd.AnimationNodeBlendSpace2D(this.ptr());
+		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+		return v;
+	}
+}
 @:include("godot_cpp/classes/animation_node_blend_space2d.hpp") @:native("godot::AnimationNodeBlendSpace2D") @:structAccess extern class AnimationNodeBlendSpace2D_extern extends gdnative.AnimationRootNode.AnimationRootNode_extern {
 	extern static inline function __alloc():cpp.Pointer<AnimationNodeBlendSpace2D_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::AnimationNodeBlendSpace2D"));
 	overload function add_blend_point(p_node:gdnative.AnimationRootNode, p_pos:gdnative.Vector2):Void;
@@ -30,14 +43,4 @@ package gdnative;
 	function get_blend_mode():gdnative.animationnodeblendspace2d.BlendMode;
 	function set_use_sync(p_enable:Bool):Void;
 	function is_using_sync():Bool;
-}
-@:forward abstract AnimationNodeBlendSpace2D(gdnative.Ref<AnimationNodeBlendSpace2D_extern>) from gdnative.Ref<AnimationNodeBlendSpace2D_extern> to gdnative.Ref<AnimationNodeBlendSpace2D_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.AnimationNodeBlendSpace2D):gdnative.AnimationNodeBlendSpace2D return @:privateAccess v.__ref.ptr().reinterpret();
-	@:to
-	inline function toWrapper():gd.AnimationNodeBlendSpace2D {
-		final v = new gd.AnimationNodeBlendSpace2D(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
 }

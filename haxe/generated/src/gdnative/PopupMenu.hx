@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract PopupMenu(cpp.Pointer<PopupMenu_extern>) from cpp.Pointer<PopupMenu_extern> to cpp.Pointer<PopupMenu_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.PopupMenu):gdnative.PopupMenu return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.PopupMenu return new gd.PopupMenu(this);
+}
 @:include("godot_cpp/classes/popup_menu.hpp") @:native("godot::PopupMenu") @:structAccess extern class PopupMenu_extern extends gdnative.Popup.Popup_extern {
 	extern static inline function __alloc():cpp.Pointer<PopupMenu_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::PopupMenu"));
 	overload function activate_item_by_event(p_event:gdnative.InputEvent):Bool;
@@ -124,13 +133,4 @@ package gdnative;
 	function is_system_menu():Bool;
 	function set_system_menu(p_system_menu_id:gdnative.nativemenu.SystemMenus):Void;
 	function get_system_menu():gdnative.nativemenu.SystemMenus;
-}
-@:forward abstract PopupMenu(cpp.Pointer<PopupMenu_extern>) from cpp.Pointer<PopupMenu_extern> to cpp.Pointer<PopupMenu_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.PopupMenu):gdnative.PopupMenu return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.PopupMenu {
-		final v = new gd.PopupMenu(this);
-		return v;
-	}
 }

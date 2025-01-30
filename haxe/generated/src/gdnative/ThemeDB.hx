@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract ThemeDB(cpp.Pointer<ThemeDB_extern>) from cpp.Pointer<ThemeDB_extern> to cpp.Pointer<ThemeDB_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.ThemeDB):gdnative.ThemeDB return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.ThemeDB return new gd.ThemeDB(this);
+}
 @:include("godot_cpp/classes/theme_db.hpp") @:native("godot::ThemeDB") @:structAccess extern class ThemeDB_extern extends gdnative.Object.Object_extern {
 	extern static inline function __alloc():cpp.Pointer<ThemeDB_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::ThemeDB"));
 	static function get_singleton():cpp.Pointer<ThemeDB_extern>;
@@ -14,13 +23,4 @@ package gdnative;
 	function get_fallback_icon():gdnative.Texture2D;
 	function set_fallback_stylebox(p_stylebox:gdnative.StyleBox):Void;
 	function get_fallback_stylebox():gdnative.StyleBox;
-}
-@:forward abstract ThemeDB(cpp.Pointer<ThemeDB_extern>) from cpp.Pointer<ThemeDB_extern> to cpp.Pointer<ThemeDB_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.ThemeDB):gdnative.ThemeDB return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.ThemeDB {
-		final v = new gd.ThemeDB(this);
-		return v;
-	}
 }

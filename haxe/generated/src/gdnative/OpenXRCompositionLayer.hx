@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract OpenXRCompositionLayer(cpp.Pointer<OpenXRCompositionLayer_extern>) from cpp.Pointer<OpenXRCompositionLayer_extern> to cpp.Pointer<OpenXRCompositionLayer_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.OpenXRCompositionLayer):gdnative.OpenXRCompositionLayer return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.OpenXRCompositionLayer return new gd.OpenXRCompositionLayer(this);
+}
 @:include("godot_cpp/classes/open_xr_composition_layer.hpp") @:native("godot::OpenXRCompositionLayer") @:structAccess extern class OpenXRCompositionLayer_extern extends gdnative.Node3D.Node3D_extern {
 	extern static inline function __alloc():cpp.Pointer<OpenXRCompositionLayer_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::OpenXRCompositionLayer"));
 	function set_layer_viewport(p_viewport:gdnative.SubViewport):Void;
@@ -11,13 +20,4 @@ package gdnative;
 	function get_alpha_blend():Bool;
 	function is_natively_supported():Bool;
 	function intersects_ray(p_origin:gdnative.Vector3, p_direction:gdnative.Vector3):gdnative.Vector2;
-}
-@:forward abstract OpenXRCompositionLayer(cpp.Pointer<OpenXRCompositionLayer_extern>) from cpp.Pointer<OpenXRCompositionLayer_extern> to cpp.Pointer<OpenXRCompositionLayer_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.OpenXRCompositionLayer):gdnative.OpenXRCompositionLayer return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.OpenXRCompositionLayer {
-		final v = new gd.OpenXRCompositionLayer(this);
-		return v;
-	}
 }

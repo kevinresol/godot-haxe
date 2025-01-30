@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract Light3D(cpp.Pointer<Light3D_extern>) from cpp.Pointer<Light3D_extern> to cpp.Pointer<Light3D_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.Light3D):gdnative.Light3D return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.Light3D return new gd.Light3D(this);
+}
 @:include("godot_cpp/classes/light3d.hpp") @:native("godot::Light3D") @:structAccess extern class Light3D_extern extends gdnative.VisualInstance3D.VisualInstance3D_extern {
 	extern static inline function __alloc():cpp.Pointer<Light3D_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::Light3D"));
 	function set_editor_only(p_editor_only:Bool):Void;
@@ -30,13 +39,4 @@ package gdnative;
 	function set_temperature(p_temperature:Float):Void;
 	function get_temperature():Float;
 	function get_correlated_color():gdnative.Color;
-}
-@:forward abstract Light3D(cpp.Pointer<Light3D_extern>) from cpp.Pointer<Light3D_extern> to cpp.Pointer<Light3D_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.Light3D):gdnative.Light3D return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.Light3D {
-		final v = new gd.Light3D(this);
-		return v;
-	}
 }

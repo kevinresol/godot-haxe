@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract GeometryInstance3D(cpp.Pointer<GeometryInstance3D_extern>) from cpp.Pointer<GeometryInstance3D_extern> to cpp.Pointer<GeometryInstance3D_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.GeometryInstance3D):gdnative.GeometryInstance3D return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.GeometryInstance3D return new gd.GeometryInstance3D(this);
+}
 @:include("godot_cpp/classes/geometry_instance3d.hpp") @:native("godot::GeometryInstance3D") @:structAccess extern class GeometryInstance3D_extern extends gdnative.VisualInstance3D.VisualInstance3D_extern {
 	extern static inline function __alloc():cpp.Pointer<GeometryInstance3D_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::GeometryInstance3D"));
 	function set_material_override(p_material:gdnative.Material):Void;
@@ -33,13 +42,4 @@ package gdnative;
 	function is_ignoring_occlusion_culling():Bool;
 	function set_custom_aabb(p_aabb:gdnative.AABB):Void;
 	function get_custom_aabb():gdnative.AABB;
-}
-@:forward abstract GeometryInstance3D(cpp.Pointer<GeometryInstance3D_extern>) from cpp.Pointer<GeometryInstance3D_extern> to cpp.Pointer<GeometryInstance3D_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.GeometryInstance3D):gdnative.GeometryInstance3D return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.GeometryInstance3D {
-		final v = new gd.GeometryInstance3D(this);
-		return v;
-	}
 }

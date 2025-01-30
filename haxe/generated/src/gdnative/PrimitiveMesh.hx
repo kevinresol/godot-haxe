@@ -1,4 +1,17 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract PrimitiveMesh(gdnative.Ref<PrimitiveMesh_extern>) from gdnative.Ref<PrimitiveMesh_extern> to gdnative.Ref<PrimitiveMesh_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.PrimitiveMesh):gdnative.PrimitiveMesh return @:privateAccess v.__ref.ptr().reinterpret();
+	@:to
+	inline function toWrapper():gd.PrimitiveMesh {
+		final v = new gd.PrimitiveMesh(this.ptr());
+		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+		return v;
+	}
+}
 @:include("godot_cpp/classes/primitive_mesh.hpp") @:native("godot::PrimitiveMesh") @:structAccess extern class PrimitiveMesh_extern extends gdnative.Mesh.Mesh_extern {
 	extern static inline function __alloc():cpp.Pointer<PrimitiveMesh_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::PrimitiveMesh"));
 	function _create_mesh_array():gdnative.Array;
@@ -14,14 +27,4 @@ package gdnative;
 	function set_uv2_padding(p_uv2_padding:Float):Void;
 	function get_uv2_padding():Float;
 	function request_update():Void;
-}
-@:forward abstract PrimitiveMesh(gdnative.Ref<PrimitiveMesh_extern>) from gdnative.Ref<PrimitiveMesh_extern> to gdnative.Ref<PrimitiveMesh_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.PrimitiveMesh):gdnative.PrimitiveMesh return @:privateAccess v.__ref.ptr().reinterpret();
-	@:to
-	inline function toWrapper():gd.PrimitiveMesh {
-		final v = new gd.PrimitiveMesh(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
 }

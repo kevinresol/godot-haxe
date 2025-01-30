@@ -1,4 +1,17 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract Script(gdnative.Ref<Script_extern>) from gdnative.Ref<Script_extern> to gdnative.Ref<Script_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.Script):gdnative.Script return @:privateAccess v.__ref.ptr().reinterpret();
+	@:to
+	inline function toWrapper():gd.Script {
+		final v = new gd.Script(this.ptr());
+		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+		return v;
+	}
+}
 @:include("godot_cpp/classes/script.hpp") @:native("godot::Script") @:structAccess extern class Script_extern extends gdnative.Resource.Resource_extern {
 	extern static inline function __alloc():cpp.Pointer<Script_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::Script"));
 	function can_instantiate():Bool;
@@ -16,14 +29,4 @@ package gdnative;
 	function get_property_default_value(p_property:gdnative.StringName):gdnative.Variant;
 	function is_tool():Bool;
 	function is_abstract():Bool;
-}
-@:forward abstract Script(gdnative.Ref<Script_extern>) from gdnative.Ref<Script_extern> to gdnative.Ref<Script_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.Script):gdnative.Script return @:privateAccess v.__ref.ptr().reinterpret();
-	@:to
-	inline function toWrapper():gd.Script {
-		final v = new gd.Script(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
 }

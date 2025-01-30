@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract Label(cpp.Pointer<Label_extern>) from cpp.Pointer<Label_extern> to cpp.Pointer<Label_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.Label):gdnative.Label return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.Label return new gd.Label(this);
+}
 @:include("godot_cpp/classes/label.hpp") @:native("godot::Label") @:structAccess extern class Label_extern extends gdnative.Control.Control_extern {
 	extern static inline function __alloc():cpp.Pointer<Label_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::Label"));
 	function set_horizontal_alignment(p_alignment:gdnative.HorizontalAlignment):Void;
@@ -47,13 +56,4 @@ package gdnative;
 	function set_structured_text_bidi_override_options(p_args:gdnative.Array):Void;
 	function get_structured_text_bidi_override_options():gdnative.Array;
 	function get_character_bounds(p_pos:Int):gdnative.Rect2;
-}
-@:forward abstract Label(cpp.Pointer<Label_extern>) from cpp.Pointer<Label_extern> to cpp.Pointer<Label_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.Label):gdnative.Label return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.Label {
-		final v = new gd.Label(this);
-		return v;
-	}
 }

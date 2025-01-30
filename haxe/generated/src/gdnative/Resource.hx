@@ -1,4 +1,17 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract Resource(gdnative.Ref<Resource_extern>) from gdnative.Ref<Resource_extern> to gdnative.Ref<Resource_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.Resource):gdnative.Resource return @:privateAccess v.__ref.ptr().reinterpret();
+	@:to
+	inline function toWrapper():gd.Resource {
+		final v = new gd.Resource(this.ptr());
+		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+		return v;
+	}
+}
 @:include("godot_cpp/classes/resource.hpp") @:native("godot::Resource") @:structAccess extern class Resource_extern extends gdnative.RefCounted.RefCounted_extern {
 	extern static inline function __alloc():cpp.Pointer<Resource_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::Resource"));
 	function _setup_local_to_scene():Void;
@@ -18,14 +31,4 @@ package gdnative;
 	function emit_changed():Void;
 	overload function duplicate():gdnative.Resource;
 	overload function duplicate(p_subresources:Bool):gdnative.Resource;
-}
-@:forward abstract Resource(gdnative.Ref<Resource_extern>) from gdnative.Ref<Resource_extern> to gdnative.Ref<Resource_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.Resource):gdnative.Resource return @:privateAccess v.__ref.ptr().reinterpret();
-	@:to
-	inline function toWrapper():gd.Resource {
-		final v = new gd.Resource(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
 }

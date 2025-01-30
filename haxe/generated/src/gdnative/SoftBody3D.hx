@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract SoftBody3D(cpp.Pointer<SoftBody3D_extern>) from cpp.Pointer<SoftBody3D_extern> to cpp.Pointer<SoftBody3D_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.SoftBody3D):gdnative.SoftBody3D return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.SoftBody3D return new gd.SoftBody3D(this);
+}
 @:include("godot_cpp/classes/soft_body3d.hpp") @:native("godot::SoftBody3D") @:structAccess extern class SoftBody3D_extern extends gdnative.MeshInstance3D.MeshInstance3D_extern {
 	extern static inline function __alloc():cpp.Pointer<SoftBody3D_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::SoftBody3D"));
 	function get_physics_rid():gdnative.RID;
@@ -34,13 +43,4 @@ package gdnative;
 	function is_point_pinned(p_point_index:Int):Bool;
 	function set_ray_pickable(p_ray_pickable:Bool):Void;
 	function is_ray_pickable():Bool;
-}
-@:forward abstract SoftBody3D(cpp.Pointer<SoftBody3D_extern>) from cpp.Pointer<SoftBody3D_extern> to cpp.Pointer<SoftBody3D_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.SoftBody3D):gdnative.SoftBody3D return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.SoftBody3D {
-		final v = new gd.SoftBody3D(this);
-		return v;
-	}
 }

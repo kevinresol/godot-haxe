@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract TranslationServer(cpp.Pointer<TranslationServer_extern>) from cpp.Pointer<TranslationServer_extern> to cpp.Pointer<TranslationServer_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.TranslationServer):gdnative.TranslationServer return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.TranslationServer return new gd.TranslationServer(this);
+}
 @:include("godot_cpp/classes/translation_server.hpp") @:native("godot::TranslationServer") @:structAccess extern class TranslationServer_extern extends gdnative.Object.Object_extern {
 	extern static inline function __alloc():cpp.Pointer<TranslationServer_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::TranslationServer"));
 	static function get_singleton():cpp.Pointer<TranslationServer_extern>;
@@ -27,13 +36,4 @@ package gdnative;
 	function set_pseudolocalization_enabled(p_enabled:Bool):Void;
 	function reload_pseudolocalization():Void;
 	function pseudolocalize(p_message:gdnative.StringName):gdnative.StringName;
-}
-@:forward abstract TranslationServer(cpp.Pointer<TranslationServer_extern>) from cpp.Pointer<TranslationServer_extern> to cpp.Pointer<TranslationServer_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.TranslationServer):gdnative.TranslationServer return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.TranslationServer {
-		final v = new gd.TranslationServer(this);
-		return v;
-	}
 }

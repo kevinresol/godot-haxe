@@ -1,4 +1,17 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract SkeletonModification2DLookAt(gdnative.Ref<SkeletonModification2DLookAt_extern>) from gdnative.Ref<SkeletonModification2DLookAt_extern> to gdnative.Ref<SkeletonModification2DLookAt_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.SkeletonModification2DLookAt):gdnative.SkeletonModification2DLookAt return @:privateAccess v.__ref.ptr().reinterpret();
+	@:to
+	inline function toWrapper():gd.SkeletonModification2DLookAt {
+		final v = new gd.SkeletonModification2DLookAt(this.ptr());
+		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+		return v;
+	}
+}
 @:include("godot_cpp/classes/skeleton_modification2d_look_at.hpp") @:native("godot::SkeletonModification2DLookAt") @:structAccess extern class SkeletonModification2DLookAt_extern extends gdnative.SkeletonModification2D.SkeletonModification2D_extern {
 	extern static inline function __alloc():cpp.Pointer<SkeletonModification2DLookAt_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::SkeletonModification2DLookAt"));
 	function set_bone2d_node(p_bone2d_nodepath:gdnative.NodePath):Void;
@@ -17,14 +30,4 @@ package gdnative;
 	function get_constraint_angle_max():Float;
 	function set_constraint_angle_invert(p_invert:Bool):Void;
 	function get_constraint_angle_invert():Bool;
-}
-@:forward abstract SkeletonModification2DLookAt(gdnative.Ref<SkeletonModification2DLookAt_extern>) from gdnative.Ref<SkeletonModification2DLookAt_extern> to gdnative.Ref<SkeletonModification2DLookAt_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.SkeletonModification2DLookAt):gdnative.SkeletonModification2DLookAt return @:privateAccess v.__ref.ptr().reinterpret();
-	@:to
-	inline function toWrapper():gd.SkeletonModification2DLookAt {
-		final v = new gd.SkeletonModification2DLookAt(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
 }

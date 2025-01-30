@@ -1,4 +1,17 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract SceneMultiplayer(gdnative.Ref<SceneMultiplayer_extern>) from gdnative.Ref<SceneMultiplayer_extern> to gdnative.Ref<SceneMultiplayer_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.SceneMultiplayer):gdnative.SceneMultiplayer return @:privateAccess v.__ref.ptr().reinterpret();
+	@:to
+	inline function toWrapper():gd.SceneMultiplayer {
+		final v = new gd.SceneMultiplayer(this.ptr());
+		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+		return v;
+	}
+}
 @:include("godot_cpp/classes/scene_multiplayer.hpp") @:native("godot::SceneMultiplayer") @:structAccess extern class SceneMultiplayer_extern extends gdnative.MultiplayerAPI.MultiplayerAPI_extern {
 	extern static inline function __alloc():cpp.Pointer<SceneMultiplayer_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::SceneMultiplayer"));
 	function set_root_path(p_path:gdnative.NodePath):Void;
@@ -26,14 +39,4 @@ package gdnative;
 	function set_max_sync_packet_size(p_size:Int):Void;
 	function get_max_delta_packet_size():Int;
 	function set_max_delta_packet_size(p_size:Int):Void;
-}
-@:forward abstract SceneMultiplayer(gdnative.Ref<SceneMultiplayer_extern>) from gdnative.Ref<SceneMultiplayer_extern> to gdnative.Ref<SceneMultiplayer_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.SceneMultiplayer):gdnative.SceneMultiplayer return @:privateAccess v.__ref.ptr().reinterpret();
-	@:to
-	inline function toWrapper():gd.SceneMultiplayer {
-		final v = new gd.SceneMultiplayer(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
 }

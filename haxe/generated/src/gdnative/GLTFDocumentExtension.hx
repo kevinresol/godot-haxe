@@ -1,4 +1,17 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract GLTFDocumentExtension(gdnative.Ref<GLTFDocumentExtension_extern>) from gdnative.Ref<GLTFDocumentExtension_extern> to gdnative.Ref<GLTFDocumentExtension_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.GLTFDocumentExtension):gdnative.GLTFDocumentExtension return @:privateAccess v.__ref.ptr().reinterpret();
+	@:to
+	inline function toWrapper():gd.GLTFDocumentExtension {
+		final v = new gd.GLTFDocumentExtension(this.ptr());
+		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+		return v;
+	}
+}
 @:include("godot_cpp/classes/gltf_document_extension.hpp") @:native("godot::GLTFDocumentExtension") @:structAccess extern class GLTFDocumentExtension_extern extends gdnative.Resource.Resource_extern {
 	extern static inline function __alloc():cpp.Pointer<GLTFDocumentExtension_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::GLTFDocumentExtension"));
 	function _import_preflight(p_state:gdnative.GLTFState, p_extensions:gdnative.PackedStringArray):gdnative.Error;
@@ -20,14 +33,4 @@ package gdnative;
 	function _serialize_texture_json(p_state:gdnative.GLTFState, p_texture_json:gdnative.Dictionary, p_gltf_texture:gdnative.GLTFTexture, p_image_format:gdnative.String):gdnative.Error;
 	function _export_node(p_state:gdnative.GLTFState, p_gltf_node:gdnative.GLTFNode, p_json:gdnative.Dictionary, p_node:gdnative.Node):gdnative.Error;
 	function _export_post(p_state:gdnative.GLTFState):gdnative.Error;
-}
-@:forward abstract GLTFDocumentExtension(gdnative.Ref<GLTFDocumentExtension_extern>) from gdnative.Ref<GLTFDocumentExtension_extern> to gdnative.Ref<GLTFDocumentExtension_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.GLTFDocumentExtension):gdnative.GLTFDocumentExtension return @:privateAccess v.__ref.ptr().reinterpret();
-	@:to
-	inline function toWrapper():gd.GLTFDocumentExtension {
-		final v = new gd.GLTFDocumentExtension(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
 }

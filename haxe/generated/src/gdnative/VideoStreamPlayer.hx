@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract VideoStreamPlayer(cpp.Pointer<VideoStreamPlayer_extern>) from cpp.Pointer<VideoStreamPlayer_extern> to cpp.Pointer<VideoStreamPlayer_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.VideoStreamPlayer):gdnative.VideoStreamPlayer return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.VideoStreamPlayer return new gd.VideoStreamPlayer(this);
+}
 @:include("godot_cpp/classes/video_stream_player.hpp") @:native("godot::VideoStreamPlayer") @:structAccess extern class VideoStreamPlayer_extern extends gdnative.Control.Control_extern {
 	extern static inline function __alloc():cpp.Pointer<VideoStreamPlayer_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::VideoStreamPlayer"));
 	function set_stream(p_stream:gdnative.VideoStream):Void;
@@ -29,13 +38,4 @@ package gdnative;
 	function set_bus(p_bus:gdnative.StringName):Void;
 	function get_bus():gdnative.StringName;
 	function get_video_texture():gdnative.Texture2D;
-}
-@:forward abstract VideoStreamPlayer(cpp.Pointer<VideoStreamPlayer_extern>) from cpp.Pointer<VideoStreamPlayer_extern> to cpp.Pointer<VideoStreamPlayer_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.VideoStreamPlayer):gdnative.VideoStreamPlayer return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.VideoStreamPlayer {
-		final v = new gd.VideoStreamPlayer(this);
-		return v;
-	}
 }

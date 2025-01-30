@@ -1,4 +1,17 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract ConfigFile(gdnative.Ref<ConfigFile_extern>) from gdnative.Ref<ConfigFile_extern> to gdnative.Ref<ConfigFile_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.ConfigFile):gdnative.ConfigFile return @:privateAccess v.__ref.ptr().reinterpret();
+	@:to
+	inline function toWrapper():gd.ConfigFile {
+		final v = new gd.ConfigFile(this.ptr());
+		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+		return v;
+	}
+}
 @:include("godot_cpp/classes/config_file.hpp") @:native("godot::ConfigFile") @:structAccess extern class ConfigFile_extern extends gdnative.RefCounted.RefCounted_extern {
 	extern static inline function __alloc():cpp.Pointer<ConfigFile_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::ConfigFile"));
 	function set_value(p_section:gdnative.String, p_key:gdnative.String, p_value:gdnative.Variant):Void;
@@ -19,14 +32,4 @@ package gdnative;
 	function save_encrypted(p_path:gdnative.String, p_key:gdnative.PackedByteArray):gdnative.Error;
 	function save_encrypted_pass(p_path:gdnative.String, p_password:gdnative.String):gdnative.Error;
 	function clear():Void;
-}
-@:forward abstract ConfigFile(gdnative.Ref<ConfigFile_extern>) from gdnative.Ref<ConfigFile_extern> to gdnative.Ref<ConfigFile_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.ConfigFile):gdnative.ConfigFile return @:privateAccess v.__ref.ptr().reinterpret();
-	@:to
-	inline function toWrapper():gd.ConfigFile {
-		final v = new gd.ConfigFile(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
 }

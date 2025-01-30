@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract AudioServer(cpp.Pointer<AudioServer_extern>) from cpp.Pointer<AudioServer_extern> to cpp.Pointer<AudioServer_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.AudioServer):gdnative.AudioServer return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.AudioServer return new gd.AudioServer(this);
+}
 @:include("godot_cpp/classes/audio_server.hpp") @:native("godot::AudioServer") @:structAccess extern class AudioServer_extern extends gdnative.Object.Object_extern {
 	extern static inline function __alloc():cpp.Pointer<AudioServer_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::AudioServer"));
 	static function get_singleton():cpp.Pointer<AudioServer_extern>;
@@ -54,13 +63,4 @@ package gdnative;
 	function set_enable_tagging_used_audio_streams(p_enable:Bool):Void;
 	function is_stream_registered_as_sample(p_stream:gdnative.AudioStream):Bool;
 	function register_stream_as_sample(p_stream:gdnative.AudioStream):Void;
-}
-@:forward abstract AudioServer(cpp.Pointer<AudioServer_extern>) from cpp.Pointer<AudioServer_extern> to cpp.Pointer<AudioServer_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.AudioServer):gdnative.AudioServer return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.AudioServer {
-		final v = new gd.AudioServer(this);
-		return v;
-	}
 }

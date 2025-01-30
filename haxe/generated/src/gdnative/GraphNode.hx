@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract GraphNode(cpp.Pointer<GraphNode_extern>) from cpp.Pointer<GraphNode_extern> to cpp.Pointer<GraphNode_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.GraphNode):gdnative.GraphNode return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.GraphNode return new gd.GraphNode(this);
+}
 @:include("godot_cpp/classes/graph_node.hpp") @:native("godot::GraphNode") @:structAccess extern class GraphNode_extern extends gdnative.GraphElement.GraphElement_extern {
 	extern static inline function __alloc():cpp.Pointer<GraphNode_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::GraphNode"));
 	function _draw_port(p_slot_index:Int, p_position:gdnative.Vector2i, p_left:Bool, p_color:gdnative.Color):Void;
@@ -41,13 +50,4 @@ package gdnative;
 	function get_output_port_type(p_port_idx:Int):Int;
 	function get_output_port_color(p_port_idx:Int):gdnative.Color;
 	function get_output_port_slot(p_port_idx:Int):Int;
-}
-@:forward abstract GraphNode(cpp.Pointer<GraphNode_extern>) from cpp.Pointer<GraphNode_extern> to cpp.Pointer<GraphNode_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.GraphNode):gdnative.GraphNode return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.GraphNode {
-		final v = new gd.GraphNode(this);
-		return v;
-	}
 }

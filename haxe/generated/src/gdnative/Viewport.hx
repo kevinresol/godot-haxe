@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract Viewport(cpp.Pointer<Viewport_extern>) from cpp.Pointer<Viewport_extern> to cpp.Pointer<Viewport_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.Viewport):gdnative.Viewport return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.Viewport return new gd.Viewport(this);
+}
 @:include("godot_cpp/classes/viewport.hpp") @:native("godot::Viewport") @:structAccess extern class Viewport_extern extends gdnative.Node.Node_extern {
 	extern static inline function __alloc():cpp.Pointer<Viewport_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::Viewport"));
 	function set_world_2d(p_world_2d:gdnative.World2D):Void;
@@ -115,13 +124,4 @@ package gdnative;
 	function get_vrs_update_mode():gdnative.viewport.VRSUpdateMode;
 	function set_vrs_texture(p_texture:gdnative.Texture2D):Void;
 	function get_vrs_texture():gdnative.Texture2D;
-}
-@:forward abstract Viewport(cpp.Pointer<Viewport_extern>) from cpp.Pointer<Viewport_extern> to cpp.Pointer<Viewport_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.Viewport):gdnative.Viewport return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.Viewport {
-		final v = new gd.Viewport(this);
-		return v;
-	}
 }

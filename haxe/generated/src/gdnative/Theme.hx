@@ -1,4 +1,17 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract Theme(gdnative.Ref<Theme_extern>) from gdnative.Ref<Theme_extern> to gdnative.Ref<Theme_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.Theme):gdnative.Theme return @:privateAccess v.__ref.ptr().reinterpret();
+	@:to
+	inline function toWrapper():gd.Theme {
+		final v = new gd.Theme(this.ptr());
+		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+		return v;
+	}
+}
 @:include("godot_cpp/classes/theme.hpp") @:native("godot::Theme") @:structAccess extern class Theme_extern extends gdnative.Resource.Resource_extern {
 	extern static inline function __alloc():cpp.Pointer<Theme_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::Theme"));
 	function set_icon(p_name:gdnative.StringName, p_theme_type:gdnative.StringName, p_texture:gdnative.Texture2D):Void;
@@ -69,14 +82,4 @@ package gdnative;
 	function get_type_list():gdnative.PackedStringArray;
 	function merge_with(p_other:gdnative.Theme):Void;
 	function clear():Void;
-}
-@:forward abstract Theme(gdnative.Ref<Theme_extern>) from gdnative.Ref<Theme_extern> to gdnative.Ref<Theme_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.Theme):gdnative.Theme return @:privateAccess v.__ref.ptr().reinterpret();
-	@:to
-	inline function toWrapper():gd.Theme {
-		final v = new gd.Theme(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
 }

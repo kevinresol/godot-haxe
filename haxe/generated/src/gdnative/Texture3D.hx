@@ -1,4 +1,17 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract Texture3D(gdnative.Ref<Texture3D_extern>) from gdnative.Ref<Texture3D_extern> to gdnative.Ref<Texture3D_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.Texture3D):gdnative.Texture3D return @:privateAccess v.__ref.ptr().reinterpret();
+	@:to
+	inline function toWrapper():gd.Texture3D {
+		final v = new gd.Texture3D(this.ptr());
+		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+		return v;
+	}
+}
 @:include("godot_cpp/classes/texture3d.hpp") @:native("godot::Texture3D") @:structAccess extern class Texture3D_extern extends gdnative.Texture.Texture_extern {
 	extern static inline function __alloc():cpp.Pointer<Texture3D_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::Texture3D"));
 	function _get_format():gdnative.image.Format;
@@ -12,14 +25,4 @@ package gdnative;
 	function get_depth():Int;
 	function has_mipmaps():Bool;
 	function create_placeholder():gdnative.Resource;
-}
-@:forward abstract Texture3D(gdnative.Ref<Texture3D_extern>) from gdnative.Ref<Texture3D_extern> to gdnative.Ref<Texture3D_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.Texture3D):gdnative.Texture3D return @:privateAccess v.__ref.ptr().reinterpret();
-	@:to
-	inline function toWrapper():gd.Texture3D {
-		final v = new gd.Texture3D(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
 }

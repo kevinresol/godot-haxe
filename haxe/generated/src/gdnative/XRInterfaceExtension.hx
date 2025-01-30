@@ -1,4 +1,17 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract XRInterfaceExtension(gdnative.Ref<XRInterfaceExtension_extern>) from gdnative.Ref<XRInterfaceExtension_extern> to gdnative.Ref<XRInterfaceExtension_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.XRInterfaceExtension):gdnative.XRInterfaceExtension return @:privateAccess v.__ref.ptr().reinterpret();
+	@:to
+	inline function toWrapper():gd.XRInterfaceExtension {
+		final v = new gd.XRInterfaceExtension(this.ptr());
+		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+		return v;
+	}
+}
 @:include("godot_cpp/classes/xr_interface_extension.hpp") @:native("godot::XRInterfaceExtension") @:structAccess extern class XRInterfaceExtension_extern extends gdnative.XRInterface.XRInterface_extern {
 	extern static inline function __alloc():cpp.Pointer<XRInterfaceExtension_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::XRInterfaceExtension"));
 	function _get_name():gdnative.StringName;
@@ -37,14 +50,4 @@ package gdnative;
 	function get_velocity_texture():gdnative.RID;
 	function add_blit(p_render_target:gdnative.RID, p_src_rect:gdnative.Rect2, p_dst_rect:gdnative.Rect2i, p_use_layer:Bool, p_layer:Int, p_apply_lens_distortion:Bool, p_eye_center:gdnative.Vector2, p_k1:Float, p_k2:Float, p_upscale:Float, p_aspect_ratio:Float):Void;
 	function get_render_target_texture(p_render_target:gdnative.RID):gdnative.RID;
-}
-@:forward abstract XRInterfaceExtension(gdnative.Ref<XRInterfaceExtension_extern>) from gdnative.Ref<XRInterfaceExtension_extern> to gdnative.Ref<XRInterfaceExtension_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.XRInterfaceExtension):gdnative.XRInterfaceExtension return @:privateAccess v.__ref.ptr().reinterpret();
-	@:to
-	inline function toWrapper():gd.XRInterfaceExtension {
-		final v = new gd.XRInterfaceExtension(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
 }

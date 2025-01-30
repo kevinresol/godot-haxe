@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract ItemList(cpp.Pointer<ItemList_extern>) from cpp.Pointer<ItemList_extern> to cpp.Pointer<ItemList_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.ItemList):gdnative.ItemList return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.ItemList return new gd.ItemList(this);
+}
 @:include("godot_cpp/classes/item_list.hpp") @:native("godot::ItemList") @:structAccess extern class ItemList_extern extends gdnative.Control.Control_extern {
 	extern static inline function __alloc():cpp.Pointer<ItemList_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::ItemList"));
 	overload function add_item(p_text:gdnative.String):Int;
@@ -80,13 +89,4 @@ package gdnative;
 	function set_text_overrun_behavior(p_overrun_behavior:gdnative.textserver.OverrunBehavior):Void;
 	function get_text_overrun_behavior():gdnative.textserver.OverrunBehavior;
 	function force_update_list_size():Void;
-}
-@:forward abstract ItemList(cpp.Pointer<ItemList_extern>) from cpp.Pointer<ItemList_extern> to cpp.Pointer<ItemList_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.ItemList):gdnative.ItemList return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.ItemList {
-		final v = new gd.ItemList(this);
-		return v;
-	}
 }

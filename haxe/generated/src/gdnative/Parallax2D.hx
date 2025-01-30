@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract Parallax2D(cpp.Pointer<Parallax2D_extern>) from cpp.Pointer<Parallax2D_extern> to cpp.Pointer<Parallax2D_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.Parallax2D):gdnative.Parallax2D return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.Parallax2D return new gd.Parallax2D(this);
+}
 @:include("godot_cpp/classes/parallax2d.hpp") @:native("godot::Parallax2D") @:structAccess extern class Parallax2D_extern extends gdnative.Node2D.Node2D_extern {
 	extern static inline function __alloc():cpp.Pointer<Parallax2D_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::Parallax2D"));
 	function set_scroll_scale(p_scale:gdnative.Vector2):Void;
@@ -21,13 +30,4 @@ package gdnative;
 	function get_follow_viewport():Bool;
 	function set_ignore_camera_scroll(p_ignore:Bool):Void;
 	function is_ignore_camera_scroll():Bool;
-}
-@:forward abstract Parallax2D(cpp.Pointer<Parallax2D_extern>) from cpp.Pointer<Parallax2D_extern> to cpp.Pointer<Parallax2D_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.Parallax2D):gdnative.Parallax2D return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.Parallax2D {
-		final v = new gd.Parallax2D(this);
-		return v;
-	}
 }

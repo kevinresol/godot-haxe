@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract Window(cpp.Pointer<Window_extern>) from cpp.Pointer<Window_extern> to cpp.Pointer<Window_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.Window):gdnative.Window return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.Window return new gd.Window(this);
+}
 @:include("godot_cpp/classes/window.hpp") @:native("godot::Window") @:structAccess extern class Window_extern extends gdnative.Viewport.Viewport_extern {
 	extern static inline function __alloc():cpp.Pointer<Window_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::Window"));
 	function _get_contents_minimum_size():gdnative.Vector2;
@@ -143,13 +152,4 @@ package gdnative;
 	overload function popup_exclusive_centered_clamped(p_from_node:gdnative.Node):Void;
 	overload function popup_exclusive_centered_clamped(p_from_node:gdnative.Node, p_minsize:gdnative.Vector2i):Void;
 	overload function popup_exclusive_centered_clamped(p_from_node:gdnative.Node, p_minsize:gdnative.Vector2i, p_fallback_ratio:Float):Void;
-}
-@:forward abstract Window(cpp.Pointer<Window_extern>) from cpp.Pointer<Window_extern> to cpp.Pointer<Window_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.Window):gdnative.Window return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.Window {
-		final v = new gd.Window(this);
-		return v;
-	}
 }

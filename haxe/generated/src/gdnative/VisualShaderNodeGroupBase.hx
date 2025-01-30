@@ -1,4 +1,17 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract VisualShaderNodeGroupBase(gdnative.Ref<VisualShaderNodeGroupBase_extern>) from gdnative.Ref<VisualShaderNodeGroupBase_extern> to gdnative.Ref<VisualShaderNodeGroupBase_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.VisualShaderNodeGroupBase):gdnative.VisualShaderNodeGroupBase return @:privateAccess v.__ref.ptr().reinterpret();
+	@:to
+	inline function toWrapper():gd.VisualShaderNodeGroupBase {
+		final v = new gd.VisualShaderNodeGroupBase(this.ptr());
+		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+		return v;
+	}
+}
 @:include("godot_cpp/classes/visual_shader_node_group_base.hpp") @:native("godot::VisualShaderNodeGroupBase") @:structAccess extern class VisualShaderNodeGroupBase_extern extends gdnative.VisualShaderNodeResizableBase.VisualShaderNodeResizableBase_extern {
 	extern static inline function __alloc():cpp.Pointer<VisualShaderNodeGroupBase_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::VisualShaderNodeGroupBase"));
 	function set_inputs(p_inputs:gdnative.String):Void;
@@ -22,14 +35,4 @@ package gdnative;
 	function set_output_port_type(p_id:Int, p_type:Int):Void;
 	function get_free_input_port_id():Int;
 	function get_free_output_port_id():Int;
-}
-@:forward abstract VisualShaderNodeGroupBase(gdnative.Ref<VisualShaderNodeGroupBase_extern>) from gdnative.Ref<VisualShaderNodeGroupBase_extern> to gdnative.Ref<VisualShaderNodeGroupBase_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.VisualShaderNodeGroupBase):gdnative.VisualShaderNodeGroupBase return @:privateAccess v.__ref.ptr().reinterpret();
-	@:to
-	inline function toWrapper():gd.VisualShaderNodeGroupBase {
-		final v = new gd.VisualShaderNodeGroupBase(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
 }

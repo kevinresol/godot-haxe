@@ -1,4 +1,17 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract CodeHighlighter(gdnative.Ref<CodeHighlighter_extern>) from gdnative.Ref<CodeHighlighter_extern> to gdnative.Ref<CodeHighlighter_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.CodeHighlighter):gdnative.CodeHighlighter return @:privateAccess v.__ref.ptr().reinterpret();
+	@:to
+	inline function toWrapper():gd.CodeHighlighter {
+		final v = new gd.CodeHighlighter(this.ptr());
+		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+		return v;
+	}
+}
 @:include("godot_cpp/classes/code_highlighter.hpp") @:native("godot::CodeHighlighter") @:structAccess extern class CodeHighlighter_extern extends gdnative.SyntaxHighlighter.SyntaxHighlighter_extern {
 	extern static inline function __alloc():cpp.Pointer<CodeHighlighter_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::CodeHighlighter"));
 	function add_keyword_color(p_keyword:gdnative.String, p_color:gdnative.Color):Void;
@@ -30,14 +43,4 @@ package gdnative;
 	function get_symbol_color():gdnative.Color;
 	function set_member_variable_color(p_color:gdnative.Color):Void;
 	function get_member_variable_color():gdnative.Color;
-}
-@:forward abstract CodeHighlighter(gdnative.Ref<CodeHighlighter_extern>) from gdnative.Ref<CodeHighlighter_extern> to gdnative.Ref<CodeHighlighter_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.CodeHighlighter):gdnative.CodeHighlighter return @:privateAccess v.__ref.ptr().reinterpret();
-	@:to
-	inline function toWrapper():gd.CodeHighlighter {
-		final v = new gd.CodeHighlighter(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
 }

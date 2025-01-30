@@ -1,4 +1,21 @@
 package gdnative;
+/**
+	Built-in Class
+**/
+@:forward abstract PackedByteArray(cpp.Struct<PackedByteArray_extern>) from cpp.Struct<PackedByteArray_extern> to cpp.Struct<PackedByteArray_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.PackedByteArray):gdnative.PackedByteArray return fromWrapperInternal(v);
+	@:from
+	static inline function fromWrapperInternal(v:gd.PackedByteArray.PackedByteArray_wrapper):gdnative.PackedByteArray return untyped __cpp__('{0}.get()', @:privateAccess v.__gd);
+	@:to
+	inline function toWrapper():gd.PackedByteArray return toWrapperInternal();
+	@:to
+	inline function toWrapperInternal():gd.PackedByteArray.PackedByteArray_wrapper return new gd.PackedByteArray.PackedByteArray_wrapper(this);
+	public extern overload inline function new() this = new gdnative.PackedByteArray.PackedByteArray_extern();
+	public extern overload inline function new(p_from:gd.PackedByteArray) this = new gdnative.PackedByteArray.PackedByteArray_extern(p_from);
+	public extern overload inline function new(p_from:gd.Array) this = new gdnative.PackedByteArray.PackedByteArray_extern(p_from);
+}
+
 @:include("godot_cpp/variant/packed_byte_array.hpp") @:native("godot::PackedByteArray") @:structAccess extern class PackedByteArray_extern {
 	@:overload(function(p_from:gdnative.PackedByteArray):Void { })
 	@:overload(function(p_from:gdnative.Array):Void { })
@@ -73,18 +90,4 @@ package gdnative;
 	function encode_double(p_byte_offset:Int, p_value:Float):Void;
 	overload function encode_var(p_byte_offset:Int, p_value:gdnative.Variant, p_allow_objects:Bool):Int;
 	overload function encode_var(p_byte_offset:Int, p_value:gdnative.Variant):Int;
-}
-
-@:forward abstract PackedByteArray(cpp.Struct<PackedByteArray_extern>) from cpp.Struct<PackedByteArray_extern> to cpp.Struct<PackedByteArray_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.PackedByteArray):gdnative.PackedByteArray return fromWrapperInternal(v);
-	@:from
-	static inline function fromWrapperInternal(v:gd.PackedByteArray.PackedByteArray_wrapper):gdnative.PackedByteArray return untyped __cpp__('{0}.get()', @:privateAccess v.__gd);
-	@:to
-	inline function toWrapper():gd.PackedByteArray return toWrapperInternal();
-	@:to
-	inline function toWrapperInternal():gd.PackedByteArray.PackedByteArray_wrapper return new gd.PackedByteArray.PackedByteArray_wrapper(this);
-	public extern overload inline function new() this = new gdnative.PackedByteArray.PackedByteArray_extern();
-	public extern overload inline function new(p_from:gd.PackedByteArray) this = new gdnative.PackedByteArray.PackedByteArray_extern(p_from);
-	public extern overload inline function new(p_from:gd.Array) this = new gdnative.PackedByteArray.PackedByteArray_extern(p_from);
 }

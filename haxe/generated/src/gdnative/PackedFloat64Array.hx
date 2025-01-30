@@ -1,4 +1,21 @@
 package gdnative;
+/**
+	Built-in Class
+**/
+@:forward abstract PackedFloat64Array(cpp.Struct<PackedFloat64Array_extern>) from cpp.Struct<PackedFloat64Array_extern> to cpp.Struct<PackedFloat64Array_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.PackedFloat64Array):gdnative.PackedFloat64Array return fromWrapperInternal(v);
+	@:from
+	static inline function fromWrapperInternal(v:gd.PackedFloat64Array.PackedFloat64Array_wrapper):gdnative.PackedFloat64Array return untyped __cpp__('{0}.get()', @:privateAccess v.__gd);
+	@:to
+	inline function toWrapper():gd.PackedFloat64Array return toWrapperInternal();
+	@:to
+	inline function toWrapperInternal():gd.PackedFloat64Array.PackedFloat64Array_wrapper return new gd.PackedFloat64Array.PackedFloat64Array_wrapper(this);
+	public extern overload inline function new() this = new gdnative.PackedFloat64Array.PackedFloat64Array_extern();
+	public extern overload inline function new(p_from:gd.PackedFloat64Array) this = new gdnative.PackedFloat64Array.PackedFloat64Array_extern(p_from);
+	public extern overload inline function new(p_from:gd.Array) this = new gdnative.PackedFloat64Array.PackedFloat64Array_extern(p_from);
+}
+
 @:include("godot_cpp/variant/packed_float64_array.hpp") @:native("godot::PackedFloat64Array") @:structAccess extern class PackedFloat64Array_extern {
 	@:overload(function(p_from:gdnative.PackedFloat64Array):Void { })
 	@:overload(function(p_from:gdnative.Array):Void { })
@@ -28,18 +45,4 @@ package gdnative;
 	overload function rfind(p_value:Float, p_from:Int):Int;
 	overload function rfind(p_value:Float):Int;
 	function count(p_value:Float):Int;
-}
-
-@:forward abstract PackedFloat64Array(cpp.Struct<PackedFloat64Array_extern>) from cpp.Struct<PackedFloat64Array_extern> to cpp.Struct<PackedFloat64Array_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.PackedFloat64Array):gdnative.PackedFloat64Array return fromWrapperInternal(v);
-	@:from
-	static inline function fromWrapperInternal(v:gd.PackedFloat64Array.PackedFloat64Array_wrapper):gdnative.PackedFloat64Array return untyped __cpp__('{0}.get()', @:privateAccess v.__gd);
-	@:to
-	inline function toWrapper():gd.PackedFloat64Array return toWrapperInternal();
-	@:to
-	inline function toWrapperInternal():gd.PackedFloat64Array.PackedFloat64Array_wrapper return new gd.PackedFloat64Array.PackedFloat64Array_wrapper(this);
-	public extern overload inline function new() this = new gdnative.PackedFloat64Array.PackedFloat64Array_extern();
-	public extern overload inline function new(p_from:gd.PackedFloat64Array) this = new gdnative.PackedFloat64Array.PackedFloat64Array_extern(p_from);
-	public extern overload inline function new(p_from:gd.Array) this = new gdnative.PackedFloat64Array.PackedFloat64Array_extern(p_from);
 }

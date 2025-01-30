@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract TabContainer(cpp.Pointer<TabContainer_extern>) from cpp.Pointer<TabContainer_extern> to cpp.Pointer<TabContainer_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.TabContainer):gdnative.TabContainer return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.TabContainer return new gd.TabContainer(this);
+}
 @:include("godot_cpp/classes/tab_container.hpp") @:native("godot::TabContainer") @:structAccess extern class TabContainer_extern extends gdnative.Container.Container_extern {
 	extern static inline function __alloc():cpp.Pointer<TabContainer_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::TabContainer"));
 	function get_tab_count():Int;
@@ -50,13 +59,4 @@ package gdnative;
 	function get_tab_focus_mode():gdnative.control.FocusMode;
 	function set_deselect_enabled(p_enabled:Bool):Void;
 	function get_deselect_enabled():Bool;
-}
-@:forward abstract TabContainer(cpp.Pointer<TabContainer_extern>) from cpp.Pointer<TabContainer_extern> to cpp.Pointer<TabContainer_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.TabContainer):gdnative.TabContainer return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.TabContainer {
-		final v = new gd.TabContainer(this);
-		return v;
-	}
 }

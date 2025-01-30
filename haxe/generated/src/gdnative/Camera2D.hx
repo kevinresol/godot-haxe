@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract Camera2D(cpp.Pointer<Camera2D_extern>) from cpp.Pointer<Camera2D_extern> to cpp.Pointer<Camera2D_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.Camera2D):gdnative.Camera2D return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.Camera2D return new gd.Camera2D(this);
+}
 @:include("godot_cpp/classes/camera2d.hpp") @:native("godot::Camera2D") @:structAccess extern class Camera2D_extern extends gdnative.Node2D.Node2D_extern {
 	extern static inline function __alloc():cpp.Pointer<Camera2D_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::Camera2D"));
 	function set_offset(p_offset:gdnative.Vector2):Void;
@@ -50,13 +59,4 @@ package gdnative;
 	function is_limit_drawing_enabled():Bool;
 	function set_margin_drawing_enabled(p_margin_drawing_enabled:Bool):Void;
 	function is_margin_drawing_enabled():Bool;
-}
-@:forward abstract Camera2D(cpp.Pointer<Camera2D_extern>) from cpp.Pointer<Camera2D_extern> to cpp.Pointer<Camera2D_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.Camera2D):gdnative.Camera2D return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.Camera2D {
-		final v = new gd.Camera2D(this);
-		return v;
-	}
 }

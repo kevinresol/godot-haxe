@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract ColorPicker(cpp.Pointer<ColorPicker_extern>) from cpp.Pointer<ColorPicker_extern> to cpp.Pointer<ColorPicker_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.ColorPicker):gdnative.ColorPicker return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.ColorPicker return new gd.ColorPicker(this);
+}
 @:include("godot_cpp/classes/color_picker.hpp") @:native("godot::ColorPicker") @:structAccess extern class ColorPicker_extern extends gdnative.VBoxContainer.VBoxContainer_extern {
 	extern static inline function __alloc():cpp.Pointer<ColorPicker_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::ColorPicker"));
 	function set_pick_color(p_color:gdnative.Color):Void;
@@ -29,13 +38,4 @@ package gdnative;
 	function get_recent_presets():gdnative.PackedColorArray;
 	function set_picker_shape(p_shape:gdnative.colorpicker.PickerShapeType):Void;
 	function get_picker_shape():gdnative.colorpicker.PickerShapeType;
-}
-@:forward abstract ColorPicker(cpp.Pointer<ColorPicker_extern>) from cpp.Pointer<ColorPicker_extern> to cpp.Pointer<ColorPicker_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.ColorPicker):gdnative.ColorPicker return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.ColorPicker {
-		final v = new gd.ColorPicker(this);
-		return v;
-	}
 }

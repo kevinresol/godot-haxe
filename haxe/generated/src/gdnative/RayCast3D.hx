@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract RayCast3D(cpp.Pointer<RayCast3D_extern>) from cpp.Pointer<RayCast3D_extern> to cpp.Pointer<RayCast3D_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.RayCast3D):gdnative.RayCast3D return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.RayCast3D return new gd.RayCast3D(this);
+}
 @:include("godot_cpp/classes/ray_cast3d.hpp") @:native("godot::RayCast3D") @:structAccess extern class RayCast3D_extern extends gdnative.Node3D.Node3D_extern {
 	extern static inline function __alloc():cpp.Pointer<RayCast3D_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::RayCast3D"));
 	function set_enabled(p_enabled:Bool):Void;
@@ -36,13 +45,4 @@ package gdnative;
 	function get_debug_shape_custom_color():gdnative.Color;
 	function set_debug_shape_thickness(p_debug_shape_thickness:Int):Void;
 	function get_debug_shape_thickness():Int;
-}
-@:forward abstract RayCast3D(cpp.Pointer<RayCast3D_extern>) from cpp.Pointer<RayCast3D_extern> to cpp.Pointer<RayCast3D_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.RayCast3D):gdnative.RayCast3D return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.RayCast3D {
-		final v = new gd.RayCast3D(this);
-		return v;
-	}
 }

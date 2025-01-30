@@ -1,4 +1,25 @@
 package gdnative;
+/**
+	Built-in Class
+**/
+@:forward abstract Color(cpp.Struct<Color_extern>) from cpp.Struct<Color_extern> to cpp.Struct<Color_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.Color):gdnative.Color return fromWrapperInternal(v);
+	@:from
+	static inline function fromWrapperInternal(v:gd.Color.Color_wrapper):gdnative.Color return untyped __cpp__('{0}.get()', @:privateAccess v.__gd);
+	@:to
+	inline function toWrapper():gd.Color return toWrapperInternal();
+	@:to
+	inline function toWrapperInternal():gd.Color.Color_wrapper return new gd.Color.Color_wrapper(this);
+	public extern overload inline function new() this = new gdnative.Color.Color_extern();
+	public extern overload inline function new(p_from:gd.Color) this = new gdnative.Color.Color_extern(p_from);
+	public extern overload inline function new(p_from:gd.Color, p_alpha:Float) this = new gdnative.Color.Color_extern(p_from, p_alpha);
+	public extern overload inline function new(p_r:Float, p_g:Float, p_b:Float) this = new gdnative.Color.Color_extern(p_r, p_g, p_b);
+	public extern overload inline function new(p_r:Float, p_g:Float, p_b:Float, p_a:Float) this = new gdnative.Color.Color_extern(p_r, p_g, p_b, p_a);
+	public extern overload inline function new(p_code:std.String) this = new gdnative.Color.Color_extern(p_code);
+	public extern overload inline function new(p_code:std.String, p_alpha:Float) this = new gdnative.Color.Color_extern(p_code, p_alpha);
+}
+
 @:include("godot_cpp/variant/color.hpp") @:native("godot::Color") @:structAccess extern class Color_extern {
 	@:overload(function(p_from:gdnative.Color):Void { })
 	@:overload(function(p_from:gdnative.Color, p_alpha:Float):Void { })
@@ -39,22 +60,4 @@ package gdnative;
 	var g : Float;
 	var b : Float;
 	var a : Float;
-}
-
-@:forward abstract Color(cpp.Struct<Color_extern>) from cpp.Struct<Color_extern> to cpp.Struct<Color_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.Color):gdnative.Color return fromWrapperInternal(v);
-	@:from
-	static inline function fromWrapperInternal(v:gd.Color.Color_wrapper):gdnative.Color return untyped __cpp__('{0}.get()', @:privateAccess v.__gd);
-	@:to
-	inline function toWrapper():gd.Color return toWrapperInternal();
-	@:to
-	inline function toWrapperInternal():gd.Color.Color_wrapper return new gd.Color.Color_wrapper(this);
-	public extern overload inline function new() this = new gdnative.Color.Color_extern();
-	public extern overload inline function new(p_from:gd.Color) this = new gdnative.Color.Color_extern(p_from);
-	public extern overload inline function new(p_from:gd.Color, p_alpha:Float) this = new gdnative.Color.Color_extern(p_from, p_alpha);
-	public extern overload inline function new(p_r:Float, p_g:Float, p_b:Float) this = new gdnative.Color.Color_extern(p_r, p_g, p_b);
-	public extern overload inline function new(p_r:Float, p_g:Float, p_b:Float, p_a:Float) this = new gdnative.Color.Color_extern(p_r, p_g, p_b, p_a);
-	public extern overload inline function new(p_code:std.String) this = new gdnative.Color.Color_extern(p_code);
-	public extern overload inline function new(p_code:std.String, p_alpha:Float) this = new gdnative.Color.Color_extern(p_code, p_alpha);
 }

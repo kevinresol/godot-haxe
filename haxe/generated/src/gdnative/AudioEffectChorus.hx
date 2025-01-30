@@ -1,4 +1,17 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract AudioEffectChorus(gdnative.Ref<AudioEffectChorus_extern>) from gdnative.Ref<AudioEffectChorus_extern> to gdnative.Ref<AudioEffectChorus_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.AudioEffectChorus):gdnative.AudioEffectChorus return @:privateAccess v.__ref.ptr().reinterpret();
+	@:to
+	inline function toWrapper():gd.AudioEffectChorus {
+		final v = new gd.AudioEffectChorus(this.ptr());
+		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+		return v;
+	}
+}
 @:include("godot_cpp/classes/audio_effect_chorus.hpp") @:native("godot::AudioEffectChorus") @:structAccess extern class AudioEffectChorus_extern extends gdnative.AudioEffect.AudioEffect_extern {
 	extern static inline function __alloc():cpp.Pointer<AudioEffectChorus_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::AudioEffectChorus"));
 	function set_voice_count(p_voices:Int):Void;
@@ -19,14 +32,4 @@ package gdnative;
 	function get_wet():Float;
 	function set_dry(p_amount:Float):Void;
 	function get_dry():Float;
-}
-@:forward abstract AudioEffectChorus(gdnative.Ref<AudioEffectChorus_extern>) from gdnative.Ref<AudioEffectChorus_extern> to gdnative.Ref<AudioEffectChorus_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.AudioEffectChorus):gdnative.AudioEffectChorus return @:privateAccess v.__ref.ptr().reinterpret();
-	@:to
-	inline function toWrapper():gd.AudioEffectChorus {
-		final v = new gd.AudioEffectChorus(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
 }

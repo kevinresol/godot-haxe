@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract CSGShape3D(cpp.Pointer<CSGShape3D_extern>) from cpp.Pointer<CSGShape3D_extern> to cpp.Pointer<CSGShape3D_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.CSGShape3D):gdnative.CSGShape3D return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.CSGShape3D return new gd.CSGShape3D(this);
+}
 @:include("godot_cpp/classes/csg_shape3d.hpp") @:native("godot::CSGShape3D") @:structAccess extern class CSGShape3D_extern extends gdnative.GeometryInstance3D.GeometryInstance3D_extern {
 	extern static inline function __alloc():cpp.Pointer<CSGShape3D_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::CSGShape3D"));
 	function is_root_shape():Bool;
@@ -21,13 +30,4 @@ package gdnative;
 	function set_calculate_tangents(p_enabled:Bool):Void;
 	function is_calculating_tangents():Bool;
 	function get_meshes():gdnative.Array;
-}
-@:forward abstract CSGShape3D(cpp.Pointer<CSGShape3D_extern>) from cpp.Pointer<CSGShape3D_extern> to cpp.Pointer<CSGShape3D_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.CSGShape3D):gdnative.CSGShape3D return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.CSGShape3D {
-		final v = new gd.CSGShape3D(this);
-		return v;
-	}
 }

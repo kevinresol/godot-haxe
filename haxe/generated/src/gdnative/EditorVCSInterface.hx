@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract EditorVCSInterface(cpp.Pointer<EditorVCSInterface_extern>) from cpp.Pointer<EditorVCSInterface_extern> to cpp.Pointer<EditorVCSInterface_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.EditorVCSInterface):gdnative.EditorVCSInterface return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.EditorVCSInterface return new gd.EditorVCSInterface(this);
+}
 @:include("godot_cpp/classes/editor_vcs_interface.hpp") @:native("godot::EditorVCSInterface") @:structAccess extern class EditorVCSInterface_extern extends gdnative.Object.Object_extern {
 	extern static inline function __alloc():cpp.Pointer<EditorVCSInterface_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::EditorVCSInterface"));
 	function _initialize(p_project_path:gdnative.String):Bool;
@@ -24,13 +33,4 @@ package gdnative;
 	function create_commit(p_msg:gdnative.String, p_author:gdnative.String, p_id:gdnative.String, p_unix_timestamp:Int, p_offset_minutes:Int):gdnative.Dictionary;
 	function create_status_file(p_file_path:gdnative.String, p_change_type:gdnative.editorvcsinterface.ChangeType, p_area:gdnative.editorvcsinterface.TreeArea):gdnative.Dictionary;
 	function popup_error(p_msg:gdnative.String):Void;
-}
-@:forward abstract EditorVCSInterface(cpp.Pointer<EditorVCSInterface_extern>) from cpp.Pointer<EditorVCSInterface_extern> to cpp.Pointer<EditorVCSInterface_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.EditorVCSInterface):gdnative.EditorVCSInterface return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.EditorVCSInterface {
-		final v = new gd.EditorVCSInterface(this);
-		return v;
-	}
 }

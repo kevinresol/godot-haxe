@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract Button(cpp.Pointer<Button_extern>) from cpp.Pointer<Button_extern> to cpp.Pointer<Button_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.Button):gdnative.Button return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.Button return new gd.Button(this);
+}
 @:include("godot_cpp/classes/button.hpp") @:native("godot::Button") @:structAccess extern class Button_extern extends gdnative.BaseButton.BaseButton_extern {
 	extern static inline function __alloc():cpp.Pointer<Button_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::Button"));
 	function set_text(p_text:gdnative.String):Void;
@@ -25,13 +34,4 @@ package gdnative;
 	function get_vertical_icon_alignment():gdnative.VerticalAlignment;
 	function set_expand_icon(p_enabled:Bool):Void;
 	function is_expand_icon():Bool;
-}
-@:forward abstract Button(cpp.Pointer<Button_extern>) from cpp.Pointer<Button_extern> to cpp.Pointer<Button_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.Button):gdnative.Button return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.Button {
-		final v = new gd.Button(this);
-		return v;
-	}
 }

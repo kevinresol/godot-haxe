@@ -2,7 +2,7 @@ package gdnative;
 
 import cpp.abi.ThisCall;
 
-@:unreflective
+@:forward
 abstract Variant(cpp.Struct<Variant_extern>) from cpp.Struct<Variant_extern> to cpp.Struct<Variant_extern> {
 	@:from
 	extern static inline function fromWrapper(v:gd.Variant):Variant
@@ -127,6 +127,17 @@ abstract Variant(cpp.Struct<Variant_extern>) from cpp.Struct<Variant_extern> to 
 	inline function val():Variant_extern {
 		return untyped __cpp__('{0}.get()', this);
 	}
+
+	// public inline function get_type():gdnative.variant.Type
+	// 	return this.get_type();
+	// public extern inline function set_named(name:StringName, value:Variant, r_valid:cpp.Reference<Bool>):Void
+	// 	this.set_named(name, value, r_valid);
+	// public extern inline function set_indexed(index:cpp.Int64, value:Variant, r_valid:cpp.Reference<Bool>, r_oob:cpp.Reference<Bool>):Void
+	// 	this.set_indexed(index, value, r_valid, r_oob);
+	// public extern inline function get_named(name:StringName, r_valid:cpp.Reference<Bool>):Variant
+	// 	return this.get_named(name, r_valid);
+	// public extern inline function get_indexed(index:cpp.Int64, r_valid:cpp.Reference<Bool>, r_oob:cpp.Reference<Bool>):Variant
+	// 	return this.get_indexed(index, r_valid, r_oob);
 }
 
 @:include("godot_cpp/classes/object.hpp")
@@ -150,5 +161,10 @@ extern class Variant_extern {
 	function get_type_name(type:gdnative.variant.Type):gdnative.String;
 	overload function call(p_method:gdnative.StringName):gdnative.Variant;
 	overload function call(p_method:gdnative.StringName, p_arg0:gdnative.Variant):gdnative.Variant;
-	static function print(v:Variant_extern):Void;
+
+	function set_named(name:StringName, value:cpp.Reference<Variant>, r_valid:cpp.Reference<Bool>):Void;
+	function set_indexed(index:cpp.Int64, value:cpp.Reference<Variant>, r_valid:cpp.Reference<Bool>, r_oob:cpp.Reference<Bool>):Void;
+
+	function get_named(name:StringName, r_valid:cpp.Reference<Bool>):Variant;
+	function get_indexed(index:cpp.Int64, r_valid:cpp.Reference<Bool>, r_oob:cpp.Reference<Bool>):Variant;
 }

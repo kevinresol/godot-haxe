@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract Camera3D(cpp.Pointer<Camera3D_extern>) from cpp.Pointer<Camera3D_extern> to cpp.Pointer<Camera3D_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.Camera3D):gdnative.Camera3D return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.Camera3D return new gd.Camera3D(this);
+}
 @:include("godot_cpp/classes/camera3d.hpp") @:native("godot::Camera3D") @:structAccess extern class Camera3D_extern extends gdnative.Node3D.Node3D_extern {
 	extern static inline function __alloc():cpp.Pointer<Camera3D_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::Camera3D"));
 	function project_ray_normal(p_screen_point:gdnative.Vector2):gdnative.Vector3;
@@ -50,13 +59,4 @@ package gdnative;
 	function get_pyramid_shape_rid():gdnative.RID;
 	function set_cull_mask_value(p_layer_number:Int, p_value:Bool):Void;
 	function get_cull_mask_value(p_layer_number:Int):Bool;
-}
-@:forward abstract Camera3D(cpp.Pointer<Camera3D_extern>) from cpp.Pointer<Camera3D_extern> to cpp.Pointer<Camera3D_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.Camera3D):gdnative.Camera3D return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.Camera3D {
-		final v = new gd.Camera3D(this);
-		return v;
-	}
 }

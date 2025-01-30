@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract TouchScreenButton(cpp.Pointer<TouchScreenButton_extern>) from cpp.Pointer<TouchScreenButton_extern> to cpp.Pointer<TouchScreenButton_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.TouchScreenButton):gdnative.TouchScreenButton return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.TouchScreenButton return new gd.TouchScreenButton(this);
+}
 @:include("godot_cpp/classes/touch_screen_button.hpp") @:native("godot::TouchScreenButton") @:structAccess extern class TouchScreenButton_extern extends gdnative.Node2D.Node2D_extern {
 	extern static inline function __alloc():cpp.Pointer<TouchScreenButton_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::TouchScreenButton"));
 	function set_texture_normal(p_texture:gdnative.Texture2D):Void;
@@ -20,13 +29,4 @@ package gdnative;
 	function set_passby_press(p_enabled:Bool):Void;
 	function is_passby_press_enabled():Bool;
 	function is_pressed():Bool;
-}
-@:forward abstract TouchScreenButton(cpp.Pointer<TouchScreenButton_extern>) from cpp.Pointer<TouchScreenButton_extern> to cpp.Pointer<TouchScreenButton_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.TouchScreenButton):gdnative.TouchScreenButton return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.TouchScreenButton {
-		final v = new gd.TouchScreenButton(this);
-		return v;
-	}
 }

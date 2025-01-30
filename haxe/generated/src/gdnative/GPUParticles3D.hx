@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract GPUParticles3D(cpp.Pointer<GPUParticles3D_extern>) from cpp.Pointer<GPUParticles3D_extern> to cpp.Pointer<GPUParticles3D_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.GPUParticles3D):gdnative.GPUParticles3D return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.GPUParticles3D return new gd.GPUParticles3D(this);
+}
 @:include("godot_cpp/classes/gpu_particles3d.hpp") @:native("godot::GPUParticles3D") @:structAccess extern class GPUParticles3D_extern extends gdnative.GeometryInstance3D.GeometryInstance3D_extern {
 	extern static inline function __alloc():cpp.Pointer<GPUParticles3D_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::GPUParticles3D"));
 	function set_emitting(p_emitting:Bool):Void;
@@ -55,13 +64,4 @@ package gdnative;
 	function convert_from_particles(p_particles:gdnative.Node):Void;
 	function set_amount_ratio(p_ratio:Float):Void;
 	function get_amount_ratio():Float;
-}
-@:forward abstract GPUParticles3D(cpp.Pointer<GPUParticles3D_extern>) from cpp.Pointer<GPUParticles3D_extern> to cpp.Pointer<GPUParticles3D_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.GPUParticles3D):gdnative.GPUParticles3D return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.GPUParticles3D {
-		final v = new gd.GPUParticles3D(this);
-		return v;
-	}
 }

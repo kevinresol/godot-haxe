@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract Light2D(cpp.Pointer<Light2D_extern>) from cpp.Pointer<Light2D_extern> to cpp.Pointer<Light2D_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.Light2D):gdnative.Light2D return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.Light2D return new gd.Light2D(this);
+}
 @:include("godot_cpp/classes/light2d.hpp") @:native("godot::Light2D") @:structAccess extern class Light2D_extern extends gdnative.Node2D.Node2D_extern {
 	extern static inline function __alloc():cpp.Pointer<Light2D_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::Light2D"));
 	function set_enabled(p_enabled:Bool):Void;
@@ -33,13 +42,4 @@ package gdnative;
 	function get_blend_mode():gdnative.light2d.BlendMode;
 	function set_height(p_height:Float):Void;
 	function get_height():Float;
-}
-@:forward abstract Light2D(cpp.Pointer<Light2D_extern>) from cpp.Pointer<Light2D_extern> to cpp.Pointer<Light2D_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.Light2D):gdnative.Light2D return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.Light2D {
-		final v = new gd.Light2D(this);
-		return v;
-	}
 }

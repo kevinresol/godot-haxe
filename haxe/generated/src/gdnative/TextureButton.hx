@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract TextureButton(cpp.Pointer<TextureButton_extern>) from cpp.Pointer<TextureButton_extern> to cpp.Pointer<TextureButton_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.TextureButton):gdnative.TextureButton return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.TextureButton return new gd.TextureButton(this);
+}
 @:include("godot_cpp/classes/texture_button.hpp") @:native("godot::TextureButton") @:structAccess extern class TextureButton_extern extends gdnative.BaseButton.BaseButton_extern {
 	extern static inline function __alloc():cpp.Pointer<TextureButton_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::TextureButton"));
 	function set_texture_normal(p_texture:gdnative.Texture2D):Void;
@@ -21,13 +30,4 @@ package gdnative;
 	function get_click_mask():gdnative.BitMap;
 	function get_ignore_texture_size():Bool;
 	function get_stretch_mode():gdnative.texturebutton.StretchMode;
-}
-@:forward abstract TextureButton(cpp.Pointer<TextureButton_extern>) from cpp.Pointer<TextureButton_extern> to cpp.Pointer<TextureButton_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.TextureButton):gdnative.TextureButton return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.TextureButton {
-		final v = new gd.TextureButton(this);
-		return v;
-	}
 }

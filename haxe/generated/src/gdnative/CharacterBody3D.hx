@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract CharacterBody3D(cpp.Pointer<CharacterBody3D_extern>) from cpp.Pointer<CharacterBody3D_extern> to cpp.Pointer<CharacterBody3D_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.CharacterBody3D):gdnative.CharacterBody3D return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.CharacterBody3D return new gd.CharacterBody3D(this);
+}
 @:include("godot_cpp/classes/character_body3d.hpp") @:native("godot::CharacterBody3D") @:structAccess extern class CharacterBody3D_extern extends gdnative.PhysicsBody3D.PhysicsBody3D_extern {
 	extern static inline function __alloc():cpp.Pointer<CharacterBody3D_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::CharacterBody3D"));
 	function move_and_slide():Bool;
@@ -51,13 +60,4 @@ package gdnative;
 	function get_slide_collision_count():Int;
 	function get_slide_collision(p_slide_idx:Int):gdnative.KinematicCollision3D;
 	function get_last_slide_collision():gdnative.KinematicCollision3D;
-}
-@:forward abstract CharacterBody3D(cpp.Pointer<CharacterBody3D_extern>) from cpp.Pointer<CharacterBody3D_extern> to cpp.Pointer<CharacterBody3D_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.CharacterBody3D):gdnative.CharacterBody3D return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.CharacterBody3D {
-		final v = new gd.CharacterBody3D(this);
-		return v;
-	}
 }

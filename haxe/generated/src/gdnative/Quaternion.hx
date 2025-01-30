@@ -1,4 +1,24 @@
 package gdnative;
+/**
+	Built-in Class
+**/
+@:forward abstract Quaternion(cpp.Struct<Quaternion_extern>) from cpp.Struct<Quaternion_extern> to cpp.Struct<Quaternion_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.Quaternion):gdnative.Quaternion return fromWrapperInternal(v);
+	@:from
+	static inline function fromWrapperInternal(v:gd.Quaternion.Quaternion_wrapper):gdnative.Quaternion return untyped __cpp__('{0}.get()', @:privateAccess v.__gd);
+	@:to
+	inline function toWrapper():gd.Quaternion return toWrapperInternal();
+	@:to
+	inline function toWrapperInternal():gd.Quaternion.Quaternion_wrapper return new gd.Quaternion.Quaternion_wrapper(this);
+	public extern overload inline function new() this = new gdnative.Quaternion.Quaternion_extern();
+	public extern overload inline function new(p_from:gd.Quaternion) this = new gdnative.Quaternion.Quaternion_extern(p_from);
+	public extern overload inline function new(p_from:gd.Basis) this = new gdnative.Quaternion.Quaternion_extern(p_from);
+	public extern overload inline function new(p_axis:gd.Vector3, p_angle:Float) this = new gdnative.Quaternion.Quaternion_extern(p_axis, p_angle);
+	public extern overload inline function new(p_arc_from:gd.Vector3, p_arc_to:gd.Vector3) this = new gdnative.Quaternion.Quaternion_extern(p_arc_from, p_arc_to);
+	public extern overload inline function new(p_x:Float, p_y:Float, p_z:Float, p_w:Float) this = new gdnative.Quaternion.Quaternion_extern(p_x, p_y, p_z, p_w);
+}
+
 @:include("godot_cpp/variant/quaternion.hpp") @:native("godot::Quaternion") @:structAccess extern class Quaternion_extern {
 	@:overload(function(p_from:gdnative.Quaternion):Void { })
 	@:overload(function(p_from:gdnative.Basis):Void { })
@@ -28,21 +48,4 @@ package gdnative;
 	var y : Float;
 	var z : Float;
 	var w : Float;
-}
-
-@:forward abstract Quaternion(cpp.Struct<Quaternion_extern>) from cpp.Struct<Quaternion_extern> to cpp.Struct<Quaternion_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.Quaternion):gdnative.Quaternion return fromWrapperInternal(v);
-	@:from
-	static inline function fromWrapperInternal(v:gd.Quaternion.Quaternion_wrapper):gdnative.Quaternion return untyped __cpp__('{0}.get()', @:privateAccess v.__gd);
-	@:to
-	inline function toWrapper():gd.Quaternion return toWrapperInternal();
-	@:to
-	inline function toWrapperInternal():gd.Quaternion.Quaternion_wrapper return new gd.Quaternion.Quaternion_wrapper(this);
-	public extern overload inline function new() this = new gdnative.Quaternion.Quaternion_extern();
-	public extern overload inline function new(p_from:gd.Quaternion) this = new gdnative.Quaternion.Quaternion_extern(p_from);
-	public extern overload inline function new(p_from:gd.Basis) this = new gdnative.Quaternion.Quaternion_extern(p_from);
-	public extern overload inline function new(p_axis:gd.Vector3, p_angle:Float) this = new gdnative.Quaternion.Quaternion_extern(p_axis, p_angle);
-	public extern overload inline function new(p_arc_from:gd.Vector3, p_arc_to:gd.Vector3) this = new gdnative.Quaternion.Quaternion_extern(p_arc_from, p_arc_to);
-	public extern overload inline function new(p_x:Float, p_y:Float, p_z:Float, p_w:Float) this = new gdnative.Quaternion.Quaternion_extern(p_x, p_y, p_z, p_w);
 }

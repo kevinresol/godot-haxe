@@ -1,4 +1,17 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract Environment(gdnative.Ref<Environment_extern>) from gdnative.Ref<Environment_extern> to gdnative.Ref<Environment_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.Environment):gdnative.Environment return @:privateAccess v.__ref.ptr().reinterpret();
+	@:to
+	inline function toWrapper():gd.Environment {
+		final v = new gd.Environment(this.ptr());
+		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+		return v;
+	}
+}
 @:include("godot_cpp/classes/environment.hpp") @:native("godot::Environment") @:structAccess extern class Environment_extern extends gdnative.Resource.Resource_extern {
 	extern static inline function __alloc():cpp.Pointer<Environment_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::Environment"));
 	function set_background(p_mode:gdnative.environment.BGMode):Void;
@@ -185,14 +198,4 @@ package gdnative;
 	function get_adjustment_saturation():Float;
 	function set_adjustment_color_correction(p_color_correction:gdnative.Texture):Void;
 	function get_adjustment_color_correction():gdnative.Texture;
-}
-@:forward abstract Environment(gdnative.Ref<Environment_extern>) from gdnative.Ref<Environment_extern> to gdnative.Ref<Environment_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.Environment):gdnative.Environment return @:privateAccess v.__ref.ptr().reinterpret();
-	@:to
-	inline function toWrapper():gd.Environment {
-		final v = new gd.Environment(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
 }

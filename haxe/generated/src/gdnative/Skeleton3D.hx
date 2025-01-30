@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract Skeleton3D(cpp.Pointer<Skeleton3D_extern>) from cpp.Pointer<Skeleton3D_extern> to cpp.Pointer<Skeleton3D_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.Skeleton3D):gdnative.Skeleton3D return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.Skeleton3D return new gd.Skeleton3D(this);
+}
 @:include("godot_cpp/classes/skeleton3d.hpp") @:native("godot::Skeleton3D") @:structAccess extern class Skeleton3D_extern extends gdnative.Node3D.Node3D_extern {
 	extern static inline function __alloc():cpp.Pointer<Skeleton3D_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::Skeleton3D"));
 	function add_bone(p_name:gdnative.String):Int;
@@ -53,13 +62,4 @@ package gdnative;
 	function physical_bones_stop_simulation():Void;
 	function physical_bones_add_collision_exception(p_exception:gdnative.RID):Void;
 	function physical_bones_remove_collision_exception(p_exception:gdnative.RID):Void;
-}
-@:forward abstract Skeleton3D(cpp.Pointer<Skeleton3D_extern>) from cpp.Pointer<Skeleton3D_extern> to cpp.Pointer<Skeleton3D_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.Skeleton3D):gdnative.Skeleton3D return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.Skeleton3D {
-		final v = new gd.Skeleton3D(this);
-		return v;
-	}
 }

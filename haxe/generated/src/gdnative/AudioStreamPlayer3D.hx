@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract AudioStreamPlayer3D(cpp.Pointer<AudioStreamPlayer3D_extern>) from cpp.Pointer<AudioStreamPlayer3D_extern> to cpp.Pointer<AudioStreamPlayer3D_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.AudioStreamPlayer3D):gdnative.AudioStreamPlayer3D return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.AudioStreamPlayer3D return new gd.AudioStreamPlayer3D(this);
+}
 @:include("godot_cpp/classes/audio_stream_player3d.hpp") @:native("godot::AudioStreamPlayer3D") @:structAccess extern class AudioStreamPlayer3D_extern extends gdnative.Node3D.Node3D_extern {
 	extern static inline function __alloc():cpp.Pointer<AudioStreamPlayer3D_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::AudioStreamPlayer3D"));
 	function set_stream(p_stream:gdnative.AudioStream):Void;
@@ -49,13 +58,4 @@ package gdnative;
 	function get_stream_playback():gdnative.AudioStreamPlayback;
 	function set_playback_type(p_playback_type:gdnative.audioserver.PlaybackType):Void;
 	function get_playback_type():gdnative.audioserver.PlaybackType;
-}
-@:forward abstract AudioStreamPlayer3D(cpp.Pointer<AudioStreamPlayer3D_extern>) from cpp.Pointer<AudioStreamPlayer3D_extern> to cpp.Pointer<AudioStreamPlayer3D_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.AudioStreamPlayer3D):gdnative.AudioStreamPlayer3D return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.AudioStreamPlayer3D {
-		final v = new gd.AudioStreamPlayer3D(this);
-		return v;
-	}
 }

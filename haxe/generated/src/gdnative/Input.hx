@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract Input(cpp.Pointer<Input_extern>) from cpp.Pointer<Input_extern> to cpp.Pointer<Input_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.Input):gdnative.Input return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.Input return new gd.Input(this);
+}
 @:include("godot_cpp/classes/input.hpp") @:native("godot::Input") @:structAccess extern class Input_extern extends gdnative.Object.Object_extern {
 	extern static inline function __alloc():cpp.Pointer<Input_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::Input"));
 	static function get_singleton():cpp.Pointer<Input_extern>;
@@ -69,13 +78,4 @@ package gdnative;
 	function is_emulating_mouse_from_touch():Bool;
 	function set_emulate_touch_from_mouse(p_enable:Bool):Void;
 	function is_emulating_touch_from_mouse():Bool;
-}
-@:forward abstract Input(cpp.Pointer<Input_extern>) from cpp.Pointer<Input_extern> to cpp.Pointer<Input_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.Input):gdnative.Input return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.Input {
-		final v = new gd.Input(this);
-		return v;
-	}
 }

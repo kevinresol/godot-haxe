@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract HTTPRequest(cpp.Pointer<HTTPRequest_extern>) from cpp.Pointer<HTTPRequest_extern> to cpp.Pointer<HTTPRequest_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.HTTPRequest):gdnative.HTTPRequest return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.HTTPRequest return new gd.HTTPRequest(this);
+}
 @:include("godot_cpp/classes/http_request.hpp") @:native("godot::HTTPRequest") @:structAccess extern class HTTPRequest_extern extends gdnative.Node.Node_extern {
 	extern static inline function __alloc():cpp.Pointer<HTTPRequest_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::HTTPRequest"));
 	overload function request(p_url:gdnative.String):gdnative.Error;
@@ -30,13 +39,4 @@ package gdnative;
 	function get_download_chunk_size():Int;
 	function set_http_proxy(p_host:gdnative.String, p_port:Int):Void;
 	function set_https_proxy(p_host:gdnative.String, p_port:Int):Void;
-}
-@:forward abstract HTTPRequest(cpp.Pointer<HTTPRequest_extern>) from cpp.Pointer<HTTPRequest_extern> to cpp.Pointer<HTTPRequest_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.HTTPRequest):gdnative.HTTPRequest return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.HTTPRequest {
-		final v = new gd.HTTPRequest(this);
-		return v;
-	}
 }

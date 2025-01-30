@@ -1,4 +1,17 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract RDSamplerState(gdnative.Ref<RDSamplerState_extern>) from gdnative.Ref<RDSamplerState_extern> to gdnative.Ref<RDSamplerState_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.RDSamplerState):gdnative.RDSamplerState return @:privateAccess v.__ref.ptr().reinterpret();
+	@:to
+	inline function toWrapper():gd.RDSamplerState {
+		final v = new gd.RDSamplerState(this.ptr());
+		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+		return v;
+	}
+}
 @:include("godot_cpp/classes/rd_sampler_state.hpp") @:native("godot::RDSamplerState") @:structAccess extern class RDSamplerState_extern extends gdnative.RefCounted.RefCounted_extern {
 	extern static inline function __alloc():cpp.Pointer<RDSamplerState_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::RDSamplerState"));
 	function set_mag_filter(p_p_member:gdnative.renderingdevice.SamplerFilter):Void;
@@ -31,14 +44,4 @@ package gdnative;
 	function get_border_color():gdnative.renderingdevice.SamplerBorderColor;
 	function set_unnormalized_uvw(p_p_member:Bool):Void;
 	function get_unnormalized_uvw():Bool;
-}
-@:forward abstract RDSamplerState(gdnative.Ref<RDSamplerState_extern>) from gdnative.Ref<RDSamplerState_extern> to gdnative.Ref<RDSamplerState_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.RDSamplerState):gdnative.RDSamplerState return @:privateAccess v.__ref.ptr().reinterpret();
-	@:to
-	inline function toWrapper():gd.RDSamplerState {
-		final v = new gd.RDSamplerState(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
 }

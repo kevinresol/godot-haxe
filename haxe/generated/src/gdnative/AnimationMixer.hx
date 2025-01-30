@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract AnimationMixer(cpp.Pointer<AnimationMixer_extern>) from cpp.Pointer<AnimationMixer_extern> to cpp.Pointer<AnimationMixer_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.AnimationMixer):gdnative.AnimationMixer return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.AnimationMixer return new gd.AnimationMixer(this);
+}
 @:include("godot_cpp/classes/animation_mixer.hpp") @:native("godot::AnimationMixer") @:structAccess extern class AnimationMixer_extern extends gdnative.Node.Node_extern {
 	extern static inline function __alloc():cpp.Pointer<AnimationMixer_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::AnimationMixer"));
 	function _post_process_key_value(p_animation:gdnative.Animation, p_track:Int, p_value:gdnative.Variant, p_object_id:Int, p_object_sub_idx:Int):gdnative.Variant;
@@ -41,13 +50,4 @@ package gdnative;
 	function is_reset_on_save_enabled():Bool;
 	function find_animation(p_animation:gdnative.Animation):gdnative.StringName;
 	function find_animation_library(p_animation:gdnative.Animation):gdnative.StringName;
-}
-@:forward abstract AnimationMixer(cpp.Pointer<AnimationMixer_extern>) from cpp.Pointer<AnimationMixer_extern> to cpp.Pointer<AnimationMixer_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.AnimationMixer):gdnative.AnimationMixer return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.AnimationMixer {
-		final v = new gd.AnimationMixer(this);
-		return v;
-	}
 }

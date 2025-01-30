@@ -1,4 +1,17 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract RDTextureFormat(gdnative.Ref<RDTextureFormat_extern>) from gdnative.Ref<RDTextureFormat_extern> to gdnative.Ref<RDTextureFormat_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.RDTextureFormat):gdnative.RDTextureFormat return @:privateAccess v.__ref.ptr().reinterpret();
+	@:to
+	inline function toWrapper():gd.RDTextureFormat {
+		final v = new gd.RDTextureFormat(this.ptr());
+		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+		return v;
+	}
+}
 @:include("godot_cpp/classes/rd_texture_format.hpp") @:native("godot::RDTextureFormat") @:structAccess extern class RDTextureFormat_extern extends gdnative.RefCounted.RefCounted_extern {
 	extern static inline function __alloc():cpp.Pointer<RDTextureFormat_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::RDTextureFormat"));
 	function set_format(p_p_member:gdnative.renderingdevice.DataFormat):Void;
@@ -21,14 +34,4 @@ package gdnative;
 	function get_usage_bits():Int;
 	function add_shareable_format(p_format:gdnative.renderingdevice.DataFormat):Void;
 	function remove_shareable_format(p_format:gdnative.renderingdevice.DataFormat):Void;
-}
-@:forward abstract RDTextureFormat(gdnative.Ref<RDTextureFormat_extern>) from gdnative.Ref<RDTextureFormat_extern> to gdnative.Ref<RDTextureFormat_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.RDTextureFormat):gdnative.RDTextureFormat return @:privateAccess v.__ref.ptr().reinterpret();
-	@:to
-	inline function toWrapper():gd.RDTextureFormat {
-		final v = new gd.RDTextureFormat(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
 }

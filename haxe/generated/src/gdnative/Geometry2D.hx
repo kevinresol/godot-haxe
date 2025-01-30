@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract Geometry2D(cpp.Pointer<Geometry2D_extern>) from cpp.Pointer<Geometry2D_extern> to cpp.Pointer<Geometry2D_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.Geometry2D):gdnative.Geometry2D return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.Geometry2D return new gd.Geometry2D(this);
+}
 @:include("godot_cpp/classes/geometry2d.hpp") @:native("godot::Geometry2D") @:structAccess extern class Geometry2D_extern extends gdnative.Object.Object_extern {
 	extern static inline function __alloc():cpp.Pointer<Geometry2D_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::Geometry2D"));
 	static function get_singleton():cpp.Pointer<Geometry2D_extern>;
@@ -16,13 +25,4 @@ package gdnative;
 	function triangulate_delaunay(p_points:gdnative.PackedVector2Array):gdnative.PackedInt32Array;
 	function convex_hull(p_points:gdnative.PackedVector2Array):gdnative.PackedVector2Array;
 	function make_atlas(p_sizes:gdnative.PackedVector2Array):gdnative.Dictionary;
-}
-@:forward abstract Geometry2D(cpp.Pointer<Geometry2D_extern>) from cpp.Pointer<Geometry2D_extern> to cpp.Pointer<Geometry2D_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.Geometry2D):gdnative.Geometry2D return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.Geometry2D {
-		final v = new gd.Geometry2D(this);
-		return v;
-	}
 }

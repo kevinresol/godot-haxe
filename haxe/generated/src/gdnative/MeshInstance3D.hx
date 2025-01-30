@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract MeshInstance3D(cpp.Pointer<MeshInstance3D_extern>) from cpp.Pointer<MeshInstance3D_extern> to cpp.Pointer<MeshInstance3D_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.MeshInstance3D):gdnative.MeshInstance3D return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.MeshInstance3D return new gd.MeshInstance3D(this);
+}
 @:include("godot_cpp/classes/mesh_instance3d.hpp") @:native("godot::MeshInstance3D") @:structAccess extern class MeshInstance3D_extern extends gdnative.GeometryInstance3D.GeometryInstance3D_extern {
 	extern static inline function __alloc():cpp.Pointer<MeshInstance3D_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::MeshInstance3D"));
 	function set_mesh(p_mesh:gdnative.Mesh):Void;
@@ -25,13 +34,4 @@ package gdnative;
 	function create_debug_tangents():Void;
 	overload function bake_mesh_from_current_blend_shape_mix():gdnative.ArrayMesh;
 	overload function bake_mesh_from_current_blend_shape_mix(p_existing:gdnative.ArrayMesh):gdnative.ArrayMesh;
-}
-@:forward abstract MeshInstance3D(cpp.Pointer<MeshInstance3D_extern>) from cpp.Pointer<MeshInstance3D_extern> to cpp.Pointer<MeshInstance3D_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.MeshInstance3D):gdnative.MeshInstance3D return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.MeshInstance3D {
-		final v = new gd.MeshInstance3D(this);
-		return v;
-	}
 }

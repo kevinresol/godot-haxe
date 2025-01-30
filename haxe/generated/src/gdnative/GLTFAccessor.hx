@@ -1,4 +1,17 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract GLTFAccessor(gdnative.Ref<GLTFAccessor_extern>) from gdnative.Ref<GLTFAccessor_extern> to gdnative.Ref<GLTFAccessor_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.GLTFAccessor):gdnative.GLTFAccessor return @:privateAccess v.__ref.ptr().reinterpret();
+	@:to
+	inline function toWrapper():gd.GLTFAccessor {
+		final v = new gd.GLTFAccessor(this.ptr());
+		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+		return v;
+	}
+}
 @:include("godot_cpp/classes/gltf_accessor.hpp") @:native("godot::GLTFAccessor") @:structAccess extern class GLTFAccessor_extern extends gdnative.Resource.Resource_extern {
 	extern static inline function __alloc():cpp.Pointer<GLTFAccessor_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::GLTFAccessor"));
 	function get_buffer_view():Int;
@@ -31,14 +44,4 @@ package gdnative;
 	function set_sparse_values_buffer_view(p_sparse_values_buffer_view:Int):Void;
 	function get_sparse_values_byte_offset():Int;
 	function set_sparse_values_byte_offset(p_sparse_values_byte_offset:Int):Void;
-}
-@:forward abstract GLTFAccessor(gdnative.Ref<GLTFAccessor_extern>) from gdnative.Ref<GLTFAccessor_extern> to gdnative.Ref<GLTFAccessor_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.GLTFAccessor):gdnative.GLTFAccessor return @:privateAccess v.__ref.ptr().reinterpret();
-	@:to
-	inline function toWrapper():gd.GLTFAccessor {
-		final v = new gd.GLTFAccessor(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
 }

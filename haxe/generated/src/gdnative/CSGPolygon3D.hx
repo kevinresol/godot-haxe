@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract CSGPolygon3D(cpp.Pointer<CSGPolygon3D_extern>) from cpp.Pointer<CSGPolygon3D_extern> to cpp.Pointer<CSGPolygon3D_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.CSGPolygon3D):gdnative.CSGPolygon3D return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.CSGPolygon3D return new gd.CSGPolygon3D(this);
+}
 @:include("godot_cpp/classes/csg_polygon3d.hpp") @:native("godot::CSGPolygon3D") @:structAccess extern class CSGPolygon3D_extern extends gdnative.CSGPrimitive3D.CSGPrimitive3D_extern {
 	extern static inline function __alloc():cpp.Pointer<CSGPolygon3D_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::CSGPolygon3D"));
 	function set_polygon(p_polygon:gdnative.PackedVector2Array):Void;
@@ -33,13 +42,4 @@ package gdnative;
 	function get_material():gdnative.Material;
 	function set_smooth_faces(p_smooth_faces:Bool):Void;
 	function get_smooth_faces():Bool;
-}
-@:forward abstract CSGPolygon3D(cpp.Pointer<CSGPolygon3D_extern>) from cpp.Pointer<CSGPolygon3D_extern> to cpp.Pointer<CSGPolygon3D_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.CSGPolygon3D):gdnative.CSGPolygon3D return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.CSGPolygon3D {
-		final v = new gd.CSGPolygon3D(this);
-		return v;
-	}
 }

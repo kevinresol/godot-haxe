@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract EditorPlugin(cpp.Pointer<EditorPlugin_extern>) from cpp.Pointer<EditorPlugin_extern> to cpp.Pointer<EditorPlugin_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.EditorPlugin):gdnative.EditorPlugin return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.EditorPlugin return new gd.EditorPlugin(this);
+}
 @:include("godot_cpp/classes/editor_plugin.hpp") @:native("godot::EditorPlugin") @:structAccess extern class EditorPlugin_extern extends gdnative.Node.Node_extern {
 	extern static inline function __alloc():cpp.Pointer<EditorPlugin_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::EditorPlugin"));
 	function _forward_canvas_gui_input(p_event:gdnative.InputEvent):Bool;
@@ -75,13 +84,4 @@ package gdnative;
 	function add_debugger_plugin(p_script:gdnative.EditorDebuggerPlugin):Void;
 	function remove_debugger_plugin(p_script:gdnative.EditorDebuggerPlugin):Void;
 	function get_plugin_version():gdnative.String;
-}
-@:forward abstract EditorPlugin(cpp.Pointer<EditorPlugin_extern>) from cpp.Pointer<EditorPlugin_extern> to cpp.Pointer<EditorPlugin_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.EditorPlugin):gdnative.EditorPlugin return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.EditorPlugin {
-		final v = new gd.EditorPlugin(this);
-		return v;
-	}
 }

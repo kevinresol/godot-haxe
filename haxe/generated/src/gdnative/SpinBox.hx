@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract SpinBox(cpp.Pointer<SpinBox_extern>) from cpp.Pointer<SpinBox_extern> to cpp.Pointer<SpinBox_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.SpinBox):gdnative.SpinBox return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.SpinBox return new gd.SpinBox(this);
+}
 @:include("godot_cpp/classes/spin_box.hpp") @:native("godot::SpinBox") @:structAccess extern class SpinBox_extern extends gdnative.Range.Range_extern {
 	extern static inline function __alloc():cpp.Pointer<SpinBox_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::SpinBox"));
 	function set_horizontal_alignment(p_alignment:gdnative.HorizontalAlignment):Void;
@@ -17,13 +26,4 @@ package gdnative;
 	function is_select_all_on_focus():Bool;
 	function apply():Void;
 	function get_line_edit():gdnative.LineEdit;
-}
-@:forward abstract SpinBox(cpp.Pointer<SpinBox_extern>) from cpp.Pointer<SpinBox_extern> to cpp.Pointer<SpinBox_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.SpinBox):gdnative.SpinBox return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.SpinBox {
-		final v = new gd.SpinBox(this);
-		return v;
-	}
 }

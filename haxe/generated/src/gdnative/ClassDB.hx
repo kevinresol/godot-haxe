@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract ClassDB(cpp.Pointer<ClassDB_extern>) from cpp.Pointer<ClassDB_extern> to cpp.Pointer<ClassDB_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.ClassDB):gdnative.ClassDB return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.ClassDB return new gd.ClassDB(this);
+}
 @:include("godot_cpp/classes/class_db_singleton.hpp") @:native("godot::ClassDBSingleton") @:structAccess extern class ClassDB_extern extends gdnative.Object.Object_extern {
 	extern static inline function __alloc():cpp.Pointer<ClassDB_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::ClassDB"));
 	static function get_singleton():cpp.Pointer<ClassDB_extern>;
@@ -33,13 +42,4 @@ package gdnative;
 	overload function is_class_enum_bitfield(p_class:gdnative.StringName, p_enum:gdnative.StringName):Bool;
 	overload function is_class_enum_bitfield(p_class:gdnative.StringName, p_enum:gdnative.StringName, p_no_inheritance:Bool):Bool;
 	function is_class_enabled(p_class:gdnative.StringName):Bool;
-}
-@:forward abstract ClassDB(cpp.Pointer<ClassDB_extern>) from cpp.Pointer<ClassDB_extern> to cpp.Pointer<ClassDB_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.ClassDB):gdnative.ClassDB return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.ClassDB {
-		final v = new gd.ClassDB(this);
-		return v;
-	}
 }

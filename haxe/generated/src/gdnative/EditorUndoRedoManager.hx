@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract EditorUndoRedoManager(cpp.Pointer<EditorUndoRedoManager_extern>) from cpp.Pointer<EditorUndoRedoManager_extern> to cpp.Pointer<EditorUndoRedoManager_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.EditorUndoRedoManager):gdnative.EditorUndoRedoManager return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.EditorUndoRedoManager return new gd.EditorUndoRedoManager(this);
+}
 @:include("godot_cpp/classes/editor_undo_redo_manager.hpp") @:native("godot::EditorUndoRedoManager") @:structAccess extern class EditorUndoRedoManager_extern extends gdnative.Object.Object_extern {
 	extern static inline function __alloc():cpp.Pointer<EditorUndoRedoManager_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::EditorUndoRedoManager"));
 	overload function create_action(p_name:gdnative.String):Void;
@@ -17,13 +26,4 @@ package gdnative;
 	function add_undo_reference(p_object:gdnative.Object):Void;
 	function get_object_history_id(p_object:gdnative.Object):Int;
 	function get_history_undo_redo(p_id:Int):gdnative.UndoRedo;
-}
-@:forward abstract EditorUndoRedoManager(cpp.Pointer<EditorUndoRedoManager_extern>) from cpp.Pointer<EditorUndoRedoManager_extern> to cpp.Pointer<EditorUndoRedoManager_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.EditorUndoRedoManager):gdnative.EditorUndoRedoManager return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.EditorUndoRedoManager {
-		final v = new gd.EditorUndoRedoManager(this);
-		return v;
-	}
 }

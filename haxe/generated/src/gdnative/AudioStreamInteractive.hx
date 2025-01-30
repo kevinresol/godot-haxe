@@ -1,4 +1,17 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract AudioStreamInteractive(gdnative.Ref<AudioStreamInteractive_extern>) from gdnative.Ref<AudioStreamInteractive_extern> to gdnative.Ref<AudioStreamInteractive_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.AudioStreamInteractive):gdnative.AudioStreamInteractive return @:privateAccess v.__ref.ptr().reinterpret();
+	@:to
+	inline function toWrapper():gd.AudioStreamInteractive {
+		final v = new gd.AudioStreamInteractive(this.ptr());
+		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+		return v;
+	}
+}
 @:include("godot_cpp/classes/audio_stream_interactive.hpp") @:native("godot::AudioStreamInteractive") @:structAccess extern class AudioStreamInteractive_extern extends gdnative.AudioStream.AudioStream_extern {
 	extern static inline function __alloc():cpp.Pointer<AudioStreamInteractive_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::AudioStreamInteractive"));
 	function set_clip_count(p_clip_count:Int):Void;
@@ -27,14 +40,4 @@ package gdnative;
 	function is_transition_using_filler_clip(p_from_clip:Int, p_to_clip:Int):Bool;
 	function get_transition_filler_clip(p_from_clip:Int, p_to_clip:Int):Int;
 	function is_transition_holding_previous(p_from_clip:Int, p_to_clip:Int):Bool;
-}
-@:forward abstract AudioStreamInteractive(gdnative.Ref<AudioStreamInteractive_extern>) from gdnative.Ref<AudioStreamInteractive_extern> to gdnative.Ref<AudioStreamInteractive_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.AudioStreamInteractive):gdnative.AudioStreamInteractive return @:privateAccess v.__ref.ptr().reinterpret();
-	@:to
-	inline function toWrapper():gd.AudioStreamInteractive {
-		final v = new gd.AudioStreamInteractive(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
 }

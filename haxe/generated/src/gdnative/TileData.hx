@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract TileData(cpp.Pointer<TileData_extern>) from cpp.Pointer<TileData_extern> to cpp.Pointer<TileData_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.TileData):gdnative.TileData return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.TileData return new gd.TileData(this);
+}
 @:include("godot_cpp/classes/tile_data.hpp") @:native("godot::TileData") @:structAccess extern class TileData_extern extends gdnative.Object.Object_extern {
 	extern static inline function __alloc():cpp.Pointer<TileData_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::TileData"));
 	function set_flip_h(p_flip_h:Bool):Void;
@@ -54,13 +63,4 @@ package gdnative;
 	function get_custom_data(p_layer_name:gdnative.String):gdnative.Variant;
 	function set_custom_data_by_layer_id(p_layer_id:Int, p_value:gdnative.Variant):Void;
 	function get_custom_data_by_layer_id(p_layer_id:Int):gdnative.Variant;
-}
-@:forward abstract TileData(cpp.Pointer<TileData_extern>) from cpp.Pointer<TileData_extern> to cpp.Pointer<TileData_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.TileData):gdnative.TileData return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.TileData {
-		final v = new gd.TileData(this);
-		return v;
-	}
 }

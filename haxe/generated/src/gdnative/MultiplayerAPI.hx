@@ -1,4 +1,17 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract MultiplayerAPI(gdnative.Ref<MultiplayerAPI_extern>) from gdnative.Ref<MultiplayerAPI_extern> to gdnative.Ref<MultiplayerAPI_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.MultiplayerAPI):gdnative.MultiplayerAPI return @:privateAccess v.__ref.ptr().reinterpret();
+	@:to
+	inline function toWrapper():gd.MultiplayerAPI {
+		final v = new gd.MultiplayerAPI(this.ptr());
+		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+		return v;
+	}
+}
 @:include("godot_cpp/classes/multiplayer_api.hpp") @:native("godot::MultiplayerAPI") @:structAccess extern class MultiplayerAPI_extern extends gdnative.RefCounted.RefCounted_extern {
 	extern static inline function __alloc():cpp.Pointer<MultiplayerAPI_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::MultiplayerAPI"));
 	function has_multiplayer_peer():Bool;
@@ -16,14 +29,4 @@ package gdnative;
 	static function set_default_interface(p_interface_name:gdnative.StringName):Void;
 	static function get_default_interface():gdnative.StringName;
 	static function create_default_interface():gdnative.MultiplayerAPI;
-}
-@:forward abstract MultiplayerAPI(gdnative.Ref<MultiplayerAPI_extern>) from gdnative.Ref<MultiplayerAPI_extern> to gdnative.Ref<MultiplayerAPI_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.MultiplayerAPI):gdnative.MultiplayerAPI return @:privateAccess v.__ref.ptr().reinterpret();
-	@:to
-	inline function toWrapper():gd.MultiplayerAPI {
-		final v = new gd.MultiplayerAPI(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
 }

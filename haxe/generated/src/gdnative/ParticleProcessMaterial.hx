@@ -1,4 +1,17 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract ParticleProcessMaterial(gdnative.Ref<ParticleProcessMaterial_extern>) from gdnative.Ref<ParticleProcessMaterial_extern> to gdnative.Ref<ParticleProcessMaterial_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.ParticleProcessMaterial):gdnative.ParticleProcessMaterial return @:privateAccess v.__ref.ptr().reinterpret();
+	@:to
+	inline function toWrapper():gd.ParticleProcessMaterial {
+		final v = new gd.ParticleProcessMaterial(this.ptr());
+		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+		return v;
+	}
+}
 @:include("godot_cpp/classes/particle_process_material.hpp") @:native("godot::ParticleProcessMaterial") @:structAccess extern class ParticleProcessMaterial_extern extends gdnative.Material.Material_extern {
 	extern static inline function __alloc():cpp.Pointer<ParticleProcessMaterial_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::ParticleProcessMaterial"));
 	function set_direction(p_degrees:gdnative.Vector3):Void;
@@ -93,14 +106,4 @@ package gdnative;
 	function get_collision_friction():Float;
 	function set_collision_bounce(p_bounce:Float):Void;
 	function get_collision_bounce():Float;
-}
-@:forward abstract ParticleProcessMaterial(gdnative.Ref<ParticleProcessMaterial_extern>) from gdnative.Ref<ParticleProcessMaterial_extern> to gdnative.Ref<ParticleProcessMaterial_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.ParticleProcessMaterial):gdnative.ParticleProcessMaterial return @:privateAccess v.__ref.ptr().reinterpret();
-	@:to
-	inline function toWrapper():gd.ParticleProcessMaterial {
-		final v = new gd.ParticleProcessMaterial(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
 }

@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract OS(cpp.Pointer<OS_extern>) from cpp.Pointer<OS_extern> to cpp.Pointer<OS_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.OS):gdnative.OS return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.OS return new gd.OS(this);
+}
 @:include("godot_cpp/classes/os.hpp") @:native("godot::OS") @:structAccess extern class OS_extern extends gdnative.Object.Object_extern {
 	extern static inline function __alloc():cpp.Pointer<OS_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::OS"));
 	static function get_singleton():cpp.Pointer<OS_extern>;
@@ -92,13 +101,4 @@ package gdnative;
 	function request_permissions():Bool;
 	function get_granted_permissions():gdnative.PackedStringArray;
 	function revoke_granted_permissions():Void;
-}
-@:forward abstract OS(cpp.Pointer<OS_extern>) from cpp.Pointer<OS_extern> to cpp.Pointer<OS_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.OS):gdnative.OS return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.OS {
-		final v = new gd.OS(this);
-		return v;
-	}
 }

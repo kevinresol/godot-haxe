@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract NavigationAgent2D(cpp.Pointer<NavigationAgent2D_extern>) from cpp.Pointer<NavigationAgent2D_extern> to cpp.Pointer<NavigationAgent2D_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.NavigationAgent2D):gdnative.NavigationAgent2D return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.NavigationAgent2D return new gd.NavigationAgent2D(this);
+}
 @:include("godot_cpp/classes/navigation_agent2d.hpp") @:native("godot::NavigationAgent2D") @:structAccess extern class NavigationAgent2D_extern extends gdnative.Node.Node_extern {
 	extern static inline function __alloc():cpp.Pointer<NavigationAgent2D_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::NavigationAgent2D"));
 	function get_rid():gdnative.RID;
@@ -72,13 +81,4 @@ package gdnative;
 	function get_debug_path_custom_point_size():Float;
 	function set_debug_path_custom_line_width(p_line_width:Float):Void;
 	function get_debug_path_custom_line_width():Float;
-}
-@:forward abstract NavigationAgent2D(cpp.Pointer<NavigationAgent2D_extern>) from cpp.Pointer<NavigationAgent2D_extern> to cpp.Pointer<NavigationAgent2D_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.NavigationAgent2D):gdnative.NavigationAgent2D return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.NavigationAgent2D {
-		final v = new gd.NavigationAgent2D(this);
-		return v;
-	}
 }

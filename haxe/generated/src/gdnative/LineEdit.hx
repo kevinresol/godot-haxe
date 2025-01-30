@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract LineEdit(cpp.Pointer<LineEdit_extern>) from cpp.Pointer<LineEdit_extern> to cpp.Pointer<LineEdit_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.LineEdit):gdnative.LineEdit return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.LineEdit return new gd.LineEdit(this);
+}
 @:include("godot_cpp/classes/line_edit.hpp") @:native("godot::LineEdit") @:structAccess extern class LineEdit_extern extends gdnative.Control.Control_extern {
 	extern static inline function __alloc():cpp.Pointer<LineEdit_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::LineEdit"));
 	function set_horizontal_alignment(p_alignment:gdnative.HorizontalAlignment):Void;
@@ -78,13 +87,4 @@ package gdnative;
 	function is_flat():Bool;
 	function set_select_all_on_focus(p_enabled:Bool):Void;
 	function is_select_all_on_focus():Bool;
-}
-@:forward abstract LineEdit(cpp.Pointer<LineEdit_extern>) from cpp.Pointer<LineEdit_extern> to cpp.Pointer<LineEdit_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.LineEdit):gdnative.LineEdit return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.LineEdit {
-		final v = new gd.LineEdit(this);
-		return v;
-	}
 }

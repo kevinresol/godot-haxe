@@ -1,4 +1,17 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract Curve(gdnative.Ref<Curve_extern>) from gdnative.Ref<Curve_extern> to gdnative.Ref<Curve_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.Curve):gdnative.Curve return @:privateAccess v.__ref.ptr().reinterpret();
+	@:to
+	inline function toWrapper():gd.Curve {
+		final v = new gd.Curve(this.ptr());
+		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+		return v;
+	}
+}
 @:include("godot_cpp/classes/curve.hpp") @:native("godot::Curve") @:structAccess extern class Curve_extern extends gdnative.Resource.Resource_extern {
 	extern static inline function __alloc():cpp.Pointer<Curve_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::Curve"));
 	function get_point_count():Int;
@@ -31,14 +44,4 @@ package gdnative;
 	function bake():Void;
 	function get_bake_resolution():Int;
 	function set_bake_resolution(p_resolution:Int):Void;
-}
-@:forward abstract Curve(gdnative.Ref<Curve_extern>) from gdnative.Ref<Curve_extern> to gdnative.Ref<Curve_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.Curve):gdnative.Curve return @:privateAccess v.__ref.ptr().reinterpret();
-	@:to
-	inline function toWrapper():gd.Curve {
-		final v = new gd.Curve(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
 }

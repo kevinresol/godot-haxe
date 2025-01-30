@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract AnimatedSprite2D(cpp.Pointer<AnimatedSprite2D_extern>) from cpp.Pointer<AnimatedSprite2D_extern> to cpp.Pointer<AnimatedSprite2D_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.AnimatedSprite2D):gdnative.AnimatedSprite2D return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.AnimatedSprite2D return new gd.AnimatedSprite2D(this);
+}
 @:include("godot_cpp/classes/animated_sprite2d.hpp") @:native("godot::AnimatedSprite2D") @:structAccess extern class AnimatedSprite2D_extern extends gdnative.Node2D.Node2D_extern {
 	extern static inline function __alloc():cpp.Pointer<AnimatedSprite2D_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::AnimatedSprite2D"));
 	function set_sprite_frames(p_sprite_frames:gdnative.SpriteFrames):Void;
@@ -32,13 +41,4 @@ package gdnative;
 	function set_speed_scale(p_speed_scale:Float):Void;
 	function get_speed_scale():Float;
 	function get_playing_speed():Float;
-}
-@:forward abstract AnimatedSprite2D(cpp.Pointer<AnimatedSprite2D_extern>) from cpp.Pointer<AnimatedSprite2D_extern> to cpp.Pointer<AnimatedSprite2D_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.AnimatedSprite2D):gdnative.AnimatedSprite2D return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.AnimatedSprite2D {
-		final v = new gd.AnimatedSprite2D(this);
-		return v;
-	}
 }

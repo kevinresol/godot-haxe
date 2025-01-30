@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract VisualInstance3D(cpp.Pointer<VisualInstance3D_extern>) from cpp.Pointer<VisualInstance3D_extern> to cpp.Pointer<VisualInstance3D_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.VisualInstance3D):gdnative.VisualInstance3D return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.VisualInstance3D return new gd.VisualInstance3D(this);
+}
 @:include("godot_cpp/classes/visual_instance3d.hpp") @:native("godot::VisualInstance3D") @:structAccess extern class VisualInstance3D_extern extends gdnative.Node3D.Node3D_extern {
 	extern static inline function __alloc():cpp.Pointer<VisualInstance3D_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::VisualInstance3D"));
 	function _get_aabb():gdnative.AABB;
@@ -14,13 +23,4 @@ package gdnative;
 	function set_sorting_use_aabb_center(p_enabled:Bool):Void;
 	function is_sorting_use_aabb_center():Bool;
 	function get_aabb():gdnative.AABB;
-}
-@:forward abstract VisualInstance3D(cpp.Pointer<VisualInstance3D_extern>) from cpp.Pointer<VisualInstance3D_extern> to cpp.Pointer<VisualInstance3D_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.VisualInstance3D):gdnative.VisualInstance3D return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.VisualInstance3D {
-		final v = new gd.VisualInstance3D(this);
-		return v;
-	}
 }

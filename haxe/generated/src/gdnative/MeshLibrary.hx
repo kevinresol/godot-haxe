@@ -1,4 +1,17 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract MeshLibrary(gdnative.Ref<MeshLibrary_extern>) from gdnative.Ref<MeshLibrary_extern> to gdnative.Ref<MeshLibrary_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.MeshLibrary):gdnative.MeshLibrary return @:privateAccess v.__ref.ptr().reinterpret();
+	@:to
+	inline function toWrapper():gd.MeshLibrary {
+		final v = new gd.MeshLibrary(this.ptr());
+		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+		return v;
+	}
+}
 @:include("godot_cpp/classes/mesh_library.hpp") @:native("godot::MeshLibrary") @:structAccess extern class MeshLibrary_extern extends gdnative.Resource.Resource_extern {
 	extern static inline function __alloc():cpp.Pointer<MeshLibrary_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::MeshLibrary"));
 	function create_item(p_id:Int):Void;
@@ -23,14 +36,4 @@ package gdnative;
 	function clear():Void;
 	function get_item_list():gdnative.PackedInt32Array;
 	function get_last_unused_item_id():Int;
-}
-@:forward abstract MeshLibrary(gdnative.Ref<MeshLibrary_extern>) from gdnative.Ref<MeshLibrary_extern> to gdnative.Ref<MeshLibrary_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.MeshLibrary):gdnative.MeshLibrary return @:privateAccess v.__ref.ptr().reinterpret();
-	@:to
-	inline function toWrapper():gd.MeshLibrary {
-		final v = new gd.MeshLibrary(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
 }

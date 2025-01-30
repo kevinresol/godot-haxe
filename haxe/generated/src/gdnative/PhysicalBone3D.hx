@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract PhysicalBone3D(cpp.Pointer<PhysicalBone3D_extern>) from cpp.Pointer<PhysicalBone3D_extern> to cpp.Pointer<PhysicalBone3D_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.PhysicalBone3D):gdnative.PhysicalBone3D return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.PhysicalBone3D return new gd.PhysicalBone3D(this);
+}
 @:include("godot_cpp/classes/physical_bone3d.hpp") @:native("godot::PhysicalBone3D") @:structAccess extern class PhysicalBone3D_extern extends gdnative.PhysicsBody3D.PhysicsBody3D_extern {
 	extern static inline function __alloc():cpp.Pointer<PhysicalBone3D_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::PhysicalBone3D"));
 	function _integrate_forces(p_state:gdnative.PhysicsDirectBodyState3D):Void;
@@ -40,13 +49,4 @@ package gdnative;
 	function is_using_custom_integrator():Bool;
 	function set_can_sleep(p_able_to_sleep:Bool):Void;
 	function is_able_to_sleep():Bool;
-}
-@:forward abstract PhysicalBone3D(cpp.Pointer<PhysicalBone3D_extern>) from cpp.Pointer<PhysicalBone3D_extern> to cpp.Pointer<PhysicalBone3D_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.PhysicalBone3D):gdnative.PhysicalBone3D return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.PhysicalBone3D {
-		final v = new gd.PhysicalBone3D(this);
-		return v;
-	}
 }

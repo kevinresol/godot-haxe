@@ -1,4 +1,17 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract WebRTCPeerConnectionExtension(gdnative.Ref<WebRTCPeerConnectionExtension_extern>) from gdnative.Ref<WebRTCPeerConnectionExtension_extern> to gdnative.Ref<WebRTCPeerConnectionExtension_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.WebRTCPeerConnectionExtension):gdnative.WebRTCPeerConnectionExtension return @:privateAccess v.__ref.ptr().reinterpret();
+	@:to
+	inline function toWrapper():gd.WebRTCPeerConnectionExtension {
+		final v = new gd.WebRTCPeerConnectionExtension(this.ptr());
+		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+		return v;
+	}
+}
 @:include("godot_cpp/classes/web_rtc_peer_connection_extension.hpp") @:native("godot::WebRTCPeerConnectionExtension") @:structAccess extern class WebRTCPeerConnectionExtension_extern extends gdnative.WebRTCPeerConnection.WebRTCPeerConnection_extern {
 	extern static inline function __alloc():cpp.Pointer<WebRTCPeerConnectionExtension_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::WebRTCPeerConnectionExtension"));
 	function _get_connection_state():gdnative.webrtcpeerconnection.ConnectionState;
@@ -12,14 +25,4 @@ package gdnative;
 	function _add_ice_candidate(p_p_sdp_mid_name:gdnative.String, p_p_sdp_mline_index:Int, p_p_sdp_name:gdnative.String):gdnative.Error;
 	function _poll():gdnative.Error;
 	function _close():Void;
-}
-@:forward abstract WebRTCPeerConnectionExtension(gdnative.Ref<WebRTCPeerConnectionExtension_extern>) from gdnative.Ref<WebRTCPeerConnectionExtension_extern> to gdnative.Ref<WebRTCPeerConnectionExtension_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.WebRTCPeerConnectionExtension):gdnative.WebRTCPeerConnectionExtension return @:privateAccess v.__ref.ptr().reinterpret();
-	@:to
-	inline function toWrapper():gd.WebRTCPeerConnectionExtension {
-		final v = new gd.WebRTCPeerConnectionExtension(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
 }

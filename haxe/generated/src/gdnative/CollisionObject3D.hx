@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract CollisionObject3D(cpp.Pointer<CollisionObject3D_extern>) from cpp.Pointer<CollisionObject3D_extern> to cpp.Pointer<CollisionObject3D_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.CollisionObject3D):gdnative.CollisionObject3D return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.CollisionObject3D return new gd.CollisionObject3D(this);
+}
 @:include("godot_cpp/classes/collision_object3d.hpp") @:native("godot::CollisionObject3D") @:structAccess extern class CollisionObject3D_extern extends gdnative.Node3D.Node3D_extern {
 	extern static inline function __alloc():cpp.Pointer<CollisionObject3D_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::CollisionObject3D"));
 	function _input_event(p_camera:gdnative.Camera3D, p_event:gdnative.InputEvent, p_event_position:gdnative.Vector3, p_normal:gdnative.Vector3, p_shape_idx:Int):Void;
@@ -36,13 +45,4 @@ package gdnative;
 	function shape_owner_remove_shape(p_owner_id:Int, p_shape_id:Int):Void;
 	function shape_owner_clear_shapes(p_owner_id:Int):Void;
 	function shape_find_owner(p_shape_index:Int):Int;
-}
-@:forward abstract CollisionObject3D(cpp.Pointer<CollisionObject3D_extern>) from cpp.Pointer<CollisionObject3D_extern> to cpp.Pointer<CollisionObject3D_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.CollisionObject3D):gdnative.CollisionObject3D return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.CollisionObject3D {
-		final v = new gd.CollisionObject3D(this);
-		return v;
-	}
 }

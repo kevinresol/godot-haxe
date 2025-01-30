@@ -1,4 +1,17 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract SurfaceTool(gdnative.Ref<SurfaceTool_extern>) from gdnative.Ref<SurfaceTool_extern> to gdnative.Ref<SurfaceTool_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.SurfaceTool):gdnative.SurfaceTool return @:privateAccess v.__ref.ptr().reinterpret();
+	@:to
+	inline function toWrapper():gd.SurfaceTool {
+		final v = new gd.SurfaceTool(this.ptr());
+		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+		return v;
+	}
+}
 @:include("godot_cpp/classes/surface_tool.hpp") @:native("godot::SurfaceTool") @:structAccess extern class SurfaceTool_extern extends gdnative.RefCounted.RefCounted_extern {
 	extern static inline function __alloc():cpp.Pointer<SurfaceTool_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::SurfaceTool"));
 	function set_skin_weight_count(p_count:gdnative.surfacetool.SkinWeightCount):Void;
@@ -38,14 +51,4 @@ package gdnative;
 	overload function commit(p_existing:gdnative.ArrayMesh):gdnative.ArrayMesh;
 	overload function commit(p_existing:gdnative.ArrayMesh, p_flags:Int):gdnative.ArrayMesh;
 	function commit_to_arrays():gdnative.Array;
-}
-@:forward abstract SurfaceTool(gdnative.Ref<SurfaceTool_extern>) from gdnative.Ref<SurfaceTool_extern> to gdnative.Ref<SurfaceTool_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.SurfaceTool):gdnative.SurfaceTool return @:privateAccess v.__ref.ptr().reinterpret();
-	@:to
-	inline function toWrapper():gd.SurfaceTool {
-		final v = new gd.SurfaceTool(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
 }

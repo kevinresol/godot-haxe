@@ -1,4 +1,17 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract TextParagraph(gdnative.Ref<TextParagraph_extern>) from gdnative.Ref<TextParagraph_extern> to gdnative.Ref<TextParagraph_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.TextParagraph):gdnative.TextParagraph return @:privateAccess v.__ref.ptr().reinterpret();
+	@:to
+	inline function toWrapper():gd.TextParagraph {
+		final v = new gd.TextParagraph(this.ptr());
+		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+		return v;
+	}
+}
 @:include("godot_cpp/classes/text_paragraph.hpp") @:native("godot::TextParagraph") @:structAccess extern class TextParagraph_extern extends gdnative.RefCounted.RefCounted_extern {
 	extern static inline function __alloc():cpp.Pointer<TextParagraph_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::TextParagraph"));
 	function clear():Void;
@@ -77,14 +90,4 @@ package gdnative;
 	overload function draw_dropcap_outline(p_canvas:gdnative.RID, p_pos:gdnative.Vector2, p_outline_size:Int):Void;
 	overload function draw_dropcap_outline(p_canvas:gdnative.RID, p_pos:gdnative.Vector2, p_outline_size:Int, p_color:gdnative.Color):Void;
 	function hit_test(p_coords:gdnative.Vector2):Int;
-}
-@:forward abstract TextParagraph(gdnative.Ref<TextParagraph_extern>) from gdnative.Ref<TextParagraph_extern> to gdnative.Ref<TextParagraph_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.TextParagraph):gdnative.TextParagraph return @:privateAccess v.__ref.ptr().reinterpret();
-	@:to
-	inline function toWrapper():gd.TextParagraph {
-		final v = new gd.TextParagraph(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
 }

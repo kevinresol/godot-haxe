@@ -1,4 +1,17 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract OpenXRActionMap(gdnative.Ref<OpenXRActionMap_extern>) from gdnative.Ref<OpenXRActionMap_extern> to gdnative.Ref<OpenXRActionMap_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.OpenXRActionMap):gdnative.OpenXRActionMap return @:privateAccess v.__ref.ptr().reinterpret();
+	@:to
+	inline function toWrapper():gd.OpenXRActionMap {
+		final v = new gd.OpenXRActionMap(this.ptr());
+		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+		return v;
+	}
+}
 @:include("godot_cpp/classes/open_xr_action_map.hpp") @:native("godot::OpenXRActionMap") @:structAccess extern class OpenXRActionMap_extern extends gdnative.Resource.Resource_extern {
 	extern static inline function __alloc():cpp.Pointer<OpenXRActionMap_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::OpenXRActionMap"));
 	function set_action_sets(p_action_sets:gdnative.Array):Void;
@@ -16,14 +29,4 @@ package gdnative;
 	function add_interaction_profile(p_interaction_profile:gdnative.OpenXRInteractionProfile):Void;
 	function remove_interaction_profile(p_interaction_profile:gdnative.OpenXRInteractionProfile):Void;
 	function create_default_action_sets():Void;
-}
-@:forward abstract OpenXRActionMap(gdnative.Ref<OpenXRActionMap_extern>) from gdnative.Ref<OpenXRActionMap_extern> to gdnative.Ref<OpenXRActionMap_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.OpenXRActionMap):gdnative.OpenXRActionMap return @:privateAccess v.__ref.ptr().reinterpret();
-	@:to
-	inline function toWrapper():gd.OpenXRActionMap {
-		final v = new gd.OpenXRActionMap(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
 }

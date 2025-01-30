@@ -1,4 +1,17 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract CharFXTransform(gdnative.Ref<CharFXTransform_extern>) from gdnative.Ref<CharFXTransform_extern> to gdnative.Ref<CharFXTransform_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.CharFXTransform):gdnative.CharFXTransform return @:privateAccess v.__ref.ptr().reinterpret();
+	@:to
+	inline function toWrapper():gd.CharFXTransform {
+		final v = new gd.CharFXTransform(this.ptr());
+		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+		return v;
+	}
+}
 @:include("godot_cpp/classes/char_fx_transform.hpp") @:native("godot::CharFXTransform") @:structAccess extern class CharFXTransform_extern extends gdnative.RefCounted.RefCounted_extern {
 	extern static inline function __alloc():cpp.Pointer<CharFXTransform_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::CharFXTransform"));
 	function get_transform():gdnative.Transform2D;
@@ -27,14 +40,4 @@ package gdnative;
 	function set_glyph_flags(p_glyph_flags:Int):Void;
 	function get_font():gdnative.RID;
 	function set_font(p_font:gdnative.RID):Void;
-}
-@:forward abstract CharFXTransform(gdnative.Ref<CharFXTransform_extern>) from gdnative.Ref<CharFXTransform_extern> to gdnative.Ref<CharFXTransform_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.CharFXTransform):gdnative.CharFXTransform return @:privateAccess v.__ref.ptr().reinterpret();
-	@:to
-	inline function toWrapper():gd.CharFXTransform {
-		final v = new gd.CharFXTransform(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
 }

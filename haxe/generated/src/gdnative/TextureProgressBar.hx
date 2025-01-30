@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract TextureProgressBar(cpp.Pointer<TextureProgressBar_extern>) from cpp.Pointer<TextureProgressBar_extern> to cpp.Pointer<TextureProgressBar_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.TextureProgressBar):gdnative.TextureProgressBar return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.TextureProgressBar return new gd.TextureProgressBar(this);
+}
 @:include("godot_cpp/classes/texture_progress_bar.hpp") @:native("godot::TextureProgressBar") @:structAccess extern class TextureProgressBar_extern extends gdnative.Range.Range_extern {
 	extern static inline function __alloc():cpp.Pointer<TextureProgressBar_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::TextureProgressBar"));
 	function set_under_texture(p_tex:gdnative.Texture2D):Void;
@@ -27,13 +36,4 @@ package gdnative;
 	function get_stretch_margin(p_margin:gdnative.Side):Int;
 	function set_nine_patch_stretch(p_stretch:Bool):Void;
 	function get_nine_patch_stretch():Bool;
-}
-@:forward abstract TextureProgressBar(cpp.Pointer<TextureProgressBar_extern>) from cpp.Pointer<TextureProgressBar_extern> to cpp.Pointer<TextureProgressBar_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.TextureProgressBar):gdnative.TextureProgressBar return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.TextureProgressBar {
-		final v = new gd.TextureProgressBar(this);
-		return v;
-	}
 }

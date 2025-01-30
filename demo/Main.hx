@@ -91,6 +91,23 @@ class Main extends Base {
 		final scn = sub.instantiate();
 		print(scn);
 		add_child(scn);
+
+		trace('JSON checks (cppia)');
+		final json = new gd.JSON();
+		switch json.parse('{"foo": 42, "bar": true, "baz": ["hello", "world"]}') {
+			case OK:
+				final data = json.data;
+				print(data.get_type());
+				print(data);
+				print(data["foo"]);
+				print(data["bar"]);
+				print(data["baz"]);
+				print(type_string(typeof(data["foo"])));
+				print(type_string(typeof(data["bar"])));
+				print(type_string(typeof(data["baz"])));
+			case err:
+				trace('Error parsing JSON: $err');
+		}
 	}
 
 	function _notification(what:Int, ?p_reversed:Bool) {

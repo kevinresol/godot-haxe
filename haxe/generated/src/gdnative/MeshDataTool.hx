@@ -1,4 +1,17 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract MeshDataTool(gdnative.Ref<MeshDataTool_extern>) from gdnative.Ref<MeshDataTool_extern> to gdnative.Ref<MeshDataTool_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.MeshDataTool):gdnative.MeshDataTool return @:privateAccess v.__ref.ptr().reinterpret();
+	@:to
+	inline function toWrapper():gd.MeshDataTool {
+		final v = new gd.MeshDataTool(this.ptr());
+		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+		return v;
+	}
+}
 @:include("godot_cpp/classes/mesh_data_tool.hpp") @:native("godot::MeshDataTool") @:structAccess extern class MeshDataTool_extern extends gdnative.RefCounted.RefCounted_extern {
 	extern static inline function __alloc():cpp.Pointer<MeshDataTool_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::MeshDataTool"));
 	function clear():Void;
@@ -40,14 +53,4 @@ package gdnative;
 	function get_face_normal(p_idx:Int):gdnative.Vector3;
 	function set_material(p_material:gdnative.Material):Void;
 	function get_material():gdnative.Material;
-}
-@:forward abstract MeshDataTool(gdnative.Ref<MeshDataTool_extern>) from gdnative.Ref<MeshDataTool_extern> to gdnative.Ref<MeshDataTool_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.MeshDataTool):gdnative.MeshDataTool return @:privateAccess v.__ref.ptr().reinterpret();
-	@:to
-	inline function toWrapper():gd.MeshDataTool {
-		final v = new gd.MeshDataTool(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
 }

@@ -1,4 +1,23 @@
 package gdnative;
+/**
+	Built-in Class
+**/
+@:forward abstract Rect2(cpp.Struct<Rect2_extern>) from cpp.Struct<Rect2_extern> to cpp.Struct<Rect2_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.Rect2):gdnative.Rect2 return fromWrapperInternal(v);
+	@:from
+	static inline function fromWrapperInternal(v:gd.Rect2.Rect2_wrapper):gdnative.Rect2 return untyped __cpp__('{0}.get()', @:privateAccess v.__gd);
+	@:to
+	inline function toWrapper():gd.Rect2 return toWrapperInternal();
+	@:to
+	inline function toWrapperInternal():gd.Rect2.Rect2_wrapper return new gd.Rect2.Rect2_wrapper(this);
+	public extern overload inline function new() this = new gdnative.Rect2.Rect2_extern();
+	public extern overload inline function new(p_from:gd.Rect2) this = new gdnative.Rect2.Rect2_extern(p_from);
+	public extern overload inline function new(p_from:gd.Rect2i) this = new gdnative.Rect2.Rect2_extern(p_from);
+	public extern overload inline function new(p_position:gd.Vector2, p_size:gd.Vector2) this = new gdnative.Rect2.Rect2_extern(p_position, p_size);
+	public extern overload inline function new(p_x:Float, p_y:Float, p_width:Float, p_height:Float) this = new gdnative.Rect2.Rect2_extern(p_x, p_y, p_width, p_height);
+}
+
 @:include("godot_cpp/variant/rect2.hpp") @:native("godot::Rect2") @:structAccess extern class Rect2_extern {
 	@:overload(function(p_from:gdnative.Rect2):Void { })
 	@:overload(function(p_from:gdnative.Rect2i):Void { })
@@ -23,20 +42,4 @@ package gdnative;
 	function abs():gdnative.Rect2;
 	var position : gdnative.Vector2;
 	var size : gdnative.Vector2;
-}
-
-@:forward abstract Rect2(cpp.Struct<Rect2_extern>) from cpp.Struct<Rect2_extern> to cpp.Struct<Rect2_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.Rect2):gdnative.Rect2 return fromWrapperInternal(v);
-	@:from
-	static inline function fromWrapperInternal(v:gd.Rect2.Rect2_wrapper):gdnative.Rect2 return untyped __cpp__('{0}.get()', @:privateAccess v.__gd);
-	@:to
-	inline function toWrapper():gd.Rect2 return toWrapperInternal();
-	@:to
-	inline function toWrapperInternal():gd.Rect2.Rect2_wrapper return new gd.Rect2.Rect2_wrapper(this);
-	public extern overload inline function new() this = new gdnative.Rect2.Rect2_extern();
-	public extern overload inline function new(p_from:gd.Rect2) this = new gdnative.Rect2.Rect2_extern(p_from);
-	public extern overload inline function new(p_from:gd.Rect2i) this = new gdnative.Rect2.Rect2_extern(p_from);
-	public extern overload inline function new(p_position:gd.Vector2, p_size:gd.Vector2) this = new gdnative.Rect2.Rect2_extern(p_position, p_size);
-	public extern overload inline function new(p_x:Float, p_y:Float, p_width:Float, p_height:Float) this = new gdnative.Rect2.Rect2_extern(p_x, p_y, p_width, p_height);
 }

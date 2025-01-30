@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract NativeMenu(cpp.Pointer<NativeMenu_extern>) from cpp.Pointer<NativeMenu_extern> to cpp.Pointer<NativeMenu_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.NativeMenu):gdnative.NativeMenu return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.NativeMenu return new gd.NativeMenu(this);
+}
 @:include("godot_cpp/classes/native_menu.hpp") @:native("godot::NativeMenu") @:structAccess extern class NativeMenu_extern extends gdnative.Object.Object_extern {
 	extern static inline function __alloc():cpp.Pointer<NativeMenu_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::NativeMenu"));
 	static function get_singleton():cpp.Pointer<NativeMenu_extern>;
@@ -106,13 +115,4 @@ package gdnative;
 	function is_system_menu(p_rid:gdnative.RID):Bool;
 	function remove_item(p_rid:gdnative.RID, p_idx:Int):Void;
 	function clear(p_rid:gdnative.RID):Void;
-}
-@:forward abstract NativeMenu(cpp.Pointer<NativeMenu_extern>) from cpp.Pointer<NativeMenu_extern> to cpp.Pointer<NativeMenu_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.NativeMenu):gdnative.NativeMenu return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.NativeMenu {
-		final v = new gd.NativeMenu(this);
-		return v;
-	}
 }

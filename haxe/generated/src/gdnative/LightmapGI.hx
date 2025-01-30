@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract LightmapGI(cpp.Pointer<LightmapGI_extern>) from cpp.Pointer<LightmapGI_extern> to cpp.Pointer<LightmapGI_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.LightmapGI):gdnative.LightmapGI return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.LightmapGI return new gd.LightmapGI(this);
+}
 @:include("godot_cpp/classes/lightmap_gi.hpp") @:native("godot::LightmapGI") @:structAccess extern class LightmapGI_extern extends gdnative.VisualInstance3D.VisualInstance3D_extern {
 	extern static inline function __alloc():cpp.Pointer<LightmapGI_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::LightmapGI"));
 	function set_light_data(p_data:gdnative.LightmapGIData):Void;
@@ -39,13 +48,4 @@ package gdnative;
 	function is_using_texture_for_bounces():Bool;
 	function set_camera_attributes(p_camera_attributes:gdnative.CameraAttributes):Void;
 	function get_camera_attributes():gdnative.CameraAttributes;
-}
-@:forward abstract LightmapGI(cpp.Pointer<LightmapGI_extern>) from cpp.Pointer<LightmapGI_extern> to cpp.Pointer<LightmapGI_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.LightmapGI):gdnative.LightmapGI return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.LightmapGI {
-		final v = new gd.LightmapGI(this);
-		return v;
-	}
 }

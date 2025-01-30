@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract ProjectSettings(cpp.Pointer<ProjectSettings_extern>) from cpp.Pointer<ProjectSettings_extern> to cpp.Pointer<ProjectSettings_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.ProjectSettings):gdnative.ProjectSettings return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.ProjectSettings return new gd.ProjectSettings(this);
+}
 @:include("godot_cpp/classes/project_settings.hpp") @:native("godot::ProjectSettings") @:structAccess extern class ProjectSettings_extern extends gdnative.Object.Object_extern {
 	extern static inline function __alloc():cpp.Pointer<ProjectSettings_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::ProjectSettings"));
 	static function get_singleton():cpp.Pointer<ProjectSettings_extern>;
@@ -22,13 +31,4 @@ package gdnative;
 	overload function load_resource_pack(p_pack:gdnative.String, p_replace_files:Bool):Bool;
 	overload function load_resource_pack(p_pack:gdnative.String, p_replace_files:Bool, p_offset:Int):Bool;
 	function save_custom(p_file:gdnative.String):gdnative.Error;
-}
-@:forward abstract ProjectSettings(cpp.Pointer<ProjectSettings_extern>) from cpp.Pointer<ProjectSettings_extern> to cpp.Pointer<ProjectSettings_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.ProjectSettings):gdnative.ProjectSettings return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.ProjectSettings {
-		final v = new gd.ProjectSettings(this);
-		return v;
-	}
 }

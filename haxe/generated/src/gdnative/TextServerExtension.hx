@@ -1,4 +1,17 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract TextServerExtension(gdnative.Ref<TextServerExtension_extern>) from gdnative.Ref<TextServerExtension_extern> to gdnative.Ref<TextServerExtension_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.TextServerExtension):gdnative.TextServerExtension return @:privateAccess v.__ref.ptr().reinterpret();
+	@:to
+	inline function toWrapper():gd.TextServerExtension {
+		final v = new gd.TextServerExtension(this.ptr());
+		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+		return v;
+	}
+}
 @:include("godot_cpp/classes/text_server_extension.hpp") @:native("godot::TextServerExtension") @:structAccess extern class TextServerExtension_extern extends gdnative.TextServer.TextServer_extern {
 	extern static inline function __alloc():cpp.Pointer<TextServerExtension_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::TextServerExtension"));
 	function _has_feature(p_feature:gdnative.textserver.Feature):Bool;
@@ -207,14 +220,4 @@ package gdnative;
 	function _string_to_lower(p_string:gdnative.String, p_language:gdnative.String):gdnative.String;
 	function _string_to_title(p_string:gdnative.String, p_language:gdnative.String):gdnative.String;
 	function _cleanup():Void;
-}
-@:forward abstract TextServerExtension(gdnative.Ref<TextServerExtension_extern>) from gdnative.Ref<TextServerExtension_extern> to gdnative.Ref<TextServerExtension_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.TextServerExtension):gdnative.TextServerExtension return @:privateAccess v.__ref.ptr().reinterpret();
-	@:to
-	inline function toWrapper():gd.TextServerExtension {
-		final v = new gd.TextServerExtension(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
 }

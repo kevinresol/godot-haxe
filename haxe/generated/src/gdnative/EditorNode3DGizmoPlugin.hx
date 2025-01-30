@@ -1,4 +1,17 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract EditorNode3DGizmoPlugin(gdnative.Ref<EditorNode3DGizmoPlugin_extern>) from gdnative.Ref<EditorNode3DGizmoPlugin_extern> to gdnative.Ref<EditorNode3DGizmoPlugin_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.EditorNode3DGizmoPlugin):gdnative.EditorNode3DGizmoPlugin return @:privateAccess v.__ref.ptr().reinterpret();
+	@:to
+	inline function toWrapper():gd.EditorNode3DGizmoPlugin {
+		final v = new gd.EditorNode3DGizmoPlugin(this.ptr());
+		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+		return v;
+	}
+}
 @:include("godot_cpp/classes/editor_node3d_gizmo_plugin.hpp") @:native("godot::EditorNode3DGizmoPlugin") @:structAccess extern class EditorNode3DGizmoPlugin_extern extends gdnative.Resource.Resource_extern {
 	extern static inline function __alloc():cpp.Pointer<EditorNode3DGizmoPlugin_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::EditorNode3DGizmoPlugin"));
 	function _has_gizmo(p_for_node_3d:gdnative.Node3D):Bool;
@@ -30,14 +43,4 @@ package gdnative;
 	function add_material(p_name:gdnative.String, p_material:gdnative.StandardMaterial3D):Void;
 	overload function get_material(p_name:gdnative.String):gdnative.StandardMaterial3D;
 	overload function get_material(p_name:gdnative.String, p_gizmo:gdnative.EditorNode3DGizmo):gdnative.StandardMaterial3D;
-}
-@:forward abstract EditorNode3DGizmoPlugin(gdnative.Ref<EditorNode3DGizmoPlugin_extern>) from gdnative.Ref<EditorNode3DGizmoPlugin_extern> to gdnative.Ref<EditorNode3DGizmoPlugin_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.EditorNode3DGizmoPlugin):gdnative.EditorNode3DGizmoPlugin return @:privateAccess v.__ref.ptr().reinterpret();
-	@:to
-	inline function toWrapper():gd.EditorNode3DGizmoPlugin {
-		final v = new gd.EditorNode3DGizmoPlugin(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
 }

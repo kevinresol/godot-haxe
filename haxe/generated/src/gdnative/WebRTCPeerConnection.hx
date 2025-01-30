@@ -1,4 +1,17 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract WebRTCPeerConnection(gdnative.Ref<WebRTCPeerConnection_extern>) from gdnative.Ref<WebRTCPeerConnection_extern> to gdnative.Ref<WebRTCPeerConnection_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.WebRTCPeerConnection):gdnative.WebRTCPeerConnection return @:privateAccess v.__ref.ptr().reinterpret();
+	@:to
+	inline function toWrapper():gd.WebRTCPeerConnection {
+		final v = new gd.WebRTCPeerConnection(this.ptr());
+		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+		return v;
+	}
+}
 @:include("godot_cpp/classes/web_rtc_peer_connection.hpp") @:native("godot::WebRTCPeerConnection") @:structAccess extern class WebRTCPeerConnection_extern extends gdnative.RefCounted.RefCounted_extern {
 	extern static inline function __alloc():cpp.Pointer<WebRTCPeerConnection_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::WebRTCPeerConnection"));
 	static function set_default_extension(p_extension_class:gdnative.StringName):Void;
@@ -15,14 +28,4 @@ package gdnative;
 	function get_connection_state():gdnative.webrtcpeerconnection.ConnectionState;
 	function get_gathering_state():gdnative.webrtcpeerconnection.GatheringState;
 	function get_signaling_state():gdnative.webrtcpeerconnection.SignalingState;
-}
-@:forward abstract WebRTCPeerConnection(gdnative.Ref<WebRTCPeerConnection_extern>) from gdnative.Ref<WebRTCPeerConnection_extern> to gdnative.Ref<WebRTCPeerConnection_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.WebRTCPeerConnection):gdnative.WebRTCPeerConnection return @:privateAccess v.__ref.ptr().reinterpret();
-	@:to
-	inline function toWrapper():gd.WebRTCPeerConnection {
-		final v = new gd.WebRTCPeerConnection(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
 }

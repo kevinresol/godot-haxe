@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract TextEdit(cpp.Pointer<TextEdit_extern>) from cpp.Pointer<TextEdit_extern> to cpp.Pointer<TextEdit_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.TextEdit):gdnative.TextEdit return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.TextEdit return new gd.TextEdit(this);
+}
 @:include("godot_cpp/classes/text_edit.hpp") @:native("godot::TextEdit") @:structAccess extern class TextEdit_extern extends gdnative.Control.Control_extern {
 	extern static inline function __alloc():cpp.Pointer<TextEdit_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::TextEdit"));
 	function _handle_unicode_input(p_unicode_char:Int, p_caret_index:Int):Void;
@@ -293,13 +302,4 @@ package gdnative;
 	overload function get_selection_line(p_caret_index:Int):Int;
 	overload function get_selection_column():Int;
 	overload function get_selection_column(p_caret_index:Int):Int;
-}
-@:forward abstract TextEdit(cpp.Pointer<TextEdit_extern>) from cpp.Pointer<TextEdit_extern> to cpp.Pointer<TextEdit_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.TextEdit):gdnative.TextEdit return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.TextEdit {
-		final v = new gd.TextEdit(this);
-		return v;
-	}
 }

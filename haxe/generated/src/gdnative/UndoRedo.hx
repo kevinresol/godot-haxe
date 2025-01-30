@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract UndoRedo(cpp.Pointer<UndoRedo_extern>) from cpp.Pointer<UndoRedo_extern> to cpp.Pointer<UndoRedo_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.UndoRedo):gdnative.UndoRedo return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.UndoRedo return new gd.UndoRedo(this);
+}
 @:include("godot_cpp/classes/undo_redo.hpp") @:native("godot::UndoRedo") @:structAccess extern class UndoRedo_extern extends gdnative.Object.Object_extern {
 	extern static inline function __alloc():cpp.Pointer<UndoRedo_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::UndoRedo"));
 	overload function create_action(p_name:gdnative.String):Void;
@@ -28,13 +37,4 @@ package gdnative;
 	function get_max_steps():Int;
 	function redo():Bool;
 	function undo():Bool;
-}
-@:forward abstract UndoRedo(cpp.Pointer<UndoRedo_extern>) from cpp.Pointer<UndoRedo_extern> to cpp.Pointer<UndoRedo_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.UndoRedo):gdnative.UndoRedo return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.UndoRedo {
-		final v = new gd.UndoRedo(this);
-		return v;
-	}
 }

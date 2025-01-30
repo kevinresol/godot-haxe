@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract EditorFileDialog(cpp.Pointer<EditorFileDialog_extern>) from cpp.Pointer<EditorFileDialog_extern> to cpp.Pointer<EditorFileDialog_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.EditorFileDialog):gdnative.EditorFileDialog return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.EditorFileDialog return new gd.EditorFileDialog(this);
+}
 @:include("godot_cpp/classes/editor_file_dialog.hpp") @:native("godot::EditorFileDialog") @:structAccess extern class EditorFileDialog_extern extends gdnative.ConfirmationDialog.ConfirmationDialog_extern {
 	extern static inline function __alloc():cpp.Pointer<EditorFileDialog_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::EditorFileDialog"));
 	function clear_filters():Void;
@@ -38,13 +47,4 @@ package gdnative;
 	overload function add_side_menu(p_menu:gdnative.Control, p_title:gdnative.String):Void;
 	function popup_file_dialog():Void;
 	function invalidate():Void;
-}
-@:forward abstract EditorFileDialog(cpp.Pointer<EditorFileDialog_extern>) from cpp.Pointer<EditorFileDialog_extern> to cpp.Pointer<EditorFileDialog_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.EditorFileDialog):gdnative.EditorFileDialog return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.EditorFileDialog {
-		final v = new gd.EditorFileDialog(this);
-		return v;
-	}
 }

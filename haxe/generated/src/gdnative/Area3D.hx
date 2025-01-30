@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract Area3D(cpp.Pointer<Area3D_extern>) from cpp.Pointer<Area3D_extern> to cpp.Pointer<Area3D_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.Area3D):gdnative.Area3D return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.Area3D return new gd.Area3D(this);
+}
 @:include("godot_cpp/classes/area3d.hpp") @:native("godot::Area3D") @:structAccess extern class Area3D_extern extends gdnative.CollisionObject3D.CollisionObject3D_extern {
 	extern static inline function __alloc():cpp.Pointer<Area3D_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::Area3D"));
 	function set_gravity_space_override_mode(p_space_override_mode:gdnative.area3d.SpaceOverride):Void;
@@ -49,13 +58,4 @@ package gdnative;
 	function get_reverb_amount():Float;
 	function set_reverb_uniformity(p_amount:Float):Void;
 	function get_reverb_uniformity():Float;
-}
-@:forward abstract Area3D(cpp.Pointer<Area3D_extern>) from cpp.Pointer<Area3D_extern> to cpp.Pointer<Area3D_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.Area3D):gdnative.Area3D return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.Area3D {
-		final v = new gd.Area3D(this);
-		return v;
-	}
 }

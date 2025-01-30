@@ -1,4 +1,17 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract GLTFState(gdnative.Ref<GLTFState_extern>) from gdnative.Ref<GLTFState_extern> to gdnative.Ref<GLTFState_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.GLTFState):gdnative.GLTFState return @:privateAccess v.__ref.ptr().reinterpret();
+	@:to
+	inline function toWrapper():gd.GLTFState {
+		final v = new gd.GLTFState(this.ptr());
+		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+		return v;
+	}
+}
 @:include("godot_cpp/classes/gltf_state.hpp") @:native("godot::GLTFState") @:structAccess extern class GLTFState_extern extends gdnative.Resource.Resource_extern {
 	extern static inline function __alloc():cpp.Pointer<GLTFState_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::GLTFState"));
 	function add_used_extension(p_extension_name:gdnative.String, p_required:Bool):Void;
@@ -37,14 +50,4 @@ package gdnative;
 	function set_handle_binary_image(p_method:Int):Void;
 	function set_bake_fps(p_value:Float):Void;
 	function get_bake_fps():Float;
-}
-@:forward abstract GLTFState(gdnative.Ref<GLTFState_extern>) from gdnative.Ref<GLTFState_extern> to gdnative.Ref<GLTFState_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.GLTFState):gdnative.GLTFState return @:privateAccess v.__ref.ptr().reinterpret();
-	@:to
-	inline function toWrapper():gd.GLTFState {
-		final v = new gd.GLTFState(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
 }

@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract PathFollow3D(cpp.Pointer<PathFollow3D_extern>) from cpp.Pointer<PathFollow3D_extern> to cpp.Pointer<PathFollow3D_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.PathFollow3D):gdnative.PathFollow3D return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.PathFollow3D return new gd.PathFollow3D(this);
+}
 @:include("godot_cpp/classes/path_follow3d.hpp") @:native("godot::PathFollow3D") @:structAccess extern class PathFollow3D_extern extends gdnative.Node3D.Node3D_extern {
 	extern static inline function __alloc():cpp.Pointer<PathFollow3D_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::PathFollow3D"));
 	function set_progress(p_progress:Float):Void;
@@ -20,13 +29,4 @@ package gdnative;
 	function set_tilt_enabled(p_enabled:Bool):Void;
 	function is_tilt_enabled():Bool;
 	static function correct_posture(p_transform:gdnative.Transform3D, p_rotation_mode:gdnative.pathfollow3d.RotationMode):gdnative.Transform3D;
-}
-@:forward abstract PathFollow3D(cpp.Pointer<PathFollow3D_extern>) from cpp.Pointer<PathFollow3D_extern> to cpp.Pointer<PathFollow3D_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.PathFollow3D):gdnative.PathFollow3D return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.PathFollow3D {
-		final v = new gd.PathFollow3D(this);
-		return v;
-	}
 }

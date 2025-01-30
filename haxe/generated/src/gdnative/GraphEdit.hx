@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract GraphEdit(cpp.Pointer<GraphEdit_extern>) from cpp.Pointer<GraphEdit_extern> to cpp.Pointer<GraphEdit_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.GraphEdit):gdnative.GraphEdit return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.GraphEdit return new gd.GraphEdit(this);
+}
 @:include("godot_cpp/classes/graph_edit.hpp") @:native("godot::GraphEdit") @:structAccess extern class GraphEdit_extern extends gdnative.Control.Control_extern {
 	extern static inline function __alloc():cpp.Pointer<GraphEdit_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::GraphEdit"));
 	function _is_in_input_hotzone(p_in_node:gdnative.Object, p_in_port:Int, p_mouse_position:gdnative.Vector2):Bool;
@@ -73,13 +82,4 @@ package gdnative;
 	function get_menu_hbox():gdnative.HBoxContainer;
 	function arrange_nodes():Void;
 	function set_selected(p_node:gdnative.Node):Void;
-}
-@:forward abstract GraphEdit(cpp.Pointer<GraphEdit_extern>) from cpp.Pointer<GraphEdit_extern> to cpp.Pointer<GraphEdit_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.GraphEdit):gdnative.GraphEdit return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.GraphEdit {
-		final v = new gd.GraphEdit(this);
-		return v;
-	}
 }

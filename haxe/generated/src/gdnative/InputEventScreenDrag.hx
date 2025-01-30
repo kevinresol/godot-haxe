@@ -1,4 +1,17 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract InputEventScreenDrag(gdnative.Ref<InputEventScreenDrag_extern>) from gdnative.Ref<InputEventScreenDrag_extern> to gdnative.Ref<InputEventScreenDrag_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.InputEventScreenDrag):gdnative.InputEventScreenDrag return @:privateAccess v.__ref.ptr().reinterpret();
+	@:to
+	inline function toWrapper():gd.InputEventScreenDrag {
+		final v = new gd.InputEventScreenDrag(this.ptr());
+		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+		return v;
+	}
+}
 @:include("godot_cpp/classes/input_event_screen_drag.hpp") @:native("godot::InputEventScreenDrag") @:structAccess extern class InputEventScreenDrag_extern extends gdnative.InputEventFromWindow.InputEventFromWindow_extern {
 	extern static inline function __alloc():cpp.Pointer<InputEventScreenDrag_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::InputEventScreenDrag"));
 	function set_index(p_index:Int):Void;
@@ -19,14 +32,4 @@ package gdnative;
 	function get_velocity():gdnative.Vector2;
 	function set_screen_velocity(p_velocity:gdnative.Vector2):Void;
 	function get_screen_velocity():gdnative.Vector2;
-}
-@:forward abstract InputEventScreenDrag(gdnative.Ref<InputEventScreenDrag_extern>) from gdnative.Ref<InputEventScreenDrag_extern> to gdnative.Ref<InputEventScreenDrag_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.InputEventScreenDrag):gdnative.InputEventScreenDrag return @:privateAccess v.__ref.ptr().reinterpret();
-	@:to
-	inline function toWrapper():gd.InputEventScreenDrag {
-		final v = new gd.InputEventScreenDrag(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
 }

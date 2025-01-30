@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract TileMap(cpp.Pointer<TileMap_extern>) from cpp.Pointer<TileMap_extern> to cpp.Pointer<TileMap_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.TileMap):gdnative.TileMap return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.TileMap return new gd.TileMap(this);
+}
 @:include("godot_cpp/classes/tile_map.hpp") @:native("godot::TileMap") @:structAccess extern class TileMap_extern extends gdnative.Node2D.Node2D_extern {
 	extern static inline function __alloc():cpp.Pointer<TileMap_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::TileMap"));
 	function _use_tile_data_runtime_update(p_layer:Int, p_coords:gdnative.Vector2i):Bool;
@@ -64,13 +73,4 @@ package gdnative;
 	function map_to_local(p_map_position:gdnative.Vector2i):gdnative.Vector2;
 	function local_to_map(p_local_position:gdnative.Vector2):gdnative.Vector2i;
 	function get_neighbor_cell(p_coords:gdnative.Vector2i, p_neighbor:gdnative.tileset.CellNeighbor):gdnative.Vector2i;
-}
-@:forward abstract TileMap(cpp.Pointer<TileMap_extern>) from cpp.Pointer<TileMap_extern> to cpp.Pointer<TileMap_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.TileMap):gdnative.TileMap return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.TileMap {
-		final v = new gd.TileMap(this);
-		return v;
-	}
 }

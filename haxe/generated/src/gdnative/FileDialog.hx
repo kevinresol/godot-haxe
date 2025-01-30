@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract FileDialog(cpp.Pointer<FileDialog_extern>) from cpp.Pointer<FileDialog_extern> to cpp.Pointer<FileDialog_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.FileDialog):gdnative.FileDialog return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.FileDialog return new gd.FileDialog(this);
+}
 @:include("godot_cpp/classes/file_dialog.hpp") @:native("godot::FileDialog") @:structAccess extern class FileDialog_extern extends gdnative.ConfirmationDialog.ConfirmationDialog_extern {
 	extern static inline function __alloc():cpp.Pointer<FileDialog_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::FileDialog"));
 	function clear_filters():Void;
@@ -38,13 +47,4 @@ package gdnative;
 	function get_use_native_dialog():Bool;
 	function deselect_all():Void;
 	function invalidate():Void;
-}
-@:forward abstract FileDialog(cpp.Pointer<FileDialog_extern>) from cpp.Pointer<FileDialog_extern> to cpp.Pointer<FileDialog_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.FileDialog):gdnative.FileDialog return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.FileDialog {
-		final v = new gd.FileDialog(this);
-		return v;
-	}
 }

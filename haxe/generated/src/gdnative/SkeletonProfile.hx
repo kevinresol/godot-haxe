@@ -1,4 +1,17 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract SkeletonProfile(gdnative.Ref<SkeletonProfile_extern>) from gdnative.Ref<SkeletonProfile_extern> to gdnative.Ref<SkeletonProfile_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.SkeletonProfile):gdnative.SkeletonProfile return @:privateAccess v.__ref.ptr().reinterpret();
+	@:to
+	inline function toWrapper():gd.SkeletonProfile {
+		final v = new gd.SkeletonProfile(this.ptr());
+		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+		return v;
+	}
+}
 @:include("godot_cpp/classes/skeleton_profile.hpp") @:native("godot::SkeletonProfile") @:structAccess extern class SkeletonProfile_extern extends gdnative.Resource.Resource_extern {
 	extern static inline function __alloc():cpp.Pointer<SkeletonProfile_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::SkeletonProfile"));
 	function set_root_bone(p_bone_name:gdnative.StringName):Void;
@@ -30,14 +43,4 @@ package gdnative;
 	function set_group(p_bone_idx:Int, p_group:gdnative.StringName):Void;
 	function is_required(p_bone_idx:Int):Bool;
 	function set_required(p_bone_idx:Int, p_required:Bool):Void;
-}
-@:forward abstract SkeletonProfile(gdnative.Ref<SkeletonProfile_extern>) from gdnative.Ref<SkeletonProfile_extern> to gdnative.Ref<SkeletonProfile_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.SkeletonProfile):gdnative.SkeletonProfile return @:privateAccess v.__ref.ptr().reinterpret();
-	@:to
-	inline function toWrapper():gd.SkeletonProfile {
-		final v = new gd.SkeletonProfile(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
 }

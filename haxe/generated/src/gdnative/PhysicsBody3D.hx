@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract PhysicsBody3D(cpp.Pointer<PhysicsBody3D_extern>) from cpp.Pointer<PhysicsBody3D_extern> to cpp.Pointer<PhysicsBody3D_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.PhysicsBody3D):gdnative.PhysicsBody3D return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.PhysicsBody3D return new gd.PhysicsBody3D(this);
+}
 @:include("godot_cpp/classes/physics_body3d.hpp") @:native("godot::PhysicsBody3D") @:structAccess extern class PhysicsBody3D_extern extends gdnative.CollisionObject3D.CollisionObject3D_extern {
 	extern static inline function __alloc():cpp.Pointer<PhysicsBody3D_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::PhysicsBody3D"));
 	overload function move_and_collide(p_motion:gdnative.Vector3):gdnative.KinematicCollision3D;
@@ -16,13 +25,4 @@ package gdnative;
 	function get_axis_lock(p_axis:gdnative.physicsserver3d.BodyAxis):Bool;
 	function add_collision_exception_with(p_body:gdnative.Node):Void;
 	function remove_collision_exception_with(p_body:gdnative.Node):Void;
-}
-@:forward abstract PhysicsBody3D(cpp.Pointer<PhysicsBody3D_extern>) from cpp.Pointer<PhysicsBody3D_extern> to cpp.Pointer<PhysicsBody3D_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.PhysicsBody3D):gdnative.PhysicsBody3D return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.PhysicsBody3D {
-		final v = new gd.PhysicsBody3D(this);
-		return v;
-	}
 }

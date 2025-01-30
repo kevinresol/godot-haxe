@@ -1,4 +1,17 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract LightmapGIData(gdnative.Ref<LightmapGIData_extern>) from gdnative.Ref<LightmapGIData_extern> to gdnative.Ref<LightmapGIData_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.LightmapGIData):gdnative.LightmapGIData return @:privateAccess v.__ref.ptr().reinterpret();
+	@:to
+	inline function toWrapper():gd.LightmapGIData {
+		final v = new gd.LightmapGIData(this.ptr());
+		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+		return v;
+	}
+}
 @:include("godot_cpp/classes/lightmap_gi_data.hpp") @:native("godot::LightmapGIData") @:structAccess extern class LightmapGIData_extern extends gdnative.Resource.Resource_extern {
 	extern static inline function __alloc():cpp.Pointer<LightmapGIData_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::LightmapGIData"));
 	function set_uses_spherical_harmonics(p_uses_spherical_harmonics:Bool):Void;
@@ -9,14 +22,4 @@ package gdnative;
 	function clear_users():Void;
 	function set_light_texture(p_light_texture:gdnative.TextureLayered):Void;
 	function get_light_texture():gdnative.TextureLayered;
-}
-@:forward abstract LightmapGIData(gdnative.Ref<LightmapGIData_extern>) from gdnative.Ref<LightmapGIData_extern> to gdnative.Ref<LightmapGIData_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.LightmapGIData):gdnative.LightmapGIData return @:privateAccess v.__ref.ptr().reinterpret();
-	@:to
-	inline function toWrapper():gd.LightmapGIData {
-		final v = new gd.LightmapGIData(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
 }

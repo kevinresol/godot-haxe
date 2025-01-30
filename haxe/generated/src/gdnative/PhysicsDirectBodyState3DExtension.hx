@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract PhysicsDirectBodyState3DExtension(cpp.Pointer<PhysicsDirectBodyState3DExtension_extern>) from cpp.Pointer<PhysicsDirectBodyState3DExtension_extern> to cpp.Pointer<PhysicsDirectBodyState3DExtension_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.PhysicsDirectBodyState3DExtension):gdnative.PhysicsDirectBodyState3DExtension return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.PhysicsDirectBodyState3DExtension return new gd.PhysicsDirectBodyState3DExtension(this);
+}
 @:include("godot_cpp/classes/physics_direct_body_state3d_extension.hpp") @:native("godot::PhysicsDirectBodyState3DExtension") @:structAccess extern class PhysicsDirectBodyState3DExtension_extern extends gdnative.PhysicsDirectBodyState3D.PhysicsDirectBodyState3D_extern {
 	extern static inline function __alloc():cpp.Pointer<PhysicsDirectBodyState3DExtension_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::PhysicsDirectBodyState3DExtension"));
 	function _get_total_gravity():gdnative.Vector3;
@@ -47,13 +56,4 @@ package gdnative;
 	function _get_step():Float;
 	function _integrate_forces():Void;
 	function _get_space_state():gdnative.PhysicsDirectSpaceState3D;
-}
-@:forward abstract PhysicsDirectBodyState3DExtension(cpp.Pointer<PhysicsDirectBodyState3DExtension_extern>) from cpp.Pointer<PhysicsDirectBodyState3DExtension_extern> to cpp.Pointer<PhysicsDirectBodyState3DExtension_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.PhysicsDirectBodyState3DExtension):gdnative.PhysicsDirectBodyState3DExtension return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.PhysicsDirectBodyState3DExtension {
-		final v = new gd.PhysicsDirectBodyState3DExtension(this);
-		return v;
-	}
 }

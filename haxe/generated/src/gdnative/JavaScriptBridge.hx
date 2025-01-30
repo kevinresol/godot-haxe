@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract JavaScriptBridge(cpp.Pointer<JavaScriptBridge_extern>) from cpp.Pointer<JavaScriptBridge_extern> to cpp.Pointer<JavaScriptBridge_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.JavaScriptBridge):gdnative.JavaScriptBridge return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.JavaScriptBridge return new gd.JavaScriptBridge(this);
+}
 @:include("godot_cpp/classes/java_script_bridge.hpp") @:native("godot::JavaScriptBridge") @:structAccess extern class JavaScriptBridge_extern extends gdnative.Object.Object_extern {
 	extern static inline function __alloc():cpp.Pointer<JavaScriptBridge_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::JavaScriptBridge"));
 	static function get_singleton():cpp.Pointer<JavaScriptBridge_extern>;
@@ -12,13 +21,4 @@ package gdnative;
 	function pwa_needs_update():Bool;
 	function pwa_update():gdnative.Error;
 	function force_fs_sync():Void;
-}
-@:forward abstract JavaScriptBridge(cpp.Pointer<JavaScriptBridge_extern>) from cpp.Pointer<JavaScriptBridge_extern> to cpp.Pointer<JavaScriptBridge_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.JavaScriptBridge):gdnative.JavaScriptBridge return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.JavaScriptBridge {
-		final v = new gd.JavaScriptBridge(this);
-		return v;
-	}
 }

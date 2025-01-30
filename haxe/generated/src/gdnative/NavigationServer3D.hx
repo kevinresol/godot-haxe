@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract NavigationServer3D(cpp.Pointer<NavigationServer3D_extern>) from cpp.Pointer<NavigationServer3D_extern> to cpp.Pointer<NavigationServer3D_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.NavigationServer3D):gdnative.NavigationServer3D return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.NavigationServer3D return new gd.NavigationServer3D(this);
+}
 @:include("godot_cpp/classes/navigation_server3d.hpp") @:native("godot::NavigationServer3D") @:structAccess extern class NavigationServer3D_extern extends gdnative.Object.Object_extern {
 	extern static inline function __alloc():cpp.Pointer<NavigationServer3D_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::NavigationServer3D"));
 	static function get_singleton():cpp.Pointer<NavigationServer3D_extern>;
@@ -146,13 +155,4 @@ package gdnative;
 	function set_debug_enabled(p_enabled:Bool):Void;
 	function get_debug_enabled():Bool;
 	function get_process_info(p_process_info:gdnative.navigationserver3d.ProcessInfo):Int;
-}
-@:forward abstract NavigationServer3D(cpp.Pointer<NavigationServer3D_extern>) from cpp.Pointer<NavigationServer3D_extern> to cpp.Pointer<NavigationServer3D_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.NavigationServer3D):gdnative.NavigationServer3D return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.NavigationServer3D {
-		final v = new gd.NavigationServer3D(this);
-		return v;
-	}
 }

@@ -1,4 +1,17 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract ENetMultiplayerPeer(gdnative.Ref<ENetMultiplayerPeer_extern>) from gdnative.Ref<ENetMultiplayerPeer_extern> to gdnative.Ref<ENetMultiplayerPeer_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.ENetMultiplayerPeer):gdnative.ENetMultiplayerPeer return @:privateAccess v.__ref.ptr().reinterpret();
+	@:to
+	inline function toWrapper():gd.ENetMultiplayerPeer {
+		final v = new gd.ENetMultiplayerPeer(this.ptr());
+		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+		return v;
+	}
+}
 @:include("godot_cpp/classes/e_net_multiplayer_peer.hpp") @:native("godot::ENetMultiplayerPeer") @:structAccess extern class ENetMultiplayerPeer_extern extends gdnative.MultiplayerPeer.MultiplayerPeer_extern {
 	extern static inline function __alloc():cpp.Pointer<ENetMultiplayerPeer_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::ENetMultiplayerPeer"));
 	overload function create_server(p_port:Int):gdnative.Error;
@@ -16,14 +29,4 @@ package gdnative;
 	function set_bind_ip(p_ip:gdnative.String):Void;
 	function get_host():gdnative.ENetConnection;
 	function get_peer(p_id:Int):gdnative.ENetPacketPeer;
-}
-@:forward abstract ENetMultiplayerPeer(gdnative.Ref<ENetMultiplayerPeer_extern>) from gdnative.Ref<ENetMultiplayerPeer_extern> to gdnative.Ref<ENetMultiplayerPeer_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.ENetMultiplayerPeer):gdnative.ENetMultiplayerPeer return @:privateAccess v.__ref.ptr().reinterpret();
-	@:to
-	inline function toWrapper():gd.ENetMultiplayerPeer {
-		final v = new gd.ENetMultiplayerPeer(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
 }

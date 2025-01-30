@@ -1,4 +1,17 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract TileSet(gdnative.Ref<TileSet_extern>) from gdnative.Ref<TileSet_extern> to gdnative.Ref<TileSet_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.TileSet):gdnative.TileSet return @:privateAccess v.__ref.ptr().reinterpret();
+	@:to
+	inline function toWrapper():gd.TileSet {
+		final v = new gd.TileSet(this.ptr());
+		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+		return v;
+	}
+}
 @:include("godot_cpp/classes/tile_set.hpp") @:native("godot::TileSet") @:structAccess extern class TileSet_extern extends gdnative.Resource.Resource_extern {
 	extern static inline function __alloc():cpp.Pointer<TileSet_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::TileSet"));
 	function get_next_source_id():Int;
@@ -96,14 +109,4 @@ package gdnative;
 	overload function get_pattern(p_index:Int):gdnative.TileMapPattern;
 	function remove_pattern(p_index:Int):Void;
 	function get_patterns_count():Int;
-}
-@:forward abstract TileSet(gdnative.Ref<TileSet_extern>) from gdnative.Ref<TileSet_extern> to gdnative.Ref<TileSet_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.TileSet):gdnative.TileSet return @:privateAccess v.__ref.ptr().reinterpret();
-	@:to
-	inline function toWrapper():gd.TileSet {
-		final v = new gd.TileSet(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
 }

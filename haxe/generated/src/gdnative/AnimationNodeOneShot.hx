@@ -1,4 +1,17 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract AnimationNodeOneShot(gdnative.Ref<AnimationNodeOneShot_extern>) from gdnative.Ref<AnimationNodeOneShot_extern> to gdnative.Ref<AnimationNodeOneShot_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.AnimationNodeOneShot):gdnative.AnimationNodeOneShot return @:privateAccess v.__ref.ptr().reinterpret();
+	@:to
+	inline function toWrapper():gd.AnimationNodeOneShot {
+		final v = new gd.AnimationNodeOneShot(this.ptr());
+		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+		return v;
+	}
+}
 @:include("godot_cpp/classes/animation_node_one_shot.hpp") @:native("godot::AnimationNodeOneShot") @:structAccess extern class AnimationNodeOneShot_extern extends gdnative.AnimationNodeSync.AnimationNodeSync_extern {
 	extern static inline function __alloc():cpp.Pointer<AnimationNodeOneShot_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::AnimationNodeOneShot"));
 	function set_fadein_time(p_time:Float):Void;
@@ -19,14 +32,4 @@ package gdnative;
 	function get_autorestart_random_delay():Float;
 	function set_mix_mode(p_mode:gdnative.animationnodeoneshot.MixMode):Void;
 	function get_mix_mode():gdnative.animationnodeoneshot.MixMode;
-}
-@:forward abstract AnimationNodeOneShot(gdnative.Ref<AnimationNodeOneShot_extern>) from gdnative.Ref<AnimationNodeOneShot_extern> to gdnative.Ref<AnimationNodeOneShot_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.AnimationNodeOneShot):gdnative.AnimationNodeOneShot return @:privateAccess v.__ref.ptr().reinterpret();
-	@:to
-	inline function toWrapper():gd.AnimationNodeOneShot {
-		final v = new gd.AnimationNodeOneShot(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
 }

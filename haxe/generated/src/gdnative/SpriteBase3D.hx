@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract SpriteBase3D(cpp.Pointer<SpriteBase3D_extern>) from cpp.Pointer<SpriteBase3D_extern> to cpp.Pointer<SpriteBase3D_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.SpriteBase3D):gdnative.SpriteBase3D return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.SpriteBase3D return new gd.SpriteBase3D(this);
+}
 @:include("godot_cpp/classes/sprite_base3d.hpp") @:native("godot::SpriteBase3D") @:structAccess extern class SpriteBase3D_extern extends gdnative.GeometryInstance3D.GeometryInstance3D_extern {
 	extern static inline function __alloc():cpp.Pointer<SpriteBase3D_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::SpriteBase3D"));
 	function set_centered(p_centered:Bool):Void;
@@ -35,13 +44,4 @@ package gdnative;
 	function get_texture_filter():gdnative.basematerial3d.TextureFilter;
 	function get_item_rect():gdnative.Rect2;
 	function generate_triangle_mesh():gdnative.TriangleMesh;
-}
-@:forward abstract SpriteBase3D(cpp.Pointer<SpriteBase3D_extern>) from cpp.Pointer<SpriteBase3D_extern> to cpp.Pointer<SpriteBase3D_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.SpriteBase3D):gdnative.SpriteBase3D return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.SpriteBase3D {
-		final v = new gd.SpriteBase3D(this);
-		return v;
-	}
 }

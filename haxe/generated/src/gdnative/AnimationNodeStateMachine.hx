@@ -1,4 +1,17 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract AnimationNodeStateMachine(gdnative.Ref<AnimationNodeStateMachine_extern>) from gdnative.Ref<AnimationNodeStateMachine_extern> to gdnative.Ref<AnimationNodeStateMachine_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.AnimationNodeStateMachine):gdnative.AnimationNodeStateMachine return @:privateAccess v.__ref.ptr().reinterpret();
+	@:to
+	inline function toWrapper():gd.AnimationNodeStateMachine {
+		final v = new gd.AnimationNodeStateMachine(this.ptr());
+		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+		return v;
+	}
+}
 @:include("godot_cpp/classes/animation_node_state_machine.hpp") @:native("godot::AnimationNodeStateMachine") @:structAccess extern class AnimationNodeStateMachine_extern extends gdnative.AnimationRootNode.AnimationRootNode_extern {
 	extern static inline function __alloc():cpp.Pointer<AnimationNodeStateMachine_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::AnimationNodeStateMachine"));
 	overload function add_node(p_name:gdnative.StringName, p_node:gdnative.AnimationNode):Void;
@@ -27,14 +40,4 @@ package gdnative;
 	function is_allow_transition_to_self():Bool;
 	function set_reset_ends(p_enable:Bool):Void;
 	function are_ends_reset():Bool;
-}
-@:forward abstract AnimationNodeStateMachine(gdnative.Ref<AnimationNodeStateMachine_extern>) from gdnative.Ref<AnimationNodeStateMachine_extern> to gdnative.Ref<AnimationNodeStateMachine_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.AnimationNodeStateMachine):gdnative.AnimationNodeStateMachine return @:privateAccess v.__ref.ptr().reinterpret();
-	@:to
-	inline function toWrapper():gd.AnimationNodeStateMachine {
-		final v = new gd.AnimationNodeStateMachine(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
 }

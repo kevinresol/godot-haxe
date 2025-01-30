@@ -1,4 +1,17 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract AnimationNode(gdnative.Ref<AnimationNode_extern>) from gdnative.Ref<AnimationNode_extern> to gdnative.Ref<AnimationNode_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.AnimationNode):gdnative.AnimationNode return @:privateAccess v.__ref.ptr().reinterpret();
+	@:to
+	inline function toWrapper():gd.AnimationNode {
+		final v = new gd.AnimationNode(this.ptr());
+		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+		return v;
+	}
+}
 @:include("godot_cpp/classes/animation_node.hpp") @:native("godot::AnimationNode") @:structAccess extern class AnimationNode_extern extends gdnative.Resource.Resource_extern {
 	extern static inline function __alloc():cpp.Pointer<AnimationNode_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::AnimationNode"));
 	function _get_child_nodes():gdnative.Dictionary;
@@ -31,14 +44,4 @@ package gdnative;
 	overload function blend_input(p_input_index:Int, p_time:Float, p_seek:Bool, p_is_external_seeking:Bool, p_blend:Float, p_filter:gdnative.animationnode.FilterAction, p_sync:Bool, p_test_only:Bool):Float;
 	function set_parameter(p_name:gdnative.StringName, p_value:gdnative.Variant):Void;
 	function get_parameter(p_name:gdnative.StringName):gdnative.Variant;
-}
-@:forward abstract AnimationNode(gdnative.Ref<AnimationNode_extern>) from gdnative.Ref<AnimationNode_extern> to gdnative.Ref<AnimationNode_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.AnimationNode):gdnative.AnimationNode return @:privateAccess v.__ref.ptr().reinterpret();
-	@:to
-	inline function toWrapper():gd.AnimationNode {
-		final v = new gd.AnimationNode(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
 }

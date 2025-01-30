@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract VoxelGI(cpp.Pointer<VoxelGI_extern>) from cpp.Pointer<VoxelGI_extern> to cpp.Pointer<VoxelGI_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.VoxelGI):gdnative.VoxelGI return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.VoxelGI return new gd.VoxelGI(this);
+}
 @:include("godot_cpp/classes/voxel_gi.hpp") @:native("godot::VoxelGI") @:structAccess extern class VoxelGI_extern extends gdnative.VisualInstance3D.VisualInstance3D_extern {
 	extern static inline function __alloc():cpp.Pointer<VoxelGI_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::VoxelGI"));
 	function set_probe_data(p_data:gdnative.VoxelGIData):Void;
@@ -13,13 +22,4 @@ package gdnative;
 	overload function bake(p_from_node:gdnative.Node):Void;
 	overload function bake(p_from_node:gdnative.Node, p_create_visual_debug:Bool):Void;
 	function debug_bake():Void;
-}
-@:forward abstract VoxelGI(cpp.Pointer<VoxelGI_extern>) from cpp.Pointer<VoxelGI_extern> to cpp.Pointer<VoxelGI_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.VoxelGI):gdnative.VoxelGI return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.VoxelGI {
-		final v = new gd.VoxelGI(this);
-		return v;
-	}
 }

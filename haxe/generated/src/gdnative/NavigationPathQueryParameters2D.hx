@@ -1,4 +1,17 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract NavigationPathQueryParameters2D(gdnative.Ref<NavigationPathQueryParameters2D_extern>) from gdnative.Ref<NavigationPathQueryParameters2D_extern> to gdnative.Ref<NavigationPathQueryParameters2D_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.NavigationPathQueryParameters2D):gdnative.NavigationPathQueryParameters2D return @:privateAccess v.__ref.ptr().reinterpret();
+	@:to
+	inline function toWrapper():gd.NavigationPathQueryParameters2D {
+		final v = new gd.NavigationPathQueryParameters2D(this.ptr());
+		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+		return v;
+	}
+}
 @:include("godot_cpp/classes/navigation_path_query_parameters2d.hpp") @:native("godot::NavigationPathQueryParameters2D") @:structAccess extern class NavigationPathQueryParameters2D_extern extends gdnative.RefCounted.RefCounted_extern {
 	extern static inline function __alloc():cpp.Pointer<NavigationPathQueryParameters2D_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::NavigationPathQueryParameters2D"));
 	function set_pathfinding_algorithm(p_pathfinding_algorithm:gdnative.navigationpathqueryparameters2d.PathfindingAlgorithm):Void;
@@ -19,14 +32,4 @@ package gdnative;
 	function get_simplify_path():Bool;
 	function set_simplify_epsilon(p_epsilon:Float):Void;
 	function get_simplify_epsilon():Float;
-}
-@:forward abstract NavigationPathQueryParameters2D(gdnative.Ref<NavigationPathQueryParameters2D_extern>) from gdnative.Ref<NavigationPathQueryParameters2D_extern> to gdnative.Ref<NavigationPathQueryParameters2D_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.NavigationPathQueryParameters2D):gdnative.NavigationPathQueryParameters2D return @:privateAccess v.__ref.ptr().reinterpret();
-	@:to
-	inline function toWrapper():gd.NavigationPathQueryParameters2D {
-		final v = new gd.NavigationPathQueryParameters2D(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
 }

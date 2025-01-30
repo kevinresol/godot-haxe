@@ -1,4 +1,17 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract Image(gdnative.Ref<Image_extern>) from gdnative.Ref<Image_extern> to gdnative.Ref<Image_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.Image):gdnative.Image return @:privateAccess v.__ref.ptr().reinterpret();
+	@:to
+	inline function toWrapper():gd.Image {
+		final v = new gd.Image(this.ptr());
+		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+		return v;
+	}
+}
 @:include("godot_cpp/classes/image.hpp") @:native("godot::Image") @:structAccess extern class Image_extern extends gdnative.Resource.Resource_extern {
 	extern static inline function __alloc():cpp.Pointer<Image_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::Image"));
 	function get_width():Int;
@@ -91,14 +104,4 @@ package gdnative;
 	overload function load_svg_from_buffer(p_buffer:gdnative.PackedByteArray, p_scale:Float):gdnative.Error;
 	overload function load_svg_from_string(p_svg_str:gdnative.String):gdnative.Error;
 	overload function load_svg_from_string(p_svg_str:gdnative.String, p_scale:Float):gdnative.Error;
-}
-@:forward abstract Image(gdnative.Ref<Image_extern>) from gdnative.Ref<Image_extern> to gdnative.Ref<Image_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.Image):gdnative.Image return @:privateAccess v.__ref.ptr().reinterpret();
-	@:to
-	inline function toWrapper():gd.Image {
-		final v = new gd.Image(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
 }

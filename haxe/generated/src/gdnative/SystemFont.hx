@@ -1,4 +1,17 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract SystemFont(gdnative.Ref<SystemFont_extern>) from gdnative.Ref<SystemFont_extern> to gdnative.Ref<SystemFont_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.SystemFont):gdnative.SystemFont return @:privateAccess v.__ref.ptr().reinterpret();
+	@:to
+	inline function toWrapper():gd.SystemFont {
+		final v = new gd.SystemFont(this.ptr());
+		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+		return v;
+	}
+}
 @:include("godot_cpp/classes/system_font.hpp") @:native("godot::SystemFont") @:structAccess extern class SystemFont_extern extends gdnative.Font.Font_extern {
 	extern static inline function __alloc():cpp.Pointer<SystemFont_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::SystemFont"));
 	function set_antialiasing(p_antialiasing:gdnative.textserver.FontAntialiasing):Void;
@@ -29,14 +42,4 @@ package gdnative;
 	function set_font_italic(p_italic:Bool):Void;
 	function set_font_weight(p_weight:Int):Void;
 	function set_font_stretch(p_stretch:Int):Void;
-}
-@:forward abstract SystemFont(gdnative.Ref<SystemFont_extern>) from gdnative.Ref<SystemFont_extern> to gdnative.Ref<SystemFont_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.SystemFont):gdnative.SystemFont return @:privateAccess v.__ref.ptr().reinterpret();
-	@:to
-	inline function toWrapper():gd.SystemFont {
-		final v = new gd.SystemFont(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
 }

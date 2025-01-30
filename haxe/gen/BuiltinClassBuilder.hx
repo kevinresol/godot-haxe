@@ -39,7 +39,6 @@ class BuiltinClassBuilder extends Builder {
 		final config = Config.nativeExtern;
 		final cls = macro class $ename {};
 		cls.isExtern = true;
-		cls.pack = config.pack;
 		cls.meta = [
 			{pos: null, name: ':include', params: [macro $v{hpp}]},
 			{pos: null, name: ':native', params: [macro $v{'godot::$cname'}]},
@@ -60,6 +59,8 @@ class BuiltinClassBuilder extends Builder {
 				return new $wtp(this);
 		}
 		final struct = macro :cpp.Struct<$ect>;
+		abs.doc = 'Built-in Class';
+		abs.pack = config.pack;
 		abs.kind = TDAbstract(struct, [AbFrom(struct), AbTo(struct)]);
 		abs.meta = [{pos: null, name: ':forward'},];
 
@@ -261,8 +262,8 @@ class BuiltinClassBuilder extends Builder {
 			case _:
 		}
 
-		final source = printTypeDefinition(cls) + '\n\n' + printTypeDefinition(abs);
-		write('${config.folder}/${cls.pack.join('/')}/$cname.hx', source);
+		final source = printTypeDefinition(abs) + '\n\n' + printTypeDefinition(cls);
+		write('${config.folder}/${abs.pack.join('/')}/$cname.hx', source);
 	}
 
 	function generateClassWrapper(clazz:BuiltinClass, isScriptExtern:Bool) {

@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract ScrollContainer(cpp.Pointer<ScrollContainer_extern>) from cpp.Pointer<ScrollContainer_extern> to cpp.Pointer<ScrollContainer_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.ScrollContainer):gdnative.ScrollContainer return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.ScrollContainer return new gd.ScrollContainer(this);
+}
 @:include("godot_cpp/classes/scroll_container.hpp") @:native("godot::ScrollContainer") @:structAccess extern class ScrollContainer_extern extends gdnative.Container.Container_extern {
 	extern static inline function __alloc():cpp.Pointer<ScrollContainer_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::ScrollContainer"));
 	function set_h_scroll(p_value:Int):Void;
@@ -20,13 +29,4 @@ package gdnative;
 	function get_h_scroll_bar():gdnative.HScrollBar;
 	function get_v_scroll_bar():gdnative.VScrollBar;
 	function ensure_control_visible(p_control:gdnative.Control):Void;
-}
-@:forward abstract ScrollContainer(cpp.Pointer<ScrollContainer_extern>) from cpp.Pointer<ScrollContainer_extern> to cpp.Pointer<ScrollContainer_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.ScrollContainer):gdnative.ScrollContainer return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.ScrollContainer {
-		final v = new gd.ScrollContainer(this);
-		return v;
-	}
 }

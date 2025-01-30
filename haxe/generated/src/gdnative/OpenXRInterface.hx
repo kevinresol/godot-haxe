@@ -1,4 +1,17 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract OpenXRInterface(gdnative.Ref<OpenXRInterface_extern>) from gdnative.Ref<OpenXRInterface_extern> to gdnative.Ref<OpenXRInterface_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.OpenXRInterface):gdnative.OpenXRInterface return @:privateAccess v.__ref.ptr().reinterpret();
+	@:to
+	inline function toWrapper():gd.OpenXRInterface {
+		final v = new gd.OpenXRInterface(this.ptr());
+		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+		return v;
+	}
+}
 @:include("godot_cpp/classes/open_xr_interface.hpp") @:native("godot::OpenXRInterface") @:structAccess extern class OpenXRInterface_extern extends gdnative.XRInterface.XRInterface_extern {
 	extern static inline function __alloc():cpp.Pointer<OpenXRInterface_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::OpenXRInterface"));
 	function get_display_refresh_rate():Float;
@@ -30,14 +43,4 @@ package gdnative;
 	function set_vrs_min_radius(p_radius:Float):Void;
 	function get_vrs_strength():Float;
 	function set_vrs_strength(p_strength:Float):Void;
-}
-@:forward abstract OpenXRInterface(gdnative.Ref<OpenXRInterface_extern>) from gdnative.Ref<OpenXRInterface_extern> to gdnative.Ref<OpenXRInterface_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.OpenXRInterface):gdnative.OpenXRInterface return @:privateAccess v.__ref.ptr().reinterpret();
-	@:to
-	inline function toWrapper():gd.OpenXRInterface {
-		final v = new gd.OpenXRInterface(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
 }

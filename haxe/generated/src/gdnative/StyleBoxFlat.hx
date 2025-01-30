@@ -1,4 +1,17 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract StyleBoxFlat(gdnative.Ref<StyleBoxFlat_extern>) from gdnative.Ref<StyleBoxFlat_extern> to gdnative.Ref<StyleBoxFlat_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.StyleBoxFlat):gdnative.StyleBoxFlat return @:privateAccess v.__ref.ptr().reinterpret();
+	@:to
+	inline function toWrapper():gd.StyleBoxFlat {
+		final v = new gd.StyleBoxFlat(this.ptr());
+		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+		return v;
+	}
+}
 @:include("godot_cpp/classes/style_box_flat.hpp") @:native("godot::StyleBoxFlat") @:structAccess extern class StyleBoxFlat_extern extends gdnative.StyleBox.StyleBox_extern {
 	extern static inline function __alloc():cpp.Pointer<StyleBoxFlat_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::StyleBoxFlat"));
 	function set_bg_color(p_color:gdnative.Color):Void;
@@ -33,14 +46,4 @@ package gdnative;
 	function get_aa_size():Float;
 	function set_corner_detail(p_detail:Int):Void;
 	function get_corner_detail():Int;
-}
-@:forward abstract StyleBoxFlat(gdnative.Ref<StyleBoxFlat_extern>) from gdnative.Ref<StyleBoxFlat_extern> to gdnative.Ref<StyleBoxFlat_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.StyleBoxFlat):gdnative.StyleBoxFlat return @:privateAccess v.__ref.ptr().reinterpret();
-	@:to
-	inline function toWrapper():gd.StyleBoxFlat {
-		final v = new gd.StyleBoxFlat(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
 }

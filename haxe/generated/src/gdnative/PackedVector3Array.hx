@@ -1,4 +1,21 @@
 package gdnative;
+/**
+	Built-in Class
+**/
+@:forward abstract PackedVector3Array(cpp.Struct<PackedVector3Array_extern>) from cpp.Struct<PackedVector3Array_extern> to cpp.Struct<PackedVector3Array_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.PackedVector3Array):gdnative.PackedVector3Array return fromWrapperInternal(v);
+	@:from
+	static inline function fromWrapperInternal(v:gd.PackedVector3Array.PackedVector3Array_wrapper):gdnative.PackedVector3Array return untyped __cpp__('{0}.get()', @:privateAccess v.__gd);
+	@:to
+	inline function toWrapper():gd.PackedVector3Array return toWrapperInternal();
+	@:to
+	inline function toWrapperInternal():gd.PackedVector3Array.PackedVector3Array_wrapper return new gd.PackedVector3Array.PackedVector3Array_wrapper(this);
+	public extern overload inline function new() this = new gdnative.PackedVector3Array.PackedVector3Array_extern();
+	public extern overload inline function new(p_from:gd.PackedVector3Array) this = new gdnative.PackedVector3Array.PackedVector3Array_extern(p_from);
+	public extern overload inline function new(p_from:gd.Array) this = new gdnative.PackedVector3Array.PackedVector3Array_extern(p_from);
+}
+
 @:include("godot_cpp/variant/packed_vector3_array.hpp") @:native("godot::PackedVector3Array") @:structAccess extern class PackedVector3Array_extern {
 	@:overload(function(p_from:gdnative.PackedVector3Array):Void { })
 	@:overload(function(p_from:gdnative.Array):Void { })
@@ -28,18 +45,4 @@ package gdnative;
 	overload function rfind(p_value:gdnative.Vector3, p_from:Int):Int;
 	overload function rfind(p_value:gdnative.Vector3):Int;
 	function count(p_value:gdnative.Vector3):Int;
-}
-
-@:forward abstract PackedVector3Array(cpp.Struct<PackedVector3Array_extern>) from cpp.Struct<PackedVector3Array_extern> to cpp.Struct<PackedVector3Array_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.PackedVector3Array):gdnative.PackedVector3Array return fromWrapperInternal(v);
-	@:from
-	static inline function fromWrapperInternal(v:gd.PackedVector3Array.PackedVector3Array_wrapper):gdnative.PackedVector3Array return untyped __cpp__('{0}.get()', @:privateAccess v.__gd);
-	@:to
-	inline function toWrapper():gd.PackedVector3Array return toWrapperInternal();
-	@:to
-	inline function toWrapperInternal():gd.PackedVector3Array.PackedVector3Array_wrapper return new gd.PackedVector3Array.PackedVector3Array_wrapper(this);
-	public extern overload inline function new() this = new gdnative.PackedVector3Array.PackedVector3Array_extern();
-	public extern overload inline function new(p_from:gd.PackedVector3Array) this = new gdnative.PackedVector3Array.PackedVector3Array_extern(p_from);
-	public extern overload inline function new(p_from:gd.Array) this = new gdnative.PackedVector3Array.PackedVector3Array_extern(p_from);
 }

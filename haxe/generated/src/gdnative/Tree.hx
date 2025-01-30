@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract Tree(cpp.Pointer<Tree_extern>) from cpp.Pointer<Tree_extern> to cpp.Pointer<Tree_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.Tree):gdnative.Tree return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.Tree return new gd.Tree(this);
+}
 @:include("godot_cpp/classes/tree.hpp") @:native("godot::Tree") @:structAccess extern class Tree_extern extends gdnative.Control.Control_extern {
 	extern static inline function __alloc():cpp.Pointer<Tree_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::Tree"));
 	function clear():Void;
@@ -68,13 +77,4 @@ package gdnative;
 	function get_allow_reselect():Bool;
 	function set_allow_search(p_allow:Bool):Void;
 	function get_allow_search():Bool;
-}
-@:forward abstract Tree(cpp.Pointer<Tree_extern>) from cpp.Pointer<Tree_extern> to cpp.Pointer<Tree_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.Tree):gdnative.Tree return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.Tree {
-		final v = new gd.Tree(this);
-		return v;
-	}
 }

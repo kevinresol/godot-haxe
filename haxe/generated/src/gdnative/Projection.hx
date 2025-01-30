@@ -1,4 +1,22 @@
 package gdnative;
+/**
+	Built-in Class
+**/
+@:forward abstract Projection(cpp.Struct<Projection_extern>) from cpp.Struct<Projection_extern> to cpp.Struct<Projection_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.Projection):gdnative.Projection return fromWrapperInternal(v);
+	@:from
+	static inline function fromWrapperInternal(v:gd.Projection.Projection_wrapper):gdnative.Projection return untyped __cpp__('{0}.get()', @:privateAccess v.__gd);
+	@:to
+	inline function toWrapper():gd.Projection return toWrapperInternal();
+	@:to
+	inline function toWrapperInternal():gd.Projection.Projection_wrapper return new gd.Projection.Projection_wrapper(this);
+	public extern overload inline function new() this = new gdnative.Projection.Projection_extern();
+	public extern overload inline function new(p_from:gd.Projection) this = new gdnative.Projection.Projection_extern(p_from);
+	public extern overload inline function new(p_from:gd.Transform3D) this = new gdnative.Projection.Projection_extern(p_from);
+	public extern overload inline function new(p_x_axis:gd.Vector4, p_y_axis:gd.Vector4, p_z_axis:gd.Vector4, p_w_axis:gd.Vector4) this = new gdnative.Projection.Projection_extern(p_x_axis, p_y_axis, p_z_axis, p_w_axis);
+}
+
 @:include("godot_cpp/variant/projection.hpp") @:native("godot::Projection") @:structAccess extern class Projection_extern {
 	@:overload(function(p_from:gdnative.Projection):Void { })
 	@:overload(function(p_from:gdnative.Transform3D):Void { })
@@ -41,19 +59,4 @@ package gdnative;
 	var z : gdnative.Vector4;
 	@:native("columns[3]")
 	var w : gdnative.Vector4;
-}
-
-@:forward abstract Projection(cpp.Struct<Projection_extern>) from cpp.Struct<Projection_extern> to cpp.Struct<Projection_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.Projection):gdnative.Projection return fromWrapperInternal(v);
-	@:from
-	static inline function fromWrapperInternal(v:gd.Projection.Projection_wrapper):gdnative.Projection return untyped __cpp__('{0}.get()', @:privateAccess v.__gd);
-	@:to
-	inline function toWrapper():gd.Projection return toWrapperInternal();
-	@:to
-	inline function toWrapperInternal():gd.Projection.Projection_wrapper return new gd.Projection.Projection_wrapper(this);
-	public extern overload inline function new() this = new gdnative.Projection.Projection_extern();
-	public extern overload inline function new(p_from:gd.Projection) this = new gdnative.Projection.Projection_extern(p_from);
-	public extern overload inline function new(p_from:gd.Transform3D) this = new gdnative.Projection.Projection_extern(p_from);
-	public extern overload inline function new(p_x_axis:gd.Vector4, p_y_axis:gd.Vector4, p_z_axis:gd.Vector4, p_w_axis:gd.Vector4) this = new gdnative.Projection.Projection_extern(p_x_axis, p_y_axis, p_z_axis, p_w_axis);
 }

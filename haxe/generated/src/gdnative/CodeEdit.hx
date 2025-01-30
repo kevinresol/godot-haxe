@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract CodeEdit(cpp.Pointer<CodeEdit_extern>) from cpp.Pointer<CodeEdit_extern> to cpp.Pointer<CodeEdit_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.CodeEdit):gdnative.CodeEdit return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.CodeEdit return new gd.CodeEdit(this);
+}
 @:include("godot_cpp/classes/code_edit.hpp") @:native("godot::CodeEdit") @:structAccess extern class CodeEdit_extern extends gdnative.TextEdit.TextEdit_extern {
 	extern static inline function __alloc():cpp.Pointer<CodeEdit_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::CodeEdit"));
 	function _confirm_code_completion(p_replace:Bool):Void;
@@ -114,13 +123,4 @@ package gdnative;
 	function delete_lines():Void;
 	function duplicate_selection():Void;
 	function duplicate_lines():Void;
-}
-@:forward abstract CodeEdit(cpp.Pointer<CodeEdit_extern>) from cpp.Pointer<CodeEdit_extern> to cpp.Pointer<CodeEdit_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.CodeEdit):gdnative.CodeEdit return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.CodeEdit {
-		final v = new gd.CodeEdit(this);
-		return v;
-	}
 }

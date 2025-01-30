@@ -1,4 +1,17 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract WebXRInterface(gdnative.Ref<WebXRInterface_extern>) from gdnative.Ref<WebXRInterface_extern> to gdnative.Ref<WebXRInterface_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.WebXRInterface):gdnative.WebXRInterface return @:privateAccess v.__ref.ptr().reinterpret();
+	@:to
+	inline function toWrapper():gd.WebXRInterface {
+		final v = new gd.WebXRInterface(this.ptr());
+		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+		return v;
+	}
+}
 @:include("godot_cpp/classes/web_xr_interface.hpp") @:native("godot::WebXRInterface") @:structAccess extern class WebXRInterface_extern extends gdnative.XRInterface.XRInterface_extern {
 	extern static inline function __alloc():cpp.Pointer<WebXRInterface_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::WebXRInterface"));
 	function is_session_supported(p_session_mode:gdnative.String):Void;
@@ -19,14 +32,4 @@ package gdnative;
 	function get_display_refresh_rate():Float;
 	function set_display_refresh_rate(p_refresh_rate:Float):Void;
 	function get_available_display_refresh_rates():gdnative.Array;
-}
-@:forward abstract WebXRInterface(gdnative.Ref<WebXRInterface_extern>) from gdnative.Ref<WebXRInterface_extern> to gdnative.Ref<WebXRInterface_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.WebXRInterface):gdnative.WebXRInterface return @:privateAccess v.__ref.ptr().reinterpret();
-	@:to
-	inline function toWrapper():gd.WebXRInterface {
-		final v = new gd.WebXRInterface(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
 }

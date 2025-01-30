@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract PhysicsServer2D(cpp.Pointer<PhysicsServer2D_extern>) from cpp.Pointer<PhysicsServer2D_extern> to cpp.Pointer<PhysicsServer2D_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.PhysicsServer2D):gdnative.PhysicsServer2D return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.PhysicsServer2D return new gd.PhysicsServer2D(this);
+}
 @:include("godot_cpp/classes/physics_server2d.hpp") @:native("godot::PhysicsServer2D") @:structAccess extern class PhysicsServer2D_extern extends gdnative.Object.Object_extern {
 	extern static inline function __alloc():cpp.Pointer<PhysicsServer2D_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::PhysicsServer2D"));
 	static function get_singleton():cpp.Pointer<PhysicsServer2D_extern>;
@@ -134,13 +143,4 @@ package gdnative;
 	function free_rid(p_rid:gdnative.RID):Void;
 	function set_active(p_active:Bool):Void;
 	function get_process_info(p_process_info:gdnative.physicsserver2d.ProcessInfo):Int;
-}
-@:forward abstract PhysicsServer2D(cpp.Pointer<PhysicsServer2D_extern>) from cpp.Pointer<PhysicsServer2D_extern> to cpp.Pointer<PhysicsServer2D_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.PhysicsServer2D):gdnative.PhysicsServer2D return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.PhysicsServer2D {
-		final v = new gd.PhysicsServer2D(this);
-		return v;
-	}
 }

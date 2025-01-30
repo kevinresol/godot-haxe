@@ -1,4 +1,17 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract TextLine(gdnative.Ref<TextLine_extern>) from gdnative.Ref<TextLine_extern> to gdnative.Ref<TextLine_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.TextLine):gdnative.TextLine return @:privateAccess v.__ref.ptr().reinterpret();
+	@:to
+	inline function toWrapper():gd.TextLine {
+		final v = new gd.TextLine(this.ptr());
+		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+		return v;
+	}
+}
 @:include("godot_cpp/classes/text_line.hpp") @:native("godot::TextLine") @:structAccess extern class TextLine_extern extends gdnative.RefCounted.RefCounted_extern {
 	extern static inline function __alloc():cpp.Pointer<TextLine_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::TextLine"));
 	function clear():Void;
@@ -47,14 +60,4 @@ package gdnative;
 	overload function draw_outline(p_canvas:gdnative.RID, p_pos:gdnative.Vector2, p_outline_size:Int):Void;
 	overload function draw_outline(p_canvas:gdnative.RID, p_pos:gdnative.Vector2, p_outline_size:Int, p_color:gdnative.Color):Void;
 	function hit_test(p_coords:Float):Int;
-}
-@:forward abstract TextLine(gdnative.Ref<TextLine_extern>) from gdnative.Ref<TextLine_extern> to gdnative.Ref<TextLine_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.TextLine):gdnative.TextLine return @:privateAccess v.__ref.ptr().reinterpret();
-	@:to
-	inline function toWrapper():gd.TextLine {
-		final v = new gd.TextLine(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
 }

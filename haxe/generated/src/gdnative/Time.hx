@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract Time(cpp.Pointer<Time_extern>) from cpp.Pointer<Time_extern> to cpp.Pointer<Time_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.Time):gdnative.Time return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.Time return new gd.Time(this);
+}
 @:include("godot_cpp/classes/time.hpp") @:native("godot::Time") @:structAccess extern class Time_extern extends gdnative.Object.Object_extern {
 	extern static inline function __alloc():cpp.Pointer<Time_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::Time"));
 	static function get_singleton():cpp.Pointer<Time_extern>;
@@ -31,13 +40,4 @@ package gdnative;
 	function get_unix_time_from_system():Float;
 	function get_ticks_msec():Int;
 	function get_ticks_usec():Int;
-}
-@:forward abstract Time(cpp.Pointer<Time_extern>) from cpp.Pointer<Time_extern> to cpp.Pointer<Time_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.Time):gdnative.Time return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.Time {
-		final v = new gd.Time(this);
-		return v;
-	}
 }

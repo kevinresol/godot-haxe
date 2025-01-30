@@ -1,4 +1,17 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract GLTFPhysicsShape(gdnative.Ref<GLTFPhysicsShape_extern>) from gdnative.Ref<GLTFPhysicsShape_extern> to gdnative.Ref<GLTFPhysicsShape_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.GLTFPhysicsShape):gdnative.GLTFPhysicsShape return @:privateAccess v.__ref.ptr().reinterpret();
+	@:to
+	inline function toWrapper():gd.GLTFPhysicsShape {
+		final v = new gd.GLTFPhysicsShape(this.ptr());
+		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+		return v;
+	}
+}
 @:include("godot_cpp/classes/gltf_physics_shape.hpp") @:native("godot::GLTFPhysicsShape") @:structAccess extern class GLTFPhysicsShape_extern extends gdnative.Resource.Resource_extern {
 	extern static inline function __alloc():cpp.Pointer<GLTFPhysicsShape_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::GLTFPhysicsShape"));
 	static function from_node(p_shape_node:gdnative.CollisionShape3D):gdnative.GLTFPhysicsShape;
@@ -23,14 +36,4 @@ package gdnative;
 	function set_mesh_index(p_mesh_index:Int):Void;
 	function get_importer_mesh():gdnative.ImporterMesh;
 	function set_importer_mesh(p_importer_mesh:gdnative.ImporterMesh):Void;
-}
-@:forward abstract GLTFPhysicsShape(gdnative.Ref<GLTFPhysicsShape_extern>) from gdnative.Ref<GLTFPhysicsShape_extern> to gdnative.Ref<GLTFPhysicsShape_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.GLTFPhysicsShape):gdnative.GLTFPhysicsShape return @:privateAccess v.__ref.ptr().reinterpret();
-	@:to
-	inline function toWrapper():gd.GLTFPhysicsShape {
-		final v = new gd.GLTFPhysicsShape(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
 }

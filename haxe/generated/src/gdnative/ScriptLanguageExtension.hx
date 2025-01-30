@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract ScriptLanguageExtension(cpp.Pointer<ScriptLanguageExtension_extern>) from cpp.Pointer<ScriptLanguageExtension_extern> to cpp.Pointer<ScriptLanguageExtension_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.ScriptLanguageExtension):gdnative.ScriptLanguageExtension return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.ScriptLanguageExtension return new gd.ScriptLanguageExtension(this);
+}
 @:include("godot_cpp/classes/script_language_extension.hpp") @:native("godot::ScriptLanguageExtension") @:structAccess extern class ScriptLanguageExtension_extern extends gdnative.ScriptLanguage.ScriptLanguage_extern {
 	extern static inline function __alloc():cpp.Pointer<ScriptLanguageExtension_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::ScriptLanguageExtension"));
 	function _get_name():gdnative.String;
@@ -53,13 +62,4 @@ package gdnative;
 	function _frame():Void;
 	function _handles_global_class_type(p_type:gdnative.String):Bool;
 	function _get_global_class_name(p_path:gdnative.String):gdnative.Dictionary;
-}
-@:forward abstract ScriptLanguageExtension(cpp.Pointer<ScriptLanguageExtension_extern>) from cpp.Pointer<ScriptLanguageExtension_extern> to cpp.Pointer<ScriptLanguageExtension_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.ScriptLanguageExtension):gdnative.ScriptLanguageExtension return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.ScriptLanguageExtension {
-		final v = new gd.ScriptLanguageExtension(this);
-		return v;
-	}
 }

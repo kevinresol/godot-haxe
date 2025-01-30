@@ -1,4 +1,20 @@
 package gdnative;
+/**
+	Built-in Class
+**/
+@:forward abstract Dictionary(cpp.Struct<Dictionary_extern>) from cpp.Struct<Dictionary_extern> to cpp.Struct<Dictionary_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.Dictionary):gdnative.Dictionary return fromWrapperInternal(v);
+	@:from
+	static inline function fromWrapperInternal(v:gd.Dictionary.Dictionary_wrapper):gdnative.Dictionary return untyped __cpp__('{0}.get()', @:privateAccess v.__gd);
+	@:to
+	inline function toWrapper():gd.Dictionary return toWrapperInternal();
+	@:to
+	inline function toWrapperInternal():gd.Dictionary.Dictionary_wrapper return new gd.Dictionary.Dictionary_wrapper(this);
+	public extern overload inline function new() this = new gdnative.Dictionary.Dictionary_extern();
+	public extern overload inline function new(p_from:gd.Dictionary) this = new gdnative.Dictionary.Dictionary_extern(p_from);
+}
+
 @:include("godot_cpp/variant/dictionary.hpp") @:native("godot::Dictionary") @:structAccess extern class Dictionary_extern {
 	@:overload(function(p_from:gdnative.Dictionary):Void { })
 	function new();
@@ -25,17 +41,4 @@ package gdnative;
 	function make_read_only():Void;
 	function is_read_only():Bool;
 	function recursive_equal(p_dictionary:gdnative.Dictionary, p_recursion_count:Int):Bool;
-}
-
-@:forward abstract Dictionary(cpp.Struct<Dictionary_extern>) from cpp.Struct<Dictionary_extern> to cpp.Struct<Dictionary_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.Dictionary):gdnative.Dictionary return fromWrapperInternal(v);
-	@:from
-	static inline function fromWrapperInternal(v:gd.Dictionary.Dictionary_wrapper):gdnative.Dictionary return untyped __cpp__('{0}.get()', @:privateAccess v.__gd);
-	@:to
-	inline function toWrapper():gd.Dictionary return toWrapperInternal();
-	@:to
-	inline function toWrapperInternal():gd.Dictionary.Dictionary_wrapper return new gd.Dictionary.Dictionary_wrapper(this);
-	public extern overload inline function new() this = new gdnative.Dictionary.Dictionary_extern();
-	public extern overload inline function new(p_from:gd.Dictionary) this = new gdnative.Dictionary.Dictionary_extern(p_from);
 }

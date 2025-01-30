@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract SpringArm3D(cpp.Pointer<SpringArm3D_extern>) from cpp.Pointer<SpringArm3D_extern> to cpp.Pointer<SpringArm3D_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.SpringArm3D):gdnative.SpringArm3D return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.SpringArm3D return new gd.SpringArm3D(this);
+}
 @:include("godot_cpp/classes/spring_arm3d.hpp") @:native("godot::SpringArm3D") @:structAccess extern class SpringArm3D_extern extends gdnative.Node3D.Node3D_extern {
 	extern static inline function __alloc():cpp.Pointer<SpringArm3D_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::SpringArm3D"));
 	function get_hit_length():Float;
@@ -13,13 +22,4 @@ package gdnative;
 	function get_collision_mask():Int;
 	function set_margin(p_margin:Float):Void;
 	function get_margin():Float;
-}
-@:forward abstract SpringArm3D(cpp.Pointer<SpringArm3D_extern>) from cpp.Pointer<SpringArm3D_extern> to cpp.Pointer<SpringArm3D_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.SpringArm3D):gdnative.SpringArm3D return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.SpringArm3D {
-		final v = new gd.SpringArm3D(this);
-		return v;
-	}
 }

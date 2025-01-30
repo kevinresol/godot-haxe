@@ -7,12 +7,24 @@ using Lambda;
 
 @:build(gdcppia.Cppia.xml())
 @:headerInclude('hx/Scriptable.h') // https://github.com/HaxeFoundation/hxcpp/issues/816
+@:cppInclude('iostream')
+@:cppInclude('thread')
 @:unreflective
 class Cppia {
 	static final mutex = new sys.thread.Mutex();
 
+	static function printThreadId(name:String) {
+		trace('Thread ID for $name');
+		untyped __cpp__('std::thread::id currentThreadId = std::this_thread::get_id()');
+		untyped __cpp__('std::hash<std::thread::id> hasher');
+		untyped __cpp__('size_t hashedId = hasher(currentThreadId)');
+		untyped __cpp__('std::cout << "Current Thread ID (Hashed): " << hashedId << std::endl');
+	}
+
 	public static function main() {
 		trace("Hello from Haxe!");
+
+		// printThreadId("main");
 
 		final up = gd.Key.UP;
 		final nativeup = gdnative.Key.UP;
@@ -62,11 +74,29 @@ class Cppia {
 		trace(gdnative.sky.ProcessMode.QUALITY);
 
 		UtilityFunctions.print(gd.ResourceLoader.singleton.load('res://sub.tscn'));
+
+		trace('JSON checks (host)');
+		final json = new gd.JSON();
+		switch json.parse('{"foo": 42, "bar": true, "baz": ["hello", "world"]}') {
+			case OK:
+				final data = json.data;
+				UtilityFunctions.print(data.get_type());
+				UtilityFunctions.print(data);
+				UtilityFunctions.print(data["foo"]);
+				UtilityFunctions.print(data["bar"]);
+				UtilityFunctions.print(data["baz"]);
+				UtilityFunctions.print(UtilityFunctions.type_string(UtilityFunctions.typeof(data["foo"])));
+				UtilityFunctions.print(UtilityFunctions.type_string(UtilityFunctions.typeof(data["bar"])));
+				UtilityFunctions.print(UtilityFunctions.type_string(UtilityFunctions.typeof(data["baz"])));
+			case err:
+				trace('Error parsing JSON: $err');
+		}
 	}
 
 	static var module:Module;
 
 	public static function runBytes(data:Array<UInt8>) {
+		// printThreadId("runBytes");
 		final bytes = haxe.io.Bytes.ofData(data);
 		trace('Loaded bytes:${bytes.length}');
 
@@ -108,6 +138,7 @@ class Cppia {
 	}
 
 	public static function instanceCall(inst:Dynamic, methodName:String, args:Array<Dynamic>):Void {
+		// printThreadId("instanceCall");
 		if (inst == null) {
 			trace('Instance is null');
 			return;

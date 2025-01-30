@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract TabBar(cpp.Pointer<TabBar_extern>) from cpp.Pointer<TabBar_extern> to cpp.Pointer<TabBar_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.TabBar):gdnative.TabBar return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.TabBar return new gd.TabBar(this);
+}
 @:include("godot_cpp/classes/tab_bar.hpp") @:native("godot::TabBar") @:structAccess extern class TabBar_extern extends gdnative.Control.Control_extern {
 	extern static inline function __alloc():cpp.Pointer<TabBar_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::TabBar"));
 	function set_tab_count(p_count:Int):Void;
@@ -59,13 +68,4 @@ package gdnative;
 	function set_deselect_enabled(p_enabled:Bool):Void;
 	function get_deselect_enabled():Bool;
 	function clear_tabs():Void;
-}
-@:forward abstract TabBar(cpp.Pointer<TabBar_extern>) from cpp.Pointer<TabBar_extern> to cpp.Pointer<TabBar_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.TabBar):gdnative.TabBar return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.TabBar {
-		final v = new gd.TabBar(this);
-		return v;
-	}
 }

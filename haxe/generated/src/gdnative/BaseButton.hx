@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract BaseButton(cpp.Pointer<BaseButton_extern>) from cpp.Pointer<BaseButton_extern> to cpp.Pointer<BaseButton_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.BaseButton):gdnative.BaseButton return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.BaseButton return new gd.BaseButton(this);
+}
 @:include("godot_cpp/classes/base_button.hpp") @:native("godot::BaseButton") @:structAccess extern class BaseButton_extern extends gdnative.Control.Control_extern {
 	extern static inline function __alloc():cpp.Pointer<BaseButton_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::BaseButton"));
 	function _pressed():Void;
@@ -26,13 +35,4 @@ package gdnative;
 	function get_shortcut():gdnative.Shortcut;
 	function set_button_group(p_button_group:gdnative.ButtonGroup):Void;
 	function get_button_group():gdnative.ButtonGroup;
-}
-@:forward abstract BaseButton(cpp.Pointer<BaseButton_extern>) from cpp.Pointer<BaseButton_extern> to cpp.Pointer<BaseButton_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.BaseButton):gdnative.BaseButton return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.BaseButton {
-		final v = new gd.BaseButton(this);
-		return v;
-	}
 }

@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract EngineDebugger(cpp.Pointer<EngineDebugger_extern>) from cpp.Pointer<EngineDebugger_extern> to cpp.Pointer<EngineDebugger_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.EngineDebugger):gdnative.EngineDebugger return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.EngineDebugger return new gd.EngineDebugger(this);
+}
 @:include("godot_cpp/classes/engine_debugger.hpp") @:native("godot::EngineDebugger") @:structAccess extern class EngineDebugger_extern extends gdnative.Object.Object_extern {
 	extern static inline function __alloc():cpp.Pointer<EngineDebugger_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::EngineDebugger"));
 	static function get_singleton():cpp.Pointer<EngineDebugger_extern>;
@@ -30,13 +39,4 @@ package gdnative;
 	function insert_breakpoint(p_line:Int, p_source:gdnative.StringName):Void;
 	function remove_breakpoint(p_line:Int, p_source:gdnative.StringName):Void;
 	function clear_breakpoints():Void;
-}
-@:forward abstract EngineDebugger(cpp.Pointer<EngineDebugger_extern>) from cpp.Pointer<EngineDebugger_extern> to cpp.Pointer<EngineDebugger_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.EngineDebugger):gdnative.EngineDebugger return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.EngineDebugger {
-		final v = new gd.EngineDebugger(this);
-		return v;
-	}
 }

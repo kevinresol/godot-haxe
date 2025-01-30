@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract GridMap(cpp.Pointer<GridMap_extern>) from cpp.Pointer<GridMap_extern> to cpp.Pointer<GridMap_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.GridMap):gdnative.GridMap return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.GridMap return new gd.GridMap(this);
+}
 @:include("godot_cpp/classes/grid_map.hpp") @:native("godot::GridMap") @:structAccess extern class GridMap_extern extends gdnative.Node3D.Node3D_extern {
 	extern static inline function __alloc():cpp.Pointer<GridMap_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::GridMap"));
 	function set_collision_layer(p_layer:Int):Void;
@@ -49,13 +58,4 @@ package gdnative;
 	overload function make_baked_meshes():Void;
 	overload function make_baked_meshes(p_gen_lightmap_uv:Bool):Void;
 	overload function make_baked_meshes(p_gen_lightmap_uv:Bool, p_lightmap_uv_texel_size:Float):Void;
-}
-@:forward abstract GridMap(cpp.Pointer<GridMap_extern>) from cpp.Pointer<GridMap_extern> to cpp.Pointer<GridMap_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.GridMap):gdnative.GridMap return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.GridMap {
-		final v = new gd.GridMap(this);
-		return v;
-	}
 }

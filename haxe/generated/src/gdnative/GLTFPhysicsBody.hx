@@ -1,4 +1,17 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract GLTFPhysicsBody(gdnative.Ref<GLTFPhysicsBody_extern>) from gdnative.Ref<GLTFPhysicsBody_extern> to gdnative.Ref<GLTFPhysicsBody_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.GLTFPhysicsBody):gdnative.GLTFPhysicsBody return @:privateAccess v.__ref.ptr().reinterpret();
+	@:to
+	inline function toWrapper():gd.GLTFPhysicsBody {
+		final v = new gd.GLTFPhysicsBody(this.ptr());
+		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+		return v;
+	}
+}
 @:include("godot_cpp/classes/gltf_physics_body.hpp") @:native("godot::GLTFPhysicsBody") @:structAccess extern class GLTFPhysicsBody_extern extends gdnative.Resource.Resource_extern {
 	extern static inline function __alloc():cpp.Pointer<GLTFPhysicsBody_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::GLTFPhysicsBody"));
 	static function from_node(p_body_node:gdnative.CollisionObject3D):gdnative.GLTFPhysicsBody;
@@ -21,14 +34,4 @@ package gdnative;
 	function set_inertia_orientation(p_inertia_orientation:gdnative.Quaternion):Void;
 	function get_inertia_tensor():gdnative.Basis;
 	function set_inertia_tensor(p_inertia_tensor:gdnative.Basis):Void;
-}
-@:forward abstract GLTFPhysicsBody(gdnative.Ref<GLTFPhysicsBody_extern>) from gdnative.Ref<GLTFPhysicsBody_extern> to gdnative.Ref<GLTFPhysicsBody_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.GLTFPhysicsBody):gdnative.GLTFPhysicsBody return @:privateAccess v.__ref.ptr().reinterpret();
-	@:to
-	inline function toWrapper():gd.GLTFPhysicsBody {
-		final v = new gd.GLTFPhysicsBody(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
 }

@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract EditorProperty(cpp.Pointer<EditorProperty_extern>) from cpp.Pointer<EditorProperty_extern> to cpp.Pointer<EditorProperty_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.EditorProperty):gdnative.EditorProperty return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.EditorProperty return new gd.EditorProperty(this);
+}
 @:include("godot_cpp/classes/editor_property.hpp") @:native("godot::EditorProperty") @:structAccess extern class EditorProperty_extern extends gdnative.Container.Container_extern {
 	extern static inline function __alloc():cpp.Pointer<EditorProperty_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::EditorProperty"));
 	function _update_property():Void;
@@ -25,13 +34,4 @@ package gdnative;
 	overload function emit_changed(p_property:gdnative.StringName, p_value:gdnative.Variant):Void;
 	overload function emit_changed(p_property:gdnative.StringName, p_value:gdnative.Variant, p_field:gdnative.StringName):Void;
 	overload function emit_changed(p_property:gdnative.StringName, p_value:gdnative.Variant, p_field:gdnative.StringName, p_changing:Bool):Void;
-}
-@:forward abstract EditorProperty(cpp.Pointer<EditorProperty_extern>) from cpp.Pointer<EditorProperty_extern> to cpp.Pointer<EditorProperty_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.EditorProperty):gdnative.EditorProperty return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.EditorProperty {
-		final v = new gd.EditorProperty(this);
-		return v;
-	}
 }

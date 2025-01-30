@@ -47,7 +47,6 @@ class ClassBuilder extends EnumBuilder {
 			}
 		}
 		cls.isExtern = true;
-		cls.pack = config.pack;
 		cls.meta = [
 			{pos: null, name: ':include', params: [macro $v{hpp}]},
 			{pos: null, name: ':native', params: [macro $v{'godot::${cname == 'ClassDB' ? 'ClassDBSingleton' : cname}'}]},
@@ -108,8 +107,13 @@ class ClassBuilder extends EnumBuilder {
 			} catch (e) {}
 		}
 
-		final abs = if (clazz.is_refcounted) {
-			final abs = macro class $cname {
+		final abs = macro class $cname {}
+		abs.doc = 'Class';
+		abs.pack = config.pack;
+		abs.meta = [{pos: null, name: ':forward'}];
+
+		if (clazz.is_refcounted) {
+			abs.fields = abs.fields.concat((macro class {
 				@:from static inline function fromWrapper(v:gd.$cname):gdnative.$cname
 					return @:privateAccess v.__ref.ptr().reinterpret();
 
@@ -118,29 +122,23 @@ class ClassBuilder extends EnumBuilder {
 					v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
 					return v;
 				}
-			};
+			}).fields);
 			final ref = macro :gdnative.Ref<$local>;
 			abs.kind = TDAbstract(ref, [AbFrom(ref), AbTo(ref)]);
-			abs.meta = [{pos: null, name: ':forward'}];
-			abs;
 		} else {
-			final abs = macro class $cname {
+			abs.fields = abs.fields.concat((macro class {
 				@:from static inline function fromWrapper(v:gd.$cname):gdnative.$cname
 					return @:privateAccess v.__gd.reinterpret();
 
-				@:to inline function toWrapper():gd.$cname {
-					final v = new gd.$cname(this);
-					return v;
-				}
-			};
+				@:to inline function toWrapper():gd.$cname 
+					return new gd.$cname(this);
+			}).fields);
 			final pointer = macro :cpp.Pointer<$local>;
 			abs.kind = TDAbstract(pointer, [AbFrom(pointer), AbTo(pointer)]);
-			abs.meta = [{pos: null, name: ':forward'}];
-			abs;
 		}
 
-		final source = printTypeDefinition(cls) + '\n' + printTypeDefinition(abs);
-		write('${config.folder}/${cls.pack.join('/')}/$cname.hx', source);
+		final source = printTypeDefinition(abs) + '\n' + printTypeDefinition(cls);
+		write('${config.folder}/${abs.pack.join('/')}/$cname.hx', source);
 	}
 
 	function generateClassWrapper(clazz:Clazz, isScriptExtern:Bool) {

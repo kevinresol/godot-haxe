@@ -28,6 +28,26 @@ abstract Variant(Variant_obj) from Variant_obj to Variant_obj {
 
 	@:from static inline function fromVariantType(v:gd.variant.Type):Variant
 		return fromInt(v);
+
+	@:arrayAccess
+	inline function get_named(name:std.String):Variant
+		return this.get_named(name);
+
+	@:arrayAccess
+	inline function set_named(name:std.String, value:Variant):Variant {
+		this.set_named(name, value);
+		return value;
+	}
+
+	@:arrayAccess
+	inline function get_indexed(index:Int):Variant
+		return this.get_indexed(index);
+
+	@:arrayAccess
+	inline function set_indexed(index:Int, value:Variant):Variant {
+		this.set_indexed(index, value);
+		return value;
+	}
 }
 
 extern class Variant_obj {
@@ -41,4 +61,10 @@ extern class Variant_obj {
 
 	static function fromObject(v:gd.Object):Variant_obj;
 	static function fromNodePath(v:gd.NodePath):Variant_obj;
+
+	function get_type():gd.variant.Type;
+	function get_named(name:std.String):Variant;
+	function set_named(name:std.String, value:Variant):Bool;
+	function get_indexed(index:Int):Variant;
+	function set_indexed(index:Int, value:Variant):Bool;
 }

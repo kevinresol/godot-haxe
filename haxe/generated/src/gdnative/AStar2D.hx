@@ -1,4 +1,17 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract AStar2D(gdnative.Ref<AStar2D_extern>) from gdnative.Ref<AStar2D_extern> to gdnative.Ref<AStar2D_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.AStar2D):gdnative.AStar2D return @:privateAccess v.__ref.ptr().reinterpret();
+	@:to
+	inline function toWrapper():gd.AStar2D {
+		final v = new gd.AStar2D(this.ptr());
+		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+		return v;
+	}
+}
 @:include("godot_cpp/classes/a_star2d.hpp") @:native("godot::AStar2D") @:structAccess extern class AStar2D_extern extends gdnative.RefCounted.RefCounted_extern {
 	extern static inline function __alloc():cpp.Pointer<AStar2D_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::AStar2D"));
 	function _estimate_cost(p_from_id:Int, p_to_id:Int):Float;
@@ -34,14 +47,4 @@ package gdnative;
 	overload function get_point_path(p_from_id:Int, p_to_id:Int, p_allow_partial_path:Bool):gdnative.PackedVector2Array;
 	overload function get_id_path(p_from_id:Int, p_to_id:Int):gdnative.PackedInt64Array;
 	overload function get_id_path(p_from_id:Int, p_to_id:Int, p_allow_partial_path:Bool):gdnative.PackedInt64Array;
-}
-@:forward abstract AStar2D(gdnative.Ref<AStar2D_extern>) from gdnative.Ref<AStar2D_extern> to gdnative.Ref<AStar2D_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.AStar2D):gdnative.AStar2D return @:privateAccess v.__ref.ptr().reinterpret();
-	@:to
-	inline function toWrapper():gd.AStar2D {
-		final v = new gd.AStar2D(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
 }

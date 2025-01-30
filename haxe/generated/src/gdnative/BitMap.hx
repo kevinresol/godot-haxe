@@ -1,4 +1,17 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract BitMap(gdnative.Ref<BitMap_extern>) from gdnative.Ref<BitMap_extern> to gdnative.Ref<BitMap_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.BitMap):gdnative.BitMap return @:privateAccess v.__ref.ptr().reinterpret();
+	@:to
+	inline function toWrapper():gd.BitMap {
+		final v = new gd.BitMap(this.ptr());
+		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+		return v;
+	}
+}
 @:include("godot_cpp/classes/bit_map.hpp") @:native("godot::BitMap") @:structAccess extern class BitMap_extern extends gdnative.Resource.Resource_extern {
 	extern static inline function __alloc():cpp.Pointer<BitMap_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::BitMap"));
 	function create(p_size:gdnative.Vector2i):Void;
@@ -14,14 +27,4 @@ package gdnative;
 	function resize(p_new_size:gdnative.Vector2i):Void;
 	function grow_mask(p_pixels:Int, p_rect:gdnative.Rect2i):Void;
 	function convert_to_image():gdnative.Image;
-}
-@:forward abstract BitMap(gdnative.Ref<BitMap_extern>) from gdnative.Ref<BitMap_extern> to gdnative.Ref<BitMap_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.BitMap):gdnative.BitMap return @:privateAccess v.__ref.ptr().reinterpret();
-	@:to
-	inline function toWrapper():gd.BitMap {
-		final v = new gd.BitMap(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
 }

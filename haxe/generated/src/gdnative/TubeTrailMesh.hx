@@ -1,4 +1,17 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract TubeTrailMesh(gdnative.Ref<TubeTrailMesh_extern>) from gdnative.Ref<TubeTrailMesh_extern> to gdnative.Ref<TubeTrailMesh_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.TubeTrailMesh):gdnative.TubeTrailMesh return @:privateAccess v.__ref.ptr().reinterpret();
+	@:to
+	inline function toWrapper():gd.TubeTrailMesh {
+		final v = new gd.TubeTrailMesh(this.ptr());
+		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+		return v;
+	}
+}
 @:include("godot_cpp/classes/tube_trail_mesh.hpp") @:native("godot::TubeTrailMesh") @:structAccess extern class TubeTrailMesh_extern extends gdnative.PrimitiveMesh.PrimitiveMesh_extern {
 	extern static inline function __alloc():cpp.Pointer<TubeTrailMesh_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::TubeTrailMesh"));
 	function set_radius(p_radius:Float):Void;
@@ -17,14 +30,4 @@ package gdnative;
 	function is_cap_bottom():Bool;
 	function set_curve(p_curve:gdnative.Curve):Void;
 	function get_curve():gdnative.Curve;
-}
-@:forward abstract TubeTrailMesh(gdnative.Ref<TubeTrailMesh_extern>) from gdnative.Ref<TubeTrailMesh_extern> to gdnative.Ref<TubeTrailMesh_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.TubeTrailMesh):gdnative.TubeTrailMesh return @:privateAccess v.__ref.ptr().reinterpret();
-	@:to
-	inline function toWrapper():gd.TubeTrailMesh {
-		final v = new gd.TubeTrailMesh(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
 }

@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract NavigationObstacle2D(cpp.Pointer<NavigationObstacle2D_extern>) from cpp.Pointer<NavigationObstacle2D_extern> to cpp.Pointer<NavigationObstacle2D_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.NavigationObstacle2D):gdnative.NavigationObstacle2D return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.NavigationObstacle2D return new gd.NavigationObstacle2D(this);
+}
 @:include("godot_cpp/classes/navigation_obstacle2d.hpp") @:native("godot::NavigationObstacle2D") @:structAccess extern class NavigationObstacle2D_extern extends gdnative.Node2D.Node2D_extern {
 	extern static inline function __alloc():cpp.Pointer<NavigationObstacle2D_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::NavigationObstacle2D"));
 	function get_rid():gdnative.RID;
@@ -20,13 +29,4 @@ package gdnative;
 	function get_affect_navigation_mesh():Bool;
 	function set_carve_navigation_mesh(p_enabled:Bool):Void;
 	function get_carve_navigation_mesh():Bool;
-}
-@:forward abstract NavigationObstacle2D(cpp.Pointer<NavigationObstacle2D_extern>) from cpp.Pointer<NavigationObstacle2D_extern> to cpp.Pointer<NavigationObstacle2D_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.NavigationObstacle2D):gdnative.NavigationObstacle2D return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.NavigationObstacle2D {
-		final v = new gd.NavigationObstacle2D(this);
-		return v;
-	}
 }

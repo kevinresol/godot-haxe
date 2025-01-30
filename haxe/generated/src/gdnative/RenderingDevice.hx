@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract RenderingDevice(cpp.Pointer<RenderingDevice_extern>) from cpp.Pointer<RenderingDevice_extern> to cpp.Pointer<RenderingDevice_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.RenderingDevice):gdnative.RenderingDevice return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.RenderingDevice return new gd.RenderingDevice(this);
+}
 @:include("godot_cpp/classes/rendering_device.hpp") @:native("godot::RenderingDevice") @:structAccess extern class RenderingDevice_extern extends gdnative.Object.Object_extern {
 	extern static inline function __alloc():cpp.Pointer<RenderingDevice_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::RenderingDevice"));
 	function texture_create_shared(p_view:gdnative.RDTextureView, p_with_texture:gdnative.RID):gdnative.RID;
@@ -121,13 +130,4 @@ package gdnative;
 	function get_device_pipeline_cache_uuid():gdnative.String;
 	function get_memory_usage(p_type:gdnative.renderingdevice.MemoryType):Int;
 	function get_driver_resource(p_resource:gdnative.renderingdevice.DriverResource, p_rid:gdnative.RID, p_index:Int):Int;
-}
-@:forward abstract RenderingDevice(cpp.Pointer<RenderingDevice_extern>) from cpp.Pointer<RenderingDevice_extern> to cpp.Pointer<RenderingDevice_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.RenderingDevice):gdnative.RenderingDevice return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.RenderingDevice {
-		final v = new gd.RenderingDevice(this);
-		return v;
-	}
 }

@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract SkeletonIK3D(cpp.Pointer<SkeletonIK3D_extern>) from cpp.Pointer<SkeletonIK3D_extern> to cpp.Pointer<SkeletonIK3D_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.SkeletonIK3D):gdnative.SkeletonIK3D return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.SkeletonIK3D return new gd.SkeletonIK3D(this);
+}
 @:include("godot_cpp/classes/skeleton_ik3d.hpp") @:native("godot::SkeletonIK3D") @:structAccess extern class SkeletonIK3D_extern extends gdnative.SkeletonModifier3D.SkeletonModifier3D_extern {
 	extern static inline function __alloc():cpp.Pointer<SkeletonIK3D_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::SkeletonIK3D"));
 	function set_root_bone(p_root_bone:gdnative.StringName):Void;
@@ -26,13 +35,4 @@ package gdnative;
 	function stop():Void;
 	function set_interpolation(p_interpolation:Float):Void;
 	function get_interpolation():Float;
-}
-@:forward abstract SkeletonIK3D(cpp.Pointer<SkeletonIK3D_extern>) from cpp.Pointer<SkeletonIK3D_extern> to cpp.Pointer<SkeletonIK3D_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.SkeletonIK3D):gdnative.SkeletonIK3D return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.SkeletonIK3D {
-		final v = new gd.SkeletonIK3D(this);
-		return v;
-	}
 }

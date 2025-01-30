@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract CanvasLayer(cpp.Pointer<CanvasLayer_extern>) from cpp.Pointer<CanvasLayer_extern> to cpp.Pointer<CanvasLayer_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.CanvasLayer):gdnative.CanvasLayer return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.CanvasLayer return new gd.CanvasLayer(this);
+}
 @:include("godot_cpp/classes/canvas_layer.hpp") @:native("godot::CanvasLayer") @:structAccess extern class CanvasLayer_extern extends gdnative.Node.Node_extern {
 	extern static inline function __alloc():cpp.Pointer<CanvasLayer_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::CanvasLayer"));
 	function set_layer(p_layer:Int):Void;
@@ -23,13 +32,4 @@ package gdnative;
 	function set_custom_viewport(p_viewport:gdnative.Node):Void;
 	function get_custom_viewport():gdnative.Node;
 	function get_canvas():gdnative.RID;
-}
-@:forward abstract CanvasLayer(cpp.Pointer<CanvasLayer_extern>) from cpp.Pointer<CanvasLayer_extern> to cpp.Pointer<CanvasLayer_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.CanvasLayer):gdnative.CanvasLayer return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.CanvasLayer {
-		final v = new gd.CanvasLayer(this);
-		return v;
-	}
 }

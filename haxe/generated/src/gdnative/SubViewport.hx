@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract SubViewport(cpp.Pointer<SubViewport_extern>) from cpp.Pointer<SubViewport_extern> to cpp.Pointer<SubViewport_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.SubViewport):gdnative.SubViewport return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.SubViewport return new gd.SubViewport(this);
+}
 @:include("godot_cpp/classes/sub_viewport.hpp") @:native("godot::SubViewport") @:structAccess extern class SubViewport_extern extends gdnative.Viewport.Viewport_extern {
 	extern static inline function __alloc():cpp.Pointer<SubViewport_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::SubViewport"));
 	function set_size(p_size:gdnative.Vector2i):Void;
@@ -11,13 +20,4 @@ package gdnative;
 	function get_update_mode():gdnative.subviewport.UpdateMode;
 	function set_clear_mode(p_mode:gdnative.subviewport.ClearMode):Void;
 	function get_clear_mode():gdnative.subviewport.ClearMode;
-}
-@:forward abstract SubViewport(cpp.Pointer<SubViewport_extern>) from cpp.Pointer<SubViewport_extern> to cpp.Pointer<SubViewport_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.SubViewport):gdnative.SubViewport return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.SubViewport {
-		final v = new gd.SubViewport(this);
-		return v;
-	}
 }

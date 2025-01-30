@@ -1,4 +1,17 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract DirAccess(gdnative.Ref<DirAccess_extern>) from gdnative.Ref<DirAccess_extern> to gdnative.Ref<DirAccess_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.DirAccess):gdnative.DirAccess return @:privateAccess v.__ref.ptr().reinterpret();
+	@:to
+	inline function toWrapper():gd.DirAccess {
+		final v = new gd.DirAccess(this.ptr());
+		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+		return v;
+	}
+}
 @:include("godot_cpp/classes/dir_access.hpp") @:native("godot::DirAccess") @:structAccess extern class DirAccess_extern extends gdnative.RefCounted.RefCounted_extern {
 	extern static inline function __alloc():cpp.Pointer<DirAccess_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::DirAccess"));
 	static function open(p_path:gdnative.String):gdnative.DirAccess;
@@ -41,14 +54,4 @@ package gdnative;
 	function set_include_hidden(p_enable:Bool):Void;
 	function get_include_hidden():Bool;
 	function is_case_sensitive(p_path:gdnative.String):Bool;
-}
-@:forward abstract DirAccess(gdnative.Ref<DirAccess_extern>) from gdnative.Ref<DirAccess_extern> to gdnative.Ref<DirAccess_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.DirAccess):gdnative.DirAccess return @:privateAccess v.__ref.ptr().reinterpret();
-	@:to
-	inline function toWrapper():gd.DirAccess {
-		final v = new gd.DirAccess(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
 }

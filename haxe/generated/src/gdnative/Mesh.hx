@@ -1,4 +1,17 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract Mesh(gdnative.Ref<Mesh_extern>) from gdnative.Ref<Mesh_extern> to gdnative.Ref<Mesh_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.Mesh):gdnative.Mesh return @:privateAccess v.__ref.ptr().reinterpret();
+	@:to
+	inline function toWrapper():gd.Mesh {
+		final v = new gd.Mesh(this.ptr());
+		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+		return v;
+	}
+}
 @:include("godot_cpp/classes/mesh.hpp") @:native("godot::Mesh") @:structAccess extern class Mesh_extern extends gdnative.Resource.Resource_extern {
 	extern static inline function __alloc():cpp.Pointer<Mesh_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::Mesh"));
 	function _get_surface_count():Int;
@@ -29,14 +42,4 @@ package gdnative;
 	overload function create_convex_shape(p_clean:Bool, p_simplify:Bool):gdnative.ConvexPolygonShape3D;
 	function create_outline(p_margin:Float):gdnative.Mesh;
 	function generate_triangle_mesh():gdnative.TriangleMesh;
-}
-@:forward abstract Mesh(gdnative.Ref<Mesh_extern>) from gdnative.Ref<Mesh_extern> to gdnative.Ref<Mesh_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.Mesh):gdnative.Mesh return @:privateAccess v.__ref.ptr().reinterpret();
-	@:to
-	inline function toWrapper():gd.Mesh {
-		final v = new gd.Mesh(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
 }

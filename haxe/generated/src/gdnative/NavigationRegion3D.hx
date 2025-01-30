@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract NavigationRegion3D(cpp.Pointer<NavigationRegion3D_extern>) from cpp.Pointer<NavigationRegion3D_extern> to cpp.Pointer<NavigationRegion3D_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.NavigationRegion3D):gdnative.NavigationRegion3D return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.NavigationRegion3D return new gd.NavigationRegion3D(this);
+}
 @:include("godot_cpp/classes/navigation_region3d.hpp") @:native("godot::NavigationRegion3D") @:structAccess extern class NavigationRegion3D_extern extends gdnative.Node3D.Node3D_extern {
 	extern static inline function __alloc():cpp.Pointer<NavigationRegion3D_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::NavigationRegion3D"));
 	function get_rid():gdnative.RID;
@@ -22,13 +31,4 @@ package gdnative;
 	overload function bake_navigation_mesh():Void;
 	overload function bake_navigation_mesh(p_on_thread:Bool):Void;
 	function is_baking():Bool;
-}
-@:forward abstract NavigationRegion3D(cpp.Pointer<NavigationRegion3D_extern>) from cpp.Pointer<NavigationRegion3D_extern> to cpp.Pointer<NavigationRegion3D_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.NavigationRegion3D):gdnative.NavigationRegion3D return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.NavigationRegion3D {
-		final v = new gd.NavigationRegion3D(this);
-		return v;
-	}
 }

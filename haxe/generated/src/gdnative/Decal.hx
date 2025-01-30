@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract Decal(cpp.Pointer<Decal_extern>) from cpp.Pointer<Decal_extern> to cpp.Pointer<Decal_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.Decal):gdnative.Decal return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.Decal return new gd.Decal(this);
+}
 @:include("godot_cpp/classes/decal.hpp") @:native("godot::Decal") @:structAccess extern class Decal_extern extends gdnative.VisualInstance3D.VisualInstance3D_extern {
 	extern static inline function __alloc():cpp.Pointer<Decal_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::Decal"));
 	function set_size(p_size:gdnative.Vector3):Void;
@@ -25,13 +34,4 @@ package gdnative;
 	function get_distance_fade_length():Float;
 	function set_cull_mask(p_mask:Int):Void;
 	function get_cull_mask():Int;
-}
-@:forward abstract Decal(cpp.Pointer<Decal_extern>) from cpp.Pointer<Decal_extern> to cpp.Pointer<Decal_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.Decal):gdnative.Decal return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.Decal {
-		final v = new gd.Decal(this);
-		return v;
-	}
 }

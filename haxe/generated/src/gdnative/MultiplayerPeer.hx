@@ -1,4 +1,17 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract MultiplayerPeer(gdnative.Ref<MultiplayerPeer_extern>) from gdnative.Ref<MultiplayerPeer_extern> to gdnative.Ref<MultiplayerPeer_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.MultiplayerPeer):gdnative.MultiplayerPeer return @:privateAccess v.__ref.ptr().reinterpret();
+	@:to
+	inline function toWrapper():gd.MultiplayerPeer {
+		final v = new gd.MultiplayerPeer(this.ptr());
+		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+		return v;
+	}
+}
 @:include("godot_cpp/classes/multiplayer_peer.hpp") @:native("godot::MultiplayerPeer") @:structAccess extern class MultiplayerPeer_extern extends gdnative.PacketPeer.PacketPeer_extern {
 	extern static inline function __alloc():cpp.Pointer<MultiplayerPeer_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::MultiplayerPeer"));
 	function set_transfer_channel(p_channel:Int):Void;
@@ -19,14 +32,4 @@ package gdnative;
 	function set_refuse_new_connections(p_enable:Bool):Void;
 	function is_refusing_new_connections():Bool;
 	function is_server_relay_supported():Bool;
-}
-@:forward abstract MultiplayerPeer(gdnative.Ref<MultiplayerPeer_extern>) from gdnative.Ref<MultiplayerPeer_extern> to gdnative.Ref<MultiplayerPeer_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.MultiplayerPeer):gdnative.MultiplayerPeer return @:privateAccess v.__ref.ptr().reinterpret();
-	@:to
-	inline function toWrapper():gd.MultiplayerPeer {
-		final v = new gd.MultiplayerPeer(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
 }

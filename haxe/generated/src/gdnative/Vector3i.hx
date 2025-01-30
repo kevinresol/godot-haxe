@@ -1,4 +1,22 @@
 package gdnative;
+/**
+	Built-in Class
+**/
+@:forward abstract Vector3i(cpp.Struct<Vector3i_extern>) from cpp.Struct<Vector3i_extern> to cpp.Struct<Vector3i_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.Vector3i):gdnative.Vector3i return fromWrapperInternal(v);
+	@:from
+	static inline function fromWrapperInternal(v:gd.Vector3i.Vector3i_wrapper):gdnative.Vector3i return untyped __cpp__('{0}.get()', @:privateAccess v.__gd);
+	@:to
+	inline function toWrapper():gd.Vector3i return toWrapperInternal();
+	@:to
+	inline function toWrapperInternal():gd.Vector3i.Vector3i_wrapper return new gd.Vector3i.Vector3i_wrapper(this);
+	public extern overload inline function new() this = new gdnative.Vector3i.Vector3i_extern();
+	public extern overload inline function new(p_from:gd.Vector3i) this = new gdnative.Vector3i.Vector3i_extern(p_from);
+	public extern overload inline function new(p_from:gd.Vector3) this = new gdnative.Vector3i.Vector3i_extern(p_from);
+	public extern overload inline function new(p_x:Int, p_y:Int, p_z:Int) this = new gdnative.Vector3i.Vector3i_extern(p_x, p_y, p_z);
+}
+
 @:include("godot_cpp/variant/vector3i.hpp") @:native("godot::Vector3i") @:structAccess extern class Vector3i_extern {
 	@:overload(function(p_from:gdnative.Vector3i):Void { })
 	@:overload(function(p_from:gdnative.Vector3):Void { })
@@ -23,19 +41,4 @@ package gdnative;
 	var x : Int;
 	var y : Int;
 	var z : Int;
-}
-
-@:forward abstract Vector3i(cpp.Struct<Vector3i_extern>) from cpp.Struct<Vector3i_extern> to cpp.Struct<Vector3i_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.Vector3i):gdnative.Vector3i return fromWrapperInternal(v);
-	@:from
-	static inline function fromWrapperInternal(v:gd.Vector3i.Vector3i_wrapper):gdnative.Vector3i return untyped __cpp__('{0}.get()', @:privateAccess v.__gd);
-	@:to
-	inline function toWrapper():gd.Vector3i return toWrapperInternal();
-	@:to
-	inline function toWrapperInternal():gd.Vector3i.Vector3i_wrapper return new gd.Vector3i.Vector3i_wrapper(this);
-	public extern overload inline function new() this = new gdnative.Vector3i.Vector3i_extern();
-	public extern overload inline function new(p_from:gd.Vector3i) this = new gdnative.Vector3i.Vector3i_extern(p_from);
-	public extern overload inline function new(p_from:gd.Vector3) this = new gdnative.Vector3i.Vector3i_extern(p_from);
-	public extern overload inline function new(p_x:Int, p_y:Int, p_z:Int) this = new gdnative.Vector3i.Vector3i_extern(p_x, p_y, p_z);
 }

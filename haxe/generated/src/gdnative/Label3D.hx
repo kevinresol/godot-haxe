@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract Label3D(cpp.Pointer<Label3D_extern>) from cpp.Pointer<Label3D_extern> to cpp.Pointer<Label3D_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.Label3D):gdnative.Label3D return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.Label3D return new gd.Label3D(this);
+}
 @:include("godot_cpp/classes/label3d.hpp") @:native("godot::Label3D") @:structAccess extern class Label3D_extern extends gdnative.GeometryInstance3D.GeometryInstance3D_extern {
 	extern static inline function __alloc():cpp.Pointer<Label3D_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::Label3D"));
 	function set_horizontal_alignment(p_alignment:gdnative.HorizontalAlignment):Void;
@@ -60,13 +69,4 @@ package gdnative;
 	function set_texture_filter(p_mode:gdnative.basematerial3d.TextureFilter):Void;
 	function get_texture_filter():gdnative.basematerial3d.TextureFilter;
 	function generate_triangle_mesh():gdnative.TriangleMesh;
-}
-@:forward abstract Label3D(cpp.Pointer<Label3D_extern>) from cpp.Pointer<Label3D_extern> to cpp.Pointer<Label3D_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.Label3D):gdnative.Label3D return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.Label3D {
-		final v = new gd.Label3D(this);
-		return v;
-	}
 }

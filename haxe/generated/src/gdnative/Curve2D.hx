@@ -1,4 +1,17 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract Curve2D(gdnative.Ref<Curve2D_extern>) from gdnative.Ref<Curve2D_extern> to gdnative.Ref<Curve2D_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.Curve2D):gdnative.Curve2D return @:privateAccess v.__ref.ptr().reinterpret();
+	@:to
+	inline function toWrapper():gd.Curve2D {
+		final v = new gd.Curve2D(this.ptr());
+		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+		return v;
+	}
+}
 @:include("godot_cpp/classes/curve2d.hpp") @:native("godot::Curve2D") @:structAccess extern class Curve2D_extern extends gdnative.Resource.Resource_extern {
 	extern static inline function __alloc():cpp.Pointer<Curve2D_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::Curve2D"));
 	function get_point_count():Int;
@@ -35,14 +48,4 @@ package gdnative;
 	overload function tessellate_even_length():gdnative.PackedVector2Array;
 	overload function tessellate_even_length(p_max_stages:Int):gdnative.PackedVector2Array;
 	overload function tessellate_even_length(p_max_stages:Int, p_tolerance_length:Float):gdnative.PackedVector2Array;
-}
-@:forward abstract Curve2D(gdnative.Ref<Curve2D_extern>) from gdnative.Ref<Curve2D_extern> to gdnative.Ref<Curve2D_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.Curve2D):gdnative.Curve2D return @:privateAccess v.__ref.ptr().reinterpret();
-	@:to
-	inline function toWrapper():gd.Curve2D {
-		final v = new gd.Curve2D(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
 }

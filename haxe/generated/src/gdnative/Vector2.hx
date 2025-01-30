@@ -1,4 +1,22 @@
 package gdnative;
+/**
+	Built-in Class
+**/
+@:forward abstract Vector2(cpp.Struct<Vector2_extern>) from cpp.Struct<Vector2_extern> to cpp.Struct<Vector2_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.Vector2):gdnative.Vector2 return fromWrapperInternal(v);
+	@:from
+	static inline function fromWrapperInternal(v:gd.Vector2.Vector2_wrapper):gdnative.Vector2 return untyped __cpp__('{0}.get()', @:privateAccess v.__gd);
+	@:to
+	inline function toWrapper():gd.Vector2 return toWrapperInternal();
+	@:to
+	inline function toWrapperInternal():gd.Vector2.Vector2_wrapper return new gd.Vector2.Vector2_wrapper(this);
+	public extern overload inline function new() this = new gdnative.Vector2.Vector2_extern();
+	public extern overload inline function new(p_from:gd.Vector2) this = new gdnative.Vector2.Vector2_extern(p_from);
+	public extern overload inline function new(p_from:gd.Vector2i) this = new gdnative.Vector2.Vector2_extern(p_from);
+	public extern overload inline function new(p_x:Float, p_y:Float) this = new gdnative.Vector2.Vector2_extern(p_x, p_y);
+}
+
 @:include("godot_cpp/variant/vector2.hpp") @:native("godot::Vector2") @:structAccess extern class Vector2_extern {
 	@:overload(function(p_from:gdnative.Vector2):Void { })
 	@:overload(function(p_from:gdnative.Vector2i):Void { })
@@ -54,19 +72,4 @@ package gdnative;
 	function from_angle(p_angle:Float):gdnative.Vector2;
 	var x : Float;
 	var y : Float;
-}
-
-@:forward abstract Vector2(cpp.Struct<Vector2_extern>) from cpp.Struct<Vector2_extern> to cpp.Struct<Vector2_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.Vector2):gdnative.Vector2 return fromWrapperInternal(v);
-	@:from
-	static inline function fromWrapperInternal(v:gd.Vector2.Vector2_wrapper):gdnative.Vector2 return untyped __cpp__('{0}.get()', @:privateAccess v.__gd);
-	@:to
-	inline function toWrapper():gd.Vector2 return toWrapperInternal();
-	@:to
-	inline function toWrapperInternal():gd.Vector2.Vector2_wrapper return new gd.Vector2.Vector2_wrapper(this);
-	public extern overload inline function new() this = new gdnative.Vector2.Vector2_extern();
-	public extern overload inline function new(p_from:gd.Vector2) this = new gdnative.Vector2.Vector2_extern(p_from);
-	public extern overload inline function new(p_from:gd.Vector2i) this = new gdnative.Vector2.Vector2_extern(p_from);
-	public extern overload inline function new(p_x:Float, p_y:Float) this = new gdnative.Vector2.Vector2_extern(p_x, p_y);
 }

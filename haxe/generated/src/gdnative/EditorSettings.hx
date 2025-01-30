@@ -1,4 +1,17 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract EditorSettings(gdnative.Ref<EditorSettings_extern>) from gdnative.Ref<EditorSettings_extern> to gdnative.Ref<EditorSettings_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.EditorSettings):gdnative.EditorSettings return @:privateAccess v.__ref.ptr().reinterpret();
+	@:to
+	inline function toWrapper():gd.EditorSettings {
+		final v = new gd.EditorSettings(this.ptr());
+		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+		return v;
+	}
+}
 @:include("godot_cpp/classes/editor_settings.hpp") @:native("godot::EditorSettings") @:structAccess extern class EditorSettings_extern extends gdnative.Resource.Resource_extern {
 	extern static inline function __alloc():cpp.Pointer<EditorSettings_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::EditorSettings"));
 	function has_setting(p_name:gdnative.String):Bool;
@@ -17,14 +30,4 @@ package gdnative;
 	function check_changed_settings_in_group(p_setting_prefix:gdnative.String):Bool;
 	function get_changed_settings():gdnative.PackedStringArray;
 	function mark_setting_changed(p_setting:gdnative.String):Void;
-}
-@:forward abstract EditorSettings(gdnative.Ref<EditorSettings_extern>) from gdnative.Ref<EditorSettings_extern> to gdnative.Ref<EditorSettings_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.EditorSettings):gdnative.EditorSettings return @:privateAccess v.__ref.ptr().reinterpret();
-	@:to
-	inline function toWrapper():gd.EditorSettings {
-		final v = new gd.EditorSettings(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
 }

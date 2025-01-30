@@ -1,4 +1,17 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract CanvasTexture(gdnative.Ref<CanvasTexture_extern>) from gdnative.Ref<CanvasTexture_extern> to gdnative.Ref<CanvasTexture_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.CanvasTexture):gdnative.CanvasTexture return @:privateAccess v.__ref.ptr().reinterpret();
+	@:to
+	inline function toWrapper():gd.CanvasTexture {
+		final v = new gd.CanvasTexture(this.ptr());
+		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+		return v;
+	}
+}
 @:include("godot_cpp/classes/canvas_texture.hpp") @:native("godot::CanvasTexture") @:structAccess extern class CanvasTexture_extern extends gdnative.Texture2D.Texture2D_extern {
 	extern static inline function __alloc():cpp.Pointer<CanvasTexture_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::CanvasTexture"));
 	function set_diffuse_texture(p_texture:gdnative.Texture2D):Void;
@@ -15,14 +28,4 @@ package gdnative;
 	function get_texture_filter():gdnative.canvasitem.TextureFilter;
 	function set_texture_repeat(p_repeat:gdnative.canvasitem.TextureRepeat):Void;
 	function get_texture_repeat():gdnative.canvasitem.TextureRepeat;
-}
-@:forward abstract CanvasTexture(gdnative.Ref<CanvasTexture_extern>) from gdnative.Ref<CanvasTexture_extern> to gdnative.Ref<CanvasTexture_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.CanvasTexture):gdnative.CanvasTexture return @:privateAccess v.__ref.ptr().reinterpret();
-	@:to
-	inline function toWrapper():gd.CanvasTexture {
-		final v = new gd.CanvasTexture(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
 }

@@ -1,4 +1,17 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract XRInterface(gdnative.Ref<XRInterface_extern>) from gdnative.Ref<XRInterface_extern> to gdnative.Ref<XRInterface_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.XRInterface):gdnative.XRInterface return @:privateAccess v.__ref.ptr().reinterpret();
+	@:to
+	inline function toWrapper():gd.XRInterface {
+		final v = new gd.XRInterface(this.ptr());
+		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+		return v;
+	}
+}
 @:include("godot_cpp/classes/xr_interface.hpp") @:native("godot::XRInterface") @:structAccess extern class XRInterface_extern extends gdnative.RefCounted.RefCounted_extern {
 	extern static inline function __alloc():cpp.Pointer<XRInterface_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::XRInterface"));
 	function get_name():gdnative.StringName;
@@ -29,14 +42,4 @@ package gdnative;
 	function get_supported_environment_blend_modes():gdnative.Array;
 	function set_environment_blend_mode(p_mode:gdnative.xrinterface.EnvironmentBlendMode):Bool;
 	function get_environment_blend_mode():gdnative.xrinterface.EnvironmentBlendMode;
-}
-@:forward abstract XRInterface(gdnative.Ref<XRInterface_extern>) from gdnative.Ref<XRInterface_extern> to gdnative.Ref<XRInterface_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.XRInterface):gdnative.XRInterface return @:privateAccess v.__ref.ptr().reinterpret();
-	@:to
-	inline function toWrapper():gd.XRInterface {
-		final v = new gd.XRInterface(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
 }

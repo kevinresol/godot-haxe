@@ -1,4 +1,17 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract FastNoiseLite(gdnative.Ref<FastNoiseLite_extern>) from gdnative.Ref<FastNoiseLite_extern> to gdnative.Ref<FastNoiseLite_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.FastNoiseLite):gdnative.FastNoiseLite return @:privateAccess v.__ref.ptr().reinterpret();
+	@:to
+	inline function toWrapper():gd.FastNoiseLite {
+		final v = new gd.FastNoiseLite(this.ptr());
+		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+		return v;
+	}
+}
 @:include("godot_cpp/classes/fast_noise_lite.hpp") @:native("godot::FastNoiseLite") @:structAccess extern class FastNoiseLite_extern extends gdnative.Noise.Noise_extern {
 	extern static inline function __alloc():cpp.Pointer<FastNoiseLite_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::FastNoiseLite"));
 	function set_noise_type(p_type:gdnative.fastnoiselite.NoiseType):Void;
@@ -43,14 +56,4 @@ package gdnative;
 	function get_domain_warp_fractal_lacunarity():Float;
 	function set_domain_warp_fractal_gain(p_domain_warp_gain:Float):Void;
 	function get_domain_warp_fractal_gain():Float;
-}
-@:forward abstract FastNoiseLite(gdnative.Ref<FastNoiseLite_extern>) from gdnative.Ref<FastNoiseLite_extern> to gdnative.Ref<FastNoiseLite_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.FastNoiseLite):gdnative.FastNoiseLite return @:privateAccess v.__ref.ptr().reinterpret();
-	@:to
-	inline function toWrapper():gd.FastNoiseLite {
-		final v = new gd.FastNoiseLite(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
 }

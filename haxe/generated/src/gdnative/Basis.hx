@@ -1,4 +1,24 @@
 package gdnative;
+/**
+	Built-in Class
+**/
+@:forward abstract Basis(cpp.Struct<Basis_extern>) from cpp.Struct<Basis_extern> to cpp.Struct<Basis_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.Basis):gdnative.Basis return fromWrapperInternal(v);
+	@:from
+	static inline function fromWrapperInternal(v:gd.Basis.Basis_wrapper):gdnative.Basis return untyped __cpp__('{0}.get()', @:privateAccess v.__gd);
+	@:to
+	inline function toWrapper():gd.Basis return toWrapperInternal();
+	@:to
+	inline function toWrapperInternal():gd.Basis.Basis_wrapper return new gd.Basis.Basis_wrapper(this);
+	public extern overload inline function new() this = new gdnative.Basis.Basis_extern();
+	public extern overload inline function new(p_from:gd.Basis) this = new gdnative.Basis.Basis_extern(p_from);
+	public extern overload inline function new(p_from:gd.Quaternion) this = new gdnative.Basis.Basis_extern(p_from);
+	public extern overload inline function new(p_axis:gd.Vector3, p_angle:Float) this = new gdnative.Basis.Basis_extern(p_axis, p_angle);
+	public extern overload inline function new(p_x_axis:gd.Vector3, p_y_axis:gd.Vector3, p_z_axis:gd.Vector3) this = new gdnative.Basis.Basis_extern(p_x_axis, p_y_axis, p_z_axis);
+	public extern overload inline function new(p_xx:Float, p_xy:Float, p_xz:Float, p_yx:Float, p_yy:Float, p_yz:Float, p_zx:Float, p_zy:Float, p_zz:Float) this = new gdnative.Basis.Basis_extern(p_xx, p_xy, p_xz, p_yx, p_yy, p_yz, p_zx, p_zy, p_zz);
+}
+
 @:include("godot_cpp/variant/basis.hpp") @:native("godot::Basis") @:structAccess extern class Basis_extern {
 	@:overload(function(p_from:gdnative.Basis):Void { })
 	@:overload(function(p_from:gdnative.Quaternion):Void { })
@@ -34,21 +54,4 @@ package gdnative;
 	var y : gdnative.Vector3;
 	@:native("rows[2]")
 	var z : gdnative.Vector3;
-}
-
-@:forward abstract Basis(cpp.Struct<Basis_extern>) from cpp.Struct<Basis_extern> to cpp.Struct<Basis_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.Basis):gdnative.Basis return fromWrapperInternal(v);
-	@:from
-	static inline function fromWrapperInternal(v:gd.Basis.Basis_wrapper):gdnative.Basis return untyped __cpp__('{0}.get()', @:privateAccess v.__gd);
-	@:to
-	inline function toWrapper():gd.Basis return toWrapperInternal();
-	@:to
-	inline function toWrapperInternal():gd.Basis.Basis_wrapper return new gd.Basis.Basis_wrapper(this);
-	public extern overload inline function new() this = new gdnative.Basis.Basis_extern();
-	public extern overload inline function new(p_from:gd.Basis) this = new gdnative.Basis.Basis_extern(p_from);
-	public extern overload inline function new(p_from:gd.Quaternion) this = new gdnative.Basis.Basis_extern(p_from);
-	public extern overload inline function new(p_axis:gd.Vector3, p_angle:Float) this = new gdnative.Basis.Basis_extern(p_axis, p_angle);
-	public extern overload inline function new(p_x_axis:gd.Vector3, p_y_axis:gd.Vector3, p_z_axis:gd.Vector3) this = new gdnative.Basis.Basis_extern(p_x_axis, p_y_axis, p_z_axis);
-	public extern overload inline function new(p_xx:Float, p_xy:Float, p_xz:Float, p_yx:Float, p_yy:Float, p_yz:Float, p_zx:Float, p_zy:Float, p_zz:Float) this = new gdnative.Basis.Basis_extern(p_xx, p_xy, p_xz, p_yx, p_yy, p_yz, p_zx, p_zy, p_zz);
 }

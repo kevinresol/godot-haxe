@@ -1,4 +1,31 @@
 package gdnative;
+/**
+	Built-in Class
+**/
+@:forward abstract Array(cpp.Struct<Array_extern>) from cpp.Struct<Array_extern> to cpp.Struct<Array_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.Array):gdnative.Array return fromWrapperInternal(v);
+	@:from
+	static inline function fromWrapperInternal(v:gd.Array.Array_wrapper):gdnative.Array return untyped __cpp__('{0}.get()', @:privateAccess v.__gd);
+	@:to
+	inline function toWrapper():gd.Array return toWrapperInternal();
+	@:to
+	inline function toWrapperInternal():gd.Array.Array_wrapper return new gd.Array.Array_wrapper(this);
+	public extern overload inline function new() this = new gdnative.Array.Array_extern();
+	public extern overload inline function new(p_from:gd.Array) this = new gdnative.Array.Array_extern(p_from);
+	public extern overload inline function new(p_base:gd.Array, p_type:Int, p_class_name:std.String, p_script:gd.Variant) this = new gdnative.Array.Array_extern(p_base, p_type, p_class_name, p_script);
+	public extern overload inline function new(p_from:gd.PackedByteArray) this = new gdnative.Array.Array_extern(p_from);
+	public extern overload inline function new(p_from:gd.PackedInt32Array) this = new gdnative.Array.Array_extern(p_from);
+	public extern overload inline function new(p_from:gd.PackedInt64Array) this = new gdnative.Array.Array_extern(p_from);
+	public extern overload inline function new(p_from:gd.PackedFloat32Array) this = new gdnative.Array.Array_extern(p_from);
+	public extern overload inline function new(p_from:gd.PackedFloat64Array) this = new gdnative.Array.Array_extern(p_from);
+	public extern overload inline function new(p_from:gd.PackedStringArray) this = new gdnative.Array.Array_extern(p_from);
+	public extern overload inline function new(p_from:gd.PackedVector2Array) this = new gdnative.Array.Array_extern(p_from);
+	public extern overload inline function new(p_from:gd.PackedVector3Array) this = new gdnative.Array.Array_extern(p_from);
+	public extern overload inline function new(p_from:gd.PackedColorArray) this = new gdnative.Array.Array_extern(p_from);
+	public extern overload inline function new(p_from:gd.PackedVector4Array) this = new gdnative.Array.Array_extern(p_from);
+}
+
 @:include("godot_cpp/variant/array.hpp") @:native("godot::Array") @:structAccess extern class Array_extern {
 	@:overload(function(p_from:gdnative.Array):Void { })
 	@:overload(function(p_base:gdnative.Array, p_type:Int, p_class_name:gdnative.StringName, p_script:gdnative.Variant):Void { })
@@ -68,28 +95,4 @@ package gdnative;
 	function get_typed_script():gdnative.Variant;
 	function make_read_only():Void;
 	function is_read_only():Bool;
-}
-
-@:forward abstract Array(cpp.Struct<Array_extern>) from cpp.Struct<Array_extern> to cpp.Struct<Array_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.Array):gdnative.Array return fromWrapperInternal(v);
-	@:from
-	static inline function fromWrapperInternal(v:gd.Array.Array_wrapper):gdnative.Array return untyped __cpp__('{0}.get()', @:privateAccess v.__gd);
-	@:to
-	inline function toWrapper():gd.Array return toWrapperInternal();
-	@:to
-	inline function toWrapperInternal():gd.Array.Array_wrapper return new gd.Array.Array_wrapper(this);
-	public extern overload inline function new() this = new gdnative.Array.Array_extern();
-	public extern overload inline function new(p_from:gd.Array) this = new gdnative.Array.Array_extern(p_from);
-	public extern overload inline function new(p_base:gd.Array, p_type:Int, p_class_name:std.String, p_script:gd.Variant) this = new gdnative.Array.Array_extern(p_base, p_type, p_class_name, p_script);
-	public extern overload inline function new(p_from:gd.PackedByteArray) this = new gdnative.Array.Array_extern(p_from);
-	public extern overload inline function new(p_from:gd.PackedInt32Array) this = new gdnative.Array.Array_extern(p_from);
-	public extern overload inline function new(p_from:gd.PackedInt64Array) this = new gdnative.Array.Array_extern(p_from);
-	public extern overload inline function new(p_from:gd.PackedFloat32Array) this = new gdnative.Array.Array_extern(p_from);
-	public extern overload inline function new(p_from:gd.PackedFloat64Array) this = new gdnative.Array.Array_extern(p_from);
-	public extern overload inline function new(p_from:gd.PackedStringArray) this = new gdnative.Array.Array_extern(p_from);
-	public extern overload inline function new(p_from:gd.PackedVector2Array) this = new gdnative.Array.Array_extern(p_from);
-	public extern overload inline function new(p_from:gd.PackedVector3Array) this = new gdnative.Array.Array_extern(p_from);
-	public extern overload inline function new(p_from:gd.PackedColorArray) this = new gdnative.Array.Array_extern(p_from);
-	public extern overload inline function new(p_from:gd.PackedVector4Array) this = new gdnative.Array.Array_extern(p_from);
 }

@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract VehicleWheel3D(cpp.Pointer<VehicleWheel3D_extern>) from cpp.Pointer<VehicleWheel3D_extern> to cpp.Pointer<VehicleWheel3D_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.VehicleWheel3D):gdnative.VehicleWheel3D return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.VehicleWheel3D return new gd.VehicleWheel3D(this);
+}
 @:include("godot_cpp/classes/vehicle_wheel3d.hpp") @:native("godot::VehicleWheel3D") @:structAccess extern class VehicleWheel3D_extern extends gdnative.Node3D.Node3D_extern {
 	extern static inline function __alloc():cpp.Pointer<VehicleWheel3D_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::VehicleWheel3D"));
 	function set_radius(p_length:Float):Void;
@@ -33,13 +42,4 @@ package gdnative;
 	function get_brake():Float;
 	function set_steering(p_steering:Float):Void;
 	function get_steering():Float;
-}
-@:forward abstract VehicleWheel3D(cpp.Pointer<VehicleWheel3D_extern>) from cpp.Pointer<VehicleWheel3D_extern> to cpp.Pointer<VehicleWheel3D_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.VehicleWheel3D):gdnative.VehicleWheel3D return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.VehicleWheel3D {
-		final v = new gd.VehicleWheel3D(this);
-		return v;
-	}
 }

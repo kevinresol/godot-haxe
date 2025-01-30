@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract Line2D(cpp.Pointer<Line2D_extern>) from cpp.Pointer<Line2D_extern> to cpp.Pointer<Line2D_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.Line2D):gdnative.Line2D return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.Line2D return new gd.Line2D(this);
+}
 @:include("godot_cpp/classes/line2d.hpp") @:native("godot::Line2D") @:structAccess extern class Line2D_extern extends gdnative.Node2D.Node2D_extern {
 	extern static inline function __alloc():cpp.Pointer<Line2D_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::Line2D"));
 	function set_points(p_points:gdnative.PackedVector2Array):Void;
@@ -36,13 +45,4 @@ package gdnative;
 	function get_round_precision():Int;
 	function set_antialiased(p_antialiased:Bool):Void;
 	function get_antialiased():Bool;
-}
-@:forward abstract Line2D(cpp.Pointer<Line2D_extern>) from cpp.Pointer<Line2D_extern> to cpp.Pointer<Line2D_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.Line2D):gdnative.Line2D return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.Line2D {
-		final v = new gd.Line2D(this);
-		return v;
-	}
 }

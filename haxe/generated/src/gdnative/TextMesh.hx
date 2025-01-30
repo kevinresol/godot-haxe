@@ -1,4 +1,17 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract TextMesh(gdnative.Ref<TextMesh_extern>) from gdnative.Ref<TextMesh_extern> to gdnative.Ref<TextMesh_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.TextMesh):gdnative.TextMesh return @:privateAccess v.__ref.ptr().reinterpret();
+	@:to
+	inline function toWrapper():gd.TextMesh {
+		final v = new gd.TextMesh(this.ptr());
+		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+		return v;
+	}
+}
 @:include("godot_cpp/classes/text_mesh.hpp") @:native("godot::TextMesh") @:structAccess extern class TextMesh_extern extends gdnative.PrimitiveMesh.PrimitiveMesh_extern {
 	extern static inline function __alloc():cpp.Pointer<TextMesh_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::TextMesh"));
 	function set_horizontal_alignment(p_alignment:gdnative.HorizontalAlignment):Void;
@@ -37,14 +50,4 @@ package gdnative;
 	function get_structured_text_bidi_override_options():gdnative.Array;
 	function set_uppercase(p_enable:Bool):Void;
 	function is_uppercase():Bool;
-}
-@:forward abstract TextMesh(gdnative.Ref<TextMesh_extern>) from gdnative.Ref<TextMesh_extern> to gdnative.Ref<TextMesh_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.TextMesh):gdnative.TextMesh return @:privateAccess v.__ref.ptr().reinterpret();
-	@:to
-	inline function toWrapper():gd.TextMesh {
-		final v = new gd.TextMesh(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
 }

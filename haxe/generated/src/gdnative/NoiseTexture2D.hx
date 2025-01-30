@@ -1,4 +1,17 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract NoiseTexture2D(gdnative.Ref<NoiseTexture2D_extern>) from gdnative.Ref<NoiseTexture2D_extern> to gdnative.Ref<NoiseTexture2D_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.NoiseTexture2D):gdnative.NoiseTexture2D return @:privateAccess v.__ref.ptr().reinterpret();
+	@:to
+	inline function toWrapper():gd.NoiseTexture2D {
+		final v = new gd.NoiseTexture2D(this.ptr());
+		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+		return v;
+	}
+}
 @:include("godot_cpp/classes/noise_texture2d.hpp") @:native("godot::NoiseTexture2D") @:structAccess extern class NoiseTexture2D_extern extends gdnative.Texture2D.Texture2D_extern {
 	extern static inline function __alloc():cpp.Pointer<NoiseTexture2D_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::NoiseTexture2D"));
 	function set_width(p_width:Int):Void;
@@ -23,14 +36,4 @@ package gdnative;
 	function get_color_ramp():gdnative.Gradient;
 	function set_noise(p_noise:gdnative.Noise):Void;
 	function get_noise():gdnative.Noise;
-}
-@:forward abstract NoiseTexture2D(gdnative.Ref<NoiseTexture2D_extern>) from gdnative.Ref<NoiseTexture2D_extern> to gdnative.Ref<NoiseTexture2D_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.NoiseTexture2D):gdnative.NoiseTexture2D return @:privateAccess v.__ref.ptr().reinterpret();
-	@:to
-	inline function toWrapper():gd.NoiseTexture2D {
-		final v = new gd.NoiseTexture2D(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
 }

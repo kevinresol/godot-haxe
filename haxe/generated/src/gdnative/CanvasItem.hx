@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract CanvasItem(cpp.Pointer<CanvasItem_extern>) from cpp.Pointer<CanvasItem_extern> to cpp.Pointer<CanvasItem_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.CanvasItem):gdnative.CanvasItem return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.CanvasItem return new gd.CanvasItem(this);
+}
 @:include("godot_cpp/classes/canvas_item.hpp") @:native("godot::CanvasItem") @:structAccess extern class CanvasItem_extern extends gdnative.Node.Node_extern {
 	extern static inline function __alloc():cpp.Pointer<CanvasItem_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::CanvasItem"));
 	function _draw():Void;
@@ -171,13 +180,4 @@ package gdnative;
 	function get_texture_repeat():gdnative.canvasitem.TextureRepeat;
 	function set_clip_children_mode(p_mode:gdnative.canvasitem.ClipChildrenMode):Void;
 	function get_clip_children_mode():gdnative.canvasitem.ClipChildrenMode;
-}
-@:forward abstract CanvasItem(cpp.Pointer<CanvasItem_extern>) from cpp.Pointer<CanvasItem_extern> to cpp.Pointer<CanvasItem_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.CanvasItem):gdnative.CanvasItem return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.CanvasItem {
-		final v = new gd.CanvasItem(this);
-		return v;
-	}
 }

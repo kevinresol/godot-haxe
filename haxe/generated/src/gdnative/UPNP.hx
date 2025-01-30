@@ -1,4 +1,17 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract UPNP(gdnative.Ref<UPNP_extern>) from gdnative.Ref<UPNP_extern> to gdnative.Ref<UPNP_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.UPNP):gdnative.UPNP return @:privateAccess v.__ref.ptr().reinterpret();
+	@:to
+	inline function toWrapper():gd.UPNP {
+		final v = new gd.UPNP(this.ptr());
+		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+		return v;
+	}
+}
 @:include("godot_cpp/classes/upnp.hpp") @:native("godot::UPNP") @:structAccess extern class UPNP_extern extends gdnative.RefCounted.RefCounted_extern {
 	extern static inline function __alloc():cpp.Pointer<UPNP_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::UPNP"));
 	function get_device_count():Int;
@@ -26,14 +39,4 @@ package gdnative;
 	function get_discover_local_port():Int;
 	function set_discover_ipv6(p_ipv6:Bool):Void;
 	function is_discover_ipv6():Bool;
-}
-@:forward abstract UPNP(gdnative.Ref<UPNP_extern>) from gdnative.Ref<UPNP_extern> to gdnative.Ref<UPNP_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.UPNP):gdnative.UPNP return @:privateAccess v.__ref.ptr().reinterpret();
-	@:to
-	inline function toWrapper():gd.UPNP {
-		final v = new gd.UPNP(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
 }

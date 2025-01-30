@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract TextureRect(cpp.Pointer<TextureRect_extern>) from cpp.Pointer<TextureRect_extern> to cpp.Pointer<TextureRect_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.TextureRect):gdnative.TextureRect return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.TextureRect return new gd.TextureRect(this);
+}
 @:include("godot_cpp/classes/texture_rect.hpp") @:native("godot::TextureRect") @:structAccess extern class TextureRect_extern extends gdnative.Control.Control_extern {
 	extern static inline function __alloc():cpp.Pointer<TextureRect_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::TextureRect"));
 	function set_texture(p_texture:gdnative.Texture2D):Void;
@@ -11,13 +20,4 @@ package gdnative;
 	function is_flipped_v():Bool;
 	function set_stretch_mode(p_stretch_mode:gdnative.texturerect.StretchMode):Void;
 	function get_stretch_mode():gdnative.texturerect.StretchMode;
-}
-@:forward abstract TextureRect(cpp.Pointer<TextureRect_extern>) from cpp.Pointer<TextureRect_extern> to cpp.Pointer<TextureRect_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.TextureRect):gdnative.TextureRect return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.TextureRect {
-		final v = new gd.TextureRect(this);
-		return v;
-	}
 }

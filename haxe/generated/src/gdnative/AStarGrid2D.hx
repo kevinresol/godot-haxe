@@ -1,4 +1,17 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract AStarGrid2D(gdnative.Ref<AStarGrid2D_extern>) from gdnative.Ref<AStarGrid2D_extern> to gdnative.Ref<AStarGrid2D_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.AStarGrid2D):gdnative.AStarGrid2D return @:privateAccess v.__ref.ptr().reinterpret();
+	@:to
+	inline function toWrapper():gd.AStarGrid2D {
+		final v = new gd.AStarGrid2D(this.ptr());
+		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+		return v;
+	}
+}
 @:include("godot_cpp/classes/a_star_grid2d.hpp") @:native("godot::AStarGrid2D") @:structAccess extern class AStarGrid2D_extern extends gdnative.RefCounted.RefCounted_extern {
 	extern static inline function __alloc():cpp.Pointer<AStarGrid2D_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::AStarGrid2D"));
 	function _estimate_cost(p_from_id:gdnative.Vector2i, p_to_id:gdnative.Vector2i):Float;
@@ -37,14 +50,4 @@ package gdnative;
 	function get_point_position(p_id:gdnative.Vector2i):gdnative.Vector2;
 	overload function get_point_path(p_from_id:gdnative.Vector2i, p_to_id:gdnative.Vector2i):gdnative.PackedVector2Array;
 	overload function get_point_path(p_from_id:gdnative.Vector2i, p_to_id:gdnative.Vector2i, p_allow_partial_path:Bool):gdnative.PackedVector2Array;
-}
-@:forward abstract AStarGrid2D(gdnative.Ref<AStarGrid2D_extern>) from gdnative.Ref<AStarGrid2D_extern> to gdnative.Ref<AStarGrid2D_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.AStarGrid2D):gdnative.AStarGrid2D return @:privateAccess v.__ref.ptr().reinterpret();
-	@:to
-	inline function toWrapper():gd.AStarGrid2D {
-		final v = new gd.AStarGrid2D(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
 }

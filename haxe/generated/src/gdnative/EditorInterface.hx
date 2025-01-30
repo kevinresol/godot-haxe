@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract EditorInterface(cpp.Pointer<EditorInterface_extern>) from cpp.Pointer<EditorInterface_extern> to cpp.Pointer<EditorInterface_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.EditorInterface):gdnative.EditorInterface return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.EditorInterface return new gd.EditorInterface(this);
+}
 @:include("godot_cpp/classes/editor_interface.hpp") @:native("godot::EditorInterface") @:structAccess extern class EditorInterface_extern extends gdnative.Object.Object_extern {
 	extern static inline function __alloc():cpp.Pointer<EditorInterface_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::EditorInterface"));
 	static function get_singleton():cpp.Pointer<EditorInterface_extern>;
@@ -69,13 +78,4 @@ package gdnative;
 	function get_playing_scene():gdnative.String;
 	function set_movie_maker_enabled(p_enabled:Bool):Void;
 	function is_movie_maker_enabled():Bool;
-}
-@:forward abstract EditorInterface(cpp.Pointer<EditorInterface_extern>) from cpp.Pointer<EditorInterface_extern> to cpp.Pointer<EditorInterface_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.EditorInterface):gdnative.EditorInterface return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.EditorInterface {
-		final v = new gd.EditorInterface(this);
-		return v;
-	}
 }

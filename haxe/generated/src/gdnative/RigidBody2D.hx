@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract RigidBody2D(cpp.Pointer<RigidBody2D_extern>) from cpp.Pointer<RigidBody2D_extern> to cpp.Pointer<RigidBody2D_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.RigidBody2D):gdnative.RigidBody2D return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.RigidBody2D return new gd.RigidBody2D(this);
+}
 @:include("godot_cpp/classes/rigid_body2d.hpp") @:native("godot::RigidBody2D") @:structAccess extern class RigidBody2D_extern extends gdnative.PhysicsBody2D.PhysicsBody2D_extern {
 	extern static inline function __alloc():cpp.Pointer<RigidBody2D_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::RigidBody2D"));
 	function _integrate_forces(p_state:gdnative.PhysicsDirectBodyState2D):Void;
@@ -63,13 +72,4 @@ package gdnative;
 	function is_freeze_enabled():Bool;
 	function set_freeze_mode(p_freeze_mode:gdnative.rigidbody2d.FreezeMode):Void;
 	function get_freeze_mode():gdnative.rigidbody2d.FreezeMode;
-}
-@:forward abstract RigidBody2D(cpp.Pointer<RigidBody2D_extern>) from cpp.Pointer<RigidBody2D_extern> to cpp.Pointer<RigidBody2D_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.RigidBody2D):gdnative.RigidBody2D return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.RigidBody2D {
-		final v = new gd.RigidBody2D(this);
-		return v;
-	}
 }

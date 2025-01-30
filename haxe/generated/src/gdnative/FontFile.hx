@@ -1,4 +1,17 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract FontFile(gdnative.Ref<FontFile_extern>) from gdnative.Ref<FontFile_extern> to gdnative.Ref<FontFile_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.FontFile):gdnative.FontFile return @:privateAccess v.__ref.ptr().reinterpret();
+	@:to
+	inline function toWrapper():gd.FontFile {
+		final v = new gd.FontFile(this.ptr());
+		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+		return v;
+	}
+}
 @:include("godot_cpp/classes/font_file.hpp") @:native("godot::FontFile") @:structAccess extern class FontFile_extern extends gdnative.Font.Font_extern {
 	extern static inline function __alloc():cpp.Pointer<FontFile_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::FontFile"));
 	function load_bitmap_font(p_path:gdnative.String):gdnative.Error;
@@ -101,14 +114,4 @@ package gdnative;
 	function get_opentype_feature_overrides():gdnative.Dictionary;
 	function get_glyph_index(p_size:Int, p_char:Int, p_variation_selector:Int):Int;
 	function get_char_from_glyph_index(p_size:Int, p_glyph_index:Int):Int;
-}
-@:forward abstract FontFile(gdnative.Ref<FontFile_extern>) from gdnative.Ref<FontFile_extern> to gdnative.Ref<FontFile_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.FontFile):gdnative.FontFile return @:privateAccess v.__ref.ptr().reinterpret();
-	@:to
-	inline function toWrapper():gd.FontFile {
-		final v = new gd.FontFile(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
 }

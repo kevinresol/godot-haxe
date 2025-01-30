@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract Object(cpp.Pointer<Object_extern>) from cpp.Pointer<Object_extern> to cpp.Pointer<Object_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.Object):gdnative.Object return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.Object return new gd.Object(this);
+}
 @:include("godot_cpp/classes/object.hpp") @:native("godot::Object") @:structAccess extern class Object_extern {
 	extern static inline function __alloc():cpp.Pointer<Object_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::Object"));
 	function get_class():gdnative.String;
@@ -47,13 +56,4 @@ package gdnative;
 	overload function tr_n(p_message:gdnative.StringName, p_plural_message:gdnative.StringName, p_n:Int, p_context:gdnative.StringName):gdnative.String;
 	function is_queued_for_deletion():Bool;
 	function cancel_free():Void;
-}
-@:forward abstract Object(cpp.Pointer<Object_extern>) from cpp.Pointer<Object_extern> to cpp.Pointer<Object_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.Object):gdnative.Object return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.Object {
-		final v = new gd.Object(this);
-		return v;
-	}
 }

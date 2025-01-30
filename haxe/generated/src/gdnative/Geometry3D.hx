@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract Geometry3D(cpp.Pointer<Geometry3D_extern>) from cpp.Pointer<Geometry3D_extern> to cpp.Pointer<Geometry3D_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.Geometry3D):gdnative.Geometry3D return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.Geometry3D return new gd.Geometry3D(this);
+}
 @:include("godot_cpp/classes/geometry3d.hpp") @:native("godot::Geometry3D") @:structAccess extern class Geometry3D_extern extends gdnative.Object.Object_extern {
 	extern static inline function __alloc():cpp.Pointer<Geometry3D_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::Geometry3D"));
 	static function get_singleton():cpp.Pointer<Geometry3D_extern>;
@@ -12,13 +21,4 @@ package gdnative;
 	function segment_intersects_cylinder(p_from:gdnative.Vector3, p_to:gdnative.Vector3, p_height:Float, p_radius:Float):gdnative.PackedVector3Array;
 	function clip_polygon(p_points:gdnative.PackedVector3Array, p_plane:gdnative.Plane):gdnative.PackedVector3Array;
 	function tetrahedralize_delaunay(p_points:gdnative.PackedVector3Array):gdnative.PackedInt32Array;
-}
-@:forward abstract Geometry3D(cpp.Pointer<Geometry3D_extern>) from cpp.Pointer<Geometry3D_extern> to cpp.Pointer<Geometry3D_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.Geometry3D):gdnative.Geometry3D return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.Geometry3D {
-		final v = new gd.Geometry3D(this);
-		return v;
-	}
 }

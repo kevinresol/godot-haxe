@@ -1,4 +1,17 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract Crypto(gdnative.Ref<Crypto_extern>) from gdnative.Ref<Crypto_extern> to gdnative.Ref<Crypto_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.Crypto):gdnative.Crypto return @:privateAccess v.__ref.ptr().reinterpret();
+	@:to
+	inline function toWrapper():gd.Crypto {
+		final v = new gd.Crypto(this.ptr());
+		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+		return v;
+	}
+}
 @:include("godot_cpp/classes/crypto.hpp") @:native("godot::Crypto") @:structAccess extern class Crypto_extern extends gdnative.RefCounted.RefCounted_extern {
 	extern static inline function __alloc():cpp.Pointer<Crypto_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::Crypto"));
 	function generate_random_bytes(p_size:Int):gdnative.PackedByteArray;
@@ -13,14 +26,4 @@ package gdnative;
 	function decrypt(p_key:gdnative.CryptoKey, p_ciphertext:gdnative.PackedByteArray):gdnative.PackedByteArray;
 	function hmac_digest(p_hash_type:gdnative.hashingcontext.HashType, p_key:gdnative.PackedByteArray, p_msg:gdnative.PackedByteArray):gdnative.PackedByteArray;
 	function constant_time_compare(p_trusted:gdnative.PackedByteArray, p_received:gdnative.PackedByteArray):Bool;
-}
-@:forward abstract Crypto(gdnative.Ref<Crypto_extern>) from gdnative.Ref<Crypto_extern> to gdnative.Ref<Crypto_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.Crypto):gdnative.Crypto return @:privateAccess v.__ref.ptr().reinterpret();
-	@:to
-	inline function toWrapper():gd.Crypto {
-		final v = new gd.Crypto(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
 }

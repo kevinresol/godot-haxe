@@ -1,4 +1,17 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract FileAccess(gdnative.Ref<FileAccess_extern>) from gdnative.Ref<FileAccess_extern> to gdnative.Ref<FileAccess_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.FileAccess):gdnative.FileAccess return @:privateAccess v.__ref.ptr().reinterpret();
+	@:to
+	inline function toWrapper():gd.FileAccess {
+		final v = new gd.FileAccess(this.ptr());
+		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+		return v;
+	}
+}
 @:include("godot_cpp/classes/file_access.hpp") @:native("godot::FileAccess") @:structAccess extern class FileAccess_extern extends gdnative.RefCounted.RefCounted_extern {
 	extern static inline function __alloc():cpp.Pointer<FileAccess_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::FileAccess"));
 	static function open(p_path:gdnative.String, p_flags:gdnative.fileaccess.ModeFlags):gdnative.FileAccess;
@@ -65,14 +78,4 @@ package gdnative;
 	static function set_hidden_attribute(p_file:gdnative.String, p_hidden:Bool):gdnative.Error;
 	static function set_read_only_attribute(p_file:gdnative.String, p_ro:Bool):gdnative.Error;
 	static function get_read_only_attribute(p_file:gdnative.String):Bool;
-}
-@:forward abstract FileAccess(gdnative.Ref<FileAccess_extern>) from gdnative.Ref<FileAccess_extern> to gdnative.Ref<FileAccess_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.FileAccess):gdnative.FileAccess return @:privateAccess v.__ref.ptr().reinterpret();
-	@:to
-	inline function toWrapper():gd.FileAccess {
-		final v = new gd.FileAccess(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
 }

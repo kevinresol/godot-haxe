@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract IP(cpp.Pointer<IP_extern>) from cpp.Pointer<IP_extern> to cpp.Pointer<IP_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.IP):gdnative.IP return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.IP return new gd.IP(this);
+}
 @:include("godot_cpp/classes/ip.hpp") @:native("godot::IP") @:structAccess extern class IP_extern extends gdnative.Object.Object_extern {
 	extern static inline function __alloc():cpp.Pointer<IP_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::IP"));
 	static function get_singleton():cpp.Pointer<IP_extern>;
@@ -15,13 +24,4 @@ package gdnative;
 	function get_local_addresses():gdnative.PackedStringArray;
 	overload function clear_cache():Void;
 	overload function clear_cache(p_hostname:gdnative.String):Void;
-}
-@:forward abstract IP(cpp.Pointer<IP_extern>) from cpp.Pointer<IP_extern> to cpp.Pointer<IP_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.IP):gdnative.IP return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.IP {
-		final v = new gd.IP(this);
-		return v;
-	}
 }

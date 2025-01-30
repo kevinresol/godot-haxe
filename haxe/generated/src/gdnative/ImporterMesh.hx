@@ -1,4 +1,17 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract ImporterMesh(gdnative.Ref<ImporterMesh_extern>) from gdnative.Ref<ImporterMesh_extern> to gdnative.Ref<ImporterMesh_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.ImporterMesh):gdnative.ImporterMesh return @:privateAccess v.__ref.ptr().reinterpret();
+	@:to
+	inline function toWrapper():gd.ImporterMesh {
+		final v = new gd.ImporterMesh(this.ptr());
+		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+		return v;
+	}
+}
 @:include("godot_cpp/classes/importer_mesh.hpp") @:native("godot::ImporterMesh") @:structAccess extern class ImporterMesh_extern extends gdnative.Resource.Resource_extern {
 	extern static inline function __alloc():cpp.Pointer<ImporterMesh_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::ImporterMesh"));
 	function add_blend_shape(p_name:gdnative.String):Void;
@@ -24,14 +37,4 @@ package gdnative;
 	function clear():Void;
 	function set_lightmap_size_hint(p_size:gdnative.Vector2i):Void;
 	function get_lightmap_size_hint():gdnative.Vector2i;
-}
-@:forward abstract ImporterMesh(gdnative.Ref<ImporterMesh_extern>) from gdnative.Ref<ImporterMesh_extern> to gdnative.Ref<ImporterMesh_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.ImporterMesh):gdnative.ImporterMesh return @:privateAccess v.__ref.ptr().reinterpret();
-	@:to
-	inline function toWrapper():gd.ImporterMesh {
-		final v = new gd.ImporterMesh(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
 }

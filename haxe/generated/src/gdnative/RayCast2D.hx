@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract RayCast2D(cpp.Pointer<RayCast2D_extern>) from cpp.Pointer<RayCast2D_extern> to cpp.Pointer<RayCast2D_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.RayCast2D):gdnative.RayCast2D return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.RayCast2D return new gd.RayCast2D(this);
+}
 @:include("godot_cpp/classes/ray_cast2d.hpp") @:native("godot::RayCast2D") @:structAccess extern class RayCast2D_extern extends gdnative.Node2D.Node2D_extern {
 	extern static inline function __alloc():cpp.Pointer<RayCast2D_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::RayCast2D"));
 	function set_enabled(p_enabled:Bool):Void;
@@ -29,13 +38,4 @@ package gdnative;
 	function is_collide_with_bodies_enabled():Bool;
 	function set_hit_from_inside(p_enable:Bool):Void;
 	function is_hit_from_inside_enabled():Bool;
-}
-@:forward abstract RayCast2D(cpp.Pointer<RayCast2D_extern>) from cpp.Pointer<RayCast2D_extern> to cpp.Pointer<RayCast2D_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.RayCast2D):gdnative.RayCast2D return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.RayCast2D {
-		final v = new gd.RayCast2D(this);
-		return v;
-	}
 }

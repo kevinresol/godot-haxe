@@ -1,4 +1,17 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract TileSetAtlasSource(gdnative.Ref<TileSetAtlasSource_extern>) from gdnative.Ref<TileSetAtlasSource_extern> to gdnative.Ref<TileSetAtlasSource_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.TileSetAtlasSource):gdnative.TileSetAtlasSource return @:privateAccess v.__ref.ptr().reinterpret();
+	@:to
+	inline function toWrapper():gd.TileSetAtlasSource {
+		final v = new gd.TileSetAtlasSource(this.ptr());
+		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+		return v;
+	}
+}
 @:include("godot_cpp/classes/tile_set_atlas_source.hpp") @:native("godot::TileSetAtlasSource") @:structAccess extern class TileSetAtlasSource_extern extends gdnative.TileSetSource.TileSetSource_extern {
 	extern static inline function __alloc():cpp.Pointer<TileSetAtlasSource_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::TileSetAtlasSource"));
 	function set_texture(p_texture:gdnative.Texture2D):Void;
@@ -48,14 +61,4 @@ package gdnative;
 	overload function get_tile_texture_region(p_atlas_coords:gdnative.Vector2i, p_frame:Int):gdnative.Rect2i;
 	function get_runtime_texture():gdnative.Texture2D;
 	function get_runtime_tile_texture_region(p_atlas_coords:gdnative.Vector2i, p_frame:Int):gdnative.Rect2i;
-}
-@:forward abstract TileSetAtlasSource(gdnative.Ref<TileSetAtlasSource_extern>) from gdnative.Ref<TileSetAtlasSource_extern> to gdnative.Ref<TileSetAtlasSource_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.TileSetAtlasSource):gdnative.TileSetAtlasSource return @:privateAccess v.__ref.ptr().reinterpret();
-	@:to
-	inline function toWrapper():gd.TileSetAtlasSource {
-		final v = new gd.TileSetAtlasSource(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
 }

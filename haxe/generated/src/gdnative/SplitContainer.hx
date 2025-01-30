@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract SplitContainer(cpp.Pointer<SplitContainer_extern>) from cpp.Pointer<SplitContainer_extern> to cpp.Pointer<SplitContainer_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.SplitContainer):gdnative.SplitContainer return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.SplitContainer return new gd.SplitContainer(this);
+}
 @:include("godot_cpp/classes/split_container.hpp") @:native("godot::SplitContainer") @:structAccess extern class SplitContainer_extern extends gdnative.Container.Container_extern {
 	extern static inline function __alloc():cpp.Pointer<SplitContainer_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::SplitContainer"));
 	function set_split_offset(p_offset:Int):Void;
@@ -10,13 +19,4 @@ package gdnative;
 	function get_dragger_visibility():gdnative.splitcontainer.DraggerVisibility;
 	function set_vertical(p_vertical:Bool):Void;
 	function is_vertical():Bool;
-}
-@:forward abstract SplitContainer(cpp.Pointer<SplitContainer_extern>) from cpp.Pointer<SplitContainer_extern> to cpp.Pointer<SplitContainer_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.SplitContainer):gdnative.SplitContainer return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.SplitContainer {
-		final v = new gd.SplitContainer(this);
-		return v;
-	}
 }

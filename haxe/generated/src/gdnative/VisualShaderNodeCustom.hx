@@ -1,4 +1,17 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract VisualShaderNodeCustom(gdnative.Ref<VisualShaderNodeCustom_extern>) from gdnative.Ref<VisualShaderNodeCustom_extern> to gdnative.Ref<VisualShaderNodeCustom_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.VisualShaderNodeCustom):gdnative.VisualShaderNodeCustom return @:privateAccess v.__ref.ptr().reinterpret();
+	@:to
+	inline function toWrapper():gd.VisualShaderNodeCustom {
+		final v = new gd.VisualShaderNodeCustom(this.ptr());
+		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+		return v;
+	}
+}
 @:include("godot_cpp/classes/visual_shader_node_custom.hpp") @:native("godot::VisualShaderNodeCustom") @:structAccess extern class VisualShaderNodeCustom_extern extends gdnative.VisualShaderNode.VisualShaderNode_extern {
 	extern static inline function __alloc():cpp.Pointer<VisualShaderNodeCustom_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::VisualShaderNodeCustom"));
 	function _get_name():gdnative.String;
@@ -22,14 +35,4 @@ package gdnative;
 	function _is_highend():Bool;
 	function _is_available(p_mode:gdnative.shader.Mode, p_type:gdnative.visualshader.Type):Bool;
 	function get_option_index(p_option:Int):Int;
-}
-@:forward abstract VisualShaderNodeCustom(gdnative.Ref<VisualShaderNodeCustom_extern>) from gdnative.Ref<VisualShaderNodeCustom_extern> to gdnative.Ref<VisualShaderNodeCustom_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.VisualShaderNodeCustom):gdnative.VisualShaderNodeCustom return @:privateAccess v.__ref.ptr().reinterpret();
-	@:to
-	inline function toWrapper():gd.VisualShaderNodeCustom {
-		final v = new gd.VisualShaderNodeCustom(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
 }

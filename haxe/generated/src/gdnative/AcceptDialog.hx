@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract AcceptDialog(cpp.Pointer<AcceptDialog_extern>) from cpp.Pointer<AcceptDialog_extern> to cpp.Pointer<AcceptDialog_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.AcceptDialog):gdnative.AcceptDialog return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.AcceptDialog return new gd.AcceptDialog(this);
+}
 @:include("godot_cpp/classes/accept_dialog.hpp") @:native("godot::AcceptDialog") @:structAccess extern class AcceptDialog_extern extends gdnative.Window.Window_extern {
 	extern static inline function __alloc():cpp.Pointer<AcceptDialog_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::AcceptDialog"));
 	function get_ok_button():gdnative.Button;
@@ -19,13 +28,4 @@ package gdnative;
 	function has_autowrap():Bool;
 	function set_ok_button_text(p_text:gdnative.String):Void;
 	function get_ok_button_text():gdnative.String;
-}
-@:forward abstract AcceptDialog(cpp.Pointer<AcceptDialog_extern>) from cpp.Pointer<AcceptDialog_extern> to cpp.Pointer<AcceptDialog_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.AcceptDialog):gdnative.AcceptDialog return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.AcceptDialog {
-		final v = new gd.AcceptDialog(this);
-		return v;
-	}
 }

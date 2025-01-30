@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract ShapeCast2D(cpp.Pointer<ShapeCast2D_extern>) from cpp.Pointer<ShapeCast2D_extern> to cpp.Pointer<ShapeCast2D_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.ShapeCast2D):gdnative.ShapeCast2D return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.ShapeCast2D return new gd.ShapeCast2D(this);
+}
 @:include("godot_cpp/classes/shape_cast2d.hpp") @:native("godot::ShapeCast2D") @:structAccess extern class ShapeCast2D_extern extends gdnative.Node2D.Node2D_extern {
 	extern static inline function __alloc():cpp.Pointer<ShapeCast2D_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::ShapeCast2D"));
 	function set_enabled(p_enabled:Bool):Void;
@@ -36,13 +45,4 @@ package gdnative;
 	function is_collide_with_areas_enabled():Bool;
 	function set_collide_with_bodies(p_enable:Bool):Void;
 	function is_collide_with_bodies_enabled():Bool;
-}
-@:forward abstract ShapeCast2D(cpp.Pointer<ShapeCast2D_extern>) from cpp.Pointer<ShapeCast2D_extern> to cpp.Pointer<ShapeCast2D_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.ShapeCast2D):gdnative.ShapeCast2D return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.ShapeCast2D {
-		final v = new gd.ShapeCast2D(this);
-		return v;
-	}
 }

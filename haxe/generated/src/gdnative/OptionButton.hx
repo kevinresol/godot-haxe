@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract OptionButton(cpp.Pointer<OptionButton_extern>) from cpp.Pointer<OptionButton_extern> to cpp.Pointer<OptionButton_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.OptionButton):gdnative.OptionButton return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.OptionButton return new gd.OptionButton(this);
+}
 @:include("godot_cpp/classes/option_button.hpp") @:native("godot::OptionButton") @:structAccess extern class OptionButton_extern extends gdnative.Button.Button_extern {
 	extern static inline function __alloc():cpp.Pointer<OptionButton_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::OptionButton"));
 	overload function add_item(p_label:gdnative.String):Void;
@@ -39,13 +48,4 @@ package gdnative;
 	function set_allow_reselect(p_allow:Bool):Void;
 	function get_allow_reselect():Bool;
 	function set_disable_shortcuts(p_disabled:Bool):Void;
-}
-@:forward abstract OptionButton(cpp.Pointer<OptionButton_extern>) from cpp.Pointer<OptionButton_extern> to cpp.Pointer<OptionButton_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.OptionButton):gdnative.OptionButton return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.OptionButton {
-		final v = new gd.OptionButton(this);
-		return v;
-	}
 }

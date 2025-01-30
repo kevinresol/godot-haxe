@@ -1,4 +1,17 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract EditorNode3DGizmo(gdnative.Ref<EditorNode3DGizmo_extern>) from gdnative.Ref<EditorNode3DGizmo_extern> to gdnative.Ref<EditorNode3DGizmo_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.EditorNode3DGizmo):gdnative.EditorNode3DGizmo return @:privateAccess v.__ref.ptr().reinterpret();
+	@:to
+	inline function toWrapper():gd.EditorNode3DGizmo {
+		final v = new gd.EditorNode3DGizmo(this.ptr());
+		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+		return v;
+	}
+}
 @:include("godot_cpp/classes/editor_node3d_gizmo.hpp") @:native("godot::EditorNode3DGizmo") @:structAccess extern class EditorNode3DGizmo_extern extends gdnative.Node3DGizmo.Node3DGizmo_extern {
 	extern static inline function __alloc():cpp.Pointer<EditorNode3DGizmo_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::EditorNode3DGizmo"));
 	function _redraw():Void;
@@ -33,14 +46,4 @@ package gdnative;
 	function set_hidden(p_hidden:Bool):Void;
 	function is_subgizmo_selected(p_id:Int):Bool;
 	function get_subgizmo_selection():gdnative.PackedInt32Array;
-}
-@:forward abstract EditorNode3DGizmo(gdnative.Ref<EditorNode3DGizmo_extern>) from gdnative.Ref<EditorNode3DGizmo_extern> to gdnative.Ref<EditorNode3DGizmo_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.EditorNode3DGizmo):gdnative.EditorNode3DGizmo return @:privateAccess v.__ref.ptr().reinterpret();
-	@:to
-	inline function toWrapper():gd.EditorNode3DGizmo {
-		final v = new gd.EditorNode3DGizmo(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
 }

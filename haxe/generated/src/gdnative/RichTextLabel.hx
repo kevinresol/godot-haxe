@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract RichTextLabel(cpp.Pointer<RichTextLabel_extern>) from cpp.Pointer<RichTextLabel_extern> to cpp.Pointer<RichTextLabel_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.RichTextLabel):gdnative.RichTextLabel return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.RichTextLabel return new gd.RichTextLabel(this);
+}
 @:include("godot_cpp/classes/rich_text_label.hpp") @:native("godot::RichTextLabel") @:structAccess extern class RichTextLabel_extern extends gdnative.Control.Control_extern {
 	extern static inline function __alloc():cpp.Pointer<RichTextLabel_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::RichTextLabel"));
 	function get_parsed_text():gdnative.String;
@@ -151,13 +160,4 @@ package gdnative;
 	function get_menu():gdnative.PopupMenu;
 	function is_menu_visible():Bool;
 	function menu_option(p_option:Int):Void;
-}
-@:forward abstract RichTextLabel(cpp.Pointer<RichTextLabel_extern>) from cpp.Pointer<RichTextLabel_extern> to cpp.Pointer<RichTextLabel_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.RichTextLabel):gdnative.RichTextLabel return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.RichTextLabel {
-		final v = new gd.RichTextLabel(this);
-		return v;
-	}
 }

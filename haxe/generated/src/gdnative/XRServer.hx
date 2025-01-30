@@ -1,4 +1,13 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract XRServer(cpp.Pointer<XRServer_extern>) from cpp.Pointer<XRServer_extern> to cpp.Pointer<XRServer_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.XRServer):gdnative.XRServer return @:privateAccess v.__gd.reinterpret();
+	@:to
+	inline function toWrapper():gd.XRServer return new gd.XRServer(this);
+}
 @:include("godot_cpp/classes/xr_server.hpp") @:native("godot::XRServer") @:structAccess extern class XRServer_extern extends gdnative.Object.Object_extern {
 	extern static inline function __alloc():cpp.Pointer<XRServer_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::XRServer"));
 	static function get_singleton():cpp.Pointer<XRServer_extern>;
@@ -21,13 +30,4 @@ package gdnative;
 	function get_tracker(p_tracker_name:gdnative.StringName):gdnative.XRTracker;
 	function get_primary_interface():gdnative.XRInterface;
 	function set_primary_interface(p_interface:gdnative.XRInterface):Void;
-}
-@:forward abstract XRServer(cpp.Pointer<XRServer_extern>) from cpp.Pointer<XRServer_extern> to cpp.Pointer<XRServer_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.XRServer):gdnative.XRServer return @:privateAccess v.__gd.reinterpret();
-	@:to
-	inline function toWrapper():gd.XRServer {
-		final v = new gd.XRServer(this);
-		return v;
-	}
 }

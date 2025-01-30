@@ -1,4 +1,17 @@
 package gdnative;
+/**
+	Class
+**/
+@:forward abstract SceneState(gdnative.Ref<SceneState_extern>) from gdnative.Ref<SceneState_extern> to gdnative.Ref<SceneState_extern> {
+	@:from
+	static inline function fromWrapper(v:gd.SceneState):gdnative.SceneState return @:privateAccess v.__ref.ptr().reinterpret();
+	@:to
+	inline function toWrapper():gd.SceneState {
+		final v = new gd.SceneState(this.ptr());
+		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+		return v;
+	}
+}
 @:include("godot_cpp/classes/scene_state.hpp") @:native("godot::SceneState") @:structAccess extern class SceneState_extern extends gdnative.RefCounted.RefCounted_extern {
 	extern static inline function __alloc():cpp.Pointer<SceneState_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::SceneState"));
 	function get_node_count():Int;
@@ -23,14 +36,4 @@ package gdnative;
 	function get_connection_flags(p_idx:Int):Int;
 	function get_connection_binds(p_idx:Int):gdnative.Array;
 	function get_connection_unbinds(p_idx:Int):Int;
-}
-@:forward abstract SceneState(gdnative.Ref<SceneState_extern>) from gdnative.Ref<SceneState_extern> to gdnative.Ref<SceneState_extern> {
-	@:from
-	static inline function fromWrapper(v:gd.SceneState):gdnative.SceneState return @:privateAccess v.__ref.ptr().reinterpret();
-	@:to
-	inline function toWrapper():gd.SceneState {
-		final v = new gd.SceneState(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
 }
