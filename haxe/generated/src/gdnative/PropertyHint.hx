@@ -69,6 +69,8 @@ package gdnative;
 	final INT_IS_POINTER;
 	@:native("godot::PropertyHint::PROPERTY_HINT_ARRAY_TYPE")
 	final ARRAY_TYPE;
+	@:native("godot::PropertyHint::PROPERTY_HINT_DICTIONARY_TYPE")
+	final DICTIONARY_TYPE;
 	@:native("godot::PropertyHint::PROPERTY_HINT_LOCALE_ID")
 	final LOCALE_ID;
 	@:native("godot::PropertyHint::PROPERTY_HINT_LOCALIZABLE_STRING")
@@ -79,6 +81,10 @@ package gdnative;
 	final HIDE_QUATERNION_EDIT;
 	@:native("godot::PropertyHint::PROPERTY_HINT_PASSWORD")
 	final PASSWORD;
+	@:native("godot::PropertyHint::PROPERTY_HINT_TOOL_BUTTON")
+	final TOOL_BUTTON;
+	@:native("godot::PropertyHint::PROPERTY_HINT_ONESHOT")
+	final ONESHOT;
 	@:native("godot::PropertyHint::PROPERTY_HINT_MAX")
 	final MAX;
 }

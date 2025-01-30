@@ -18,6 +18,7 @@ class Rect2_wrapper {
 	public function intersection(p_b:gd.Rect2):gd.Rect2 return __gd.intersection(p_b);
 	public function merge(p_b:gd.Rect2):gd.Rect2 return __gd.merge(p_b);
 	public function expand(p_to:gd.Vector2):gd.Rect2 return __gd.expand(p_to);
+	public function get_support(p_direction:gd.Vector2):gd.Vector2 return __gd.get_support(p_direction);
 	public function grow(p_amount:Float):gd.Rect2 return __gd.grow(p_amount);
 	public function grow_side(p_side:gd.Side, p_amount:Float):gd.Rect2 return __gd.grow_side(p_side, p_amount);
 	public function grow_individual(p_left:Float, p_top:Float, p_right:Float, p_bottom:Float):gd.Rect2 return __gd.grow_individual(p_left, p_top, p_right, p_bottom);

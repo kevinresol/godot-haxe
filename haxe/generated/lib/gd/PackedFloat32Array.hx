@@ -3,6 +3,7 @@ extern class PackedFloat32Array_wrapper {
 	static function _new0():PackedFloat32Array_wrapper;
 	static function _new1(p_from:gd.PackedFloat32Array):PackedFloat32Array_wrapper;
 	static function _new2(p_from:gd.Array):PackedFloat32Array_wrapper;
+	function get(p_index:Int):Float;
 	function size():Int;
 	function is_empty():Bool;
 	function set(p_index:Int, p_value:Float):Void;

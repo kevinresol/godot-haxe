@@ -18,7 +18,7 @@ extern class AABB_wrapper {
 	function merge(p_with:gd.AABB):gd.AABB;
 	function expand(p_to_point:gd.Vector3):gd.AABB;
 	function grow(p_by:Float):gd.AABB;
-	function get_support(p_dir:gd.Vector3):gd.Vector3;
+	function get_support(p_direction:gd.Vector3):gd.Vector3;
 	function get_longest_axis():gd.Vector3;
 	function get_longest_axis_index():Int;
 	function get_longest_axis_size():Float;

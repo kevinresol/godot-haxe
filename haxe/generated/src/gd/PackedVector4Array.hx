@@ -5,6 +5,7 @@ class PackedVector4Array_wrapper {
 	static function _new0():PackedVector4Array_wrapper return new PackedVector4Array_wrapper(new gdnative.PackedVector4Array());
 	static function _new1(p_from:gd.PackedVector4Array):PackedVector4Array_wrapper return new PackedVector4Array_wrapper(new gdnative.PackedVector4Array(p_from));
 	static function _new2(p_from:gd.Array):PackedVector4Array_wrapper return new PackedVector4Array_wrapper(new gdnative.PackedVector4Array(p_from));
+	public function get(p_index:Int):gd.Vector4 return __gd.get(p_index);
 	public function size():Int return __gd.size();
 	public function is_empty():Bool return __gd.is_empty();
 	public function set(p_index:Int, p_value:gd.Vector4):Void return __gd.set(p_index, p_value);

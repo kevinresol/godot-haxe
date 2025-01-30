@@ -21,6 +21,8 @@ package gdnative;
 	function stop():Void;
 	function set_paused(p_paused:Bool):Void;
 	function is_paused():Bool;
+	function set_ignore_time_scale(p_ignore:Bool):Void;
+	function is_ignoring_time_scale():Bool;
 	function is_stopped():Bool;
 	function get_time_left():Float;
 	function set_timer_process_callback(p_callback:gdnative.timer.TimerProcessCallback):Void;

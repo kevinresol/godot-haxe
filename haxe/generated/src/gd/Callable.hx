@@ -17,6 +17,7 @@ class Callable_wrapper {
 	public function get_argument_count():Int return __gd.get_argument_count();
 	public function get_bound_arguments_count():Int return __gd.get_bound_arguments_count();
 	public function get_bound_arguments():gd.Array return __gd.get_bound_arguments();
+	public function get_unbound_arguments_count():Int return __gd.get_unbound_arguments_count();
 	public function hash():Int return __gd.hash();
 	public function bindv(p_arguments:gd.Array):gd.Callable return __gd.bindv(p_arguments);
 	public function unbind(p_argcount:Int):gd.Callable return __gd.unbind(p_argcount);

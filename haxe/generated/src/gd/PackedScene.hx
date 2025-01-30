@@ -15,5 +15,4 @@ class PackedScene extends gd.Resource {
 		default:__packedscene_ptr().value.instantiate(((p_edit_state : gd.packedscene.GenEditState)));
 	};
 	public function can_instantiate():Bool return __packedscene_ptr().value.can_instantiate();
-	public function get_state():gd.SceneState return __packedscene_ptr().value.get_state();
 }

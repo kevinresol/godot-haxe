@@ -23,8 +23,6 @@ extern class Vector2i_wrapper {
 	function maxi(p_with:Int):gd.Vector2i;
 	var x(get, set) : Int;
 	var y(get, set) : Int;
-	public static final AXIS_X : Int;
-	public static final AXIS_Y : Int;
 	public static final ZERO : gd.Vector2i;
 	public static final ONE : gd.Vector2i;
 	public static final MIN : gd.Vector2i;

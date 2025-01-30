@@ -35,6 +35,5 @@ package gdnative;
 	overload function draw_rect_region(p_canvas_item:gdnative.RID, p_rect:gdnative.Rect2, p_src_rect:gdnative.Rect2, p_modulate:gdnative.Color):Void;
 	overload function draw_rect_region(p_canvas_item:gdnative.RID, p_rect:gdnative.Rect2, p_src_rect:gdnative.Rect2, p_modulate:gdnative.Color, p_transpose:Bool):Void;
 	overload function draw_rect_region(p_canvas_item:gdnative.RID, p_rect:gdnative.Rect2, p_src_rect:gdnative.Rect2, p_modulate:gdnative.Color, p_transpose:Bool, p_clip_uv:Bool):Void;
-	function get_image():gdnative.Image;
 	function create_placeholder():gdnative.Resource;
 }

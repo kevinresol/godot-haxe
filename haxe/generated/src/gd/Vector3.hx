@@ -71,9 +71,6 @@ class Vector3_wrapper {
 		__gd.z = v;
 		return v;
 	}
-	public static final AXIS_X : Int = 0;
-	public static final AXIS_Y : Int = 1;
-	public static final AXIS_Z : Int = 2;
 	public static final ZERO : gd.Vector3 = new gd.Vector3(0, 0, 0);
 	public static final ONE : gd.Vector3 = new gd.Vector3(1, 1, 1);
 	public static final INF : gd.Vector3 = new gd.Vector3(Math.POSITIVE_INFINITY, Math.POSITIVE_INFINITY, Math.POSITIVE_INFINITY);

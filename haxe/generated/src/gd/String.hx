@@ -84,6 +84,8 @@ class String_wrapper {
 	public function json_escape():std.String return __gd.json_escape();
 	public function validate_node_name():std.String return __gd.validate_node_name();
 	public function validate_filename():std.String return __gd.validate_filename();
+	public function is_valid_ascii_identifier():Bool return __gd.is_valid_ascii_identifier();
+	public function is_valid_unicode_identifier():Bool return __gd.is_valid_unicode_identifier();
 	public function is_valid_identifier():Bool return __gd.is_valid_identifier();
 	public function is_valid_int():Bool return __gd.is_valid_int();
 	public function is_valid_float():Bool return __gd.is_valid_float();

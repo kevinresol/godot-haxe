@@ -18,6 +18,8 @@ extern class Array_wrapper {
 	function clear():Void;
 	function hash():Int;
 	function assign(p_array:gd.Array):Void;
+	function get(p_index:Int):gd.Variant;
+	function set(p_index:Int, p_value:gd.Variant):Void;
 	function push_back(p_value:gd.Variant):Void;
 	function push_front(p_value:gd.Variant):Void;
 	function append(p_value:gd.Variant):Void;
@@ -31,7 +33,9 @@ extern class Array_wrapper {
 	function back():gd.Variant;
 	function pick_random():gd.Variant;
 	function find(p_what:gd.Variant, ?p_from:Int):Int;
+	function find_custom(p_method:gd.Callable, ?p_from:Int):Int;
 	function rfind(p_what:gd.Variant, ?p_from:Int):Int;
+	function rfind_custom(p_method:gd.Callable, ?p_from:Int):Int;
 	function count(p_value:gd.Variant):Int;
 	function has(p_value:gd.Variant):Bool;
 	function pop_back():gd.Variant;

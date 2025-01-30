@@ -23,9 +23,6 @@ extern class Vector3i_wrapper {
 	var x(get, set) : Int;
 	var y(get, set) : Int;
 	var z(get, set) : Int;
-	public static final AXIS_X : Int;
-	public static final AXIS_Y : Int;
-	public static final AXIS_Z : Int;
 	public static final ZERO : gd.Vector3i;
 	public static final ONE : gd.Vector3i;
 	public static final MIN : gd.Vector3i;

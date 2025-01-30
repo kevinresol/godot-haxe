@@ -203,10 +203,7 @@ class Node extends gd.Object {
 		return p_mode;
 	}
 	public function get_auto_translate_mode():gd.node.AutoTranslateMode return __node_ptr().value.get_auto_translate_mode();
-	public function get_window():gd.Window return __node_ptr().value.get_window();
-	public function get_last_exclusive_window():gd.Window return __node_ptr().value.get_last_exclusive_window();
-	public function get_tree():gd.SceneTree return __node_ptr().value.get_tree();
-	public function create_tween():gd.Tween return __node_ptr().value.create_tween();
+	public function set_translation_domain_inherited():Void __node_ptr().value.set_translation_domain_inherited();
 	public function duplicate(?p_flags:Int):gd.Node return switch [p_flags] {
 		case [null]:__node_ptr().value.duplicate();
 		default:__node_ptr().value.duplicate(((p_flags : Int)));
@@ -219,7 +216,6 @@ class Node extends gd.Object {
 	public function get_scene_instance_load_placeholder():Bool return __node_ptr().value.get_scene_instance_load_placeholder();
 	public function set_editable_instance(p_node:gd.Node, p_is_editable:Bool):Void __node_ptr().value.set_editable_instance(((p_node : gd.Node)), ((p_is_editable : Bool)));
 	public function is_editable_instance(p_node:gd.Node):Bool return __node_ptr().value.is_editable_instance(((p_node : gd.Node)));
-	public function get_viewport():gd.Viewport return __node_ptr().value.get_viewport();
 	public function queue_free():Void __node_ptr().value.queue_free();
 	public function request_ready():Void __node_ptr().value.request_ready();
 	public function is_node_ready():Bool return __node_ptr().value.is_node_ready();
@@ -229,8 +225,8 @@ class Node extends gd.Object {
 	};
 	public function get_multiplayer_authority():Int return __node_ptr().value.get_multiplayer_authority();
 	public function is_multiplayer_authority():Bool return __node_ptr().value.is_multiplayer_authority();
-	public function get_multiplayer():gd.MultiplayerAPI return __node_ptr().value.get_multiplayer();
 	public function rpc_config(p_method:std.String, p_config:gd.Variant):Void __node_ptr().value.rpc_config(((p_method : std.String)), ((p_config : gd.Variant)));
+	public function get_rpc_config():gd.Variant return __node_ptr().value.get_rpc_config();
 	public function set_editor_description(p_editor_description:std.String):std.String {
 		__node_ptr().value.set_editor_description(((p_editor_description : std.String)));
 		return p_editor_description;

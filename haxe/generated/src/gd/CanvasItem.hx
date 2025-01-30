@@ -137,7 +137,6 @@ class CanvasItem extends gd.Node {
 		case [_, _, _, null]:__canvasitem_ptr().value.draw_lcd_texture_rect_region(((p_texture : gd.Texture2D)), ((p_rect : gd.Rect2)), ((p_src_rect : gd.Rect2)));
 		default:__canvasitem_ptr().value.draw_lcd_texture_rect_region(((p_texture : gd.Texture2D)), ((p_rect : gd.Rect2)), ((p_src_rect : gd.Rect2)), ((p_modulate : gd.Color)));
 	};
-	public function draw_style_box(p_style_box:gd.StyleBox, p_rect:gd.Rect2):Void __canvasitem_ptr().value.draw_style_box(((p_style_box : gd.StyleBox)), ((p_rect : gd.Rect2)));
 	public function draw_primitive(p_points:gd.PackedVector2Array, p_colors:gd.PackedColorArray, p_uvs:gd.PackedVector2Array, ?p_texture:gd.Texture2D):Void switch [p_points, p_colors, p_uvs, p_texture] {
 		case [_, _, _, null]:__canvasitem_ptr().value.draw_primitive(((p_points : gd.PackedVector2Array)), ((p_colors : gd.PackedColorArray)), ((p_uvs : gd.PackedVector2Array)));
 		default:__canvasitem_ptr().value.draw_primitive(((p_points : gd.PackedVector2Array)), ((p_colors : gd.PackedColorArray)), ((p_uvs : gd.PackedVector2Array)), ((p_texture : gd.Texture2D)));
@@ -152,69 +151,6 @@ class CanvasItem extends gd.Node {
 		case [_, _, _, null]:__canvasitem_ptr().value.draw_colored_polygon(((p_points : gd.PackedVector2Array)), ((p_color : gd.Color)), ((p_uvs : gd.PackedVector2Array)));
 		default:__canvasitem_ptr().value.draw_colored_polygon(((p_points : gd.PackedVector2Array)), ((p_color : gd.Color)), ((p_uvs : gd.PackedVector2Array)), ((p_texture : gd.Texture2D)));
 	};
-	public function draw_string(p_font:gd.Font, p_pos:gd.Vector2, p_text:std.String, ?p_alignment:gd.HorizontalAlignment, ?p_width:Float, ?p_font_size:Int, ?p_modulate:gd.Color, ?p_justification_flags:Int, ?p_direction:gd.textserver.Direction, ?p_orientation:gd.textserver.Orientation):Void switch [p_font, p_pos, p_text, p_alignment, p_width, p_font_size, p_modulate, p_justification_flags, p_direction, p_orientation] {
-		case [_, _, _, null, _, _, _, _, _, _]:__canvasitem_ptr().value.draw_string(((p_font : gd.Font)), ((p_pos : gd.Vector2)), ((p_text : std.String)));
-		case [_, _, _, _, null, _, _, _, _, _]:__canvasitem_ptr().value.draw_string(((p_font : gd.Font)), ((p_pos : gd.Vector2)), ((p_text : std.String)), ((p_alignment : gd.HorizontalAlignment)));
-		case [_, _, _, _, _, null, _, _, _, _]:__canvasitem_ptr().value.draw_string(((p_font : gd.Font)), ((p_pos : gd.Vector2)), ((p_text : std.String)), ((p_alignment : gd.HorizontalAlignment)), ((p_width : Float)));
-		case [_, _, _, _, _, _, null, _, _, _]:__canvasitem_ptr().value.draw_string(((p_font : gd.Font)), ((p_pos : gd.Vector2)), ((p_text : std.String)), ((p_alignment : gd.HorizontalAlignment)), ((p_width : Float)), ((p_font_size : Int)));
-		case [_, _, _, _, _, _, _, null, _, _]:__canvasitem_ptr().value.draw_string(((p_font : gd.Font)), ((p_pos : gd.Vector2)), ((p_text : std.String)), ((p_alignment : gd.HorizontalAlignment)), ((p_width : Float)), ((p_font_size : Int)), ((p_modulate : gd.Color)));
-		case [_, _, _, _, _, _, _, _, null, _]:__canvasitem_ptr().value.draw_string(((p_font : gd.Font)), ((p_pos : gd.Vector2)), ((p_text : std.String)), ((p_alignment : gd.HorizontalAlignment)), ((p_width : Float)), ((p_font_size : Int)), ((p_modulate : gd.Color)), ((p_justification_flags : Int)));
-		case [_, _, _, _, _, _, _, _, _, null]:__canvasitem_ptr().value.draw_string(((p_font : gd.Font)), ((p_pos : gd.Vector2)), ((p_text : std.String)), ((p_alignment : gd.HorizontalAlignment)), ((p_width : Float)), ((p_font_size : Int)), ((p_modulate : gd.Color)), ((p_justification_flags : Int)), ((p_direction : gd.textserver.Direction)));
-		default:__canvasitem_ptr().value.draw_string(((p_font : gd.Font)), ((p_pos : gd.Vector2)), ((p_text : std.String)), ((p_alignment : gd.HorizontalAlignment)), ((p_width : Float)), ((p_font_size : Int)), ((p_modulate : gd.Color)), ((p_justification_flags : Int)), ((p_direction : gd.textserver.Direction)), ((p_orientation : gd.textserver.Orientation)));
-	};
-	public function draw_multiline_string(p_font:gd.Font, p_pos:gd.Vector2, p_text:std.String, ?p_alignment:gd.HorizontalAlignment, ?p_width:Float, ?p_font_size:Int, ?p_max_lines:Int, ?p_modulate:gd.Color, ?p_brk_flags:Int, ?p_justification_flags:Int, ?p_direction:gd.textserver.Direction, ?p_orientation:gd.textserver.Orientation):Void switch [p_font, p_pos, p_text, p_alignment, p_width, p_font_size, p_max_lines, p_modulate, p_brk_flags, p_justification_flags, p_direction, p_orientation] {
-		case [_, _, _, null, _, _, _, _, _, _, _, _]:__canvasitem_ptr().value.draw_multiline_string(((p_font : gd.Font)), ((p_pos : gd.Vector2)), ((p_text : std.String)));
-		case [_, _, _, _, null, _, _, _, _, _, _, _]:__canvasitem_ptr().value.draw_multiline_string(((p_font : gd.Font)), ((p_pos : gd.Vector2)), ((p_text : std.String)), ((p_alignment : gd.HorizontalAlignment)));
-		case [_, _, _, _, _, null, _, _, _, _, _, _]:__canvasitem_ptr().value.draw_multiline_string(((p_font : gd.Font)), ((p_pos : gd.Vector2)), ((p_text : std.String)), ((p_alignment : gd.HorizontalAlignment)), ((p_width : Float)));
-		case [_, _, _, _, _, _, null, _, _, _, _, _]:__canvasitem_ptr().value.draw_multiline_string(((p_font : gd.Font)), ((p_pos : gd.Vector2)), ((p_text : std.String)), ((p_alignment : gd.HorizontalAlignment)), ((p_width : Float)), ((p_font_size : Int)));
-		case [_, _, _, _, _, _, _, null, _, _, _, _]:__canvasitem_ptr().value.draw_multiline_string(((p_font : gd.Font)), ((p_pos : gd.Vector2)), ((p_text : std.String)), ((p_alignment : gd.HorizontalAlignment)), ((p_width : Float)), ((p_font_size : Int)), ((p_max_lines : Int)));
-		case [_, _, _, _, _, _, _, _, null, _, _, _]:__canvasitem_ptr().value.draw_multiline_string(((p_font : gd.Font)), ((p_pos : gd.Vector2)), ((p_text : std.String)), ((p_alignment : gd.HorizontalAlignment)), ((p_width : Float)), ((p_font_size : Int)), ((p_max_lines : Int)), ((p_modulate : gd.Color)));
-		case [_, _, _, _, _, _, _, _, _, null, _, _]:__canvasitem_ptr().value.draw_multiline_string(((p_font : gd.Font)), ((p_pos : gd.Vector2)), ((p_text : std.String)), ((p_alignment : gd.HorizontalAlignment)), ((p_width : Float)), ((p_font_size : Int)), ((p_max_lines : Int)), ((p_modulate : gd.Color)), ((p_brk_flags : Int)));
-		case [_, _, _, _, _, _, _, _, _, _, null, _]:__canvasitem_ptr().value.draw_multiline_string(((p_font : gd.Font)), ((p_pos : gd.Vector2)), ((p_text : std.String)), ((p_alignment : gd.HorizontalAlignment)), ((p_width : Float)), ((p_font_size : Int)), ((p_max_lines : Int)), ((p_modulate : gd.Color)), ((p_brk_flags : Int)), ((p_justification_flags : Int)));
-		case [_, _, _, _, _, _, _, _, _, _, _, null]:__canvasitem_ptr().value.draw_multiline_string(((p_font : gd.Font)), ((p_pos : gd.Vector2)), ((p_text : std.String)), ((p_alignment : gd.HorizontalAlignment)), ((p_width : Float)), ((p_font_size : Int)), ((p_max_lines : Int)), ((p_modulate : gd.Color)), ((p_brk_flags : Int)), ((p_justification_flags : Int)), ((p_direction : gd.textserver.Direction)));
-		default:__canvasitem_ptr().value.draw_multiline_string(((p_font : gd.Font)), ((p_pos : gd.Vector2)), ((p_text : std.String)), ((p_alignment : gd.HorizontalAlignment)), ((p_width : Float)), ((p_font_size : Int)), ((p_max_lines : Int)), ((p_modulate : gd.Color)), ((p_brk_flags : Int)), ((p_justification_flags : Int)), ((p_direction : gd.textserver.Direction)), ((p_orientation : gd.textserver.Orientation)));
-	};
-	public function draw_string_outline(p_font:gd.Font, p_pos:gd.Vector2, p_text:std.String, ?p_alignment:gd.HorizontalAlignment, ?p_width:Float, ?p_font_size:Int, ?p_size:Int, ?p_modulate:gd.Color, ?p_justification_flags:Int, ?p_direction:gd.textserver.Direction, ?p_orientation:gd.textserver.Orientation):Void switch [p_font, p_pos, p_text, p_alignment, p_width, p_font_size, p_size, p_modulate, p_justification_flags, p_direction, p_orientation] {
-		case [_, _, _, null, _, _, _, _, _, _, _]:__canvasitem_ptr().value.draw_string_outline(((p_font : gd.Font)), ((p_pos : gd.Vector2)), ((p_text : std.String)));
-		case [_, _, _, _, null, _, _, _, _, _, _]:__canvasitem_ptr().value.draw_string_outline(((p_font : gd.Font)), ((p_pos : gd.Vector2)), ((p_text : std.String)), ((p_alignment : gd.HorizontalAlignment)));
-		case [_, _, _, _, _, null, _, _, _, _, _]:__canvasitem_ptr().value.draw_string_outline(((p_font : gd.Font)), ((p_pos : gd.Vector2)), ((p_text : std.String)), ((p_alignment : gd.HorizontalAlignment)), ((p_width : Float)));
-		case [_, _, _, _, _, _, null, _, _, _, _]:__canvasitem_ptr().value.draw_string_outline(((p_font : gd.Font)), ((p_pos : gd.Vector2)), ((p_text : std.String)), ((p_alignment : gd.HorizontalAlignment)), ((p_width : Float)), ((p_font_size : Int)));
-		case [_, _, _, _, _, _, _, null, _, _, _]:__canvasitem_ptr().value.draw_string_outline(((p_font : gd.Font)), ((p_pos : gd.Vector2)), ((p_text : std.String)), ((p_alignment : gd.HorizontalAlignment)), ((p_width : Float)), ((p_font_size : Int)), ((p_size : Int)));
-		case [_, _, _, _, _, _, _, _, null, _, _]:__canvasitem_ptr().value.draw_string_outline(((p_font : gd.Font)), ((p_pos : gd.Vector2)), ((p_text : std.String)), ((p_alignment : gd.HorizontalAlignment)), ((p_width : Float)), ((p_font_size : Int)), ((p_size : Int)), ((p_modulate : gd.Color)));
-		case [_, _, _, _, _, _, _, _, _, null, _]:__canvasitem_ptr().value.draw_string_outline(((p_font : gd.Font)), ((p_pos : gd.Vector2)), ((p_text : std.String)), ((p_alignment : gd.HorizontalAlignment)), ((p_width : Float)), ((p_font_size : Int)), ((p_size : Int)), ((p_modulate : gd.Color)), ((p_justification_flags : Int)));
-		case [_, _, _, _, _, _, _, _, _, _, null]:__canvasitem_ptr().value.draw_string_outline(((p_font : gd.Font)), ((p_pos : gd.Vector2)), ((p_text : std.String)), ((p_alignment : gd.HorizontalAlignment)), ((p_width : Float)), ((p_font_size : Int)), ((p_size : Int)), ((p_modulate : gd.Color)), ((p_justification_flags : Int)), ((p_direction : gd.textserver.Direction)));
-		default:__canvasitem_ptr().value.draw_string_outline(((p_font : gd.Font)), ((p_pos : gd.Vector2)), ((p_text : std.String)), ((p_alignment : gd.HorizontalAlignment)), ((p_width : Float)), ((p_font_size : Int)), ((p_size : Int)), ((p_modulate : gd.Color)), ((p_justification_flags : Int)), ((p_direction : gd.textserver.Direction)), ((p_orientation : gd.textserver.Orientation)));
-	};
-	public function draw_multiline_string_outline(p_font:gd.Font, p_pos:gd.Vector2, p_text:std.String, ?p_alignment:gd.HorizontalAlignment, ?p_width:Float, ?p_font_size:Int, ?p_max_lines:Int, ?p_size:Int, ?p_modulate:gd.Color, ?p_brk_flags:Int, ?p_justification_flags:Int, ?p_direction:gd.textserver.Direction, ?p_orientation:gd.textserver.Orientation):Void switch [p_font, p_pos, p_text, p_alignment, p_width, p_font_size, p_max_lines, p_size, p_modulate, p_brk_flags, p_justification_flags, p_direction, p_orientation] {
-		case [_, _, _, null, _, _, _, _, _, _, _, _, _]:__canvasitem_ptr().value.draw_multiline_string_outline(((p_font : gd.Font)), ((p_pos : gd.Vector2)), ((p_text : std.String)));
-		case [_, _, _, _, null, _, _, _, _, _, _, _, _]:__canvasitem_ptr().value.draw_multiline_string_outline(((p_font : gd.Font)), ((p_pos : gd.Vector2)), ((p_text : std.String)), ((p_alignment : gd.HorizontalAlignment)));
-		case [_, _, _, _, _, null, _, _, _, _, _, _, _]:__canvasitem_ptr().value.draw_multiline_string_outline(((p_font : gd.Font)), ((p_pos : gd.Vector2)), ((p_text : std.String)), ((p_alignment : gd.HorizontalAlignment)), ((p_width : Float)));
-		case [_, _, _, _, _, _, null, _, _, _, _, _, _]:__canvasitem_ptr().value.draw_multiline_string_outline(((p_font : gd.Font)), ((p_pos : gd.Vector2)), ((p_text : std.String)), ((p_alignment : gd.HorizontalAlignment)), ((p_width : Float)), ((p_font_size : Int)));
-		case [_, _, _, _, _, _, _, null, _, _, _, _, _]:__canvasitem_ptr().value.draw_multiline_string_outline(((p_font : gd.Font)), ((p_pos : gd.Vector2)), ((p_text : std.String)), ((p_alignment : gd.HorizontalAlignment)), ((p_width : Float)), ((p_font_size : Int)), ((p_max_lines : Int)));
-		case [_, _, _, _, _, _, _, _, null, _, _, _, _]:__canvasitem_ptr().value.draw_multiline_string_outline(((p_font : gd.Font)), ((p_pos : gd.Vector2)), ((p_text : std.String)), ((p_alignment : gd.HorizontalAlignment)), ((p_width : Float)), ((p_font_size : Int)), ((p_max_lines : Int)), ((p_size : Int)));
-		case [_, _, _, _, _, _, _, _, _, null, _, _, _]:__canvasitem_ptr().value.draw_multiline_string_outline(((p_font : gd.Font)), ((p_pos : gd.Vector2)), ((p_text : std.String)), ((p_alignment : gd.HorizontalAlignment)), ((p_width : Float)), ((p_font_size : Int)), ((p_max_lines : Int)), ((p_size : Int)), ((p_modulate : gd.Color)));
-		case [_, _, _, _, _, _, _, _, _, _, null, _, _]:__canvasitem_ptr().value.draw_multiline_string_outline(((p_font : gd.Font)), ((p_pos : gd.Vector2)), ((p_text : std.String)), ((p_alignment : gd.HorizontalAlignment)), ((p_width : Float)), ((p_font_size : Int)), ((p_max_lines : Int)), ((p_size : Int)), ((p_modulate : gd.Color)), ((p_brk_flags : Int)));
-		case [_, _, _, _, _, _, _, _, _, _, _, null, _]:__canvasitem_ptr().value.draw_multiline_string_outline(((p_font : gd.Font)), ((p_pos : gd.Vector2)), ((p_text : std.String)), ((p_alignment : gd.HorizontalAlignment)), ((p_width : Float)), ((p_font_size : Int)), ((p_max_lines : Int)), ((p_size : Int)), ((p_modulate : gd.Color)), ((p_brk_flags : Int)), ((p_justification_flags : Int)));
-		case [_, _, _, _, _, _, _, _, _, _, _, _, null]:__canvasitem_ptr().value.draw_multiline_string_outline(((p_font : gd.Font)), ((p_pos : gd.Vector2)), ((p_text : std.String)), ((p_alignment : gd.HorizontalAlignment)), ((p_width : Float)), ((p_font_size : Int)), ((p_max_lines : Int)), ((p_size : Int)), ((p_modulate : gd.Color)), ((p_brk_flags : Int)), ((p_justification_flags : Int)), ((p_direction : gd.textserver.Direction)));
-		default:__canvasitem_ptr().value.draw_multiline_string_outline(((p_font : gd.Font)), ((p_pos : gd.Vector2)), ((p_text : std.String)), ((p_alignment : gd.HorizontalAlignment)), ((p_width : Float)), ((p_font_size : Int)), ((p_max_lines : Int)), ((p_size : Int)), ((p_modulate : gd.Color)), ((p_brk_flags : Int)), ((p_justification_flags : Int)), ((p_direction : gd.textserver.Direction)), ((p_orientation : gd.textserver.Orientation)));
-	};
-	public function draw_char(p_font:gd.Font, p_pos:gd.Vector2, p_char:std.String, ?p_font_size:Int, ?p_modulate:gd.Color):Void switch [p_font, p_pos, p_char, p_font_size, p_modulate] {
-		case [_, _, _, null, _]:__canvasitem_ptr().value.draw_char(((p_font : gd.Font)), ((p_pos : gd.Vector2)), ((p_char : std.String)));
-		case [_, _, _, _, null]:__canvasitem_ptr().value.draw_char(((p_font : gd.Font)), ((p_pos : gd.Vector2)), ((p_char : std.String)), ((p_font_size : Int)));
-		default:__canvasitem_ptr().value.draw_char(((p_font : gd.Font)), ((p_pos : gd.Vector2)), ((p_char : std.String)), ((p_font_size : Int)), ((p_modulate : gd.Color)));
-	};
-	public function draw_char_outline(p_font:gd.Font, p_pos:gd.Vector2, p_char:std.String, ?p_font_size:Int, ?p_size:Int, ?p_modulate:gd.Color):Void switch [p_font, p_pos, p_char, p_font_size, p_size, p_modulate] {
-		case [_, _, _, null, _, _]:__canvasitem_ptr().value.draw_char_outline(((p_font : gd.Font)), ((p_pos : gd.Vector2)), ((p_char : std.String)));
-		case [_, _, _, _, null, _]:__canvasitem_ptr().value.draw_char_outline(((p_font : gd.Font)), ((p_pos : gd.Vector2)), ((p_char : std.String)), ((p_font_size : Int)));
-		case [_, _, _, _, _, null]:__canvasitem_ptr().value.draw_char_outline(((p_font : gd.Font)), ((p_pos : gd.Vector2)), ((p_char : std.String)), ((p_font_size : Int)), ((p_size : Int)));
-		default:__canvasitem_ptr().value.draw_char_outline(((p_font : gd.Font)), ((p_pos : gd.Vector2)), ((p_char : std.String)), ((p_font_size : Int)), ((p_size : Int)), ((p_modulate : gd.Color)));
-	};
-	public function draw_mesh(p_mesh:gd.Mesh, p_texture:gd.Texture2D, ?p_transform:gd.Transform2D, ?p_modulate:gd.Color):Void switch [p_mesh, p_texture, p_transform, p_modulate] {
-		case [_, _, null, _]:__canvasitem_ptr().value.draw_mesh(((p_mesh : gd.Mesh)), ((p_texture : gd.Texture2D)));
-		case [_, _, _, null]:__canvasitem_ptr().value.draw_mesh(((p_mesh : gd.Mesh)), ((p_texture : gd.Texture2D)), ((p_transform : gd.Transform2D)));
-		default:__canvasitem_ptr().value.draw_mesh(((p_mesh : gd.Mesh)), ((p_texture : gd.Texture2D)), ((p_transform : gd.Transform2D)), ((p_modulate : gd.Color)));
-	};
-	public function draw_multimesh(p_multimesh:gd.MultiMesh, p_texture:gd.Texture2D):Void __canvasitem_ptr().value.draw_multimesh(((p_multimesh : gd.MultiMesh)), ((p_texture : gd.Texture2D)));
 	public function draw_set_transform(p_position:gd.Vector2, ?p_rotation:Float, ?p_scale:gd.Vector2):Void switch [p_position, p_rotation, p_scale] {
 		case [_, null, _]:__canvasitem_ptr().value.draw_set_transform(((p_position : gd.Vector2)));
 		case [_, _, null]:__canvasitem_ptr().value.draw_set_transform(((p_position : gd.Vector2)), ((p_rotation : Float)));
@@ -236,13 +172,8 @@ class CanvasItem extends gd.Node {
 	public function get_local_mouse_position():gd.Vector2 return __canvasitem_ptr().value.get_local_mouse_position();
 	public function get_global_mouse_position():gd.Vector2 return __canvasitem_ptr().value.get_global_mouse_position();
 	public function get_canvas():gd.RID return __canvasitem_ptr().value.get_canvas();
-	public function get_canvas_layer_node():gd.CanvasLayer return __canvasitem_ptr().value.get_canvas_layer_node();
-	public function get_world_2d():gd.World2D return __canvasitem_ptr().value.get_world_2d();
-	public function set_material(p_material:gd.Material):gd.Material {
-		__canvasitem_ptr().value.set_material(((p_material : gd.Material)));
-		return p_material;
-	}
-	public function get_material():gd.Material return __canvasitem_ptr().value.get_material();
+	public function set_instance_shader_parameter(p_name:std.String, p_value:gd.Variant):Void __canvasitem_ptr().value.set_instance_shader_parameter(((p_name : std.String)), ((p_value : gd.Variant)));
+	public function get_instance_shader_parameter(p_name:std.String):gd.Variant return __canvasitem_ptr().value.get_instance_shader_parameter(((p_name : std.String)));
 	public function set_use_parent_material(p_enable:Bool):Bool {
 		__canvasitem_ptr().value.set_use_parent_material(((p_enable : Bool)));
 		return p_enable;
@@ -253,7 +184,7 @@ class CanvasItem extends gd.Node {
 	public function set_notify_transform(p_enable:Bool):Void __canvasitem_ptr().value.set_notify_transform(((p_enable : Bool)));
 	public function is_transform_notification_enabled():Bool return __canvasitem_ptr().value.is_transform_notification_enabled();
 	public function force_update_transform():Void __canvasitem_ptr().value.force_update_transform();
-	public function make_canvas_position_local(p_screen_point:gd.Vector2):gd.Vector2 return __canvasitem_ptr().value.make_canvas_position_local(((p_screen_point : gd.Vector2)));
+	public function make_canvas_position_local(p_viewport_point:gd.Vector2):gd.Vector2 return __canvasitem_ptr().value.make_canvas_position_local(((p_viewport_point : gd.Vector2)));
 	public function make_input_local(p_event:gd.InputEvent):gd.InputEvent return __canvasitem_ptr().value.make_input_local(((p_event : gd.InputEvent)));
 	public function set_visibility_layer(p_layer:Int):Int {
 		__canvasitem_ptr().value.set_visibility_layer(((p_layer : Int)));
@@ -305,6 +236,5 @@ class CanvasItem extends gd.Node {
 	function get_y_sort_enabled():Bool return is_y_sort_enabled();
 	public var texture_filter(get, set) : gd.canvasitem.TextureFilter;
 	public var texture_repeat(get, set) : gd.canvasitem.TextureRepeat;
-	public var material(get, set) : gd.Material;
 	public var use_parent_material(get, set) : Bool;
 }

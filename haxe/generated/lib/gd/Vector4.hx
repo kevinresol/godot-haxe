@@ -40,10 +40,6 @@ extern class Vector4_wrapper {
 	var y(get, set) : Float;
 	var z(get, set) : Float;
 	var w(get, set) : Float;
-	public static final AXIS_X : Int;
-	public static final AXIS_Y : Int;
-	public static final AXIS_Z : Int;
-	public static final AXIS_W : Int;
 	public static final ZERO : gd.Vector4;
 	public static final ONE : gd.Vector4;
 	public static final INF : gd.Vector4;

@@ -35,7 +35,7 @@ package gdnative;
 	function merge(p_with:gdnative.AABB):gdnative.AABB;
 	function expand(p_to_point:gdnative.Vector3):gdnative.AABB;
 	function grow(p_by:Float):gdnative.AABB;
-	function get_support(p_dir:gdnative.Vector3):gdnative.Vector3;
+	function get_support(p_direction:gdnative.Vector3):gdnative.Vector3;
 	function get_longest_axis():gdnative.Vector3;
 	function get_longest_axis_index():Int;
 	function get_longest_axis_size():Float;

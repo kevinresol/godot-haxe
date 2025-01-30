@@ -11,6 +11,7 @@ extern class Signal_wrapper {
 	function disconnect(p_callable:gd.Callable):Void;
 	function is_connected(p_callable:gd.Callable):Bool;
 	function get_connections():gd.Array;
+	function has_connections():Bool;
 	function emit():Void;
 }
 

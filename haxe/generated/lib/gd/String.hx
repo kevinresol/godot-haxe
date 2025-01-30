@@ -82,6 +82,8 @@ extern class String_wrapper {
 	function json_escape():std.String;
 	function validate_node_name():std.String;
 	function validate_filename():std.String;
+	function is_valid_ascii_identifier():Bool;
+	function is_valid_unicode_identifier():Bool;
 	function is_valid_identifier():Bool;
 	function is_valid_int():Bool;
 	function is_valid_float():Bool;

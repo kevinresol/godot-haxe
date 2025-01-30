@@ -3,6 +3,7 @@ extern class PackedColorArray_wrapper {
 	static function _new0():PackedColorArray_wrapper;
 	static function _new1(p_from:gd.PackedColorArray):PackedColorArray_wrapper;
 	static function _new2(p_from:gd.Array):PackedColorArray_wrapper;
+	function get(p_index:Int):gd.Color;
 	function size():Int;
 	function is_empty():Bool;
 	function set(p_index:Int, p_value:gd.Color):Void;

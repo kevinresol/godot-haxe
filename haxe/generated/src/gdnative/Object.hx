@@ -45,6 +45,7 @@ package gdnative;
 	overload function connect(p_signal:gdnative.StringName, p_callable:gdnative.Callable, p_flags:Int):gdnative.Error;
 	function disconnect(p_signal:gdnative.StringName, p_callable:gdnative.Callable):Void;
 	function is_connected(p_signal:gdnative.StringName, p_callable:gdnative.Callable):Bool;
+	function has_connections(p_signal:gdnative.StringName):Bool;
 	function set_block_signals(p_enable:Bool):Void;
 	function is_blocking_signals():Bool;
 	function notify_property_list_changed():Void;
@@ -54,6 +55,8 @@ package gdnative;
 	overload function tr(p_message:gdnative.StringName, p_context:gdnative.StringName):gdnative.String;
 	overload function tr_n(p_message:gdnative.StringName, p_plural_message:gdnative.StringName, p_n:Int):gdnative.String;
 	overload function tr_n(p_message:gdnative.StringName, p_plural_message:gdnative.StringName, p_n:Int, p_context:gdnative.StringName):gdnative.String;
+	function get_translation_domain():gdnative.StringName;
+	function set_translation_domain(p_domain:gdnative.StringName):Void;
 	function is_queued_for_deletion():Bool;
 	function cancel_free():Void;
 }

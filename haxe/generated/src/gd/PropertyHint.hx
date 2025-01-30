@@ -41,10 +41,13 @@ enum abstract PropertyHint(Int) from Int to Int {
 	final INT_IS_OBJECTID = 29;
 	final INT_IS_POINTER = 30;
 	final ARRAY_TYPE = 31;
+	final DICTIONARY_TYPE = 38;
 	final LOCALE_ID = 32;
 	final LOCALIZABLE_STRING = 33;
 	final NODE_TYPE = 34;
 	final HIDE_QUATERNION_EDIT = 35;
 	final PASSWORD = 36;
-	final MAX = 38;
+	final TOOL_BUTTON = 39;
+	final ONESHOT = 40;
+	final MAX = 42;
 }

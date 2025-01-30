@@ -15,6 +15,7 @@ extern class Callable_wrapper {
 	function get_argument_count():Int;
 	function get_bound_arguments_count():Int;
 	function get_bound_arguments():gd.Array;
+	function get_unbound_arguments_count():Int;
 	function hash():Int;
 	function bindv(p_arguments:gd.Array):gd.Callable;
 	function unbind(p_argcount:Int):gd.Callable;

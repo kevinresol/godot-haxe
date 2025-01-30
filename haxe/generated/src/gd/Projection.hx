@@ -56,12 +56,6 @@ class Projection_wrapper {
 		__gd.w = v;
 		return v;
 	}
-	public static final PLANE_NEAR : Int = 0;
-	public static final PLANE_FAR : Int = 1;
-	public static final PLANE_LEFT : Int = 2;
-	public static final PLANE_TOP : Int = 3;
-	public static final PLANE_RIGHT : Int = 4;
-	public static final PLANE_BOTTOM : Int = 5;
 	public static final IDENTITY : gd.Projection = new gd.Projection(new gd.Vector4(1, 0, 0, 0), new gd.Vector4(0, 1, 0, 0), new gd.Vector4(0, 0, 1, 0), new gd.Vector4(0, 0, 0, 1));
 	public static final ZERO : gd.Projection = new gd.Projection(new gd.Vector4(0, 0, 0, 0), new gd.Vector4(0, 0, 0, 0), new gd.Vector4(0, 0, 0, 0), new gd.Vector4(0, 0, 0, 0));
 }

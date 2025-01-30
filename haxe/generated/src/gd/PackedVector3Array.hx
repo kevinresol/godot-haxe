@@ -5,6 +5,7 @@ class PackedVector3Array_wrapper {
 	static function _new0():PackedVector3Array_wrapper return new PackedVector3Array_wrapper(new gdnative.PackedVector3Array());
 	static function _new1(p_from:gd.PackedVector3Array):PackedVector3Array_wrapper return new PackedVector3Array_wrapper(new gdnative.PackedVector3Array(p_from));
 	static function _new2(p_from:gd.Array):PackedVector3Array_wrapper return new PackedVector3Array_wrapper(new gdnative.PackedVector3Array(p_from));
+	public function get(p_index:Int):gd.Vector3 return __gd.get(p_index);
 	public function size():Int return __gd.size();
 	public function is_empty():Bool return __gd.is_empty();
 	public function set(p_index:Int, p_value:gd.Vector3):Void return __gd.set(p_index, p_value);

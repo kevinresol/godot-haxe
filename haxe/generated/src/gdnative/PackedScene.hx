@@ -18,5 +18,4 @@ package gdnative;
 	overload function instantiate():gdnative.Node;
 	overload function instantiate(p_edit_state:gdnative.packedscene.GenEditState):gdnative.Node;
 	function can_instantiate():Bool;
-	function get_state():gdnative.SceneState;
 }

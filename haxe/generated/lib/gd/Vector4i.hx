@@ -24,10 +24,6 @@ extern class Vector4i_wrapper {
 	var y(get, set) : Int;
 	var z(get, set) : Int;
 	var w(get, set) : Int;
-	public static final AXIS_X : Int;
-	public static final AXIS_Y : Int;
-	public static final AXIS_Z : Int;
-	public static final AXIS_W : Int;
 	public static final ZERO : gd.Vector4i;
 	public static final ONE : gd.Vector4i;
 	public static final MIN : gd.Vector4i;

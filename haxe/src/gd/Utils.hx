@@ -11,6 +11,9 @@ class Utils {
 	}
 
 	public static function createClassWrapper<T>(native:gdnative.Object, classType:Class<T>):T {
+		if (classType == null)
+			throw 'Class type is null';
+
 		final inst:Dynamic = Type.createInstance(classType, [native]);
 		switch Std.downcast(inst, gd.RefCounted) {
 			case null:

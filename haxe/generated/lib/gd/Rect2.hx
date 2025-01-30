@@ -16,6 +16,7 @@ extern class Rect2_wrapper {
 	function intersection(p_b:gd.Rect2):gd.Rect2;
 	function merge(p_b:gd.Rect2):gd.Rect2;
 	function expand(p_to:gd.Vector2):gd.Rect2;
+	function get_support(p_direction:gd.Vector2):gd.Vector2;
 	function grow(p_amount:Float):gd.Rect2;
 	function grow_side(p_side:gd.Side, p_amount:Float):gd.Rect2;
 	function grow_individual(p_left:Float, p_top:Float, p_right:Float, p_bottom:Float):gd.Rect2;

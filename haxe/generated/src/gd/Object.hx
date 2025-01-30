@@ -55,6 +55,7 @@ class Object {
 	};
 	public function disconnect(p_signal:std.String, p_callable:gd.Callable):Void __object_ptr().value.disconnect(((p_signal : std.String)), ((p_callable : gd.Callable)));
 	public function is_connected(p_signal:std.String, p_callable:gd.Callable):Bool return __object_ptr().value.is_connected(((p_signal : std.String)), ((p_callable : gd.Callable)));
+	public function has_connections(p_signal:std.String):Bool return __object_ptr().value.has_connections(((p_signal : std.String)));
 	public function set_block_signals(p_enable:Bool):Void __object_ptr().value.set_block_signals(((p_enable : Bool)));
 	public function is_blocking_signals():Bool return __object_ptr().value.is_blocking_signals();
 	public function notify_property_list_changed():Void __object_ptr().value.notify_property_list_changed();
@@ -68,6 +69,8 @@ class Object {
 		case [_, _, _, null]:__object_ptr().value.tr_n(((p_message : std.String)), ((p_plural_message : std.String)), ((p_n : Int)));
 		default:__object_ptr().value.tr_n(((p_message : std.String)), ((p_plural_message : std.String)), ((p_n : Int)), ((p_context : std.String)));
 	};
+	public function get_translation_domain():std.String return __object_ptr().value.get_translation_domain();
+	public function set_translation_domain(p_domain:std.String):Void __object_ptr().value.set_translation_domain(((p_domain : std.String)));
 	public function is_queued_for_deletion():Bool return __object_ptr().value.is_queued_for_deletion();
 	public function cancel_free():Void __object_ptr().value.cancel_free();
 	public var __gd : gdnative.Object;

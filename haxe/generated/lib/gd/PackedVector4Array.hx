@@ -3,6 +3,7 @@ extern class PackedVector4Array_wrapper {
 	static function _new0():PackedVector4Array_wrapper;
 	static function _new1(p_from:gd.PackedVector4Array):PackedVector4Array_wrapper;
 	static function _new2(p_from:gd.Array):PackedVector4Array_wrapper;
+	function get(p_index:Int):gd.Vector4;
 	function size():Int;
 	function is_empty():Bool;
 	function set(p_index:Int, p_value:gd.Vector4):Void;

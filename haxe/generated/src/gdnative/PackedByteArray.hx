@@ -20,6 +20,7 @@ package gdnative;
 	@:overload(function(p_from:gdnative.PackedByteArray):Void { })
 	@:overload(function(p_from:gdnative.Array):Void { })
 	function new();
+	function get(p_index:Int):Int;
 	function size():Int;
 	function is_empty():Bool;
 	function set(p_index:Int, p_value:Int):Void;

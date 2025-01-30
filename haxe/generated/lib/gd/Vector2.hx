@@ -53,8 +53,6 @@ extern class Vector2_wrapper {
 	function from_angle(p_angle:Float):gd.Vector2;
 	var x(get, set) : Float;
 	var y(get, set) : Float;
-	public static final AXIS_X : Int;
-	public static final AXIS_Y : Int;
 	public static final ZERO : gd.Vector2;
 	public static final ONE : gd.Vector2;
 	public static final INF : gd.Vector2;

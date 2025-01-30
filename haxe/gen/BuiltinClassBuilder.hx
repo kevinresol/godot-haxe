@@ -439,42 +439,44 @@ class BuiltinClassBuilder extends Builder {
 
 		// constants
 		for (const in (clazz.constants ?? [])) {
-			final type = makeHaxeType(const.type);
-			cls.fields.push({
-				pos: null,
-				name: const.name,
-				access: [APublic, AStatic, AFinal],
-				// doc: '${const.type}: ${const.value}',
-				kind: FVar(type, isScriptExtern ? null : switch const.type {
-					case 'int':
-						macro $v{Std.parseInt(const.value)};
-					default:
-						final regex = ~/^([\w]+)\(([^(]*)\)$/;
-						if (regex.match(const.value)) {
-							final tp = {pack: ['gd'], name: regex.matched(1)};
-							final args = regex.matched(2).split(',').map(v -> v.trim()).map(v -> switch v {
-								case 'inf': macro Math.POSITIVE_INFINITY;
-								case '-inf': macro Math.NEGATIVE_INFINITY;
-								default: macro $v{v.contains('.') ? Std.parseFloat(v) : Std.parseInt(v)};
-							});
+			try {
+				final type = makeHaxeType(const.type);
+				cls.fields.push({
+					pos: null,
+					name: const.name,
+					access: [APublic, AStatic, AFinal],
+					// doc: '${const.type}: ${const.value}',
+					kind: FVar(type, isScriptExtern ? null : switch const.type {
+						case 'int':
+							macro $v{Std.parseInt(const.value)};
+						default:
+							final regex = ~/^([\w]+)\(([^(]*)\)$/;
+							if (regex.match(const.value)) {
+								final tp = {pack: ['gd'], name: regex.matched(1)};
+								final args = regex.matched(2).split(',').map(v -> v.trim()).map(v -> switch v {
+									case 'inf': macro Math.POSITIVE_INFINITY;
+									case '-inf': macro Math.NEGATIVE_INFINITY;
+									default: macro $v{v.contains('.') ? Std.parseFloat(v) : Std.parseInt(v)};
+								});
 
-							switch cname {
-								case 'Projection':
-									// special handling for Projection because the C++ code does not have this constructor
-									macro new $tp( //
-										new gd.Vector4($a{args.slice(0, 4)}), //
-										new gd.Vector4($a{args.slice(4, 8)}), //
-										new gd.Vector4($a{args.slice(8, 12)}), //
-										new gd.Vector4($a{args.slice(12, 16)}), //
-									);
-								default:
-									macro new $tp($a{args});
+								switch cname {
+									case 'Projection':
+										// special handling for Projection because the C++ code does not have this constructor
+										macro new $tp( //
+											new gd.Vector4($a{args.slice(0, 4)}), //
+											new gd.Vector4($a{args.slice(4, 8)}), //
+											new gd.Vector4($a{args.slice(8, 12)}), //
+											new gd.Vector4($a{args.slice(12, 16)}), //
+										);
+									default:
+										macro new $tp($a{args});
+								}
+							} else {
+								throw 'Unhandled constant type ${const.type}';
 							}
-						} else {
-							throw 'Unhandled constant type ${const.type}';
-						}
-				}),
-			});
+					}),
+				});
+			} catch (e) {}
 		}
 		final source = printTypeDefinition(cls) + '\n\n' + printTypeDefinition(abs);
 		write('${config.folder}/${cls.pack.join('/')}/$cname.hx', source);
@@ -484,7 +486,7 @@ class BuiltinClassBuilder extends Builder {
 		// TODO: investigate why some methods are not in the generated gdextension c++
 		return switch clazz.name {
 			case 'Color':
-				clazz.methods.filter(m -> !['from_ok_hsl'].contains(m.name));
+				clazz.methods.filter(m -> !['from_ok_hsl', 'from_rgba8'].contains(m.name));
 			case 'Vector2' | 'Vector3':
 				clazz.methods.filter(m -> !['bezier_derivative'].contains(m.name));
 			case 'Quaternion':
@@ -521,7 +523,7 @@ class BuiltinClassBuilder extends Builder {
 		} else switch clazz.name {
 			case 'Color':
 				// TODO: handle these virtual members
-				clazz.members.filter(m -> !['r8', 'g8', 'b8', 'a8', 'h', 's', 'v'].contains(m.name));
+				clazz.members.filter(m -> !['r8', 'g8', 'b8', 'a8', 'h', 's', 'v', 'ok_hsl_h', 'ok_hsl_s', 'ok_hsl_l'].contains(m.name));
 			case 'Rect2' | 'Rect2i':
 				// TODO: handle these virtual members
 				clazz.members.filter(m -> !['end'].contains(m.name));
@@ -598,8 +600,6 @@ class BuiltinClassBuilder extends Builder {
 
 	function patchArgs(cls:String, fn:String, args:Null<Array<BuiltinClassMethodArgument>>):Array<BuiltinClassMethodArgument> {
 		return if (args == null) [] else switch [cls, fn] {
-			case ['Quaternion', 'get_euler']:
-				[];
 			case ['Transform3D', 'looking_at']:
 				args.slice(0, 2);
 			default:
@@ -611,7 +611,7 @@ class BuiltinClassBuilder extends Builder {
 		return switch [cls, fn, argName] {
 			case ['Rect2' | 'Rect2i', 'grow_side', 'side']:
 				'enum::Side';
-			case ['Basis', 'get_euler' | 'from_euler', 'order']:
+			case ['Basis' | 'Quaternion', 'get_euler' | 'from_euler', 'order']:
 				'enum::EulerOrder';
 			case ['Projection', 'get_projection_plane', 'plane']:
 				'enum::Projection.Planes';

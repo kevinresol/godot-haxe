@@ -3,6 +3,7 @@ extern class PackedFloat64Array_wrapper {
 	static function _new0():PackedFloat64Array_wrapper;
 	static function _new1(p_from:gd.PackedFloat64Array):PackedFloat64Array_wrapper;
 	static function _new2(p_from:gd.Array):PackedFloat64Array_wrapper;
+	function get(p_index:Int):Float;
 	function size():Int;
 	function is_empty():Bool;
 	function set(p_index:Int, p_value:Float):Void;

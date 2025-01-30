@@ -11,7 +11,7 @@ class EnumBuilder extends Builder {
 		final parts = e.name.split('.');
 		final ename = parts.pop();
 		final ect = TPath({pack: [], name: ename});
-		final ntype = 'godot::${e.name.replace('.', '::')}';
+		final ntype = getNativeType(e);
 		final config = Config.nativeExtern;
 		final ecname = '${ename}_extern';
 		final ecct = TPath({pack: [], name: ecname});
@@ -62,7 +62,7 @@ class EnumBuilder extends Builder {
 		final ename = parts.pop();
 		final ect = TPath({pack: [], name: ename});
 
-		final ntype = 'godot::${e.name.replace('.', '::')}';
+		final ntype = getNativeType(e);
 		final nct = TPath({pack: Config.nativeExtern.pack.concat(parts.map(p -> p.toLowerCase())), name: ename});
 
 		final underlying = e.is_bitfield ? macro :cpp.UInt64 : macro :Int;
@@ -98,5 +98,13 @@ class EnumBuilder extends Builder {
 		}
 		final source = printTypeDefinition(def);
 		write('${config.folder}/${def.pack.join('/')}/$ename.hx', source);
+	}
+
+	function getNativeType(e:GlobalEnum):String {
+		final parts = e.name.split('.');
+		if (parts[0] == 'ClassDB')
+			parts[0] = 'ClassDBSingleton';
+
+		return 'godot::${parts.join('::')}';
 	}
 }

@@ -1,12 +1,12 @@
 [gd_scene load_steps=3 format=3 uid="uid://d1rxbwajffble"]
 
-[ext_resource type="Script" path="res://Main.hx" id="1_3e77y"]
+[ext_resource type="Script" uid="uid://h5t3d3pmutxg" path="res://Main.hx" id="1_0xm2m"]
 [ext_resource type="Texture2D" uid="uid://ccpvn22epnitt" path="res://icon.svg" id="3_bcw0c"]
 
 [node name="Main" type="Node2D"]
 position = Vector2(74.8526, 74.8526)
-script = ExtResource("1_3e77y")
-speed = 0
+script = ExtResource("1_0xm2m")
+speed = 42
 
 [node name="Node2D" type="Node2D" parent="."]
 

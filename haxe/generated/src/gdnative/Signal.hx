@@ -29,5 +29,6 @@ package gdnative;
 	function disconnect(p_callable:gdnative.Callable):Void;
 	function is_connected(p_callable:gdnative.Callable):Bool;
 	function get_connections():gdnative.Array;
+	function has_connections():Bool;
 	function emit():Void;
 }

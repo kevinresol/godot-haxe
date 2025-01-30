@@ -13,6 +13,24 @@ using gen.StringTools;
 
 class ClassBuilder extends EnumBuilder {
 	public function generate() {
+		final classes = new Map<String, Bool>();
+		for (c in [
+			'Sprite2D',
+			'Texture2D',
+			'JSON',
+			'PackedScene',
+			'InputEventKey',
+			'ClassDB',
+			'ResourceLoader',
+			'Timer',
+			'InputEventMouseMotion',
+			'InputEventMouseButton',
+		])
+			for (ancestor in getClassInheritance(c))
+				classes.set(ancestor, true);
+
+		trace([for (k => _ in classes) k]);
+
 		for (clazz in api.classes) {
 			final cname = clazz.name;
 			final parent = clazz.inherits;
@@ -24,9 +42,11 @@ class ClassBuilder extends EnumBuilder {
 			final hppExists = sys.FileSystem.exists(hppPath);
 
 			if (hppExists) {
-				generateClassExtern(clazz, hpp);
-				generateClassWrapper(clazz, true);
-				generateClassWrapper(clazz, false);
+				if (classes.get(cname)) {
+					generateClassExtern(clazz, hpp);
+					generateClassWrapper(clazz, true);
+					generateClassWrapper(clazz, false);
+				}
 			} else {
 				trace('Skipping ${cname} because ${hpp} does not exist');
 			}
@@ -130,7 +150,7 @@ class ClassBuilder extends EnumBuilder {
 				@:from static inline function fromWrapper(v:gd.$cname):gdnative.$cname
 					return @:privateAccess v.__gd.reinterpret();
 
-				@:to inline function toWrapper():gd.$cname 
+				@:to inline function toWrapper():gd.$cname
 					return new gd.$cname(this);
 			}).fields);
 			final pointer = macro :cpp.Pointer<$local>;

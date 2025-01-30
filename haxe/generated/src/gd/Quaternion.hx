@@ -23,7 +23,7 @@ class Quaternion_wrapper {
 	public function slerpni(p_to:gd.Quaternion, p_weight:Float):gd.Quaternion return __gd.slerpni(p_to, p_weight);
 	public function spherical_cubic_interpolate(p_b:gd.Quaternion, p_pre_a:gd.Quaternion, p_post_b:gd.Quaternion, p_weight:Float):gd.Quaternion return __gd.spherical_cubic_interpolate(p_b, p_pre_a, p_post_b, p_weight);
 	public function spherical_cubic_interpolate_in_time(p_b:gd.Quaternion, p_pre_a:gd.Quaternion, p_post_b:gd.Quaternion, p_weight:Float, p_b_t:Float, p_pre_a_t:Float, p_post_b_t:Float):gd.Quaternion return __gd.spherical_cubic_interpolate_in_time(p_b, p_pre_a, p_post_b, p_weight, p_b_t, p_pre_a_t, p_post_b_t);
-	public function get_euler():gd.Vector3 return __gd.get_euler();
+	public function get_euler(?p_order:gd.EulerOrder):gd.Vector3 return __gd.get_euler(p_order);
 	public function get_axis():gd.Vector3 return __gd.get_axis();
 	public function get_angle():Float return __gd.get_angle();
 	public var x(get, set) : Float;

@@ -1,6 +1,0 @@
-package gd.physicsserver3d;
-enum abstract ProcessInfo(Int) from Int to Int {
-	final ACTIVE_OBJECTS = 0;
-	final COLLISION_PAIRS = 1;
-	final ISLAND_COUNT = 2;
-}

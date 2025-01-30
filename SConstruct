@@ -17,7 +17,6 @@ env.Append(CPPPATH=["cpp/src/", "haxe/bin/include/", "haxe/src/include/", "/User
 env.Append(CPPDEFINES=[
     "HXCPP_SCRIPTABLE",
     "HXCPP_VISIT_ALLOCS",
-    "HXCPP_SCRIPTABLE",
     "HX_SMART_STRINGS",
     "HXCPP_API_LEVEL=430",
 ])

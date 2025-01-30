@@ -20,7 +20,7 @@ class AABB_wrapper {
 	public function merge(p_with:gd.AABB):gd.AABB return __gd.merge(p_with);
 	public function expand(p_to_point:gd.Vector3):gd.AABB return __gd.expand(p_to_point);
 	public function grow(p_by:Float):gd.AABB return __gd.grow(p_by);
-	public function get_support(p_dir:gd.Vector3):gd.Vector3 return __gd.get_support(p_dir);
+	public function get_support(p_direction:gd.Vector3):gd.Vector3 return __gd.get_support(p_direction);
 	public function get_longest_axis():gd.Vector3 return __gd.get_longest_axis();
 	public function get_longest_axis_index():Int return __gd.get_longest_axis_index();
 	public function get_longest_axis_size():Float return __gd.get_longest_axis_size();

@@ -20,6 +20,8 @@ class Array_wrapper {
 	public function clear():Void return __gd.clear();
 	public function hash():Int return __gd.hash();
 	public function assign(p_array:gd.Array):Void return __gd.assign(p_array);
+	public function get(p_index:Int):gd.Variant return __gd.get(p_index);
+	public function set(p_index:Int, p_value:gd.Variant):Void return __gd.set(p_index, p_value);
 	public function push_back(p_value:gd.Variant):Void return __gd.push_back(p_value);
 	public function push_front(p_value:gd.Variant):Void return __gd.push_front(p_value);
 	public function append(p_value:gd.Variant):Void return __gd.append(p_value);
@@ -33,7 +35,9 @@ class Array_wrapper {
 	public function back():gd.Variant return __gd.back();
 	public function pick_random():gd.Variant return __gd.pick_random();
 	public function find(p_what:gd.Variant, ?p_from:Int):Int return __gd.find(p_what, p_from);
+	public function find_custom(p_method:gd.Callable, ?p_from:Int):Int return __gd.find_custom(p_method, p_from);
 	public function rfind(p_what:gd.Variant, ?p_from:Int):Int return __gd.rfind(p_what, p_from);
+	public function rfind_custom(p_method:gd.Callable, ?p_from:Int):Int return __gd.rfind_custom(p_method, p_from);
 	public function count(p_value:gd.Variant):Int return __gd.count(p_value);
 	public function has(p_value:gd.Variant):Bool return __gd.has(p_value);
 	public function pop_back():gd.Variant return __gd.pop_back();

@@ -158,7 +158,6 @@ class Main extends Base {
 	override function _process(delta:Float) {
 		if (processed == 0) {
 			trace('_process($delta) $processed');
-			trace(gd.sky.ProcessMode.QUALITY);
 		} else if (processed == 100) {
 			// process_mode = DISABLED;
 		}
@@ -177,8 +176,8 @@ class Main extends Base {
 
 	function _on_timer_timeout() {
 		trace("_on_timer_timeout callback at " + Date.now());
-		final timer = get_node('Timer').cast_to(Timer);
-		trace(timer);
+		// final timer = get_node('Timer').cast_to(Timer);
+		// trace(timer);
 		// timer.queue_free();
 	}
 

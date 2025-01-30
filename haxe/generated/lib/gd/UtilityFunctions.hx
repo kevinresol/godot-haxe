@@ -110,7 +110,6 @@ package gd;
 	static function hash(p_variable:gd.Variant):Int;
 	static function instance_from_id(p_instance_id:Int):gd.Object;
 	static function is_instance_id_valid(p_id:Int):Bool;
-	static function is_instance_valid(p_instance:gd.Variant):Bool;
 	static function rid_allocate_id():Int;
 	static function rid_from_int64(p_base:Int):gd.RID;
 	static function is_same(p_a:gd.Variant, p_b:gd.Variant):Bool;

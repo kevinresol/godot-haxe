@@ -3,6 +3,7 @@ extern class PackedByteArray_wrapper {
 	static function _new0():PackedByteArray_wrapper;
 	static function _new1(p_from:gd.PackedByteArray):PackedByteArray_wrapper;
 	static function _new2(p_from:gd.Array):PackedByteArray_wrapper;
+	function get(p_index:Int):Int;
 	function size():Int;
 	function is_empty():Bool;
 	function set(p_index:Int, p_value:Int):Void;

@@ -22,13 +22,12 @@ package gdnative;
 	overload function load(p_path:gdnative.String, p_type_hint:gdnative.String):gdnative.Resource;
 	overload function load(p_path:gdnative.String, p_type_hint:gdnative.String, p_cache_mode:gdnative.resourceloader.CacheMode):gdnative.Resource;
 	function get_recognized_extensions_for_type(p_type:gdnative.String):gdnative.PackedStringArray;
-	overload function add_resource_format_loader(p_format_loader:gdnative.ResourceFormatLoader):Void;
-	overload function add_resource_format_loader(p_format_loader:gdnative.ResourceFormatLoader, p_at_front:Bool):Void;
-	function remove_resource_format_loader(p_format_loader:gdnative.ResourceFormatLoader):Void;
 	function set_abort_on_missing_resources(p_abort:Bool):Void;
 	function get_dependencies(p_path:gdnative.String):gdnative.PackedStringArray;
 	function has_cached(p_path:gdnative.String):Bool;
+	function get_cached_ref(p_path:gdnative.String):gdnative.Resource;
 	overload function exists(p_path:gdnative.String):Bool;
 	overload function exists(p_path:gdnative.String, p_type_hint:gdnative.String):Bool;
 	function get_resource_uid(p_path:gdnative.String):Int;
+	function list_directory(p_directory_path:gdnative.String):gdnative.PackedStringArray;
 }

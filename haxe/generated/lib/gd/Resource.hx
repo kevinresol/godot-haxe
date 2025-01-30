@@ -2,9 +2,13 @@ package gd;
 extern class Resource extends gd.RefCounted {
 	function new(?owner:Dynamic);
 	function _setup_local_to_scene():Void;
+	function _get_rid():gd.RID;
+	function _reset_state():Void;
+	function _set_path_cache(p_path:std.String):Void;
 	function set_path(p_path:std.String):Void;
 	function take_over_path(p_path:std.String):Void;
 	function get_path():std.String;
+	function set_path_cache(p_path:std.String):Void;
 	function set_name(p_name:std.String):Void;
 	function get_name():std.String;
 	function get_rid():gd.RID;
@@ -12,6 +16,10 @@ extern class Resource extends gd.RefCounted {
 	function is_local_to_scene():Bool;
 	function get_local_scene():gd.Node;
 	function setup_local_to_scene():Void;
+	function reset_state():Void;
+	function set_id_for_path(p_path:std.String, p_id:std.String):Void;
+	function get_id_for_path(p_path:std.String):std.String;
+	function is_built_in():Bool;
 	static function generate_scene_unique_id():std.String;
 	function set_scene_unique_id(p_id:std.String):Void;
 	function get_scene_unique_id():std.String;

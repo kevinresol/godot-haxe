@@ -5,6 +5,7 @@ class PackedFloat64Array_wrapper {
 	static function _new0():PackedFloat64Array_wrapper return new PackedFloat64Array_wrapper(new gdnative.PackedFloat64Array());
 	static function _new1(p_from:gd.PackedFloat64Array):PackedFloat64Array_wrapper return new PackedFloat64Array_wrapper(new gdnative.PackedFloat64Array(p_from));
 	static function _new2(p_from:gd.Array):PackedFloat64Array_wrapper return new PackedFloat64Array_wrapper(new gdnative.PackedFloat64Array(p_from));
+	public function get(p_index:Int):Float return __gd.get(p_index);
 	public function size():Int return __gd.size();
 	public function is_empty():Bool return __gd.is_empty();
 	public function set(p_index:Int, p_value:Float):Void return __gd.set(p_index, p_value);

@@ -32,6 +32,7 @@ package gdnative;
 	function get_argument_count():Int;
 	function get_bound_arguments_count():Int;
 	function get_bound_arguments():gdnative.Array;
+	function get_unbound_arguments_count():Int;
 	function hash():Int;
 	function bindv(p_arguments:gdnative.Array):gdnative.Callable;
 	function unbind(p_argcount:Int):gdnative.Callable;

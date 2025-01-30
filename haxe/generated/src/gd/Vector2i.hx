@@ -35,8 +35,6 @@ class Vector2i_wrapper {
 		__gd.y = v;
 		return v;
 	}
-	public static final AXIS_X : Int = 0;
-	public static final AXIS_Y : Int = 1;
 	public static final ZERO : gd.Vector2i = new gd.Vector2i(0, 0);
 	public static final ONE : gd.Vector2i = new gd.Vector2i(1, 1);
 	public static final MIN : gd.Vector2i = new gd.Vector2i(-2147483648, -2147483648);

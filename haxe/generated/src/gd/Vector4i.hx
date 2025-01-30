@@ -46,10 +46,6 @@ class Vector4i_wrapper {
 		__gd.w = v;
 		return v;
 	}
-	public static final AXIS_X : Int = 0;
-	public static final AXIS_Y : Int = 1;
-	public static final AXIS_Z : Int = 2;
-	public static final AXIS_W : Int = 3;
 	public static final ZERO : gd.Vector4i = new gd.Vector4i(0, 0, 0, 0);
 	public static final ONE : gd.Vector4i = new gd.Vector4i(1, 1, 1, 1);
 	public static final MIN : gd.Vector4i = new gd.Vector4i(-2147483648, -2147483648, -2147483648, -2147483648);

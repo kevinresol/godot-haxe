@@ -36,6 +36,5 @@ class Texture2D extends gd.Texture {
 		case [_, _, _, _, _, null]:__texture2d_ptr().value.draw_rect_region(((p_canvas_item : gd.RID)), ((p_rect : gd.Rect2)), ((p_src_rect : gd.Rect2)), ((p_modulate : gd.Color)), ((p_transpose : Bool)));
 		default:__texture2d_ptr().value.draw_rect_region(((p_canvas_item : gd.RID)), ((p_rect : gd.Rect2)), ((p_src_rect : gd.Rect2)), ((p_modulate : gd.Color)), ((p_transpose : Bool)), ((p_clip_uv : Bool)));
 	};
-	public function get_image():gd.Image return __texture2d_ptr().value.get_image();
 	public function create_placeholder():gd.Resource return __texture2d_ptr().value.create_placeholder();
 }

@@ -5,6 +5,7 @@ class PackedStringArray_wrapper {
 	static function _new0():PackedStringArray_wrapper return new PackedStringArray_wrapper(new gdnative.PackedStringArray());
 	static function _new1(p_from:gd.PackedStringArray):PackedStringArray_wrapper return new PackedStringArray_wrapper(new gdnative.PackedStringArray(p_from));
 	static function _new2(p_from:gd.Array):PackedStringArray_wrapper return new PackedStringArray_wrapper(new gdnative.PackedStringArray(p_from));
+	public function get(p_index:Int):std.String return __gd.get(p_index);
 	public function size():Int return __gd.size();
 	public function is_empty():Bool return __gd.is_empty();
 	public function set(p_index:Int, p_value:std.String):Void return __gd.set(p_index, p_value);

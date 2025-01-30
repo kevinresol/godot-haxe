@@ -20,6 +20,7 @@ package gdnative;
 	@:overload(function(p_from:gdnative.PackedColorArray):Void { })
 	@:overload(function(p_from:gdnative.Array):Void { })
 	function new();
+	function get(p_index:Int):gdnative.Color;
 	function size():Int;
 	function is_empty():Bool;
 	function set(p_index:Int, p_value:gdnative.Color):Void;

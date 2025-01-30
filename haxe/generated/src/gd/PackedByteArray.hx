@@ -5,6 +5,7 @@ class PackedByteArray_wrapper {
 	static function _new0():PackedByteArray_wrapper return new PackedByteArray_wrapper(new gdnative.PackedByteArray());
 	static function _new1(p_from:gd.PackedByteArray):PackedByteArray_wrapper return new PackedByteArray_wrapper(new gdnative.PackedByteArray(p_from));
 	static function _new2(p_from:gd.Array):PackedByteArray_wrapper return new PackedByteArray_wrapper(new gdnative.PackedByteArray(p_from));
+	public function get(p_index:Int):Int return __gd.get(p_index);
 	public function size():Int return __gd.size();
 	public function is_empty():Bool return __gd.is_empty();
 	public function set(p_index:Int, p_value:Int):Void return __gd.set(p_index, p_value);

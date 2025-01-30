@@ -46,7 +46,6 @@ package gdutil;
 	gd.UtilityFunctions.is_finite,
 	gd.UtilityFunctions.is_inf,
 	gd.UtilityFunctions.is_instance_id_valid,
-	gd.UtilityFunctions.is_instance_valid,
 	gd.UtilityFunctions.is_nan,
 	gd.UtilityFunctions.is_same,
 	gd.UtilityFunctions.is_zero_approx,

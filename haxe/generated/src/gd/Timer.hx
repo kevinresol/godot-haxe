@@ -34,6 +34,11 @@ class Timer extends gd.Node {
 		return p_paused;
 	}
 	public function is_paused():Bool return __timer_ptr().value.is_paused();
+	public function set_ignore_time_scale(p_ignore:Bool):Bool {
+		__timer_ptr().value.set_ignore_time_scale(((p_ignore : Bool)));
+		return p_ignore;
+	}
+	public function is_ignoring_time_scale():Bool return __timer_ptr().value.is_ignoring_time_scale();
 	public function is_stopped():Bool return __timer_ptr().value.is_stopped();
 	public function get_time_left():Float return __timer_ptr().value.get_time_left();
 	public function set_timer_process_callback(p_callback:gd.timer.TimerProcessCallback):Void __timer_ptr().value.set_timer_process_callback(((p_callback : gd.timer.TimerProcessCallback)));
@@ -51,4 +56,6 @@ class Timer extends gd.Node {
 	function get_autostart():Bool return has_autostart();
 	public var paused(get, set) : Bool;
 	function get_paused():Bool return is_paused();
+	public var ignore_time_scale(get, set) : Bool;
+	function get_ignore_time_scale():Bool return is_ignoring_time_scale();
 }

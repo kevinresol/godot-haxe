@@ -2,9 +2,12 @@ package gd;
 extern class Dictionary_wrapper {
 	static function _new0():Dictionary_wrapper;
 	static function _new1(p_from:gd.Dictionary):Dictionary_wrapper;
+	static function _new2(p_base:gd.Dictionary, p_key_type:Int, p_key_class_name:std.String, p_key_script:gd.Variant, p_value_type:Int, p_value_class_name:std.String, p_value_script:gd.Variant):Dictionary_wrapper;
 	function size():Int;
 	function is_empty():Bool;
 	function clear():Void;
+	function assign(p_dictionary:gd.Dictionary):Void;
+	function sort():Void;
 	function merge(p_dictionary:gd.Dictionary, ?p_overwrite:Bool):Void;
 	function merged(p_dictionary:gd.Dictionary, ?p_overwrite:Bool):gd.Dictionary;
 	function has(p_key:gd.Variant):Bool;
@@ -17,6 +20,19 @@ extern class Dictionary_wrapper {
 	function duplicate(?p_deep:Bool):gd.Dictionary;
 	function get(p_key:gd.Variant, ?p_default:gd.Variant):gd.Variant;
 	function get_or_add(p_key:gd.Variant, ?p_default:gd.Variant):gd.Variant;
+	function set(p_key:gd.Variant, p_value:gd.Variant):Bool;
+	function is_typed():Bool;
+	function is_typed_key():Bool;
+	function is_typed_value():Bool;
+	function is_same_typed(p_dictionary:gd.Dictionary):Bool;
+	function is_same_typed_key(p_dictionary:gd.Dictionary):Bool;
+	function is_same_typed_value(p_dictionary:gd.Dictionary):Bool;
+	function get_typed_key_builtin():Int;
+	function get_typed_value_builtin():Int;
+	function get_typed_key_class_name():std.String;
+	function get_typed_value_class_name():std.String;
+	function get_typed_key_script():gd.Variant;
+	function get_typed_value_script():gd.Variant;
 	function make_read_only():Void;
 	function is_read_only():Bool;
 	function recursive_equal(p_dictionary:gd.Dictionary, p_recursion_count:Int):Bool;
@@ -25,4 +41,5 @@ extern class Dictionary_wrapper {
 @:forward @:forwardStatics abstract Dictionary(Dictionary_wrapper) from Dictionary_wrapper to Dictionary_wrapper {
 	public extern overload inline function new() this = Dictionary_wrapper._new0();
 	public extern overload inline function new(p_from:gd.Dictionary) this = Dictionary_wrapper._new1(p_from);
+	public extern overload inline function new(p_base:gd.Dictionary, p_key_type:Int, p_key_class_name:std.String, p_key_script:gd.Variant, p_value_type:Int, p_value_class_name:std.String, p_value_script:gd.Variant) this = Dictionary_wrapper._new2(p_base, p_key_type, p_key_class_name, p_key_script, p_value_type, p_value_class_name, p_value_script);
 }

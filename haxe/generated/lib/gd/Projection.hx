@@ -34,12 +34,6 @@ extern class Projection_wrapper {
 	var y(get, set) : gd.Vector4;
 	var z(get, set) : gd.Vector4;
 	var w(get, set) : gd.Vector4;
-	public static final PLANE_NEAR : Int;
-	public static final PLANE_FAR : Int;
-	public static final PLANE_LEFT : Int;
-	public static final PLANE_TOP : Int;
-	public static final PLANE_RIGHT : Int;
-	public static final PLANE_BOTTOM : Int;
 	public static final IDENTITY : gd.Projection;
 	public static final ZERO : gd.Projection;
 }

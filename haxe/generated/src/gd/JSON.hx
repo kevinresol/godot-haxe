@@ -28,5 +28,13 @@ class JSON extends gd.Resource {
 	public function get_parsed_text():std.String return __json_ptr().value.get_parsed_text();
 	public function get_error_line():Int return __json_ptr().value.get_error_line();
 	public function get_error_message():std.String return __json_ptr().value.get_error_message();
+	public static function from_native(p_variant:gd.Variant, ?p_full_objects:Bool):gd.Variant return switch [p_variant, p_full_objects] {
+		case [_, null]:gdnative.JSON.JSON_extern.from_native(((p_variant : gd.Variant)));
+		default:gdnative.JSON.JSON_extern.from_native(((p_variant : gd.Variant)), ((p_full_objects : Bool)));
+	};
+	public static function to_native(p_json:gd.Variant, ?p_allow_objects:Bool):gd.Variant return switch [p_json, p_allow_objects] {
+		case [_, null]:gdnative.JSON.JSON_extern.to_native(((p_json : gd.Variant)));
+		default:gdnative.JSON.JSON_extern.to_native(((p_json : gd.Variant)), ((p_allow_objects : Bool)));
+	};
 	public var data(get, set) : gd.Variant;
 }

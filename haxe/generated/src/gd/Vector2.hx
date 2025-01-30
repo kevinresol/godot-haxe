@@ -65,8 +65,6 @@ class Vector2_wrapper {
 		__gd.y = v;
 		return v;
 	}
-	public static final AXIS_X : Int = 0;
-	public static final AXIS_Y : Int = 1;
 	public static final ZERO : gd.Vector2 = new gd.Vector2(0, 0);
 	public static final ONE : gd.Vector2 = new gd.Vector2(1, 1);
 	public static final INF : gd.Vector2 = new gd.Vector2(Math.POSITIVE_INFINITY, Math.POSITIVE_INFINITY);

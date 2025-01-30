@@ -68,30 +68,30 @@ package gd;
 	public static function wrapi(p_value:Int, p_min:Int, p_max:Int):Int return gdnative.UtilityFunctions.wrapi(p_value, p_min, p_max);
 	public static function wrapf(p_value:Float, p_min:Float, p_max:Float):Float return gdnative.UtilityFunctions.wrapf(p_value, p_min, p_max);
 	public static function max(p_arg1:gd.Variant, p_arg2:gd.Variant, p_args:haxe.Rest<gd.Variant>):gd.Variant return {
-		final len = 2 + p_args.length;
-		untyped __cpp__('std::vector<godot::Variant> args; args.resize({0})', len);
-		{
-			untyped __cpp__('args[{0}] = {1}.value', 0, ((p_arg1 : gdnative.Variant)));
-			untyped __cpp__('args[{0}] = {1}.value', 1, ((p_arg2 : gdnative.Variant)));
+		final vlen = p_args.length, len = 2 + vlen;
+		untyped __cpp__('std::vector<const godot::Variant*> ptrs;; ptrs.resize({0})', len);
+		untyped __cpp__('ptrs[{0}] = &{1}.value', 0, @:privateAccess p_arg1.__gd);
+		untyped __cpp__('ptrs[{0}] = &{1}.value', 1, @:privateAccess p_arg2.__gd);
+		if (vlen > 0) {
+			for (i in 0 ... vlen) {
+				untyped __cpp__('ptrs[{0}] = &{1}.value', 2 + i, ((p_args[i] : gdnative.Variant)));
+			};
 		};
-		for (i in 0 ... p_args.length) untyped __cpp__('args[{0}] = {1}.value', 2 + i, ((p_args[i] : gdnative.Variant)));
-		untyped __cpp__('std::vector<const godot::Variant*> ptrs; ptrs.resize({0})', len);
-		for (i in 0 ... len) untyped __cpp__('ptrs[{0}] = &args[{0}]', i);
-		gdnative.UtilityFunctions.max(untyped __cpp__('ptrs.data()', cpp.NativeArray.address(pointers, 0)), len);
+		gdnative.UtilityFunctions.max(untyped __cpp__('ptrs.data()'), len);
 	};
 	public static function maxi(p_a:Int, p_b:Int):Int return gdnative.UtilityFunctions.maxi(p_a, p_b);
 	public static function maxf(p_a:Float, p_b:Float):Float return gdnative.UtilityFunctions.maxf(p_a, p_b);
 	public static function min(p_arg1:gd.Variant, p_arg2:gd.Variant, p_args:haxe.Rest<gd.Variant>):gd.Variant return {
-		final len = 2 + p_args.length;
-		untyped __cpp__('std::vector<godot::Variant> args; args.resize({0})', len);
-		{
-			untyped __cpp__('args[{0}] = {1}.value', 0, ((p_arg1 : gdnative.Variant)));
-			untyped __cpp__('args[{0}] = {1}.value', 1, ((p_arg2 : gdnative.Variant)));
+		final vlen = p_args.length, len = 2 + vlen;
+		untyped __cpp__('std::vector<const godot::Variant*> ptrs;; ptrs.resize({0})', len);
+		untyped __cpp__('ptrs[{0}] = &{1}.value', 0, @:privateAccess p_arg1.__gd);
+		untyped __cpp__('ptrs[{0}] = &{1}.value', 1, @:privateAccess p_arg2.__gd);
+		if (vlen > 0) {
+			for (i in 0 ... vlen) {
+				untyped __cpp__('ptrs[{0}] = &{1}.value', 2 + i, ((p_args[i] : gdnative.Variant)));
+			};
 		};
-		for (i in 0 ... p_args.length) untyped __cpp__('args[{0}] = {1}.value', 2 + i, ((p_args[i] : gdnative.Variant)));
-		untyped __cpp__('std::vector<const godot::Variant*> ptrs; ptrs.resize({0})', len);
-		for (i in 0 ... len) untyped __cpp__('ptrs[{0}] = &args[{0}]', i);
-		gdnative.UtilityFunctions.min(untyped __cpp__('ptrs.data()', cpp.NativeArray.address(pointers, 0)), len);
+		gdnative.UtilityFunctions.min(untyped __cpp__('ptrs.data()'), len);
 	};
 	public static function mini(p_a:Int, p_b:Int):Int return gdnative.UtilityFunctions.mini(p_a, p_b);
 	public static function minf(p_a:Float, p_b:Float):Float return gdnative.UtilityFunctions.minf(p_a, p_b);
@@ -112,116 +112,116 @@ package gd;
 	public static function typeof(p_variable:gd.Variant):Int return gdnative.UtilityFunctions.typeof(p_variable);
 	public static function type_convert(p_variant:gd.Variant, p_type:Int):gd.Variant return gdnative.UtilityFunctions.type_convert(p_variant, p_type);
 	public static function str(p_arg1:gd.Variant, p_args:haxe.Rest<gd.Variant>):std.String return {
-		final len = 1 + p_args.length;
-		untyped __cpp__('std::vector<godot::Variant> args; args.resize({0})', len);
-		{
-			untyped __cpp__('args[{0}] = {1}.value', 0, ((p_arg1 : gdnative.Variant)));
+		final vlen = p_args.length, len = 1 + vlen;
+		untyped __cpp__('std::vector<const godot::Variant*> ptrs;; ptrs.resize({0})', len);
+		untyped __cpp__('ptrs[{0}] = &{1}.value', 0, @:privateAccess p_arg1.__gd);
+		if (vlen > 0) {
+			for (i in 0 ... vlen) {
+				untyped __cpp__('ptrs[{0}] = &{1}.value', 1 + i, ((p_args[i] : gdnative.Variant)));
+			};
 		};
-		for (i in 0 ... p_args.length) untyped __cpp__('args[{0}] = {1}.value', 1 + i, ((p_args[i] : gdnative.Variant)));
-		untyped __cpp__('std::vector<const godot::Variant*> ptrs; ptrs.resize({0})', len);
-		for (i in 0 ... len) untyped __cpp__('ptrs[{0}] = &args[{0}]', i);
-		gdnative.UtilityFunctions.str(untyped __cpp__('ptrs.data()', cpp.NativeArray.address(pointers, 0)), len);
+		gdnative.UtilityFunctions.str(untyped __cpp__('ptrs.data()'), len);
 	};
 	public static function error_string(p_error:Int):std.String return gdnative.UtilityFunctions.error_string(p_error);
 	public static function type_string(p_type:Int):std.String return gdnative.UtilityFunctions.type_string(p_type);
 	public static function print(p_arg1:gd.Variant, p_args:haxe.Rest<gd.Variant>):Void {
-		final len = 1 + p_args.length;
-		untyped __cpp__('std::vector<godot::Variant> args; args.resize({0})', len);
-		{
-			untyped __cpp__('args[{0}] = {1}.value', 0, ((p_arg1 : gdnative.Variant)));
+		final vlen = p_args.length, len = 1 + vlen;
+		untyped __cpp__('std::vector<const godot::Variant*> ptrs;; ptrs.resize({0})', len);
+		untyped __cpp__('ptrs[{0}] = &{1}.value', 0, @:privateAccess p_arg1.__gd);
+		if (vlen > 0) {
+			for (i in 0 ... vlen) {
+				untyped __cpp__('ptrs[{0}] = &{1}.value', 1 + i, ((p_args[i] : gdnative.Variant)));
+			};
 		};
-		for (i in 0 ... p_args.length) untyped __cpp__('args[{0}] = {1}.value', 1 + i, ((p_args[i] : gdnative.Variant)));
-		untyped __cpp__('std::vector<const godot::Variant*> ptrs; ptrs.resize({0})', len);
-		for (i in 0 ... len) untyped __cpp__('ptrs[{0}] = &args[{0}]', i);
-		gdnative.UtilityFunctions.print(untyped __cpp__('ptrs.data()', cpp.NativeArray.address(pointers, 0)), len);
+		gdnative.UtilityFunctions.print(untyped __cpp__('ptrs.data()'), len);
 	}
 	public static function print_rich(p_arg1:gd.Variant, p_args:haxe.Rest<gd.Variant>):Void {
-		final len = 1 + p_args.length;
-		untyped __cpp__('std::vector<godot::Variant> args; args.resize({0})', len);
-		{
-			untyped __cpp__('args[{0}] = {1}.value', 0, ((p_arg1 : gdnative.Variant)));
+		final vlen = p_args.length, len = 1 + vlen;
+		untyped __cpp__('std::vector<const godot::Variant*> ptrs;; ptrs.resize({0})', len);
+		untyped __cpp__('ptrs[{0}] = &{1}.value', 0, @:privateAccess p_arg1.__gd);
+		if (vlen > 0) {
+			for (i in 0 ... vlen) {
+				untyped __cpp__('ptrs[{0}] = &{1}.value', 1 + i, ((p_args[i] : gdnative.Variant)));
+			};
 		};
-		for (i in 0 ... p_args.length) untyped __cpp__('args[{0}] = {1}.value', 1 + i, ((p_args[i] : gdnative.Variant)));
-		untyped __cpp__('std::vector<const godot::Variant*> ptrs; ptrs.resize({0})', len);
-		for (i in 0 ... len) untyped __cpp__('ptrs[{0}] = &args[{0}]', i);
-		gdnative.UtilityFunctions.print_rich(untyped __cpp__('ptrs.data()', cpp.NativeArray.address(pointers, 0)), len);
+		gdnative.UtilityFunctions.print_rich(untyped __cpp__('ptrs.data()'), len);
 	}
 	public static function printerr(p_arg1:gd.Variant, p_args:haxe.Rest<gd.Variant>):Void {
-		final len = 1 + p_args.length;
-		untyped __cpp__('std::vector<godot::Variant> args; args.resize({0})', len);
-		{
-			untyped __cpp__('args[{0}] = {1}.value', 0, ((p_arg1 : gdnative.Variant)));
+		final vlen = p_args.length, len = 1 + vlen;
+		untyped __cpp__('std::vector<const godot::Variant*> ptrs;; ptrs.resize({0})', len);
+		untyped __cpp__('ptrs[{0}] = &{1}.value', 0, @:privateAccess p_arg1.__gd);
+		if (vlen > 0) {
+			for (i in 0 ... vlen) {
+				untyped __cpp__('ptrs[{0}] = &{1}.value', 1 + i, ((p_args[i] : gdnative.Variant)));
+			};
 		};
-		for (i in 0 ... p_args.length) untyped __cpp__('args[{0}] = {1}.value', 1 + i, ((p_args[i] : gdnative.Variant)));
-		untyped __cpp__('std::vector<const godot::Variant*> ptrs; ptrs.resize({0})', len);
-		for (i in 0 ... len) untyped __cpp__('ptrs[{0}] = &args[{0}]', i);
-		gdnative.UtilityFunctions.printerr(untyped __cpp__('ptrs.data()', cpp.NativeArray.address(pointers, 0)), len);
+		gdnative.UtilityFunctions.printerr(untyped __cpp__('ptrs.data()'), len);
 	}
 	public static function printt(p_arg1:gd.Variant, p_args:haxe.Rest<gd.Variant>):Void {
-		final len = 1 + p_args.length;
-		untyped __cpp__('std::vector<godot::Variant> args; args.resize({0})', len);
-		{
-			untyped __cpp__('args[{0}] = {1}.value', 0, ((p_arg1 : gdnative.Variant)));
+		final vlen = p_args.length, len = 1 + vlen;
+		untyped __cpp__('std::vector<const godot::Variant*> ptrs;; ptrs.resize({0})', len);
+		untyped __cpp__('ptrs[{0}] = &{1}.value', 0, @:privateAccess p_arg1.__gd);
+		if (vlen > 0) {
+			for (i in 0 ... vlen) {
+				untyped __cpp__('ptrs[{0}] = &{1}.value', 1 + i, ((p_args[i] : gdnative.Variant)));
+			};
 		};
-		for (i in 0 ... p_args.length) untyped __cpp__('args[{0}] = {1}.value', 1 + i, ((p_args[i] : gdnative.Variant)));
-		untyped __cpp__('std::vector<const godot::Variant*> ptrs; ptrs.resize({0})', len);
-		for (i in 0 ... len) untyped __cpp__('ptrs[{0}] = &args[{0}]', i);
-		gdnative.UtilityFunctions.printt(untyped __cpp__('ptrs.data()', cpp.NativeArray.address(pointers, 0)), len);
+		gdnative.UtilityFunctions.printt(untyped __cpp__('ptrs.data()'), len);
 	}
 	public static function prints(p_arg1:gd.Variant, p_args:haxe.Rest<gd.Variant>):Void {
-		final len = 1 + p_args.length;
-		untyped __cpp__('std::vector<godot::Variant> args; args.resize({0})', len);
-		{
-			untyped __cpp__('args[{0}] = {1}.value', 0, ((p_arg1 : gdnative.Variant)));
+		final vlen = p_args.length, len = 1 + vlen;
+		untyped __cpp__('std::vector<const godot::Variant*> ptrs;; ptrs.resize({0})', len);
+		untyped __cpp__('ptrs[{0}] = &{1}.value', 0, @:privateAccess p_arg1.__gd);
+		if (vlen > 0) {
+			for (i in 0 ... vlen) {
+				untyped __cpp__('ptrs[{0}] = &{1}.value', 1 + i, ((p_args[i] : gdnative.Variant)));
+			};
 		};
-		for (i in 0 ... p_args.length) untyped __cpp__('args[{0}] = {1}.value', 1 + i, ((p_args[i] : gdnative.Variant)));
-		untyped __cpp__('std::vector<const godot::Variant*> ptrs; ptrs.resize({0})', len);
-		for (i in 0 ... len) untyped __cpp__('ptrs[{0}] = &args[{0}]', i);
-		gdnative.UtilityFunctions.prints(untyped __cpp__('ptrs.data()', cpp.NativeArray.address(pointers, 0)), len);
+		gdnative.UtilityFunctions.prints(untyped __cpp__('ptrs.data()'), len);
 	}
 	public static function printraw(p_arg1:gd.Variant, p_args:haxe.Rest<gd.Variant>):Void {
-		final len = 1 + p_args.length;
-		untyped __cpp__('std::vector<godot::Variant> args; args.resize({0})', len);
-		{
-			untyped __cpp__('args[{0}] = {1}.value', 0, ((p_arg1 : gdnative.Variant)));
+		final vlen = p_args.length, len = 1 + vlen;
+		untyped __cpp__('std::vector<const godot::Variant*> ptrs;; ptrs.resize({0})', len);
+		untyped __cpp__('ptrs[{0}] = &{1}.value', 0, @:privateAccess p_arg1.__gd);
+		if (vlen > 0) {
+			for (i in 0 ... vlen) {
+				untyped __cpp__('ptrs[{0}] = &{1}.value', 1 + i, ((p_args[i] : gdnative.Variant)));
+			};
 		};
-		for (i in 0 ... p_args.length) untyped __cpp__('args[{0}] = {1}.value', 1 + i, ((p_args[i] : gdnative.Variant)));
-		untyped __cpp__('std::vector<const godot::Variant*> ptrs; ptrs.resize({0})', len);
-		for (i in 0 ... len) untyped __cpp__('ptrs[{0}] = &args[{0}]', i);
-		gdnative.UtilityFunctions.printraw(untyped __cpp__('ptrs.data()', cpp.NativeArray.address(pointers, 0)), len);
+		gdnative.UtilityFunctions.printraw(untyped __cpp__('ptrs.data()'), len);
 	}
 	public static function print_verbose(p_arg1:gd.Variant, p_args:haxe.Rest<gd.Variant>):Void {
-		final len = 1 + p_args.length;
-		untyped __cpp__('std::vector<godot::Variant> args; args.resize({0})', len);
-		{
-			untyped __cpp__('args[{0}] = {1}.value', 0, ((p_arg1 : gdnative.Variant)));
+		final vlen = p_args.length, len = 1 + vlen;
+		untyped __cpp__('std::vector<const godot::Variant*> ptrs;; ptrs.resize({0})', len);
+		untyped __cpp__('ptrs[{0}] = &{1}.value', 0, @:privateAccess p_arg1.__gd);
+		if (vlen > 0) {
+			for (i in 0 ... vlen) {
+				untyped __cpp__('ptrs[{0}] = &{1}.value', 1 + i, ((p_args[i] : gdnative.Variant)));
+			};
 		};
-		for (i in 0 ... p_args.length) untyped __cpp__('args[{0}] = {1}.value', 1 + i, ((p_args[i] : gdnative.Variant)));
-		untyped __cpp__('std::vector<const godot::Variant*> ptrs; ptrs.resize({0})', len);
-		for (i in 0 ... len) untyped __cpp__('ptrs[{0}] = &args[{0}]', i);
-		gdnative.UtilityFunctions.print_verbose(untyped __cpp__('ptrs.data()', cpp.NativeArray.address(pointers, 0)), len);
+		gdnative.UtilityFunctions.print_verbose(untyped __cpp__('ptrs.data()'), len);
 	}
 	public static function push_error(p_arg1:gd.Variant, p_args:haxe.Rest<gd.Variant>):Void {
-		final len = 1 + p_args.length;
-		untyped __cpp__('std::vector<godot::Variant> args; args.resize({0})', len);
-		{
-			untyped __cpp__('args[{0}] = {1}.value', 0, ((p_arg1 : gdnative.Variant)));
+		final vlen = p_args.length, len = 1 + vlen;
+		untyped __cpp__('std::vector<const godot::Variant*> ptrs;; ptrs.resize({0})', len);
+		untyped __cpp__('ptrs[{0}] = &{1}.value', 0, @:privateAccess p_arg1.__gd);
+		if (vlen > 0) {
+			for (i in 0 ... vlen) {
+				untyped __cpp__('ptrs[{0}] = &{1}.value', 1 + i, ((p_args[i] : gdnative.Variant)));
+			};
 		};
-		for (i in 0 ... p_args.length) untyped __cpp__('args[{0}] = {1}.value', 1 + i, ((p_args[i] : gdnative.Variant)));
-		untyped __cpp__('std::vector<const godot::Variant*> ptrs; ptrs.resize({0})', len);
-		for (i in 0 ... len) untyped __cpp__('ptrs[{0}] = &args[{0}]', i);
-		gdnative.UtilityFunctions.push_error(untyped __cpp__('ptrs.data()', cpp.NativeArray.address(pointers, 0)), len);
+		gdnative.UtilityFunctions.push_error(untyped __cpp__('ptrs.data()'), len);
 	}
 	public static function push_warning(p_arg1:gd.Variant, p_args:haxe.Rest<gd.Variant>):Void {
-		final len = 1 + p_args.length;
-		untyped __cpp__('std::vector<godot::Variant> args; args.resize({0})', len);
-		{
-			untyped __cpp__('args[{0}] = {1}.value', 0, ((p_arg1 : gdnative.Variant)));
+		final vlen = p_args.length, len = 1 + vlen;
+		untyped __cpp__('std::vector<const godot::Variant*> ptrs;; ptrs.resize({0})', len);
+		untyped __cpp__('ptrs[{0}] = &{1}.value', 0, @:privateAccess p_arg1.__gd);
+		if (vlen > 0) {
+			for (i in 0 ... vlen) {
+				untyped __cpp__('ptrs[{0}] = &{1}.value', 1 + i, ((p_args[i] : gdnative.Variant)));
+			};
 		};
-		for (i in 0 ... p_args.length) untyped __cpp__('args[{0}] = {1}.value', 1 + i, ((p_args[i] : gdnative.Variant)));
-		untyped __cpp__('std::vector<const godot::Variant*> ptrs; ptrs.resize({0})', len);
-		for (i in 0 ... len) untyped __cpp__('ptrs[{0}] = &args[{0}]', i);
-		gdnative.UtilityFunctions.push_warning(untyped __cpp__('ptrs.data()', cpp.NativeArray.address(pointers, 0)), len);
+		gdnative.UtilityFunctions.push_warning(untyped __cpp__('ptrs.data()'), len);
 	}
 	public static function var_to_str(p_variable:gd.Variant):std.String return gdnative.UtilityFunctions.var_to_str(p_variable);
 	public static function str_to_var(p_string:std.String):gd.Variant return gdnative.UtilityFunctions.str_to_var(p_string);
@@ -232,7 +232,6 @@ package gd;
 	public static function hash(p_variable:gd.Variant):Int return gdnative.UtilityFunctions.hash(p_variable);
 	public static function instance_from_id(p_instance_id:Int):gd.Object return gdnative.UtilityFunctions.instance_from_id(p_instance_id);
 	public static function is_instance_id_valid(p_id:Int):Bool return gdnative.UtilityFunctions.is_instance_id_valid(p_id);
-	public static function is_instance_valid(p_instance:gd.Variant):Bool return gdnative.UtilityFunctions.is_instance_valid(p_instance);
 	public static function rid_allocate_id():Int return gdnative.UtilityFunctions.rid_allocate_id();
 	public static function rid_from_int64(p_base:Int):gd.RID return gdnative.UtilityFunctions.rid_from_int64(p_base);
 	public static function is_same(p_a:gd.Variant, p_b:gd.Variant):Bool return gdnative.UtilityFunctions.is_same(p_a, p_b);

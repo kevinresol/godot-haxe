@@ -40,9 +40,6 @@ class Vector3i_wrapper {
 		__gd.z = v;
 		return v;
 	}
-	public static final AXIS_X : Int = 0;
-	public static final AXIS_Y : Int = 1;
-	public static final AXIS_Z : Int = 2;
 	public static final ZERO : gd.Vector3i = new gd.Vector3i(0, 0, 0);
 	public static final ONE : gd.Vector3i = new gd.Vector3i(1, 1, 1);
 	public static final MIN : gd.Vector3i = new gd.Vector3i(-2147483648, -2147483648, -2147483648);

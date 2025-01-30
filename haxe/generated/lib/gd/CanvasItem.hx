@@ -47,18 +47,9 @@ extern class CanvasItem extends gd.Node {
 	function draw_texture_rect_region(p_texture:gd.Texture2D, p_rect:gd.Rect2, p_src_rect:gd.Rect2, ?p_modulate:gd.Color, ?p_transpose:Bool, ?p_clip_uv:Bool):Void;
 	function draw_msdf_texture_rect_region(p_texture:gd.Texture2D, p_rect:gd.Rect2, p_src_rect:gd.Rect2, ?p_modulate:gd.Color, ?p_outline:Float, ?p_pixel_range:Float, ?p_scale:Float):Void;
 	function draw_lcd_texture_rect_region(p_texture:gd.Texture2D, p_rect:gd.Rect2, p_src_rect:gd.Rect2, ?p_modulate:gd.Color):Void;
-	function draw_style_box(p_style_box:gd.StyleBox, p_rect:gd.Rect2):Void;
 	function draw_primitive(p_points:gd.PackedVector2Array, p_colors:gd.PackedColorArray, p_uvs:gd.PackedVector2Array, ?p_texture:gd.Texture2D):Void;
 	function draw_polygon(p_points:gd.PackedVector2Array, p_colors:gd.PackedColorArray, ?p_uvs:gd.PackedVector2Array, ?p_texture:gd.Texture2D):Void;
 	function draw_colored_polygon(p_points:gd.PackedVector2Array, p_color:gd.Color, ?p_uvs:gd.PackedVector2Array, ?p_texture:gd.Texture2D):Void;
-	function draw_string(p_font:gd.Font, p_pos:gd.Vector2, p_text:std.String, ?p_alignment:gd.HorizontalAlignment, ?p_width:Float, ?p_font_size:Int, ?p_modulate:gd.Color, ?p_justification_flags:Int, ?p_direction:gd.textserver.Direction, ?p_orientation:gd.textserver.Orientation):Void;
-	function draw_multiline_string(p_font:gd.Font, p_pos:gd.Vector2, p_text:std.String, ?p_alignment:gd.HorizontalAlignment, ?p_width:Float, ?p_font_size:Int, ?p_max_lines:Int, ?p_modulate:gd.Color, ?p_brk_flags:Int, ?p_justification_flags:Int, ?p_direction:gd.textserver.Direction, ?p_orientation:gd.textserver.Orientation):Void;
-	function draw_string_outline(p_font:gd.Font, p_pos:gd.Vector2, p_text:std.String, ?p_alignment:gd.HorizontalAlignment, ?p_width:Float, ?p_font_size:Int, ?p_size:Int, ?p_modulate:gd.Color, ?p_justification_flags:Int, ?p_direction:gd.textserver.Direction, ?p_orientation:gd.textserver.Orientation):Void;
-	function draw_multiline_string_outline(p_font:gd.Font, p_pos:gd.Vector2, p_text:std.String, ?p_alignment:gd.HorizontalAlignment, ?p_width:Float, ?p_font_size:Int, ?p_max_lines:Int, ?p_size:Int, ?p_modulate:gd.Color, ?p_brk_flags:Int, ?p_justification_flags:Int, ?p_direction:gd.textserver.Direction, ?p_orientation:gd.textserver.Orientation):Void;
-	function draw_char(p_font:gd.Font, p_pos:gd.Vector2, p_char:std.String, ?p_font_size:Int, ?p_modulate:gd.Color):Void;
-	function draw_char_outline(p_font:gd.Font, p_pos:gd.Vector2, p_char:std.String, ?p_font_size:Int, ?p_size:Int, ?p_modulate:gd.Color):Void;
-	function draw_mesh(p_mesh:gd.Mesh, p_texture:gd.Texture2D, ?p_transform:gd.Transform2D, ?p_modulate:gd.Color):Void;
-	function draw_multimesh(p_multimesh:gd.MultiMesh, p_texture:gd.Texture2D):Void;
 	function draw_set_transform(p_position:gd.Vector2, ?p_rotation:Float, ?p_scale:gd.Vector2):Void;
 	function draw_set_transform_matrix(p_xform:gd.Transform2D):Void;
 	function draw_animation_slice(p_animation_length:Float, p_slice_begin:Float, p_slice_end:Float, ?p_offset:Float):Void;
@@ -73,10 +64,8 @@ extern class CanvasItem extends gd.Node {
 	function get_local_mouse_position():gd.Vector2;
 	function get_global_mouse_position():gd.Vector2;
 	function get_canvas():gd.RID;
-	function get_canvas_layer_node():gd.CanvasLayer;
-	function get_world_2d():gd.World2D;
-	function set_material(p_material:gd.Material):gd.Material;
-	function get_material():gd.Material;
+	function set_instance_shader_parameter(p_name:std.String, p_value:gd.Variant):Void;
+	function get_instance_shader_parameter(p_name:std.String):gd.Variant;
 	function set_use_parent_material(p_enable:Bool):Bool;
 	function get_use_parent_material():Bool;
 	function set_notify_local_transform(p_enable:Bool):Void;
@@ -84,7 +73,7 @@ extern class CanvasItem extends gd.Node {
 	function set_notify_transform(p_enable:Bool):Void;
 	function is_transform_notification_enabled():Bool;
 	function force_update_transform():Void;
-	function make_canvas_position_local(p_screen_point:gd.Vector2):gd.Vector2;
+	function make_canvas_position_local(p_viewport_point:gd.Vector2):gd.Vector2;
 	function make_input_local(p_event:gd.InputEvent):gd.InputEvent;
 	function set_visibility_layer(p_layer:Int):Int;
 	function get_visibility_layer():Int;
@@ -118,6 +107,5 @@ extern class CanvasItem extends gd.Node {
 	function get_y_sort_enabled():Bool;
 	var texture_filter(get, set) : gd.canvasitem.TextureFilter;
 	var texture_repeat(get, set) : gd.canvasitem.TextureRepeat;
-	var material(get, set) : gd.Material;
 	var use_parent_material(get, set) : Bool;
 }

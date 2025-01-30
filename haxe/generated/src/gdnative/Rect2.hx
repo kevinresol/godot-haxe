@@ -36,6 +36,7 @@ package gdnative;
 	function intersection(p_b:gdnative.Rect2):gdnative.Rect2;
 	function merge(p_b:gdnative.Rect2):gdnative.Rect2;
 	function expand(p_to:gdnative.Vector2):gdnative.Rect2;
+	function get_support(p_direction:gdnative.Vector2):gdnative.Vector2;
 	function grow(p_amount:Float):gdnative.Rect2;
 	function grow_side(p_side:gdnative.Side, p_amount:Float):gdnative.Rect2;
 	function grow_individual(p_left:Float, p_top:Float, p_right:Float, p_bottom:Float):gdnative.Rect2;

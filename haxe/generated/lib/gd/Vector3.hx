@@ -54,9 +54,6 @@ extern class Vector3_wrapper {
 	var x(get, set) : Float;
 	var y(get, set) : Float;
 	var z(get, set) : Float;
-	public static final AXIS_X : Int;
-	public static final AXIS_Y : Int;
-	public static final AXIS_Z : Int;
 	public static final ZERO : gd.Vector3;
 	public static final ONE : gd.Vector3;
 	public static final INF : gd.Vector3;

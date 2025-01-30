@@ -3,6 +3,7 @@ extern class PackedStringArray_wrapper {
 	static function _new0():PackedStringArray_wrapper;
 	static function _new1(p_from:gd.PackedStringArray):PackedStringArray_wrapper;
 	static function _new2(p_from:gd.Array):PackedStringArray_wrapper;
+	function get(p_index:Int):std.String;
 	function size():Int;
 	function is_empty():Bool;
 	function set(p_index:Int, p_value:std.String):Void;

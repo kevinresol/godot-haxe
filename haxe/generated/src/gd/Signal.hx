@@ -13,6 +13,7 @@ class Signal_wrapper {
 	public function disconnect(p_callable:gd.Callable):Void return __gd.disconnect(p_callable);
 	public function is_connected(p_callable:gd.Callable):Bool return __gd.is_connected(p_callable);
 	public function get_connections():gd.Array return __gd.get_connections();
+	public function has_connections():Bool return __gd.has_connections();
 	public function emit():Void return __gd.emit();
 }
 

@@ -11,6 +11,8 @@ extern class Timer extends gd.Node {
 	function stop():Void;
 	function set_paused(p_paused:Bool):Bool;
 	function is_paused():Bool;
+	function set_ignore_time_scale(p_ignore:Bool):Bool;
+	function is_ignoring_time_scale():Bool;
 	function is_stopped():Bool;
 	function get_time_left():Float;
 	function set_timer_process_callback(p_callback:gd.timer.TimerProcessCallback):Void;
@@ -25,4 +27,6 @@ extern class Timer extends gd.Node {
 	function get_autostart():Bool;
 	var paused(get, set) : Bool;
 	function get_paused():Bool;
+	var ignore_time_scale(get, set) : Bool;
+	function get_ignore_time_scale():Bool;
 }

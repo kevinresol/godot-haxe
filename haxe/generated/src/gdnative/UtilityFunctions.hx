@@ -123,7 +123,6 @@ package gdnative;
 	static function hash(p_variable:gdnative.Variant):Int;
 	static function instance_from_id(p_instance_id:Int):gdnative.Object;
 	static function is_instance_id_valid(p_id:Int):Bool;
-	static function is_instance_valid(p_instance:gdnative.Variant):Bool;
 	static function rid_allocate_id():Int;
 	static function rid_from_int64(p_base:Int):gdnative.RID;
 	static function is_same(p_a:gdnative.Variant, p_b:gdnative.Variant):Bool;

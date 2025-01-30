@@ -5,6 +5,7 @@ class PackedColorArray_wrapper {
 	static function _new0():PackedColorArray_wrapper return new PackedColorArray_wrapper(new gdnative.PackedColorArray());
 	static function _new1(p_from:gd.PackedColorArray):PackedColorArray_wrapper return new PackedColorArray_wrapper(new gdnative.PackedColorArray(p_from));
 	static function _new2(p_from:gd.Array):PackedColorArray_wrapper return new PackedColorArray_wrapper(new gdnative.PackedColorArray(p_from));
+	public function get(p_index:Int):gd.Color return __gd.get(p_index);
 	public function size():Int return __gd.size();
 	public function is_empty():Bool return __gd.is_empty();
 	public function set(p_index:Int, p_value:gd.Color):Void return __gd.set(p_index, p_value);

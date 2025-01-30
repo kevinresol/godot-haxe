@@ -21,8 +21,11 @@ class ClassDB extends gd.Object {
 	public function is_parent_class(p_class:std.String, p_inherits:std.String):Bool return __classdb_ptr().value.is_parent_class(((p_class : std.String)), ((p_inherits : std.String)));
 	public function can_instantiate(p_class:std.String):Bool return __classdb_ptr().value.can_instantiate(((p_class : std.String)));
 	public function instantiate(p_class:std.String):gd.Variant return __classdb_ptr().value.instantiate(((p_class : std.String)));
+	public function class_get_api_type(p_class:std.String):gd.classdb.APIType return __classdb_ptr().value.class_get_api_type(((p_class : std.String)));
 	public function class_has_signal(p_class:std.String, p_signal:std.String):Bool return __classdb_ptr().value.class_has_signal(((p_class : std.String)), ((p_signal : std.String)));
 	public function class_get_signal(p_class:std.String, p_signal:std.String):gd.Dictionary return __classdb_ptr().value.class_get_signal(((p_class : std.String)), ((p_signal : std.String)));
+	public function class_get_property_getter(p_class:std.String, p_property:std.String):std.String return __classdb_ptr().value.class_get_property_getter(((p_class : std.String)), ((p_property : std.String)));
+	public function class_get_property_setter(p_class:std.String, p_property:std.String):std.String return __classdb_ptr().value.class_get_property_setter(((p_class : std.String)), ((p_property : std.String)));
 	public function class_get_property(p_object:gd.Object, p_property:std.String):gd.Variant return __classdb_ptr().value.class_get_property(((p_object : gd.Object)), ((p_property : std.String)));
 	public function class_set_property(p_object:gd.Object, p_property:std.String, p_value:gd.Variant):gd.Error return __classdb_ptr().value.class_set_property(((p_object : gd.Object)), ((p_property : std.String)), ((p_value : gd.Variant)));
 	public function class_get_property_default_value(p_class:std.String, p_property:std.String):gd.Variant return __classdb_ptr().value.class_get_property_default_value(((p_class : std.String)), ((p_property : std.String)));
@@ -34,6 +37,7 @@ class ClassDB extends gd.Object {
 		case [_, _, null]:__classdb_ptr().value.class_get_method_argument_count(((p_class : std.String)), ((p_method : std.String)));
 		default:__classdb_ptr().value.class_get_method_argument_count(((p_class : std.String)), ((p_method : std.String)), ((p_no_inheritance : Bool)));
 	};
+	public function class_call_static(p_class:std.String, p_method:std.String):gd.Variant return __classdb_ptr().value.class_call_static(((p_class : std.String)), ((p_method : std.String)));
 	public function class_get_integer_constant_list(p_class:std.String, ?p_no_inheritance:Bool):gd.PackedStringArray return switch [p_class, p_no_inheritance] {
 		case [_, null]:__classdb_ptr().value.class_get_integer_constant_list(((p_class : std.String)));
 		default:__classdb_ptr().value.class_get_integer_constant_list(((p_class : std.String)), ((p_no_inheritance : Bool)));

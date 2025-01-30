@@ -31,17 +31,14 @@ class ResourceLoader extends gd.Object {
 		default:__resourceloader_ptr().value.load(((p_path : std.String)), ((p_type_hint : std.String)), ((p_cache_mode : gd.resourceloader.CacheMode)));
 	};
 	public function get_recognized_extensions_for_type(p_type:std.String):gd.PackedStringArray return __resourceloader_ptr().value.get_recognized_extensions_for_type(((p_type : std.String)));
-	public function add_resource_format_loader(p_format_loader:gd.ResourceFormatLoader, ?p_at_front:Bool):Void switch [p_format_loader, p_at_front] {
-		case [_, null]:__resourceloader_ptr().value.add_resource_format_loader(((p_format_loader : gd.ResourceFormatLoader)));
-		default:__resourceloader_ptr().value.add_resource_format_loader(((p_format_loader : gd.ResourceFormatLoader)), ((p_at_front : Bool)));
-	};
-	public function remove_resource_format_loader(p_format_loader:gd.ResourceFormatLoader):Void __resourceloader_ptr().value.remove_resource_format_loader(((p_format_loader : gd.ResourceFormatLoader)));
 	public function set_abort_on_missing_resources(p_abort:Bool):Void __resourceloader_ptr().value.set_abort_on_missing_resources(((p_abort : Bool)));
 	public function get_dependencies(p_path:std.String):gd.PackedStringArray return __resourceloader_ptr().value.get_dependencies(((p_path : std.String)));
 	public function has_cached(p_path:std.String):Bool return __resourceloader_ptr().value.has_cached(((p_path : std.String)));
+	public function get_cached_ref(p_path:std.String):gd.Resource return __resourceloader_ptr().value.get_cached_ref(((p_path : std.String)));
 	public function exists(p_path:std.String, ?p_type_hint:std.String):Bool return switch [p_path, p_type_hint] {
 		case [_, null]:__resourceloader_ptr().value.exists(((p_path : std.String)));
 		default:__resourceloader_ptr().value.exists(((p_path : std.String)), ((p_type_hint : std.String)));
 	};
 	public function get_resource_uid(p_path:std.String):Int return __resourceloader_ptr().value.get_resource_uid(((p_path : std.String)));
+	public function list_directory(p_directory_path:std.String):gd.PackedStringArray return __resourceloader_ptr().value.list_directory(((p_directory_path : std.String)));
 }

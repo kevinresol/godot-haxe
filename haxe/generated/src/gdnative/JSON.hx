@@ -26,4 +26,8 @@ package gdnative;
 	function get_parsed_text():gdnative.String;
 	function get_error_line():Int;
 	function get_error_message():gdnative.String;
+	overload static function from_native(p_variant:gdnative.Variant):gdnative.Variant;
+	overload static function from_native(p_variant:gdnative.Variant, p_full_objects:Bool):gdnative.Variant;
+	overload static function to_native(p_json:gdnative.Variant):gdnative.Variant;
+	overload static function to_native(p_json:gdnative.Variant, p_allow_objects:Bool):gdnative.Variant;
 }

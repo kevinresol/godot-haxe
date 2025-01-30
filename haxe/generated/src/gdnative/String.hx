@@ -128,6 +128,8 @@ package gdnative;
 	function json_escape():gdnative.String;
 	function validate_node_name():gdnative.String;
 	function validate_filename():gdnative.String;
+	function is_valid_ascii_identifier():Bool;
+	function is_valid_unicode_identifier():Bool;
 	function is_valid_identifier():Bool;
 	function is_valid_int():Bool;
 	function is_valid_float():Bool;
