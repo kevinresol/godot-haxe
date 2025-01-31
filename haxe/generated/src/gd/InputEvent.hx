@@ -3,7 +3,6 @@ class InputEvent extends gd.Resource {
 	public function new(?native:cpp.Pointer<gdnative.InputEvent.InputEvent_extern>) {
 		if (native == null) {
 			gd.Utils.checkAndWarnForMissingOwner(this, "InputEvent");
-			trace("Allocating InputEvent");
 			native = gdnative.InputEvent.InputEvent_extern.__alloc();
 		};
 		super(native.reinterpret());

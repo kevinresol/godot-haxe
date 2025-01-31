@@ -6,11 +6,26 @@ package gdnative;
 	@:from
 	static inline function fromWrapper(v:gd.AABB):gdnative.AABB return fromWrapperInternal(v);
 	@:from
-	static inline function fromWrapperInternal(v:gd.AABB.AABB_wrapper):gdnative.AABB return untyped __cpp__('{0}.get()', @:privateAccess v.__gd);
+	static inline function fromWrapperInternal(v:gd.AABB.AABB_wrapper):gdnative.AABB return @:privateAccess v.__gd;
 	@:to
 	inline function toWrapper():gd.AABB return toWrapperInternal();
 	@:to
 	inline function toWrapperInternal():gd.AABB.AABB_wrapper return new gd.AABB.AABB_wrapper(this);
+	@:to
+	inline function toVariant():gdnative.Variant return new gdnative.Variant.Variant_extern(abstract);
+	inline function val():AABB_extern return untyped __cpp__('{0}.value', abstract);
+	@:op(A == B)
+	extern inline function __op_equal_to_variant(p_rhs:gdnative.Variant):Bool return untyped __cpp__('{0} == {1}', val(), @:privateAccess p_rhs.val());
+	@:op(A != B)
+	extern inline function __op_not_equal_variant(p_rhs:gdnative.Variant):Bool return untyped __cpp__('{0} != {1}', val(), @:privateAccess p_rhs.val());
+	@:op(A == B)
+	extern inline function __op_equal_to_aabb(p_rhs:gdnative.AABB):Bool return untyped __cpp__('{0} == {1}', val(), @:privateAccess p_rhs.val());
+	@:op(A != B)
+	extern inline function __op_not_equal_aabb(p_rhs:gdnative.AABB):Bool return untyped __cpp__('{0} != {1}', val(), @:privateAccess p_rhs.val());
+	@:op(A in B)
+	extern inline function __op_membership_in_dictionary(p_rhs:gdnative.Dictionary):Bool return p_rhs.has(abstract);
+	@:op(A in B)
+	extern inline function __op_membership_in_array(p_rhs:gdnative.Array):Bool return p_rhs.has(abstract);
 	public extern overload inline function new() this = new gdnative.AABB.AABB_extern();
 	public extern overload inline function new(p_from:gd.AABB) this = new gdnative.AABB.AABB_extern(p_from);
 	public extern overload inline function new(p_position:gd.Vector3, p_size:gd.Vector3) this = new gdnative.AABB.AABB_extern(p_position, p_size);

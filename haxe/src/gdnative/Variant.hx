@@ -41,12 +41,8 @@ abstract Variant(cpp.Struct<Variant_extern>) from cpp.Struct<Variant_extern> to 
 		return fromNodePath(v);
 
 	@:from
-	extern static inline function fromVector2(v:gdnative.Vector2):Variant
-		return new Variant_extern(v);
-
-	@:from
 	extern static inline function fromVector2Wrapper(v:gd.Vector2):Variant {
-		return fromVector2(v);
+		return new Variant_extern((v : gdnative.Vector2));
 	}
 
 	@:from
@@ -144,12 +140,41 @@ abstract Variant(cpp.Struct<Variant_extern>) from cpp.Struct<Variant_extern> to 
 @:native("godot::Variant")
 @:structAccess
 extern class Variant_extern {
-	@:overload(function(v:gdnative.Object.Object_extern):Void {})
-	@:overload(function(v:gdnative.Color.Color_extern):Void {})
-	@:overload(function(v:gdnative.Vector2.Vector2_extern):Void {})
-	@:overload(function(v:gdnative.StringName):Void {})
+	@:overload(function(v:gdnative.Vector2):Void {})
+	@:overload(function(v:gdnative.Vector2i):Void {})
+	@:overload(function(v:gdnative.Rect2):Void {})
+	@:overload(function(v:gdnative.Rect2i):Void {})
+	@:overload(function(v:gdnative.Vector3):Void {})
+	@:overload(function(v:gdnative.Vector3i):Void {})
+	@:overload(function(v:gdnative.Transform2D):Void {})
+	@:overload(function(v:gdnative.Vector4):Void {})
+	@:overload(function(v:gdnative.Vector4i):Void {})
+	@:overload(function(v:gdnative.Plane):Void {})
+	@:overload(function(v:gdnative.Quaternion):Void {})
+	@:overload(function(v:gdnative.AABB):Void {})
+	@:overload(function(v:gdnative.Basis):Void {})
+	@:overload(function(v:gdnative.Transform3D):Void {})
+	@:overload(function(v:gdnative.Projection):Void {})
+	@:overload(function(v:gdnative.Color):Void {})
+	@:overload(function(v:gdnative.RID):Void {})
+	@:overload(function(v:gdnative.Callable):Void {})
+	@:overload(function(v:gdnative.Signal):Void {})
+	@:overload(function(v:gdnative.Dictionary):Void {})
+	@:overload(function(v:gdnative.Array):Void {})
 	@:overload(function(v:gdnative.String):Void {})
+	@:overload(function(v:gdnative.StringName):Void {})
 	@:overload(function(v:gdnative.NodePath):Void {})
+	@:overload(function(v:gdnative.PackedByteArray):Void {})
+	@:overload(function(v:gdnative.PackedInt32Array):Void {})
+	@:overload(function(v:gdnative.PackedInt64Array):Void {})
+	@:overload(function(v:gdnative.PackedFloat32Array):Void {})
+	@:overload(function(v:gdnative.PackedFloat64Array):Void {})
+	@:overload(function(v:gdnative.PackedStringArray):Void {})
+	@:overload(function(v:gdnative.PackedVector2Array):Void {})
+	@:overload(function(v:gdnative.PackedVector3Array):Void {})
+	@:overload(function(v:gdnative.PackedColorArray):Void {})
+	@:overload(function(v:gdnative.PackedVector4Array):Void {})
+	@:overload(function(v:gdnative.Object.Object_extern):Void {})
 	@:overload(function(v:cpp.ConstPointer<cpp.Char>):Void {})
 	@:overload(function(v:cpp.ConstCharStar):Void {})
 	@:overload(function(v:Float):Void {})

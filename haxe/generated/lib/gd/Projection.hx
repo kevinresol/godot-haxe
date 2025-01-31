@@ -34,6 +34,13 @@ extern class Projection_wrapper {
 	var y(get, set) : gd.Vector4;
 	var z(get, set) : gd.Vector4;
 	var w(get, set) : gd.Vector4;
+	function __op_equal_to_variant(p_rhs:gd.Variant):Bool;
+	function __op_not_equal_variant(p_rhs:gd.Variant):Bool;
+	function __op_equal_to_projection(p_rhs:gd.Projection):Bool;
+	function __op_not_equal_projection(p_rhs:gd.Projection):Bool;
+	function __op_multiply_projection(p_rhs:gd.Projection):gd.Projection;
+	function __op_membership_in_dictionary(p_rhs:gd.Dictionary):Bool;
+	function __op_membership_in_array(p_rhs:gd.Array):Bool;
 	public static final IDENTITY : gd.Projection;
 	public static final ZERO : gd.Projection;
 }
@@ -43,4 +50,18 @@ extern class Projection_wrapper {
 	public extern overload inline function new(p_from:gd.Projection) this = Projection_wrapper._new1(p_from);
 	public extern overload inline function new(p_from:gd.Transform3D) this = Projection_wrapper._new2(p_from);
 	public extern overload inline function new(p_x_axis:gd.Vector4, p_y_axis:gd.Vector4, p_z_axis:gd.Vector4, p_w_axis:gd.Vector4) this = Projection_wrapper._new3(p_x_axis, p_y_axis, p_z_axis, p_w_axis);
+	@:op(A == B)
+	inline function __op_equal_to_variant(p_rhs:gd.Variant):Bool return @:privateAccess this.__op_equal_to_variant(p_rhs);
+	@:op(A != B)
+	inline function __op_not_equal_variant(p_rhs:gd.Variant):Bool return @:privateAccess this.__op_not_equal_variant(p_rhs);
+	@:op(A == B)
+	inline function __op_equal_to_projection(p_rhs:gd.Projection):Bool return @:privateAccess this.__op_equal_to_projection(p_rhs);
+	@:op(A != B)
+	inline function __op_not_equal_projection(p_rhs:gd.Projection):Bool return @:privateAccess this.__op_not_equal_projection(p_rhs);
+	@:op(A * B)
+	inline function __op_multiply_projection(p_rhs:gd.Projection):gd.Projection return @:privateAccess this.__op_multiply_projection(p_rhs);
+	@:op(A in B)
+	inline function __op_membership_in_dictionary(p_rhs:gd.Dictionary):Bool return @:privateAccess this.__op_membership_in_dictionary(p_rhs);
+	@:op(A in B)
+	inline function __op_membership_in_array(p_rhs:gd.Array):Bool return @:privateAccess this.__op_membership_in_array(p_rhs);
 }

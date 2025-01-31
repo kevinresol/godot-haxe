@@ -3,7 +3,6 @@ class ResourceLoader extends gd.Object {
 	public function new(?native:cpp.Pointer<gdnative.ResourceLoader.ResourceLoader_extern>) {
 		if (native == null) {
 			gd.Utils.checkAndWarnForMissingOwner(this, "ResourceLoader");
-			trace("Allocating ResourceLoader");
 			native = gdnative.ResourceLoader.ResourceLoader_extern.__alloc();
 		};
 		super(native.reinterpret());

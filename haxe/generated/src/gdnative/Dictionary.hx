@@ -6,11 +6,26 @@ package gdnative;
 	@:from
 	static inline function fromWrapper(v:gd.Dictionary):gdnative.Dictionary return fromWrapperInternal(v);
 	@:from
-	static inline function fromWrapperInternal(v:gd.Dictionary.Dictionary_wrapper):gdnative.Dictionary return untyped __cpp__('{0}.get()', @:privateAccess v.__gd);
+	static inline function fromWrapperInternal(v:gd.Dictionary.Dictionary_wrapper):gdnative.Dictionary return @:privateAccess v.__gd;
 	@:to
 	inline function toWrapper():gd.Dictionary return toWrapperInternal();
 	@:to
 	inline function toWrapperInternal():gd.Dictionary.Dictionary_wrapper return new gd.Dictionary.Dictionary_wrapper(this);
+	@:to
+	inline function toVariant():gdnative.Variant return new gdnative.Variant.Variant_extern(abstract);
+	inline function val():Dictionary_extern return untyped __cpp__('{0}.value', abstract);
+	@:op(A == B)
+	extern inline function __op_equal_to_variant(p_rhs:gdnative.Variant):Bool return untyped __cpp__('{0} == {1}', val(), @:privateAccess p_rhs.val());
+	@:op(A != B)
+	extern inline function __op_not_equal_variant(p_rhs:gdnative.Variant):Bool return untyped __cpp__('{0} != {1}', val(), @:privateAccess p_rhs.val());
+	@:op(A == B)
+	extern inline function __op_equal_to_dictionary(p_rhs:gdnative.Dictionary):Bool return untyped __cpp__('{0} == {1}', val(), @:privateAccess p_rhs.val());
+	@:op(A != B)
+	extern inline function __op_not_equal_dictionary(p_rhs:gdnative.Dictionary):Bool return untyped __cpp__('{0} != {1}', val(), @:privateAccess p_rhs.val());
+	@:op(A in B)
+	extern inline function __op_membership_in_dictionary(p_rhs:gdnative.Dictionary):Bool return p_rhs.has(abstract);
+	@:op(A in B)
+	extern inline function __op_membership_in_array(p_rhs:gdnative.Array):Bool return p_rhs.has(abstract);
 	public extern overload inline function new() this = new gdnative.Dictionary.Dictionary_extern();
 	public extern overload inline function new(p_from:gd.Dictionary) this = new gdnative.Dictionary.Dictionary_extern(p_from);
 	public extern overload inline function new(p_base:gd.Dictionary, p_key_type:Int, p_key_class_name:std.String, p_key_script:gd.Variant, p_value_type:Int, p_value_class_name:std.String, p_value_script:gd.Variant) this = new gdnative.Dictionary.Dictionary_extern(p_base, p_key_type, p_key_class_name, p_key_script, p_value_type, p_value_class_name, p_value_script);

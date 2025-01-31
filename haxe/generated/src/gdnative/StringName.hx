@@ -14,11 +14,126 @@ package gdnative;
 	@:from
 	static inline function fromWrapper(v:gd.StringName):gdnative.StringName return fromWrapperInternal(v);
 	@:from
-	static inline function fromWrapperInternal(v:gd.StringName.StringName_wrapper):gdnative.StringName return untyped __cpp__('{0}.get()', @:privateAccess v.__gd);
+	static inline function fromWrapperInternal(v:gd.StringName.StringName_wrapper):gdnative.StringName return @:privateAccess v.__gd;
 	@:to
 	inline function toWrapper():gd.StringName return toWrapperInternal();
 	@:to
 	inline function toWrapperInternal():gd.StringName.StringName_wrapper return new gd.StringName.StringName_wrapper(this);
+	@:to
+	inline function toVariant():gdnative.Variant return new gdnative.Variant.Variant_extern(abstract);
+	inline function val():StringName_extern return untyped __cpp__('{0}.value', abstract);
+	@:op(A == B)
+	extern inline function __op_equal_to_variant(p_rhs:gdnative.Variant):Bool return untyped __cpp__('{0} == {1}', val(), @:privateAccess p_rhs.val());
+	@:op(A != B)
+	extern inline function __op_not_equal_variant(p_rhs:gdnative.Variant):Bool return untyped __cpp__('{0} != {1}', val(), @:privateAccess p_rhs.val());
+	@:op(A % B)
+	extern inline function __op_modulus_variant(p_rhs:gdnative.Variant):gdnative.String return untyped __cpp__('{0} % {1}', val(), @:privateAccess p_rhs.val());
+	@:op(A % B)
+	extern inline function __op_modulus_bool(p_rhs:Bool):gdnative.String return untyped __cpp__('{0} % {1}', val(), p_rhs);
+	@:op(A % B)
+	extern inline function __op_modulus_int(p_rhs:Int):gdnative.String return untyped __cpp__('{0} % {1}', val(), p_rhs);
+	@:op(A % B)
+	extern inline function __op_modulus_float(p_rhs:Float):gdnative.String return untyped __cpp__('{0} % {1}', val(), p_rhs);
+	@:op(A == B)
+	extern inline function __op_equal_to_string(p_rhs:gdnative.String):Bool return untyped __cpp__('{0} == {1}', val(), @:privateAccess p_rhs.val());
+	@:op(A != B)
+	extern inline function __op_not_equal_string(p_rhs:gdnative.String):Bool return untyped __cpp__('{0} != {1}', val(), @:privateAccess p_rhs.val());
+	@:op(A + B)
+	extern inline function __op_add_string(p_rhs:gdnative.String):gdnative.String return untyped __cpp__('{0} + {1}', val(), @:privateAccess p_rhs.val());
+	@:op(A % B)
+	extern inline function __op_modulus_string(p_rhs:gdnative.String):gdnative.String return untyped __cpp__('{0} % {1}', val(), @:privateAccess p_rhs.val());
+	@:op(A in B)
+	extern inline function __op_membership_in_string(p_rhs:gdnative.String):Bool return p_rhs.contains(new gdnative.String(abstract));
+	@:op(A % B)
+	extern inline function __op_modulus_vector2(p_rhs:gdnative.Vector2):gdnative.String return untyped __cpp__('{0} % {1}', val(), @:privateAccess p_rhs.val());
+	@:op(A % B)
+	extern inline function __op_modulus_vector2i(p_rhs:gdnative.Vector2i):gdnative.String return untyped __cpp__('{0} % {1}', val(), @:privateAccess p_rhs.val());
+	@:op(A % B)
+	extern inline function __op_modulus_rect2(p_rhs:gdnative.Rect2):gdnative.String return untyped __cpp__('{0} % {1}', val(), @:privateAccess p_rhs.val());
+	@:op(A % B)
+	extern inline function __op_modulus_rect2i(p_rhs:gdnative.Rect2i):gdnative.String return untyped __cpp__('{0} % {1}', val(), @:privateAccess p_rhs.val());
+	@:op(A % B)
+	extern inline function __op_modulus_vector3(p_rhs:gdnative.Vector3):gdnative.String return untyped __cpp__('{0} % {1}', val(), @:privateAccess p_rhs.val());
+	@:op(A % B)
+	extern inline function __op_modulus_vector3i(p_rhs:gdnative.Vector3i):gdnative.String return untyped __cpp__('{0} % {1}', val(), @:privateAccess p_rhs.val());
+	@:op(A % B)
+	extern inline function __op_modulus_transform2d(p_rhs:gdnative.Transform2D):gdnative.String return untyped __cpp__('{0} % {1}', val(), @:privateAccess p_rhs.val());
+	@:op(A % B)
+	extern inline function __op_modulus_vector4(p_rhs:gdnative.Vector4):gdnative.String return untyped __cpp__('{0} % {1}', val(), @:privateAccess p_rhs.val());
+	@:op(A % B)
+	extern inline function __op_modulus_vector4i(p_rhs:gdnative.Vector4i):gdnative.String return untyped __cpp__('{0} % {1}', val(), @:privateAccess p_rhs.val());
+	@:op(A % B)
+	extern inline function __op_modulus_plane(p_rhs:gdnative.Plane):gdnative.String return untyped __cpp__('{0} % {1}', val(), @:privateAccess p_rhs.val());
+	@:op(A % B)
+	extern inline function __op_modulus_quaternion(p_rhs:gdnative.Quaternion):gdnative.String return untyped __cpp__('{0} % {1}', val(), @:privateAccess p_rhs.val());
+	@:op(A % B)
+	extern inline function __op_modulus_aabb(p_rhs:gdnative.AABB):gdnative.String return untyped __cpp__('{0} % {1}', val(), @:privateAccess p_rhs.val());
+	@:op(A % B)
+	extern inline function __op_modulus_basis(p_rhs:gdnative.Basis):gdnative.String return untyped __cpp__('{0} % {1}', val(), @:privateAccess p_rhs.val());
+	@:op(A % B)
+	extern inline function __op_modulus_transform3d(p_rhs:gdnative.Transform3D):gdnative.String return untyped __cpp__('{0} % {1}', val(), @:privateAccess p_rhs.val());
+	@:op(A % B)
+	extern inline function __op_modulus_projection(p_rhs:gdnative.Projection):gdnative.String return untyped __cpp__('{0} % {1}', val(), @:privateAccess p_rhs.val());
+	@:op(A % B)
+	extern inline function __op_modulus_color(p_rhs:gdnative.Color):gdnative.String return untyped __cpp__('{0} % {1}', val(), @:privateAccess p_rhs.val());
+	@:op(A == B)
+	extern inline function __op_equal_to_stringname(p_rhs:gdnative.StringName):Bool return untyped __cpp__('{0} == {1}', val(), @:privateAccess p_rhs.val());
+	@:op(A != B)
+	extern inline function __op_not_equal_stringname(p_rhs:gdnative.StringName):Bool return untyped __cpp__('{0} != {1}', val(), @:privateAccess p_rhs.val());
+	@:op(A < B)
+	extern inline function __op_less_than_stringname(p_rhs:gdnative.StringName):Bool return untyped __cpp__('{0} < {1}', val(), @:privateAccess p_rhs.val());
+	@:op(A <= B)
+	extern inline function __op_less_equal_stringname(p_rhs:gdnative.StringName):Bool return untyped __cpp__('{0} <= {1}', val(), @:privateAccess p_rhs.val());
+	@:op(A > B)
+	extern inline function __op_greater_than_stringname(p_rhs:gdnative.StringName):Bool return untyped __cpp__('{0} > {1}', val(), @:privateAccess p_rhs.val());
+	@:op(A >= B)
+	extern inline function __op_greater_equal_stringname(p_rhs:gdnative.StringName):Bool return untyped __cpp__('{0} >= {1}', val(), @:privateAccess p_rhs.val());
+	@:op(A + B)
+	extern inline function __op_add_stringname(p_rhs:gdnative.StringName):gdnative.String return untyped __cpp__('{0} + {1}', val(), @:privateAccess p_rhs.val());
+	@:op(A % B)
+	extern inline function __op_modulus_stringname(p_rhs:gdnative.StringName):gdnative.String return untyped __cpp__('{0} % {1}', val(), @:privateAccess p_rhs.val());
+	@:op(A in B)
+	extern inline function __op_membership_in_stringname(p_rhs:gdnative.StringName):Bool return p_rhs.contains(new gdnative.String(abstract));
+	@:op(A % B)
+	extern inline function __op_modulus_nodepath(p_rhs:gdnative.NodePath):gdnative.String return untyped __cpp__('{0} % {1}', val(), @:privateAccess p_rhs.val());
+	@:op(A % B)
+	extern inline function __op_modulus_object(p_rhs:gdnative.Object):gdnative.String return untyped __cpp__('{0} % {1}', val(), p_rhs);
+	@:op(A in B)
+	extern inline function __op_membership_in_object(p_rhs:gdnative.Object):Bool return false;
+	@:op(A % B)
+	extern inline function __op_modulus_callable(p_rhs:gdnative.Callable):gdnative.String return untyped __cpp__('{0} % {1}', val(), @:privateAccess p_rhs.val());
+	@:op(A % B)
+	extern inline function __op_modulus_signal(p_rhs:gdnative.Signal):gdnative.String return untyped __cpp__('{0} % {1}', val(), @:privateAccess p_rhs.val());
+	@:op(A % B)
+	extern inline function __op_modulus_dictionary(p_rhs:gdnative.Dictionary):gdnative.String return untyped __cpp__('{0} % {1}', val(), @:privateAccess p_rhs.val());
+	@:op(A in B)
+	extern inline function __op_membership_in_dictionary(p_rhs:gdnative.Dictionary):Bool return p_rhs.has(abstract);
+	@:op(A % B)
+	extern inline function __op_modulus_array(p_rhs:gdnative.Array):gdnative.String return untyped __cpp__('{0} % {1}', val(), @:privateAccess p_rhs.val());
+	@:op(A in B)
+	extern inline function __op_membership_in_array(p_rhs:gdnative.Array):Bool return p_rhs.has(abstract);
+	@:op(A % B)
+	extern inline function __op_modulus_packedbytearray(p_rhs:gdnative.PackedByteArray):gdnative.String return untyped __cpp__('{0} % {1}', val(), @:privateAccess p_rhs.val());
+	@:op(A % B)
+	extern inline function __op_modulus_packedint32array(p_rhs:gdnative.PackedInt32Array):gdnative.String return untyped __cpp__('{0} % {1}', val(), @:privateAccess p_rhs.val());
+	@:op(A % B)
+	extern inline function __op_modulus_packedint64array(p_rhs:gdnative.PackedInt64Array):gdnative.String return untyped __cpp__('{0} % {1}', val(), @:privateAccess p_rhs.val());
+	@:op(A % B)
+	extern inline function __op_modulus_packedfloat32array(p_rhs:gdnative.PackedFloat32Array):gdnative.String return untyped __cpp__('{0} % {1}', val(), @:privateAccess p_rhs.val());
+	@:op(A % B)
+	extern inline function __op_modulus_packedfloat64array(p_rhs:gdnative.PackedFloat64Array):gdnative.String return untyped __cpp__('{0} % {1}', val(), @:privateAccess p_rhs.val());
+	@:op(A % B)
+	extern inline function __op_modulus_packedstringarray(p_rhs:gdnative.PackedStringArray):gdnative.String return untyped __cpp__('{0} % {1}', val(), @:privateAccess p_rhs.val());
+	@:op(A in B)
+	extern inline function __op_membership_in_packedstringarray(p_rhs:gdnative.PackedStringArray):Bool return p_rhs.has(new gdnative.String(abstract));
+	@:op(A % B)
+	extern inline function __op_modulus_packedvector2array(p_rhs:gdnative.PackedVector2Array):gdnative.String return untyped __cpp__('{0} % {1}', val(), @:privateAccess p_rhs.val());
+	@:op(A % B)
+	extern inline function __op_modulus_packedvector3array(p_rhs:gdnative.PackedVector3Array):gdnative.String return untyped __cpp__('{0} % {1}', val(), @:privateAccess p_rhs.val());
+	@:op(A % B)
+	extern inline function __op_modulus_packedcolorarray(p_rhs:gdnative.PackedColorArray):gdnative.String return untyped __cpp__('{0} % {1}', val(), @:privateAccess p_rhs.val());
+	@:op(A % B)
+	extern inline function __op_modulus_packedvector4array(p_rhs:gdnative.PackedVector4Array):gdnative.String return untyped __cpp__('{0} % {1}', val(), @:privateAccess p_rhs.val());
 	public extern overload inline function new() this = new gdnative.StringName.StringName_extern();
 	public extern overload inline function new(p_from:std.String) this = new gdnative.StringName.StringName_extern(p_from);
 }

@@ -3,7 +3,6 @@ class Texture extends gd.Resource {
 	public function new(?native:cpp.Pointer<gdnative.Texture.Texture_extern>) {
 		if (native == null) {
 			gd.Utils.checkAndWarnForMissingOwner(this, "Texture");
-			trace("Allocating Texture");
 			native = gdnative.Texture.Texture_extern.__alloc();
 		};
 		super(native.reinterpret());

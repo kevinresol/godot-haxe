@@ -3,7 +3,6 @@ class InputEventWithModifiers extends gd.InputEventFromWindow {
 	public function new(?native:cpp.Pointer<gdnative.InputEventWithModifiers.InputEventWithModifiers_extern>) {
 		if (native == null) {
 			gd.Utils.checkAndWarnForMissingOwner(this, "InputEventWithModifiers");
-			trace("Allocating InputEventWithModifiers");
 			native = gdnative.InputEventWithModifiers.InputEventWithModifiers_extern.__alloc();
 		};
 		super(native.reinterpret());

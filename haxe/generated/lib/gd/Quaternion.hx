@@ -2,10 +2,9 @@ package gd;
 extern class Quaternion_wrapper {
 	static function _new0():Quaternion_wrapper;
 	static function _new1(p_from:gd.Quaternion):Quaternion_wrapper;
-	static function _new2(p_from:gd.Basis):Quaternion_wrapper;
-	static function _new3(p_axis:gd.Vector3, p_angle:Float):Quaternion_wrapper;
-	static function _new4(p_arc_from:gd.Vector3, p_arc_to:gd.Vector3):Quaternion_wrapper;
-	static function _new5(p_x:Float, p_y:Float, p_z:Float, p_w:Float):Quaternion_wrapper;
+	static function _new2(p_axis:gd.Vector3, p_angle:Float):Quaternion_wrapper;
+	static function _new3(p_arc_from:gd.Vector3, p_arc_to:gd.Vector3):Quaternion_wrapper;
+	static function _new4(p_x:Float, p_y:Float, p_z:Float, p_w:Float):Quaternion_wrapper;
 	function length():Float;
 	function length_squared():Float;
 	function normalized():gd.Quaternion;
@@ -29,14 +28,56 @@ extern class Quaternion_wrapper {
 	var y(get, set) : Float;
 	var z(get, set) : Float;
 	var w(get, set) : Float;
+	function __op_equal_to_variant(p_rhs:gd.Variant):Bool;
+	function __op_not_equal_variant(p_rhs:gd.Variant):Bool;
+	function __op_unary_minus():gd.Quaternion;
+	function __op_unary_plus():gd.Quaternion;
+	function __op_multiply_int(p_rhs:Int):gd.Quaternion;
+	function __op_divide_int(p_rhs:Int):gd.Quaternion;
+	function __op_multiply_float(p_rhs:Float):gd.Quaternion;
+	function __op_divide_float(p_rhs:Float):gd.Quaternion;
+	function __op_equal_to_quaternion(p_rhs:gd.Quaternion):Bool;
+	function __op_not_equal_quaternion(p_rhs:gd.Quaternion):Bool;
+	function __op_add_quaternion(p_rhs:gd.Quaternion):gd.Quaternion;
+	function __op_subtract_quaternion(p_rhs:gd.Quaternion):gd.Quaternion;
+	function __op_multiply_quaternion(p_rhs:gd.Quaternion):gd.Quaternion;
+	function __op_membership_in_dictionary(p_rhs:gd.Dictionary):Bool;
+	function __op_membership_in_array(p_rhs:gd.Array):Bool;
 	public static final IDENTITY : gd.Quaternion;
 }
 
 @:forward @:forwardStatics abstract Quaternion(Quaternion_wrapper) from Quaternion_wrapper to Quaternion_wrapper {
 	public extern overload inline function new() this = Quaternion_wrapper._new0();
 	public extern overload inline function new(p_from:gd.Quaternion) this = Quaternion_wrapper._new1(p_from);
-	public extern overload inline function new(p_from:gd.Basis) this = Quaternion_wrapper._new2(p_from);
-	public extern overload inline function new(p_axis:gd.Vector3, p_angle:Float) this = Quaternion_wrapper._new3(p_axis, p_angle);
-	public extern overload inline function new(p_arc_from:gd.Vector3, p_arc_to:gd.Vector3) this = Quaternion_wrapper._new4(p_arc_from, p_arc_to);
-	public extern overload inline function new(p_x:Float, p_y:Float, p_z:Float, p_w:Float) this = Quaternion_wrapper._new5(p_x, p_y, p_z, p_w);
+	public extern overload inline function new(p_axis:gd.Vector3, p_angle:Float) this = Quaternion_wrapper._new2(p_axis, p_angle);
+	public extern overload inline function new(p_arc_from:gd.Vector3, p_arc_to:gd.Vector3) this = Quaternion_wrapper._new3(p_arc_from, p_arc_to);
+	public extern overload inline function new(p_x:Float, p_y:Float, p_z:Float, p_w:Float) this = Quaternion_wrapper._new4(p_x, p_y, p_z, p_w);
+	@:op(A == B)
+	inline function __op_equal_to_variant(p_rhs:gd.Variant):Bool return @:privateAccess this.__op_equal_to_variant(p_rhs);
+	@:op(A != B)
+	inline function __op_not_equal_variant(p_rhs:gd.Variant):Bool return @:privateAccess this.__op_not_equal_variant(p_rhs);
+	@:op(-A)
+	inline function __op_unary_minus():gd.Quaternion return @:privateAccess this.__op_unary_minus();
+	@:op(A * B)
+	inline function __op_multiply_int(p_rhs:Int):gd.Quaternion return @:privateAccess this.__op_multiply_int(p_rhs);
+	@:op(A / B)
+	inline function __op_divide_int(p_rhs:Int):gd.Quaternion return @:privateAccess this.__op_divide_int(p_rhs);
+	@:op(A * B)
+	inline function __op_multiply_float(p_rhs:Float):gd.Quaternion return @:privateAccess this.__op_multiply_float(p_rhs);
+	@:op(A / B)
+	inline function __op_divide_float(p_rhs:Float):gd.Quaternion return @:privateAccess this.__op_divide_float(p_rhs);
+	@:op(A == B)
+	inline function __op_equal_to_quaternion(p_rhs:gd.Quaternion):Bool return @:privateAccess this.__op_equal_to_quaternion(p_rhs);
+	@:op(A != B)
+	inline function __op_not_equal_quaternion(p_rhs:gd.Quaternion):Bool return @:privateAccess this.__op_not_equal_quaternion(p_rhs);
+	@:op(A + B)
+	inline function __op_add_quaternion(p_rhs:gd.Quaternion):gd.Quaternion return @:privateAccess this.__op_add_quaternion(p_rhs);
+	@:op(A - B)
+	inline function __op_subtract_quaternion(p_rhs:gd.Quaternion):gd.Quaternion return @:privateAccess this.__op_subtract_quaternion(p_rhs);
+	@:op(A * B)
+	inline function __op_multiply_quaternion(p_rhs:gd.Quaternion):gd.Quaternion return @:privateAccess this.__op_multiply_quaternion(p_rhs);
+	@:op(A in B)
+	inline function __op_membership_in_dictionary(p_rhs:gd.Dictionary):Bool return @:privateAccess this.__op_membership_in_dictionary(p_rhs);
+	@:op(A in B)
+	inline function __op_membership_in_array(p_rhs:gd.Array):Bool return @:privateAccess this.__op_membership_in_array(p_rhs);
 }

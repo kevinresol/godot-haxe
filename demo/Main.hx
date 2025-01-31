@@ -56,6 +56,24 @@ class Main extends Base {
 		print(gd.variant.Type.INT);
 		print(gd.variant.Type.FLOAT);
 
+		trace('Operator checks (cppia)');
+		print(new Vector2(42, 0) + new Vector2(3, 4));
+		print(new Vector2(42, 0) * 2);
+
+		trace('JSON checks (cppia)');
+		final json = new gd.JSON();
+		switch json.parse('{"foo": 42, "bar": true, "baz": ["hello", "world"]}') {
+			case OK:
+				final data = json.data;
+				print(data, ":", type_string(typeof(data)));
+				print(data["foo"], ":", type_string(typeof(data["foo"])));
+				print(data["bar"], ":", type_string(typeof(data["bar"])));
+				print(data["baz"], ":", type_string(typeof(data["baz"])));
+				print(data["baz"][0], ":", type_string(typeof(data["baz"][0])));
+			case err:
+				trace('Error parsing JSON: $err');
+		}
+
 		trace('Function call checks (cppia)');
 		trace('get_child_count(): ${get_child_count()}');
 		trace('get_child_count(false): ${get_child_count(false)}');
@@ -95,20 +113,6 @@ class Main extends Base {
 		final scn = sub.instantiate();
 		print(scn);
 		add_child(scn);
-
-		trace('JSON checks (cppia)');
-		final json = new gd.JSON();
-		switch json.parse('{"foo": 42, "bar": true, "baz": ["hello", "world"]}') {
-			case OK:
-				final data = json.data;
-				print(data, type_string(typeof(data)));
-				print(data["foo"], type_string(typeof(data["foo"])));
-				print(data["bar"], type_string(typeof(data["bar"])));
-				print(data["baz"], type_string(typeof(data["baz"])));
-				print(data["baz"][0], type_string(typeof(data["baz"][0])));
-			case err:
-				trace('Error parsing JSON: $err');
-		}
 	}
 
 	function _notification(what:Int, ?p_reversed:Bool) {

@@ -3,7 +3,6 @@ class InputEventFromWindow extends gd.InputEvent {
 	public function new(?native:cpp.Pointer<gdnative.InputEventFromWindow.InputEventFromWindow_extern>) {
 		if (native == null) {
 			gd.Utils.checkAndWarnForMissingOwner(this, "InputEventFromWindow");
-			trace("Allocating InputEventFromWindow");
 			native = gdnative.InputEventFromWindow.InputEventFromWindow_extern.__alloc();
 		};
 		super(native.reinterpret());

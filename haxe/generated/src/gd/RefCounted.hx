@@ -3,7 +3,6 @@ class RefCounted extends gd.Object {
 	public function new(?native:cpp.Pointer<gdnative.RefCounted.RefCounted_extern>) {
 		if (native == null) {
 			gd.Utils.checkAndWarnForMissingOwner(this, "RefCounted");
-			trace("Allocating RefCounted");
 			native = gdnative.RefCounted.RefCounted_extern.__alloc();
 		};
 		super(native.reinterpret());

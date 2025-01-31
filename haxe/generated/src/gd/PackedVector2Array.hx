@@ -27,10 +27,34 @@ class PackedVector2Array_wrapper {
 	public function find(p_value:gd.Vector2, ?p_from:Int):Int return __gd.find(p_value, p_from);
 	public function rfind(p_value:gd.Vector2, ?p_from:Int):Int return __gd.rfind(p_value, p_from);
 	public function count(p_value:gd.Vector2):Int return __gd.count(p_value);
+	function __op_equal_to_variant(p_rhs:gd.Variant):Bool return this.__gd == ((p_rhs : gdnative.Variant));
+	function __op_not_equal_variant(p_rhs:gd.Variant):Bool return this.__gd != ((p_rhs : gdnative.Variant));
+	function __op_multiply_transform2d(p_rhs:gd.Transform2D):gd.PackedVector2Array return this.__gd * ((p_rhs : gdnative.Transform2D));
+	function __op_membership_in_dictionary(p_rhs:gd.Dictionary):Bool return this.__gd in ((p_rhs : gdnative.Dictionary));
+	function __op_membership_in_array(p_rhs:gd.Array):Bool return this.__gd in ((p_rhs : gdnative.Array));
+	function __op_equal_to_packedvector2array(p_rhs:gd.PackedVector2Array):Bool return this.__gd == ((p_rhs : gdnative.PackedVector2Array));
+	function __op_not_equal_packedvector2array(p_rhs:gd.PackedVector2Array):Bool return this.__gd != ((p_rhs : gdnative.PackedVector2Array));
+	function __op_add_packedvector2array(p_rhs:gd.PackedVector2Array):gd.PackedVector2Array return this.__gd + ((p_rhs : gdnative.PackedVector2Array));
 }
 
 @:forward @:forwardStatics abstract PackedVector2Array(PackedVector2Array_wrapper) from PackedVector2Array_wrapper to PackedVector2Array_wrapper {
 	public extern overload inline function new() this = @:privateAccess PackedVector2Array_wrapper._new0();
 	public extern overload inline function new(p_from:gd.PackedVector2Array) this = @:privateAccess PackedVector2Array_wrapper._new1(p_from);
 	public extern overload inline function new(p_from:gd.Array) this = @:privateAccess PackedVector2Array_wrapper._new2(p_from);
+	@:op(A == B)
+	inline function __op_equal_to_variant(p_rhs:gd.Variant):Bool return @:privateAccess this.__op_equal_to_variant(p_rhs);
+	@:op(A != B)
+	inline function __op_not_equal_variant(p_rhs:gd.Variant):Bool return @:privateAccess this.__op_not_equal_variant(p_rhs);
+	@:op(A * B)
+	inline function __op_multiply_transform2d(p_rhs:gd.Transform2D):gd.PackedVector2Array return @:privateAccess this.__op_multiply_transform2d(p_rhs);
+	@:op(A in B)
+	inline function __op_membership_in_dictionary(p_rhs:gd.Dictionary):Bool return @:privateAccess this.__op_membership_in_dictionary(p_rhs);
+	@:op(A in B)
+	inline function __op_membership_in_array(p_rhs:gd.Array):Bool return @:privateAccess this.__op_membership_in_array(p_rhs);
+	@:op(A == B)
+	inline function __op_equal_to_packedvector2array(p_rhs:gd.PackedVector2Array):Bool return @:privateAccess this.__op_equal_to_packedvector2array(p_rhs);
+	@:op(A != B)
+	inline function __op_not_equal_packedvector2array(p_rhs:gd.PackedVector2Array):Bool return @:privateAccess this.__op_not_equal_packedvector2array(p_rhs);
+	@:op(A + B)
+	inline function __op_add_packedvector2array(p_rhs:gd.PackedVector2Array):gd.PackedVector2Array return @:privateAccess this.__op_add_packedvector2array(p_rhs);
 }

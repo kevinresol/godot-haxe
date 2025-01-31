@@ -27,10 +27,31 @@ class PackedFloat32Array_wrapper {
 	public function find(p_value:Float, ?p_from:Int):Int return __gd.find(p_value, p_from);
 	public function rfind(p_value:Float, ?p_from:Int):Int return __gd.rfind(p_value, p_from);
 	public function count(p_value:Float):Int return __gd.count(p_value);
+	function __op_equal_to_variant(p_rhs:gd.Variant):Bool return this.__gd == ((p_rhs : gdnative.Variant));
+	function __op_not_equal_variant(p_rhs:gd.Variant):Bool return this.__gd != ((p_rhs : gdnative.Variant));
+	function __op_membership_in_dictionary(p_rhs:gd.Dictionary):Bool return this.__gd in ((p_rhs : gdnative.Dictionary));
+	function __op_membership_in_array(p_rhs:gd.Array):Bool return this.__gd in ((p_rhs : gdnative.Array));
+	function __op_equal_to_packedfloat32array(p_rhs:gd.PackedFloat32Array):Bool return this.__gd == ((p_rhs : gdnative.PackedFloat32Array));
+	function __op_not_equal_packedfloat32array(p_rhs:gd.PackedFloat32Array):Bool return this.__gd != ((p_rhs : gdnative.PackedFloat32Array));
+	function __op_add_packedfloat32array(p_rhs:gd.PackedFloat32Array):gd.PackedFloat32Array return this.__gd + ((p_rhs : gdnative.PackedFloat32Array));
 }
 
 @:forward @:forwardStatics abstract PackedFloat32Array(PackedFloat32Array_wrapper) from PackedFloat32Array_wrapper to PackedFloat32Array_wrapper {
 	public extern overload inline function new() this = @:privateAccess PackedFloat32Array_wrapper._new0();
 	public extern overload inline function new(p_from:gd.PackedFloat32Array) this = @:privateAccess PackedFloat32Array_wrapper._new1(p_from);
 	public extern overload inline function new(p_from:gd.Array) this = @:privateAccess PackedFloat32Array_wrapper._new2(p_from);
+	@:op(A == B)
+	inline function __op_equal_to_variant(p_rhs:gd.Variant):Bool return @:privateAccess this.__op_equal_to_variant(p_rhs);
+	@:op(A != B)
+	inline function __op_not_equal_variant(p_rhs:gd.Variant):Bool return @:privateAccess this.__op_not_equal_variant(p_rhs);
+	@:op(A in B)
+	inline function __op_membership_in_dictionary(p_rhs:gd.Dictionary):Bool return @:privateAccess this.__op_membership_in_dictionary(p_rhs);
+	@:op(A in B)
+	inline function __op_membership_in_array(p_rhs:gd.Array):Bool return @:privateAccess this.__op_membership_in_array(p_rhs);
+	@:op(A == B)
+	inline function __op_equal_to_packedfloat32array(p_rhs:gd.PackedFloat32Array):Bool return @:privateAccess this.__op_equal_to_packedfloat32array(p_rhs);
+	@:op(A != B)
+	inline function __op_not_equal_packedfloat32array(p_rhs:gd.PackedFloat32Array):Bool return @:privateAccess this.__op_not_equal_packedfloat32array(p_rhs);
+	@:op(A + B)
+	inline function __op_add_packedfloat32array(p_rhs:gd.PackedFloat32Array):gd.PackedFloat32Array return @:privateAccess this.__op_add_packedfloat32array(p_rhs);
 }

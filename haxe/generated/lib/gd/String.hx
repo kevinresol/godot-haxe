@@ -113,9 +113,177 @@ extern class String_wrapper {
 	function num_uint64(p_number:Int, ?p_base:Int, ?p_capitalize_hex:Bool):std.String;
 	function chr(p_char:Int):std.String;
 	function humanize_size(p_size:Int):std.String;
+	function __op_equal_to_variant(p_rhs:gd.Variant):Bool;
+	function __op_not_equal_variant(p_rhs:gd.Variant):Bool;
+	function __op_modulus_variant(p_rhs:gd.Variant):std.String;
+	function __op_modulus_bool(p_rhs:Bool):std.String;
+	function __op_modulus_int(p_rhs:Int):std.String;
+	function __op_modulus_float(p_rhs:Float):std.String;
+	function __op_equal_to_string(p_rhs:std.String):Bool;
+	function __op_not_equal_string(p_rhs:std.String):Bool;
+	function __op_less_than_string(p_rhs:std.String):Bool;
+	function __op_less_equal_string(p_rhs:std.String):Bool;
+	function __op_greater_than_string(p_rhs:std.String):Bool;
+	function __op_greater_equal_string(p_rhs:std.String):Bool;
+	function __op_add_string(p_rhs:std.String):std.String;
+	function __op_modulus_string(p_rhs:std.String):std.String;
+	function __op_membership_in_string(p_rhs:std.String):Bool;
+	function __op_modulus_vector2(p_rhs:gd.Vector2):std.String;
+	function __op_modulus_vector2i(p_rhs:gd.Vector2i):std.String;
+	function __op_modulus_rect2(p_rhs:gd.Rect2):std.String;
+	function __op_modulus_rect2i(p_rhs:gd.Rect2i):std.String;
+	function __op_modulus_vector3(p_rhs:gd.Vector3):std.String;
+	function __op_modulus_vector3i(p_rhs:gd.Vector3i):std.String;
+	function __op_modulus_transform2d(p_rhs:gd.Transform2D):std.String;
+	function __op_modulus_vector4(p_rhs:gd.Vector4):std.String;
+	function __op_modulus_vector4i(p_rhs:gd.Vector4i):std.String;
+	function __op_modulus_plane(p_rhs:gd.Plane):std.String;
+	function __op_modulus_quaternion(p_rhs:gd.Quaternion):std.String;
+	function __op_modulus_aabb(p_rhs:gd.AABB):std.String;
+	function __op_modulus_basis(p_rhs:gd.Basis):std.String;
+	function __op_modulus_transform3d(p_rhs:gd.Transform3D):std.String;
+	function __op_modulus_projection(p_rhs:gd.Projection):std.String;
+	function __op_modulus_color(p_rhs:gd.Color):std.String;
+	function __op_equal_to_stringname(p_rhs:std.String):Bool;
+	function __op_not_equal_stringname(p_rhs:std.String):Bool;
+	function __op_add_stringname(p_rhs:std.String):std.String;
+	function __op_modulus_stringname(p_rhs:std.String):std.String;
+	function __op_membership_in_stringname(p_rhs:std.String):Bool;
+	function __op_modulus_nodepath(p_rhs:std.String):std.String;
+	function __op_modulus_object(p_rhs:gd.Object):std.String;
+	function __op_membership_in_object(p_rhs:gd.Object):Bool;
+	function __op_modulus_callable(p_rhs:gd.Callable):std.String;
+	function __op_modulus_signal(p_rhs:gd.Signal):std.String;
+	function __op_modulus_dictionary(p_rhs:gd.Dictionary):std.String;
+	function __op_membership_in_dictionary(p_rhs:gd.Dictionary):Bool;
+	function __op_modulus_array(p_rhs:gd.Array):std.String;
+	function __op_membership_in_array(p_rhs:gd.Array):Bool;
+	function __op_modulus_packedbytearray(p_rhs:gd.PackedByteArray):std.String;
+	function __op_modulus_packedint32array(p_rhs:gd.PackedInt32Array):std.String;
+	function __op_modulus_packedint64array(p_rhs:gd.PackedInt64Array):std.String;
+	function __op_modulus_packedfloat32array(p_rhs:gd.PackedFloat32Array):std.String;
+	function __op_modulus_packedfloat64array(p_rhs:gd.PackedFloat64Array):std.String;
+	function __op_modulus_packedstringarray(p_rhs:gd.PackedStringArray):std.String;
+	function __op_membership_in_packedstringarray(p_rhs:gd.PackedStringArray):Bool;
+	function __op_modulus_packedvector2array(p_rhs:gd.PackedVector2Array):std.String;
+	function __op_modulus_packedvector3array(p_rhs:gd.PackedVector3Array):std.String;
+	function __op_modulus_packedcolorarray(p_rhs:gd.PackedColorArray):std.String;
+	function __op_modulus_packedvector4array(p_rhs:gd.PackedVector4Array):std.String;
 }
 
 @:forward @:forwardStatics abstract String(String_wrapper) from String_wrapper to String_wrapper {
 	public extern overload inline function new() this = String_wrapper._new0();
 	public extern overload inline function new(p_from:std.String) this = String_wrapper._new1(p_from);
+	@:op(A == B)
+	inline function __op_equal_to_variant(p_rhs:gd.Variant):Bool return @:privateAccess this.__op_equal_to_variant(p_rhs);
+	@:op(A != B)
+	inline function __op_not_equal_variant(p_rhs:gd.Variant):Bool return @:privateAccess this.__op_not_equal_variant(p_rhs);
+	@:op(A % B)
+	inline function __op_modulus_variant(p_rhs:gd.Variant):std.String return @:privateAccess this.__op_modulus_variant(p_rhs);
+	@:op(A % B)
+	inline function __op_modulus_bool(p_rhs:Bool):std.String return @:privateAccess this.__op_modulus_bool(p_rhs);
+	@:op(A % B)
+	inline function __op_modulus_int(p_rhs:Int):std.String return @:privateAccess this.__op_modulus_int(p_rhs);
+	@:op(A % B)
+	inline function __op_modulus_float(p_rhs:Float):std.String return @:privateAccess this.__op_modulus_float(p_rhs);
+	@:op(A == B)
+	inline function __op_equal_to_string(p_rhs:std.String):Bool return @:privateAccess this.__op_equal_to_string(p_rhs);
+	@:op(A != B)
+	inline function __op_not_equal_string(p_rhs:std.String):Bool return @:privateAccess this.__op_not_equal_string(p_rhs);
+	@:op(A < B)
+	inline function __op_less_than_string(p_rhs:std.String):Bool return @:privateAccess this.__op_less_than_string(p_rhs);
+	@:op(A <= B)
+	inline function __op_less_equal_string(p_rhs:std.String):Bool return @:privateAccess this.__op_less_equal_string(p_rhs);
+	@:op(A > B)
+	inline function __op_greater_than_string(p_rhs:std.String):Bool return @:privateAccess this.__op_greater_than_string(p_rhs);
+	@:op(A >= B)
+	inline function __op_greater_equal_string(p_rhs:std.String):Bool return @:privateAccess this.__op_greater_equal_string(p_rhs);
+	@:op(A + B)
+	inline function __op_add_string(p_rhs:std.String):std.String return @:privateAccess this.__op_add_string(p_rhs);
+	@:op(A % B)
+	inline function __op_modulus_string(p_rhs:std.String):std.String return @:privateAccess this.__op_modulus_string(p_rhs);
+	@:op(A in B)
+	inline function __op_membership_in_string(p_rhs:std.String):Bool return @:privateAccess this.__op_membership_in_string(p_rhs);
+	@:op(A % B)
+	inline function __op_modulus_vector2(p_rhs:gd.Vector2):std.String return @:privateAccess this.__op_modulus_vector2(p_rhs);
+	@:op(A % B)
+	inline function __op_modulus_vector2i(p_rhs:gd.Vector2i):std.String return @:privateAccess this.__op_modulus_vector2i(p_rhs);
+	@:op(A % B)
+	inline function __op_modulus_rect2(p_rhs:gd.Rect2):std.String return @:privateAccess this.__op_modulus_rect2(p_rhs);
+	@:op(A % B)
+	inline function __op_modulus_rect2i(p_rhs:gd.Rect2i):std.String return @:privateAccess this.__op_modulus_rect2i(p_rhs);
+	@:op(A % B)
+	inline function __op_modulus_vector3(p_rhs:gd.Vector3):std.String return @:privateAccess this.__op_modulus_vector3(p_rhs);
+	@:op(A % B)
+	inline function __op_modulus_vector3i(p_rhs:gd.Vector3i):std.String return @:privateAccess this.__op_modulus_vector3i(p_rhs);
+	@:op(A % B)
+	inline function __op_modulus_transform2d(p_rhs:gd.Transform2D):std.String return @:privateAccess this.__op_modulus_transform2d(p_rhs);
+	@:op(A % B)
+	inline function __op_modulus_vector4(p_rhs:gd.Vector4):std.String return @:privateAccess this.__op_modulus_vector4(p_rhs);
+	@:op(A % B)
+	inline function __op_modulus_vector4i(p_rhs:gd.Vector4i):std.String return @:privateAccess this.__op_modulus_vector4i(p_rhs);
+	@:op(A % B)
+	inline function __op_modulus_plane(p_rhs:gd.Plane):std.String return @:privateAccess this.__op_modulus_plane(p_rhs);
+	@:op(A % B)
+	inline function __op_modulus_quaternion(p_rhs:gd.Quaternion):std.String return @:privateAccess this.__op_modulus_quaternion(p_rhs);
+	@:op(A % B)
+	inline function __op_modulus_aabb(p_rhs:gd.AABB):std.String return @:privateAccess this.__op_modulus_aabb(p_rhs);
+	@:op(A % B)
+	inline function __op_modulus_basis(p_rhs:gd.Basis):std.String return @:privateAccess this.__op_modulus_basis(p_rhs);
+	@:op(A % B)
+	inline function __op_modulus_transform3d(p_rhs:gd.Transform3D):std.String return @:privateAccess this.__op_modulus_transform3d(p_rhs);
+	@:op(A % B)
+	inline function __op_modulus_projection(p_rhs:gd.Projection):std.String return @:privateAccess this.__op_modulus_projection(p_rhs);
+	@:op(A % B)
+	inline function __op_modulus_color(p_rhs:gd.Color):std.String return @:privateAccess this.__op_modulus_color(p_rhs);
+	@:op(A == B)
+	inline function __op_equal_to_stringname(p_rhs:std.String):Bool return @:privateAccess this.__op_equal_to_stringname(p_rhs);
+	@:op(A != B)
+	inline function __op_not_equal_stringname(p_rhs:std.String):Bool return @:privateAccess this.__op_not_equal_stringname(p_rhs);
+	@:op(A + B)
+	inline function __op_add_stringname(p_rhs:std.String):std.String return @:privateAccess this.__op_add_stringname(p_rhs);
+	@:op(A % B)
+	inline function __op_modulus_stringname(p_rhs:std.String):std.String return @:privateAccess this.__op_modulus_stringname(p_rhs);
+	@:op(A in B)
+	inline function __op_membership_in_stringname(p_rhs:std.String):Bool return @:privateAccess this.__op_membership_in_stringname(p_rhs);
+	@:op(A % B)
+	inline function __op_modulus_nodepath(p_rhs:std.String):std.String return @:privateAccess this.__op_modulus_nodepath(p_rhs);
+	@:op(A % B)
+	inline function __op_modulus_object(p_rhs:gd.Object):std.String return @:privateAccess this.__op_modulus_object(p_rhs);
+	@:op(A in B)
+	inline function __op_membership_in_object(p_rhs:gd.Object):Bool return @:privateAccess this.__op_membership_in_object(p_rhs);
+	@:op(A % B)
+	inline function __op_modulus_callable(p_rhs:gd.Callable):std.String return @:privateAccess this.__op_modulus_callable(p_rhs);
+	@:op(A % B)
+	inline function __op_modulus_signal(p_rhs:gd.Signal):std.String return @:privateAccess this.__op_modulus_signal(p_rhs);
+	@:op(A % B)
+	inline function __op_modulus_dictionary(p_rhs:gd.Dictionary):std.String return @:privateAccess this.__op_modulus_dictionary(p_rhs);
+	@:op(A in B)
+	inline function __op_membership_in_dictionary(p_rhs:gd.Dictionary):Bool return @:privateAccess this.__op_membership_in_dictionary(p_rhs);
+	@:op(A % B)
+	inline function __op_modulus_array(p_rhs:gd.Array):std.String return @:privateAccess this.__op_modulus_array(p_rhs);
+	@:op(A in B)
+	inline function __op_membership_in_array(p_rhs:gd.Array):Bool return @:privateAccess this.__op_membership_in_array(p_rhs);
+	@:op(A % B)
+	inline function __op_modulus_packedbytearray(p_rhs:gd.PackedByteArray):std.String return @:privateAccess this.__op_modulus_packedbytearray(p_rhs);
+	@:op(A % B)
+	inline function __op_modulus_packedint32array(p_rhs:gd.PackedInt32Array):std.String return @:privateAccess this.__op_modulus_packedint32array(p_rhs);
+	@:op(A % B)
+	inline function __op_modulus_packedint64array(p_rhs:gd.PackedInt64Array):std.String return @:privateAccess this.__op_modulus_packedint64array(p_rhs);
+	@:op(A % B)
+	inline function __op_modulus_packedfloat32array(p_rhs:gd.PackedFloat32Array):std.String return @:privateAccess this.__op_modulus_packedfloat32array(p_rhs);
+	@:op(A % B)
+	inline function __op_modulus_packedfloat64array(p_rhs:gd.PackedFloat64Array):std.String return @:privateAccess this.__op_modulus_packedfloat64array(p_rhs);
+	@:op(A % B)
+	inline function __op_modulus_packedstringarray(p_rhs:gd.PackedStringArray):std.String return @:privateAccess this.__op_modulus_packedstringarray(p_rhs);
+	@:op(A in B)
+	inline function __op_membership_in_packedstringarray(p_rhs:gd.PackedStringArray):Bool return @:privateAccess this.__op_membership_in_packedstringarray(p_rhs);
+	@:op(A % B)
+	inline function __op_modulus_packedvector2array(p_rhs:gd.PackedVector2Array):std.String return @:privateAccess this.__op_modulus_packedvector2array(p_rhs);
+	@:op(A % B)
+	inline function __op_modulus_packedvector3array(p_rhs:gd.PackedVector3Array):std.String return @:privateAccess this.__op_modulus_packedvector3array(p_rhs);
+	@:op(A % B)
+	inline function __op_modulus_packedcolorarray(p_rhs:gd.PackedColorArray):std.String return @:privateAccess this.__op_modulus_packedcolorarray(p_rhs);
+	@:op(A % B)
+	inline function __op_modulus_packedvector4array(p_rhs:gd.PackedVector4Array):std.String return @:privateAccess this.__op_modulus_packedvector4array(p_rhs);
 }

@@ -3,7 +3,6 @@ class Object {
 	public function new(?native:cpp.Pointer<gdnative.Object.Object_extern>) {
 		if (native == null) {
 			gd.Utils.checkAndWarnForMissingOwner(this, "Object");
-			trace("Allocating Object");
 			native = gdnative.Object.Object_extern.__alloc();
 		};
 		__gd = native;

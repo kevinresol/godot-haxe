@@ -4,8 +4,7 @@ class Vector3_wrapper {
 	public function new(value:gdnative.Vector3) __gd = value;
 	static function _new0():Vector3_wrapper return new Vector3_wrapper(new gdnative.Vector3());
 	static function _new1(p_from:gd.Vector3):Vector3_wrapper return new Vector3_wrapper(new gdnative.Vector3(p_from));
-	static function _new2(p_from:gd.Vector3i):Vector3_wrapper return new Vector3_wrapper(new gdnative.Vector3(p_from));
-	static function _new3(p_x:Float, p_y:Float, p_z:Float):Vector3_wrapper return new Vector3_wrapper(new gdnative.Vector3(p_x, p_y, p_z));
+	static function _new2(p_x:Float, p_y:Float, p_z:Float):Vector3_wrapper return new Vector3_wrapper(new gdnative.Vector3(p_x, p_y, p_z));
 	public function min_axis_index():Int return __gd.min_axis_index();
 	public function max_axis_index():Int return __gd.max_axis_index();
 	public function angle_to(p_to:gd.Vector3):Float return __gd.angle_to(p_to);
@@ -71,6 +70,26 @@ class Vector3_wrapper {
 		__gd.z = v;
 		v;
 	};
+	function __op_equal_to_variant(p_rhs:gd.Variant):Bool return this.__gd == ((p_rhs : gdnative.Variant));
+	function __op_not_equal_variant(p_rhs:gd.Variant):Bool return this.__gd != ((p_rhs : gdnative.Variant));
+	function __op_unary_minus():gd.Vector3 return -this.__gd;
+	function __op_multiply_int(p_rhs:Int):gd.Vector3 return this.__gd * ((p_rhs : Int));
+	function __op_divide_int(p_rhs:Int):gd.Vector3 return this.__gd / ((p_rhs : Int));
+	function __op_multiply_float(p_rhs:Float):gd.Vector3 return this.__gd * ((p_rhs : Float));
+	function __op_divide_float(p_rhs:Float):gd.Vector3 return this.__gd / ((p_rhs : Float));
+	function __op_equal_to_vector3(p_rhs:gd.Vector3):Bool return this.__gd == ((p_rhs : gdnative.Vector3));
+	function __op_not_equal_vector3(p_rhs:gd.Vector3):Bool return this.__gd != ((p_rhs : gdnative.Vector3));
+	function __op_less_than_vector3(p_rhs:gd.Vector3):Bool return this.__gd < ((p_rhs : gdnative.Vector3));
+	function __op_less_equal_vector3(p_rhs:gd.Vector3):Bool return this.__gd <= ((p_rhs : gdnative.Vector3));
+	function __op_greater_than_vector3(p_rhs:gd.Vector3):Bool return this.__gd > ((p_rhs : gdnative.Vector3));
+	function __op_greater_equal_vector3(p_rhs:gd.Vector3):Bool return this.__gd >= ((p_rhs : gdnative.Vector3));
+	function __op_add_vector3(p_rhs:gd.Vector3):gd.Vector3 return this.__gd + ((p_rhs : gdnative.Vector3));
+	function __op_subtract_vector3(p_rhs:gd.Vector3):gd.Vector3 return this.__gd - ((p_rhs : gdnative.Vector3));
+	function __op_multiply_vector3(p_rhs:gd.Vector3):gd.Vector3 return this.__gd * ((p_rhs : gdnative.Vector3));
+	function __op_divide_vector3(p_rhs:gd.Vector3):gd.Vector3 return this.__gd / ((p_rhs : gdnative.Vector3));
+	function __op_membership_in_dictionary(p_rhs:gd.Dictionary):Bool return this.__gd in ((p_rhs : gdnative.Dictionary));
+	function __op_membership_in_array(p_rhs:gd.Array):Bool return this.__gd in ((p_rhs : gdnative.Array));
+	function __op_membership_in_packedvector3array(p_rhs:gd.PackedVector3Array):Bool return this.__gd in ((p_rhs : gdnative.PackedVector3Array));
 	public static final ZERO : gd.Vector3 = new gd.Vector3(0, 0, 0);
 	public static final ONE : gd.Vector3 = new gd.Vector3(1, 1, 1);
 	public static final INF : gd.Vector3 = new gd.Vector3(Math.POSITIVE_INFINITY, Math.POSITIVE_INFINITY, Math.POSITIVE_INFINITY);
@@ -91,6 +110,45 @@ class Vector3_wrapper {
 @:forward @:forwardStatics abstract Vector3(Vector3_wrapper) from Vector3_wrapper to Vector3_wrapper {
 	public extern overload inline function new() this = @:privateAccess Vector3_wrapper._new0();
 	public extern overload inline function new(p_from:gd.Vector3) this = @:privateAccess Vector3_wrapper._new1(p_from);
-	public extern overload inline function new(p_from:gd.Vector3i) this = @:privateAccess Vector3_wrapper._new2(p_from);
-	public extern overload inline function new(p_x:Float, p_y:Float, p_z:Float) this = @:privateAccess Vector3_wrapper._new3(p_x, p_y, p_z);
+	public extern overload inline function new(p_x:Float, p_y:Float, p_z:Float) this = @:privateAccess Vector3_wrapper._new2(p_x, p_y, p_z);
+	@:op(A == B)
+	inline function __op_equal_to_variant(p_rhs:gd.Variant):Bool return @:privateAccess this.__op_equal_to_variant(p_rhs);
+	@:op(A != B)
+	inline function __op_not_equal_variant(p_rhs:gd.Variant):Bool return @:privateAccess this.__op_not_equal_variant(p_rhs);
+	@:op(-A)
+	inline function __op_unary_minus():gd.Vector3 return @:privateAccess this.__op_unary_minus();
+	@:op(A * B)
+	inline function __op_multiply_int(p_rhs:Int):gd.Vector3 return @:privateAccess this.__op_multiply_int(p_rhs);
+	@:op(A / B)
+	inline function __op_divide_int(p_rhs:Int):gd.Vector3 return @:privateAccess this.__op_divide_int(p_rhs);
+	@:op(A * B)
+	inline function __op_multiply_float(p_rhs:Float):gd.Vector3 return @:privateAccess this.__op_multiply_float(p_rhs);
+	@:op(A / B)
+	inline function __op_divide_float(p_rhs:Float):gd.Vector3 return @:privateAccess this.__op_divide_float(p_rhs);
+	@:op(A == B)
+	inline function __op_equal_to_vector3(p_rhs:gd.Vector3):Bool return @:privateAccess this.__op_equal_to_vector3(p_rhs);
+	@:op(A != B)
+	inline function __op_not_equal_vector3(p_rhs:gd.Vector3):Bool return @:privateAccess this.__op_not_equal_vector3(p_rhs);
+	@:op(A < B)
+	inline function __op_less_than_vector3(p_rhs:gd.Vector3):Bool return @:privateAccess this.__op_less_than_vector3(p_rhs);
+	@:op(A <= B)
+	inline function __op_less_equal_vector3(p_rhs:gd.Vector3):Bool return @:privateAccess this.__op_less_equal_vector3(p_rhs);
+	@:op(A > B)
+	inline function __op_greater_than_vector3(p_rhs:gd.Vector3):Bool return @:privateAccess this.__op_greater_than_vector3(p_rhs);
+	@:op(A >= B)
+	inline function __op_greater_equal_vector3(p_rhs:gd.Vector3):Bool return @:privateAccess this.__op_greater_equal_vector3(p_rhs);
+	@:op(A + B)
+	inline function __op_add_vector3(p_rhs:gd.Vector3):gd.Vector3 return @:privateAccess this.__op_add_vector3(p_rhs);
+	@:op(A - B)
+	inline function __op_subtract_vector3(p_rhs:gd.Vector3):gd.Vector3 return @:privateAccess this.__op_subtract_vector3(p_rhs);
+	@:op(A * B)
+	inline function __op_multiply_vector3(p_rhs:gd.Vector3):gd.Vector3 return @:privateAccess this.__op_multiply_vector3(p_rhs);
+	@:op(A / B)
+	inline function __op_divide_vector3(p_rhs:gd.Vector3):gd.Vector3 return @:privateAccess this.__op_divide_vector3(p_rhs);
+	@:op(A in B)
+	inline function __op_membership_in_dictionary(p_rhs:gd.Dictionary):Bool return @:privateAccess this.__op_membership_in_dictionary(p_rhs);
+	@:op(A in B)
+	inline function __op_membership_in_array(p_rhs:gd.Array):Bool return @:privateAccess this.__op_membership_in_array(p_rhs);
+	@:op(A in B)
+	inline function __op_membership_in_packedvector3array(p_rhs:gd.PackedVector3Array):Bool return @:privateAccess this.__op_membership_in_packedvector3array(p_rhs);
 }

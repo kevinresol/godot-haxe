@@ -6,21 +6,34 @@ package gdnative;
 	@:from
 	static inline function fromWrapper(v:gd.Rect2):gdnative.Rect2 return fromWrapperInternal(v);
 	@:from
-	static inline function fromWrapperInternal(v:gd.Rect2.Rect2_wrapper):gdnative.Rect2 return untyped __cpp__('{0}.get()', @:privateAccess v.__gd);
+	static inline function fromWrapperInternal(v:gd.Rect2.Rect2_wrapper):gdnative.Rect2 return @:privateAccess v.__gd;
 	@:to
 	inline function toWrapper():gd.Rect2 return toWrapperInternal();
 	@:to
 	inline function toWrapperInternal():gd.Rect2.Rect2_wrapper return new gd.Rect2.Rect2_wrapper(this);
+	@:to
+	inline function toVariant():gdnative.Variant return new gdnative.Variant.Variant_extern(abstract);
+	inline function val():Rect2_extern return untyped __cpp__('{0}.value', abstract);
+	@:op(A == B)
+	extern inline function __op_equal_to_variant(p_rhs:gdnative.Variant):Bool return untyped __cpp__('{0} == {1}', val(), @:privateAccess p_rhs.val());
+	@:op(A != B)
+	extern inline function __op_not_equal_variant(p_rhs:gdnative.Variant):Bool return untyped __cpp__('{0} != {1}', val(), @:privateAccess p_rhs.val());
+	@:op(A == B)
+	extern inline function __op_equal_to_rect2(p_rhs:gdnative.Rect2):Bool return untyped __cpp__('{0} == {1}', val(), @:privateAccess p_rhs.val());
+	@:op(A != B)
+	extern inline function __op_not_equal_rect2(p_rhs:gdnative.Rect2):Bool return untyped __cpp__('{0} != {1}', val(), @:privateAccess p_rhs.val());
+	@:op(A in B)
+	extern inline function __op_membership_in_dictionary(p_rhs:gdnative.Dictionary):Bool return p_rhs.has(abstract);
+	@:op(A in B)
+	extern inline function __op_membership_in_array(p_rhs:gdnative.Array):Bool return p_rhs.has(abstract);
 	public extern overload inline function new() this = new gdnative.Rect2.Rect2_extern();
 	public extern overload inline function new(p_from:gd.Rect2) this = new gdnative.Rect2.Rect2_extern(p_from);
-	public extern overload inline function new(p_from:gd.Rect2i) this = new gdnative.Rect2.Rect2_extern(p_from);
 	public extern overload inline function new(p_position:gd.Vector2, p_size:gd.Vector2) this = new gdnative.Rect2.Rect2_extern(p_position, p_size);
 	public extern overload inline function new(p_x:Float, p_y:Float, p_width:Float, p_height:Float) this = new gdnative.Rect2.Rect2_extern(p_x, p_y, p_width, p_height);
 }
 
 @:include("godot_cpp/variant/rect2.hpp") @:native("godot::Rect2") @:structAccess extern class Rect2_extern {
 	@:overload(function(p_from:gdnative.Rect2):Void { })
-	@:overload(function(p_from:gdnative.Rect2i):Void { })
 	@:overload(function(p_position:gdnative.Vector2, p_size:gdnative.Vector2):Void { })
 	@:overload(function(p_x:Float, p_y:Float, p_width:Float, p_height:Float):Void { })
 	function new();

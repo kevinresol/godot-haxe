@@ -6,11 +6,46 @@ package gdnative;
 	@:from
 	static inline function fromWrapper(v:gd.Color):gdnative.Color return fromWrapperInternal(v);
 	@:from
-	static inline function fromWrapperInternal(v:gd.Color.Color_wrapper):gdnative.Color return untyped __cpp__('{0}.get()', @:privateAccess v.__gd);
+	static inline function fromWrapperInternal(v:gd.Color.Color_wrapper):gdnative.Color return @:privateAccess v.__gd;
 	@:to
 	inline function toWrapper():gd.Color return toWrapperInternal();
 	@:to
 	inline function toWrapperInternal():gd.Color.Color_wrapper return new gd.Color.Color_wrapper(this);
+	@:to
+	inline function toVariant():gdnative.Variant return new gdnative.Variant.Variant_extern(abstract);
+	inline function val():Color_extern return untyped __cpp__('{0}.value', abstract);
+	@:op(A == B)
+	extern inline function __op_equal_to_variant(p_rhs:gdnative.Variant):Bool return untyped __cpp__('{0} == {1}', val(), @:privateAccess p_rhs.val());
+	@:op(A != B)
+	extern inline function __op_not_equal_variant(p_rhs:gdnative.Variant):Bool return untyped __cpp__('{0} != {1}', val(), @:privateAccess p_rhs.val());
+	@:op(-A)
+	extern inline function __op_unary_minus():gdnative.Color return untyped __cpp__('-{0}', val());
+	@:op(A * B)
+	extern inline function __op_multiply_int(p_rhs:Int):gdnative.Color return untyped __cpp__('{0} * {1}', val(), p_rhs);
+	@:op(A / B)
+	extern inline function __op_divide_int(p_rhs:Int):gdnative.Color return untyped __cpp__('{0} * (1.0 / {1})', val(), p_rhs);
+	@:op(A * B)
+	extern inline function __op_multiply_float(p_rhs:Float):gdnative.Color return untyped __cpp__('{0} * {1}', val(), p_rhs);
+	@:op(A / B)
+	extern inline function __op_divide_float(p_rhs:Float):gdnative.Color return untyped __cpp__('{0} * (1.0 / {1})', val(), p_rhs);
+	@:op(A == B)
+	extern inline function __op_equal_to_color(p_rhs:gdnative.Color):Bool return untyped __cpp__('{0} == {1}', val(), @:privateAccess p_rhs.val());
+	@:op(A != B)
+	extern inline function __op_not_equal_color(p_rhs:gdnative.Color):Bool return untyped __cpp__('{0} != {1}', val(), @:privateAccess p_rhs.val());
+	@:op(A + B)
+	extern inline function __op_add_color(p_rhs:gdnative.Color):gdnative.Color return untyped __cpp__('{0} + {1}', val(), @:privateAccess p_rhs.val());
+	@:op(A - B)
+	extern inline function __op_subtract_color(p_rhs:gdnative.Color):gdnative.Color return untyped __cpp__('{0} - {1}', val(), @:privateAccess p_rhs.val());
+	@:op(A * B)
+	extern inline function __op_multiply_color(p_rhs:gdnative.Color):gdnative.Color return untyped __cpp__('{0} * {1}', val(), @:privateAccess p_rhs.val());
+	@:op(A / B)
+	extern inline function __op_divide_color(p_rhs:gdnative.Color):gdnative.Color return untyped __cpp__('{0} / {1}', val(), @:privateAccess p_rhs.val());
+	@:op(A in B)
+	extern inline function __op_membership_in_dictionary(p_rhs:gdnative.Dictionary):Bool return p_rhs.has(abstract);
+	@:op(A in B)
+	extern inline function __op_membership_in_array(p_rhs:gdnative.Array):Bool return p_rhs.has(abstract);
+	@:op(A in B)
+	extern inline function __op_membership_in_packedcolorarray(p_rhs:gdnative.PackedColorArray):Bool return p_rhs.has(abstract);
 	public extern overload inline function new() this = new gdnative.Color.Color_extern();
 	public extern overload inline function new(p_from:gd.Color) this = new gdnative.Color.Color_extern(p_from);
 	public extern overload inline function new(p_from:gd.Color, p_alpha:Float) this = new gdnative.Color.Color_extern(p_from, p_alpha);

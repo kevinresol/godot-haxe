@@ -3,7 +3,6 @@ class Sprite2D extends gd.Node2D {
 	public function new(?native:cpp.Pointer<gdnative.Sprite2D.Sprite2D_extern>) {
 		if (native == null) {
 			gd.Utils.checkAndWarnForMissingOwner(this, "Sprite2D");
-			trace("Allocating Sprite2D");
 			native = gdnative.Sprite2D.Sprite2D_extern.__alloc();
 		};
 		super(native.reinterpret());

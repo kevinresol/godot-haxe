@@ -3,7 +3,6 @@ class PackedScene extends gd.Resource {
 	public function new(?native:cpp.Pointer<gdnative.PackedScene.PackedScene_extern>) {
 		if (native == null) {
 			gd.Utils.checkAndWarnForMissingOwner(this, "PackedScene");
-			trace("Allocating PackedScene");
 			native = gdnative.PackedScene.PackedScene_extern.__alloc();
 		};
 		super(native.reinterpret());

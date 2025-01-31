@@ -65,10 +65,31 @@ class PackedByteArray_wrapper {
 	public function encode_float(p_byte_offset:Int, p_value:Float):Void return __gd.encode_float(p_byte_offset, p_value);
 	public function encode_double(p_byte_offset:Int, p_value:Float):Void return __gd.encode_double(p_byte_offset, p_value);
 	public function encode_var(p_byte_offset:Int, p_value:gd.Variant, ?p_allow_objects:Bool):Int return __gd.encode_var(p_byte_offset, p_value, p_allow_objects);
+	function __op_equal_to_variant(p_rhs:gd.Variant):Bool return this.__gd == ((p_rhs : gdnative.Variant));
+	function __op_not_equal_variant(p_rhs:gd.Variant):Bool return this.__gd != ((p_rhs : gdnative.Variant));
+	function __op_membership_in_dictionary(p_rhs:gd.Dictionary):Bool return this.__gd in ((p_rhs : gdnative.Dictionary));
+	function __op_membership_in_array(p_rhs:gd.Array):Bool return this.__gd in ((p_rhs : gdnative.Array));
+	function __op_equal_to_packedbytearray(p_rhs:gd.PackedByteArray):Bool return this.__gd == ((p_rhs : gdnative.PackedByteArray));
+	function __op_not_equal_packedbytearray(p_rhs:gd.PackedByteArray):Bool return this.__gd != ((p_rhs : gdnative.PackedByteArray));
+	function __op_add_packedbytearray(p_rhs:gd.PackedByteArray):gd.PackedByteArray return this.__gd + ((p_rhs : gdnative.PackedByteArray));
 }
 
 @:forward @:forwardStatics abstract PackedByteArray(PackedByteArray_wrapper) from PackedByteArray_wrapper to PackedByteArray_wrapper {
 	public extern overload inline function new() this = @:privateAccess PackedByteArray_wrapper._new0();
 	public extern overload inline function new(p_from:gd.PackedByteArray) this = @:privateAccess PackedByteArray_wrapper._new1(p_from);
 	public extern overload inline function new(p_from:gd.Array) this = @:privateAccess PackedByteArray_wrapper._new2(p_from);
+	@:op(A == B)
+	inline function __op_equal_to_variant(p_rhs:gd.Variant):Bool return @:privateAccess this.__op_equal_to_variant(p_rhs);
+	@:op(A != B)
+	inline function __op_not_equal_variant(p_rhs:gd.Variant):Bool return @:privateAccess this.__op_not_equal_variant(p_rhs);
+	@:op(A in B)
+	inline function __op_membership_in_dictionary(p_rhs:gd.Dictionary):Bool return @:privateAccess this.__op_membership_in_dictionary(p_rhs);
+	@:op(A in B)
+	inline function __op_membership_in_array(p_rhs:gd.Array):Bool return @:privateAccess this.__op_membership_in_array(p_rhs);
+	@:op(A == B)
+	inline function __op_equal_to_packedbytearray(p_rhs:gd.PackedByteArray):Bool return @:privateAccess this.__op_equal_to_packedbytearray(p_rhs);
+	@:op(A != B)
+	inline function __op_not_equal_packedbytearray(p_rhs:gd.PackedByteArray):Bool return @:privateAccess this.__op_not_equal_packedbytearray(p_rhs);
+	@:op(A + B)
+	inline function __op_add_packedbytearray(p_rhs:gd.PackedByteArray):gd.PackedByteArray return @:privateAccess this.__op_add_packedbytearray(p_rhs);
 }

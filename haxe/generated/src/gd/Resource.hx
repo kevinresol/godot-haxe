@@ -3,7 +3,6 @@ class Resource extends gd.RefCounted {
 	public function new(?native:cpp.Pointer<gdnative.Resource.Resource_extern>) {
 		if (native == null) {
 			gd.Utils.checkAndWarnForMissingOwner(this, "Resource");
-			trace("Allocating Resource");
 			native = gdnative.Resource.Resource_extern.__alloc();
 		};
 		super(native.reinterpret());

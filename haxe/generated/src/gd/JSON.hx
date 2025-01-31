@@ -3,7 +3,6 @@ class JSON extends gd.Resource {
 	public function new(?native:cpp.Pointer<gdnative.JSON.JSON_extern>) {
 		if (native == null) {
 			gd.Utils.checkAndWarnForMissingOwner(this, "JSON");
-			trace("Allocating JSON");
 			native = gdnative.JSON.JSON_extern.__alloc();
 		};
 		super(native.reinterpret());

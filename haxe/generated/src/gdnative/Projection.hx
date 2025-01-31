@@ -6,11 +6,28 @@ package gdnative;
 	@:from
 	static inline function fromWrapper(v:gd.Projection):gdnative.Projection return fromWrapperInternal(v);
 	@:from
-	static inline function fromWrapperInternal(v:gd.Projection.Projection_wrapper):gdnative.Projection return untyped __cpp__('{0}.get()', @:privateAccess v.__gd);
+	static inline function fromWrapperInternal(v:gd.Projection.Projection_wrapper):gdnative.Projection return @:privateAccess v.__gd;
 	@:to
 	inline function toWrapper():gd.Projection return toWrapperInternal();
 	@:to
 	inline function toWrapperInternal():gd.Projection.Projection_wrapper return new gd.Projection.Projection_wrapper(this);
+	@:to
+	inline function toVariant():gdnative.Variant return new gdnative.Variant.Variant_extern(abstract);
+	inline function val():Projection_extern return untyped __cpp__('{0}.value', abstract);
+	@:op(A == B)
+	extern inline function __op_equal_to_variant(p_rhs:gdnative.Variant):Bool return untyped __cpp__('{0} == {1}', val(), @:privateAccess p_rhs.val());
+	@:op(A != B)
+	extern inline function __op_not_equal_variant(p_rhs:gdnative.Variant):Bool return untyped __cpp__('{0} != {1}', val(), @:privateAccess p_rhs.val());
+	@:op(A == B)
+	extern inline function __op_equal_to_projection(p_rhs:gdnative.Projection):Bool return untyped __cpp__('{0} == {1}', val(), @:privateAccess p_rhs.val());
+	@:op(A != B)
+	extern inline function __op_not_equal_projection(p_rhs:gdnative.Projection):Bool return untyped __cpp__('{0} != {1}', val(), @:privateAccess p_rhs.val());
+	@:op(A * B)
+	extern inline function __op_multiply_projection(p_rhs:gdnative.Projection):gdnative.Projection return untyped __cpp__('{0} * {1}', val(), @:privateAccess p_rhs.val());
+	@:op(A in B)
+	extern inline function __op_membership_in_dictionary(p_rhs:gdnative.Dictionary):Bool return p_rhs.has(abstract);
+	@:op(A in B)
+	extern inline function __op_membership_in_array(p_rhs:gdnative.Array):Bool return p_rhs.has(abstract);
 	public extern overload inline function new() this = new gdnative.Projection.Projection_extern();
 	public extern overload inline function new(p_from:gd.Projection) this = new gdnative.Projection.Projection_extern(p_from);
 	public extern overload inline function new(p_from:gd.Transform3D) this = new gdnative.Projection.Projection_extern(p_from);

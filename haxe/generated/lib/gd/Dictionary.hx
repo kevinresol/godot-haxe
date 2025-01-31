@@ -36,10 +36,28 @@ extern class Dictionary_wrapper {
 	function make_read_only():Void;
 	function is_read_only():Bool;
 	function recursive_equal(p_dictionary:gd.Dictionary, p_recursion_count:Int):Bool;
+	function __op_equal_to_variant(p_rhs:gd.Variant):Bool;
+	function __op_not_equal_variant(p_rhs:gd.Variant):Bool;
+	function __op_equal_to_dictionary(p_rhs:gd.Dictionary):Bool;
+	function __op_not_equal_dictionary(p_rhs:gd.Dictionary):Bool;
+	function __op_membership_in_dictionary(p_rhs:gd.Dictionary):Bool;
+	function __op_membership_in_array(p_rhs:gd.Array):Bool;
 }
 
 @:forward @:forwardStatics abstract Dictionary(Dictionary_wrapper) from Dictionary_wrapper to Dictionary_wrapper {
 	public extern overload inline function new() this = Dictionary_wrapper._new0();
 	public extern overload inline function new(p_from:gd.Dictionary) this = Dictionary_wrapper._new1(p_from);
 	public extern overload inline function new(p_base:gd.Dictionary, p_key_type:Int, p_key_class_name:std.String, p_key_script:gd.Variant, p_value_type:Int, p_value_class_name:std.String, p_value_script:gd.Variant) this = Dictionary_wrapper._new2(p_base, p_key_type, p_key_class_name, p_key_script, p_value_type, p_value_class_name, p_value_script);
+	@:op(A == B)
+	inline function __op_equal_to_variant(p_rhs:gd.Variant):Bool return @:privateAccess this.__op_equal_to_variant(p_rhs);
+	@:op(A != B)
+	inline function __op_not_equal_variant(p_rhs:gd.Variant):Bool return @:privateAccess this.__op_not_equal_variant(p_rhs);
+	@:op(A == B)
+	inline function __op_equal_to_dictionary(p_rhs:gd.Dictionary):Bool return @:privateAccess this.__op_equal_to_dictionary(p_rhs);
+	@:op(A != B)
+	inline function __op_not_equal_dictionary(p_rhs:gd.Dictionary):Bool return @:privateAccess this.__op_not_equal_dictionary(p_rhs);
+	@:op(A in B)
+	inline function __op_membership_in_dictionary(p_rhs:gd.Dictionary):Bool return @:privateAccess this.__op_membership_in_dictionary(p_rhs);
+	@:op(A in B)
+	inline function __op_membership_in_array(p_rhs:gd.Array):Bool return @:privateAccess this.__op_membership_in_array(p_rhs);
 }

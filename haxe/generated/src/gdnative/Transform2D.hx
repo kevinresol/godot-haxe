@@ -6,11 +6,36 @@ package gdnative;
 	@:from
 	static inline function fromWrapper(v:gd.Transform2D):gdnative.Transform2D return fromWrapperInternal(v);
 	@:from
-	static inline function fromWrapperInternal(v:gd.Transform2D.Transform2D_wrapper):gdnative.Transform2D return untyped __cpp__('{0}.get()', @:privateAccess v.__gd);
+	static inline function fromWrapperInternal(v:gd.Transform2D.Transform2D_wrapper):gdnative.Transform2D return @:privateAccess v.__gd;
 	@:to
 	inline function toWrapper():gd.Transform2D return toWrapperInternal();
 	@:to
 	inline function toWrapperInternal():gd.Transform2D.Transform2D_wrapper return new gd.Transform2D.Transform2D_wrapper(this);
+	@:to
+	inline function toVariant():gdnative.Variant return new gdnative.Variant.Variant_extern(abstract);
+	inline function val():Transform2D_extern return untyped __cpp__('{0}.value', abstract);
+	@:op(A == B)
+	extern inline function __op_equal_to_variant(p_rhs:gdnative.Variant):Bool return untyped __cpp__('{0} == {1}', val(), @:privateAccess p_rhs.val());
+	@:op(A != B)
+	extern inline function __op_not_equal_variant(p_rhs:gdnative.Variant):Bool return untyped __cpp__('{0} != {1}', val(), @:privateAccess p_rhs.val());
+	@:op(A * B)
+	extern inline function __op_multiply_int(p_rhs:Int):gdnative.Transform2D return untyped __cpp__('{0} * {1}', val(), p_rhs);
+	@:op(A / B)
+	extern inline function __op_divide_int(p_rhs:Int):gdnative.Transform2D return untyped __cpp__('{0} * (1.0 / {1})', val(), p_rhs);
+	@:op(A * B)
+	extern inline function __op_multiply_float(p_rhs:Float):gdnative.Transform2D return untyped __cpp__('{0} * {1}', val(), p_rhs);
+	@:op(A / B)
+	extern inline function __op_divide_float(p_rhs:Float):gdnative.Transform2D return untyped __cpp__('{0} * (1.0 / {1})', val(), p_rhs);
+	@:op(A == B)
+	extern inline function __op_equal_to_transform2d(p_rhs:gdnative.Transform2D):Bool return untyped __cpp__('{0} == {1}', val(), @:privateAccess p_rhs.val());
+	@:op(A != B)
+	extern inline function __op_not_equal_transform2d(p_rhs:gdnative.Transform2D):Bool return untyped __cpp__('{0} != {1}', val(), @:privateAccess p_rhs.val());
+	@:op(A * B)
+	extern inline function __op_multiply_transform2d(p_rhs:gdnative.Transform2D):gdnative.Transform2D return untyped __cpp__('{0} * {1}', val(), @:privateAccess p_rhs.val());
+	@:op(A in B)
+	extern inline function __op_membership_in_dictionary(p_rhs:gdnative.Dictionary):Bool return p_rhs.has(abstract);
+	@:op(A in B)
+	extern inline function __op_membership_in_array(p_rhs:gdnative.Array):Bool return p_rhs.has(abstract);
 	public extern overload inline function new() this = new gdnative.Transform2D.Transform2D_extern();
 	public extern overload inline function new(p_from:gd.Transform2D) this = new gdnative.Transform2D.Transform2D_extern(p_from);
 	public extern overload inline function new(p_rotation:Float, p_position:gd.Vector2) this = new gdnative.Transform2D.Transform2D_extern(p_rotation, p_position);

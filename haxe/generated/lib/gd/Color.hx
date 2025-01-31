@@ -42,6 +42,23 @@ extern class Color_wrapper {
 	var h(get, set) : Float;
 	var s(get, set) : Float;
 	var v(get, set) : Float;
+	function __op_equal_to_variant(p_rhs:gd.Variant):Bool;
+	function __op_not_equal_variant(p_rhs:gd.Variant):Bool;
+	function __op_unary_minus():gd.Color;
+	function __op_unary_plus():gd.Color;
+	function __op_multiply_int(p_rhs:Int):gd.Color;
+	function __op_divide_int(p_rhs:Int):gd.Color;
+	function __op_multiply_float(p_rhs:Float):gd.Color;
+	function __op_divide_float(p_rhs:Float):gd.Color;
+	function __op_equal_to_color(p_rhs:gd.Color):Bool;
+	function __op_not_equal_color(p_rhs:gd.Color):Bool;
+	function __op_add_color(p_rhs:gd.Color):gd.Color;
+	function __op_subtract_color(p_rhs:gd.Color):gd.Color;
+	function __op_multiply_color(p_rhs:gd.Color):gd.Color;
+	function __op_divide_color(p_rhs:gd.Color):gd.Color;
+	function __op_membership_in_dictionary(p_rhs:gd.Dictionary):Bool;
+	function __op_membership_in_array(p_rhs:gd.Array):Bool;
+	function __op_membership_in_packedcolorarray(p_rhs:gd.PackedColorArray):Bool;
 	public static final ALICE_BLUE : gd.Color;
 	public static final ANTIQUE_WHITE : gd.Color;
 	public static final AQUA : gd.Color;
@@ -198,4 +215,36 @@ extern class Color_wrapper {
 	public extern overload inline function new(p_r:Float, p_g:Float, p_b:Float, p_a:Float) this = Color_wrapper._new4(p_r, p_g, p_b, p_a);
 	public extern overload inline function new(p_code:std.String) this = Color_wrapper._new5(p_code);
 	public extern overload inline function new(p_code:std.String, p_alpha:Float) this = Color_wrapper._new6(p_code, p_alpha);
+	@:op(A == B)
+	inline function __op_equal_to_variant(p_rhs:gd.Variant):Bool return @:privateAccess this.__op_equal_to_variant(p_rhs);
+	@:op(A != B)
+	inline function __op_not_equal_variant(p_rhs:gd.Variant):Bool return @:privateAccess this.__op_not_equal_variant(p_rhs);
+	@:op(-A)
+	inline function __op_unary_minus():gd.Color return @:privateAccess this.__op_unary_minus();
+	@:op(A * B)
+	inline function __op_multiply_int(p_rhs:Int):gd.Color return @:privateAccess this.__op_multiply_int(p_rhs);
+	@:op(A / B)
+	inline function __op_divide_int(p_rhs:Int):gd.Color return @:privateAccess this.__op_divide_int(p_rhs);
+	@:op(A * B)
+	inline function __op_multiply_float(p_rhs:Float):gd.Color return @:privateAccess this.__op_multiply_float(p_rhs);
+	@:op(A / B)
+	inline function __op_divide_float(p_rhs:Float):gd.Color return @:privateAccess this.__op_divide_float(p_rhs);
+	@:op(A == B)
+	inline function __op_equal_to_color(p_rhs:gd.Color):Bool return @:privateAccess this.__op_equal_to_color(p_rhs);
+	@:op(A != B)
+	inline function __op_not_equal_color(p_rhs:gd.Color):Bool return @:privateAccess this.__op_not_equal_color(p_rhs);
+	@:op(A + B)
+	inline function __op_add_color(p_rhs:gd.Color):gd.Color return @:privateAccess this.__op_add_color(p_rhs);
+	@:op(A - B)
+	inline function __op_subtract_color(p_rhs:gd.Color):gd.Color return @:privateAccess this.__op_subtract_color(p_rhs);
+	@:op(A * B)
+	inline function __op_multiply_color(p_rhs:gd.Color):gd.Color return @:privateAccess this.__op_multiply_color(p_rhs);
+	@:op(A / B)
+	inline function __op_divide_color(p_rhs:gd.Color):gd.Color return @:privateAccess this.__op_divide_color(p_rhs);
+	@:op(A in B)
+	inline function __op_membership_in_dictionary(p_rhs:gd.Dictionary):Bool return @:privateAccess this.__op_membership_in_dictionary(p_rhs);
+	@:op(A in B)
+	inline function __op_membership_in_array(p_rhs:gd.Array):Bool return @:privateAccess this.__op_membership_in_array(p_rhs);
+	@:op(A in B)
+	inline function __op_membership_in_packedcolorarray(p_rhs:gd.PackedColorArray):Bool return @:privateAccess this.__op_membership_in_packedcolorarray(p_rhs);
 }

@@ -70,6 +70,24 @@ class Cppia {
 		UtilityFunctions.print(gd.variant.Type.INT);
 		UtilityFunctions.print(gd.variant.Type.FLOAT);
 
+		trace('Operator checks (host)');
+		UtilityFunctions.print(new gd.Vector2(42, 0) + new gd.Vector2(3, 4));
+		UtilityFunctions.print(new gd.Vector2(42, 0) * 2);
+
+		trace('JSON checks (host)');
+		final json = new gd.JSON();
+		switch json.parse('{"foo": 42, "bar": true, "baz": ["hello", "world"]}') {
+			case OK:
+				final data = json.data;
+				UtilityFunctions.print(data, ":", UtilityFunctions.type_string(UtilityFunctions.typeof(data)));
+				UtilityFunctions.print(data["foo"], ":", UtilityFunctions.type_string(UtilityFunctions.typeof(data["foo"])));
+				UtilityFunctions.print(data["bar"], ":", UtilityFunctions.type_string(UtilityFunctions.typeof(data["bar"])));
+				UtilityFunctions.print(data["baz"], ":", UtilityFunctions.type_string(UtilityFunctions.typeof(data["baz"])));
+				UtilityFunctions.print(data["baz"][0], ":", UtilityFunctions.type_string(UtilityFunctions.typeof(data["baz"][0])));
+			case err:
+				trace('Error parsing JSON: $err');
+		}
+
 		final x = new gd.Node2D();
 		UtilityFunctions.print(x);
 		x.free();
@@ -77,20 +95,6 @@ class Cppia {
 		trace(gdnative.Error.OK);
 
 		UtilityFunctions.print(gd.ResourceLoader.singleton.load('res://sub.tscn'));
-
-		trace('JSON checks (host)');
-		final json = new gd.JSON();
-		switch json.parse('{"foo": 42, "bar": true, "baz": ["hello", "world"]}') {
-			case OK:
-				final data = json.data;
-				UtilityFunctions.print(data, UtilityFunctions.type_string(UtilityFunctions.typeof(data)));
-				UtilityFunctions.print(data["foo"], UtilityFunctions.type_string(UtilityFunctions.typeof(data["foo"])));
-				UtilityFunctions.print(data["bar"], UtilityFunctions.type_string(UtilityFunctions.typeof(data["bar"])));
-				UtilityFunctions.print(data["baz"], UtilityFunctions.type_string(UtilityFunctions.typeof(data["baz"])));
-				UtilityFunctions.print(data["baz"][0], UtilityFunctions.type_string(UtilityFunctions.typeof(data["baz"][0])));
-			case err:
-				trace('Error parsing JSON: $err');
-		}
 	}
 
 	static var module:Module;

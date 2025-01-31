@@ -4,9 +4,8 @@ class Rect2_wrapper {
 	public function new(value:gdnative.Rect2) __gd = value;
 	static function _new0():Rect2_wrapper return new Rect2_wrapper(new gdnative.Rect2());
 	static function _new1(p_from:gd.Rect2):Rect2_wrapper return new Rect2_wrapper(new gdnative.Rect2(p_from));
-	static function _new2(p_from:gd.Rect2i):Rect2_wrapper return new Rect2_wrapper(new gdnative.Rect2(p_from));
-	static function _new3(p_position:gd.Vector2, p_size:gd.Vector2):Rect2_wrapper return new Rect2_wrapper(new gdnative.Rect2(p_position, p_size));
-	static function _new4(p_x:Float, p_y:Float, p_width:Float, p_height:Float):Rect2_wrapper return new Rect2_wrapper(new gdnative.Rect2(p_x, p_y, p_width, p_height));
+	static function _new2(p_position:gd.Vector2, p_size:gd.Vector2):Rect2_wrapper return new Rect2_wrapper(new gdnative.Rect2(p_position, p_size));
+	static function _new3(p_x:Float, p_y:Float, p_width:Float, p_height:Float):Rect2_wrapper return new Rect2_wrapper(new gdnative.Rect2(p_x, p_y, p_width, p_height));
 	public function get_center():gd.Vector2 return __gd.get_center();
 	public function get_area():Float return __gd.get_area();
 	public function has_area():Bool return __gd.has_area();
@@ -35,12 +34,29 @@ class Rect2_wrapper {
 		__gd.size = v;
 		v;
 	};
+	function __op_equal_to_variant(p_rhs:gd.Variant):Bool return this.__gd == ((p_rhs : gdnative.Variant));
+	function __op_not_equal_variant(p_rhs:gd.Variant):Bool return this.__gd != ((p_rhs : gdnative.Variant));
+	function __op_equal_to_rect2(p_rhs:gd.Rect2):Bool return this.__gd == ((p_rhs : gdnative.Rect2));
+	function __op_not_equal_rect2(p_rhs:gd.Rect2):Bool return this.__gd != ((p_rhs : gdnative.Rect2));
+	function __op_membership_in_dictionary(p_rhs:gd.Dictionary):Bool return this.__gd in ((p_rhs : gdnative.Dictionary));
+	function __op_membership_in_array(p_rhs:gd.Array):Bool return this.__gd in ((p_rhs : gdnative.Array));
 }
 
 @:forward @:forwardStatics abstract Rect2(Rect2_wrapper) from Rect2_wrapper to Rect2_wrapper {
 	public extern overload inline function new() this = @:privateAccess Rect2_wrapper._new0();
 	public extern overload inline function new(p_from:gd.Rect2) this = @:privateAccess Rect2_wrapper._new1(p_from);
-	public extern overload inline function new(p_from:gd.Rect2i) this = @:privateAccess Rect2_wrapper._new2(p_from);
-	public extern overload inline function new(p_position:gd.Vector2, p_size:gd.Vector2) this = @:privateAccess Rect2_wrapper._new3(p_position, p_size);
-	public extern overload inline function new(p_x:Float, p_y:Float, p_width:Float, p_height:Float) this = @:privateAccess Rect2_wrapper._new4(p_x, p_y, p_width, p_height);
+	public extern overload inline function new(p_position:gd.Vector2, p_size:gd.Vector2) this = @:privateAccess Rect2_wrapper._new2(p_position, p_size);
+	public extern overload inline function new(p_x:Float, p_y:Float, p_width:Float, p_height:Float) this = @:privateAccess Rect2_wrapper._new3(p_x, p_y, p_width, p_height);
+	@:op(A == B)
+	inline function __op_equal_to_variant(p_rhs:gd.Variant):Bool return @:privateAccess this.__op_equal_to_variant(p_rhs);
+	@:op(A != B)
+	inline function __op_not_equal_variant(p_rhs:gd.Variant):Bool return @:privateAccess this.__op_not_equal_variant(p_rhs);
+	@:op(A == B)
+	inline function __op_equal_to_rect2(p_rhs:gd.Rect2):Bool return @:privateAccess this.__op_equal_to_rect2(p_rhs);
+	@:op(A != B)
+	inline function __op_not_equal_rect2(p_rhs:gd.Rect2):Bool return @:privateAccess this.__op_not_equal_rect2(p_rhs);
+	@:op(A in B)
+	inline function __op_membership_in_dictionary(p_rhs:gd.Dictionary):Bool return @:privateAccess this.__op_membership_in_dictionary(p_rhs);
+	@:op(A in B)
+	inline function __op_membership_in_array(p_rhs:gd.Array):Bool return @:privateAccess this.__op_membership_in_array(p_rhs);
 }

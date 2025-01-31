@@ -78,7 +78,7 @@ typedef BuiltinClass = {
 }
 
 typedef Operator = {
-	name:String,
+	name:OperatorName,
 	?right_type:String,
 	return_type:String,
 }
@@ -187,4 +187,32 @@ typedef Singleton = {
 typedef NativeStructure = {
 	name:String,
 	format:String,
+}
+
+enum abstract OperatorName(String) to String {
+	final ADD = '+';
+	final BITWISE_AND = '&';
+	final BITWISE_LSHIFT = '<<';
+	final BITWISE_NOT = '~';
+	final BITWISE_OR = '|';
+	final BITWISE_RSHIFT = '>>';
+	final BITWISE_XOR = 'xor';
+	final BITWISE_XOR2 = '^';
+	final DIVIDE = '/';
+	final EQUAL_TO = '==';
+	final GREATER_EQUAL = '>=';
+	final GREATER_THAN = '>';
+	final LESS_EQUAL = '<=';
+	final LESS_THAN = '<';
+	final LOGICAL_AND = 'and';
+	final LOGICAL_NOT = 'not';
+	final LOGICAL_OR = 'or';
+	final MEMBERSHIP_IN = 'in';
+	final MODULUS = '%';
+	final MULTIPLY = '*';
+	final NOT_EQUAL = '!=';
+	final POWER = '**';
+	final SUBTRACT = '-';
+	final UNARY_MINUS = 'unary-';
+	final UNARY_PLUS = 'unary+';
 }

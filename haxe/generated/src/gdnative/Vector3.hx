@@ -6,20 +6,61 @@ package gdnative;
 	@:from
 	static inline function fromWrapper(v:gd.Vector3):gdnative.Vector3 return fromWrapperInternal(v);
 	@:from
-	static inline function fromWrapperInternal(v:gd.Vector3.Vector3_wrapper):gdnative.Vector3 return untyped __cpp__('{0}.get()', @:privateAccess v.__gd);
+	static inline function fromWrapperInternal(v:gd.Vector3.Vector3_wrapper):gdnative.Vector3 return @:privateAccess v.__gd;
 	@:to
 	inline function toWrapper():gd.Vector3 return toWrapperInternal();
 	@:to
 	inline function toWrapperInternal():gd.Vector3.Vector3_wrapper return new gd.Vector3.Vector3_wrapper(this);
+	@:to
+	inline function toVariant():gdnative.Variant return new gdnative.Variant.Variant_extern(abstract);
+	inline function val():Vector3_extern return untyped __cpp__('{0}.value', abstract);
+	@:op(A == B)
+	extern inline function __op_equal_to_variant(p_rhs:gdnative.Variant):Bool return untyped __cpp__('{0} == {1}', val(), @:privateAccess p_rhs.val());
+	@:op(A != B)
+	extern inline function __op_not_equal_variant(p_rhs:gdnative.Variant):Bool return untyped __cpp__('{0} != {1}', val(), @:privateAccess p_rhs.val());
+	@:op(-A)
+	extern inline function __op_unary_minus():gdnative.Vector3 return untyped __cpp__('-{0}', val());
+	@:op(A * B)
+	extern inline function __op_multiply_int(p_rhs:Int):gdnative.Vector3 return untyped __cpp__('{0} * {1}', val(), p_rhs);
+	@:op(A / B)
+	extern inline function __op_divide_int(p_rhs:Int):gdnative.Vector3 return untyped __cpp__('{0} * (1.0 / {1})', val(), p_rhs);
+	@:op(A * B)
+	extern inline function __op_multiply_float(p_rhs:Float):gdnative.Vector3 return untyped __cpp__('{0} * {1}', val(), p_rhs);
+	@:op(A / B)
+	extern inline function __op_divide_float(p_rhs:Float):gdnative.Vector3 return untyped __cpp__('{0} * (1.0 / {1})', val(), p_rhs);
+	@:op(A == B)
+	extern inline function __op_equal_to_vector3(p_rhs:gdnative.Vector3):Bool return untyped __cpp__('{0} == {1}', val(), @:privateAccess p_rhs.val());
+	@:op(A != B)
+	extern inline function __op_not_equal_vector3(p_rhs:gdnative.Vector3):Bool return untyped __cpp__('{0} != {1}', val(), @:privateAccess p_rhs.val());
+	@:op(A < B)
+	extern inline function __op_less_than_vector3(p_rhs:gdnative.Vector3):Bool return untyped __cpp__('{0} < {1}', val(), @:privateAccess p_rhs.val());
+	@:op(A <= B)
+	extern inline function __op_less_equal_vector3(p_rhs:gdnative.Vector3):Bool return untyped __cpp__('{0} <= {1}', val(), @:privateAccess p_rhs.val());
+	@:op(A > B)
+	extern inline function __op_greater_than_vector3(p_rhs:gdnative.Vector3):Bool return untyped __cpp__('{0} > {1}', val(), @:privateAccess p_rhs.val());
+	@:op(A >= B)
+	extern inline function __op_greater_equal_vector3(p_rhs:gdnative.Vector3):Bool return untyped __cpp__('{0} >= {1}', val(), @:privateAccess p_rhs.val());
+	@:op(A + B)
+	extern inline function __op_add_vector3(p_rhs:gdnative.Vector3):gdnative.Vector3 return untyped __cpp__('{0} + {1}', val(), @:privateAccess p_rhs.val());
+	@:op(A - B)
+	extern inline function __op_subtract_vector3(p_rhs:gdnative.Vector3):gdnative.Vector3 return untyped __cpp__('{0} - {1}', val(), @:privateAccess p_rhs.val());
+	@:op(A * B)
+	extern inline function __op_multiply_vector3(p_rhs:gdnative.Vector3):gdnative.Vector3 return untyped __cpp__('{0} * {1}', val(), @:privateAccess p_rhs.val());
+	@:op(A / B)
+	extern inline function __op_divide_vector3(p_rhs:gdnative.Vector3):gdnative.Vector3 return untyped __cpp__('{0} / {1}', val(), @:privateAccess p_rhs.val());
+	@:op(A in B)
+	extern inline function __op_membership_in_dictionary(p_rhs:gdnative.Dictionary):Bool return p_rhs.has(abstract);
+	@:op(A in B)
+	extern inline function __op_membership_in_array(p_rhs:gdnative.Array):Bool return p_rhs.has(abstract);
+	@:op(A in B)
+	extern inline function __op_membership_in_packedvector3array(p_rhs:gdnative.PackedVector3Array):Bool return p_rhs.has(abstract);
 	public extern overload inline function new() this = new gdnative.Vector3.Vector3_extern();
 	public extern overload inline function new(p_from:gd.Vector3) this = new gdnative.Vector3.Vector3_extern(p_from);
-	public extern overload inline function new(p_from:gd.Vector3i) this = new gdnative.Vector3.Vector3_extern(p_from);
 	public extern overload inline function new(p_x:Float, p_y:Float, p_z:Float) this = new gdnative.Vector3.Vector3_extern(p_x, p_y, p_z);
 }
 
 @:include("godot_cpp/variant/vector3.hpp") @:native("godot::Vector3") @:structAccess extern class Vector3_extern {
 	@:overload(function(p_from:gdnative.Vector3):Void { })
-	@:overload(function(p_from:gdnative.Vector3i):Void { })
 	@:overload(function(p_x:Float, p_y:Float, p_z:Float):Void { })
 	function new();
 	function min_axis_index():Int;

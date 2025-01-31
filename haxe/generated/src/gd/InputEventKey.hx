@@ -3,7 +3,6 @@ class InputEventKey extends gd.InputEventWithModifiers {
 	public function new(?native:cpp.Pointer<gdnative.InputEventKey.InputEventKey_extern>) {
 		if (native == null) {
 			gd.Utils.checkAndWarnForMissingOwner(this, "InputEventKey");
-			trace("Allocating InputEventKey");
 			native = gdnative.InputEventKey.InputEventKey_extern.__alloc();
 		};
 		super(native.reinterpret());

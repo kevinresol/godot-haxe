@@ -3,7 +3,6 @@ class InputEventMouseMotion extends gd.InputEventMouse {
 	public function new(?native:cpp.Pointer<gdnative.InputEventMouseMotion.InputEventMouseMotion_extern>) {
 		if (native == null) {
 			gd.Utils.checkAndWarnForMissingOwner(this, "InputEventMouseMotion");
-			trace("Allocating InputEventMouseMotion");
 			native = gdnative.InputEventMouseMotion.InputEventMouseMotion_extern.__alloc();
 		};
 		super(native.reinterpret());

@@ -26,10 +26,28 @@ class Callable_wrapper {
 	public function rpc():Void return __gd.rpc();
 	public function rpc_id(p_peer_id:Int):Void return __gd.rpc_id(p_peer_id);
 	public function bind():gd.Callable return __gd.bind();
+	function __op_equal_to_variant(p_rhs:gd.Variant):Bool return this.__gd == ((p_rhs : gdnative.Variant));
+	function __op_not_equal_variant(p_rhs:gd.Variant):Bool return this.__gd != ((p_rhs : gdnative.Variant));
+	function __op_equal_to_callable(p_rhs:gd.Callable):Bool return this.__gd == ((p_rhs : gdnative.Callable));
+	function __op_not_equal_callable(p_rhs:gd.Callable):Bool return this.__gd != ((p_rhs : gdnative.Callable));
+	function __op_membership_in_dictionary(p_rhs:gd.Dictionary):Bool return this.__gd in ((p_rhs : gdnative.Dictionary));
+	function __op_membership_in_array(p_rhs:gd.Array):Bool return this.__gd in ((p_rhs : gdnative.Array));
 }
 
 @:forward @:forwardStatics abstract Callable(Callable_wrapper) from Callable_wrapper to Callable_wrapper {
 	public extern overload inline function new() this = @:privateAccess Callable_wrapper._new0();
 	public extern overload inline function new(p_from:gd.Callable) this = @:privateAccess Callable_wrapper._new1(p_from);
 	public extern overload inline function new(p_object:gd.Object, p_method:std.String) this = @:privateAccess Callable_wrapper._new2(p_object, p_method);
+	@:op(A == B)
+	inline function __op_equal_to_variant(p_rhs:gd.Variant):Bool return @:privateAccess this.__op_equal_to_variant(p_rhs);
+	@:op(A != B)
+	inline function __op_not_equal_variant(p_rhs:gd.Variant):Bool return @:privateAccess this.__op_not_equal_variant(p_rhs);
+	@:op(A == B)
+	inline function __op_equal_to_callable(p_rhs:gd.Callable):Bool return @:privateAccess this.__op_equal_to_callable(p_rhs);
+	@:op(A != B)
+	inline function __op_not_equal_callable(p_rhs:gd.Callable):Bool return @:privateAccess this.__op_not_equal_callable(p_rhs);
+	@:op(A in B)
+	inline function __op_membership_in_dictionary(p_rhs:gd.Dictionary):Bool return @:privateAccess this.__op_membership_in_dictionary(p_rhs);
+	@:op(A in B)
+	inline function __op_membership_in_array(p_rhs:gd.Array):Bool return @:privateAccess this.__op_membership_in_array(p_rhs);
 }

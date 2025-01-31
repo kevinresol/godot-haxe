@@ -2,8 +2,7 @@ package gd;
 extern class Vector2_wrapper {
 	static function _new0():Vector2_wrapper;
 	static function _new1(p_from:gd.Vector2):Vector2_wrapper;
-	static function _new2(p_from:gd.Vector2i):Vector2_wrapper;
-	static function _new3(p_x:Float, p_y:Float):Vector2_wrapper;
+	static function _new2(p_x:Float, p_y:Float):Vector2_wrapper;
 	function angle():Float;
 	function angle_to(p_to:gd.Vector2):Float;
 	function angle_to_point(p_to:gd.Vector2):Float;
@@ -53,6 +52,27 @@ extern class Vector2_wrapper {
 	function from_angle(p_angle:Float):gd.Vector2;
 	var x(get, set) : Float;
 	var y(get, set) : Float;
+	function __op_equal_to_variant(p_rhs:gd.Variant):Bool;
+	function __op_not_equal_variant(p_rhs:gd.Variant):Bool;
+	function __op_unary_minus():gd.Vector2;
+	function __op_unary_plus():gd.Vector2;
+	function __op_multiply_int(p_rhs:Int):gd.Vector2;
+	function __op_divide_int(p_rhs:Int):gd.Vector2;
+	function __op_multiply_float(p_rhs:Float):gd.Vector2;
+	function __op_divide_float(p_rhs:Float):gd.Vector2;
+	function __op_equal_to_vector2(p_rhs:gd.Vector2):Bool;
+	function __op_not_equal_vector2(p_rhs:gd.Vector2):Bool;
+	function __op_less_than_vector2(p_rhs:gd.Vector2):Bool;
+	function __op_less_equal_vector2(p_rhs:gd.Vector2):Bool;
+	function __op_greater_than_vector2(p_rhs:gd.Vector2):Bool;
+	function __op_greater_equal_vector2(p_rhs:gd.Vector2):Bool;
+	function __op_add_vector2(p_rhs:gd.Vector2):gd.Vector2;
+	function __op_subtract_vector2(p_rhs:gd.Vector2):gd.Vector2;
+	function __op_multiply_vector2(p_rhs:gd.Vector2):gd.Vector2;
+	function __op_divide_vector2(p_rhs:gd.Vector2):gd.Vector2;
+	function __op_membership_in_dictionary(p_rhs:gd.Dictionary):Bool;
+	function __op_membership_in_array(p_rhs:gd.Array):Bool;
+	function __op_membership_in_packedvector2array(p_rhs:gd.PackedVector2Array):Bool;
 	public static final ZERO : gd.Vector2;
 	public static final ONE : gd.Vector2;
 	public static final INF : gd.Vector2;
@@ -65,6 +85,45 @@ extern class Vector2_wrapper {
 @:forward @:forwardStatics abstract Vector2(Vector2_wrapper) from Vector2_wrapper to Vector2_wrapper {
 	public extern overload inline function new() this = Vector2_wrapper._new0();
 	public extern overload inline function new(p_from:gd.Vector2) this = Vector2_wrapper._new1(p_from);
-	public extern overload inline function new(p_from:gd.Vector2i) this = Vector2_wrapper._new2(p_from);
-	public extern overload inline function new(p_x:Float, p_y:Float) this = Vector2_wrapper._new3(p_x, p_y);
+	public extern overload inline function new(p_x:Float, p_y:Float) this = Vector2_wrapper._new2(p_x, p_y);
+	@:op(A == B)
+	inline function __op_equal_to_variant(p_rhs:gd.Variant):Bool return @:privateAccess this.__op_equal_to_variant(p_rhs);
+	@:op(A != B)
+	inline function __op_not_equal_variant(p_rhs:gd.Variant):Bool return @:privateAccess this.__op_not_equal_variant(p_rhs);
+	@:op(-A)
+	inline function __op_unary_minus():gd.Vector2 return @:privateAccess this.__op_unary_minus();
+	@:op(A * B)
+	inline function __op_multiply_int(p_rhs:Int):gd.Vector2 return @:privateAccess this.__op_multiply_int(p_rhs);
+	@:op(A / B)
+	inline function __op_divide_int(p_rhs:Int):gd.Vector2 return @:privateAccess this.__op_divide_int(p_rhs);
+	@:op(A * B)
+	inline function __op_multiply_float(p_rhs:Float):gd.Vector2 return @:privateAccess this.__op_multiply_float(p_rhs);
+	@:op(A / B)
+	inline function __op_divide_float(p_rhs:Float):gd.Vector2 return @:privateAccess this.__op_divide_float(p_rhs);
+	@:op(A == B)
+	inline function __op_equal_to_vector2(p_rhs:gd.Vector2):Bool return @:privateAccess this.__op_equal_to_vector2(p_rhs);
+	@:op(A != B)
+	inline function __op_not_equal_vector2(p_rhs:gd.Vector2):Bool return @:privateAccess this.__op_not_equal_vector2(p_rhs);
+	@:op(A < B)
+	inline function __op_less_than_vector2(p_rhs:gd.Vector2):Bool return @:privateAccess this.__op_less_than_vector2(p_rhs);
+	@:op(A <= B)
+	inline function __op_less_equal_vector2(p_rhs:gd.Vector2):Bool return @:privateAccess this.__op_less_equal_vector2(p_rhs);
+	@:op(A > B)
+	inline function __op_greater_than_vector2(p_rhs:gd.Vector2):Bool return @:privateAccess this.__op_greater_than_vector2(p_rhs);
+	@:op(A >= B)
+	inline function __op_greater_equal_vector2(p_rhs:gd.Vector2):Bool return @:privateAccess this.__op_greater_equal_vector2(p_rhs);
+	@:op(A + B)
+	inline function __op_add_vector2(p_rhs:gd.Vector2):gd.Vector2 return @:privateAccess this.__op_add_vector2(p_rhs);
+	@:op(A - B)
+	inline function __op_subtract_vector2(p_rhs:gd.Vector2):gd.Vector2 return @:privateAccess this.__op_subtract_vector2(p_rhs);
+	@:op(A * B)
+	inline function __op_multiply_vector2(p_rhs:gd.Vector2):gd.Vector2 return @:privateAccess this.__op_multiply_vector2(p_rhs);
+	@:op(A / B)
+	inline function __op_divide_vector2(p_rhs:gd.Vector2):gd.Vector2 return @:privateAccess this.__op_divide_vector2(p_rhs);
+	@:op(A in B)
+	inline function __op_membership_in_dictionary(p_rhs:gd.Dictionary):Bool return @:privateAccess this.__op_membership_in_dictionary(p_rhs);
+	@:op(A in B)
+	inline function __op_membership_in_array(p_rhs:gd.Array):Bool return @:privateAccess this.__op_membership_in_array(p_rhs);
+	@:op(A in B)
+	inline function __op_membership_in_packedvector2array(p_rhs:gd.PackedVector2Array):Bool return @:privateAccess this.__op_membership_in_packedvector2array(p_rhs);
 }

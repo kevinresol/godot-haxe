@@ -198,7 +198,7 @@ class ClassBuilder extends EnumBuilder {
 				expr: isScriptExtern ? null : macro {
 					if (native == null) {
 						gd.Utils.checkAndWarnForMissingOwner(this, $v{cname});
-						trace($v{'Allocating $cname'});
+						// trace($v{'Allocating $cname'});
 						native = $p{['gdnative', cname, '${cname}_extern']}.__alloc();
 					}
 					${parent == null ? macro __gd = native : macro super(native.reinterpret())}

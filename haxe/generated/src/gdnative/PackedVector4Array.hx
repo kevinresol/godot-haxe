@@ -6,11 +6,28 @@ package gdnative;
 	@:from
 	static inline function fromWrapper(v:gd.PackedVector4Array):gdnative.PackedVector4Array return fromWrapperInternal(v);
 	@:from
-	static inline function fromWrapperInternal(v:gd.PackedVector4Array.PackedVector4Array_wrapper):gdnative.PackedVector4Array return untyped __cpp__('{0}.get()', @:privateAccess v.__gd);
+	static inline function fromWrapperInternal(v:gd.PackedVector4Array.PackedVector4Array_wrapper):gdnative.PackedVector4Array return @:privateAccess v.__gd;
 	@:to
 	inline function toWrapper():gd.PackedVector4Array return toWrapperInternal();
 	@:to
 	inline function toWrapperInternal():gd.PackedVector4Array.PackedVector4Array_wrapper return new gd.PackedVector4Array.PackedVector4Array_wrapper(this);
+	@:to
+	inline function toVariant():gdnative.Variant return new gdnative.Variant.Variant_extern(abstract);
+	inline function val():PackedVector4Array_extern return untyped __cpp__('{0}.value', abstract);
+	@:op(A == B)
+	extern inline function __op_equal_to_variant(p_rhs:gdnative.Variant):Bool return untyped __cpp__('{0} == {1}', val(), @:privateAccess p_rhs.val());
+	@:op(A != B)
+	extern inline function __op_not_equal_variant(p_rhs:gdnative.Variant):Bool return untyped __cpp__('{0} != {1}', val(), @:privateAccess p_rhs.val());
+	@:op(A in B)
+	extern inline function __op_membership_in_dictionary(p_rhs:gdnative.Dictionary):Bool return p_rhs.has(abstract);
+	@:op(A in B)
+	extern inline function __op_membership_in_array(p_rhs:gdnative.Array):Bool return p_rhs.has(abstract);
+	@:op(A == B)
+	extern inline function __op_equal_to_packedvector4array(p_rhs:gdnative.PackedVector4Array):Bool return untyped __cpp__('{0} == {1}', val(), @:privateAccess p_rhs.val());
+	@:op(A != B)
+	extern inline function __op_not_equal_packedvector4array(p_rhs:gdnative.PackedVector4Array):Bool return untyped __cpp__('{0} != {1}', val(), @:privateAccess p_rhs.val());
+	@:op(A + B)
+	extern inline function __op_add_packedvector4array(p_rhs:gdnative.PackedVector4Array):gdnative.PackedVector4Array return untyped __cpp__('{0} + {1}', val(), @:privateAccess p_rhs.val());
 	public extern overload inline function new() this = new gdnative.PackedVector4Array.PackedVector4Array_extern();
 	public extern overload inline function new(p_from:gd.PackedVector4Array) this = new gdnative.PackedVector4Array.PackedVector4Array_extern(p_from);
 	public extern overload inline function new(p_from:gd.Array) this = new gdnative.PackedVector4Array.PackedVector4Array_extern(p_from);

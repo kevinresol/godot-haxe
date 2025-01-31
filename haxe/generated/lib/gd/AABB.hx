@@ -28,10 +28,28 @@ extern class AABB_wrapper {
 	function get_endpoint(p_idx:Int):gd.Vector3;
 	var position(get, set) : gd.Vector3;
 	var size(get, set) : gd.Vector3;
+	function __op_equal_to_variant(p_rhs:gd.Variant):Bool;
+	function __op_not_equal_variant(p_rhs:gd.Variant):Bool;
+	function __op_equal_to_aabb(p_rhs:gd.AABB):Bool;
+	function __op_not_equal_aabb(p_rhs:gd.AABB):Bool;
+	function __op_membership_in_dictionary(p_rhs:gd.Dictionary):Bool;
+	function __op_membership_in_array(p_rhs:gd.Array):Bool;
 }
 
 @:forward @:forwardStatics abstract AABB(AABB_wrapper) from AABB_wrapper to AABB_wrapper {
 	public extern overload inline function new() this = AABB_wrapper._new0();
 	public extern overload inline function new(p_from:gd.AABB) this = AABB_wrapper._new1(p_from);
 	public extern overload inline function new(p_position:gd.Vector3, p_size:gd.Vector3) this = AABB_wrapper._new2(p_position, p_size);
+	@:op(A == B)
+	inline function __op_equal_to_variant(p_rhs:gd.Variant):Bool return @:privateAccess this.__op_equal_to_variant(p_rhs);
+	@:op(A != B)
+	inline function __op_not_equal_variant(p_rhs:gd.Variant):Bool return @:privateAccess this.__op_not_equal_variant(p_rhs);
+	@:op(A == B)
+	inline function __op_equal_to_aabb(p_rhs:gd.AABB):Bool return @:privateAccess this.__op_equal_to_aabb(p_rhs);
+	@:op(A != B)
+	inline function __op_not_equal_aabb(p_rhs:gd.AABB):Bool return @:privateAccess this.__op_not_equal_aabb(p_rhs);
+	@:op(A in B)
+	inline function __op_membership_in_dictionary(p_rhs:gd.Dictionary):Bool return @:privateAccess this.__op_membership_in_dictionary(p_rhs);
+	@:op(A in B)
+	inline function __op_membership_in_array(p_rhs:gd.Array):Bool return @:privateAccess this.__op_membership_in_array(p_rhs);
 }

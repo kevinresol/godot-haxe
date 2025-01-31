@@ -3,7 +3,6 @@ class ClassDB extends gd.Object {
 	public function new(?native:cpp.Pointer<gdnative.ClassDB.ClassDB_extern>) {
 		if (native == null) {
 			gd.Utils.checkAndWarnForMissingOwner(this, "ClassDB");
-			trace("Allocating ClassDB");
 			native = gdnative.ClassDB.ClassDB_extern.__alloc();
 		};
 		super(native.reinterpret());

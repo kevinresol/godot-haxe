@@ -3,7 +3,6 @@ class Texture2D extends gd.Texture {
 	public function new(?native:cpp.Pointer<gdnative.Texture2D.Texture2D_extern>) {
 		if (native == null) {
 			gd.Utils.checkAndWarnForMissingOwner(this, "Texture2D");
-			trace("Allocating Texture2D");
 			native = gdnative.Texture2D.Texture2D_extern.__alloc();
 		};
 		super(native.reinterpret());

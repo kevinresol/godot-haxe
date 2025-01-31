@@ -4,6 +4,7 @@ import gen.Api;
 import haxe.macro.Printer;
 import haxe.macro.Expr;
 
+using Lambda;
 using haxe.io.Path;
 using StringTools;
 
@@ -13,6 +14,17 @@ class Builder {
 
 	public function new(api:Api) {
 		this.api = api;
+	}
+
+	function isBuiltinClass(name:String):Bool {
+		return name == 'Variant' || api.builtin_classes.exists(c -> c.name == name);
+	}
+
+	function isPrimitive(name:String):Bool {
+		return switch name {
+			case 'nil' | 'float' | 'int' | 'bool': true;
+			case _: false;
+		}
 	}
 
 	function printTypeDefinition(def:TypeDefinition):String {

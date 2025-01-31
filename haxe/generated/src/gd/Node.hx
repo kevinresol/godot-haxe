@@ -3,7 +3,6 @@ class Node extends gd.Object {
 	public function new(?native:cpp.Pointer<gdnative.Node.Node_extern>) {
 		if (native == null) {
 			gd.Utils.checkAndWarnForMissingOwner(this, "Node");
-			trace("Allocating Node");
 			native = gdnative.Node.Node_extern.__alloc();
 		};
 		super(native.reinterpret());

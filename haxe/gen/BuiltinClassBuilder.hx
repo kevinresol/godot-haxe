@@ -49,13 +49,19 @@ class BuiltinClassBuilder extends Builder {
 				return fromWrapperInternal(v);
 
 			@:from static inline function fromWrapperInternal(v:$wct):$act
-				return untyped __cpp__('{0}.get()', @:privateAccess v.__gd);
+				return @:privateAccess v.__gd;
 
 			@:to inline function toWrapper():gd.$cname
 				return toWrapperInternal();
 
 			@:to inline function toWrapperInternal():$wct
 				return new $wtp(this);
+
+			@:to inline function toVariant():gdnative.Variant
+				return new gdnative.Variant.Variant_extern(abstract);
+
+			inline function val():$ect
+				return untyped __cpp__('{0}.value', abstract);
 		}
 		final struct = macro :cpp.Struct<$ect>;
 		abs.doc = 'Built-in Class';
@@ -172,6 +178,7 @@ class BuiltinClassBuilder extends Builder {
 				}
 			} catch (e) {}
 		}
+
 		// properties
 		for (prop in getValidMembers(clazz)) {
 			final pname = prop.name;
@@ -199,6 +206,26 @@ class BuiltinClassBuilder extends Builder {
 			} catch (e) {}
 		}
 
+		// operators
+		for (op in clazz.operators.filter(op -> isValidOperator(cname, op))) {
+			try {
+				final fname = makeOperatorFunctionName(op);
+
+				abs.fields.push({
+					pos: null,
+					access: [AExtern, AInline],
+					name: fname,
+					kind: FFun({
+						args: op.right_type == null ? [] : [{name: 'p_rhs', type: makeGodotType(op.right_type)}],
+						ret: makeGodotType(op.return_type),
+						expr: macro return ${makeOperatorExpr(op)},
+					}),
+					meta: [{pos: null, name: ':op', params: [makeOperatorMeta(op.name, macro A, macro B)]}],
+				});
+			} catch (e) {}
+		}
+
+		// constructor overload
 		final absctors = new Map<String, Bool>();
 		for (ctor in ctors) {
 			final tp = {pack: [], name: cname};
@@ -463,6 +490,44 @@ class BuiltinClassBuilder extends Builder {
 			} catch (e) {}
 		}
 
+		// operators
+		for (op in clazz.operators.filter(op -> isValidOperator(cname, op))) {
+			try {
+				final fname = makeOperatorFunctionName(op);
+
+				cls.fields.push({
+					pos: null,
+					name: fname,
+					kind: FFun({
+						args: op.right_type == null ? [] : [{name: 'p_rhs', type: makeHaxeType(op.right_type)}],
+						ret: makeHaxeType(op.return_type),
+						expr: isScriptExtern ? null : {
+							final rct = op.right_type != null ? makeGodotType(op.right_type) : macro :Void;
+							macro return ${makeOperatorMeta(op.name, macro this.__gd, macro(p_rhs : $rct))}
+						}
+					}),
+				});
+
+				abs.fields.push({
+					pos: null,
+					access: [AInline],
+					name: fname,
+					kind: FFun({
+						args: op.right_type == null ? [] : [{name: 'p_rhs', type: makeHaxeType(op.right_type)}],
+						ret: makeHaxeType(op.return_type),
+						expr: macro return @:privateAccess this.$fname($a{op.right_type == null ? [] : [macro $i{'p_rhs'}]}),
+					}),
+					meta: [
+						{
+							pos: null,
+							name: ':op',
+							params: [makeOperatorMeta(op.name, macro A, macro B)]
+						}
+					],
+				});
+			} catch (e) {}
+		}
+
 		// constants
 		for (const in (clazz.constants ?? [])) {
 			try {
@@ -623,12 +688,30 @@ class BuiltinClassBuilder extends Builder {
 					}
 				]);
 			case 'Transform3D':
-				clazz.constructors.concat([
+				clazz.constructors.filter(c -> switch c {
+					case {arguments: [{type: "Projection"}]}: false;
+					case _: true;
+				}).concat([
 					{
 						index: clazz.constructors.length,
 						arguments: ['xx', 'xy', 'xz', 'yx', 'yy', 'yz', 'zx', 'zy', 'zz', 'tx', 'ty', 'tz'].map(n -> ({name: n, type: 'float'} : Argument))
 					}
-				]);
+					]);
+			case 'Quaternion':
+				clazz.constructors.filter(c -> switch c {
+					case {arguments: [{type: "Basis"}]}: false;
+					case _: true;
+				});
+			case 'Vector2i' | 'Vector3i' | 'Vector4i' | 'Rect2i':
+				clazz.constructors.filter(c -> switch c {
+					case {arguments: [{type: '${_}i' == clazz.name => true}]}: false;
+					case _: true;
+				});
+			case 'Vector2' | 'Vector3' | 'Vector4' | 'Rect2':
+				clazz.constructors.filter(c -> switch c {
+					case {arguments: [{type: _.substring(0, _.length - 1) == clazz.name => true}]}: false;
+					case _: true;
+				});
 			default:
 				clazz.constructors;
 		}
@@ -662,6 +745,130 @@ class BuiltinClassBuilder extends Builder {
 			// 	'bool';
 			default:
 				retType;
+		}
+	}
+
+	function isValidOperator(cls:String, op:Operator):Bool {
+		return switch [cls, op.name, op.right_type] {
+			case [_, LOGICAL_NOT, _]: false;
+			case [
+				'AABB' | 'Basis' | 'Plane' | 'Quaternion' | 'Projection' | 'Transform3D' | 'Transform2D' | 'Vector2' | 'Vector3' | 'Vector4' | 'Rect2' | 'Vector2i' | 'Vector3i' | 'Vector4i' | 'Rect2i',
+				MULTIPLY,
+				_ != cls && _ != 'float' && _ != 'int' => true
+			]: false;
+			case ['Vector2i' | 'Vector3i' | 'Vector4i', MULTIPLY, 'float']: false;
+			case ['Vector2i' | 'Vector3i' | 'Vector4i', DIVIDE, _]: false;
+			case _: true;
+		}
+	}
+
+	function makeOperatorFunctionName(op:Operator):String {
+		final f = switch op.name {
+			case ADD: '__op_add';
+			case BITWISE_AND: '__op_bitwise_and';
+			case BITWISE_LSHIFT: '__op_bitwise_lshift';
+			case BITWISE_NOT: '__op_bitwise_not';
+			case BITWISE_OR: '__op_bitwise_or';
+			case BITWISE_RSHIFT: '__op_bitwise_rshift';
+			case BITWISE_XOR: '__op_bitwise_xor';
+			case BITWISE_XOR2: '__op_bitwise_xor2';
+			case DIVIDE: '__op_divide';
+			case EQUAL_TO: '__op_equal_to';
+			case GREATER_EQUAL: '__op_greater_equal';
+			case GREATER_THAN: '__op_greater_than';
+			case LESS_EQUAL: '__op_less_equal';
+			case LESS_THAN: '__op_less_than';
+			case LOGICAL_AND: '__op_logical_and';
+			case LOGICAL_NOT: '__op_logical_not';
+			case LOGICAL_OR: '__op_logical_or';
+			case MEMBERSHIP_IN: '__op_membership_in';
+			case MODULUS: '__op_modulus';
+			case MULTIPLY: '__op_multiply';
+			case NOT_EQUAL: '__op_not_equal';
+			case POWER: '__op_power';
+			case SUBTRACT: '__op_subtract';
+			case UNARY_MINUS: '__op_unary_minus';
+			case UNARY_PLUS: '__op_unary_plus';
+		}
+
+		return switch op.right_type {
+			case null: f;
+			case t: '${f}_${t}'.toLowerCase();
+		}
+	}
+
+	function makeOperatorMeta(op:OperatorName, left:Expr, right:Expr):Expr {
+		return switch op {
+			case ADD: macro $left + $right;
+			case BITWISE_AND: macro $left & $right;
+			case BITWISE_LSHIFT: macro $left << $right;
+			case BITWISE_NOT: macro ~$left;
+			case BITWISE_OR: macro $left | $right;
+			case BITWISE_RSHIFT: macro $left >> $right;
+			case BITWISE_XOR: macro $left ^ $right;
+			case BITWISE_XOR2: macro $left ^ $right;
+			case DIVIDE: macro $left / $right;
+			case EQUAL_TO: macro $left == $right;
+			case GREATER_EQUAL: macro $left >= $right;
+			case GREATER_THAN: macro $left > $right;
+			case LESS_EQUAL: macro $left <= $right;
+			case LESS_THAN: macro $left < $right;
+			case LOGICAL_AND: macro $left && $right;
+			case LOGICAL_NOT: macro !$left;
+			case LOGICAL_OR: macro $left || $right;
+			case MEMBERSHIP_IN:
+				macro $left in $right; // B.has($left)
+			case MODULUS: macro $left % $right;
+			case MULTIPLY: macro $left * $right;
+			case NOT_EQUAL: macro $left != $right;
+			case POWER: throw 'Operator POWER not supported';
+			case SUBTRACT: macro $left - $right;
+			case UNARY_MINUS: macro - $left;
+			case UNARY_PLUS: throw 'Operator UNARY_PLUS not supported';
+		}
+	}
+
+	function makeOperatorExpr(op:Operator):Expr {
+		final right = op.right_type == null ? macro null : switch [isBuiltinClass(op.right_type), isPrimitive(op.right_type)] {
+			case [true, false]: macro @:privateAccess p_rhs.val();
+			case _: macro p_rhs;
+		}
+		return switch op.name {
+			case ADD: macro untyped __cpp__('{0} + {1}', val(), $right);
+			case BITWISE_AND: macro untyped __cpp__('{0} & {1}', val(), $right);
+			case BITWISE_LSHIFT: macro untyped __cpp__('{0} << {1}', val(), $right);
+			case BITWISE_NOT: macro untyped __cpp__('~{0}', val());
+			case BITWISE_OR: macro untyped __cpp__('{0} | {1}', val(), $right);
+			case BITWISE_RSHIFT: macro untyped __cpp__('{0} >> {1}', val(), $right);
+			case BITWISE_XOR: macro untyped __cpp__('{0} ^ {1}', val(), $right);
+			case BITWISE_XOR2: macro untyped __cpp__('{0} ^ {1}', val(), $right);
+			case DIVIDE:
+				switch op.right_type {
+					case 'float' | 'int': macro untyped __cpp__('{0} * (1.0 / {1})', val(), $right);
+					case _: macro untyped __cpp__('{0} / {1}', val(), $right);
+				}
+			case EQUAL_TO: macro untyped __cpp__('{0} == {1}', val(), $right);
+			case GREATER_EQUAL: macro untyped __cpp__('{0} >= {1}', val(), $right);
+			case GREATER_THAN: macro untyped __cpp__('{0} > {1}', val(), $right);
+			case LESS_EQUAL: macro untyped __cpp__('{0} <= {1}', val(), $right);
+			case LESS_THAN: macro untyped __cpp__('{0} < {1}', val(), $right);
+			case LOGICAL_AND: macro untyped __cpp__('{0} && {1}', val(), $right);
+			case LOGICAL_NOT: macro untyped __cpp__(' !{0}', val());
+			case LOGICAL_OR: macro untyped __cpp__('{0} || {1}', val(), $right);
+			case MEMBERSHIP_IN:
+				switch op.right_type {
+					case 'String' | 'StringName': macro p_rhs.contains(new gdnative.String(abstract));
+					case 'PackedStringArray': macro p_rhs.has(new gdnative.String(abstract));
+					case 'Object': macro false; // TODO
+					case _: macro p_rhs.has(abstract);
+				}
+			case MODULUS: macro untyped __cpp__('{0} % {1}', val(), $right);
+			case MULTIPLY: macro untyped __cpp__('{0} * {1}', val(), $right);
+			case NOT_EQUAL: macro untyped __cpp__('{0} != {1}', val(), $right);
+			case POWER: throw 'Operator POWER not supported';
+			case SUBTRACT: macro untyped __cpp__('{0} - {1}', val(), $right);
+			case UNARY_MINUS: macro untyped __cpp__('-{0}', val());
+			case UNARY_PLUS: throw 'Operator UNARY_PLUS not supported';
 		}
 	}
 }

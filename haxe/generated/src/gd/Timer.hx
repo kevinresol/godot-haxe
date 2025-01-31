@@ -3,7 +3,6 @@ class Timer extends gd.Node {
 	public function new(?native:cpp.Pointer<gdnative.Timer.Timer_extern>) {
 		if (native == null) {
 			gd.Utils.checkAndWarnForMissingOwner(this, "Timer");
-			trace("Allocating Timer");
 			native = gdnative.Timer.Timer_extern.__alloc();
 		};
 		super(native.reinterpret());

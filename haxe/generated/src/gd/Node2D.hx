@@ -3,7 +3,6 @@ class Node2D extends gd.CanvasItem {
 	public function new(?native:cpp.Pointer<gdnative.Node2D.Node2D_extern>) {
 		if (native == null) {
 			gd.Utils.checkAndWarnForMissingOwner(this, "Node2D");
-			trace("Allocating Node2D");
 			native = gdnative.Node2D.Node2D_extern.__alloc();
 		};
 		super(native.reinterpret());
