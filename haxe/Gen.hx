@@ -9,7 +9,7 @@ class Gen {
 	static function main() {
 		final args = Sys.args();
 
-		trace(Sys.getCwd());
+		// trace(Sys.getCwd());
 		final path = '../godot-cpp/gdextension/extension_api.json';
 		final json = sys.io.File.getContent(path);
 		final api:Api = haxe.Json.parse(json);
@@ -49,6 +49,7 @@ class Gen {
 		new gen.BuiltinClassBuilder(api).generate();
 		new gen.GlobalEnumBuilder(api).generate();
 		new gen.UtilityFunctionsBuilder(api).generate();
+		trace('Done generating');
 	}
 
 	function findType(name:String) {

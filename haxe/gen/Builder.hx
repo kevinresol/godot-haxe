@@ -144,19 +144,10 @@ class Builder {
 			case 'bool': macro :Bool;
 
 			// builtin classes
-			case 'String' | 'Vector2' | 'Vector2i' | 'Rect2' | 'Rect2i' | 'Vector3' | 'Vector3i' | 'Transform2D' | 'Vector4' | 'Vector4i' | 'Plane' |
-				'Quaternion' | 'AABB' | 'Basis' | 'Transform3D' | 'Projection' | 'Color' | 'StringName' | 'NodePath' | 'RID' | 'Callable' | 'Signal' |
-				'Dictionary' | 'Array' | 'PackedByteArray' | 'PackedInt32Array' | 'PackedInt64Array' | 'PackedFloat32Array' | 'PackedFloat64Array' |
-				'PackedStringArray' | 'PackedVector2Array' | 'PackedVector3Array' | 'PackedColorArray' | 'PackedVector4Array' | 'Variant': TPath({
-					pack: ['gdnative'],
-					name: gdType
-				});
+			case 'Variant': TPath({pack: ['gdnative'], name: gdType});
+			case api.builtin_classes.exists(c -> c.name == _) => true: TPath({pack: ['gdnative'], name: gdType});
 			// classes
-			case classes.get(_) => true: TPath({
-					pack: ['gdnative'],
-					name: gdType
-				});
-
+			case classes.get(_) => true: TPath({pack: ['gdnative'], name: gdType});
 			// enums
 			case t if (t.startsWith('enum::')):
 				switch t.substr('enum::'.length).split('.') {
@@ -185,21 +176,11 @@ class Builder {
 			case 'bool': macro :Bool;
 
 			// builtin classes
-			case 'Vector2' | 'Vector2i' | 'Rect2' | 'Rect2i' | 'Vector3' | 'Vector3i' | 'Transform2D' | 'Vector4' | 'Vector4i' | 'Plane' | 'Quaternion' |
-				'AABB' | 'Basis' | 'Transform3D' | 'Projection' | 'Color' | 'RID' | 'Callable' | 'Signal' | 'Dictionary' | 'Array' | 'PackedByteArray' |
-				'PackedInt32Array' | 'PackedInt64Array' | 'PackedFloat32Array' | 'PackedFloat64Array' | 'PackedStringArray' | 'PackedVector2Array' |
-				'PackedVector3Array' | 'PackedColorArray' | 'PackedVector4Array' | 'Variant': TPath({
-					pack: ['gd'],
-					name: gdType
-				});
-			// classes
-			case classes.get(_) => true: TPath({
-					pack: ['gd'],
-					name: gdType
-				});
-
-			// builitin
 			case 'NodePath' | 'String' | 'StringName': macro :std.String;
+			case 'Variant': TPath({pack: ['gd'], name: gdType});
+			case api.builtin_classes.exists(c -> c.name == _) => true: TPath({pack: ['gd'], name: gdType});
+			// classes
+			case classes.get(_) => true: TPath({pack: ['gd'], name: gdType});
 			// enums
 			case t if (t.startsWith('enum::')):
 				switch t.substr('enum::'.length).split('.') {
