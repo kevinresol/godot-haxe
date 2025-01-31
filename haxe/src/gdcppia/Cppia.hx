@@ -1,7 +1,8 @@
 package gdcppia;
 
 import cpp.UInt8;
-import gd.UtilityFunctions;
+import gd.*;
+import gd.UtilityFunctions.*;
 
 using Lambda;
 
@@ -26,7 +27,7 @@ class Cppia {
 
 		// printThreadId("main");
 
-		final up = gd.Key.UP;
+		final up = Key.UP;
 		final nativeup = gdnative.Key.UP;
 		trace(up);
 		trace(nativeup);
@@ -38,68 +39,68 @@ class Cppia {
 		final oldTrace = haxe.Log.trace;
 		haxe.Log.trace = (v:Dynamic, ?infos:haxe.PosInfos) -> {
 			// oldTrace(v, infos);
-			UtilityFunctions.print(haxe.Log.formatOutput(v, infos));
+			print(haxe.Log.formatOutput(v, infos));
 		}
 
 		trace('UtilityFunctions::print checks (host)');
-		UtilityFunctions.print(42);
-		UtilityFunctions.print(42.3);
-		UtilityFunctions.print(true);
-		UtilityFunctions.print('HaxeString');
-		UtilityFunctions.print(new gd.Vector2());
-		UtilityFunctions.print(new gd.Vector2(42, 44));
-		UtilityFunctions.print(gd.Vector2.ONE);
-		UtilityFunctions.print(new gd.Color());
-		UtilityFunctions.print(gd.Color.WHEAT);
-		// UtilityFunctions.print(('Node/Path' : gd.NodePath));
+		print(42);
+		print(42.3);
+		print(true);
+		print('HaxeString');
+		print(new Vector2());
+		print(new Vector2(42, 44));
+		print(Vector2.ONE);
+		print(new Color());
+		print(Color.WHEAT);
+		// print(('Node/Path' : NodePath));
 
 		trace('UtilityFunctions::typeof checks (host)');
-		UtilityFunctions.print(UtilityFunctions.typeof(42));
-		UtilityFunctions.print(UtilityFunctions.typeof(42.3));
-		UtilityFunctions.print(UtilityFunctions.typeof(true));
-		UtilityFunctions.print(UtilityFunctions.typeof('HaxeString'));
-		UtilityFunctions.print(UtilityFunctions.typeof(new gd.Vector2()));
-		UtilityFunctions.print(UtilityFunctions.typeof(new gd.Vector2(42, 44)));
-		// UtilityFunctions.print(UtilityFunctions.typeof(('Node/Path' : gd.NodePath)));
+		print(typeof(42));
+		print(typeof(42.3));
+		print(typeof(true));
+		print(typeof('HaxeString'));
+		print(typeof(new Vector2()));
+		print(typeof(new Vector2(42, 44)));
+		// print(typeof(('Node/Path' : NodePath)));
 
 		trace('varargs checks (host)');
-		UtilityFunctions.print(UtilityFunctions.min(1, 2, 3));
-		UtilityFunctions.print(UtilityFunctions.max(1, 2, 3));
+		print(min(1, 2, 3));
+		print(max(1, 2, 3));
 
 		trace('Enum checks (host)');
-		UtilityFunctions.print(gd.variant.Type.INT);
-		UtilityFunctions.print(gd.variant.Type.FLOAT);
+		print(gd.variant.Type.INT);
+		print(gd.variant.Type.FLOAT);
 
 		trace('Operator checks (host)');
-		UtilityFunctions.print(new gd.Vector2(42, 0) + new gd.Vector2(3, 4));
-		UtilityFunctions.print(new gd.Vector2(42, 0) * 2);
+		print(new Vector2(42, 0) + new Vector2(3, 4));
+		print(new Vector2(42, 0) * 2);
 
 		trace('JSON checks (host)');
-		final json = new gd.JSON();
+		final json = new JSON();
 		switch json.parse('{"foo": 42, "bar": true, "baz": ["hello", "world"]}') {
 			case OK:
 				final data = json.data;
-				UtilityFunctions.print(data, ":", UtilityFunctions.type_string(UtilityFunctions.typeof(data)));
-				UtilityFunctions.print(data["foo"], ":", UtilityFunctions.type_string(UtilityFunctions.typeof(data["foo"])));
-				UtilityFunctions.print(data["bar"], ":", UtilityFunctions.type_string(UtilityFunctions.typeof(data["bar"])));
-				UtilityFunctions.print(data["baz"], ":", UtilityFunctions.type_string(UtilityFunctions.typeof(data["baz"])));
-				UtilityFunctions.print(data["baz"][0], ":", UtilityFunctions.type_string(UtilityFunctions.typeof(data["baz"][0])));
+				print(data, ":", type_string(typeof(data)));
+				print(data["foo"], ":", type_string(typeof(data["foo"])));
+				print(data["bar"], ":", type_string(typeof(data["bar"])));
+				print(data["baz"], ":", type_string(typeof(data["baz"])));
+				print(data["baz"][0], ":", type_string(typeof(data["baz"][0])));
 			case err:
 				trace('Error parsing JSON: $err');
 		}
 
-		final x = new gd.Node2D();
-		UtilityFunctions.print(x);
+		final x = new Node2D();
+		print(x);
 		x.free();
 
 		trace(gdnative.Error.OK);
 
-		UtilityFunctions.print(gd.ResourceLoader.singleton.load('res://sub.tscn'));
+		print(ResourceLoader.singleton.load('res://sub.tscn'));
 	}
 
 	static var module:Module;
 
-	public static function runBytes(data:Array<UInt8>) {
+	public static function runBytes(data:std.Array<UInt8>) {
 		// printThreadId("runBytes");
 		final bytes = haxe.io.Bytes.ofData(data);
 		trace('Loaded bytes:${bytes.length}');
@@ -108,8 +109,8 @@ class Cppia {
 		trace('Done booting module');
 	}
 
-	public static function instanceHasProperty(inst:Dynamic, name:String):Bool {
-		static final cache = new Map<String, Bool>();
+	public static function instanceHasProperty(inst:Dynamic, name:std.String):Bool {
+		static final cache = new Map<std.String, Bool>();
 
 		final cls = Type.getClass(inst);
 		final cname = Type.getClassName(Type.getClass(inst));
@@ -125,15 +126,15 @@ class Cppia {
 		}
 	}
 
-	public static function instanceGetProperty(inst:Dynamic, key:String):Dynamic {
+	public static function instanceGetProperty(inst:Dynamic, key:std.String):Dynamic {
 		return Reflect.getProperty(inst, key);
 	}
 
-	public static function instanceSetProperty(inst:Dynamic, key:String, value:Dynamic):Void {
+	public static function instanceSetProperty(inst:Dynamic, key:std.String, value:Dynamic):Void {
 		Reflect.setProperty(inst, key, value);
 	}
 
-	public static function instanceHasMethod(inst:Dynamic, methodName:String):Bool {
+	public static function instanceHasMethod(inst:Dynamic, methodName:std.String):Bool {
 		if (inst == null) {
 			trace('Instance is null');
 			return false;
@@ -141,7 +142,7 @@ class Cppia {
 		return Reflect.isFunction(Reflect.field(inst, methodName));
 	}
 
-	public static function instanceCall(inst:Dynamic, methodName:String, args:Array<Dynamic>):Void {
+	public static function instanceCall(inst:Dynamic, methodName:std.String, args:std.Array<Dynamic>):Void {
 		// printThreadId("instanceCall");
 		if (inst == null) {
 			trace('Instance is null');
@@ -166,7 +167,5 @@ class Cppia {
 		return gdnative.Variant.fromHaxeDynamic(val);
 	}
 
-	public static macro function xml(rel:String):Array<haxe.macro.Expr.Field>;
+	public static macro function xml(rel:std.String):std.Array<haxe.macro.Expr.Field>;
 }
-
-typedef Vector2Container = cpp.Struct<gd.Vector2>;

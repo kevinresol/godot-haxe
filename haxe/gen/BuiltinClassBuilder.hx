@@ -21,7 +21,11 @@ class BuiltinClassBuilder extends Builder {
 				generateClassWrapper(clazz, false);
 				generateClassWrapper(clazz, true);
 			} else {
-				trace('Skipping ${cname} because ${hpp} does not exist');
+				switch clazz.name {
+					case 'Nil' | 'bool' | 'int' | 'float':
+					case _:
+						trace('Skipping ${cname} because ${hpp} does not exist');
+				}
 			}
 		}
 	}

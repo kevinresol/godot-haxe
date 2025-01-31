@@ -15,19 +15,7 @@ class Gen {
 		final api:Api = haxe.Json.parse(json);
 
 		final gen = new Gen(api);
-		gen.findType('Callable');
-
-		final ops = new Map<String, Map<String, Bool>>();
-		for (c in api.builtin_classes) {
-			ops[c.name] = new Map();
-			for (o in c.operators)
-				ops[c.name].set(o.name, true);
-		}
-		for (c => v in ops)
-			trace(c, [
-				for (o => _ in ops[c])
-					o
-			]);
+		// gen.findType('Callable');
 
 		// for (c in api.classes.filter(c -> c.methods?.exists(m -> m.is_vararg))) {
 		// 	trace('Vararg method in ${c.name}');

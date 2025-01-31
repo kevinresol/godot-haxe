@@ -12,8 +12,27 @@ class Builder {
 	final api:Api;
 	final printer = new Printer();
 
+	// build a subset of classes for performance reasons
+	final classes = new Map<String, Bool>();
+
 	public function new(api:Api) {
 		this.api = api;
+		for (c in [
+			'Sprite2D',
+			'Texture2D',
+			'JSON',
+			'PackedScene',
+			'InputEventKey',
+			'ClassDB',
+			'ResourceLoader',
+			'Timer',
+			'InputEventMouseMotion',
+			'InputEventMouseButton',
+		])
+			for (ancestor in getClassInheritance(c))
+				classes.set(ancestor, true);
+
+		api.classes = api.classes.filter(c -> classes.get(c.name));
 	}
 
 	function isBuiltinClass(name:String):Bool {
@@ -25,6 +44,28 @@ class Builder {
 			case 'nil' | 'float' | 'int' | 'bool': true;
 			case _: false;
 		}
+	}
+
+	function isRefCounted(name:String):Bool {
+		return api.classes.find(c -> c.name == name)?.is_refcounted ?? false;
+	}
+
+	function isSingleton(name:String):Bool {
+		return api.singletons.exists(v -> v.name == name);
+	}
+
+	function getClassInheritance(name:String):Array<String> {
+		final ret = [name];
+		var parent = getClassParent(name);
+		while (parent != null) {
+			ret.push(parent);
+			parent = getClassParent(parent);
+		}
+		return ret;
+	}
+
+	function getClassParent(name:String):Null<String> {
+		return api.classes.find(c -> c.name == name)?.inherits;
 	}
 
 	function printTypeDefinition(def:TypeDefinition):String {
@@ -111,9 +152,7 @@ class Builder {
 					name: gdType
 				});
 			// classes
-			case 'Timer' | 'Texture2D' | 'Texture' | 'Sprite2D' | 'ResourceLoader' | 'Resource' | 'RefCounted' | 'PackedScene' | 'Object' | 'Node2D' |
-				'Node' | 'JSON' | 'InputEventWithModifiers' | 'InputEventMouseMotion' | 'InputEventMouseButton' | 'InputEventMouse' | 'InputEventKey' |
-				'InputEventFromWindow' | 'InputEvent' | 'ClassDB' | 'CanvasItem': TPath({
+			case classes.get(_) => true: TPath({
 					pack: ['gdnative'],
 					name: gdType
 				});
@@ -154,9 +193,7 @@ class Builder {
 					name: gdType
 				});
 			// classes
-			case 'Timer' | 'Texture2D' | 'Texture' | 'Sprite2D' | 'ResourceLoader' | 'Resource' | 'RefCounted' | 'PackedScene' | 'Object' | 'Node2D' |
-				'Node' | 'JSON' | 'InputEventWithModifiers' | 'InputEventMouseMotion' | 'InputEventMouseButton' | 'InputEventMouse' | 'InputEventKey' |
-				'InputEventFromWindow' | 'InputEvent' | 'ClassDB' | 'CanvasItem': TPath({
+			case classes.get(_) => true: TPath({
 					pack: ['gd'],
 					name: gdType
 				});

@@ -12,24 +12,6 @@ using gen.StringTools;
 
 class ClassBuilder extends EnumBuilder {
 	public function generate() {
-		final classes = new Map<String, Bool>();
-		for (c in [
-			'Sprite2D',
-			'Texture2D',
-			'JSON',
-			'PackedScene',
-			'InputEventKey',
-			'ClassDB',
-			'ResourceLoader',
-			'Timer',
-			'InputEventMouseMotion',
-			'InputEventMouseButton',
-		])
-			for (ancestor in getClassInheritance(c))
-				classes.set(ancestor, true);
-
-		trace([for (k => _ in classes) k]);
-
 		for (clazz in api.classes) {
 			final cname = clazz.name;
 			final parent = clazz.inherits;
@@ -41,11 +23,9 @@ class ClassBuilder extends EnumBuilder {
 			final hppExists = sys.FileSystem.exists(hppPath);
 
 			if (hppExists) {
-				if (classes.get(cname)) {
-					generateClassExtern(clazz, hpp);
-					generateClassWrapper(clazz, true);
-					generateClassWrapper(clazz, false);
-				}
+				generateClassExtern(clazz, hpp);
+				generateClassWrapper(clazz, true);
+				generateClassWrapper(clazz, false);
 			} else {
 				trace('Skipping ${cname} because ${hpp} does not exist');
 			}
@@ -503,28 +483,6 @@ class ClassBuilder extends EnumBuilder {
 		if (parent.inherits != null)
 			return isMethodDeclaredInParent(method, parent.inherits);
 		return false;
-	}
-
-	function isRefCounted(name:String):Bool {
-		return api.classes.find(c -> c.name == name)?.is_refcounted ?? false;
-	}
-
-	function isSingleton(name:String):Bool {
-		return api.singletons.exists(v -> v.name == name);
-	}
-
-	function getClassInheritance(name:String):Array<String> {
-		final ret = [name];
-		var parent = getClassParent(name);
-		while (parent != null) {
-			ret.push(parent);
-			parent = getClassParent(parent);
-		}
-		return ret;
-	}
-
-	function getClassParent(name:String):Null<String> {
-		return api.classes.find(c -> c.name == name)?.inherits;
 	}
 
 	function getPointerHelperName(name:String):String {
