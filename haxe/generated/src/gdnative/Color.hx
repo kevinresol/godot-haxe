@@ -60,4 +60,18 @@ package gdnative;
 	var g : Float;
 	var b : Float;
 	var a : Float;
+	function get_r8():Int;
+	function set_r8(v:Int):Void;
+	function get_g8():Int;
+	function set_g8(v:Int):Void;
+	function get_b8():Int;
+	function set_b8(v:Int):Void;
+	function get_a8():Int;
+	function set_a8(v:Int):Void;
+	function get_h():Float;
+	function set_h(v:Float):Void;
+	function get_s():Float;
+	function set_s(v:Float):Void;
+	function get_v():Float;
+	function set_v(v:Float):Void;
 }

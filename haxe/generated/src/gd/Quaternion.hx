@@ -24,32 +24,33 @@ class Quaternion_wrapper {
 	public function spherical_cubic_interpolate(p_b:gd.Quaternion, p_pre_a:gd.Quaternion, p_post_b:gd.Quaternion, p_weight:Float):gd.Quaternion return __gd.spherical_cubic_interpolate(p_b, p_pre_a, p_post_b, p_weight);
 	public function spherical_cubic_interpolate_in_time(p_b:gd.Quaternion, p_pre_a:gd.Quaternion, p_post_b:gd.Quaternion, p_weight:Float, p_b_t:Float, p_pre_a_t:Float, p_post_b_t:Float):gd.Quaternion return __gd.spherical_cubic_interpolate_in_time(p_b, p_pre_a, p_post_b, p_weight, p_b_t, p_pre_a_t, p_post_b_t);
 	public function get_euler(?p_order:gd.EulerOrder):gd.Vector3 return __gd.get_euler(p_order);
+	public function from_euler(p_euler:gd.Vector3):gd.Quaternion return __gd.from_euler(p_euler);
 	public function get_axis():gd.Vector3 return __gd.get_axis();
 	public function get_angle():Float return __gd.get_angle();
 	public var x(get, set) : Float;
 	function get_x():Float return __gd.x;
-	function set_x(v:Float):Float {
+	function set_x(v:Float):Float return {
 		__gd.x = v;
-		return v;
-	}
+		v;
+	};
 	public var y(get, set) : Float;
 	function get_y():Float return __gd.y;
-	function set_y(v:Float):Float {
+	function set_y(v:Float):Float return {
 		__gd.y = v;
-		return v;
-	}
+		v;
+	};
 	public var z(get, set) : Float;
 	function get_z():Float return __gd.z;
-	function set_z(v:Float):Float {
+	function set_z(v:Float):Float return {
 		__gd.z = v;
-		return v;
-	}
+		v;
+	};
 	public var w(get, set) : Float;
 	function get_w():Float return __gd.w;
-	function set_w(v:Float):Float {
+	function set_w(v:Float):Float return {
 		__gd.w = v;
-		return v;
-	}
+		v;
+	};
 	public static final IDENTITY : gd.Quaternion = new gd.Quaternion(0, 0, 0, 1);
 }
 

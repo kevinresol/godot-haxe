@@ -30,21 +30,21 @@ class Transform2D_wrapper {
 	public function looking_at(?p_target:gd.Vector2):gd.Transform2D return __gd.looking_at(p_target);
 	public var x(get, set) : gd.Vector2;
 	function get_x():gd.Vector2 return __gd.x;
-	function set_x(v:gd.Vector2):gd.Vector2 {
+	function set_x(v:gd.Vector2):gd.Vector2 return {
 		__gd.x = v;
-		return v;
-	}
+		v;
+	};
 	public var y(get, set) : gd.Vector2;
 	function get_y():gd.Vector2 return __gd.y;
-	function set_y(v:gd.Vector2):gd.Vector2 {
+	function set_y(v:gd.Vector2):gd.Vector2 return {
 		__gd.y = v;
-		return v;
-	}
+		v;
+	};
 	public var origin(get, set) : gd.Vector2;
-	function set_origin(v:gd.Vector2):gd.Vector2 {
+	function set_origin(v:gd.Vector2):gd.Vector2 return {
 		__gd.origin = v;
-		return v;
-	}
+		v;
+	};
 	public static final IDENTITY : gd.Transform2D = new gd.Transform2D(1, 0, 0, 1, 0, 0);
 	public static final FLIP_X : gd.Transform2D = new gd.Transform2D(-1, 0, 0, 1, 0, 0);
 	public static final FLIP_Y : gd.Transform2D = new gd.Transform2D(1, 0, 0, -1, 0, 0);

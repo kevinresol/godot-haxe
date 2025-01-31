@@ -35,28 +35,70 @@ class Color_wrapper {
 	public function from_rgbe9995(p_rgbe:Int):gd.Color return __gd.from_rgbe9995(p_rgbe);
 	public var r(get, set) : Float;
 	function get_r():Float return __gd.r;
-	function set_r(v:Float):Float {
+	function set_r(v:Float):Float return {
 		__gd.r = v;
-		return v;
-	}
+		v;
+	};
 	public var g(get, set) : Float;
 	function get_g():Float return __gd.g;
-	function set_g(v:Float):Float {
+	function set_g(v:Float):Float return {
 		__gd.g = v;
-		return v;
-	}
+		v;
+	};
 	public var b(get, set) : Float;
 	function get_b():Float return __gd.b;
-	function set_b(v:Float):Float {
+	function set_b(v:Float):Float return {
 		__gd.b = v;
-		return v;
-	}
+		v;
+	};
 	public var a(get, set) : Float;
 	function get_a():Float return __gd.a;
-	function set_a(v:Float):Float {
+	function set_a(v:Float):Float return {
 		__gd.a = v;
-		return v;
-	}
+		v;
+	};
+	public var r8(get, set) : Int;
+	function get_r8():Int return __gd.get_r8();
+	function set_r8(v:Int):Int return {
+		__gd.set_r8(v);
+		v;
+	};
+	public var g8(get, set) : Int;
+	function get_g8():Int return __gd.get_g8();
+	function set_g8(v:Int):Int return {
+		__gd.set_g8(v);
+		v;
+	};
+	public var b8(get, set) : Int;
+	function get_b8():Int return __gd.get_b8();
+	function set_b8(v:Int):Int return {
+		__gd.set_b8(v);
+		v;
+	};
+	public var a8(get, set) : Int;
+	function get_a8():Int return __gd.get_a8();
+	function set_a8(v:Int):Int return {
+		__gd.set_a8(v);
+		v;
+	};
+	public var h(get, set) : Float;
+	function get_h():Float return __gd.get_h();
+	function set_h(v:Float):Float return {
+		__gd.set_h(v);
+		v;
+	};
+	public var s(get, set) : Float;
+	function get_s():Float return __gd.get_s();
+	function set_s(v:Float):Float return {
+		__gd.set_s(v);
+		v;
+	};
+	public var v(get, set) : Float;
+	function get_v():Float return __gd.get_v();
+	function set_v(v:Float):Float return {
+		__gd.set_v(v);
+		v;
+	};
 	public static final ALICE_BLUE : gd.Color = new gd.Color(0.941176, 0.972549, 1, 1);
 	public static final ANTIQUE_WHITE : gd.Color = new gd.Color(0.980392, 0.921569, 0.843137, 1);
 	public static final AQUA : gd.Color = new gd.Color(0, 1, 1, 1);

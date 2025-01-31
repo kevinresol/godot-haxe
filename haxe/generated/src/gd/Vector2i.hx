@@ -25,16 +25,16 @@ class Vector2i_wrapper {
 	public function maxi(p_with:Int):gd.Vector2i return __gd.maxi(p_with);
 	public var x(get, set) : Int;
 	function get_x():Int return __gd.x;
-	function set_x(v:Int):Int {
+	function set_x(v:Int):Int return {
 		__gd.x = v;
-		return v;
-	}
+		v;
+	};
 	public var y(get, set) : Int;
 	function get_y():Int return __gd.y;
-	function set_y(v:Int):Int {
+	function set_y(v:Int):Int return {
 		__gd.y = v;
-		return v;
-	}
+		v;
+	};
 	public static final ZERO : gd.Vector2i = new gd.Vector2i(0, 0);
 	public static final ONE : gd.Vector2i = new gd.Vector2i(1, 1);
 	public static final MIN : gd.Vector2i = new gd.Vector2i(-2147483648, -2147483648);

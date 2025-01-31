@@ -35,6 +35,13 @@ extern class Color_wrapper {
 	var g(get, set) : Float;
 	var b(get, set) : Float;
 	var a(get, set) : Float;
+	var r8(get, set) : Int;
+	var g8(get, set) : Int;
+	var b8(get, set) : Int;
+	var a8(get, set) : Int;
+	var h(get, set) : Float;
+	var s(get, set) : Float;
+	var v(get, set) : Float;
 	public static final ALICE_BLUE : gd.Color;
 	public static final ANTIQUE_WHITE : gd.Color;
 	public static final AQUA : gd.Color;

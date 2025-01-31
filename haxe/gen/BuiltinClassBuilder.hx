@@ -174,16 +174,28 @@ class BuiltinClassBuilder extends Builder {
 		}
 		// properties
 		for (prop in getValidMembers(clazz)) {
+			final pname = prop.name;
+			final pct = makeGodotType(prop.type);
 			try {
-				cls.fields.push({
-					pos: null,
-					name: prop.name,
-					kind: FVar(makeGodotType(prop.type)),
-					meta: switch getMemberNative(cname, prop.name) {
-						case null: [];
-						case v: [{pos: null, name: ':native', params: [macro $v{v}]}];
-					}
-				});
+				if (isVirtualProperty(cname, prop.name)) {
+					final getter = 'get_${pname}';
+					final setter = 'set_${pname}';
+					cls.fields = cls.fields.concat((macro class {
+						function $getter():$pct;
+
+						function $setter(v : $pct):Void;
+					}).fields);
+				} else {
+					cls.fields.push({
+						pos: null,
+						name: pname,
+						kind: FVar(pct),
+						meta: switch getMemberNative(cname, pname) {
+							case null: [];
+							case v: [{pos: null, name: ':native', params: [macro $v{v}]}];
+						}
+					});
+				}
 			} catch (e) {}
 		}
 
@@ -390,6 +402,8 @@ class BuiltinClassBuilder extends Builder {
 			try {
 				final pname = isHaxeKeyword(prop.name) ? '${prop.name}_' : prop.name;
 				final ptype = makeHaxeType(prop.type);
+				final isVirtual = isVirtualProperty(cname, prop.name);
+
 				cls.fields.push({
 					pos: null,
 					access: isScriptExtern ? [] : [APublic],
@@ -406,7 +420,12 @@ class BuiltinClassBuilder extends Builder {
 							kind: FFun({
 								args: [],
 								ret: ptype,
-								expr: macro return __gd.$pname
+								expr: macro return ${
+									isVirtual ? {
+										final getter = 'get_${pname}';
+										macro __gd.$getter();
+									} : macro __gd.$pname
+								}
 							})
 						});
 					}
@@ -419,7 +438,15 @@ class BuiltinClassBuilder extends Builder {
 								kind: FFun({
 									args: [{name: 'v', type: ptype}],
 									ret: ptype,
-									expr: macro {__gd.$pname = v; return v;}
+									expr: macro return {
+										${
+											isVirtual ? {
+												final setter = 'set_${pname}';
+												macro __gd.$setter(v);
+											} : macro __gd.$pname = v
+										}
+										v;
+									}
 								})
 							});
 						case {kind: FFun(f)}:
@@ -457,7 +484,6 @@ class BuiltinClassBuilder extends Builder {
 									case '-inf': macro Math.NEGATIVE_INFINITY;
 									default: macro $v{v.contains('.') ? Std.parseFloat(v) : Std.parseInt(v)};
 								});
-
 								switch cname {
 									case 'Projection':
 										// special handling for Projection because the C++ code does not have this constructor
@@ -488,10 +514,7 @@ class BuiltinClassBuilder extends Builder {
 				clazz.methods.filter(m -> !['from_ok_hsl', 'from_rgba8'].contains(m.name));
 			case 'Vector2' | 'Vector3':
 				clazz.methods.filter(m -> !['bezier_derivative'].contains(m.name));
-			case 'Quaternion':
-				clazz.methods.filter(m -> !['from_euler'].contains(m.name));
 			case 'Plane':
-				// TODO: get_center() should be center()
 				// TODO: intersects functions use pointer to hold return value
 				clazz.methods.filter(m -> !['intersect_3', 'intersects_ray', 'intersects_segment'].contains(m.name));
 			case 'AABB':
@@ -522,7 +545,7 @@ class BuiltinClassBuilder extends Builder {
 		} else switch clazz.name {
 			case 'Color':
 				// TODO: handle these virtual members
-				clazz.members.filter(m -> !['r8', 'g8', 'b8', 'a8', 'h', 's', 'v', 'ok_hsl_h', 'ok_hsl_s', 'ok_hsl_l'].contains(m.name));
+				clazz.members.filter(m -> !['ok_hsl_h', 'ok_hsl_s', 'ok_hsl_l'].contains(m.name));
 			case 'Rect2' | 'Rect2i':
 				// TODO: handle these virtual members
 				clazz.members.filter(m -> !['end'].contains(m.name));
@@ -535,6 +558,16 @@ class BuiltinClassBuilder extends Builder {
 
 			default:
 				clazz.members;
+		}
+	}
+
+	// The extern does not have the real member, only getter setters
+	function isVirtualProperty(cls:String, prop:String):Bool {
+		return switch [cls, prop] {
+			case ['Color', 'r8' | 'g8' | 'b8' | 'a8' | 'h' | 's' | 'v']:
+				true;
+			default:
+				false;
 		}
 	}
 

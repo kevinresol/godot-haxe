@@ -28,22 +28,22 @@ class Basis_wrapper {
 	public function from_euler(p_euler:gd.Vector3, ?p_order:gd.EulerOrder):gd.Basis return __gd.from_euler(p_euler, p_order);
 	public var x(get, set) : gd.Vector3;
 	function get_x():gd.Vector3 return __gd.x;
-	function set_x(v:gd.Vector3):gd.Vector3 {
+	function set_x(v:gd.Vector3):gd.Vector3 return {
 		__gd.x = v;
-		return v;
-	}
+		v;
+	};
 	public var y(get, set) : gd.Vector3;
 	function get_y():gd.Vector3 return __gd.y;
-	function set_y(v:gd.Vector3):gd.Vector3 {
+	function set_y(v:gd.Vector3):gd.Vector3 return {
 		__gd.y = v;
-		return v;
-	}
+		v;
+	};
 	public var z(get, set) : gd.Vector3;
 	function get_z():gd.Vector3 return __gd.z;
-	function set_z(v:gd.Vector3):gd.Vector3 {
+	function set_z(v:gd.Vector3):gd.Vector3 return {
 		__gd.z = v;
-		return v;
-	}
+		v;
+	};
 	public static final IDENTITY : gd.Basis = new gd.Basis(1, 0, 0, 0, 1, 0, 0, 0, 1);
 	public static final FLIP_X : gd.Basis = new gd.Basis(-1, 0, 0, 0, 1, 0, 0, 0, 1);
 	public static final FLIP_Y : gd.Basis = new gd.Basis(1, 0, 0, 0, -1, 0, 0, 0, 1);

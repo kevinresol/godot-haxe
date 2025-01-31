@@ -34,28 +34,28 @@ class Projection_wrapper {
 	public function get_lod_multiplier():Float return __gd.get_lod_multiplier();
 	public var x(get, set) : gd.Vector4;
 	function get_x():gd.Vector4 return __gd.x;
-	function set_x(v:gd.Vector4):gd.Vector4 {
+	function set_x(v:gd.Vector4):gd.Vector4 return {
 		__gd.x = v;
-		return v;
-	}
+		v;
+	};
 	public var y(get, set) : gd.Vector4;
 	function get_y():gd.Vector4 return __gd.y;
-	function set_y(v:gd.Vector4):gd.Vector4 {
+	function set_y(v:gd.Vector4):gd.Vector4 return {
 		__gd.y = v;
-		return v;
-	}
+		v;
+	};
 	public var z(get, set) : gd.Vector4;
 	function get_z():gd.Vector4 return __gd.z;
-	function set_z(v:gd.Vector4):gd.Vector4 {
+	function set_z(v:gd.Vector4):gd.Vector4 return {
 		__gd.z = v;
-		return v;
-	}
+		v;
+	};
 	public var w(get, set) : gd.Vector4;
 	function get_w():gd.Vector4 return __gd.w;
-	function set_w(v:gd.Vector4):gd.Vector4 {
+	function set_w(v:gd.Vector4):gd.Vector4 return {
 		__gd.w = v;
-		return v;
-	}
+		v;
+	};
 	public static final IDENTITY : gd.Projection = new gd.Projection(new gd.Vector4(1, 0, 0, 0), new gd.Vector4(0, 1, 0, 0), new gd.Vector4(0, 0, 1, 0), new gd.Vector4(0, 0, 0, 1));
 	public static final ZERO : gd.Projection = new gd.Projection(new gd.Vector4(0, 0, 0, 0), new gd.Vector4(0, 0, 0, 0), new gd.Vector4(0, 0, 0, 0), new gd.Vector4(0, 0, 0, 0));
 }

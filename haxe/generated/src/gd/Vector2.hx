@@ -55,16 +55,16 @@ class Vector2_wrapper {
 	public function from_angle(p_angle:Float):gd.Vector2 return __gd.from_angle(p_angle);
 	public var x(get, set) : Float;
 	function get_x():Float return __gd.x;
-	function set_x(v:Float):Float {
+	function set_x(v:Float):Float return {
 		__gd.x = v;
-		return v;
-	}
+		v;
+	};
 	public var y(get, set) : Float;
 	function get_y():Float return __gd.y;
-	function set_y(v:Float):Float {
+	function set_y(v:Float):Float return {
 		__gd.y = v;
-		return v;
-	}
+		v;
+	};
 	public static final ZERO : gd.Vector2 = new gd.Vector2(0, 0);
 	public static final ONE : gd.Vector2 = new gd.Vector2(1, 1);
 	public static final INF : gd.Vector2 = new gd.Vector2(Math.POSITIVE_INFINITY, Math.POSITIVE_INFINITY);

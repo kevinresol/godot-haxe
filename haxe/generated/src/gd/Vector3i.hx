@@ -24,22 +24,22 @@ class Vector3i_wrapper {
 	public function maxi(p_with:Int):gd.Vector3i return __gd.maxi(p_with);
 	public var x(get, set) : Int;
 	function get_x():Int return __gd.x;
-	function set_x(v:Int):Int {
+	function set_x(v:Int):Int return {
 		__gd.x = v;
-		return v;
-	}
+		v;
+	};
 	public var y(get, set) : Int;
 	function get_y():Int return __gd.y;
-	function set_y(v:Int):Int {
+	function set_y(v:Int):Int return {
 		__gd.y = v;
-		return v;
-	}
+		v;
+	};
 	public var z(get, set) : Int;
 	function get_z():Int return __gd.z;
-	function set_z(v:Int):Int {
+	function set_z(v:Int):Int return {
 		__gd.z = v;
-		return v;
-	}
+		v;
+	};
 	public static final ZERO : gd.Vector3i = new gd.Vector3i(0, 0, 0);
 	public static final ONE : gd.Vector3i = new gd.Vector3i(1, 1, 1);
 	public static final MIN : gd.Vector3i = new gd.Vector3i(-2147483648, -2147483648, -2147483648);

@@ -46,9 +46,7 @@ class Object {
 		untyped __cpp__('std::vector<const godot::Variant*> ptrs; ptrs.resize({0})', len);
 		final arg0:gdnative.Variant = p_signal;
 		untyped __cpp__('ptrs[{0}] = &{1}.value', 0, arg0);
-		for (i in 0 ... vlen) {
-			untyped __cpp__('ptrs[{0}] = &{1}.value', 1 + i, ((p_args[i] : gdnative.Variant)));
-		};
+		for (i in 0 ... vlen) untyped __cpp__('ptrs[{0}] = &{1}.value', 1 + i, ((p_args[i] : gdnative.Variant)));
 		__object_ptr().value.emit_signal(untyped __cpp__('ptrs.data()'), len);
 	};
 	public function call(p_method:std.String, p_args:haxe.Rest<gd.Variant>):gd.Variant return {
@@ -56,9 +54,7 @@ class Object {
 		untyped __cpp__('std::vector<const godot::Variant*> ptrs; ptrs.resize({0})', len);
 		final arg0:gdnative.Variant = p_method;
 		untyped __cpp__('ptrs[{0}] = &{1}.value', 0, arg0);
-		for (i in 0 ... vlen) {
-			untyped __cpp__('ptrs[{0}] = &{1}.value', 1 + i, ((p_args[i] : gdnative.Variant)));
-		};
+		for (i in 0 ... vlen) untyped __cpp__('ptrs[{0}] = &{1}.value', 1 + i, ((p_args[i] : gdnative.Variant)));
 		__object_ptr().value.call(untyped __cpp__('ptrs.data()'), len);
 	};
 	public function call_deferred(p_method:std.String, p_args:haxe.Rest<gd.Variant>):gd.Variant return {
@@ -66,9 +62,7 @@ class Object {
 		untyped __cpp__('std::vector<const godot::Variant*> ptrs; ptrs.resize({0})', len);
 		final arg0:gdnative.Variant = p_method;
 		untyped __cpp__('ptrs[{0}] = &{1}.value', 0, arg0);
-		for (i in 0 ... vlen) {
-			untyped __cpp__('ptrs[{0}] = &{1}.value', 1 + i, ((p_args[i] : gdnative.Variant)));
-		};
+		for (i in 0 ... vlen) untyped __cpp__('ptrs[{0}] = &{1}.value', 1 + i, ((p_args[i] : gdnative.Variant)));
 		__object_ptr().value.call_deferred(untyped __cpp__('ptrs.data()'), len);
 	};
 	public function set_deferred(p_property:std.String, p_value:gd.Variant):Void __object_ptr().value.set_deferred(((p_property : std.String)), ((p_value : gd.Variant)));

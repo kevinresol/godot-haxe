@@ -44,9 +44,7 @@ class ClassDB extends gd.Object {
 		untyped __cpp__('ptrs[{0}] = &{1}.value', 0, arg0);
 		final arg1:gdnative.Variant = p_method;
 		untyped __cpp__('ptrs[{0}] = &{1}.value', 1, arg1);
-		for (i in 0 ... vlen) {
-			untyped __cpp__('ptrs[{0}] = &{1}.value', 2 + i, ((p_args[i] : gdnative.Variant)));
-		};
+		for (i in 0 ... vlen) untyped __cpp__('ptrs[{0}] = &{1}.value', 2 + i, ((p_args[i] : gdnative.Variant)));
 		__classdb_ptr().value.class_call_static(untyped __cpp__('ptrs.data()'), len);
 	};
 	public function class_get_integer_constant_list(p_class:std.String, ?p_no_inheritance:Bool):gd.PackedStringArray return switch [p_class, p_no_inheritance] {

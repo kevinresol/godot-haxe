@@ -30,16 +30,16 @@ class AABB_wrapper {
 	public function get_endpoint(p_idx:Int):gd.Vector3 return __gd.get_endpoint(p_idx);
 	public var position(get, set) : gd.Vector3;
 	function get_position():gd.Vector3 return __gd.position;
-	function set_position(v:gd.Vector3):gd.Vector3 {
+	function set_position(v:gd.Vector3):gd.Vector3 return {
 		__gd.position = v;
-		return v;
-	}
+		v;
+	};
 	public var size(get, set) : gd.Vector3;
 	function get_size():gd.Vector3 return __gd.size;
-	function set_size(v:gd.Vector3):gd.Vector3 {
+	function set_size(v:gd.Vector3):gd.Vector3 return {
 		__gd.size = v;
-		return v;
-	}
+		v;
+	};
 }
 
 @:forward @:forwardStatics abstract AABB(AABB_wrapper) from AABB_wrapper to AABB_wrapper {

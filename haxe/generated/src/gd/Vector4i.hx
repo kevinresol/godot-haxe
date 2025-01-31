@@ -24,28 +24,28 @@ class Vector4i_wrapper {
 	public function distance_squared_to(p_to:gd.Vector4i):Int return __gd.distance_squared_to(p_to);
 	public var x(get, set) : Int;
 	function get_x():Int return __gd.x;
-	function set_x(v:Int):Int {
+	function set_x(v:Int):Int return {
 		__gd.x = v;
-		return v;
-	}
+		v;
+	};
 	public var y(get, set) : Int;
 	function get_y():Int return __gd.y;
-	function set_y(v:Int):Int {
+	function set_y(v:Int):Int return {
 		__gd.y = v;
-		return v;
-	}
+		v;
+	};
 	public var z(get, set) : Int;
 	function get_z():Int return __gd.z;
-	function set_z(v:Int):Int {
+	function set_z(v:Int):Int return {
 		__gd.z = v;
-		return v;
-	}
+		v;
+	};
 	public var w(get, set) : Int;
 	function get_w():Int return __gd.w;
-	function set_w(v:Int):Int {
+	function set_w(v:Int):Int return {
 		__gd.w = v;
-		return v;
-	}
+		v;
+	};
 	public static final ZERO : gd.Vector4i = new gd.Vector4i(0, 0, 0, 0);
 	public static final ONE : gd.Vector4i = new gd.Vector4i(1, 1, 1, 1);
 	public static final MIN : gd.Vector4i = new gd.Vector4i(-2147483648, -2147483648, -2147483648, -2147483648);

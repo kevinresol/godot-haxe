@@ -23,16 +23,16 @@ class Transform3D_wrapper {
 	public function is_finite():Bool return __gd.is_finite();
 	public var basis(get, set) : gd.Basis;
 	function get_basis():gd.Basis return __gd.basis;
-	function set_basis(v:gd.Basis):gd.Basis {
+	function set_basis(v:gd.Basis):gd.Basis return {
 		__gd.basis = v;
-		return v;
-	}
+		v;
+	};
 	public var origin(get, set) : gd.Vector3;
 	function get_origin():gd.Vector3 return __gd.origin;
-	function set_origin(v:gd.Vector3):gd.Vector3 {
+	function set_origin(v:gd.Vector3):gd.Vector3 return {
 		__gd.origin = v;
-		return v;
-	}
+		v;
+	};
 	public static final IDENTITY : gd.Transform3D = new gd.Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0);
 	public static final FLIP_X : gd.Transform3D = new gd.Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0);
 	public static final FLIP_Y : gd.Transform3D = new gd.Transform3D(1, 0, 0, 0, -1, 0, 0, 0, 1, 0, 0, 0);
