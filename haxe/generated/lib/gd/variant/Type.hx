@@ -1,5 +1,7 @@
 package gd.variant;
 enum abstract Type(Int) from Int to Int {
+	@:to
+	extern inline function toVariant():gd.Variant return this;
 	final NIL = 0;
 	final BOOL = 1;
 	final INT = 2;

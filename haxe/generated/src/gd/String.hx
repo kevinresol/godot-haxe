@@ -2,6 +2,7 @@ package gd;
 class String_wrapper {
 	final __gd : gdnative.String;
 	public function new(value:gdnative.String) __gd = value;
+	function toVariant():gd.Variant return @:privateAccess new gd.Variant.Variant_obj(new gdnative.Variant.Variant_extern(this));
 	static function _new0():String_wrapper return new String_wrapper(new gdnative.String());
 	static function _new1(p_from:std.String):String_wrapper return new String_wrapper(new gdnative.String(p_from));
 	static function _new2(p_from:std.String):String_wrapper return new String_wrapper(new gdnative.String(p_from));
@@ -174,6 +175,8 @@ class String_wrapper {
 }
 
 @:forward @:forwardStatics abstract String(String_wrapper) from String_wrapper to String_wrapper {
+	@:to
+	inline function toVariant():gd.Variant return @:privateAccess this.toVariant();
 	public extern overload inline function new() this = @:privateAccess String_wrapper._new0();
 	public extern overload inline function new(p_from:std.String) this = @:privateAccess String_wrapper._new1(p_from);
 	@:op(A == B)

@@ -2,6 +2,7 @@ package gd;
 class Callable_wrapper {
 	final __gd : gdnative.Callable;
 	public function new(value:gdnative.Callable) __gd = value;
+	function toVariant():gd.Variant return @:privateAccess new gd.Variant.Variant_obj(new gdnative.Variant.Variant_extern(this));
 	static function _new0():Callable_wrapper return new Callable_wrapper(new gdnative.Callable());
 	static function _new1(p_from:gd.Callable):Callable_wrapper return new Callable_wrapper(new gdnative.Callable(p_from));
 	static function _new2(p_object:gd.Object, p_method:std.String):Callable_wrapper return new Callable_wrapper(new gdnative.Callable(p_object, p_method));
@@ -35,6 +36,8 @@ class Callable_wrapper {
 }
 
 @:forward @:forwardStatics abstract Callable(Callable_wrapper) from Callable_wrapper to Callable_wrapper {
+	@:to
+	inline function toVariant():gd.Variant return @:privateAccess this.toVariant();
 	public extern overload inline function new() this = @:privateAccess Callable_wrapper._new0();
 	public extern overload inline function new(p_from:gd.Callable) this = @:privateAccess Callable_wrapper._new1(p_from);
 	public extern overload inline function new(p_object:gd.Object, p_method:std.String) this = @:privateAccess Callable_wrapper._new2(p_object, p_method);

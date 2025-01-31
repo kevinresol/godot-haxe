@@ -1,5 +1,7 @@
 package gd;
 enum abstract InlineAlignment(Int) from Int to Int {
+	@:to
+	extern inline function toVariant():gd.Variant return this;
 	final TOP_TO = 0;
 	final CENTER_TO = 1;
 	final BASELINE_TO = 3;

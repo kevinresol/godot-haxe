@@ -1,5 +1,7 @@
 package gd;
 enum abstract PropertyUsageFlags(cpp.UInt64) from cpp.UInt64 to cpp.UInt64 {
+	@:to
+	extern inline function toVariant():gd.Variant return this;
 	final NONE = 0;
 	final STORAGE = 2;
 	final EDITOR = 4;

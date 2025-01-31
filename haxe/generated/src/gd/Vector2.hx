@@ -2,6 +2,7 @@ package gd;
 class Vector2_wrapper {
 	final __gd : gdnative.Vector2;
 	public function new(value:gdnative.Vector2) __gd = value;
+	function toVariant():gd.Variant return @:privateAccess new gd.Variant.Variant_obj(new gdnative.Variant.Variant_extern(this));
 	static function _new0():Vector2_wrapper return new Vector2_wrapper(new gdnative.Vector2());
 	static function _new1(p_from:gd.Vector2):Vector2_wrapper return new Vector2_wrapper(new gdnative.Vector2(p_from));
 	static function _new2(p_x:Float, p_y:Float):Vector2_wrapper return new Vector2_wrapper(new gdnative.Vector2(p_x, p_y));
@@ -94,6 +95,8 @@ class Vector2_wrapper {
 }
 
 @:forward @:forwardStatics abstract Vector2(Vector2_wrapper) from Vector2_wrapper to Vector2_wrapper {
+	@:to
+	inline function toVariant():gd.Variant return @:privateAccess this.toVariant();
 	public extern overload inline function new() this = @:privateAccess Vector2_wrapper._new0();
 	public extern overload inline function new(p_from:gd.Vector2) this = @:privateAccess Vector2_wrapper._new1(p_from);
 	public extern overload inline function new(p_x:Float, p_y:Float) this = @:privateAccess Vector2_wrapper._new2(p_x, p_y);

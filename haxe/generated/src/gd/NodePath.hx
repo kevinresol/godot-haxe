@@ -2,6 +2,7 @@ package gd;
 class NodePath_wrapper {
 	final __gd : gdnative.NodePath;
 	public function new(value:gdnative.NodePath) __gd = value;
+	function toVariant():gd.Variant return @:privateAccess new gd.Variant.Variant_obj(new gdnative.Variant.Variant_extern(this));
 	static function _new0():NodePath_wrapper return new NodePath_wrapper(new gdnative.NodePath());
 	static function _new1(p_from:std.String):NodePath_wrapper return new NodePath_wrapper(new gdnative.NodePath(p_from));
 	static function _new2(p_from:std.String):NodePath_wrapper return new NodePath_wrapper(new gdnative.NodePath(p_from));
@@ -25,6 +26,8 @@ class NodePath_wrapper {
 }
 
 @:forward @:forwardStatics abstract NodePath(NodePath_wrapper) from NodePath_wrapper to NodePath_wrapper {
+	@:to
+	inline function toVariant():gd.Variant return @:privateAccess this.toVariant();
 	public extern overload inline function new() this = @:privateAccess NodePath_wrapper._new0();
 	public extern overload inline function new(p_from:std.String) this = @:privateAccess NodePath_wrapper._new1(p_from);
 	@:op(A == B)

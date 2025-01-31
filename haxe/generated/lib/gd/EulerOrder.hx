@@ -1,5 +1,7 @@
 package gd;
 enum abstract EulerOrder(Int) from Int to Int {
+	@:to
+	extern inline function toVariant():gd.Variant return this;
 	final XYZ = 0;
 	final XZY = 1;
 	final YXZ = 2;

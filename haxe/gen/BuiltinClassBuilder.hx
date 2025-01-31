@@ -314,18 +314,27 @@ class BuiltinClassBuilder extends Builder {
 		final wname = '${cname}_wrapper';
 		final wct = TPath({pack: [], name: wname});
 		final act = TPath({pack: Config.nativeExtern.pack, name: cname});
-		final cls = isScriptExtern ? (macro class $wname {}) : (macro class $wname {
+		final cls = isScriptExtern ? (macro class $wname {
+			function toVariant():gd.Variant;
+		}) : (macro class $wname {
 			// cpp.Struct is not a real haxe class so cppia can't access its fields directly
 			// so we need a real haxe class as wrapper and expose the fields getter/setter as real haxe functions
 			final __gd:$act;
 
 			public function new(value:$act)
 				__gd = value;
+
+			function toVariant():gd.Variant
+				return @:privateAccess new gd.Variant.Variant_obj(new gdnative.Variant.Variant_extern(this));
 		});
 		cls.pack = config.pack;
 		cls.isExtern = isScriptExtern;
 
-		final abs = macro class $cname {}
+		final abs = macro class $cname {
+			@:to
+			inline function toVariant():gd.Variant
+				return @:privateAccess this.toVariant();
+		}
 		abs.kind = TDAbstract(wct, [AbFrom(wct), AbTo(wct)]);
 		abs.meta = [{pos: null, name: ':forward'}, {pos: null, name: ':forwardStatics'},];
 

@@ -1,5 +1,7 @@
 package gd;
 enum abstract Key(Int) from Int to Int {
+	@:to
+	extern inline function toVariant():gd.Variant return this;
 	@:op(A | B)
 	extern static inline function or(a:Key, b:Key):Key {
 		return untyped __cpp__('({0}) | ({1})', a, b);

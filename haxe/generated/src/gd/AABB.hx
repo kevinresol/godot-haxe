@@ -2,6 +2,7 @@ package gd;
 class AABB_wrapper {
 	final __gd : gdnative.AABB;
 	public function new(value:gdnative.AABB) __gd = value;
+	function toVariant():gd.Variant return @:privateAccess new gd.Variant.Variant_obj(new gdnative.Variant.Variant_extern(this));
 	static function _new0():AABB_wrapper return new AABB_wrapper(new gdnative.AABB());
 	static function _new1(p_from:gd.AABB):AABB_wrapper return new AABB_wrapper(new gdnative.AABB(p_from));
 	static function _new2(p_position:gd.Vector3, p_size:gd.Vector3):AABB_wrapper return new AABB_wrapper(new gdnative.AABB(p_position, p_size));
@@ -49,6 +50,8 @@ class AABB_wrapper {
 }
 
 @:forward @:forwardStatics abstract AABB(AABB_wrapper) from AABB_wrapper to AABB_wrapper {
+	@:to
+	inline function toVariant():gd.Variant return @:privateAccess this.toVariant();
 	public extern overload inline function new() this = @:privateAccess AABB_wrapper._new0();
 	public extern overload inline function new(p_from:gd.AABB) this = @:privateAccess AABB_wrapper._new1(p_from);
 	public extern overload inline function new(p_position:gd.Vector3, p_size:gd.Vector3) this = @:privateAccess AABB_wrapper._new2(p_position, p_size);

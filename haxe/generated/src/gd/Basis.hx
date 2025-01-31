@@ -2,6 +2,7 @@ package gd;
 class Basis_wrapper {
 	final __gd : gdnative.Basis;
 	public function new(value:gdnative.Basis) __gd = value;
+	function toVariant():gd.Variant return @:privateAccess new gd.Variant.Variant_obj(new gdnative.Variant.Variant_extern(this));
 	static function _new0():Basis_wrapper return new Basis_wrapper(new gdnative.Basis());
 	static function _new1(p_from:gd.Basis):Basis_wrapper return new Basis_wrapper(new gdnative.Basis(p_from));
 	static function _new2(p_from:gd.Quaternion):Basis_wrapper return new Basis_wrapper(new gdnative.Basis(p_from));
@@ -62,6 +63,8 @@ class Basis_wrapper {
 }
 
 @:forward @:forwardStatics abstract Basis(Basis_wrapper) from Basis_wrapper to Basis_wrapper {
+	@:to
+	inline function toVariant():gd.Variant return @:privateAccess this.toVariant();
 	public extern overload inline function new() this = @:privateAccess Basis_wrapper._new0();
 	public extern overload inline function new(p_from:gd.Basis) this = @:privateAccess Basis_wrapper._new1(p_from);
 	public extern overload inline function new(p_from:gd.Quaternion) this = @:privateAccess Basis_wrapper._new2(p_from);

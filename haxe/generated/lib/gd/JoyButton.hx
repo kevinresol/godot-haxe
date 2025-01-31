@@ -1,5 +1,7 @@
 package gd;
 enum abstract JoyButton(Int) from Int to Int {
+	@:to
+	extern inline function toVariant():gd.Variant return this;
 	final INVALID = -1;
 	final A = 0;
 	final B = 1;

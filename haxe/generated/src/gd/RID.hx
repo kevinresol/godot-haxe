@@ -2,6 +2,7 @@ package gd;
 class RID_wrapper {
 	final __gd : gdnative.RID;
 	public function new(value:gdnative.RID) __gd = value;
+	function toVariant():gd.Variant return @:privateAccess new gd.Variant.Variant_obj(new gdnative.Variant.Variant_extern(this));
 	static function _new0():RID_wrapper return new RID_wrapper(new gdnative.RID());
 	static function _new1(p_from:gd.RID):RID_wrapper return new RID_wrapper(new gdnative.RID(p_from));
 	public function is_valid():Bool return __gd.is_valid();
@@ -19,6 +20,8 @@ class RID_wrapper {
 }
 
 @:forward @:forwardStatics abstract RID(RID_wrapper) from RID_wrapper to RID_wrapper {
+	@:to
+	inline function toVariant():gd.Variant return @:privateAccess this.toVariant();
 	public extern overload inline function new() this = @:privateAccess RID_wrapper._new0();
 	public extern overload inline function new(p_from:gd.RID) this = @:privateAccess RID_wrapper._new1(p_from);
 	@:op(A == B)

@@ -17,6 +17,10 @@ abstract Variant(cpp.Struct<Variant_extern>) from cpp.Struct<Variant_extern> to 
 		return new Variant_extern(v);
 
 	@:from
+	extern static inline function fromUInt64(v:cpp.UInt64):Variant
+		return new Variant_extern(v);
+
+	@:from
 	extern static inline function fromBool(v:Bool):Variant
 		return new Variant_extern(v);
 
@@ -36,14 +40,13 @@ abstract Variant(cpp.Struct<Variant_extern>) from cpp.Struct<Variant_extern> to 
 	extern static inline function fromNodePath(v:gdnative.NodePath):Variant
 		return new Variant_extern(v);
 
-	@:from
-	extern static inline function fromNodePathWrapper(v:gd.NodePath):Variant
-		return fromNodePath(v);
-
-	@:from
-	extern static inline function fromVector2Wrapper(v:gd.Vector2):Variant {
-		return new Variant_extern((v : gdnative.Vector2));
-	}
+	// @:from
+	// extern static inline function fromNodePathWrapper(v:gd.NodePath):Variant
+	// 	return fromNodePath(v);
+	// @:from
+	// extern static inline function fromVector2Wrapper(v:gd.Vector2):Variant {
+	// 	return new Variant_extern((v : gdnative.Vector2));
+	// }
 
 	@:from
 	extern static inline function fromColor(v:gdnative.Color):Variant
@@ -179,6 +182,7 @@ extern class Variant_extern {
 	@:overload(function(v:cpp.ConstCharStar):Void {})
 	@:overload(function(v:Float):Void {})
 	@:overload(function(v:Int):Void {})
+	@:overload(function(v:cpp.UInt64):Void {})
 	@:overload(function(v:Bool):Void {})
 	function new();
 

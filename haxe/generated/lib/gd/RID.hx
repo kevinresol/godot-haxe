@@ -1,5 +1,6 @@
 package gd;
 extern class RID_wrapper {
+	function toVariant():gd.Variant;
 	static function _new0():RID_wrapper;
 	static function _new1(p_from:gd.RID):RID_wrapper;
 	function is_valid():Bool;
@@ -17,6 +18,8 @@ extern class RID_wrapper {
 }
 
 @:forward @:forwardStatics abstract RID(RID_wrapper) from RID_wrapper to RID_wrapper {
+	@:to
+	inline function toVariant():gd.Variant return @:privateAccess this.toVariant();
 	public extern overload inline function new() this = RID_wrapper._new0();
 	public extern overload inline function new(p_from:gd.RID) this = RID_wrapper._new1(p_from);
 	@:op(A == B)

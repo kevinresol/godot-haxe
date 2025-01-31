@@ -1,5 +1,7 @@
 package gd;
 enum abstract Error(Int) from Int to Int {
+	@:to
+	extern inline function toVariant():gd.Variant return this;
 	final OK = 0;
 	final FAILED = 1;
 	final UNAVAILABLE = 2;

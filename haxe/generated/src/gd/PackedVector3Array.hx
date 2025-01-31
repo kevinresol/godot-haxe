@@ -2,6 +2,7 @@ package gd;
 class PackedVector3Array_wrapper {
 	final __gd : gdnative.PackedVector3Array;
 	public function new(value:gdnative.PackedVector3Array) __gd = value;
+	function toVariant():gd.Variant return @:privateAccess new gd.Variant.Variant_obj(new gdnative.Variant.Variant_extern(this));
 	static function _new0():PackedVector3Array_wrapper return new PackedVector3Array_wrapper(new gdnative.PackedVector3Array());
 	static function _new1(p_from:gd.PackedVector3Array):PackedVector3Array_wrapper return new PackedVector3Array_wrapper(new gdnative.PackedVector3Array(p_from));
 	static function _new2(p_from:gd.Array):PackedVector3Array_wrapper return new PackedVector3Array_wrapper(new gdnative.PackedVector3Array(p_from));
@@ -38,6 +39,8 @@ class PackedVector3Array_wrapper {
 }
 
 @:forward @:forwardStatics abstract PackedVector3Array(PackedVector3Array_wrapper) from PackedVector3Array_wrapper to PackedVector3Array_wrapper {
+	@:to
+	inline function toVariant():gd.Variant return @:privateAccess this.toVariant();
 	public extern overload inline function new() this = @:privateAccess PackedVector3Array_wrapper._new0();
 	public extern overload inline function new(p_from:gd.PackedVector3Array) this = @:privateAccess PackedVector3Array_wrapper._new1(p_from);
 	public extern overload inline function new(p_from:gd.Array) this = @:privateAccess PackedVector3Array_wrapper._new2(p_from);

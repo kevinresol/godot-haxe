@@ -1,5 +1,6 @@
 package gd;
 extern class PackedVector3Array_wrapper {
+	function toVariant():gd.Variant;
 	static function _new0():PackedVector3Array_wrapper;
 	static function _new1(p_from:gd.PackedVector3Array):PackedVector3Array_wrapper;
 	static function _new2(p_from:gd.Array):PackedVector3Array_wrapper;
@@ -36,6 +37,8 @@ extern class PackedVector3Array_wrapper {
 }
 
 @:forward @:forwardStatics abstract PackedVector3Array(PackedVector3Array_wrapper) from PackedVector3Array_wrapper to PackedVector3Array_wrapper {
+	@:to
+	inline function toVariant():gd.Variant return @:privateAccess this.toVariant();
 	public extern overload inline function new() this = PackedVector3Array_wrapper._new0();
 	public extern overload inline function new(p_from:gd.PackedVector3Array) this = PackedVector3Array_wrapper._new1(p_from);
 	public extern overload inline function new(p_from:gd.Array) this = PackedVector3Array_wrapper._new2(p_from);

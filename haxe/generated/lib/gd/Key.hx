@@ -1,5 +1,7 @@
 package gd;
 enum abstract Key(Int) from Int to Int {
+	@:to
+	extern inline function toVariant():gd.Variant return this;
 	final NONE = 0;
 	final SPECIAL = 4194304;
 	final ESCAPE = 4194305;

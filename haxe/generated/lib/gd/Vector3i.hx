@@ -1,5 +1,6 @@
 package gd;
 extern class Vector3i_wrapper {
+	function toVariant():gd.Variant;
 	static function _new0():Vector3i_wrapper;
 	static function _new1(p_from:gd.Vector3i):Vector3i_wrapper;
 	static function _new2(p_x:Int, p_y:Int, p_z:Int):Vector3i_wrapper;
@@ -53,6 +54,8 @@ extern class Vector3i_wrapper {
 }
 
 @:forward @:forwardStatics abstract Vector3i(Vector3i_wrapper) from Vector3i_wrapper to Vector3i_wrapper {
+	@:to
+	inline function toVariant():gd.Variant return @:privateAccess this.toVariant();
 	public extern overload inline function new() this = Vector3i_wrapper._new0();
 	public extern overload inline function new(p_from:gd.Vector3i) this = Vector3i_wrapper._new1(p_from);
 	public extern overload inline function new(p_x:Int, p_y:Int, p_z:Int) this = Vector3i_wrapper._new2(p_x, p_y, p_z);

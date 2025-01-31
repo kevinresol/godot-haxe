@@ -1,5 +1,7 @@
 package gd.node;
 enum abstract ProcessThreadMessages(cpp.UInt64) from cpp.UInt64 to cpp.UInt64 {
+	@:to
+	extern inline function toVariant():gd.Variant return this;
 	@:op(A | B)
 	extern static inline function or(a:ProcessThreadMessages, b:ProcessThreadMessages):ProcessThreadMessages {
 		return untyped __cpp__('({0}) | ({1})', a, b);

@@ -1,5 +1,7 @@
 package gd.resourceloader;
 enum abstract CacheMode(Int) from Int to Int {
+	@:to
+	extern inline function toVariant():gd.Variant return this;
 	@:op(A | B)
 	extern static inline function or(a:CacheMode, b:CacheMode):CacheMode {
 		return untyped __cpp__('({0}) | ({1})', a, b);

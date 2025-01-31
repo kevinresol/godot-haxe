@@ -2,6 +2,7 @@ package gd;
 class Transform3D_wrapper {
 	final __gd : gdnative.Transform3D;
 	public function new(value:gdnative.Transform3D) __gd = value;
+	function toVariant():gd.Variant return @:privateAccess new gd.Variant.Variant_obj(new gdnative.Variant.Variant_extern(this));
 	static function _new0():Transform3D_wrapper return new Transform3D_wrapper(new gdnative.Transform3D());
 	static function _new1(p_from:gd.Transform3D):Transform3D_wrapper return new Transform3D_wrapper(new gdnative.Transform3D(p_from));
 	static function _new2(p_basis:gd.Basis, p_origin:gd.Vector3):Transform3D_wrapper return new Transform3D_wrapper(new gdnative.Transform3D(p_basis, p_origin));
@@ -50,6 +51,8 @@ class Transform3D_wrapper {
 }
 
 @:forward @:forwardStatics abstract Transform3D(Transform3D_wrapper) from Transform3D_wrapper to Transform3D_wrapper {
+	@:to
+	inline function toVariant():gd.Variant return @:privateAccess this.toVariant();
 	public extern overload inline function new() this = @:privateAccess Transform3D_wrapper._new0();
 	public extern overload inline function new(p_from:gd.Transform3D) this = @:privateAccess Transform3D_wrapper._new1(p_from);
 	public extern overload inline function new(p_basis:gd.Basis, p_origin:gd.Vector3) this = @:privateAccess Transform3D_wrapper._new2(p_basis, p_origin);

@@ -2,6 +2,7 @@ package gd;
 class Rect2i_wrapper {
 	final __gd : gdnative.Rect2i;
 	public function new(value:gdnative.Rect2i) __gd = value;
+	function toVariant():gd.Variant return @:privateAccess new gd.Variant.Variant_obj(new gdnative.Variant.Variant_extern(this));
 	static function _new0():Rect2i_wrapper return new Rect2i_wrapper(new gdnative.Rect2i());
 	static function _new1(p_from:gd.Rect2i):Rect2i_wrapper return new Rect2i_wrapper(new gdnative.Rect2i(p_from));
 	static function _new2(p_position:gd.Vector2i, p_size:gd.Vector2i):Rect2i_wrapper return new Rect2i_wrapper(new gdnative.Rect2i(p_position, p_size));
@@ -40,6 +41,8 @@ class Rect2i_wrapper {
 }
 
 @:forward @:forwardStatics abstract Rect2i(Rect2i_wrapper) from Rect2i_wrapper to Rect2i_wrapper {
+	@:to
+	inline function toVariant():gd.Variant return @:privateAccess this.toVariant();
 	public extern overload inline function new() this = @:privateAccess Rect2i_wrapper._new0();
 	public extern overload inline function new(p_from:gd.Rect2i) this = @:privateAccess Rect2i_wrapper._new1(p_from);
 	public extern overload inline function new(p_position:gd.Vector2i, p_size:gd.Vector2i) this = @:privateAccess Rect2i_wrapper._new2(p_position, p_size);

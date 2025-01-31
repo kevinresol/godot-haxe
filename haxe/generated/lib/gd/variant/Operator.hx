@@ -1,5 +1,7 @@
 package gd.variant;
 enum abstract Operator(Int) from Int to Int {
+	@:to
+	extern inline function toVariant():gd.Variant return this;
 	final EQUAL = 0;
 	final NOT_EQUAL = 1;
 	final LESS = 2;

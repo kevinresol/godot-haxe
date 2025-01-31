@@ -1,5 +1,7 @@
 package gd;
 enum abstract PropertyHint(Int) from Int to Int {
+	@:to
+	extern inline function toVariant():gd.Variant return this;
 	final NONE = 0;
 	final RANGE = 1;
 	final ENUM = 2;

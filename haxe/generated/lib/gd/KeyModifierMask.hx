@@ -1,5 +1,7 @@
 package gd;
 enum abstract KeyModifierMask(cpp.UInt64) from cpp.UInt64 to cpp.UInt64 {
+	@:to
+	extern inline function toVariant():gd.Variant return this;
 	final KEY_CODE_MASK = 8388607;
 	final KEY_MODIFIER_MASK = 2130706432;
 	final CMD_OR_CTRL = 16777216;

@@ -1,5 +1,6 @@
 package gd;
 extern class PackedInt64Array_wrapper {
+	function toVariant():gd.Variant;
 	static function _new0():PackedInt64Array_wrapper;
 	static function _new1(p_from:gd.PackedInt64Array):PackedInt64Array_wrapper;
 	static function _new2(p_from:gd.Array):PackedInt64Array_wrapper;
@@ -35,6 +36,8 @@ extern class PackedInt64Array_wrapper {
 }
 
 @:forward @:forwardStatics abstract PackedInt64Array(PackedInt64Array_wrapper) from PackedInt64Array_wrapper to PackedInt64Array_wrapper {
+	@:to
+	inline function toVariant():gd.Variant return @:privateAccess this.toVariant();
 	public extern overload inline function new() this = PackedInt64Array_wrapper._new0();
 	public extern overload inline function new(p_from:gd.PackedInt64Array) this = PackedInt64Array_wrapper._new1(p_from);
 	public extern overload inline function new(p_from:gd.Array) this = PackedInt64Array_wrapper._new2(p_from);

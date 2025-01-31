@@ -1,5 +1,6 @@
 package gd;
 extern class Transform2D_wrapper {
+	function toVariant():gd.Variant;
 	static function _new0():Transform2D_wrapper;
 	static function _new1(p_from:gd.Transform2D):Transform2D_wrapper;
 	static function _new2(p_rotation:Float, p_position:gd.Vector2):Transform2D_wrapper;
@@ -46,6 +47,8 @@ extern class Transform2D_wrapper {
 }
 
 @:forward @:forwardStatics abstract Transform2D(Transform2D_wrapper) from Transform2D_wrapper to Transform2D_wrapper {
+	@:to
+	inline function toVariant():gd.Variant return @:privateAccess this.toVariant();
 	public extern overload inline function new() this = Transform2D_wrapper._new0();
 	public extern overload inline function new(p_from:gd.Transform2D) this = Transform2D_wrapper._new1(p_from);
 	public extern overload inline function new(p_rotation:Float, p_position:gd.Vector2) this = Transform2D_wrapper._new2(p_rotation, p_position);

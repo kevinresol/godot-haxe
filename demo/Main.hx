@@ -35,6 +35,7 @@ class Main extends Base {
 		print('HaxeString');
 		print(new Vector2());
 		print(new Vector2(42, 44));
+		print(new Vector3(42, 44, 46));
 		print(Vector2.ONE);
 		print(Color.WHEAT);
 		print(new NodePath('Node/Path'));
@@ -46,6 +47,7 @@ class Main extends Base {
 		print(typeof('HaxeString'));
 		print(typeof(new Vector2()));
 		print(typeof(new Vector2(42, 44)));
+		print(typeof(new Vector3(42, 44, 46)));
 		print(typeof(new NodePath('Node/Path')));
 
 		trace('varargs checks (cppia)');

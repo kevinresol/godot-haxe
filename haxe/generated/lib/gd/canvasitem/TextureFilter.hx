@@ -1,5 +1,7 @@
 package gd.canvasitem;
 enum abstract TextureFilter(Int) from Int to Int {
+	@:to
+	extern inline function toVariant():gd.Variant return this;
 	final PARENT_NODE = 0;
 	final NEAREST = 1;
 	final LINEAR = 2;

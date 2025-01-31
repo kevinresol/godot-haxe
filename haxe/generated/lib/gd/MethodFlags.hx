@@ -1,5 +1,7 @@
 package gd;
 enum abstract MethodFlags(cpp.UInt64) from cpp.UInt64 to cpp.UInt64 {
+	@:to
+	extern inline function toVariant():gd.Variant return this;
 	final NORMAL = 1;
 	final EDITOR = 2;
 	final CONST = 4;

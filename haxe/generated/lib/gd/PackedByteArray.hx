@@ -1,5 +1,6 @@
 package gd;
 extern class PackedByteArray_wrapper {
+	function toVariant():gd.Variant;
 	static function _new0():PackedByteArray_wrapper;
 	static function _new1(p_from:gd.PackedByteArray):PackedByteArray_wrapper;
 	static function _new2(p_from:gd.Array):PackedByteArray_wrapper;
@@ -73,6 +74,8 @@ extern class PackedByteArray_wrapper {
 }
 
 @:forward @:forwardStatics abstract PackedByteArray(PackedByteArray_wrapper) from PackedByteArray_wrapper to PackedByteArray_wrapper {
+	@:to
+	inline function toVariant():gd.Variant return @:privateAccess this.toVariant();
 	public extern overload inline function new() this = PackedByteArray_wrapper._new0();
 	public extern overload inline function new(p_from:gd.PackedByteArray) this = PackedByteArray_wrapper._new1(p_from);
 	public extern overload inline function new(p_from:gd.Array) this = PackedByteArray_wrapper._new2(p_from);

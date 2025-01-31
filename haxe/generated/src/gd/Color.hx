@@ -2,6 +2,7 @@ package gd;
 class Color_wrapper {
 	final __gd : gdnative.Color;
 	public function new(value:gdnative.Color) __gd = value;
+	function toVariant():gd.Variant return @:privateAccess new gd.Variant.Variant_obj(new gdnative.Variant.Variant_extern(this));
 	static function _new0():Color_wrapper return new Color_wrapper(new gdnative.Color());
 	static function _new1(p_from:gd.Color):Color_wrapper return new Color_wrapper(new gdnative.Color(p_from));
 	static function _new2(p_from:gd.Color, p_alpha:Float):Color_wrapper return new Color_wrapper(new gdnative.Color(p_from, p_alpha));
@@ -264,6 +265,8 @@ class Color_wrapper {
 }
 
 @:forward @:forwardStatics abstract Color(Color_wrapper) from Color_wrapper to Color_wrapper {
+	@:to
+	inline function toVariant():gd.Variant return @:privateAccess this.toVariant();
 	public extern overload inline function new() this = @:privateAccess Color_wrapper._new0();
 	public extern overload inline function new(p_from:gd.Color) this = @:privateAccess Color_wrapper._new1(p_from);
 	public extern overload inline function new(p_from:gd.Color, p_alpha:Float) this = @:privateAccess Color_wrapper._new2(p_from, p_alpha);

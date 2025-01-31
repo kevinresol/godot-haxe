@@ -2,6 +2,7 @@ package gd;
 class Vector4i_wrapper {
 	final __gd : gdnative.Vector4i;
 	public function new(value:gdnative.Vector4i) __gd = value;
+	function toVariant():gd.Variant return @:privateAccess new gd.Variant.Variant_obj(new gdnative.Variant.Variant_extern(this));
 	static function _new0():Vector4i_wrapper return new Vector4i_wrapper(new gdnative.Vector4i());
 	static function _new1(p_from:gd.Vector4i):Vector4i_wrapper return new Vector4i_wrapper(new gdnative.Vector4i(p_from));
 	static function _new2(p_x:Int, p_y:Int, p_z:Int, p_w:Int):Vector4i_wrapper return new Vector4i_wrapper(new gdnative.Vector4i(p_x, p_y, p_z, p_w));
@@ -69,6 +70,8 @@ class Vector4i_wrapper {
 }
 
 @:forward @:forwardStatics abstract Vector4i(Vector4i_wrapper) from Vector4i_wrapper to Vector4i_wrapper {
+	@:to
+	inline function toVariant():gd.Variant return @:privateAccess this.toVariant();
 	public extern overload inline function new() this = @:privateAccess Vector4i_wrapper._new0();
 	public extern overload inline function new(p_from:gd.Vector4i) this = @:privateAccess Vector4i_wrapper._new1(p_from);
 	public extern overload inline function new(p_x:Int, p_y:Int, p_z:Int, p_w:Int) this = @:privateAccess Vector4i_wrapper._new2(p_x, p_y, p_z, p_w);

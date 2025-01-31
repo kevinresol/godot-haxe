@@ -67,7 +67,11 @@ class EnumBuilder extends Builder {
 
 		final underlying = e.is_bitfield ? macro :cpp.UInt64 : macro :Int;
 		final config = isScriptExtern ? Config.cppiaExtern : Config.wrapper;
-		final def = macro class $ename {}
+		final def = macro class $ename {
+			@:to
+			extern inline function toVariant():gd.Variant
+				return this;
+		}
 		def.pack = config.pack.concat(parts.map(p -> p.toLowerCase()));
 		def.kind = TDAbstract(underlying, [AbEnum, AbFrom(underlying), AbTo(underlying)]); // TODO: remove the from cast if possible
 

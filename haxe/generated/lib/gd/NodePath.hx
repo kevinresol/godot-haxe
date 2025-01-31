@@ -1,5 +1,6 @@
 package gd;
 extern class NodePath_wrapper {
+	function toVariant():gd.Variant;
 	static function _new0():NodePath_wrapper;
 	static function _new1(p_from:std.String):NodePath_wrapper;
 	static function _new2(p_from:std.String):NodePath_wrapper;
@@ -23,6 +24,8 @@ extern class NodePath_wrapper {
 }
 
 @:forward @:forwardStatics abstract NodePath(NodePath_wrapper) from NodePath_wrapper to NodePath_wrapper {
+	@:to
+	inline function toVariant():gd.Variant return @:privateAccess this.toVariant();
 	public extern overload inline function new() this = NodePath_wrapper._new0();
 	public extern overload inline function new(p_from:std.String) this = NodePath_wrapper._new1(p_from);
 	@:op(A == B)

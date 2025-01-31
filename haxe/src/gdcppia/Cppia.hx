@@ -49,6 +49,7 @@ class Cppia {
 		print('HaxeString');
 		print(new Vector2());
 		print(new Vector2(42, 44));
+		print(new Vector3(42, 44, 46));
 		print(Vector2.ONE);
 		print(new Color());
 		print(Color.WHEAT);
@@ -61,6 +62,7 @@ class Cppia {
 		print(typeof('HaxeString'));
 		print(typeof(new Vector2()));
 		print(typeof(new Vector2(42, 44)));
+		print(typeof(new Vector3(42, 44, 46)));
 		// print(typeof(('Node/Path' : NodePath)));
 
 		trace('varargs checks (host)');
@@ -70,6 +72,7 @@ class Cppia {
 		trace('Enum checks (host)');
 		print(gd.variant.Type.INT);
 		print(gd.variant.Type.FLOAT);
+		print(gd.Error.OK);
 
 		trace('Operator checks (host)');
 		print(new Vector2(42, 0) + new Vector2(3, 4));
@@ -93,9 +96,9 @@ class Cppia {
 		print(x);
 		x.free();
 
-		trace(gdnative.Error.OK);
-
-		print(ResourceLoader.singleton.load('res://sub.tscn'));
+		final scn = ResourceLoader.singleton.load('res://sub.tscn');
+		print(scn);
+		scn.free();
 	}
 
 	static var module:Module;
