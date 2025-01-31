@@ -62,6 +62,12 @@ class Main extends Base {
 		print(new Vector2(42, 0) + new Vector2(3, 4));
 		print(new Vector2(42, 0) * 2);
 
+		trace('Dictionary checks (cppia)');
+		final key = 'foo';
+		final dict = new Dictionary();
+		dict.set(key, 42);
+		print(new String(key) in dict);
+
 		trace('JSON checks (cppia)');
 		final json = new gd.JSON();
 		switch json.parse('{"foo": 42, "bar": true, "baz": ["hello", "world"]}') {

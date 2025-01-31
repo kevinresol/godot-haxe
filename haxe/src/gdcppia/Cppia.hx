@@ -78,6 +78,12 @@ class Cppia {
 		print(new Vector2(42, 0) + new Vector2(3, 4));
 		print(new Vector2(42, 0) * 2);
 
+		trace('Dictionary checks (host)');
+		final key = 'foo';
+		final dict = new Dictionary();
+		dict.set(key, 42);
+		print(new String(key) in dict);
+
 		trace('JSON checks (host)');
 		final json = new JSON();
 		switch json.parse('{"foo": 42, "bar": true, "baz": ["hello", "world"]}') {
