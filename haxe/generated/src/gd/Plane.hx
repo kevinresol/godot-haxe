@@ -17,6 +17,24 @@ class Plane_wrapper {
 	public function distance_to(p_point:gd.Vector3):Float return __gd.distance_to(p_point);
 	public function has_point(p_point:gd.Vector3, ?p_tolerance:Float):Bool return __gd.has_point(p_point, p_tolerance);
 	public function project(p_point:gd.Vector3):gd.Vector3 return __gd.project(p_point);
+	public var x(get, set) : Float;
+	function get_x():Float return __gd.x;
+	function set_x(v:Float):Float return {
+		__gd.x = v;
+		v;
+	};
+	public var y(get, set) : Float;
+	function get_y():Float return __gd.y;
+	function set_y(v:Float):Float return {
+		__gd.y = v;
+		v;
+	};
+	public var z(get, set) : Float;
+	function get_z():Float return __gd.z;
+	function set_z(v:Float):Float return {
+		__gd.z = v;
+		v;
+	};
 	public var d(get, set) : Float;
 	function get_d():Float return __gd.d;
 	function set_d(v:Float):Float return {

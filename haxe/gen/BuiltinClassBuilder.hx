@@ -552,9 +552,6 @@ class BuiltinClassBuilder extends Builder {
 			case 'AABB':
 				// TODO: handle these virtual members
 				clazz.members.filter(m -> !['end'].contains(m.name));
-			case 'Plane':
-				// TODO: handle these virtual members
-				clazz.members.filter(m -> !['x', 'y', 'z'].contains(m.name));
 
 			default:
 				clazz.members;
@@ -596,6 +593,13 @@ class BuiltinClassBuilder extends Builder {
 				'columns[2]';
 			case ['Projection', 'w']:
 				'columns[3]';
+
+			case ['Plane', 'x']:
+				'normal.x';
+			case ['Plane', 'y']:
+				'normal.y';
+			case ['Plane', 'z']:
+				'normal.z';
 
 			default:
 				null;

@@ -38,6 +38,12 @@ package gdnative;
 	overload function has_point(p_point:gdnative.Vector3, p_tolerance:Float):Bool;
 	overload function has_point(p_point:gdnative.Vector3):Bool;
 	function project(p_point:gdnative.Vector3):gdnative.Vector3;
+	@:native("normal.x")
+	var x : Float;
+	@:native("normal.y")
+	var y : Float;
+	@:native("normal.z")
+	var z : Float;
 	var d : Float;
 	var normal : gdnative.Vector3;
 }

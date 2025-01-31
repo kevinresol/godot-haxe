@@ -9,10 +9,5 @@
 		["--cwd", "haxe", "build.hxml"],
 		["--cwd", "haxe", "gen.hxml"]
 	],
-	"cmake.ignoreCMakeListsMissing": true,
-	"files.associations": {
-		"*.tt": "html",
-		"*.cdb": "json",
-		"array": "cpp"
-	}
+	"cmake.ignoreCMakeListsMissing": true
 }

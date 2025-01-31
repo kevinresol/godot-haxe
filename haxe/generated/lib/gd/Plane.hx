@@ -15,6 +15,9 @@ extern class Plane_wrapper {
 	function distance_to(p_point:gd.Vector3):Float;
 	function has_point(p_point:gd.Vector3, ?p_tolerance:Float):Bool;
 	function project(p_point:gd.Vector3):gd.Vector3;
+	var x(get, set) : Float;
+	var y(get, set) : Float;
+	var z(get, set) : Float;
 	var d(get, set) : Float;
 	var normal(get, set) : gd.Vector3;
 	public static final PLANE_YZ : gd.Plane;
