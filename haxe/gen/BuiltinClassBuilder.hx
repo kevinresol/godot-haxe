@@ -620,7 +620,7 @@ class BuiltinClassBuilder extends Builder {
 					kind: FFun({
 						args: [{name: 'key', type: macro :gd.Variant}],
 						ret: macro :gd.Variant,
-						expr: isScriptExtern ? null : macro return this.get(key, new gd.Variant()),
+						expr: isScriptExtern ? null : macro return __gd.get(key, new gd.Variant()),
 					})
 				});
 				abs.fields = abs.fields.concat((macro class {

@@ -54,7 +54,7 @@ class Dictionary_wrapper {
 	function __op_not_equal_dictionary(p_rhs:gd.Dictionary):Bool return this.__gd != ((p_rhs : gdnative.Dictionary));
 	function __op_membership_in_dictionary(p_rhs:gd.Dictionary):Bool return this.__gd in ((p_rhs : gdnative.Dictionary));
 	function __op_membership_in_array(p_rhs:gd.Array):Bool return this.__gd in ((p_rhs : gdnative.Array));
-	function __get_padded(key:gd.Variant):gd.Variant return this.get(key, new gd.Variant());
+	function __get_padded(key:gd.Variant):gd.Variant return __gd.get(key, new gd.Variant());
 }
 
 @:forward @:forwardStatics abstract Dictionary(Dictionary_wrapper) from Dictionary_wrapper to Dictionary_wrapper {

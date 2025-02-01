@@ -151,5 +151,5 @@ class Array_wrapper {
 		return value;
 	}
 	@:op(A in B)
-	extern static inline function __has_variant_key(key:gd.Variant, _this:gd.Array):Bool return _this.has(key);
+	extern static inline function __has_variant_value(value:gd.Variant, _this:gd.Array):Bool return _this.has(value);
 }
