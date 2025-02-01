@@ -50,8 +50,8 @@ package gdnative;
 	function get_subname(p_idx:Int):gdnative.StringName;
 	function get_concatenated_names():gdnative.StringName;
 	function get_concatenated_subnames():gdnative.StringName;
-	overload function slice(p_begin:Int, p_end:Int):gdnative.NodePath;
 	overload function slice(p_begin:Int):gdnative.NodePath;
+	overload function slice(p_begin:Int, p_end:Int):gdnative.NodePath;
 	function get_as_property_path():gdnative.NodePath;
 	function is_empty():Bool;
 }

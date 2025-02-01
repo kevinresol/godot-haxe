@@ -52,8 +52,8 @@ package gdnative;
 	function is_finite():Bool;
 	function is_point_over(p_point:gdnative.Vector3):Bool;
 	function distance_to(p_point:gdnative.Vector3):Float;
-	overload function has_point(p_point:gdnative.Vector3, p_tolerance:Float):Bool;
 	overload function has_point(p_point:gdnative.Vector3):Bool;
+	overload function has_point(p_point:gdnative.Vector3, p_tolerance:Float):Bool;
 	function project(p_point:gdnative.Vector3):gdnative.Vector3;
 	@:native("normal.x")
 	var x : Float;

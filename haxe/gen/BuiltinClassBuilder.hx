@@ -171,7 +171,7 @@ class BuiltinClassBuilder extends Builder {
 						access: (optArgCount > 0 ? [AOverload] : []), // TODO .concat(fn.is_static ? [AStatic] : []),
 						name: fname,
 						kind: FFun({
-							args: fargs.slice(0, fargs.length - i),
+							args: fargs.slice(0, fargs.length - optArgCount + i),
 							ret: rct,
 						}),
 						meta: switch getMethodNative(cname, fname) {
@@ -416,6 +416,10 @@ class BuiltinClassBuilder extends Builder {
 
 		// methods
 		for (fn in getValidMethods(clazz)) {
+			// if (fn.is_vararg)
+			// 	throw 'handle varargs in $cname#${fn.name}';
+			// if (fn.is_static)
+			// 	throw 'handle static in $cname#${fn.name}';
 			try {
 				final fname = fn.name;
 				final rtype = patchRetType(cname, fname, fn.return_type ?? 'void');
@@ -580,6 +584,33 @@ class BuiltinClassBuilder extends Builder {
 					}),
 				});
 			} catch (e) {}
+		}
+
+		// special cases
+		switch cname {
+			case 'Dictionary' | 'Array':
+				final ct = TPath({pack: [], name: cname});
+				final kct = switch cname {
+					case 'Dictionary': macro :gd.Variant;
+					case 'Array': macro :Int;
+					case _: throw 'unreachable';
+				}
+				abs.fields = abs.fields.concat((macro class {
+					@:arrayAccess
+					extern inline function __get(key:$kct):gd.Variant
+						return this.get(key);
+
+					@:arrayAccess
+					extern inline function __set(key:$kct, value:gd.Variant):gd.Variant {
+						this.set(key, value); // TODO: handle the returned bool?
+						return value;
+					}
+
+					@:op(A in B)
+					extern static inline function __has_variant_key(key:gd.Variant, _this:$ct):Bool
+						return _this.has(key);
+				}).fields);
+			case _:
 		}
 		final source = printTypeDefinition(cls) + '\n\n' + printTypeDefinition(abs);
 		write('${config.folder}/${cls.pack.join('/')}/$cname.hx', source);

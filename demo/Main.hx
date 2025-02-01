@@ -62,11 +62,24 @@ class Main extends Base {
 		print(new Vector2(42, 0) + new Vector2(3, 4));
 		print(new Vector2(42, 0) * 2);
 
+		trace('Array checks (cppia)');
+		final arr = new Array();
+		print("42 in arr: ", 42 in arr);
+		print("bar in arr: ", "bar" in arr);
+		arr.resize(2);
+		arr[0] = 42;
+		arr[1] = 'bar';
+		print("42 in arr: ", 42 in arr, ' ', arr[0]);
+		print("bar in arr: ", "bar" in arr, ' ', arr[1]);
+
 		trace('Dictionary checks (cppia)');
-		final key = 'foo';
 		final dict = new Dictionary();
-		dict.set(key, 42);
-		print(new String(key) in dict);
+		print("foo in dict: ", 'foo' in dict);
+		print("42 in dict: ", 42 in dict);
+		dict['foo'] = 42;
+		dict[42] = 'bar';
+		print("foo in dict: ", 'foo' in dict, dict['foo']);
+		print("42 in dict: ", 42 in dict, dict[42]);
 
 		trace('JSON checks (cppia)');
 		final json = new gd.JSON();

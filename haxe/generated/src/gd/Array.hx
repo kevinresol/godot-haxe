@@ -117,4 +117,13 @@ class Array_wrapper {
 	inline function __op_add_array(p_rhs:gd.Array):gd.Array return @:privateAccess this.__op_add_array(p_rhs);
 	@:op(A in B)
 	inline function __op_membership_in_array(p_rhs:gd.Array):Bool return @:privateAccess this.__op_membership_in_array(p_rhs);
+	@:arrayAccess
+	extern inline function __get(key:Int):gd.Variant return this.get(key);
+	@:arrayAccess
+	extern inline function __set(key:Int, value:gd.Variant):gd.Variant {
+		this.set(key, value);
+		return value;
+	}
+	@:op(A in B)
+	extern static inline function __has_variant_key(key:gd.Variant, _this:Array):Bool return _this.has(key);
 }

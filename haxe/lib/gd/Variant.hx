@@ -18,21 +18,21 @@ abstract Variant(Variant_obj) from Variant_obj to Variant_obj {
 		return Variant_obj.fromObject(v);
 
 	@:arrayAccess
-	inline function get_named(name:std.String):Variant
+	inline function __get_named(name:std.String):Variant
 		return this.get_named(name);
 
 	@:arrayAccess
-	inline function set_named(name:std.String, value:Variant):Variant {
+	inline function __set_named(name:std.String, value:Variant):Variant {
 		this.set_named(name, value);
 		return value;
 	}
 
 	@:arrayAccess
-	inline function get_indexed(index:Int):Variant
+	inline function __get_indexed(index:Int):Variant
 		return this.get_indexed(index);
 
 	@:arrayAccess
-	inline function set_indexed(index:Int, value:Variant):Variant {
+	inline function __set_indexed(index:Int, value:Variant):Variant {
 		this.set_indexed(index, value);
 		return value;
 	}
