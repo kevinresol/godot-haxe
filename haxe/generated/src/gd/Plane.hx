@@ -12,12 +12,15 @@ class Plane_wrapper {
 	static function _new6(p_a:Float, p_b:Float, p_c:Float, p_d:Float):Plane_wrapper return new Plane_wrapper(new gdnative.Plane(p_a, p_b, p_c, p_d));
 	public function normalized():gd.Plane return __gd.normalized();
 	public function get_center():gd.Vector3 return __gd.get_center();
-	public function is_equal_approx(p_to_plane:gd.Plane):Bool return __gd.is_equal_approx(p_to_plane);
+	public function is_equal_approx(p_to_plane:gd.Plane):Bool return __gd.is_equal_approx(((p_to_plane : gd.Plane)));
 	public function is_finite():Bool return __gd.is_finite();
-	public function is_point_over(p_point:gd.Vector3):Bool return __gd.is_point_over(p_point);
-	public function distance_to(p_point:gd.Vector3):Float return __gd.distance_to(p_point);
-	public function has_point(p_point:gd.Vector3, ?p_tolerance:Float):Bool return __gd.has_point(p_point, p_tolerance);
-	public function project(p_point:gd.Vector3):gd.Vector3 return __gd.project(p_point);
+	public function is_point_over(p_point:gd.Vector3):Bool return __gd.is_point_over(((p_point : gd.Vector3)));
+	public function distance_to(p_point:gd.Vector3):Float return __gd.distance_to(((p_point : gd.Vector3)));
+	public function has_point(p_point:gd.Vector3, ?p_tolerance:Float):Bool return switch [p_point, p_tolerance] {
+		case [_, null]:__gd.has_point(((p_point : gd.Vector3)));
+		default:__gd.has_point(((p_point : gd.Vector3)), ((p_tolerance : Float)));
+	};
+	public function project(p_point:gd.Vector3):gd.Vector3 return __gd.project(((p_point : gd.Vector3)));
 	public var x(get, set) : Float;
 	function get_x():Float return __gd.x;
 	function set_x(v:Float):Float return {

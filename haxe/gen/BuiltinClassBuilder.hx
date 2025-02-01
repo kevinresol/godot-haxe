@@ -159,16 +159,17 @@ class BuiltinClassBuilder extends Builder {
 				final fname = fn.name;
 				final rtype = patchRetType(cname, fname, fn.return_type ?? 'void');
 				final rct = makeGodotType(rtype);
-				final args = patchArgs(cname, fname, fn.arguments);
+				final args = patchArgs(cname, fname, fn.arguments).map(arg -> {
+					arg.type = patchArgType(cname, fname, arg.name, arg.type);
+					arg;
+				});
 				final optArgCount = args.count(a -> a.default_value != null);
-				final fargs = args.map(arg -> ({
-					name: 'p_${arg.name}',
-					type: makeGodotType(patchArgType(cname, fname, arg.name, arg.type)),
-				} : FunctionArg));
+				final fargs = makeArgumentsForNativeExtern(args, fn.is_vararg);
+
 				for (i in 0...optArgCount + 1) {
 					cls.fields.push({
 						pos: null,
-						access: (optArgCount > 0 ? [AOverload] : []), // TODO .concat(fn.is_static ? [AStatic] : []),
+						access: (optArgCount > 0 ? [AOverload] : []).concat(fn.is_static ? [AStatic] : []),
 						name: fname,
 						kind: FFun({
 							args: fargs.slice(0, fargs.length - optArgCount + i),
@@ -191,6 +192,7 @@ class BuiltinClassBuilder extends Builder {
 				if (isVirtualProperty(cname, prop.name)) {
 					final getter = 'get_${pname}';
 					final setter = 'set_${pname}';
+
 					cls.fields = cls.fields.concat((macro class {
 						function $getter():$pct;
 
@@ -209,7 +211,6 @@ class BuiltinClassBuilder extends Builder {
 				}
 			} catch (e) {}
 		}
-
 		// operators
 		for (op in clazz.operators.filter(op -> isValidOperator(cname, op))) {
 			try {
@@ -228,7 +229,6 @@ class BuiltinClassBuilder extends Builder {
 				});
 			} catch (e) {}
 		}
-
 		// constructor overload
 		final absctors = new Map<String, Bool>();
 		for (ctor in ctors) {
@@ -248,6 +248,7 @@ class BuiltinClassBuilder extends Builder {
 							} : FunctionArg)) ?? [],
 							expr: {
 								final tp = {pack: Config.nativeExtern.pack, name: cname, sub: ename};
+
 								macro this = new $tp($a{
 									(ctor.arguments ?? []).map(arg -> macro $i{'p_${arg.name}'})
 								});
@@ -257,7 +258,6 @@ class BuiltinClassBuilder extends Builder {
 				}
 			} catch (e) {}
 		}
-
 		switch cname {
 			case 'String':
 				abs.fields = (macro class {
@@ -303,7 +303,6 @@ class BuiltinClassBuilder extends Builder {
 				}).fields.concat(abs.fields);
 			case _:
 		}
-
 		final source = printTypeDefinition(abs) + '\n\n' + printTypeDefinition(cls);
 		write('${config.folder}/${abs.pack.join('/')}/$cname.hx', source);
 	}
@@ -421,23 +420,33 @@ class BuiltinClassBuilder extends Builder {
 			// if (fn.is_static)
 			// 	throw 'handle static in $cname#${fn.name}';
 			try {
-				final fname = fn.name;
-				final rtype = patchRetType(cname, fname, fn.return_type ?? 'void');
-
-				cls.fields.push({
-					pos: null,
-					access: isScriptExtern ? [] : [APublic],
-					name: fname,
-					kind: FFun({
-						args: patchArgs(cname, fname, fn.arguments).map(arg -> ({
-							name: 'p_${arg.name}',
-							type: makeHaxeType(patchArgType(cname, fname, arg.name, arg.type)),
-							opt: arg.default_value != null,
-						} : FunctionArg)),
-						ret: makeHaxeType(rtype),
-						expr: isScriptExtern ? null : macro return __gd.$fname($a{patchArgs(cname, fname, fn.arguments).map(arg -> macro $i{'p_${arg.name}'})})
-					})
+				final fn = Reflect.copy(fn);
+				fn.arguments = patchArgs(cname, fn.name, fn.arguments).map(arg -> {
+					arg.type = patchArgType(cname, fn.name, arg.name, arg.type);
+					arg;
 				});
+
+				cls.fields.push(makeWrapperMethod(fn, fn.return_type, isScriptExtern, isStatic -> {
+					if (isStatic) {
+						macro $p{Config.nativeExtern.pack.concat([cname, '${cname}_extern'])};
+					} else {
+						macro __gd;
+					}
+				}));
+				// cls.fields.push({
+				// 	pos: null,
+				// 	access: isScriptExtern ? [] : [APublic],
+				// 	name: fname,
+				// 	kind: FFun({
+				// 		args: patchArgs(cname, fname, fn.arguments).map(arg -> ({
+				// 			name: 'p_${arg.name}',
+				// 			type: makeHaxeType(patchArgType(cname, fname, arg.name, arg.type)),
+				// 			opt: arg.default_value != null,
+				// 		} : FunctionArg)),
+				// 		ret: makeHaxeType(rtype),
+				// 		expr: isScriptExtern ? null : macro return __gd.$fname($a{patchArgs(cname, fname, fn.arguments).map(arg -> macro $i{'p_${arg.name}'})})
+				// 	})
+				// });
 			} catch (e) {}
 		}
 
@@ -588,26 +597,45 @@ class BuiltinClassBuilder extends Builder {
 
 		// special cases
 		switch cname {
-			case 'Dictionary' | 'Array':
-				final ct = TPath({pack: [], name: cname});
-				final kct = switch cname {
-					case 'Dictionary': macro :gd.Variant;
-					case 'Array': macro :Int;
-					case _: throw 'unreachable';
-				}
+			case 'Array':
 				abs.fields = abs.fields.concat((macro class {
 					@:arrayAccess
-					extern inline function __get(key:$kct):gd.Variant
+					extern inline function __get(key:Int):gd.Variant
 						return this.get(key);
 
 					@:arrayAccess
-					extern inline function __set(key:$kct, value:gd.Variant):gd.Variant {
+					extern inline function __set(key:Int, value:gd.Variant):gd.Variant {
 						this.set(key, value); // TODO: handle the returned bool?
 						return value;
 					}
 
 					@:op(A in B)
-					extern static inline function __has_variant_key(key:gd.Variant, _this:$ct):Bool
+					extern static inline function __has_variant_value(value:gd.Variant, _this:gd.Array):Bool
+						return _this.has(value);
+				}).fields);
+			case 'Dictionary':
+				cls.fields.push({
+					pos: null,
+					name: '__get_padded',
+					kind: FFun({
+						args: [{name: 'key', type: macro :gd.Variant}],
+						ret: macro :gd.Variant,
+						expr: isScriptExtern ? null : macro return this.get(key, new gd.Variant()),
+					})
+				});
+				abs.fields = abs.fields.concat((macro class {
+					@:arrayAccess
+					extern inline function __get(key:gd.Variant):gd.Variant
+						return @:privateAccess this.__get_padded(key);
+
+					@:arrayAccess
+					extern inline function __set(key:gd.Variant, value:gd.Variant):gd.Variant {
+						this.set(key, value); // TODO: handle the returned bool?
+						return value;
+					}
+
+					@:op(A in B)
+					extern static inline function __has_variant_key(key:gd.Variant, _this:gd.Dictionary):Bool
 						return _this.has(key);
 				}).fields);
 			case _:
@@ -631,6 +659,10 @@ class BuiltinClassBuilder extends Builder {
 				clazz.methods.filter(m -> !['intersects_segment', 'intersects_ray'].contains(m.name));
 			case 'Basis' | 'Transform2D':
 				clazz.methods.filter(m -> !['is_conformal'].contains(m.name));
+			case 'Signal':
+				clazz.methods.filter(m -> !['emit'].contains(m.name)); // TODO: vararg
+			case 'Callable':
+				clazz.methods.filter(m -> !['rpc_id'].contains(m.name)); // TODO: vararg
 			default:
 				clazz.methods;
 		}
@@ -765,6 +797,15 @@ class BuiltinClassBuilder extends Builder {
 		return if (args == null) [] else switch [cls, fn] {
 			case ['Transform3D', 'looking_at']:
 				args.slice(0, 2);
+			case ['Transform2D', 'looking_at']:
+				args[0].default_value = null;
+				args;
+			case ['Dictionary', 'get' | 'get_or_add']:
+				args[1].default_value = null;
+				args;
+			case ['Array', 'reduce']:
+				args[1].default_value = null;
+				args;
 			default:
 				args;
 		}

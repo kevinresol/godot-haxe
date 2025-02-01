@@ -110,7 +110,7 @@ package gdnative;
 	function minf(p_with:Float):gdnative.Vector3;
 	function max(p_with:gdnative.Vector3):gdnative.Vector3;
 	function maxf(p_with:Float):gdnative.Vector3;
-	function octahedron_decode(p_uv:gdnative.Vector2):gdnative.Vector3;
+	static function octahedron_decode(p_uv:gdnative.Vector2):gdnative.Vector3;
 	var x : Float;
 	var y : Float;
 	var z : Float;

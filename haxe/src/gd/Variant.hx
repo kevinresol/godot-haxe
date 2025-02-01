@@ -2,7 +2,10 @@ package gd;
 
 @:forward
 abstract Variant(Variant_obj) from Variant_obj to Variant_obj {
-	public inline function new(v:gdnative.Variant)
+	overload public extern inline function new()
+		this = @:privateAccess new Variant_obj(new gdnative.Variant.Variant_extern());
+
+	overload public extern inline function new(v:gdnative.Variant)
 		this = @:privateAccess new Variant_obj(v);
 
 	@:from static inline function fromBool(v:Bool):Variant

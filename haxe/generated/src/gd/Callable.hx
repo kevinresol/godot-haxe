@@ -6,8 +6,8 @@ class Callable_wrapper {
 	static function _new0():Callable_wrapper return new Callable_wrapper(new gdnative.Callable());
 	static function _new1(p_from:gd.Callable):Callable_wrapper return new Callable_wrapper(new gdnative.Callable(p_from));
 	static function _new2(p_object:gd.Object, p_method:std.String):Callable_wrapper return new Callable_wrapper(new gdnative.Callable(p_object, p_method));
-	public function create(p_variant:gd.Variant, p_method:std.String):gd.Callable return __gd.create(p_variant, p_method);
-	public function callv(p_arguments:gd.Array):gd.Variant return __gd.callv(p_arguments);
+	public static function create(p_variant:gd.Variant, p_method:std.String):gd.Callable return gdnative.Callable.Callable_extern.create(((p_variant : gd.Variant)), ((p_method : std.String)));
+	public function callv(p_arguments:gd.Array):gd.Variant return __gd.callv(((p_arguments : gd.Array)));
 	public function is_null():Bool return __gd.is_null();
 	public function is_custom():Bool return __gd.is_custom();
 	public function is_standard():Bool return __gd.is_standard();
@@ -20,13 +20,32 @@ class Callable_wrapper {
 	public function get_bound_arguments():gd.Array return __gd.get_bound_arguments();
 	public function get_unbound_arguments_count():Int return __gd.get_unbound_arguments_count();
 	public function hash():Int return __gd.hash();
-	public function bindv(p_arguments:gd.Array):gd.Callable return __gd.bindv(p_arguments);
-	public function unbind(p_argcount:Int):gd.Callable return __gd.unbind(p_argcount);
-	public function call():gd.Variant return __gd.call();
-	public function call_deferred():Void return __gd.call_deferred();
-	public function rpc():Void return __gd.rpc();
-	public function rpc_id(p_peer_id:Int):Void return __gd.rpc_id(p_peer_id);
-	public function bind():gd.Callable return __gd.bind();
+	public function bindv(p_arguments:gd.Array):gd.Callable return __gd.bindv(((p_arguments : gd.Array)));
+	public function unbind(p_argcount:Int):gd.Callable return __gd.unbind(((p_argcount : Int)));
+	public function call(p_args:haxe.Rest<gd.Variant>):gd.Variant return {
+		final vlen = p_args.length, len = 0 + vlen;
+		untyped __cpp__('std::vector<const godot::Variant*> ptrs; ptrs.resize({0})', len);
+		for (i in 0 ... vlen) untyped __cpp__('ptrs[{0}] = &{1}.value', 0 + i, ((p_args[i] : gdnative.Variant)));
+		__gd.call(untyped __cpp__('ptrs.data()'), len);
+	};
+	public function call_deferred(p_args:haxe.Rest<gd.Variant>):Void {
+		final vlen = p_args.length, len = 0 + vlen;
+		untyped __cpp__('std::vector<const godot::Variant*> ptrs; ptrs.resize({0})', len);
+		for (i in 0 ... vlen) untyped __cpp__('ptrs[{0}] = &{1}.value', 0 + i, ((p_args[i] : gdnative.Variant)));
+		__gd.call_deferred(untyped __cpp__('ptrs.data()'), len);
+	}
+	public function rpc(p_args:haxe.Rest<gd.Variant>):Void {
+		final vlen = p_args.length, len = 0 + vlen;
+		untyped __cpp__('std::vector<const godot::Variant*> ptrs; ptrs.resize({0})', len);
+		for (i in 0 ... vlen) untyped __cpp__('ptrs[{0}] = &{1}.value', 0 + i, ((p_args[i] : gdnative.Variant)));
+		__gd.rpc(untyped __cpp__('ptrs.data()'), len);
+	}
+	public function bind(p_args:haxe.Rest<gd.Variant>):gd.Callable return {
+		final vlen = p_args.length, len = 0 + vlen;
+		untyped __cpp__('std::vector<const godot::Variant*> ptrs; ptrs.resize({0})', len);
+		for (i in 0 ... vlen) untyped __cpp__('ptrs[{0}] = &{1}.value', 0 + i, ((p_args[i] : gdnative.Variant)));
+		__gd.bind(untyped __cpp__('ptrs.data()'), len);
+	};
 	function __op_equal_to_variant(p_rhs:gd.Variant):Bool return this.__gd == ((p_rhs : gdnative.Variant));
 	function __op_not_equal_variant(p_rhs:gd.Variant):Bool return this.__gd != ((p_rhs : gdnative.Variant));
 	function __op_equal_to_callable(p_rhs:gd.Callable):Bool return this.__gd == ((p_rhs : gdnative.Callable));

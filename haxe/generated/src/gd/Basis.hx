@@ -13,20 +13,30 @@ class Basis_wrapper {
 	public function transposed():gd.Basis return __gd.transposed();
 	public function orthonormalized():gd.Basis return __gd.orthonormalized();
 	public function determinant():Float return __gd.determinant();
-	public function rotated(p_axis:gd.Vector3, p_angle:Float):gd.Basis return __gd.rotated(p_axis, p_angle);
-	public function scaled(p_scale:gd.Vector3):gd.Basis return __gd.scaled(p_scale);
+	public function rotated(p_axis:gd.Vector3, p_angle:Float):gd.Basis return __gd.rotated(((p_axis : gd.Vector3)), ((p_angle : Float)));
+	public function scaled(p_scale:gd.Vector3):gd.Basis return __gd.scaled(((p_scale : gd.Vector3)));
 	public function get_scale():gd.Vector3 return __gd.get_scale();
-	public function get_euler(?p_order:gd.EulerOrder):gd.Vector3 return __gd.get_euler(p_order);
-	public function tdotx(p_with:gd.Vector3):Float return __gd.tdotx(p_with);
-	public function tdoty(p_with:gd.Vector3):Float return __gd.tdoty(p_with);
-	public function tdotz(p_with:gd.Vector3):Float return __gd.tdotz(p_with);
-	public function slerp(p_to:gd.Basis, p_weight:Float):gd.Basis return __gd.slerp(p_to, p_weight);
-	public function is_equal_approx(p_b:gd.Basis):Bool return __gd.is_equal_approx(p_b);
+	public function get_euler(?p_order:gd.EulerOrder):gd.Vector3 return switch [p_order] {
+		case [null]:__gd.get_euler();
+		default:__gd.get_euler(((p_order : gd.EulerOrder)));
+	};
+	public function tdotx(p_with:gd.Vector3):Float return __gd.tdotx(((p_with : gd.Vector3)));
+	public function tdoty(p_with:gd.Vector3):Float return __gd.tdoty(((p_with : gd.Vector3)));
+	public function tdotz(p_with:gd.Vector3):Float return __gd.tdotz(((p_with : gd.Vector3)));
+	public function slerp(p_to:gd.Basis, p_weight:Float):gd.Basis return __gd.slerp(((p_to : gd.Basis)), ((p_weight : Float)));
+	public function is_equal_approx(p_b:gd.Basis):Bool return __gd.is_equal_approx(((p_b : gd.Basis)));
 	public function is_finite():Bool return __gd.is_finite();
 	public function get_rotation_quaternion():gd.Quaternion return __gd.get_rotation_quaternion();
-	public function looking_at(p_target:gd.Vector3, ?p_up:gd.Vector3, ?p_use_model_front:Bool):gd.Basis return __gd.looking_at(p_target, p_up, p_use_model_front);
-	public function from_scale(p_scale:gd.Vector3):gd.Basis return __gd.from_scale(p_scale);
-	public function from_euler(p_euler:gd.Vector3, ?p_order:gd.EulerOrder):gd.Basis return __gd.from_euler(p_euler, p_order);
+	public static function looking_at(p_target:gd.Vector3, ?p_up:gd.Vector3, ?p_use_model_front:Bool):gd.Basis return switch [p_target, p_up, p_use_model_front] {
+		case [_, null, _]:gdnative.Basis.Basis_extern.looking_at(((p_target : gd.Vector3)));
+		case [_, _, null]:gdnative.Basis.Basis_extern.looking_at(((p_target : gd.Vector3)), ((p_up : gd.Vector3)));
+		default:gdnative.Basis.Basis_extern.looking_at(((p_target : gd.Vector3)), ((p_up : gd.Vector3)), ((p_use_model_front : Bool)));
+	};
+	public static function from_scale(p_scale:gd.Vector3):gd.Basis return gdnative.Basis.Basis_extern.from_scale(((p_scale : gd.Vector3)));
+	public static function from_euler(p_euler:gd.Vector3, ?p_order:gd.EulerOrder):gd.Basis return switch [p_euler, p_order] {
+		case [_, null]:gdnative.Basis.Basis_extern.from_euler(((p_euler : gd.Vector3)));
+		default:gdnative.Basis.Basis_extern.from_euler(((p_euler : gd.Vector3)), ((p_order : gd.EulerOrder)));
+	};
 	public var x(get, set) : gd.Vector3;
 	function get_x():gd.Vector3 return __gd.x;
 	function set_x(v:gd.Vector3):gd.Vector3 return {

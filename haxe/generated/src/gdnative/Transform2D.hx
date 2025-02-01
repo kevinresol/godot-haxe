@@ -71,8 +71,7 @@ package gdnative;
 	function interpolate_with(p_xform:gdnative.Transform2D, p_weight:Float):gdnative.Transform2D;
 	function is_equal_approx(p_xform:gdnative.Transform2D):Bool;
 	function is_finite():Bool;
-	overload function looking_at():gdnative.Transform2D;
-	overload function looking_at(p_target:gdnative.Vector2):gdnative.Transform2D;
+	function looking_at(p_target:gdnative.Vector2):gdnative.Transform2D;
 	@:native("columns[0]")
 	var x : gdnative.Vector2;
 	@:native("columns[1]")

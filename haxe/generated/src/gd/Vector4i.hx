@@ -12,16 +12,16 @@ class Vector4i_wrapper {
 	public function length_squared():Int return __gd.length_squared();
 	public function sign():gd.Vector4i return __gd.sign();
 	public function abs():gd.Vector4i return __gd.abs();
-	public function clamp(p_min:gd.Vector4i, p_max:gd.Vector4i):gd.Vector4i return __gd.clamp(p_min, p_max);
-	public function clampi(p_min:Int, p_max:Int):gd.Vector4i return __gd.clampi(p_min, p_max);
-	public function snapped(p_step:gd.Vector4i):gd.Vector4i return __gd.snapped(p_step);
-	public function snappedi(p_step:Int):gd.Vector4i return __gd.snappedi(p_step);
-	public function min(p_with:gd.Vector4i):gd.Vector4i return __gd.min(p_with);
-	public function mini(p_with:Int):gd.Vector4i return __gd.mini(p_with);
-	public function max(p_with:gd.Vector4i):gd.Vector4i return __gd.max(p_with);
-	public function maxi(p_with:Int):gd.Vector4i return __gd.maxi(p_with);
-	public function distance_to(p_to:gd.Vector4i):Float return __gd.distance_to(p_to);
-	public function distance_squared_to(p_to:gd.Vector4i):Int return __gd.distance_squared_to(p_to);
+	public function clamp(p_min:gd.Vector4i, p_max:gd.Vector4i):gd.Vector4i return __gd.clamp(((p_min : gd.Vector4i)), ((p_max : gd.Vector4i)));
+	public function clampi(p_min:Int, p_max:Int):gd.Vector4i return __gd.clampi(((p_min : Int)), ((p_max : Int)));
+	public function snapped(p_step:gd.Vector4i):gd.Vector4i return __gd.snapped(((p_step : gd.Vector4i)));
+	public function snappedi(p_step:Int):gd.Vector4i return __gd.snappedi(((p_step : Int)));
+	public function min(p_with:gd.Vector4i):gd.Vector4i return __gd.min(((p_with : gd.Vector4i)));
+	public function mini(p_with:Int):gd.Vector4i return __gd.mini(((p_with : Int)));
+	public function max(p_with:gd.Vector4i):gd.Vector4i return __gd.max(((p_with : gd.Vector4i)));
+	public function maxi(p_with:Int):gd.Vector4i return __gd.maxi(((p_with : Int)));
+	public function distance_to(p_to:gd.Vector4i):Float return __gd.distance_to(((p_to : gd.Vector4i)));
+	public function distance_squared_to(p_to:gd.Vector4i):Int return __gd.distance_squared_to(((p_to : gd.Vector4i)));
 	public var x(get, set) : Int;
 	function get_x():Int return __gd.x;
 	function set_x(v:Int):Int return {

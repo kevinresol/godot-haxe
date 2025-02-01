@@ -67,12 +67,12 @@ package gdnative;
 	function is_equal_approx(p_b:gdnative.Basis):Bool;
 	function is_finite():Bool;
 	function get_rotation_quaternion():gdnative.Quaternion;
-	overload function looking_at(p_target:gdnative.Vector3):gdnative.Basis;
-	overload function looking_at(p_target:gdnative.Vector3, p_up:gdnative.Vector3):gdnative.Basis;
-	overload function looking_at(p_target:gdnative.Vector3, p_up:gdnative.Vector3, p_use_model_front:Bool):gdnative.Basis;
-	function from_scale(p_scale:gdnative.Vector3):gdnative.Basis;
-	overload function from_euler(p_euler:gdnative.Vector3):gdnative.Basis;
-	overload function from_euler(p_euler:gdnative.Vector3, p_order:gdnative.EulerOrder):gdnative.Basis;
+	overload static function looking_at(p_target:gdnative.Vector3):gdnative.Basis;
+	overload static function looking_at(p_target:gdnative.Vector3, p_up:gdnative.Vector3):gdnative.Basis;
+	overload static function looking_at(p_target:gdnative.Vector3, p_up:gdnative.Vector3, p_use_model_front:Bool):gdnative.Basis;
+	static function from_scale(p_scale:gdnative.Vector3):gdnative.Basis;
+	overload static function from_euler(p_euler:gdnative.Vector3):gdnative.Basis;
+	overload static function from_euler(p_euler:gdnative.Vector3, p_order:gdnative.EulerOrder):gdnative.Basis;
 	@:native("rows[0]")
 	var x : gdnative.Vector3;
 	@:native("rows[1]")

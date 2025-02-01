@@ -4,7 +4,7 @@ extern class Callable_wrapper {
 	static function _new0():Callable_wrapper;
 	static function _new1(p_from:gd.Callable):Callable_wrapper;
 	static function _new2(p_object:gd.Object, p_method:std.String):Callable_wrapper;
-	function create(p_variant:gd.Variant, p_method:std.String):gd.Callable;
+	static function create(p_variant:gd.Variant, p_method:std.String):gd.Callable;
 	function callv(p_arguments:gd.Array):gd.Variant;
 	function is_null():Bool;
 	function is_custom():Bool;
@@ -20,11 +20,10 @@ extern class Callable_wrapper {
 	function hash():Int;
 	function bindv(p_arguments:gd.Array):gd.Callable;
 	function unbind(p_argcount:Int):gd.Callable;
-	function call():gd.Variant;
-	function call_deferred():Void;
-	function rpc():Void;
-	function rpc_id(p_peer_id:Int):Void;
-	function bind():gd.Callable;
+	function call(p_args:haxe.Rest<gd.Variant>):gd.Variant;
+	function call_deferred(p_args:haxe.Rest<gd.Variant>):Void;
+	function rpc(p_args:haxe.Rest<gd.Variant>):Void;
+	function bind(p_args:haxe.Rest<gd.Variant>):gd.Callable;
 	function __op_equal_to_variant(p_rhs:gd.Variant):Bool;
 	function __op_not_equal_variant(p_rhs:gd.Variant):Bool;
 	function __op_equal_to_callable(p_rhs:gd.Callable):Bool;

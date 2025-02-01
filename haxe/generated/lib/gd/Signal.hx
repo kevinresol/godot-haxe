@@ -13,7 +13,6 @@ extern class Signal_wrapper {
 	function is_connected(p_callable:gd.Callable):Bool;
 	function get_connections():gd.Array;
 	function has_connections():Bool;
-	function emit():Void;
 	function __op_equal_to_variant(p_rhs:gd.Variant):Bool;
 	function __op_not_equal_variant(p_rhs:gd.Variant):Bool;
 	function __op_equal_to_signal(p_rhs:gd.Signal):Bool;

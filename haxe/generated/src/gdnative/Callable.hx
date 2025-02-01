@@ -35,7 +35,7 @@ package gdnative;
 	@:overload(function(p_from:gdnative.Callable):Void { })
 	@:overload(function(p_object:gdnative.Object, p_method:gdnative.StringName):Void { })
 	function new();
-	function create(p_variant:gdnative.Variant, p_method:gdnative.StringName):gdnative.Callable;
+	static function create(p_variant:gdnative.Variant, p_method:gdnative.StringName):gdnative.Callable;
 	function callv(p_arguments:gdnative.Array):gdnative.Variant;
 	function is_null():Bool;
 	function is_custom():Bool;
@@ -51,9 +51,8 @@ package gdnative;
 	function hash():Int;
 	function bindv(p_arguments:gdnative.Array):gdnative.Callable;
 	function unbind(p_argcount:Int):gdnative.Callable;
-	function call():gdnative.Variant;
-	function call_deferred():Void;
-	function rpc():Void;
-	function rpc_id(p_peer_id:Int):Void;
-	function bind():gdnative.Callable;
+	function call(p_args:cpp.ConstStar<cpp.Star<gdnative.Variant.Variant_extern>>, p_count:Int):gdnative.Variant;
+	function call_deferred(p_args:cpp.ConstStar<cpp.Star<gdnative.Variant.Variant_extern>>, p_count:Int):Void;
+	function rpc(p_args:cpp.ConstStar<cpp.Star<gdnative.Variant.Variant_extern>>, p_count:Int):Void;
+	function bind(p_args:cpp.ConstStar<cpp.Star<gdnative.Variant.Variant_extern>>, p_count:Int):gdnative.Callable;
 }

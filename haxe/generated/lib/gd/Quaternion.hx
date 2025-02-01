@@ -22,7 +22,7 @@ extern class Quaternion_wrapper {
 	function spherical_cubic_interpolate(p_b:gd.Quaternion, p_pre_a:gd.Quaternion, p_post_b:gd.Quaternion, p_weight:Float):gd.Quaternion;
 	function spherical_cubic_interpolate_in_time(p_b:gd.Quaternion, p_pre_a:gd.Quaternion, p_post_b:gd.Quaternion, p_weight:Float, p_b_t:Float, p_pre_a_t:Float, p_post_b_t:Float):gd.Quaternion;
 	function get_euler(?p_order:gd.EulerOrder):gd.Vector3;
-	function from_euler(p_euler:gd.Vector3):gd.Quaternion;
+	static function from_euler(p_euler:gd.Vector3):gd.Quaternion;
 	function get_axis():gd.Vector3;
 	function get_angle():Float;
 	var x(get, set) : Float;

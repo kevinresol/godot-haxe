@@ -116,6 +116,76 @@ class Builder {
 		} : FunctionArg));
 	}
 
+	function makeWrapperMethod(fn:{
+		name:String,
+		is_vararg:Bool,
+		is_const:Bool,
+		is_static:Bool,
+		?arguments:Array<Argument>,
+	}, returnType:String, isScriptExtern:Bool,
+			getTarget:(is_static:Bool) -> Expr):Field {
+		final fname = fn.name;
+		final rtype = returnType ?? 'void';
+		final args = fn.arguments ?? [];
+		final optArgCount = args.count(a -> a.default_value != null);
+
+		return {
+			pos: null,
+			name: fname,
+			access: {
+				final a = [];
+				if (!isScriptExtern)
+					a.push(APublic);
+				if (fn.is_static)
+					a.push(AStatic);
+				a;
+			},
+			kind: FFun({
+				args: makeArgumentsForWrapper(args, fn.is_vararg),
+				ret: makeHaxeType(rtype),
+				expr: isScriptExtern ? null : {
+					final target = getTarget(fn.is_static);
+
+					final e = if (fn.is_vararg) {
+						makeVarArgCall(args, macro $target.$fname);
+					} else {
+						final callArgs = args.map(arg -> {
+							final ct = makeHaxeType(arg.type);
+							macro($i{'p_${arg.name}'} : $ct);
+						});
+						final fullArgCallExpr = macro $target.$fname($a{callArgs});
+
+						// Due to the difference concept of optional arguments between Haxe and C++,
+						// we need to do null checks to find out what args are omitted and call the correct overload.
+						// TODO: perhaps there is a better way? e.g. overload functions for cppia?
+						if (optArgCount > 0) {
+							{
+								pos: null,
+								expr: ESwitch(macro $a{args.map(a -> macro $i{'p_${a.name}'})}, [
+
+									for (i in 0...optArgCount) {
+										final specifiedArgCount = args.length - optArgCount + i;
+										{
+											values: {
+												final v = [for (j in 0...args.length) macro _];
+												v[specifiedArgCount] = macro null;
+												[macro $a{v}];
+											},
+											expr: macro $target.$fname($a{callArgs.slice(0, specifiedArgCount)})
+										}
+									}
+								], fullArgCallExpr)
+							}
+						} else
+							fullArgCallExpr;
+					}
+
+					rtype == 'void' ? e : macro return $e;
+				}
+			})
+		}
+	}
+
 	function makeVarArgCall(args:Array<Argument>, f:Expr):Expr {
 		final exprs = [];
 		exprs.push(macro final vlen = p_args.length, len = $v{args.length} + vlen);

@@ -108,12 +108,12 @@ extern class String_wrapper {
 	function to_utf32_buffer():gd.PackedByteArray;
 	function hex_decode():gd.PackedByteArray;
 	function to_wchar_buffer():gd.PackedByteArray;
-	function num_scientific(p_number:Float):std.String;
-	function num(p_number:Float, ?p_decimals:Int):std.String;
-	function num_int64(p_number:Int, ?p_base:Int, ?p_capitalize_hex:Bool):std.String;
-	function num_uint64(p_number:Int, ?p_base:Int, ?p_capitalize_hex:Bool):std.String;
-	function chr(p_char:Int):std.String;
-	function humanize_size(p_size:Int):std.String;
+	static function num_scientific(p_number:Float):std.String;
+	static function num(p_number:Float, ?p_decimals:Int):std.String;
+	static function num_int64(p_number:Int, ?p_base:Int, ?p_capitalize_hex:Bool):std.String;
+	static function num_uint64(p_number:Int, ?p_base:Int, ?p_capitalize_hex:Bool):std.String;
+	static function chr(p_char:Int):std.String;
+	static function humanize_size(p_size:Int):std.String;
 	function __op_equal_to_variant(p_rhs:gd.Variant):Bool;
 	function __op_not_equal_variant(p_rhs:gd.Variant):Bool;
 	function __op_modulus_variant(p_rhs:gd.Variant):std.String;

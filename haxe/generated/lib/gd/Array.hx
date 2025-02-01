@@ -52,7 +52,7 @@ extern class Array_wrapper {
 	function slice(p_begin:Int, ?p_end:Int, ?p_step:Int, ?p_deep:Bool):gd.Array;
 	function filter(p_method:gd.Callable):gd.Array;
 	function map(p_method:gd.Callable):gd.Array;
-	function reduce(p_method:gd.Callable, ?p_accum:gd.Variant):gd.Variant;
+	function reduce(p_method:gd.Callable, p_accum:gd.Variant):gd.Variant;
 	function any(p_method:gd.Callable):Bool;
 	function all(p_method:gd.Callable):Bool;
 	function max():gd.Variant;
@@ -123,5 +123,5 @@ extern class Array_wrapper {
 		return value;
 	}
 	@:op(A in B)
-	extern static inline function __has_variant_key(key:gd.Variant, _this:Array):Bool return _this.has(key);
+	extern static inline function __has_variant_key(key:gd.Variant, _this:gd.Array):Bool return _this.has(key);
 }

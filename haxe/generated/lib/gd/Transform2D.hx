@@ -26,7 +26,7 @@ extern class Transform2D_wrapper {
 	function interpolate_with(p_xform:gd.Transform2D, p_weight:Float):gd.Transform2D;
 	function is_equal_approx(p_xform:gd.Transform2D):Bool;
 	function is_finite():Bool;
-	function looking_at(?p_target:gd.Vector2):gd.Transform2D;
+	function looking_at(p_target:gd.Vector2):gd.Transform2D;
 	var x(get, set) : gd.Vector2;
 	var y(get, set) : gd.Vector2;
 	var origin(get, set) : gd.Vector2;

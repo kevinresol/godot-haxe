@@ -110,7 +110,7 @@ package gdnative;
 	function minf(p_with:Float):gdnative.Vector2;
 	function max(p_with:gdnative.Vector2):gdnative.Vector2;
 	function maxf(p_with:Float):gdnative.Vector2;
-	function from_angle(p_angle:Float):gdnative.Vector2;
+	static function from_angle(p_angle:Float):gdnative.Vector2;
 	var x : Float;
 	var y : Float;
 }

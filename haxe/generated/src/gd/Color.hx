@@ -16,24 +16,34 @@ class Color_wrapper {
 	public function to_argb64():Int return __gd.to_argb64();
 	public function to_abgr64():Int return __gd.to_abgr64();
 	public function to_rgba64():Int return __gd.to_rgba64();
-	public function to_html(?p_with_alpha:Bool):std.String return __gd.to_html(p_with_alpha);
-	public function clamp(?p_min:gd.Color, ?p_max:gd.Color):gd.Color return __gd.clamp(p_min, p_max);
+	public function to_html(?p_with_alpha:Bool):std.String return switch [p_with_alpha] {
+		case [null]:__gd.to_html();
+		default:__gd.to_html(((p_with_alpha : Bool)));
+	};
+	public function clamp(?p_min:gd.Color, ?p_max:gd.Color):gd.Color return switch [p_min, p_max] {
+		case [null, _]:__gd.clamp();
+		case [_, null]:__gd.clamp(((p_min : gd.Color)));
+		default:__gd.clamp(((p_min : gd.Color)), ((p_max : gd.Color)));
+	};
 	public function inverted():gd.Color return __gd.inverted();
-	public function lerp(p_to:gd.Color, p_weight:Float):gd.Color return __gd.lerp(p_to, p_weight);
-	public function lightened(p_amount:Float):gd.Color return __gd.lightened(p_amount);
-	public function darkened(p_amount:Float):gd.Color return __gd.darkened(p_amount);
-	public function blend(p_over:gd.Color):gd.Color return __gd.blend(p_over);
+	public function lerp(p_to:gd.Color, p_weight:Float):gd.Color return __gd.lerp(((p_to : gd.Color)), ((p_weight : Float)));
+	public function lightened(p_amount:Float):gd.Color return __gd.lightened(((p_amount : Float)));
+	public function darkened(p_amount:Float):gd.Color return __gd.darkened(((p_amount : Float)));
+	public function blend(p_over:gd.Color):gd.Color return __gd.blend(((p_over : gd.Color)));
 	public function get_luminance():Float return __gd.get_luminance();
 	public function srgb_to_linear():gd.Color return __gd.srgb_to_linear();
 	public function linear_to_srgb():gd.Color return __gd.linear_to_srgb();
-	public function is_equal_approx(p_to:gd.Color):Bool return __gd.is_equal_approx(p_to);
-	public function hex(p_hex:Int):gd.Color return __gd.hex(p_hex);
-	public function hex64(p_hex:Int):gd.Color return __gd.hex64(p_hex);
-	public function html(p_rgba:std.String):gd.Color return __gd.html(p_rgba);
-	public function html_is_valid(p_color:std.String):Bool return __gd.html_is_valid(p_color);
-	public function from_string(p_str:std.String, p_default:gd.Color):gd.Color return __gd.from_string(p_str, p_default);
-	public function from_hsv(p_h:Float, p_s:Float, p_v:Float, ?p_alpha:Float):gd.Color return __gd.from_hsv(p_h, p_s, p_v, p_alpha);
-	public function from_rgbe9995(p_rgbe:Int):gd.Color return __gd.from_rgbe9995(p_rgbe);
+	public function is_equal_approx(p_to:gd.Color):Bool return __gd.is_equal_approx(((p_to : gd.Color)));
+	public static function hex(p_hex:Int):gd.Color return gdnative.Color.Color_extern.hex(((p_hex : Int)));
+	public static function hex64(p_hex:Int):gd.Color return gdnative.Color.Color_extern.hex64(((p_hex : Int)));
+	public static function html(p_rgba:std.String):gd.Color return gdnative.Color.Color_extern.html(((p_rgba : std.String)));
+	public static function html_is_valid(p_color:std.String):Bool return gdnative.Color.Color_extern.html_is_valid(((p_color : std.String)));
+	public static function from_string(p_str:std.String, p_default:gd.Color):gd.Color return gdnative.Color.Color_extern.from_string(((p_str : std.String)), ((p_default : gd.Color)));
+	public static function from_hsv(p_h:Float, p_s:Float, p_v:Float, ?p_alpha:Float):gd.Color return switch [p_h, p_s, p_v, p_alpha] {
+		case [_, _, _, null]:gdnative.Color.Color_extern.from_hsv(((p_h : Float)), ((p_s : Float)), ((p_v : Float)));
+		default:gdnative.Color.Color_extern.from_hsv(((p_h : Float)), ((p_s : Float)), ((p_v : Float)), ((p_alpha : Float)));
+	};
+	public static function from_rgbe9995(p_rgbe:Int):gd.Color return gdnative.Color.Color_extern.from_rgbe9995(((p_rgbe : Int)));
 	public var r(get, set) : Float;
 	function get_r():Float return __gd.r;
 	function set_r(v:Float):Float return {

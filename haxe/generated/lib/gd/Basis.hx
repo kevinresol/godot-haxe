@@ -22,9 +22,9 @@ extern class Basis_wrapper {
 	function is_equal_approx(p_b:gd.Basis):Bool;
 	function is_finite():Bool;
 	function get_rotation_quaternion():gd.Quaternion;
-	function looking_at(p_target:gd.Vector3, ?p_up:gd.Vector3, ?p_use_model_front:Bool):gd.Basis;
-	function from_scale(p_scale:gd.Vector3):gd.Basis;
-	function from_euler(p_euler:gd.Vector3, ?p_order:gd.EulerOrder):gd.Basis;
+	static function looking_at(p_target:gd.Vector3, ?p_up:gd.Vector3, ?p_use_model_front:Bool):gd.Basis;
+	static function from_scale(p_scale:gd.Vector3):gd.Basis;
+	static function from_euler(p_euler:gd.Vector3, ?p_order:gd.EulerOrder):gd.Basis;
 	var x(get, set) : gd.Vector3;
 	var y(get, set) : gd.Vector3;
 	var z(get, set) : gd.Vector3;

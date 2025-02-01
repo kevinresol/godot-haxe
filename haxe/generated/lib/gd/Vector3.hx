@@ -50,7 +50,7 @@ extern class Vector3_wrapper {
 	function minf(p_with:Float):gd.Vector3;
 	function max(p_with:gd.Vector3):gd.Vector3;
 	function maxf(p_with:Float):gd.Vector3;
-	function octahedron_decode(p_uv:gd.Vector2):gd.Vector3;
+	static function octahedron_decode(p_uv:gd.Vector2):gd.Vector3;
 	var x(get, set) : Float;
 	var y(get, set) : Float;
 	var z(get, set) : Float;

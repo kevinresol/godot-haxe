@@ -10,12 +10,14 @@ class Signal_wrapper {
 	public function get_object():gd.Object return __gd.get_object();
 	public function get_object_id():Int return __gd.get_object_id();
 	public function get_name():std.String return __gd.get_name();
-	public function connect(p_callable:gd.Callable, ?p_flags:Int):Int return __gd.connect(p_callable, p_flags);
-	public function disconnect(p_callable:gd.Callable):Void return __gd.disconnect(p_callable);
-	public function is_connected(p_callable:gd.Callable):Bool return __gd.is_connected(p_callable);
+	public function connect(p_callable:gd.Callable, ?p_flags:Int):Int return switch [p_callable, p_flags] {
+		case [_, null]:__gd.connect(((p_callable : gd.Callable)));
+		default:__gd.connect(((p_callable : gd.Callable)), ((p_flags : Int)));
+	};
+	public function disconnect(p_callable:gd.Callable):Void __gd.disconnect(((p_callable : gd.Callable)));
+	public function is_connected(p_callable:gd.Callable):Bool return __gd.is_connected(((p_callable : gd.Callable)));
 	public function get_connections():gd.Array return __gd.get_connections();
 	public function has_connections():Bool return __gd.has_connections();
-	public function emit():Void return __gd.emit();
 	function __op_equal_to_variant(p_rhs:gd.Variant):Bool return this.__gd == ((p_rhs : gdnative.Variant));
 	function __op_not_equal_variant(p_rhs:gd.Variant):Bool return this.__gd != ((p_rhs : gdnative.Variant));
 	function __op_equal_to_signal(p_rhs:gd.Signal):Bool return this.__gd == ((p_rhs : gdnative.Signal));

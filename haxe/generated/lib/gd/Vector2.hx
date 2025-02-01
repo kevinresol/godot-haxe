@@ -50,7 +50,7 @@ extern class Vector2_wrapper {
 	function minf(p_with:Float):gd.Vector2;
 	function max(p_with:gd.Vector2):gd.Vector2;
 	function maxf(p_with:Float):gd.Vector2;
-	function from_angle(p_angle:Float):gd.Vector2;
+	static function from_angle(p_angle:Float):gd.Vector2;
 	var x(get, set) : Float;
 	var y(get, set) : Float;
 	function __op_equal_to_variant(p_rhs:gd.Variant):Bool;

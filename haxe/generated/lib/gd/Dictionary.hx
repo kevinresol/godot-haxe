@@ -19,8 +19,8 @@ extern class Dictionary_wrapper {
 	function keys():gd.Array;
 	function values():gd.Array;
 	function duplicate(?p_deep:Bool):gd.Dictionary;
-	function get(p_key:gd.Variant, ?p_default:gd.Variant):gd.Variant;
-	function get_or_add(p_key:gd.Variant, ?p_default:gd.Variant):gd.Variant;
+	function get(p_key:gd.Variant, p_default:gd.Variant):gd.Variant;
+	function get_or_add(p_key:gd.Variant, p_default:gd.Variant):gd.Variant;
 	function set(p_key:gd.Variant, p_value:gd.Variant):Bool;
 	function is_typed():Bool;
 	function is_typed_key():Bool;
@@ -43,6 +43,7 @@ extern class Dictionary_wrapper {
 	function __op_not_equal_dictionary(p_rhs:gd.Dictionary):Bool;
 	function __op_membership_in_dictionary(p_rhs:gd.Dictionary):Bool;
 	function __op_membership_in_array(p_rhs:gd.Array):Bool;
+	function __get_padded(key:gd.Variant):gd.Variant;
 }
 
 @:forward @:forwardStatics abstract Dictionary(Dictionary_wrapper) from Dictionary_wrapper to Dictionary_wrapper {
@@ -64,12 +65,12 @@ extern class Dictionary_wrapper {
 	@:op(A in B)
 	inline function __op_membership_in_array(p_rhs:gd.Array):Bool return @:privateAccess this.__op_membership_in_array(p_rhs);
 	@:arrayAccess
-	extern inline function __get(key:gd.Variant):gd.Variant return this.get(key);
+	extern inline function __get(key:gd.Variant):gd.Variant return @:privateAccess this.__get_padded(key);
 	@:arrayAccess
 	extern inline function __set(key:gd.Variant, value:gd.Variant):gd.Variant {
 		this.set(key, value);
 		return value;
 	}
 	@:op(A in B)
-	extern static inline function __has_variant_key(key:gd.Variant, _this:Dictionary):Bool return _this.has(key);
+	extern static inline function __has_variant_key(key:gd.Variant, _this:gd.Dictionary):Bool return _this.has(key);
 }
