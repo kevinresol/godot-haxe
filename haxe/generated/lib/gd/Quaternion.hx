@@ -33,8 +33,8 @@ extern class Quaternion_wrapper {
 	function __op_not_equal_variant(p_rhs:gd.Variant):Bool;
 	function __op_unary_minus():gd.Quaternion;
 	function __op_unary_plus():gd.Quaternion;
-	function __op_multiply_int(p_rhs:Int):gd.Quaternion;
-	function __op_divide_int(p_rhs:Int):gd.Quaternion;
+	function __op_multiply_int(p_rhs:cpp.Int64):gd.Quaternion;
+	function __op_divide_int(p_rhs:cpp.Int64):gd.Quaternion;
 	function __op_multiply_float(p_rhs:Float):gd.Quaternion;
 	function __op_divide_float(p_rhs:Float):gd.Quaternion;
 	function __op_equal_to_quaternion(p_rhs:gd.Quaternion):Bool;
@@ -62,9 +62,9 @@ extern class Quaternion_wrapper {
 	@:op(-A)
 	inline function __op_unary_minus():gd.Quaternion return @:privateAccess this.__op_unary_minus();
 	@:op(A * B)
-	inline function __op_multiply_int(p_rhs:Int):gd.Quaternion return @:privateAccess this.__op_multiply_int(p_rhs);
+	inline function __op_multiply_int(p_rhs:cpp.Int64):gd.Quaternion return @:privateAccess this.__op_multiply_int(p_rhs);
 	@:op(A / B)
-	inline function __op_divide_int(p_rhs:Int):gd.Quaternion return @:privateAccess this.__op_divide_int(p_rhs);
+	inline function __op_divide_int(p_rhs:cpp.Int64):gd.Quaternion return @:privateAccess this.__op_divide_int(p_rhs);
 	@:op(A * B)
 	inline function __op_multiply_float(p_rhs:Float):gd.Quaternion return @:privateAccess this.__op_multiply_float(p_rhs);
 	@:op(A / B)

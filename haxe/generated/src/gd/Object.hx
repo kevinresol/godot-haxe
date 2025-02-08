@@ -11,7 +11,7 @@ package gd;
 	}
 	extern inline function __object_ptr():cpp.Pointer<gdnative.Object.Object_extern> return cast __gd.ptr;
 	static function __finalize(inst:gd.Object) {
-		untyped __cpp__("std::cout << \"Object::finalize\" << std::endl");
+		null;
 	}
 	static public final NOTIFICATION_POSTINITIALIZE : Int = 0;
 	static public final NOTIFICATION_PREDELETE : Int = 1;
@@ -24,12 +24,12 @@ package gd;
 	public function get_indexed(p_property_path:std.String):gd.Variant return __object_ptr().value.get_indexed(((p_property_path : std.String)));
 	public function property_can_revert(p_property:std.String):Bool return __object_ptr().value.property_can_revert(((p_property : std.String)));
 	public function property_get_revert(p_property:std.String):gd.Variant return __object_ptr().value.property_get_revert(((p_property : std.String)));
-	public function notification(p_what:Int, ?p_reversed:Bool):Void switch [p_what, p_reversed] {
-		case [_, null]:__object_ptr().value.notification(((p_what : Int)));
-		default:__object_ptr().value.notification(((p_what : Int)), ((p_reversed : Bool)));
+	public function notification(p_what:cpp.Int64, ?p_reversed:Bool):Void switch [p_what, p_reversed] {
+		case [_, null]:__object_ptr().value.notification(((p_what : cpp.Int64)));
+		default:__object_ptr().value.notification(((p_what : cpp.Int64)), ((p_reversed : Bool)));
 	};
 	public function to_string():std.String return __object_ptr().value.to_string();
-	public function get_instance_id():Int return __object_ptr().value.get_instance_id();
+	public function get_instance_id():cpp.Int64 return __object_ptr().value.get_instance_id();
 	public function set_script(p_script:gd.Variant):Void __object_ptr().value.set_script(((p_script : gd.Variant)));
 	public function get_script():gd.Variant return __object_ptr().value.get_script();
 	public function set_meta(p_name:std.String, p_value:gd.Variant):Void __object_ptr().value.set_meta(((p_name : std.String)), ((p_value : gd.Variant)));
@@ -72,11 +72,11 @@ package gd;
 	public function set_deferred(p_property:std.String, p_value:gd.Variant):Void __object_ptr().value.set_deferred(((p_property : std.String)), ((p_value : gd.Variant)));
 	public function callv(p_method:std.String, p_arg_array:gd.Array):gd.Variant return __object_ptr().value.callv(((p_method : std.String)), ((p_arg_array : gd.Array)));
 	public function has_method(p_method:std.String):Bool return __object_ptr().value.has_method(((p_method : std.String)));
-	public function get_method_argument_count(p_method:std.String):Int return __object_ptr().value.get_method_argument_count(((p_method : std.String)));
+	public function get_method_argument_count(p_method:std.String):cpp.Int64 return __object_ptr().value.get_method_argument_count(((p_method : std.String)));
 	public function has_signal(p_signal:std.String):Bool return __object_ptr().value.has_signal(((p_signal : std.String)));
-	public function connect(p_signal:std.String, p_callable:gd.Callable, ?p_flags:Int):gd.Error return switch [p_signal, p_callable, p_flags] {
+	public function connect(p_signal:std.String, p_callable:gd.Callable, ?p_flags:cpp.Int64):gd.Error return switch [p_signal, p_callable, p_flags] {
 		case [_, _, null]:__object_ptr().value.connect(((p_signal : std.String)), ((p_callable : gd.Callable)));
-		default:__object_ptr().value.connect(((p_signal : std.String)), ((p_callable : gd.Callable)), ((p_flags : Int)));
+		default:__object_ptr().value.connect(((p_signal : std.String)), ((p_callable : gd.Callable)), ((p_flags : cpp.Int64)));
 	};
 	public function disconnect(p_signal:std.String, p_callable:gd.Callable):Void __object_ptr().value.disconnect(((p_signal : std.String)), ((p_callable : gd.Callable)));
 	public function is_connected(p_signal:std.String, p_callable:gd.Callable):Bool return __object_ptr().value.is_connected(((p_signal : std.String)), ((p_callable : gd.Callable)));
@@ -90,9 +90,9 @@ package gd;
 		case [_, null]:__object_ptr().value.tr(((p_message : std.String)));
 		default:__object_ptr().value.tr(((p_message : std.String)), ((p_context : std.String)));
 	};
-	public function tr_n(p_message:std.String, p_plural_message:std.String, p_n:Int, ?p_context:std.String):std.String return switch [p_message, p_plural_message, p_n, p_context] {
-		case [_, _, _, null]:__object_ptr().value.tr_n(((p_message : std.String)), ((p_plural_message : std.String)), ((p_n : Int)));
-		default:__object_ptr().value.tr_n(((p_message : std.String)), ((p_plural_message : std.String)), ((p_n : Int)), ((p_context : std.String)));
+	public function tr_n(p_message:std.String, p_plural_message:std.String, p_n:cpp.Int64, ?p_context:std.String):std.String return switch [p_message, p_plural_message, p_n, p_context] {
+		case [_, _, _, null]:__object_ptr().value.tr_n(((p_message : std.String)), ((p_plural_message : std.String)), ((p_n : cpp.Int64)));
+		default:__object_ptr().value.tr_n(((p_message : std.String)), ((p_plural_message : std.String)), ((p_n : cpp.Int64)), ((p_context : std.String)));
 	};
 	public function get_translation_domain():std.String return __object_ptr().value.get_translation_domain();
 	public function set_translation_domain(p_domain:std.String):Void __object_ptr().value.set_translation_domain(((p_domain : std.String)));

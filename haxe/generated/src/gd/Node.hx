@@ -11,7 +11,7 @@ package gd;
 	}
 	extern inline function __node_ptr():cpp.Pointer<gdnative.Node.Node_extern> return cast __gd.ptr;
 	static function __finalize(inst:gd.Node) {
-		untyped __cpp__("std::cout << \"Node::finalize\" << std::endl");
+		null;
 	}
 	static public final NOTIFICATION_ENTER_TREE : Int = 10;
 	static public final NOTIFICATION_EXIT_TREE : Int = 11;
@@ -86,13 +86,13 @@ package gd;
 		case [_, null]:__node_ptr().value.reparent(((p_new_parent : gd.Node)));
 		default:__node_ptr().value.reparent(((p_new_parent : gd.Node)), ((p_keep_global_transform : Bool)));
 	};
-	public function get_child_count(?p_include_internal:Bool):Int return switch [p_include_internal] {
+	public function get_child_count(?p_include_internal:Bool):cpp.Int64 return switch [p_include_internal] {
 		case [null]:__node_ptr().value.get_child_count();
 		default:__node_ptr().value.get_child_count(((p_include_internal : Bool)));
 	};
-	public function get_child(p_idx:Int, ?p_include_internal:Bool):gd.Node return switch [p_idx, p_include_internal] {
-		case [_, null]:__node_ptr().value.get_child(((p_idx : Int)));
-		default:__node_ptr().value.get_child(((p_idx : Int)), ((p_include_internal : Bool)));
+	public function get_child(p_idx:cpp.Int64, ?p_include_internal:Bool):gd.Node return switch [p_idx, p_include_internal] {
+		case [_, null]:__node_ptr().value.get_child(((p_idx : cpp.Int64)));
+		default:__node_ptr().value.get_child(((p_idx : cpp.Int64)), ((p_include_internal : Bool)));
 	};
 	public function has_node(p_path:std.String):Bool return __node_ptr().value.has_node(((p_path : std.String)));
 	public function get_node(p_path:std.String):gd.Node return __node_ptr().value.get_node(((p_path : std.String)));
@@ -121,13 +121,13 @@ package gd;
 	};
 	public function remove_from_group(p_group:std.String):Void __node_ptr().value.remove_from_group(((p_group : std.String)));
 	public function is_in_group(p_group:std.String):Bool return __node_ptr().value.is_in_group(((p_group : std.String)));
-	public function move_child(p_child_node:gd.Node, p_to_index:Int):Void __node_ptr().value.move_child(((p_child_node : gd.Node)), ((p_to_index : Int)));
+	public function move_child(p_child_node:gd.Node, p_to_index:cpp.Int64):Void __node_ptr().value.move_child(((p_child_node : gd.Node)), ((p_to_index : cpp.Int64)));
 	public function set_owner(p_owner:gd.Node):gd.Node {
 		__node_ptr().value.set_owner(((p_owner : gd.Node)));
 		return p_owner;
 	}
 	public function get_owner():gd.Node return __node_ptr().value.get_owner();
-	public function get_index(?p_include_internal:Bool):Int return switch [p_include_internal] {
+	public function get_index(?p_include_internal:Bool):cpp.Int64 return switch [p_include_internal] {
 		case [null]:__node_ptr().value.get_index();
 		default:__node_ptr().value.get_index(((p_include_internal : Bool)));
 	};
@@ -140,7 +140,7 @@ package gd;
 		return p_scene_file_path;
 	}
 	public function get_scene_file_path():std.String return __node_ptr().value.get_scene_file_path();
-	public function propagate_notification(p_what:Int):Void __node_ptr().value.propagate_notification(((p_what : Int)));
+	public function propagate_notification(p_what:cpp.Int64):Void __node_ptr().value.propagate_notification(((p_what : cpp.Int64)));
 	public function propagate_call(p_method:std.String, ?p_args:gd.Array, ?p_parent_first:Bool):Void switch [p_method, p_args, p_parent_first] {
 		case [_, null, _]:__node_ptr().value.propagate_call(((p_method : std.String)));
 		case [_, _, null]:__node_ptr().value.propagate_call(((p_method : std.String)), ((p_args : gd.Array)));
@@ -151,13 +151,13 @@ package gd;
 	public function is_physics_processing():Bool return __node_ptr().value.is_physics_processing();
 	public function get_process_delta_time():Float return __node_ptr().value.get_process_delta_time();
 	public function set_process(p_enable:Bool):Void __node_ptr().value.set_process(((p_enable : Bool)));
-	public function set_process_priority(p_priority:Int):Int {
-		__node_ptr().value.set_process_priority(((p_priority : Int)));
+	public function set_process_priority(p_priority:cpp.Int64):cpp.Int64 {
+		__node_ptr().value.set_process_priority(((p_priority : cpp.Int64)));
 		return p_priority;
 	}
-	public function get_process_priority():Int return __node_ptr().value.get_process_priority();
-	public function set_physics_process_priority(p_priority:Int):Void __node_ptr().value.set_physics_process_priority(((p_priority : Int)));
-	public function get_physics_process_priority():Int return __node_ptr().value.get_physics_process_priority();
+	public function get_process_priority():cpp.Int64 return __node_ptr().value.get_process_priority();
+	public function set_physics_process_priority(p_priority:cpp.Int64):Void __node_ptr().value.set_physics_process_priority(((p_priority : cpp.Int64)));
+	public function get_physics_process_priority():cpp.Int64 return __node_ptr().value.get_physics_process_priority();
 	public function is_processing():Bool return __node_ptr().value.is_processing();
 	public function set_process_input(p_enable:Bool):Void __node_ptr().value.set_process_input(((p_enable : Bool)));
 	public function is_processing_input():Bool return __node_ptr().value.is_processing_input();
@@ -183,11 +183,11 @@ package gd;
 		return p_flags;
 	}
 	public function get_process_thread_messages():Int return __node_ptr().value.get_process_thread_messages();
-	public function set_process_thread_group_order(p_order:Int):Int {
-		__node_ptr().value.set_process_thread_group_order(((p_order : Int)));
+	public function set_process_thread_group_order(p_order:cpp.Int64):cpp.Int64 {
+		__node_ptr().value.set_process_thread_group_order(((p_order : cpp.Int64)));
 		return p_order;
 	}
-	public function get_process_thread_group_order():Int return __node_ptr().value.get_process_thread_group_order();
+	public function get_process_thread_group_order():cpp.Int64 return __node_ptr().value.get_process_thread_group_order();
 	public function set_display_folded(p_fold:Bool):Void __node_ptr().value.set_display_folded(((p_fold : Bool)));
 	public function is_displayed_folded():Bool return __node_ptr().value.is_displayed_folded();
 	public function set_process_internal(p_enable:Bool):Void __node_ptr().value.set_process_internal(((p_enable : Bool)));
@@ -208,9 +208,9 @@ package gd;
 	}
 	public function get_auto_translate_mode():gd.node.AutoTranslateMode return __node_ptr().value.get_auto_translate_mode();
 	public function set_translation_domain_inherited():Void __node_ptr().value.set_translation_domain_inherited();
-	public function duplicate(?p_flags:Int):gd.Node return switch [p_flags] {
+	public function duplicate(?p_flags:cpp.Int64):gd.Node return switch [p_flags] {
 		case [null]:__node_ptr().value.duplicate();
-		default:__node_ptr().value.duplicate(((p_flags : Int)));
+		default:__node_ptr().value.duplicate(((p_flags : cpp.Int64)));
 	};
 	public function replace_by(p_node:gd.Node, ?p_keep_groups:Bool):Void switch [p_node, p_keep_groups] {
 		case [_, null]:__node_ptr().value.replace_by(((p_node : gd.Node)));
@@ -223,11 +223,11 @@ package gd;
 	public function queue_free():Void __node_ptr().value.queue_free();
 	public function request_ready():Void __node_ptr().value.request_ready();
 	public function is_node_ready():Bool return __node_ptr().value.is_node_ready();
-	public function set_multiplayer_authority(p_id:Int, ?p_recursive:Bool):Void switch [p_id, p_recursive] {
-		case [_, null]:__node_ptr().value.set_multiplayer_authority(((p_id : Int)));
-		default:__node_ptr().value.set_multiplayer_authority(((p_id : Int)), ((p_recursive : Bool)));
+	public function set_multiplayer_authority(p_id:cpp.Int64, ?p_recursive:Bool):Void switch [p_id, p_recursive] {
+		case [_, null]:__node_ptr().value.set_multiplayer_authority(((p_id : cpp.Int64)));
+		default:__node_ptr().value.set_multiplayer_authority(((p_id : cpp.Int64)), ((p_recursive : Bool)));
 	};
-	public function get_multiplayer_authority():Int return __node_ptr().value.get_multiplayer_authority();
+	public function get_multiplayer_authority():cpp.Int64 return __node_ptr().value.get_multiplayer_authority();
 	public function is_multiplayer_authority():Bool return __node_ptr().value.is_multiplayer_authority();
 	public function rpc_config(p_method:std.String, p_config:gd.Variant):Void __node_ptr().value.rpc_config(((p_method : std.String)), ((p_config : gd.Variant)));
 	public function get_rpc_config():gd.Variant return __node_ptr().value.get_rpc_config();
@@ -245,9 +245,9 @@ package gd;
 		case [_, null]:__node_ptr().value.atr(((p_message : std.String)));
 		default:__node_ptr().value.atr(((p_message : std.String)), ((p_context : std.String)));
 	};
-	public function atr_n(p_message:std.String, p_plural_message:std.String, p_n:Int, ?p_context:std.String):std.String return switch [p_message, p_plural_message, p_n, p_context] {
-		case [_, _, _, null]:__node_ptr().value.atr_n(((p_message : std.String)), ((p_plural_message : std.String)), ((p_n : Int)));
-		default:__node_ptr().value.atr_n(((p_message : std.String)), ((p_plural_message : std.String)), ((p_n : Int)), ((p_context : std.String)));
+	public function atr_n(p_message:std.String, p_plural_message:std.String, p_n:cpp.Int64, ?p_context:std.String):std.String return switch [p_message, p_plural_message, p_n, p_context] {
+		case [_, _, _, null]:__node_ptr().value.atr_n(((p_message : std.String)), ((p_plural_message : std.String)), ((p_n : cpp.Int64)));
+		default:__node_ptr().value.atr_n(((p_message : std.String)), ((p_plural_message : std.String)), ((p_n : cpp.Int64)), ((p_context : std.String)));
 	};
 	public function rpc(p_method:std.String, p_args:haxe.Rest<gd.Variant>):gd.Error return {
 		final vlen = p_args.length, len = 1 + vlen;
@@ -257,7 +257,7 @@ package gd;
 		for (i in 0 ... vlen) untyped __cpp__('ptrs[{0}] = &{1}.value', 1 + i, ((p_args[i] : gdnative.Variant)));
 		__node_ptr().value.rpc(untyped __cpp__('ptrs.data()'), len);
 	};
-	public function rpc_id(p_peer_id:Int, p_method:std.String, p_args:haxe.Rest<gd.Variant>):gd.Error return {
+	public function rpc_id(p_peer_id:cpp.Int64, p_method:std.String, p_args:haxe.Rest<gd.Variant>):gd.Error return {
 		final vlen = p_args.length, len = 2 + vlen;
 		untyped __cpp__('std::vector<const godot::Variant*> ptrs; ptrs.resize({0})', len);
 		final arg0:gdnative.Variant = p_peer_id;
@@ -277,7 +277,7 @@ package gd;
 		__node_ptr().value.call_deferred_thread_group(untyped __cpp__('ptrs.data()'), len);
 	};
 	public function set_deferred_thread_group(p_property:std.String, p_value:gd.Variant):Void __node_ptr().value.set_deferred_thread_group(((p_property : std.String)), ((p_value : gd.Variant)));
-	public function notify_deferred_thread_group(p_what:Int):Void __node_ptr().value.notify_deferred_thread_group(((p_what : Int)));
+	public function notify_deferred_thread_group(p_what:cpp.Int64):Void __node_ptr().value.notify_deferred_thread_group(((p_what : cpp.Int64)));
 	public function call_thread_safe(p_method:std.String, p_args:haxe.Rest<gd.Variant>):gd.Variant return {
 		final vlen = p_args.length, len = 1 + vlen;
 		untyped __cpp__('std::vector<const godot::Variant*> ptrs; ptrs.resize({0})', len);
@@ -287,22 +287,22 @@ package gd;
 		__node_ptr().value.call_thread_safe(untyped __cpp__('ptrs.data()'), len);
 	};
 	public function set_thread_safe(p_property:std.String, p_value:gd.Variant):Void __node_ptr().value.set_thread_safe(((p_property : std.String)), ((p_value : gd.Variant)));
-	public function notify_thread_safe(p_what:Int):Void __node_ptr().value.notify_thread_safe(((p_what : Int)));
+	public function notify_thread_safe(p_what:cpp.Int64):Void __node_ptr().value.notify_thread_safe(((p_what : cpp.Int64)));
 	public var name(get, set) : std.String;
 	public var unique_name_in_owner(get, set) : Bool;
 	function get_unique_name_in_owner():Bool return is_unique_name_in_owner();
 	public var scene_file_path(get, set) : std.String;
 	public var owner(get, set) : gd.Node;
 	public var process_mode(get, set) : gd.node.ProcessMode;
-	public var process_priority(get, set) : Int;
-	public var process_physics_priority(get, set) : Int;
-	function get_process_physics_priority():Int return get_physics_process_priority();
-	function set_process_physics_priority(v:Int):Int {
+	public var process_priority(get, set) : cpp.Int64;
+	public var process_physics_priority(get, set) : cpp.Int64;
+	function get_process_physics_priority():cpp.Int64 return get_physics_process_priority();
+	function set_process_physics_priority(v:cpp.Int64):cpp.Int64 {
 		set_physics_process_priority(v);
 		return v;
 	}
 	public var process_thread_group(get, set) : gd.node.ProcessThreadGroup;
-	public var process_thread_group_order(get, set) : Int;
+	public var process_thread_group_order(get, set) : cpp.Int64;
 	public var process_thread_messages(get, set) : Int;
 	public var physics_interpolation_mode(get, set) : gd.node.PhysicsInterpolationMode;
 	public var auto_translate_mode(get, set) : gd.node.AutoTranslateMode;

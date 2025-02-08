@@ -11,7 +11,7 @@ package gd;
 	}
 	extern inline function __inputeventmouse_ptr():cpp.Pointer<gdnative.InputEventMouse.InputEventMouse_extern> return cast __gd.ptr;
 	static function __finalize(inst:gd.InputEventMouse) {
-		untyped __cpp__("std::cout << \"InputEventMouse::finalize\" << std::endl");
+		inst.__ref = new gdnative.Ref.Ref_extern();
 	}
 	public function set_button_mask(p_button_mask:Int):Int {
 		__inputeventmouse_ptr().value.set_button_mask(((p_button_mask : Int)));

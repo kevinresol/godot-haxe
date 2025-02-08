@@ -3,8 +3,8 @@ extern class Dictionary_wrapper {
 	function toVariant():gd.Variant;
 	static function _new0():Dictionary_wrapper;
 	static function _new1(p_from:gd.Dictionary):Dictionary_wrapper;
-	static function _new2(p_base:gd.Dictionary, p_key_type:Int, p_key_class_name:std.String, p_key_script:gd.Variant, p_value_type:Int, p_value_class_name:std.String, p_value_script:gd.Variant):Dictionary_wrapper;
-	function size():Int;
+	static function _new2(p_base:gd.Dictionary, p_key_type:cpp.Int64, p_key_class_name:std.String, p_key_script:gd.Variant, p_value_type:cpp.Int64, p_value_class_name:std.String, p_value_script:gd.Variant):Dictionary_wrapper;
+	function size():cpp.Int64;
 	function is_empty():Bool;
 	function clear():Void;
 	function assign(p_dictionary:gd.Dictionary):Void;
@@ -15,7 +15,7 @@ extern class Dictionary_wrapper {
 	function has_all(p_keys:gd.Array):Bool;
 	function find_key(p_value:gd.Variant):gd.Variant;
 	function erase(p_key:gd.Variant):Bool;
-	function hash():Int;
+	function hash():cpp.Int64;
 	function keys():gd.Array;
 	function values():gd.Array;
 	function duplicate(?p_deep:Bool):gd.Dictionary;
@@ -28,15 +28,15 @@ extern class Dictionary_wrapper {
 	function is_same_typed(p_dictionary:gd.Dictionary):Bool;
 	function is_same_typed_key(p_dictionary:gd.Dictionary):Bool;
 	function is_same_typed_value(p_dictionary:gd.Dictionary):Bool;
-	function get_typed_key_builtin():Int;
-	function get_typed_value_builtin():Int;
+	function get_typed_key_builtin():cpp.Int64;
+	function get_typed_value_builtin():cpp.Int64;
 	function get_typed_key_class_name():std.String;
 	function get_typed_value_class_name():std.String;
 	function get_typed_key_script():gd.Variant;
 	function get_typed_value_script():gd.Variant;
 	function make_read_only():Void;
 	function is_read_only():Bool;
-	function recursive_equal(p_dictionary:gd.Dictionary, p_recursion_count:Int):Bool;
+	function recursive_equal(p_dictionary:gd.Dictionary, p_recursion_count:cpp.Int64):Bool;
 	function __op_equal_to_variant(p_rhs:gd.Variant):Bool;
 	function __op_not_equal_variant(p_rhs:gd.Variant):Bool;
 	function __op_equal_to_dictionary(p_rhs:gd.Dictionary):Bool;
@@ -51,7 +51,7 @@ extern class Dictionary_wrapper {
 	inline function toVariant():gd.Variant return @:privateAccess this.toVariant();
 	public extern overload inline function new() this = Dictionary_wrapper._new0();
 	public extern overload inline function new(p_from:gd.Dictionary) this = Dictionary_wrapper._new1(p_from);
-	public extern overload inline function new(p_base:gd.Dictionary, p_key_type:Int, p_key_class_name:std.String, p_key_script:gd.Variant, p_value_type:Int, p_value_class_name:std.String, p_value_script:gd.Variant) this = Dictionary_wrapper._new2(p_base, p_key_type, p_key_class_name, p_key_script, p_value_type, p_value_class_name, p_value_script);
+	public extern overload inline function new(p_base:gd.Dictionary, p_key_type:cpp.Int64, p_key_class_name:std.String, p_key_script:gd.Variant, p_value_type:cpp.Int64, p_value_class_name:std.String, p_value_script:gd.Variant) this = Dictionary_wrapper._new2(p_base, p_key_type, p_key_class_name, p_key_script, p_value_type, p_value_class_name, p_value_script);
 	@:op(A == B)
 	inline function __op_equal_to_variant(p_rhs:gd.Variant):Bool return @:privateAccess this.__op_equal_to_variant(p_rhs);
 	@:op(A != B)

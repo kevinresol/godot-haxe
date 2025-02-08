@@ -21,9 +21,9 @@ package gdnative;
 	@:op(-A)
 	extern inline function __op_unary_minus():gdnative.Vector3i return untyped __cpp__('-{0}', val());
 	@:op(A * B)
-	extern inline function __op_multiply_int(p_rhs:Int):gdnative.Vector3i return untyped __cpp__('{0} * {1}', val(), p_rhs);
+	extern inline function __op_multiply_int(p_rhs:cpp.Int64):gdnative.Vector3i return untyped __cpp__('{0} * {1}', val(), p_rhs);
 	@:op(A % B)
-	extern inline function __op_modulus_int(p_rhs:Int):gdnative.Vector3i return untyped __cpp__('{0} % {1}', val(), p_rhs);
+	extern inline function __op_modulus_int(p_rhs:cpp.Int64):gdnative.Vector3i return untyped __cpp__('{0} % {1}', val(), p_rhs);
 	@:op(A == B)
 	extern inline function __op_equal_to_vector3i(p_rhs:gdnative.Vector3i):Bool return untyped __cpp__('{0} == {1}', val(), @:privateAccess p_rhs.val());
 	@:op(A != B)
@@ -50,30 +50,30 @@ package gdnative;
 	extern inline function __op_membership_in_array(p_rhs:gdnative.Array):Bool return p_rhs.has(abstract);
 	public extern overload inline function new() this = new gdnative.Vector3i.Vector3i_extern();
 	public extern overload inline function new(p_from:gd.Vector3i) this = new gdnative.Vector3i.Vector3i_extern(p_from);
-	public extern overload inline function new(p_x:Int, p_y:Int, p_z:Int) this = new gdnative.Vector3i.Vector3i_extern(p_x, p_y, p_z);
+	public extern overload inline function new(p_x:cpp.Int64, p_y:cpp.Int64, p_z:cpp.Int64) this = new gdnative.Vector3i.Vector3i_extern(p_x, p_y, p_z);
 }
 
 @:include("godot_cpp/variant/vector3i.hpp") @:native("godot::Vector3i") @:structAccess extern class Vector3i_extern {
 	@:overload(function(p_from:gdnative.Vector3i):Void { })
-	@:overload(function(p_x:Int, p_y:Int, p_z:Int):Void { })
+	@:overload(function(p_x:cpp.Int64, p_y:cpp.Int64, p_z:cpp.Int64):Void { })
 	function new();
-	function min_axis_index():Int;
-	function max_axis_index():Int;
+	function min_axis_index():cpp.Int64;
+	function max_axis_index():cpp.Int64;
 	function distance_to(p_to:gdnative.Vector3i):Float;
-	function distance_squared_to(p_to:gdnative.Vector3i):Int;
+	function distance_squared_to(p_to:gdnative.Vector3i):cpp.Int64;
 	function length():Float;
-	function length_squared():Int;
+	function length_squared():cpp.Int64;
 	function sign():gdnative.Vector3i;
 	function abs():gdnative.Vector3i;
 	function clamp(p_min:gdnative.Vector3i, p_max:gdnative.Vector3i):gdnative.Vector3i;
-	function clampi(p_min:Int, p_max:Int):gdnative.Vector3i;
+	function clampi(p_min:cpp.Int64, p_max:cpp.Int64):gdnative.Vector3i;
 	function snapped(p_step:gdnative.Vector3i):gdnative.Vector3i;
-	function snappedi(p_step:Int):gdnative.Vector3i;
+	function snappedi(p_step:cpp.Int64):gdnative.Vector3i;
 	function min(p_with:gdnative.Vector3i):gdnative.Vector3i;
-	function mini(p_with:Int):gdnative.Vector3i;
+	function mini(p_with:cpp.Int64):gdnative.Vector3i;
 	function max(p_with:gdnative.Vector3i):gdnative.Vector3i;
-	function maxi(p_with:Int):gdnative.Vector3i;
-	var x : Int;
-	var y : Int;
-	var z : Int;
+	function maxi(p_with:cpp.Int64):gdnative.Vector3i;
+	var x : cpp.Int64;
+	var y : cpp.Int64;
+	var z : cpp.Int64;
 }

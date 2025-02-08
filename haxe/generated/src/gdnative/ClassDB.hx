@@ -28,14 +28,14 @@ package gdnative;
 	function class_get_property_default_value(p_class:gdnative.StringName, p_property:gdnative.StringName):gdnative.Variant;
 	overload function class_has_method(p_class:gdnative.StringName, p_method:gdnative.StringName):Bool;
 	overload function class_has_method(p_class:gdnative.StringName, p_method:gdnative.StringName, p_no_inheritance:Bool):Bool;
-	overload function class_get_method_argument_count(p_class:gdnative.StringName, p_method:gdnative.StringName):Int;
-	overload function class_get_method_argument_count(p_class:gdnative.StringName, p_method:gdnative.StringName, p_no_inheritance:Bool):Int;
+	overload function class_get_method_argument_count(p_class:gdnative.StringName, p_method:gdnative.StringName):cpp.Int64;
+	overload function class_get_method_argument_count(p_class:gdnative.StringName, p_method:gdnative.StringName, p_no_inheritance:Bool):cpp.Int64;
 	@:native("class_call_static_internal")
 	function class_call_static(p_args:cpp.ConstStar<cpp.Star<gdnative.Variant.Variant_extern>>, p_count:Int):gdnative.Variant;
 	overload function class_get_integer_constant_list(p_class:gdnative.StringName):gdnative.PackedStringArray;
 	overload function class_get_integer_constant_list(p_class:gdnative.StringName, p_no_inheritance:Bool):gdnative.PackedStringArray;
 	function class_has_integer_constant(p_class:gdnative.StringName, p_name:gdnative.StringName):Bool;
-	function class_get_integer_constant(p_class:gdnative.StringName, p_name:gdnative.StringName):Int;
+	function class_get_integer_constant(p_class:gdnative.StringName, p_name:gdnative.StringName):cpp.Int64;
 	overload function class_has_enum(p_class:gdnative.StringName, p_name:gdnative.StringName):Bool;
 	overload function class_has_enum(p_class:gdnative.StringName, p_name:gdnative.StringName, p_no_inheritance:Bool):Bool;
 	overload function class_get_enum_list(p_class:gdnative.StringName):gdnative.PackedStringArray;

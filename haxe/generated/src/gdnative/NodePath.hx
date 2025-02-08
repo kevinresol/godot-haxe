@@ -43,15 +43,15 @@ package gdnative;
 	@:overload(function(p_from:gdnative.String):Void { })
 	function new();
 	function is_absolute():Bool;
-	function get_name_count():Int;
-	function get_name(p_idx:Int):gdnative.StringName;
-	function get_subname_count():Int;
-	function hash():Int;
-	function get_subname(p_idx:Int):gdnative.StringName;
+	function get_name_count():cpp.Int64;
+	function get_name(p_idx:cpp.Int64):gdnative.StringName;
+	function get_subname_count():cpp.Int64;
+	function hash():cpp.Int64;
+	function get_subname(p_idx:cpp.Int64):gdnative.StringName;
 	function get_concatenated_names():gdnative.StringName;
 	function get_concatenated_subnames():gdnative.StringName;
-	overload function slice(p_begin:Int):gdnative.NodePath;
-	overload function slice(p_begin:Int, p_end:Int):gdnative.NodePath;
+	overload function slice(p_begin:cpp.Int64):gdnative.NodePath;
+	overload function slice(p_begin:cpp.Int64, p_end:cpp.Int64):gdnative.NodePath;
 	function get_as_property_path():gdnative.NodePath;
 	function is_empty():Bool;
 }

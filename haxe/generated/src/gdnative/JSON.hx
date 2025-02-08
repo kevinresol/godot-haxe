@@ -20,7 +20,7 @@ package gdnative;
 	function get_data():gdnative.Variant;
 	function set_data(p_data:gdnative.Variant):Void;
 	function get_parsed_text():gdnative.String;
-	function get_error_line():Int;
+	function get_error_line():cpp.Int64;
 	function get_error_message():gdnative.String;
 	overload static function from_native(p_variant:gdnative.Variant):gdnative.Variant;
 	overload static function from_native(p_variant:gdnative.Variant, p_full_objects:Bool):gdnative.Variant;

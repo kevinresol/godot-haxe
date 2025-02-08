@@ -52,12 +52,12 @@ package gdnative;
 	function grow(p_by:Float):gdnative.AABB;
 	function get_support(p_direction:gdnative.Vector3):gdnative.Vector3;
 	function get_longest_axis():gdnative.Vector3;
-	function get_longest_axis_index():Int;
+	function get_longest_axis_index():cpp.Int64;
 	function get_longest_axis_size():Float;
 	function get_shortest_axis():gdnative.Vector3;
-	function get_shortest_axis_index():Int;
+	function get_shortest_axis_index():cpp.Int64;
 	function get_shortest_axis_size():Float;
-	function get_endpoint(p_idx:Int):gdnative.Vector3;
+	function get_endpoint(p_idx:cpp.Int64):gdnative.Vector3;
 	var position : gdnative.Vector3;
 	var size : gdnative.Vector3;
 }

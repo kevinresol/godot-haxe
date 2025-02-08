@@ -16,7 +16,7 @@ package gd;
 	}
 	extern inline function __resourceloader_ptr():cpp.Pointer<gdnative.ResourceLoader.ResourceLoader_extern> return cast __gd.ptr;
 	static function __finalize(inst:gd.ResourceLoader) {
-		untyped __cpp__("std::cout << \"ResourceLoader::finalize\" << std::endl");
+		null;
 	}
 	public function load_threaded_request(p_path:std.String, ?p_type_hint:std.String, ?p_use_sub_threads:Bool, ?p_cache_mode:gd.resourceloader.CacheMode):gd.Error return switch [p_path, p_type_hint, p_use_sub_threads, p_cache_mode] {
 		case [_, null, _, _]:__resourceloader_ptr().value.load_threaded_request(((p_path : std.String)));
@@ -43,6 +43,6 @@ package gd;
 		case [_, null]:__resourceloader_ptr().value.exists(((p_path : std.String)));
 		default:__resourceloader_ptr().value.exists(((p_path : std.String)), ((p_type_hint : std.String)));
 	};
-	public function get_resource_uid(p_path:std.String):Int return __resourceloader_ptr().value.get_resource_uid(((p_path : std.String)));
+	public function get_resource_uid(p_path:std.String):cpp.Int64 return __resourceloader_ptr().value.get_resource_uid(((p_path : std.String)));
 	public function list_directory(p_directory_path:std.String):gd.PackedStringArray return __resourceloader_ptr().value.list_directory(((p_directory_path : std.String)));
 }

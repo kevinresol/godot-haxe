@@ -11,14 +11,14 @@ package gd;
 	}
 	extern inline function __inputevent_ptr():cpp.Pointer<gdnative.InputEvent.InputEvent_extern> return cast __gd.ptr;
 	static function __finalize(inst:gd.InputEvent) {
-		untyped __cpp__("std::cout << \"InputEvent::finalize\" << std::endl");
+		inst.__ref = new gdnative.Ref.Ref_extern();
 	}
 	static public final DEVICE_ID_EMULATION : Int = -1;
-	public function set_device(p_device:Int):Int {
-		__inputevent_ptr().value.set_device(((p_device : Int)));
+	public function set_device(p_device:cpp.Int64):cpp.Int64 {
+		__inputevent_ptr().value.set_device(((p_device : cpp.Int64)));
 		return p_device;
 	}
-	public function get_device():Int return __inputevent_ptr().value.get_device();
+	public function get_device():cpp.Int64 return __inputevent_ptr().value.get_device();
 	public function is_action(p_action:std.String, ?p_exact_match:Bool):Bool return switch [p_action, p_exact_match] {
 		case [_, null]:__inputevent_ptr().value.is_action(((p_action : std.String)));
 		default:__inputevent_ptr().value.is_action(((p_action : std.String)), ((p_exact_match : Bool)));
@@ -51,5 +51,5 @@ package gd;
 		case [_, null]:__inputevent_ptr().value.xformed_by(((p_xform : gd.Transform2D)));
 		default:__inputevent_ptr().value.xformed_by(((p_xform : gd.Transform2D)), ((p_local_ofs : gd.Vector2)));
 	};
-	public var device(get, set) : Int;
+	public var device(get, set) : cpp.Int64;
 }

@@ -6,45 +6,45 @@ class StringName_wrapper {
 	static function _new0():StringName_wrapper return new StringName_wrapper(new gdnative.StringName());
 	static function _new1(p_from:std.String):StringName_wrapper return new StringName_wrapper(new gdnative.StringName(p_from));
 	static function _new2(p_from:std.String):StringName_wrapper return new StringName_wrapper(new gdnative.StringName(p_from));
-	public function casecmp_to(p_to:std.String):Int return __gd.casecmp_to(((p_to : std.String)));
-	public function nocasecmp_to(p_to:std.String):Int return __gd.nocasecmp_to(((p_to : std.String)));
-	public function naturalcasecmp_to(p_to:std.String):Int return __gd.naturalcasecmp_to(((p_to : std.String)));
-	public function naturalnocasecmp_to(p_to:std.String):Int return __gd.naturalnocasecmp_to(((p_to : std.String)));
-	public function filecasecmp_to(p_to:std.String):Int return __gd.filecasecmp_to(((p_to : std.String)));
-	public function filenocasecmp_to(p_to:std.String):Int return __gd.filenocasecmp_to(((p_to : std.String)));
-	public function length():Int return __gd.length();
-	public function substr(p_from:Int, ?p_len:Int):std.String return switch [p_from, p_len] {
-		case [_, null]:__gd.substr(((p_from : Int)));
-		default:__gd.substr(((p_from : Int)), ((p_len : Int)));
+	public function casecmp_to(p_to:std.String):cpp.Int64 return __gd.casecmp_to(((p_to : std.String)));
+	public function nocasecmp_to(p_to:std.String):cpp.Int64 return __gd.nocasecmp_to(((p_to : std.String)));
+	public function naturalcasecmp_to(p_to:std.String):cpp.Int64 return __gd.naturalcasecmp_to(((p_to : std.String)));
+	public function naturalnocasecmp_to(p_to:std.String):cpp.Int64 return __gd.naturalnocasecmp_to(((p_to : std.String)));
+	public function filecasecmp_to(p_to:std.String):cpp.Int64 return __gd.filecasecmp_to(((p_to : std.String)));
+	public function filenocasecmp_to(p_to:std.String):cpp.Int64 return __gd.filenocasecmp_to(((p_to : std.String)));
+	public function length():cpp.Int64 return __gd.length();
+	public function substr(p_from:cpp.Int64, ?p_len:cpp.Int64):std.String return switch [p_from, p_len] {
+		case [_, null]:__gd.substr(((p_from : cpp.Int64)));
+		default:__gd.substr(((p_from : cpp.Int64)), ((p_len : cpp.Int64)));
 	};
-	public function get_slice(p_delimiter:std.String, p_slice:Int):std.String return __gd.get_slice(((p_delimiter : std.String)), ((p_slice : Int)));
-	public function get_slicec(p_delimiter:Int, p_slice:Int):std.String return __gd.get_slicec(((p_delimiter : Int)), ((p_slice : Int)));
-	public function get_slice_count(p_delimiter:std.String):Int return __gd.get_slice_count(((p_delimiter : std.String)));
-	public function find(p_what:std.String, ?p_from:Int):Int return switch [p_what, p_from] {
+	public function get_slice(p_delimiter:std.String, p_slice:cpp.Int64):std.String return __gd.get_slice(((p_delimiter : std.String)), ((p_slice : cpp.Int64)));
+	public function get_slicec(p_delimiter:cpp.Int64, p_slice:cpp.Int64):std.String return __gd.get_slicec(((p_delimiter : cpp.Int64)), ((p_slice : cpp.Int64)));
+	public function get_slice_count(p_delimiter:std.String):cpp.Int64 return __gd.get_slice_count(((p_delimiter : std.String)));
+	public function find(p_what:std.String, ?p_from:cpp.Int64):cpp.Int64 return switch [p_what, p_from] {
 		case [_, null]:__gd.find(((p_what : std.String)));
-		default:__gd.find(((p_what : std.String)), ((p_from : Int)));
+		default:__gd.find(((p_what : std.String)), ((p_from : cpp.Int64)));
 	};
-	public function findn(p_what:std.String, ?p_from:Int):Int return switch [p_what, p_from] {
+	public function findn(p_what:std.String, ?p_from:cpp.Int64):cpp.Int64 return switch [p_what, p_from] {
 		case [_, null]:__gd.findn(((p_what : std.String)));
-		default:__gd.findn(((p_what : std.String)), ((p_from : Int)));
+		default:__gd.findn(((p_what : std.String)), ((p_from : cpp.Int64)));
 	};
-	public function count(p_what:std.String, ?p_from:Int, ?p_to:Int):Int return switch [p_what, p_from, p_to] {
+	public function count(p_what:std.String, ?p_from:cpp.Int64, ?p_to:cpp.Int64):cpp.Int64 return switch [p_what, p_from, p_to] {
 		case [_, null, _]:__gd.count(((p_what : std.String)));
-		case [_, _, null]:__gd.count(((p_what : std.String)), ((p_from : Int)));
-		default:__gd.count(((p_what : std.String)), ((p_from : Int)), ((p_to : Int)));
+		case [_, _, null]:__gd.count(((p_what : std.String)), ((p_from : cpp.Int64)));
+		default:__gd.count(((p_what : std.String)), ((p_from : cpp.Int64)), ((p_to : cpp.Int64)));
 	};
-	public function countn(p_what:std.String, ?p_from:Int, ?p_to:Int):Int return switch [p_what, p_from, p_to] {
+	public function countn(p_what:std.String, ?p_from:cpp.Int64, ?p_to:cpp.Int64):cpp.Int64 return switch [p_what, p_from, p_to] {
 		case [_, null, _]:__gd.countn(((p_what : std.String)));
-		case [_, _, null]:__gd.countn(((p_what : std.String)), ((p_from : Int)));
-		default:__gd.countn(((p_what : std.String)), ((p_from : Int)), ((p_to : Int)));
+		case [_, _, null]:__gd.countn(((p_what : std.String)), ((p_from : cpp.Int64)));
+		default:__gd.countn(((p_what : std.String)), ((p_from : cpp.Int64)), ((p_to : cpp.Int64)));
 	};
-	public function rfind(p_what:std.String, ?p_from:Int):Int return switch [p_what, p_from] {
+	public function rfind(p_what:std.String, ?p_from:cpp.Int64):cpp.Int64 return switch [p_what, p_from] {
 		case [_, null]:__gd.rfind(((p_what : std.String)));
-		default:__gd.rfind(((p_what : std.String)), ((p_from : Int)));
+		default:__gd.rfind(((p_what : std.String)), ((p_from : cpp.Int64)));
 	};
-	public function rfindn(p_what:std.String, ?p_from:Int):Int return switch [p_what, p_from] {
+	public function rfindn(p_what:std.String, ?p_from:cpp.Int64):cpp.Int64 return switch [p_what, p_from] {
 		case [_, null]:__gd.rfindn(((p_what : std.String)));
-		default:__gd.rfindn(((p_what : std.String)), ((p_from : Int)));
+		default:__gd.rfindn(((p_what : std.String)), ((p_from : cpp.Int64)));
 	};
 	public function match(p_expr:std.String):Bool return __gd.match(((p_expr : std.String)));
 	public function matchn(p_expr:std.String):Bool return __gd.matchn(((p_expr : std.String)));
@@ -60,28 +60,28 @@ class StringName_wrapper {
 	};
 	public function replace(p_what:std.String, p_forwhat:std.String):std.String return __gd.replace(((p_what : std.String)), ((p_forwhat : std.String)));
 	public function replacen(p_what:std.String, p_forwhat:std.String):std.String return __gd.replacen(((p_what : std.String)), ((p_forwhat : std.String)));
-	public function repeat(p_count:Int):std.String return __gd.repeat(((p_count : Int)));
+	public function repeat(p_count:cpp.Int64):std.String return __gd.repeat(((p_count : cpp.Int64)));
 	public function reverse():std.String return __gd.reverse();
-	public function insert(p_position:Int, p_what:std.String):std.String return __gd.insert(((p_position : Int)), ((p_what : std.String)));
-	public function erase(p_position:Int, ?p_chars:Int):std.String return switch [p_position, p_chars] {
-		case [_, null]:__gd.erase(((p_position : Int)));
-		default:__gd.erase(((p_position : Int)), ((p_chars : Int)));
+	public function insert(p_position:cpp.Int64, p_what:std.String):std.String return __gd.insert(((p_position : cpp.Int64)), ((p_what : std.String)));
+	public function erase(p_position:cpp.Int64, ?p_chars:cpp.Int64):std.String return switch [p_position, p_chars] {
+		case [_, null]:__gd.erase(((p_position : cpp.Int64)));
+		default:__gd.erase(((p_position : cpp.Int64)), ((p_chars : cpp.Int64)));
 	};
 	public function capitalize():std.String return __gd.capitalize();
 	public function to_camel_case():std.String return __gd.to_camel_case();
 	public function to_pascal_case():std.String return __gd.to_pascal_case();
 	public function to_snake_case():std.String return __gd.to_snake_case();
-	public function split(?p_delimiter:std.String, ?p_allow_empty:Bool, ?p_maxsplit:Int):gd.PackedStringArray return switch [p_delimiter, p_allow_empty, p_maxsplit] {
+	public function split(?p_delimiter:std.String, ?p_allow_empty:Bool, ?p_maxsplit:cpp.Int64):gd.PackedStringArray return switch [p_delimiter, p_allow_empty, p_maxsplit] {
 		case [null, _, _]:__gd.split();
 		case [_, null, _]:__gd.split(((p_delimiter : std.String)));
 		case [_, _, null]:__gd.split(((p_delimiter : std.String)), ((p_allow_empty : Bool)));
-		default:__gd.split(((p_delimiter : std.String)), ((p_allow_empty : Bool)), ((p_maxsplit : Int)));
+		default:__gd.split(((p_delimiter : std.String)), ((p_allow_empty : Bool)), ((p_maxsplit : cpp.Int64)));
 	};
-	public function rsplit(?p_delimiter:std.String, ?p_allow_empty:Bool, ?p_maxsplit:Int):gd.PackedStringArray return switch [p_delimiter, p_allow_empty, p_maxsplit] {
+	public function rsplit(?p_delimiter:std.String, ?p_allow_empty:Bool, ?p_maxsplit:cpp.Int64):gd.PackedStringArray return switch [p_delimiter, p_allow_empty, p_maxsplit] {
 		case [null, _, _]:__gd.rsplit();
 		case [_, null, _]:__gd.rsplit(((p_delimiter : std.String)));
 		case [_, _, null]:__gd.rsplit(((p_delimiter : std.String)), ((p_allow_empty : Bool)));
-		default:__gd.rsplit(((p_delimiter : std.String)), ((p_allow_empty : Bool)), ((p_maxsplit : Int)));
+		default:__gd.rsplit(((p_delimiter : std.String)), ((p_allow_empty : Bool)), ((p_maxsplit : cpp.Int64)));
 	};
 	public function split_floats(p_delimiter:std.String, ?p_allow_empty:Bool):gd.PackedFloat64Array return switch [p_delimiter, p_allow_empty] {
 		case [_, null]:__gd.split_floats(((p_delimiter : std.String)));
@@ -90,8 +90,8 @@ class StringName_wrapper {
 	public function join(p_parts:gd.PackedStringArray):std.String return __gd.join(((p_parts : gd.PackedStringArray)));
 	public function to_upper():std.String return __gd.to_upper();
 	public function to_lower():std.String return __gd.to_lower();
-	public function left(p_length:Int):std.String return __gd.left(((p_length : Int)));
-	public function right(p_length:Int):std.String return __gd.right(((p_length : Int)));
+	public function left(p_length:cpp.Int64):std.String return __gd.left(((p_length : cpp.Int64)));
+	public function right(p_length:cpp.Int64):std.String return __gd.right(((p_length : cpp.Int64)));
 	public function strip_edges(?p_left:Bool, ?p_right:Bool):std.String return switch [p_left, p_right] {
 		case [null, _]:__gd.strip_edges();
 		case [_, null]:__gd.strip_edges(((p_left : Bool)));
@@ -103,7 +103,7 @@ class StringName_wrapper {
 	public function get_extension():std.String return __gd.get_extension();
 	public function get_basename():std.String return __gd.get_basename();
 	public function path_join(p_file:std.String):std.String return __gd.path_join(((p_file : std.String)));
-	public function unicode_at(p_at:Int):Int return __gd.unicode_at(((p_at : Int)));
+	public function unicode_at(p_at:cpp.Int64):cpp.Int64 return __gd.unicode_at(((p_at : cpp.Int64)));
 	public function indent(p_prefix:std.String):std.String return __gd.indent(((p_prefix : std.String)));
 	public function dedent():std.String return __gd.dedent();
 	public function md5_text():std.String return __gd.md5_text();
@@ -144,20 +144,20 @@ class StringName_wrapper {
 	public function is_valid_html_color():Bool return __gd.is_valid_html_color();
 	public function is_valid_ip_address():Bool return __gd.is_valid_ip_address();
 	public function is_valid_filename():Bool return __gd.is_valid_filename();
-	public function to_int():Int return __gd.to_int();
+	public function to_int():cpp.Int64 return __gd.to_int();
 	public function to_float():Float return __gd.to_float();
-	public function hex_to_int():Int return __gd.hex_to_int();
-	public function bin_to_int():Int return __gd.bin_to_int();
-	public function lpad(p_min_length:Int, ?p_character:std.String):std.String return switch [p_min_length, p_character] {
-		case [_, null]:__gd.lpad(((p_min_length : Int)));
-		default:__gd.lpad(((p_min_length : Int)), ((p_character : std.String)));
+	public function hex_to_int():cpp.Int64 return __gd.hex_to_int();
+	public function bin_to_int():cpp.Int64 return __gd.bin_to_int();
+	public function lpad(p_min_length:cpp.Int64, ?p_character:std.String):std.String return switch [p_min_length, p_character] {
+		case [_, null]:__gd.lpad(((p_min_length : cpp.Int64)));
+		default:__gd.lpad(((p_min_length : cpp.Int64)), ((p_character : std.String)));
 	};
-	public function rpad(p_min_length:Int, ?p_character:std.String):std.String return switch [p_min_length, p_character] {
-		case [_, null]:__gd.rpad(((p_min_length : Int)));
-		default:__gd.rpad(((p_min_length : Int)), ((p_character : std.String)));
+	public function rpad(p_min_length:cpp.Int64, ?p_character:std.String):std.String return switch [p_min_length, p_character] {
+		case [_, null]:__gd.rpad(((p_min_length : cpp.Int64)));
+		default:__gd.rpad(((p_min_length : cpp.Int64)), ((p_character : std.String)));
 	};
-	public function pad_decimals(p_digits:Int):std.String return __gd.pad_decimals(((p_digits : Int)));
-	public function pad_zeros(p_digits:Int):std.String return __gd.pad_zeros(((p_digits : Int)));
+	public function pad_decimals(p_digits:cpp.Int64):std.String return __gd.pad_decimals(((p_digits : cpp.Int64)));
+	public function pad_zeros(p_digits:cpp.Int64):std.String return __gd.pad_zeros(((p_digits : cpp.Int64)));
 	public function trim_prefix(p_prefix:std.String):std.String return __gd.trim_prefix(((p_prefix : std.String)));
 	public function trim_suffix(p_suffix:std.String):std.String return __gd.trim_suffix(((p_suffix : std.String)));
 	public function to_ascii_buffer():gd.PackedByteArray return __gd.to_ascii_buffer();
@@ -166,12 +166,12 @@ class StringName_wrapper {
 	public function to_utf32_buffer():gd.PackedByteArray return __gd.to_utf32_buffer();
 	public function hex_decode():gd.PackedByteArray return __gd.hex_decode();
 	public function to_wchar_buffer():gd.PackedByteArray return __gd.to_wchar_buffer();
-	public function hash():Int return __gd.hash();
+	public function hash():cpp.Int64 return __gd.hash();
 	function __op_equal_to_variant(p_rhs:gd.Variant):Bool return this.__gd == ((p_rhs : gdnative.Variant));
 	function __op_not_equal_variant(p_rhs:gd.Variant):Bool return this.__gd != ((p_rhs : gdnative.Variant));
 	function __op_modulus_variant(p_rhs:gd.Variant):std.String return this.__gd % ((p_rhs : gdnative.Variant));
 	function __op_modulus_bool(p_rhs:Bool):std.String return this.__gd % ((p_rhs : Bool));
-	function __op_modulus_int(p_rhs:Int):std.String return this.__gd % ((p_rhs : Int));
+	function __op_modulus_int(p_rhs:cpp.Int64):std.String return this.__gd % ((p_rhs : cpp.Int64));
 	function __op_modulus_float(p_rhs:Float):std.String return this.__gd % ((p_rhs : Float));
 	function __op_equal_to_string(p_rhs:std.String):Bool return this.__gd == ((p_rhs : gdnative.String));
 	function __op_not_equal_string(p_rhs:std.String):Bool return this.__gd != ((p_rhs : gdnative.String));
@@ -239,7 +239,7 @@ class StringName_wrapper {
 	@:op(A % B)
 	inline function __op_modulus_bool(p_rhs:Bool):std.String return @:privateAccess this.__op_modulus_bool(p_rhs);
 	@:op(A % B)
-	inline function __op_modulus_int(p_rhs:Int):std.String return @:privateAccess this.__op_modulus_int(p_rhs);
+	inline function __op_modulus_int(p_rhs:cpp.Int64):std.String return @:privateAccess this.__op_modulus_int(p_rhs);
 	@:op(A % B)
 	inline function __op_modulus_float(p_rhs:Float):std.String return @:privateAccess this.__op_modulus_float(p_rhs);
 	@:op(A == B)

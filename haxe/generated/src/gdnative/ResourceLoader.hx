@@ -28,6 +28,6 @@ package gdnative;
 	function get_cached_ref(p_path:gdnative.String):gdnative.Resource;
 	overload function exists(p_path:gdnative.String):Bool;
 	overload function exists(p_path:gdnative.String, p_type_hint:gdnative.String):Bool;
-	function get_resource_uid(p_path:gdnative.String):Int;
+	function get_resource_uid(p_path:gdnative.String):cpp.Int64;
 	function list_directory(p_directory_path:gdnative.String):gdnative.PackedStringArray;
 }

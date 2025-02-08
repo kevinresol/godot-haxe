@@ -32,8 +32,8 @@ extern class Transform2D_wrapper {
 	var origin(get, set) : gd.Vector2;
 	function __op_equal_to_variant(p_rhs:gd.Variant):Bool;
 	function __op_not_equal_variant(p_rhs:gd.Variant):Bool;
-	function __op_multiply_int(p_rhs:Int):gd.Transform2D;
-	function __op_divide_int(p_rhs:Int):gd.Transform2D;
+	function __op_multiply_int(p_rhs:cpp.Int64):gd.Transform2D;
+	function __op_divide_int(p_rhs:cpp.Int64):gd.Transform2D;
 	function __op_multiply_float(p_rhs:Float):gd.Transform2D;
 	function __op_divide_float(p_rhs:Float):gd.Transform2D;
 	function __op_equal_to_transform2d(p_rhs:gd.Transform2D):Bool;
@@ -60,9 +60,9 @@ extern class Transform2D_wrapper {
 	@:op(A != B)
 	inline function __op_not_equal_variant(p_rhs:gd.Variant):Bool return @:privateAccess this.__op_not_equal_variant(p_rhs);
 	@:op(A * B)
-	inline function __op_multiply_int(p_rhs:Int):gd.Transform2D return @:privateAccess this.__op_multiply_int(p_rhs);
+	inline function __op_multiply_int(p_rhs:cpp.Int64):gd.Transform2D return @:privateAccess this.__op_multiply_int(p_rhs);
 	@:op(A / B)
-	inline function __op_divide_int(p_rhs:Int):gd.Transform2D return @:privateAccess this.__op_divide_int(p_rhs);
+	inline function __op_divide_int(p_rhs:cpp.Int64):gd.Transform2D return @:privateAccess this.__op_divide_int(p_rhs);
 	@:op(A * B)
 	inline function __op_multiply_float(p_rhs:Float):gd.Transform2D return @:privateAccess this.__op_multiply_float(p_rhs);
 	@:op(A / B)

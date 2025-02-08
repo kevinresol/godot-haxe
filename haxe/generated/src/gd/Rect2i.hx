@@ -6,9 +6,9 @@ class Rect2i_wrapper {
 	static function _new0():Rect2i_wrapper return new Rect2i_wrapper(new gdnative.Rect2i());
 	static function _new1(p_from:gd.Rect2i):Rect2i_wrapper return new Rect2i_wrapper(new gdnative.Rect2i(p_from));
 	static function _new2(p_position:gd.Vector2i, p_size:gd.Vector2i):Rect2i_wrapper return new Rect2i_wrapper(new gdnative.Rect2i(p_position, p_size));
-	static function _new3(p_x:Int, p_y:Int, p_width:Int, p_height:Int):Rect2i_wrapper return new Rect2i_wrapper(new gdnative.Rect2i(p_x, p_y, p_width, p_height));
+	static function _new3(p_x:cpp.Int64, p_y:cpp.Int64, p_width:cpp.Int64, p_height:cpp.Int64):Rect2i_wrapper return new Rect2i_wrapper(new gdnative.Rect2i(p_x, p_y, p_width, p_height));
 	public function get_center():gd.Vector2i return __gd.get_center();
-	public function get_area():Int return __gd.get_area();
+	public function get_area():cpp.Int64 return __gd.get_area();
 	public function has_area():Bool return __gd.has_area();
 	public function has_point(p_point:gd.Vector2i):Bool return __gd.has_point(((p_point : gd.Vector2i)));
 	public function intersects(p_b:gd.Rect2i):Bool return __gd.intersects(((p_b : gd.Rect2i)));
@@ -16,9 +16,9 @@ class Rect2i_wrapper {
 	public function intersection(p_b:gd.Rect2i):gd.Rect2i return __gd.intersection(((p_b : gd.Rect2i)));
 	public function merge(p_b:gd.Rect2i):gd.Rect2i return __gd.merge(((p_b : gd.Rect2i)));
 	public function expand(p_to:gd.Vector2i):gd.Rect2i return __gd.expand(((p_to : gd.Vector2i)));
-	public function grow(p_amount:Int):gd.Rect2i return __gd.grow(((p_amount : Int)));
-	public function grow_side(p_side:gd.Side, p_amount:Int):gd.Rect2i return __gd.grow_side(((p_side : gd.Side)), ((p_amount : Int)));
-	public function grow_individual(p_left:Int, p_top:Int, p_right:Int, p_bottom:Int):gd.Rect2i return __gd.grow_individual(((p_left : Int)), ((p_top : Int)), ((p_right : Int)), ((p_bottom : Int)));
+	public function grow(p_amount:cpp.Int64):gd.Rect2i return __gd.grow(((p_amount : cpp.Int64)));
+	public function grow_side(p_side:gd.Side, p_amount:cpp.Int64):gd.Rect2i return __gd.grow_side(((p_side : gd.Side)), ((p_amount : cpp.Int64)));
+	public function grow_individual(p_left:cpp.Int64, p_top:cpp.Int64, p_right:cpp.Int64, p_bottom:cpp.Int64):gd.Rect2i return __gd.grow_individual(((p_left : cpp.Int64)), ((p_top : cpp.Int64)), ((p_right : cpp.Int64)), ((p_bottom : cpp.Int64)));
 	public function abs():gd.Rect2i return __gd.abs();
 	public var position(get, set) : gd.Vector2i;
 	function get_position():gd.Vector2i return __gd.position;
@@ -46,7 +46,7 @@ class Rect2i_wrapper {
 	public extern overload inline function new() this = @:privateAccess Rect2i_wrapper._new0();
 	public extern overload inline function new(p_from:gd.Rect2i) this = @:privateAccess Rect2i_wrapper._new1(p_from);
 	public extern overload inline function new(p_position:gd.Vector2i, p_size:gd.Vector2i) this = @:privateAccess Rect2i_wrapper._new2(p_position, p_size);
-	public extern overload inline function new(p_x:Int, p_y:Int, p_width:Int, p_height:Int) this = @:privateAccess Rect2i_wrapper._new3(p_x, p_y, p_width, p_height);
+	public extern overload inline function new(p_x:cpp.Int64, p_y:cpp.Int64, p_width:cpp.Int64, p_height:cpp.Int64) this = @:privateAccess Rect2i_wrapper._new3(p_x, p_y, p_width, p_height);
 	@:op(A == B)
 	inline function __op_equal_to_variant(p_rhs:gd.Variant):Bool return @:privateAccess this.__op_equal_to_variant(p_rhs);
 	@:op(A != B)

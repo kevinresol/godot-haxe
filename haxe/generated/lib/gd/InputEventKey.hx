@@ -8,8 +8,8 @@ extern class InputEventKey extends gd.InputEventWithModifiers {
 	function get_physical_keycode():gd.Key;
 	function set_key_label(p_key_label:gd.Key):gd.Key;
 	function get_key_label():gd.Key;
-	function set_unicode(p_unicode:Int):Int;
-	function get_unicode():Int;
+	function set_unicode(p_unicode:cpp.Int64):cpp.Int64;
+	function get_unicode():cpp.Int64;
 	function set_location(p_location:gd.KeyLocation):gd.KeyLocation;
 	function get_location():gd.KeyLocation;
 	function set_echo(p_echo:Bool):Void;
@@ -23,6 +23,6 @@ extern class InputEventKey extends gd.InputEventWithModifiers {
 	var keycode(get, set) : gd.Key;
 	var physical_keycode(get, set) : gd.Key;
 	var key_label(get, set) : gd.Key;
-	var unicode(get, set) : Int;
+	var unicode(get, set) : cpp.Int64;
 	var location(get, set) : gd.KeyLocation;
 }

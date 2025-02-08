@@ -28,14 +28,14 @@ package gdnative;
 	extern inline function __op_membership_in_array(p_rhs:gdnative.Array):Bool return p_rhs.has(abstract);
 	public extern overload inline function new() this = new gdnative.Dictionary.Dictionary_extern();
 	public extern overload inline function new(p_from:gd.Dictionary) this = new gdnative.Dictionary.Dictionary_extern(p_from);
-	public extern overload inline function new(p_base:gd.Dictionary, p_key_type:Int, p_key_class_name:std.String, p_key_script:gd.Variant, p_value_type:Int, p_value_class_name:std.String, p_value_script:gd.Variant) this = new gdnative.Dictionary.Dictionary_extern(p_base, p_key_type, p_key_class_name, p_key_script, p_value_type, p_value_class_name, p_value_script);
+	public extern overload inline function new(p_base:gd.Dictionary, p_key_type:cpp.Int64, p_key_class_name:std.String, p_key_script:gd.Variant, p_value_type:cpp.Int64, p_value_class_name:std.String, p_value_script:gd.Variant) this = new gdnative.Dictionary.Dictionary_extern(p_base, p_key_type, p_key_class_name, p_key_script, p_value_type, p_value_class_name, p_value_script);
 }
 
 @:include("godot_cpp/variant/dictionary.hpp") @:native("godot::Dictionary") @:structAccess extern class Dictionary_extern {
 	@:overload(function(p_from:gdnative.Dictionary):Void { })
-	@:overload(function(p_base:gdnative.Dictionary, p_key_type:Int, p_key_class_name:gdnative.StringName, p_key_script:gdnative.Variant, p_value_type:Int, p_value_class_name:gdnative.StringName, p_value_script:gdnative.Variant):Void { })
+	@:overload(function(p_base:gdnative.Dictionary, p_key_type:cpp.Int64, p_key_class_name:gdnative.StringName, p_key_script:gdnative.Variant, p_value_type:cpp.Int64, p_value_class_name:gdnative.StringName, p_value_script:gdnative.Variant):Void { })
 	function new();
-	function size():Int;
+	function size():cpp.Int64;
 	function is_empty():Bool;
 	function clear():Void;
 	function assign(p_dictionary:gdnative.Dictionary):Void;
@@ -48,7 +48,7 @@ package gdnative;
 	function has_all(p_keys:gdnative.Array):Bool;
 	function find_key(p_value:gdnative.Variant):gdnative.Variant;
 	function erase(p_key:gdnative.Variant):Bool;
-	function hash():Int;
+	function hash():cpp.Int64;
 	function keys():gdnative.Array;
 	function values():gdnative.Array;
 	overload function duplicate():gdnative.Dictionary;
@@ -62,13 +62,13 @@ package gdnative;
 	function is_same_typed(p_dictionary:gdnative.Dictionary):Bool;
 	function is_same_typed_key(p_dictionary:gdnative.Dictionary):Bool;
 	function is_same_typed_value(p_dictionary:gdnative.Dictionary):Bool;
-	function get_typed_key_builtin():Int;
-	function get_typed_value_builtin():Int;
+	function get_typed_key_builtin():cpp.Int64;
+	function get_typed_value_builtin():cpp.Int64;
 	function get_typed_key_class_name():gdnative.StringName;
 	function get_typed_value_class_name():gdnative.StringName;
 	function get_typed_key_script():gdnative.Variant;
 	function get_typed_value_script():gdnative.Variant;
 	function make_read_only():Void;
 	function is_read_only():Bool;
-	function recursive_equal(p_dictionary:gdnative.Dictionary, p_recursion_count:Int):Bool;
+	function recursive_equal(p_dictionary:gdnative.Dictionary, p_recursion_count:cpp.Int64):Bool;
 }

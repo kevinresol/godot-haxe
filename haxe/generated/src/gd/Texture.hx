@@ -11,6 +11,6 @@ package gd;
 	}
 	extern inline function __texture_ptr():cpp.Pointer<gdnative.Texture.Texture_extern> return cast __gd.ptr;
 	static function __finalize(inst:gd.Texture) {
-		untyped __cpp__("std::cout << \"Texture::finalize\" << std::endl");
+		inst.__ref = new gdnative.Ref.Ref_extern();
 	}
 }

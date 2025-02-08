@@ -26,8 +26,8 @@ extern class Vector2_wrapper {
 	function cubic_interpolate(p_b:gd.Vector2, p_pre_a:gd.Vector2, p_post_b:gd.Vector2, p_weight:Float):gd.Vector2;
 	function cubic_interpolate_in_time(p_b:gd.Vector2, p_pre_a:gd.Vector2, p_post_b:gd.Vector2, p_weight:Float, p_b_t:Float, p_pre_a_t:Float, p_post_b_t:Float):gd.Vector2;
 	function bezier_interpolate(p_control_1:gd.Vector2, p_control_2:gd.Vector2, p_end:gd.Vector2, p_t:Float):gd.Vector2;
-	function max_axis_index():Int;
-	function min_axis_index():Int;
+	function max_axis_index():cpp.Int64;
+	function min_axis_index():cpp.Int64;
 	function move_toward(p_to:gd.Vector2, p_delta:Float):gd.Vector2;
 	function rotated(p_angle:Float):gd.Vector2;
 	function orthogonal():gd.Vector2;
@@ -57,8 +57,8 @@ extern class Vector2_wrapper {
 	function __op_not_equal_variant(p_rhs:gd.Variant):Bool;
 	function __op_unary_minus():gd.Vector2;
 	function __op_unary_plus():gd.Vector2;
-	function __op_multiply_int(p_rhs:Int):gd.Vector2;
-	function __op_divide_int(p_rhs:Int):gd.Vector2;
+	function __op_multiply_int(p_rhs:cpp.Int64):gd.Vector2;
+	function __op_divide_int(p_rhs:cpp.Int64):gd.Vector2;
 	function __op_multiply_float(p_rhs:Float):gd.Vector2;
 	function __op_divide_float(p_rhs:Float):gd.Vector2;
 	function __op_equal_to_vector2(p_rhs:gd.Vector2):Bool;
@@ -96,9 +96,9 @@ extern class Vector2_wrapper {
 	@:op(-A)
 	inline function __op_unary_minus():gd.Vector2 return @:privateAccess this.__op_unary_minus();
 	@:op(A * B)
-	inline function __op_multiply_int(p_rhs:Int):gd.Vector2 return @:privateAccess this.__op_multiply_int(p_rhs);
+	inline function __op_multiply_int(p_rhs:cpp.Int64):gd.Vector2 return @:privateAccess this.__op_multiply_int(p_rhs);
 	@:op(A / B)
-	inline function __op_divide_int(p_rhs:Int):gd.Vector2 return @:privateAccess this.__op_divide_int(p_rhs);
+	inline function __op_divide_int(p_rhs:cpp.Int64):gd.Vector2 return @:privateAccess this.__op_divide_int(p_rhs);
 	@:op(A * B)
 	inline function __op_multiply_float(p_rhs:Float):gd.Vector2 return @:privateAccess this.__op_multiply_float(p_rhs);
 	@:op(A / B)

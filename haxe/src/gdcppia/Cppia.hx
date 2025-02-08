@@ -25,9 +25,9 @@ class Cppia {
 
 	static var rc1:cpp.Pointer<gdnative.RefCounted.RefCounted_extern>;
 	static var rc2:cpp.Pointer<gdnative.RefCounted.RefCounted_extern>;
-	static var id1:Int;
-	static var id2:Int;
-	static var id3:Int;
+	static var id1:cpp.Int64;
+	static var id2:cpp.Int64;
+	static var id3:cpp.Int64;
 
 	public static function main() {
 		trace("Hello from Haxe!");
@@ -142,6 +142,9 @@ class Cppia {
 		trace('id1', id1, is_instance_id_valid(id1));
 		trace('id2', id2, is_instance_id_valid(id2));
 		trace('id3', id3, is_instance_id_valid(id3));
+
+		trace('rc1', is_instance_id_valid(id1) ? rc1.value.get_reference_count() : 0);
+		trace('rc2', is_instance_id_valid(id2) ? rc2.value.get_reference_count() : 0);
 
 		// printThreadId("runBytes");
 		final bytes = haxe.io.Bytes.ofData(data);

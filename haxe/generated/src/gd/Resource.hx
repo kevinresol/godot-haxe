@@ -11,7 +11,7 @@ package gd;
 	}
 	extern inline function __resource_ptr():cpp.Pointer<gdnative.Resource.Resource_extern> return cast __gd.ptr;
 	static function __finalize(inst:gd.Resource) {
-		untyped __cpp__("std::cout << \"Resource::finalize\" << std::endl");
+		inst.__ref = new gdnative.Ref.Ref_extern();
 	}
 	public function _setup_local_to_scene():Void __resource_ptr().value._setup_local_to_scene();
 	public function _get_rid():gd.RID return __resource_ptr().value._get_rid();

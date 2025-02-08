@@ -19,9 +19,9 @@ package gdnative;
 	@:op(A != B)
 	extern inline function __op_not_equal_variant(p_rhs:gdnative.Variant):Bool return untyped __cpp__('{0} != {1}', val(), @:privateAccess p_rhs.val());
 	@:op(A * B)
-	extern inline function __op_multiply_int(p_rhs:Int):gdnative.Transform3D return untyped __cpp__('{0} * {1}', val(), p_rhs);
+	extern inline function __op_multiply_int(p_rhs:cpp.Int64):gdnative.Transform3D return untyped __cpp__('{0} * {1}', val(), p_rhs);
 	@:op(A / B)
-	extern inline function __op_divide_int(p_rhs:Int):gdnative.Transform3D return untyped __cpp__('{0} * (1.0 / {1})', val(), p_rhs);
+	extern inline function __op_divide_int(p_rhs:cpp.Int64):gdnative.Transform3D return untyped __cpp__('{0} * (1.0 / {1})', val(), p_rhs);
 	@:op(A * B)
 	extern inline function __op_multiply_float(p_rhs:Float):gdnative.Transform3D return untyped __cpp__('{0} * {1}', val(), p_rhs);
 	@:op(A / B)

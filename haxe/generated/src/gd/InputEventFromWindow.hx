@@ -11,12 +11,12 @@ package gd;
 	}
 	extern inline function __inputeventfromwindow_ptr():cpp.Pointer<gdnative.InputEventFromWindow.InputEventFromWindow_extern> return cast __gd.ptr;
 	static function __finalize(inst:gd.InputEventFromWindow) {
-		untyped __cpp__("std::cout << \"InputEventFromWindow::finalize\" << std::endl");
+		inst.__ref = new gdnative.Ref.Ref_extern();
 	}
-	public function set_window_id(p_id:Int):Int {
-		__inputeventfromwindow_ptr().value.set_window_id(((p_id : Int)));
+	public function set_window_id(p_id:cpp.Int64):cpp.Int64 {
+		__inputeventfromwindow_ptr().value.set_window_id(((p_id : cpp.Int64)));
 		return p_id;
 	}
-	public function get_window_id():Int return __inputeventfromwindow_ptr().value.get_window_id();
-	public var window_id(get, set) : Int;
+	public function get_window_id():cpp.Int64 return __inputeventfromwindow_ptr().value.get_window_id();
+	public var window_id(get, set) : cpp.Int64;
 }

@@ -14,6 +14,9 @@ abstract Variant(Variant_obj) from Variant_obj to Variant_obj {
 	@:from static inline function fromInt(v:Int):Variant
 		return Variant_obj.fromInt(v);
 
+	@:from static inline function fromInt64(v:cpp.Int64):Variant
+		return Variant_obj.fromInt64(v);
+
 	@:from static inline function fromUInt64(v:cpp.UInt64):Variant
 		return Variant_obj.fromUInt64(v);
 
@@ -57,6 +60,9 @@ class Variant_obj {
 		return new Variant_obj(v);
 
 	public static function fromInt(v:Int)
+		return new Variant_obj(v);
+
+	public static function fromInt64(v:cpp.Int64)
 		return new Variant_obj(v);
 
 	public static function fromUInt64(v:cpp.UInt64)

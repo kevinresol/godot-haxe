@@ -10,12 +10,12 @@ class Color_wrapper {
 	static function _new4(p_r:Float, p_g:Float, p_b:Float, p_a:Float):Color_wrapper return new Color_wrapper(new gdnative.Color(p_r, p_g, p_b, p_a));
 	static function _new5(p_code:std.String):Color_wrapper return new Color_wrapper(new gdnative.Color(p_code));
 	static function _new6(p_code:std.String, p_alpha:Float):Color_wrapper return new Color_wrapper(new gdnative.Color(p_code, p_alpha));
-	public function to_argb32():Int return __gd.to_argb32();
-	public function to_abgr32():Int return __gd.to_abgr32();
-	public function to_rgba32():Int return __gd.to_rgba32();
-	public function to_argb64():Int return __gd.to_argb64();
-	public function to_abgr64():Int return __gd.to_abgr64();
-	public function to_rgba64():Int return __gd.to_rgba64();
+	public function to_argb32():cpp.Int64 return __gd.to_argb32();
+	public function to_abgr32():cpp.Int64 return __gd.to_abgr32();
+	public function to_rgba32():cpp.Int64 return __gd.to_rgba32();
+	public function to_argb64():cpp.Int64 return __gd.to_argb64();
+	public function to_abgr64():cpp.Int64 return __gd.to_abgr64();
+	public function to_rgba64():cpp.Int64 return __gd.to_rgba64();
 	public function to_html(?p_with_alpha:Bool):std.String return switch [p_with_alpha] {
 		case [null]:__gd.to_html();
 		default:__gd.to_html(((p_with_alpha : Bool)));
@@ -34,8 +34,8 @@ class Color_wrapper {
 	public function srgb_to_linear():gd.Color return __gd.srgb_to_linear();
 	public function linear_to_srgb():gd.Color return __gd.linear_to_srgb();
 	public function is_equal_approx(p_to:gd.Color):Bool return __gd.is_equal_approx(((p_to : gd.Color)));
-	public static function hex(p_hex:Int):gd.Color return gdnative.Color.Color_extern.hex(((p_hex : Int)));
-	public static function hex64(p_hex:Int):gd.Color return gdnative.Color.Color_extern.hex64(((p_hex : Int)));
+	public static function hex(p_hex:cpp.Int64):gd.Color return gdnative.Color.Color_extern.hex(((p_hex : cpp.Int64)));
+	public static function hex64(p_hex:cpp.Int64):gd.Color return gdnative.Color.Color_extern.hex64(((p_hex : cpp.Int64)));
 	public static function html(p_rgba:std.String):gd.Color return gdnative.Color.Color_extern.html(((p_rgba : std.String)));
 	public static function html_is_valid(p_color:std.String):Bool return gdnative.Color.Color_extern.html_is_valid(((p_color : std.String)));
 	public static function from_string(p_str:std.String, p_default:gd.Color):gd.Color return gdnative.Color.Color_extern.from_string(((p_str : std.String)), ((p_default : gd.Color)));
@@ -43,7 +43,7 @@ class Color_wrapper {
 		case [_, _, _, null]:gdnative.Color.Color_extern.from_hsv(((p_h : Float)), ((p_s : Float)), ((p_v : Float)));
 		default:gdnative.Color.Color_extern.from_hsv(((p_h : Float)), ((p_s : Float)), ((p_v : Float)), ((p_alpha : Float)));
 	};
-	public static function from_rgbe9995(p_rgbe:Int):gd.Color return gdnative.Color.Color_extern.from_rgbe9995(((p_rgbe : Int)));
+	public static function from_rgbe9995(p_rgbe:cpp.Int64):gd.Color return gdnative.Color.Color_extern.from_rgbe9995(((p_rgbe : cpp.Int64)));
 	public var r(get, set) : Float;
 	function get_r():Float return __gd.r;
 	function set_r(v:Float):Float return {
@@ -68,27 +68,27 @@ class Color_wrapper {
 		__gd.a = v;
 		v;
 	};
-	public var r8(get, set) : Int;
-	function get_r8():Int return __gd.get_r8();
-	function set_r8(v:Int):Int return {
+	public var r8(get, set) : cpp.Int64;
+	function get_r8():cpp.Int64 return __gd.get_r8();
+	function set_r8(v:cpp.Int64):cpp.Int64 return {
 		__gd.set_r8(v);
 		v;
 	};
-	public var g8(get, set) : Int;
-	function get_g8():Int return __gd.get_g8();
-	function set_g8(v:Int):Int return {
+	public var g8(get, set) : cpp.Int64;
+	function get_g8():cpp.Int64 return __gd.get_g8();
+	function set_g8(v:cpp.Int64):cpp.Int64 return {
 		__gd.set_g8(v);
 		v;
 	};
-	public var b8(get, set) : Int;
-	function get_b8():Int return __gd.get_b8();
-	function set_b8(v:Int):Int return {
+	public var b8(get, set) : cpp.Int64;
+	function get_b8():cpp.Int64 return __gd.get_b8();
+	function set_b8(v:cpp.Int64):cpp.Int64 return {
 		__gd.set_b8(v);
 		v;
 	};
-	public var a8(get, set) : Int;
-	function get_a8():Int return __gd.get_a8();
-	function set_a8(v:Int):Int return {
+	public var a8(get, set) : cpp.Int64;
+	function get_a8():cpp.Int64 return __gd.get_a8();
+	function set_a8(v:cpp.Int64):cpp.Int64 return {
 		__gd.set_a8(v);
 		v;
 	};
@@ -113,8 +113,8 @@ class Color_wrapper {
 	function __op_equal_to_variant(p_rhs:gd.Variant):Bool return this.__gd == ((p_rhs : gdnative.Variant));
 	function __op_not_equal_variant(p_rhs:gd.Variant):Bool return this.__gd != ((p_rhs : gdnative.Variant));
 	function __op_unary_minus():gd.Color return -this.__gd;
-	function __op_multiply_int(p_rhs:Int):gd.Color return this.__gd * ((p_rhs : Int));
-	function __op_divide_int(p_rhs:Int):gd.Color return this.__gd / ((p_rhs : Int));
+	function __op_multiply_int(p_rhs:cpp.Int64):gd.Color return this.__gd * ((p_rhs : cpp.Int64));
+	function __op_divide_int(p_rhs:cpp.Int64):gd.Color return this.__gd / ((p_rhs : cpp.Int64));
 	function __op_multiply_float(p_rhs:Float):gd.Color return this.__gd * ((p_rhs : Float));
 	function __op_divide_float(p_rhs:Float):gd.Color return this.__gd / ((p_rhs : Float));
 	function __op_equal_to_color(p_rhs:gd.Color):Bool return this.__gd == ((p_rhs : gdnative.Color));
@@ -291,9 +291,9 @@ class Color_wrapper {
 	@:op(-A)
 	inline function __op_unary_minus():gd.Color return @:privateAccess this.__op_unary_minus();
 	@:op(A * B)
-	inline function __op_multiply_int(p_rhs:Int):gd.Color return @:privateAccess this.__op_multiply_int(p_rhs);
+	inline function __op_multiply_int(p_rhs:cpp.Int64):gd.Color return @:privateAccess this.__op_multiply_int(p_rhs);
 	@:op(A / B)
-	inline function __op_divide_int(p_rhs:Int):gd.Color return @:privateAccess this.__op_divide_int(p_rhs);
+	inline function __op_divide_int(p_rhs:cpp.Int64):gd.Color return @:privateAccess this.__op_divide_int(p_rhs);
 	@:op(A * B)
 	inline function __op_multiply_float(p_rhs:Float):gd.Color return @:privateAccess this.__op_multiply_float(p_rhs);
 	@:op(A / B)

@@ -11,7 +11,7 @@ package gd;
 	}
 	extern inline function __timer_ptr():cpp.Pointer<gdnative.Timer.Timer_extern> return cast __gd.ptr;
 	static function __finalize(inst:gd.Timer) {
-		untyped __cpp__("std::cout << \"Timer::finalize\" << std::endl");
+		null;
 	}
 	public function set_wait_time(p_time_sec:Float):Float {
 		__timer_ptr().value.set_wait_time(((p_time_sec : Float)));

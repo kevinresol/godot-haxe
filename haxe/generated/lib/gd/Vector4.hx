@@ -4,8 +4,8 @@ extern class Vector4_wrapper {
 	static function _new0():Vector4_wrapper;
 	static function _new1(p_from:gd.Vector4):Vector4_wrapper;
 	static function _new2(p_x:Float, p_y:Float, p_z:Float, p_w:Float):Vector4_wrapper;
-	function min_axis_index():Int;
-	function max_axis_index():Int;
+	function min_axis_index():cpp.Int64;
+	function max_axis_index():cpp.Int64;
 	function length():Float;
 	function length_squared():Float;
 	function abs():gd.Vector4;
@@ -44,8 +44,8 @@ extern class Vector4_wrapper {
 	function __op_not_equal_variant(p_rhs:gd.Variant):Bool;
 	function __op_unary_minus():gd.Vector4;
 	function __op_unary_plus():gd.Vector4;
-	function __op_multiply_int(p_rhs:Int):gd.Vector4;
-	function __op_divide_int(p_rhs:Int):gd.Vector4;
+	function __op_multiply_int(p_rhs:cpp.Int64):gd.Vector4;
+	function __op_divide_int(p_rhs:cpp.Int64):gd.Vector4;
 	function __op_multiply_float(p_rhs:Float):gd.Vector4;
 	function __op_divide_float(p_rhs:Float):gd.Vector4;
 	function __op_equal_to_vector4(p_rhs:gd.Vector4):Bool;
@@ -79,9 +79,9 @@ extern class Vector4_wrapper {
 	@:op(-A)
 	inline function __op_unary_minus():gd.Vector4 return @:privateAccess this.__op_unary_minus();
 	@:op(A * B)
-	inline function __op_multiply_int(p_rhs:Int):gd.Vector4 return @:privateAccess this.__op_multiply_int(p_rhs);
+	inline function __op_multiply_int(p_rhs:cpp.Int64):gd.Vector4 return @:privateAccess this.__op_multiply_int(p_rhs);
 	@:op(A / B)
-	inline function __op_divide_int(p_rhs:Int):gd.Vector4 return @:privateAccess this.__op_divide_int(p_rhs);
+	inline function __op_divide_int(p_rhs:cpp.Int64):gd.Vector4 return @:privateAccess this.__op_divide_int(p_rhs);
 	@:op(A * B)
 	inline function __op_multiply_float(p_rhs:Float):gd.Vector4 return @:privateAccess this.__op_multiply_float(p_rhs);
 	@:op(A / B)

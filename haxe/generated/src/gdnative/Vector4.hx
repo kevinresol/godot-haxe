@@ -21,9 +21,9 @@ package gdnative;
 	@:op(-A)
 	extern inline function __op_unary_minus():gdnative.Vector4 return untyped __cpp__('-{0}', val());
 	@:op(A * B)
-	extern inline function __op_multiply_int(p_rhs:Int):gdnative.Vector4 return untyped __cpp__('{0} * {1}', val(), p_rhs);
+	extern inline function __op_multiply_int(p_rhs:cpp.Int64):gdnative.Vector4 return untyped __cpp__('{0} * {1}', val(), p_rhs);
 	@:op(A / B)
-	extern inline function __op_divide_int(p_rhs:Int):gdnative.Vector4 return untyped __cpp__('{0} * (1.0 / {1})', val(), p_rhs);
+	extern inline function __op_divide_int(p_rhs:cpp.Int64):gdnative.Vector4 return untyped __cpp__('{0} * (1.0 / {1})', val(), p_rhs);
 	@:op(A * B)
 	extern inline function __op_multiply_float(p_rhs:Float):gdnative.Vector4 return untyped __cpp__('{0} * {1}', val(), p_rhs);
 	@:op(A / B)
@@ -63,8 +63,8 @@ package gdnative;
 	@:overload(function(p_from:gdnative.Vector4):Void { })
 	@:overload(function(p_x:Float, p_y:Float, p_z:Float, p_w:Float):Void { })
 	function new();
-	function min_axis_index():Int;
-	function max_axis_index():Int;
+	function min_axis_index():cpp.Int64;
+	function max_axis_index():cpp.Int64;
 	function length():Float;
 	function length_squared():Float;
 	function abs():gdnative.Vector4;

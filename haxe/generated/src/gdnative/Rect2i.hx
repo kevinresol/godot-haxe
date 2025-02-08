@@ -29,16 +29,16 @@ package gdnative;
 	public extern overload inline function new() this = new gdnative.Rect2i.Rect2i_extern();
 	public extern overload inline function new(p_from:gd.Rect2i) this = new gdnative.Rect2i.Rect2i_extern(p_from);
 	public extern overload inline function new(p_position:gd.Vector2i, p_size:gd.Vector2i) this = new gdnative.Rect2i.Rect2i_extern(p_position, p_size);
-	public extern overload inline function new(p_x:Int, p_y:Int, p_width:Int, p_height:Int) this = new gdnative.Rect2i.Rect2i_extern(p_x, p_y, p_width, p_height);
+	public extern overload inline function new(p_x:cpp.Int64, p_y:cpp.Int64, p_width:cpp.Int64, p_height:cpp.Int64) this = new gdnative.Rect2i.Rect2i_extern(p_x, p_y, p_width, p_height);
 }
 
 @:include("godot_cpp/variant/rect2i.hpp") @:native("godot::Rect2i") @:structAccess extern class Rect2i_extern {
 	@:overload(function(p_from:gdnative.Rect2i):Void { })
 	@:overload(function(p_position:gdnative.Vector2i, p_size:gdnative.Vector2i):Void { })
-	@:overload(function(p_x:Int, p_y:Int, p_width:Int, p_height:Int):Void { })
+	@:overload(function(p_x:cpp.Int64, p_y:cpp.Int64, p_width:cpp.Int64, p_height:cpp.Int64):Void { })
 	function new();
 	function get_center():gdnative.Vector2i;
-	function get_area():Int;
+	function get_area():cpp.Int64;
 	function has_area():Bool;
 	function has_point(p_point:gdnative.Vector2i):Bool;
 	function intersects(p_b:gdnative.Rect2i):Bool;
@@ -46,9 +46,9 @@ package gdnative;
 	function intersection(p_b:gdnative.Rect2i):gdnative.Rect2i;
 	function merge(p_b:gdnative.Rect2i):gdnative.Rect2i;
 	function expand(p_to:gdnative.Vector2i):gdnative.Rect2i;
-	function grow(p_amount:Int):gdnative.Rect2i;
-	function grow_side(p_side:gdnative.Side, p_amount:Int):gdnative.Rect2i;
-	function grow_individual(p_left:Int, p_top:Int, p_right:Int, p_bottom:Int):gdnative.Rect2i;
+	function grow(p_amount:cpp.Int64):gdnative.Rect2i;
+	function grow_side(p_side:gdnative.Side, p_amount:cpp.Int64):gdnative.Rect2i;
+	function grow_individual(p_left:cpp.Int64, p_top:cpp.Int64, p_right:cpp.Int64, p_bottom:cpp.Int64):gdnative.Rect2i;
 	function abs():gdnative.Rect2i;
 	var position : gdnative.Vector2i;
 	var size : gdnative.Vector2i;

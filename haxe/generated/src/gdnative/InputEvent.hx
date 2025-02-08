@@ -10,8 +10,8 @@ package gdnative;
 }
 @:include("godot_cpp/classes/input_event.hpp") @:native("godot::InputEvent") @:structAccess extern class InputEvent_extern extends gdnative.Resource.Resource_extern {
 	extern static inline function __alloc():cpp.Pointer<InputEvent_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::InputEvent"));
-	function set_device(p_device:Int):Void;
-	function get_device():Int;
+	function set_device(p_device:cpp.Int64):Void;
+	function get_device():cpp.Int64;
 	overload function is_action(p_action:gdnative.StringName):Bool;
 	overload function is_action(p_action:gdnative.StringName, p_exact_match:Bool):Bool;
 	overload function is_action_pressed(p_action:gdnative.StringName):Bool;

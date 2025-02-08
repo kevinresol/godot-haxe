@@ -259,19 +259,13 @@ class ClassBuilder extends EnumBuilder {
 
 				// debug gc
 				static function __finalize(inst:gd.$cname) {
-					// ${
-					// 	if (!clazz.is_refcounted) {
-					// 		macro null;
-					// 	} else {
-					// 		macro {
-					// 			final ptr:cpp.Star<gdnative.RefCounted.RefCounted_extern> = cast inst.__gd.ptr;
-					// 			final c:Int = untyped __cpp__('{0}->get_reference_count()', ptr);
-					// 			untyped __cpp__($v{'printf("RefCounted $cname finalized with refcount %d\\n", {0})'}, c);
-					// 			// untyped __cpp__($v{'std::cout << "$cname::finalize" << {0} << std::endl'}, c);
-					untyped __cpp__($v{'std::cout << "$cname::finalize" << std::endl'});
-					// 		}
-					// 	}
-					// }
+					${
+						if (!clazz.is_refcounted) {
+							macro null;
+						} else {
+							macro inst.__ref = new gdnative.Ref.Ref_extern();
+						}
+					}
 				}
 			}).fields);
 			cls.meta.push({pos: null, name: ':cppInclude', params: [macro 'iostream']});

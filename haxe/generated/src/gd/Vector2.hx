@@ -31,8 +31,8 @@ class Vector2_wrapper {
 	public function cubic_interpolate(p_b:gd.Vector2, p_pre_a:gd.Vector2, p_post_b:gd.Vector2, p_weight:Float):gd.Vector2 return __gd.cubic_interpolate(((p_b : gd.Vector2)), ((p_pre_a : gd.Vector2)), ((p_post_b : gd.Vector2)), ((p_weight : Float)));
 	public function cubic_interpolate_in_time(p_b:gd.Vector2, p_pre_a:gd.Vector2, p_post_b:gd.Vector2, p_weight:Float, p_b_t:Float, p_pre_a_t:Float, p_post_b_t:Float):gd.Vector2 return __gd.cubic_interpolate_in_time(((p_b : gd.Vector2)), ((p_pre_a : gd.Vector2)), ((p_post_b : gd.Vector2)), ((p_weight : Float)), ((p_b_t : Float)), ((p_pre_a_t : Float)), ((p_post_b_t : Float)));
 	public function bezier_interpolate(p_control_1:gd.Vector2, p_control_2:gd.Vector2, p_end:gd.Vector2, p_t:Float):gd.Vector2 return __gd.bezier_interpolate(((p_control_1 : gd.Vector2)), ((p_control_2 : gd.Vector2)), ((p_end : gd.Vector2)), ((p_t : Float)));
-	public function max_axis_index():Int return __gd.max_axis_index();
-	public function min_axis_index():Int return __gd.min_axis_index();
+	public function max_axis_index():cpp.Int64 return __gd.max_axis_index();
+	public function min_axis_index():cpp.Int64 return __gd.min_axis_index();
 	public function move_toward(p_to:gd.Vector2, p_delta:Float):gd.Vector2 return __gd.move_toward(((p_to : gd.Vector2)), ((p_delta : Float)));
 	public function rotated(p_angle:Float):gd.Vector2 return __gd.rotated(((p_angle : Float)));
 	public function orthogonal():gd.Vector2 return __gd.orthogonal();
@@ -71,8 +71,8 @@ class Vector2_wrapper {
 	function __op_equal_to_variant(p_rhs:gd.Variant):Bool return this.__gd == ((p_rhs : gdnative.Variant));
 	function __op_not_equal_variant(p_rhs:gd.Variant):Bool return this.__gd != ((p_rhs : gdnative.Variant));
 	function __op_unary_minus():gd.Vector2 return -this.__gd;
-	function __op_multiply_int(p_rhs:Int):gd.Vector2 return this.__gd * ((p_rhs : Int));
-	function __op_divide_int(p_rhs:Int):gd.Vector2 return this.__gd / ((p_rhs : Int));
+	function __op_multiply_int(p_rhs:cpp.Int64):gd.Vector2 return this.__gd * ((p_rhs : cpp.Int64));
+	function __op_divide_int(p_rhs:cpp.Int64):gd.Vector2 return this.__gd / ((p_rhs : cpp.Int64));
 	function __op_multiply_float(p_rhs:Float):gd.Vector2 return this.__gd * ((p_rhs : Float));
 	function __op_divide_float(p_rhs:Float):gd.Vector2 return this.__gd / ((p_rhs : Float));
 	function __op_equal_to_vector2(p_rhs:gd.Vector2):Bool return this.__gd == ((p_rhs : gdnative.Vector2));
@@ -110,9 +110,9 @@ class Vector2_wrapper {
 	@:op(-A)
 	inline function __op_unary_minus():gd.Vector2 return @:privateAccess this.__op_unary_minus();
 	@:op(A * B)
-	inline function __op_multiply_int(p_rhs:Int):gd.Vector2 return @:privateAccess this.__op_multiply_int(p_rhs);
+	inline function __op_multiply_int(p_rhs:cpp.Int64):gd.Vector2 return @:privateAccess this.__op_multiply_int(p_rhs);
 	@:op(A / B)
-	inline function __op_divide_int(p_rhs:Int):gd.Vector2 return @:privateAccess this.__op_divide_int(p_rhs);
+	inline function __op_divide_int(p_rhs:cpp.Int64):gd.Vector2 return @:privateAccess this.__op_divide_int(p_rhs);
 	@:op(A * B)
 	inline function __op_multiply_float(p_rhs:Float):gd.Vector2 return @:privateAccess this.__op_multiply_float(p_rhs);
 	@:op(A / B)

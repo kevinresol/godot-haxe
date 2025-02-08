@@ -11,7 +11,7 @@ package gd;
 	}
 	extern inline function __inputeventwithmodifiers_ptr():cpp.Pointer<gdnative.InputEventWithModifiers.InputEventWithModifiers_extern> return cast __gd.ptr;
 	static function __finalize(inst:gd.InputEventWithModifiers) {
-		untyped __cpp__("std::cout << \"InputEventWithModifiers::finalize\" << std::endl");
+		inst.__ref = new gdnative.Ref.Ref_extern();
 	}
 	public function set_command_or_control_autoremap(p_enable:Bool):Bool {
 		__inputeventwithmodifiers_ptr().value.set_command_or_control_autoremap(((p_enable : Bool)));

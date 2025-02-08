@@ -17,6 +17,10 @@ abstract Variant(cpp.Struct<Variant_extern>) from cpp.Struct<Variant_extern> to 
 		return new Variant_extern(v);
 
 	@:from
+	extern static inline function fromInt64(v:cpp.Int64):Variant
+		return new Variant_extern(v);
+
+	@:from
 	extern static inline function fromUInt64(v:cpp.UInt64):Variant
 		return new Variant_extern(v);
 
@@ -182,6 +186,7 @@ extern class Variant_extern {
 	@:overload(function(v:cpp.ConstCharStar):Void {})
 	@:overload(function(v:Float):Void {})
 	@:overload(function(v:Int):Void {})
+	@:overload(function(v:cpp.Int64):Void {})
 	@:overload(function(v:cpp.UInt64):Void {})
 	@:overload(function(v:Bool):Void {})
 	function new();

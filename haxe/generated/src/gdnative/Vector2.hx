@@ -21,9 +21,9 @@ package gdnative;
 	@:op(-A)
 	extern inline function __op_unary_minus():gdnative.Vector2 return untyped __cpp__('-{0}', val());
 	@:op(A * B)
-	extern inline function __op_multiply_int(p_rhs:Int):gdnative.Vector2 return untyped __cpp__('{0} * {1}', val(), p_rhs);
+	extern inline function __op_multiply_int(p_rhs:cpp.Int64):gdnative.Vector2 return untyped __cpp__('{0} * {1}', val(), p_rhs);
 	@:op(A / B)
-	extern inline function __op_divide_int(p_rhs:Int):gdnative.Vector2 return untyped __cpp__('{0} * (1.0 / {1})', val(), p_rhs);
+	extern inline function __op_divide_int(p_rhs:cpp.Int64):gdnative.Vector2 return untyped __cpp__('{0} * (1.0 / {1})', val(), p_rhs);
 	@:op(A * B)
 	extern inline function __op_multiply_float(p_rhs:Float):gdnative.Vector2 return untyped __cpp__('{0} * {1}', val(), p_rhs);
 	@:op(A / B)
@@ -86,8 +86,8 @@ package gdnative;
 	function cubic_interpolate(p_b:gdnative.Vector2, p_pre_a:gdnative.Vector2, p_post_b:gdnative.Vector2, p_weight:Float):gdnative.Vector2;
 	function cubic_interpolate_in_time(p_b:gdnative.Vector2, p_pre_a:gdnative.Vector2, p_post_b:gdnative.Vector2, p_weight:Float, p_b_t:Float, p_pre_a_t:Float, p_post_b_t:Float):gdnative.Vector2;
 	function bezier_interpolate(p_control_1:gdnative.Vector2, p_control_2:gdnative.Vector2, p_end:gdnative.Vector2, p_t:Float):gdnative.Vector2;
-	function max_axis_index():Int;
-	function min_axis_index():Int;
+	function max_axis_index():cpp.Int64;
+	function min_axis_index():cpp.Int64;
 	function move_toward(p_to:gdnative.Vector2, p_delta:Float):gdnative.Vector2;
 	function rotated(p_angle:Float):gdnative.Vector2;
 	function orthogonal():gdnative.Vector2;

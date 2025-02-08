@@ -11,7 +11,7 @@ package gd;
 	}
 	extern inline function __inputeventmousemotion_ptr():cpp.Pointer<gdnative.InputEventMouseMotion.InputEventMouseMotion_extern> return cast __gd.ptr;
 	static function __finalize(inst:gd.InputEventMouseMotion) {
-		untyped __cpp__("std::cout << \"InputEventMouseMotion::finalize\" << std::endl");
+		inst.__ref = new gdnative.Ref.Ref_extern();
 	}
 	public function set_tilt(p_tilt:gd.Vector2):gd.Vector2 {
 		__inputeventmousemotion_ptr().value.set_tilt(((p_tilt : gd.Vector2)));

@@ -8,11 +8,11 @@ class Signal_wrapper {
 	static function _new2(p_object:gd.Object, p_signal:std.String):Signal_wrapper return new Signal_wrapper(new gdnative.Signal(p_object, p_signal));
 	public function is_null():Bool return __gd.is_null();
 	public function get_object():gd.Object return __gd.get_object();
-	public function get_object_id():Int return __gd.get_object_id();
+	public function get_object_id():cpp.Int64 return __gd.get_object_id();
 	public function get_name():std.String return __gd.get_name();
-	public function connect(p_callable:gd.Callable, ?p_flags:Int):Int return switch [p_callable, p_flags] {
+	public function connect(p_callable:gd.Callable, ?p_flags:cpp.Int64):cpp.Int64 return switch [p_callable, p_flags] {
 		case [_, null]:__gd.connect(((p_callable : gd.Callable)));
-		default:__gd.connect(((p_callable : gd.Callable)), ((p_flags : Int)));
+		default:__gd.connect(((p_callable : gd.Callable)), ((p_flags : cpp.Int64)));
 	};
 	public function disconnect(p_callable:gd.Callable):Void __gd.disconnect(((p_callable : gd.Callable)));
 	public function is_connected(p_callable:gd.Callable):Bool return __gd.is_connected(((p_callable : gd.Callable)));

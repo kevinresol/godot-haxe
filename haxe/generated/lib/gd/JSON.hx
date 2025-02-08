@@ -7,7 +7,7 @@ extern class JSON extends gd.Resource {
 	function get_data():gd.Variant;
 	function set_data(p_data:gd.Variant):gd.Variant;
 	function get_parsed_text():std.String;
-	function get_error_line():Int;
+	function get_error_line():cpp.Int64;
 	function get_error_message():std.String;
 	static function from_native(p_variant:gd.Variant, ?p_full_objects:Bool):gd.Variant;
 	static function to_native(p_json:gd.Variant, ?p_allow_objects:Bool):gd.Variant;

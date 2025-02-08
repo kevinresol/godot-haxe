@@ -4,7 +4,7 @@ extern class RID_wrapper {
 	static function _new0():RID_wrapper;
 	static function _new1(p_from:gd.RID):RID_wrapper;
 	function is_valid():Bool;
-	function get_id():Int;
+	function get_id():cpp.Int64;
 	function __op_equal_to_variant(p_rhs:gd.Variant):Bool;
 	function __op_not_equal_variant(p_rhs:gd.Variant):Bool;
 	function __op_equal_to_rid(p_rhs:gd.RID):Bool;

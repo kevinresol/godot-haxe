@@ -11,7 +11,7 @@ package gd;
 	}
 	extern inline function __inputeventmousebutton_ptr():cpp.Pointer<gdnative.InputEventMouseButton.InputEventMouseButton_extern> return cast __gd.ptr;
 	static function __finalize(inst:gd.InputEventMouseButton) {
-		untyped __cpp__("std::cout << \"InputEventMouseButton::finalize\" << std::endl");
+		inst.__ref = new gdnative.Ref.Ref_extern();
 	}
 	public function set_factor(p_factor:Float):Float {
 		__inputeventmousebutton_ptr().value.set_factor(((p_factor : Float)));

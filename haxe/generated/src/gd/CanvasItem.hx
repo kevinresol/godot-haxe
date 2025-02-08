@@ -11,7 +11,7 @@ package gd;
 	}
 	extern inline function __canvasitem_ptr():cpp.Pointer<gdnative.CanvasItem.CanvasItem_extern> return cast __gd.ptr;
 	static function __finalize(inst:gd.CanvasItem) {
-		untyped __cpp__("std::cout << \"CanvasItem::finalize\" << std::endl");
+		null;
 	}
 	static public final NOTIFICATION_TRANSFORM_CHANGED : Int = 2000;
 	static public final NOTIFICATION_LOCAL_TRANSFORM_CHANGED : Int = 35;
@@ -34,11 +34,11 @@ package gd;
 	public function move_to_front():Void __canvasitem_ptr().value.move_to_front();
 	public function set_as_top_level(p_enable:Bool):Void __canvasitem_ptr().value.set_as_top_level(((p_enable : Bool)));
 	public function is_set_as_top_level():Bool return __canvasitem_ptr().value.is_set_as_top_level();
-	public function set_light_mask(p_light_mask:Int):Int {
-		__canvasitem_ptr().value.set_light_mask(((p_light_mask : Int)));
+	public function set_light_mask(p_light_mask:cpp.Int64):cpp.Int64 {
+		__canvasitem_ptr().value.set_light_mask(((p_light_mask : cpp.Int64)));
 		return p_light_mask;
 	}
-	public function get_light_mask():Int return __canvasitem_ptr().value.get_light_mask();
+	public function get_light_mask():cpp.Int64 return __canvasitem_ptr().value.get_light_mask();
 	public function set_modulate(p_modulate:gd.Color):gd.Color {
 		__canvasitem_ptr().value.set_modulate(((p_modulate : gd.Color)));
 		return p_modulate;
@@ -49,11 +49,11 @@ package gd;
 		return p_self_modulate;
 	}
 	public function get_self_modulate():gd.Color return __canvasitem_ptr().value.get_self_modulate();
-	public function set_z_index(p_z_index:Int):Int {
-		__canvasitem_ptr().value.set_z_index(((p_z_index : Int)));
+	public function set_z_index(p_z_index:cpp.Int64):cpp.Int64 {
+		__canvasitem_ptr().value.set_z_index(((p_z_index : cpp.Int64)));
 		return p_z_index;
 	}
-	public function get_z_index():Int return __canvasitem_ptr().value.get_z_index();
+	public function get_z_index():cpp.Int64 return __canvasitem_ptr().value.get_z_index();
 	public function set_z_as_relative(p_enable:Bool):Bool {
 		__canvasitem_ptr().value.set_z_as_relative(((p_enable : Bool)));
 		return p_enable;
@@ -88,10 +88,10 @@ package gd;
 		case [_, _, _, null]:__canvasitem_ptr().value.draw_polyline_colors(((p_points : gd.PackedVector2Array)), ((p_colors : gd.PackedColorArray)), ((p_width : Float)));
 		default:__canvasitem_ptr().value.draw_polyline_colors(((p_points : gd.PackedVector2Array)), ((p_colors : gd.PackedColorArray)), ((p_width : Float)), ((p_antialiased : Bool)));
 	};
-	public function draw_arc(p_center:gd.Vector2, p_radius:Float, p_start_angle:Float, p_end_angle:Float, p_point_count:Int, p_color:gd.Color, ?p_width:Float, ?p_antialiased:Bool):Void switch [p_center, p_radius, p_start_angle, p_end_angle, p_point_count, p_color, p_width, p_antialiased] {
-		case [_, _, _, _, _, _, null, _]:__canvasitem_ptr().value.draw_arc(((p_center : gd.Vector2)), ((p_radius : Float)), ((p_start_angle : Float)), ((p_end_angle : Float)), ((p_point_count : Int)), ((p_color : gd.Color)));
-		case [_, _, _, _, _, _, _, null]:__canvasitem_ptr().value.draw_arc(((p_center : gd.Vector2)), ((p_radius : Float)), ((p_start_angle : Float)), ((p_end_angle : Float)), ((p_point_count : Int)), ((p_color : gd.Color)), ((p_width : Float)));
-		default:__canvasitem_ptr().value.draw_arc(((p_center : gd.Vector2)), ((p_radius : Float)), ((p_start_angle : Float)), ((p_end_angle : Float)), ((p_point_count : Int)), ((p_color : gd.Color)), ((p_width : Float)), ((p_antialiased : Bool)));
+	public function draw_arc(p_center:gd.Vector2, p_radius:Float, p_start_angle:Float, p_end_angle:Float, p_point_count:cpp.Int64, p_color:gd.Color, ?p_width:Float, ?p_antialiased:Bool):Void switch [p_center, p_radius, p_start_angle, p_end_angle, p_point_count, p_color, p_width, p_antialiased] {
+		case [_, _, _, _, _, _, null, _]:__canvasitem_ptr().value.draw_arc(((p_center : gd.Vector2)), ((p_radius : Float)), ((p_start_angle : Float)), ((p_end_angle : Float)), ((p_point_count : cpp.Int64)), ((p_color : gd.Color)));
+		case [_, _, _, _, _, _, _, null]:__canvasitem_ptr().value.draw_arc(((p_center : gd.Vector2)), ((p_radius : Float)), ((p_start_angle : Float)), ((p_end_angle : Float)), ((p_point_count : cpp.Int64)), ((p_color : gd.Color)), ((p_width : Float)));
+		default:__canvasitem_ptr().value.draw_arc(((p_center : gd.Vector2)), ((p_radius : Float)), ((p_start_angle : Float)), ((p_end_angle : Float)), ((p_point_count : cpp.Int64)), ((p_color : gd.Color)), ((p_width : Float)), ((p_antialiased : Bool)));
 	};
 	public function draw_multiline(p_points:gd.PackedVector2Array, p_color:gd.Color, ?p_width:Float, ?p_antialiased:Bool):Void switch [p_points, p_color, p_width, p_antialiased] {
 		case [_, _, null, _]:__canvasitem_ptr().value.draw_multiline(((p_points : gd.PackedVector2Array)), ((p_color : gd.Color)));
@@ -190,13 +190,13 @@ package gd;
 	public function force_update_transform():Void __canvasitem_ptr().value.force_update_transform();
 	public function make_canvas_position_local(p_viewport_point:gd.Vector2):gd.Vector2 return __canvasitem_ptr().value.make_canvas_position_local(((p_viewport_point : gd.Vector2)));
 	public function make_input_local(p_event:gd.InputEvent):gd.InputEvent return __canvasitem_ptr().value.make_input_local(((p_event : gd.InputEvent)));
-	public function set_visibility_layer(p_layer:Int):Int {
-		__canvasitem_ptr().value.set_visibility_layer(((p_layer : Int)));
+	public function set_visibility_layer(p_layer:cpp.Int64):cpp.Int64 {
+		__canvasitem_ptr().value.set_visibility_layer(((p_layer : cpp.Int64)));
 		return p_layer;
 	}
-	public function get_visibility_layer():Int return __canvasitem_ptr().value.get_visibility_layer();
-	public function set_visibility_layer_bit(p_layer:Int, p_enabled:Bool):Void __canvasitem_ptr().value.set_visibility_layer_bit(((p_layer : Int)), ((p_enabled : Bool)));
-	public function get_visibility_layer_bit(p_layer:Int):Bool return __canvasitem_ptr().value.get_visibility_layer_bit(((p_layer : Int)));
+	public function get_visibility_layer():cpp.Int64 return __canvasitem_ptr().value.get_visibility_layer();
+	public function set_visibility_layer_bit(p_layer:cpp.Int64, p_enabled:Bool):Void __canvasitem_ptr().value.set_visibility_layer_bit(((p_layer : cpp.Int64)), ((p_enabled : Bool)));
+	public function get_visibility_layer_bit(p_layer:cpp.Int64):Bool return __canvasitem_ptr().value.get_visibility_layer_bit(((p_layer : cpp.Int64)));
 	public function set_texture_filter(p_mode:gd.canvasitem.TextureFilter):gd.canvasitem.TextureFilter {
 		__canvasitem_ptr().value.set_texture_filter(((p_mode : gd.canvasitem.TextureFilter)));
 		return p_mode;
@@ -231,9 +231,9 @@ package gd;
 		set_clip_children_mode(v);
 		return v;
 	}
-	public var light_mask(get, set) : Int;
-	public var visibility_layer(get, set) : Int;
-	public var z_index(get, set) : Int;
+	public var light_mask(get, set) : cpp.Int64;
+	public var visibility_layer(get, set) : cpp.Int64;
+	public var z_index(get, set) : cpp.Int64;
 	public var z_as_relative(get, set) : Bool;
 	function get_z_as_relative():Bool return is_z_relative();
 	public var y_sort_enabled(get, set) : Bool;

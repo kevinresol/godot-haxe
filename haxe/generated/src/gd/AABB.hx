@@ -23,12 +23,12 @@ class AABB_wrapper {
 	public function grow(p_by:Float):gd.AABB return __gd.grow(((p_by : Float)));
 	public function get_support(p_direction:gd.Vector3):gd.Vector3 return __gd.get_support(((p_direction : gd.Vector3)));
 	public function get_longest_axis():gd.Vector3 return __gd.get_longest_axis();
-	public function get_longest_axis_index():Int return __gd.get_longest_axis_index();
+	public function get_longest_axis_index():cpp.Int64 return __gd.get_longest_axis_index();
 	public function get_longest_axis_size():Float return __gd.get_longest_axis_size();
 	public function get_shortest_axis():gd.Vector3 return __gd.get_shortest_axis();
-	public function get_shortest_axis_index():Int return __gd.get_shortest_axis_index();
+	public function get_shortest_axis_index():cpp.Int64 return __gd.get_shortest_axis_index();
 	public function get_shortest_axis_size():Float return __gd.get_shortest_axis_size();
-	public function get_endpoint(p_idx:Int):gd.Vector3 return __gd.get_endpoint(((p_idx : Int)));
+	public function get_endpoint(p_idx:cpp.Int64):gd.Vector3 return __gd.get_endpoint(((p_idx : cpp.Int64)));
 	public var position(get, set) : gd.Vector3;
 	function get_position():gd.Vector3 return __gd.position;
 	function set_position(v:gd.Vector3):gd.Vector3 return {

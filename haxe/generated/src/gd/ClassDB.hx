@@ -16,7 +16,7 @@ package gd;
 	}
 	extern inline function __classdb_ptr():cpp.Pointer<gdnative.ClassDB.ClassDB_extern> return cast __gd.ptr;
 	static function __finalize(inst:gd.ClassDB) {
-		untyped __cpp__("std::cout << \"ClassDB::finalize\" << std::endl");
+		null;
 	}
 	public function get_class_list():gd.PackedStringArray return __classdb_ptr().value.get_class_list();
 	public function get_inheriters_from_class(p_class:std.String):gd.PackedStringArray return __classdb_ptr().value.get_inheriters_from_class(((p_class : std.String)));
@@ -37,7 +37,7 @@ package gd;
 		case [_, _, null]:__classdb_ptr().value.class_has_method(((p_class : std.String)), ((p_method : std.String)));
 		default:__classdb_ptr().value.class_has_method(((p_class : std.String)), ((p_method : std.String)), ((p_no_inheritance : Bool)));
 	};
-	public function class_get_method_argument_count(p_class:std.String, p_method:std.String, ?p_no_inheritance:Bool):Int return switch [p_class, p_method, p_no_inheritance] {
+	public function class_get_method_argument_count(p_class:std.String, p_method:std.String, ?p_no_inheritance:Bool):cpp.Int64 return switch [p_class, p_method, p_no_inheritance] {
 		case [_, _, null]:__classdb_ptr().value.class_get_method_argument_count(((p_class : std.String)), ((p_method : std.String)));
 		default:__classdb_ptr().value.class_get_method_argument_count(((p_class : std.String)), ((p_method : std.String)), ((p_no_inheritance : Bool)));
 	};
@@ -56,7 +56,7 @@ package gd;
 		default:__classdb_ptr().value.class_get_integer_constant_list(((p_class : std.String)), ((p_no_inheritance : Bool)));
 	};
 	public function class_has_integer_constant(p_class:std.String, p_name:std.String):Bool return __classdb_ptr().value.class_has_integer_constant(((p_class : std.String)), ((p_name : std.String)));
-	public function class_get_integer_constant(p_class:std.String, p_name:std.String):Int return __classdb_ptr().value.class_get_integer_constant(((p_class : std.String)), ((p_name : std.String)));
+	public function class_get_integer_constant(p_class:std.String, p_name:std.String):cpp.Int64 return __classdb_ptr().value.class_get_integer_constant(((p_class : std.String)), ((p_name : std.String)));
 	public function class_has_enum(p_class:std.String, p_name:std.String, ?p_no_inheritance:Bool):Bool return switch [p_class, p_name, p_no_inheritance] {
 		case [_, _, null]:__classdb_ptr().value.class_has_enum(((p_class : std.String)), ((p_name : std.String)));
 		default:__classdb_ptr().value.class_has_enum(((p_class : std.String)), ((p_name : std.String)), ((p_no_inheritance : Bool)));

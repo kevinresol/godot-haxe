@@ -11,7 +11,7 @@ package gd;
 	}
 	extern inline function __packedscene_ptr():cpp.Pointer<gdnative.PackedScene.PackedScene_extern> return cast __gd.ptr;
 	static function __finalize(inst:gd.PackedScene) {
-		untyped __cpp__("std::cout << \"PackedScene::finalize\" << std::endl");
+		inst.__ref = new gdnative.Ref.Ref_extern();
 	}
 	public function pack(p_path:gd.Node):gd.Error return __packedscene_ptr().value.pack(((p_path : gd.Node)));
 	public function instantiate(?p_edit_state:gd.packedscene.GenEditState):gd.Node return switch [p_edit_state] {

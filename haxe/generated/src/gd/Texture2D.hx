@@ -11,17 +11,17 @@ package gd;
 	}
 	extern inline function __texture2d_ptr():cpp.Pointer<gdnative.Texture2D.Texture2D_extern> return cast __gd.ptr;
 	static function __finalize(inst:gd.Texture2D) {
-		untyped __cpp__("std::cout << \"Texture2D::finalize\" << std::endl");
+		inst.__ref = new gdnative.Ref.Ref_extern();
 	}
-	public function _get_width():Int return __texture2d_ptr().value._get_width();
-	public function _get_height():Int return __texture2d_ptr().value._get_height();
-	public function _is_pixel_opaque(p_x:Int, p_y:Int):Bool return __texture2d_ptr().value._is_pixel_opaque(((p_x : Int)), ((p_y : Int)));
+	public function _get_width():cpp.Int64 return __texture2d_ptr().value._get_width();
+	public function _get_height():cpp.Int64 return __texture2d_ptr().value._get_height();
+	public function _is_pixel_opaque(p_x:cpp.Int64, p_y:cpp.Int64):Bool return __texture2d_ptr().value._is_pixel_opaque(((p_x : cpp.Int64)), ((p_y : cpp.Int64)));
 	public function _has_alpha():Bool return __texture2d_ptr().value._has_alpha();
 	public function _draw(p_to_canvas_item:gd.RID, p_pos:gd.Vector2, p_modulate:gd.Color, p_transpose:Bool):Void __texture2d_ptr().value._draw(((p_to_canvas_item : gd.RID)), ((p_pos : gd.Vector2)), ((p_modulate : gd.Color)), ((p_transpose : Bool)));
 	public function _draw_rect(p_to_canvas_item:gd.RID, p_rect:gd.Rect2, p_tile:Bool, p_modulate:gd.Color, p_transpose:Bool):Void __texture2d_ptr().value._draw_rect(((p_to_canvas_item : gd.RID)), ((p_rect : gd.Rect2)), ((p_tile : Bool)), ((p_modulate : gd.Color)), ((p_transpose : Bool)));
 	public function _draw_rect_region(p_to_canvas_item:gd.RID, p_rect:gd.Rect2, p_src_rect:gd.Rect2, p_modulate:gd.Color, p_transpose:Bool, p_clip_uv:Bool):Void __texture2d_ptr().value._draw_rect_region(((p_to_canvas_item : gd.RID)), ((p_rect : gd.Rect2)), ((p_src_rect : gd.Rect2)), ((p_modulate : gd.Color)), ((p_transpose : Bool)), ((p_clip_uv : Bool)));
-	public function get_width():Int return __texture2d_ptr().value.get_width();
-	public function get_height():Int return __texture2d_ptr().value.get_height();
+	public function get_width():cpp.Int64 return __texture2d_ptr().value.get_width();
+	public function get_height():cpp.Int64 return __texture2d_ptr().value.get_height();
 	public function get_size():gd.Vector2 return __texture2d_ptr().value.get_size();
 	public function has_alpha():Bool return __texture2d_ptr().value.has_alpha();
 	public function draw(p_canvas_item:gd.RID, p_position:gd.Vector2, ?p_modulate:gd.Color, ?p_transpose:Bool):Void switch [p_canvas_item, p_position, p_modulate, p_transpose] {

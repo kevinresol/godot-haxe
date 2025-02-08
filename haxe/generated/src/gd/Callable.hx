@@ -13,15 +13,15 @@ class Callable_wrapper {
 	public function is_standard():Bool return __gd.is_standard();
 	public function is_valid():Bool return __gd.is_valid();
 	public function get_object():gd.Object return __gd.get_object();
-	public function get_object_id():Int return __gd.get_object_id();
+	public function get_object_id():cpp.Int64 return __gd.get_object_id();
 	public function get_method():std.String return __gd.get_method();
-	public function get_argument_count():Int return __gd.get_argument_count();
-	public function get_bound_arguments_count():Int return __gd.get_bound_arguments_count();
+	public function get_argument_count():cpp.Int64 return __gd.get_argument_count();
+	public function get_bound_arguments_count():cpp.Int64 return __gd.get_bound_arguments_count();
 	public function get_bound_arguments():gd.Array return __gd.get_bound_arguments();
-	public function get_unbound_arguments_count():Int return __gd.get_unbound_arguments_count();
-	public function hash():Int return __gd.hash();
+	public function get_unbound_arguments_count():cpp.Int64 return __gd.get_unbound_arguments_count();
+	public function hash():cpp.Int64 return __gd.hash();
 	public function bindv(p_arguments:gd.Array):gd.Callable return __gd.bindv(((p_arguments : gd.Array)));
-	public function unbind(p_argcount:Int):gd.Callable return __gd.unbind(((p_argcount : Int)));
+	public function unbind(p_argcount:cpp.Int64):gd.Callable return __gd.unbind(((p_argcount : cpp.Int64)));
 	public function call(p_args:haxe.Rest<gd.Variant>):gd.Variant return {
 		final vlen = p_args.length, len = 0 + vlen;
 		untyped __cpp__('std::vector<const godot::Variant*> ptrs; ptrs.resize({0})', len);

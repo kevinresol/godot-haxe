@@ -210,7 +210,7 @@ class Builder {
 		return switch gdType {
 			case 'void': macro :Void;
 			case 'float': macro :Float;
-			case 'int': macro :Int;
+			case 'int': macro :cpp.Int64;
 			case 'bool': macro :Bool;
 
 			// builtin classes
@@ -242,7 +242,7 @@ class Builder {
 		return switch gdType {
 			case 'void': macro :Void;
 			case 'float': macro :Float;
-			case 'int': macro :Int;
+			case 'int': macro :cpp.Int64;
 			case 'bool': macro :Bool;
 
 			// builtin classes

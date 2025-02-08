@@ -6,8 +6,8 @@ class Vector4_wrapper {
 	static function _new0():Vector4_wrapper return new Vector4_wrapper(new gdnative.Vector4());
 	static function _new1(p_from:gd.Vector4):Vector4_wrapper return new Vector4_wrapper(new gdnative.Vector4(p_from));
 	static function _new2(p_x:Float, p_y:Float, p_z:Float, p_w:Float):Vector4_wrapper return new Vector4_wrapper(new gdnative.Vector4(p_x, p_y, p_z, p_w));
-	public function min_axis_index():Int return __gd.min_axis_index();
-	public function max_axis_index():Int return __gd.max_axis_index();
+	public function min_axis_index():cpp.Int64 return __gd.min_axis_index();
+	public function max_axis_index():cpp.Int64 return __gd.max_axis_index();
 	public function length():Float return __gd.length();
 	public function length_squared():Float return __gd.length_squared();
 	public function abs():gd.Vector4 return __gd.abs();
@@ -65,8 +65,8 @@ class Vector4_wrapper {
 	function __op_equal_to_variant(p_rhs:gd.Variant):Bool return this.__gd == ((p_rhs : gdnative.Variant));
 	function __op_not_equal_variant(p_rhs:gd.Variant):Bool return this.__gd != ((p_rhs : gdnative.Variant));
 	function __op_unary_minus():gd.Vector4 return -this.__gd;
-	function __op_multiply_int(p_rhs:Int):gd.Vector4 return this.__gd * ((p_rhs : Int));
-	function __op_divide_int(p_rhs:Int):gd.Vector4 return this.__gd / ((p_rhs : Int));
+	function __op_multiply_int(p_rhs:cpp.Int64):gd.Vector4 return this.__gd * ((p_rhs : cpp.Int64));
+	function __op_divide_int(p_rhs:cpp.Int64):gd.Vector4 return this.__gd / ((p_rhs : cpp.Int64));
 	function __op_multiply_float(p_rhs:Float):gd.Vector4 return this.__gd * ((p_rhs : Float));
 	function __op_divide_float(p_rhs:Float):gd.Vector4 return this.__gd / ((p_rhs : Float));
 	function __op_equal_to_vector4(p_rhs:gd.Vector4):Bool return this.__gd == ((p_rhs : gdnative.Vector4));
@@ -100,9 +100,9 @@ class Vector4_wrapper {
 	@:op(-A)
 	inline function __op_unary_minus():gd.Vector4 return @:privateAccess this.__op_unary_minus();
 	@:op(A * B)
-	inline function __op_multiply_int(p_rhs:Int):gd.Vector4 return @:privateAccess this.__op_multiply_int(p_rhs);
+	inline function __op_multiply_int(p_rhs:cpp.Int64):gd.Vector4 return @:privateAccess this.__op_multiply_int(p_rhs);
 	@:op(A / B)
-	inline function __op_divide_int(p_rhs:Int):gd.Vector4 return @:privateAccess this.__op_divide_int(p_rhs);
+	inline function __op_divide_int(p_rhs:cpp.Int64):gd.Vector4 return @:privateAccess this.__op_divide_int(p_rhs);
 	@:op(A * B)
 	inline function __op_multiply_float(p_rhs:Float):gd.Vector4 return @:privateAccess this.__op_multiply_float(p_rhs);
 	@:op(A / B)

@@ -6,9 +6,9 @@ extern class Signal_wrapper {
 	static function _new2(p_object:gd.Object, p_signal:std.String):Signal_wrapper;
 	function is_null():Bool;
 	function get_object():gd.Object;
-	function get_object_id():Int;
+	function get_object_id():cpp.Int64;
 	function get_name():std.String;
-	function connect(p_callable:gd.Callable, ?p_flags:Int):Int;
+	function connect(p_callable:gd.Callable, ?p_flags:cpp.Int64):cpp.Int64;
 	function disconnect(p_callable:gd.Callable):Void;
 	function is_connected(p_callable:gd.Callable):Bool;
 	function get_connections():gd.Array;

@@ -8,8 +8,8 @@ extern class Projection_wrapper {
 	static function create_depth_correction(p_flip_y:Bool):gd.Projection;
 	static function create_light_atlas_rect(p_rect:gd.Rect2):gd.Projection;
 	static function create_perspective(p_fovy:Float, p_aspect:Float, p_z_near:Float, p_z_far:Float, ?p_flip_fov:Bool):gd.Projection;
-	static function create_perspective_hmd(p_fovy:Float, p_aspect:Float, p_z_near:Float, p_z_far:Float, p_flip_fov:Bool, p_eye:Int, p_intraocular_dist:Float, p_convergence_dist:Float):gd.Projection;
-	static function create_for_hmd(p_eye:Int, p_aspect:Float, p_intraocular_dist:Float, p_display_width:Float, p_display_to_lens:Float, p_oversample:Float, p_z_near:Float, p_z_far:Float):gd.Projection;
+	static function create_perspective_hmd(p_fovy:Float, p_aspect:Float, p_z_near:Float, p_z_far:Float, p_flip_fov:Bool, p_eye:cpp.Int64, p_intraocular_dist:Float, p_convergence_dist:Float):gd.Projection;
+	static function create_for_hmd(p_eye:cpp.Int64, p_aspect:Float, p_intraocular_dist:Float, p_display_width:Float, p_display_to_lens:Float, p_oversample:Float, p_z_near:Float, p_z_far:Float):gd.Projection;
 	static function create_orthogonal(p_left:Float, p_right:Float, p_bottom:Float, p_top:Float, p_z_near:Float, p_z_far:Float):gd.Projection;
 	static function create_orthogonal_aspect(p_size:Float, p_aspect:Float, p_z_near:Float, p_z_far:Float, ?p_flip_fov:Bool):gd.Projection;
 	static function create_frustum(p_left:Float, p_right:Float, p_bottom:Float, p_top:Float, p_z_near:Float, p_z_far:Float):gd.Projection;
@@ -29,7 +29,7 @@ extern class Projection_wrapper {
 	function get_viewport_half_extents():gd.Vector2;
 	function get_far_plane_half_extents():gd.Vector2;
 	function inverse():gd.Projection;
-	function get_pixels_per_meter(p_for_pixel_width:Int):Int;
+	function get_pixels_per_meter(p_for_pixel_width:cpp.Int64):cpp.Int64;
 	function get_lod_multiplier():Float;
 	var x(get, set) : gd.Vector4;
 	var y(get, set) : gd.Vector4;

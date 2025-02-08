@@ -21,9 +21,9 @@ package gdnative;
 	@:op(-A)
 	extern inline function __op_unary_minus():gdnative.Quaternion return untyped __cpp__('-{0}', val());
 	@:op(A * B)
-	extern inline function __op_multiply_int(p_rhs:Int):gdnative.Quaternion return untyped __cpp__('{0} * {1}', val(), p_rhs);
+	extern inline function __op_multiply_int(p_rhs:cpp.Int64):gdnative.Quaternion return untyped __cpp__('{0} * {1}', val(), p_rhs);
 	@:op(A / B)
-	extern inline function __op_divide_int(p_rhs:Int):gdnative.Quaternion return untyped __cpp__('{0} * (1.0 / {1})', val(), p_rhs);
+	extern inline function __op_divide_int(p_rhs:cpp.Int64):gdnative.Quaternion return untyped __cpp__('{0} * (1.0 / {1})', val(), p_rhs);
 	@:op(A * B)
 	extern inline function __op_multiply_float(p_rhs:Float):gdnative.Quaternion return untyped __cpp__('{0} * {1}', val(), p_rhs);
 	@:op(A / B)

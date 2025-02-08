@@ -21,9 +21,9 @@ package gdnative;
 	@:op(-A)
 	extern inline function __op_unary_minus():gdnative.Color return untyped __cpp__('-{0}', val());
 	@:op(A * B)
-	extern inline function __op_multiply_int(p_rhs:Int):gdnative.Color return untyped __cpp__('{0} * {1}', val(), p_rhs);
+	extern inline function __op_multiply_int(p_rhs:cpp.Int64):gdnative.Color return untyped __cpp__('{0} * {1}', val(), p_rhs);
 	@:op(A / B)
-	extern inline function __op_divide_int(p_rhs:Int):gdnative.Color return untyped __cpp__('{0} * (1.0 / {1})', val(), p_rhs);
+	extern inline function __op_divide_int(p_rhs:cpp.Int64):gdnative.Color return untyped __cpp__('{0} * (1.0 / {1})', val(), p_rhs);
 	@:op(A * B)
 	extern inline function __op_multiply_float(p_rhs:Float):gdnative.Color return untyped __cpp__('{0} * {1}', val(), p_rhs);
 	@:op(A / B)
@@ -63,12 +63,12 @@ package gdnative;
 	@:overload(function(p_code:gdnative.String):Void { })
 	@:overload(function(p_code:gdnative.String, p_alpha:Float):Void { })
 	function new();
-	function to_argb32():Int;
-	function to_abgr32():Int;
-	function to_rgba32():Int;
-	function to_argb64():Int;
-	function to_abgr64():Int;
-	function to_rgba64():Int;
+	function to_argb32():cpp.Int64;
+	function to_abgr32():cpp.Int64;
+	function to_rgba32():cpp.Int64;
+	function to_argb64():cpp.Int64;
+	function to_abgr64():cpp.Int64;
+	function to_rgba64():cpp.Int64;
 	overload function to_html():gdnative.String;
 	overload function to_html(p_with_alpha:Bool):gdnative.String;
 	overload function clamp():gdnative.Color;
@@ -83,26 +83,26 @@ package gdnative;
 	function srgb_to_linear():gdnative.Color;
 	function linear_to_srgb():gdnative.Color;
 	function is_equal_approx(p_to:gdnative.Color):Bool;
-	static function hex(p_hex:Int):gdnative.Color;
-	static function hex64(p_hex:Int):gdnative.Color;
+	static function hex(p_hex:cpp.Int64):gdnative.Color;
+	static function hex64(p_hex:cpp.Int64):gdnative.Color;
 	static function html(p_rgba:gdnative.String):gdnative.Color;
 	static function html_is_valid(p_color:gdnative.String):Bool;
 	static function from_string(p_str:gdnative.String, p_default:gdnative.Color):gdnative.Color;
 	overload static function from_hsv(p_h:Float, p_s:Float, p_v:Float):gdnative.Color;
 	overload static function from_hsv(p_h:Float, p_s:Float, p_v:Float, p_alpha:Float):gdnative.Color;
-	static function from_rgbe9995(p_rgbe:Int):gdnative.Color;
+	static function from_rgbe9995(p_rgbe:cpp.Int64):gdnative.Color;
 	var r : Float;
 	var g : Float;
 	var b : Float;
 	var a : Float;
-	function get_r8():Int;
-	function set_r8(v:Int):Void;
-	function get_g8():Int;
-	function set_g8(v:Int):Void;
-	function get_b8():Int;
-	function set_b8(v:Int):Void;
-	function get_a8():Int;
-	function set_a8(v:Int):Void;
+	function get_r8():cpp.Int64;
+	function set_r8(v:cpp.Int64):Void;
+	function get_g8():cpp.Int64;
+	function set_g8(v:cpp.Int64):Void;
+	function get_b8():cpp.Int64;
+	function set_b8(v:cpp.Int64):Void;
+	function get_a8():cpp.Int64;
+	function set_a8(v:cpp.Int64):Void;
 	function get_h():Float;
 	function set_h(v:Float):Void;
 	function get_s():Float;

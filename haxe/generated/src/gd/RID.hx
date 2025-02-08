@@ -6,7 +6,7 @@ class RID_wrapper {
 	static function _new0():RID_wrapper return new RID_wrapper(new gdnative.RID());
 	static function _new1(p_from:gd.RID):RID_wrapper return new RID_wrapper(new gdnative.RID(p_from));
 	public function is_valid():Bool return __gd.is_valid();
-	public function get_id():Int return __gd.get_id();
+	public function get_id():cpp.Int64 return __gd.get_id();
 	function __op_equal_to_variant(p_rhs:gd.Variant):Bool return this.__gd == ((p_rhs : gdnative.Variant));
 	function __op_not_equal_variant(p_rhs:gd.Variant):Bool return this.__gd != ((p_rhs : gdnative.Variant));
 	function __op_equal_to_rid(p_rhs:gd.RID):Bool return this.__gd == ((p_rhs : gdnative.RID));

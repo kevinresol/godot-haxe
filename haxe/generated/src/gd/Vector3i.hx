@@ -5,46 +5,46 @@ class Vector3i_wrapper {
 	function toVariant():gd.Variant return @:privateAccess new gd.Variant.Variant_obj(new gdnative.Variant.Variant_extern(this));
 	static function _new0():Vector3i_wrapper return new Vector3i_wrapper(new gdnative.Vector3i());
 	static function _new1(p_from:gd.Vector3i):Vector3i_wrapper return new Vector3i_wrapper(new gdnative.Vector3i(p_from));
-	static function _new2(p_x:Int, p_y:Int, p_z:Int):Vector3i_wrapper return new Vector3i_wrapper(new gdnative.Vector3i(p_x, p_y, p_z));
-	public function min_axis_index():Int return __gd.min_axis_index();
-	public function max_axis_index():Int return __gd.max_axis_index();
+	static function _new2(p_x:cpp.Int64, p_y:cpp.Int64, p_z:cpp.Int64):Vector3i_wrapper return new Vector3i_wrapper(new gdnative.Vector3i(p_x, p_y, p_z));
+	public function min_axis_index():cpp.Int64 return __gd.min_axis_index();
+	public function max_axis_index():cpp.Int64 return __gd.max_axis_index();
 	public function distance_to(p_to:gd.Vector3i):Float return __gd.distance_to(((p_to : gd.Vector3i)));
-	public function distance_squared_to(p_to:gd.Vector3i):Int return __gd.distance_squared_to(((p_to : gd.Vector3i)));
+	public function distance_squared_to(p_to:gd.Vector3i):cpp.Int64 return __gd.distance_squared_to(((p_to : gd.Vector3i)));
 	public function length():Float return __gd.length();
-	public function length_squared():Int return __gd.length_squared();
+	public function length_squared():cpp.Int64 return __gd.length_squared();
 	public function sign():gd.Vector3i return __gd.sign();
 	public function abs():gd.Vector3i return __gd.abs();
 	public function clamp(p_min:gd.Vector3i, p_max:gd.Vector3i):gd.Vector3i return __gd.clamp(((p_min : gd.Vector3i)), ((p_max : gd.Vector3i)));
-	public function clampi(p_min:Int, p_max:Int):gd.Vector3i return __gd.clampi(((p_min : Int)), ((p_max : Int)));
+	public function clampi(p_min:cpp.Int64, p_max:cpp.Int64):gd.Vector3i return __gd.clampi(((p_min : cpp.Int64)), ((p_max : cpp.Int64)));
 	public function snapped(p_step:gd.Vector3i):gd.Vector3i return __gd.snapped(((p_step : gd.Vector3i)));
-	public function snappedi(p_step:Int):gd.Vector3i return __gd.snappedi(((p_step : Int)));
+	public function snappedi(p_step:cpp.Int64):gd.Vector3i return __gd.snappedi(((p_step : cpp.Int64)));
 	public function min(p_with:gd.Vector3i):gd.Vector3i return __gd.min(((p_with : gd.Vector3i)));
-	public function mini(p_with:Int):gd.Vector3i return __gd.mini(((p_with : Int)));
+	public function mini(p_with:cpp.Int64):gd.Vector3i return __gd.mini(((p_with : cpp.Int64)));
 	public function max(p_with:gd.Vector3i):gd.Vector3i return __gd.max(((p_with : gd.Vector3i)));
-	public function maxi(p_with:Int):gd.Vector3i return __gd.maxi(((p_with : Int)));
-	public var x(get, set) : Int;
-	function get_x():Int return __gd.x;
-	function set_x(v:Int):Int return {
+	public function maxi(p_with:cpp.Int64):gd.Vector3i return __gd.maxi(((p_with : cpp.Int64)));
+	public var x(get, set) : cpp.Int64;
+	function get_x():cpp.Int64 return __gd.x;
+	function set_x(v:cpp.Int64):cpp.Int64 return {
 		__gd.x = v;
 		v;
 	};
-	public var y(get, set) : Int;
-	function get_y():Int return __gd.y;
-	function set_y(v:Int):Int return {
+	public var y(get, set) : cpp.Int64;
+	function get_y():cpp.Int64 return __gd.y;
+	function set_y(v:cpp.Int64):cpp.Int64 return {
 		__gd.y = v;
 		v;
 	};
-	public var z(get, set) : Int;
-	function get_z():Int return __gd.z;
-	function set_z(v:Int):Int return {
+	public var z(get, set) : cpp.Int64;
+	function get_z():cpp.Int64 return __gd.z;
+	function set_z(v:cpp.Int64):cpp.Int64 return {
 		__gd.z = v;
 		v;
 	};
 	function __op_equal_to_variant(p_rhs:gd.Variant):Bool return this.__gd == ((p_rhs : gdnative.Variant));
 	function __op_not_equal_variant(p_rhs:gd.Variant):Bool return this.__gd != ((p_rhs : gdnative.Variant));
 	function __op_unary_minus():gd.Vector3i return -this.__gd;
-	function __op_multiply_int(p_rhs:Int):gd.Vector3i return this.__gd * ((p_rhs : Int));
-	function __op_modulus_int(p_rhs:Int):gd.Vector3i return this.__gd % ((p_rhs : Int));
+	function __op_multiply_int(p_rhs:cpp.Int64):gd.Vector3i return this.__gd * ((p_rhs : cpp.Int64));
+	function __op_modulus_int(p_rhs:cpp.Int64):gd.Vector3i return this.__gd % ((p_rhs : cpp.Int64));
 	function __op_equal_to_vector3i(p_rhs:gd.Vector3i):Bool return this.__gd == ((p_rhs : gdnative.Vector3i));
 	function __op_not_equal_vector3i(p_rhs:gd.Vector3i):Bool return this.__gd != ((p_rhs : gdnative.Vector3i));
 	function __op_less_than_vector3i(p_rhs:gd.Vector3i):Bool return this.__gd < ((p_rhs : gdnative.Vector3i));
@@ -74,7 +74,7 @@ class Vector3i_wrapper {
 	inline function toVariant():gd.Variant return @:privateAccess this.toVariant();
 	public extern overload inline function new() this = @:privateAccess Vector3i_wrapper._new0();
 	public extern overload inline function new(p_from:gd.Vector3i) this = @:privateAccess Vector3i_wrapper._new1(p_from);
-	public extern overload inline function new(p_x:Int, p_y:Int, p_z:Int) this = @:privateAccess Vector3i_wrapper._new2(p_x, p_y, p_z);
+	public extern overload inline function new(p_x:cpp.Int64, p_y:cpp.Int64, p_z:cpp.Int64) this = @:privateAccess Vector3i_wrapper._new2(p_x, p_y, p_z);
 	@:op(A == B)
 	inline function __op_equal_to_variant(p_rhs:gd.Variant):Bool return @:privateAccess this.__op_equal_to_variant(p_rhs);
 	@:op(A != B)
@@ -82,9 +82,9 @@ class Vector3i_wrapper {
 	@:op(-A)
 	inline function __op_unary_minus():gd.Vector3i return @:privateAccess this.__op_unary_minus();
 	@:op(A * B)
-	inline function __op_multiply_int(p_rhs:Int):gd.Vector3i return @:privateAccess this.__op_multiply_int(p_rhs);
+	inline function __op_multiply_int(p_rhs:cpp.Int64):gd.Vector3i return @:privateAccess this.__op_multiply_int(p_rhs);
 	@:op(A % B)
-	inline function __op_modulus_int(p_rhs:Int):gd.Vector3i return @:privateAccess this.__op_modulus_int(p_rhs);
+	inline function __op_modulus_int(p_rhs:cpp.Int64):gd.Vector3i return @:privateAccess this.__op_modulus_int(p_rhs);
 	@:op(A == B)
 	inline function __op_equal_to_vector3i(p_rhs:gd.Vector3i):Bool return @:privateAccess this.__op_equal_to_vector3i(p_rhs);
 	@:op(A != B)

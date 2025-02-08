@@ -13,6 +13,6 @@ extern class ResourceLoader extends gd.Object {
 	function has_cached(p_path:std.String):Bool;
 	function get_cached_ref(p_path:std.String):gd.Resource;
 	function exists(p_path:std.String, ?p_type_hint:std.String):Bool;
-	function get_resource_uid(p_path:std.String):Int;
+	function get_resource_uid(p_path:std.String):cpp.Int64;
 	function list_directory(p_directory_path:std.String):gd.PackedStringArray;
 }

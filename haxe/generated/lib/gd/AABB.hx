@@ -21,12 +21,12 @@ extern class AABB_wrapper {
 	function grow(p_by:Float):gd.AABB;
 	function get_support(p_direction:gd.Vector3):gd.Vector3;
 	function get_longest_axis():gd.Vector3;
-	function get_longest_axis_index():Int;
+	function get_longest_axis_index():cpp.Int64;
 	function get_longest_axis_size():Float;
 	function get_shortest_axis():gd.Vector3;
-	function get_shortest_axis_index():Int;
+	function get_shortest_axis_index():cpp.Int64;
 	function get_shortest_axis_size():Float;
-	function get_endpoint(p_idx:Int):gd.Vector3;
+	function get_endpoint(p_idx:cpp.Int64):gd.Vector3;
 	var position(get, set) : gd.Vector3;
 	var size(get, set) : gd.Vector3;
 	function __op_equal_to_variant(p_rhs:gd.Variant):Bool;

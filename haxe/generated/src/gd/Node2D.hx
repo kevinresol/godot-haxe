@@ -11,7 +11,7 @@ package gd;
 	}
 	extern inline function __node2d_ptr():cpp.Pointer<gdnative.Node2D.Node2D_extern> return cast __gd.ptr;
 	static function __finalize(inst:gd.Node2D) {
-		untyped __cpp__("std::cout << \"Node2D::finalize\" << std::endl");
+		null;
 	}
 	public function set_position(p_position:gd.Vector2):gd.Vector2 {
 		__node2d_ptr().value.set_position(((p_position : gd.Vector2)));

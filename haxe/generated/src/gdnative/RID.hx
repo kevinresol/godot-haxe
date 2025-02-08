@@ -42,5 +42,5 @@ package gdnative;
 	@:overload(function(p_from:gdnative.RID):Void { })
 	function new();
 	function is_valid():Bool;
-	function get_id():Int;
+	function get_id():cpp.Int64;
 }

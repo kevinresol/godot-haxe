@@ -11,7 +11,7 @@ package gd;
 	}
 	extern inline function __sprite2d_ptr():cpp.Pointer<gdnative.Sprite2D.Sprite2D_extern> return cast __gd.ptr;
 	static function __finalize(inst:gd.Sprite2D) {
-		untyped __cpp__("std::cout << \"Sprite2D::finalize\" << std::endl");
+		null;
 	}
 	public function set_texture(p_texture:gd.Texture2D):gd.Texture2D {
 		__sprite2d_ptr().value.set_texture(((p_texture : gd.Texture2D)));
@@ -54,26 +54,26 @@ package gd;
 		return p_enabled;
 	}
 	public function is_region_filter_clip_enabled():Bool return __sprite2d_ptr().value.is_region_filter_clip_enabled();
-	public function set_frame(p_frame:Int):Int {
-		__sprite2d_ptr().value.set_frame(((p_frame : Int)));
+	public function set_frame(p_frame:cpp.Int64):cpp.Int64 {
+		__sprite2d_ptr().value.set_frame(((p_frame : cpp.Int64)));
 		return p_frame;
 	}
-	public function get_frame():Int return __sprite2d_ptr().value.get_frame();
+	public function get_frame():cpp.Int64 return __sprite2d_ptr().value.get_frame();
 	public function set_frame_coords(p_coords:gd.Vector2i):gd.Vector2i {
 		__sprite2d_ptr().value.set_frame_coords(((p_coords : gd.Vector2i)));
 		return p_coords;
 	}
 	public function get_frame_coords():gd.Vector2i return __sprite2d_ptr().value.get_frame_coords();
-	public function set_vframes(p_vframes:Int):Int {
-		__sprite2d_ptr().value.set_vframes(((p_vframes : Int)));
+	public function set_vframes(p_vframes:cpp.Int64):cpp.Int64 {
+		__sprite2d_ptr().value.set_vframes(((p_vframes : cpp.Int64)));
 		return p_vframes;
 	}
-	public function get_vframes():Int return __sprite2d_ptr().value.get_vframes();
-	public function set_hframes(p_hframes:Int):Int {
-		__sprite2d_ptr().value.set_hframes(((p_hframes : Int)));
+	public function get_vframes():cpp.Int64 return __sprite2d_ptr().value.get_vframes();
+	public function set_hframes(p_hframes:cpp.Int64):cpp.Int64 {
+		__sprite2d_ptr().value.set_hframes(((p_hframes : cpp.Int64)));
 		return p_hframes;
 	}
-	public function get_hframes():Int return __sprite2d_ptr().value.get_hframes();
+	public function get_hframes():cpp.Int64 return __sprite2d_ptr().value.get_hframes();
 	public function get_rect():gd.Rect2 return __sprite2d_ptr().value.get_rect();
 	public var texture(get, set) : gd.Texture2D;
 	public var centered(get, set) : Bool;
@@ -83,9 +83,9 @@ package gd;
 	function get_flip_h():Bool return is_flipped_h();
 	public var flip_v(get, set) : Bool;
 	function get_flip_v():Bool return is_flipped_v();
-	public var hframes(get, set) : Int;
-	public var vframes(get, set) : Int;
-	public var frame(get, set) : Int;
+	public var hframes(get, set) : cpp.Int64;
+	public var vframes(get, set) : cpp.Int64;
+	public var frame(get, set) : cpp.Int64;
 	public var frame_coords(get, set) : gd.Vector2i;
 	public var region_enabled(get, set) : Bool;
 	function get_region_enabled():Bool return is_region_enabled();
