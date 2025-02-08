@@ -1,12 +1,10 @@
 package gd;
 @:cppInclude('iostream') class ResourceLoader extends gd.Object {
 	public function new(?native:cpp.Pointer<gdnative.ResourceLoader.ResourceLoader_extern>) {
-		if (Type.getClassName(Type.getClass(this)) == "gd.ResourceLoader") cpp.vm.Gc.setFinalizer(this, cpp.Callable.fromStaticFunction(__finalize));
 		if (native == null) {
 			gd.Utils.checkAndWarnForMissingOwner(this, "ResourceLoader");
 			native = gdnative.ResourceLoader.ResourceLoader_extern.__alloc();
 		};
-		null;
 		super(native.reinterpret());
 	}
 	static public var singleton(get, null) : gd.ResourceLoader;
@@ -15,9 +13,6 @@ package gd;
 		return singleton;
 	}
 	extern inline function __resourceloader_ptr():cpp.Pointer<gdnative.ResourceLoader.ResourceLoader_extern> return cast __gd.ptr;
-	static function __finalize(inst:gd.ResourceLoader) {
-		null;
-	}
 	public function load_threaded_request(p_path:std.String, ?p_type_hint:std.String, ?p_use_sub_threads:Bool, ?p_cache_mode:gd.resourceloader.CacheMode):gd.Error return switch [p_path, p_type_hint, p_use_sub_threads, p_cache_mode] {
 		case [_, null, _, _]:__resourceloader_ptr().value.load_threaded_request(((p_path : std.String)));
 		case [_, _, null, _]:__resourceloader_ptr().value.load_threaded_request(((p_path : std.String)), ((p_type_hint : std.String)));

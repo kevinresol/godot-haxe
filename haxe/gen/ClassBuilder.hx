@@ -181,16 +181,23 @@ class ClassBuilder extends EnumBuilder {
 						opt: true,
 					}
 				],
-				expr: isScriptExtern ? null : macro {
-					if (Type.getClassName(Type.getClass(this)) == $v{'gd.$cname'})
-						cpp.vm.Gc.setFinalizer(this, cpp.Callable.fromStaticFunction(__finalize));
-					if (native == null) {
-						gd.Utils.checkAndWarnForMissingOwner(this, $v{cname});
-						// trace($v{'Allocating $cname'});
-						native = $p{['gdnative', cname, '${cname}_extern']}.__alloc();
-					}
-					${cname == 'RefCounted' ? macro __ref = native : macro null};
-					${parent == null ? macro __gd = native : macro super(native.reinterpret())};
+				expr: isScriptExtern ? null : {
+					final exprs = [
+						macro if (native == null) {
+							gd.Utils.checkAndWarnForMissingOwner(this, $v{cname});
+							// trace($v{'Allocating $cname'});
+							native = $p{['gdnative', cname, '${cname}_extern']}.__alloc();
+						}
+					];
+
+					if (cname == 'RefCounted')
+						exprs.push(macro __ref = native);
+					if (clazz.is_refcounted)
+						exprs.push(macro if (Type.getClassName(Type.getClass(this)) == $v{'gd.$cname'}) cpp.vm.Gc.setFinalizer(this,
+							cpp.Callable.fromStaticFunction(__finalize)));
+
+					exprs.push(parent == null ? macro __gd = native : macro super(native.reinterpret()));
+					macro $b{exprs}
 				}
 			})
 		});
@@ -250,18 +257,14 @@ class ClassBuilder extends EnumBuilder {
 				// `__gd` is `gdnative.Object`(haxe) and `__gd.ptr` is always a `godot::Object*`(cpp)
 				// so we cast it into the correct pointer type before dereferencing
 				extern inline function $fname():cpp.Pointer<$native> return cast __gd.ptr;
-
-				// debug gc
-				static function __finalize(inst:gd.$cname) {
-					${
-						if (!clazz.is_refcounted) {
-							macro null;
-						} else {
-							macro inst.__ref = new gdnative.Ref.Ref_extern();
-						}
-					}
-				}
 			}).fields);
+			if (clazz.is_refcounted)
+				cls.fields = cls.fields.concat((macro class {
+					// hxcpp gc doesn't seem to actually delete the object right away,
+					// therefore we manually null out the Ref in the finalizer, so that Godot can do its job
+					static function __finalize(inst:gd.$cname)
+						inst.__ref = new gdnative.Ref.Ref_extern();
+				}).fields);
 			cls.meta.push({pos: null, name: ':cppInclude', params: [macro 'iostream']});
 		}
 

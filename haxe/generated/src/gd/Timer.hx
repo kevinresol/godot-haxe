@@ -1,18 +1,13 @@
 package gd;
 @:cppInclude('iostream') class Timer extends gd.Node {
 	public function new(?native:cpp.Pointer<gdnative.Timer.Timer_extern>) {
-		if (Type.getClassName(Type.getClass(this)) == "gd.Timer") cpp.vm.Gc.setFinalizer(this, cpp.Callable.fromStaticFunction(__finalize));
 		if (native == null) {
 			gd.Utils.checkAndWarnForMissingOwner(this, "Timer");
 			native = gdnative.Timer.Timer_extern.__alloc();
 		};
-		null;
 		super(native.reinterpret());
 	}
 	extern inline function __timer_ptr():cpp.Pointer<gdnative.Timer.Timer_extern> return cast __gd.ptr;
-	static function __finalize(inst:gd.Timer) {
-		null;
-	}
 	public function set_wait_time(p_time_sec:Float):Float {
 		__timer_ptr().value.set_wait_time(((p_time_sec : Float)));
 		return p_time_sec;

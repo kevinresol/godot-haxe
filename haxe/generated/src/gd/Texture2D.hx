@@ -1,18 +1,15 @@
 package gd;
 @:cppInclude('iostream') class Texture2D extends gd.Texture {
 	public function new(?native:cpp.Pointer<gdnative.Texture2D.Texture2D_extern>) {
-		if (Type.getClassName(Type.getClass(this)) == "gd.Texture2D") cpp.vm.Gc.setFinalizer(this, cpp.Callable.fromStaticFunction(__finalize));
 		if (native == null) {
 			gd.Utils.checkAndWarnForMissingOwner(this, "Texture2D");
 			native = gdnative.Texture2D.Texture2D_extern.__alloc();
 		};
-		null;
+		if (Type.getClassName(Type.getClass(this)) == "gd.Texture2D") cpp.vm.Gc.setFinalizer(this, cpp.Callable.fromStaticFunction(__finalize));
 		super(native.reinterpret());
 	}
 	extern inline function __texture2d_ptr():cpp.Pointer<gdnative.Texture2D.Texture2D_extern> return cast __gd.ptr;
-	static function __finalize(inst:gd.Texture2D) {
-		inst.__ref = new gdnative.Ref.Ref_extern();
-	}
+	static function __finalize(inst:gd.Texture2D) inst.__ref = new gdnative.Ref.Ref_extern();
 	public function _get_width():cpp.Int64 return __texture2d_ptr().value._get_width();
 	public function _get_height():cpp.Int64 return __texture2d_ptr().value._get_height();
 	public function _is_pixel_opaque(p_x:cpp.Int64, p_y:cpp.Int64):Bool return __texture2d_ptr().value._is_pixel_opaque(((p_x : cpp.Int64)), ((p_y : cpp.Int64)));

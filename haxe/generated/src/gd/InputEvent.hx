@@ -1,18 +1,15 @@
 package gd;
 @:cppInclude('iostream') class InputEvent extends gd.Resource {
 	public function new(?native:cpp.Pointer<gdnative.InputEvent.InputEvent_extern>) {
-		if (Type.getClassName(Type.getClass(this)) == "gd.InputEvent") cpp.vm.Gc.setFinalizer(this, cpp.Callable.fromStaticFunction(__finalize));
 		if (native == null) {
 			gd.Utils.checkAndWarnForMissingOwner(this, "InputEvent");
 			native = gdnative.InputEvent.InputEvent_extern.__alloc();
 		};
-		null;
+		if (Type.getClassName(Type.getClass(this)) == "gd.InputEvent") cpp.vm.Gc.setFinalizer(this, cpp.Callable.fromStaticFunction(__finalize));
 		super(native.reinterpret());
 	}
 	extern inline function __inputevent_ptr():cpp.Pointer<gdnative.InputEvent.InputEvent_extern> return cast __gd.ptr;
-	static function __finalize(inst:gd.InputEvent) {
-		inst.__ref = new gdnative.Ref.Ref_extern();
-	}
+	static function __finalize(inst:gd.InputEvent) inst.__ref = new gdnative.Ref.Ref_extern();
 	static public final DEVICE_ID_EMULATION : Int = -1;
 	public function set_device(p_device:cpp.Int64):cpp.Int64 {
 		__inputevent_ptr().value.set_device(((p_device : cpp.Int64)));

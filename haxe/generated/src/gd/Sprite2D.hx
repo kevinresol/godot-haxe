@@ -1,18 +1,13 @@
 package gd;
 @:cppInclude('iostream') class Sprite2D extends gd.Node2D {
 	public function new(?native:cpp.Pointer<gdnative.Sprite2D.Sprite2D_extern>) {
-		if (Type.getClassName(Type.getClass(this)) == "gd.Sprite2D") cpp.vm.Gc.setFinalizer(this, cpp.Callable.fromStaticFunction(__finalize));
 		if (native == null) {
 			gd.Utils.checkAndWarnForMissingOwner(this, "Sprite2D");
 			native = gdnative.Sprite2D.Sprite2D_extern.__alloc();
 		};
-		null;
 		super(native.reinterpret());
 	}
 	extern inline function __sprite2d_ptr():cpp.Pointer<gdnative.Sprite2D.Sprite2D_extern> return cast __gd.ptr;
-	static function __finalize(inst:gd.Sprite2D) {
-		null;
-	}
 	public function set_texture(p_texture:gd.Texture2D):gd.Texture2D {
 		__sprite2d_ptr().value.set_texture(((p_texture : gd.Texture2D)));
 		return p_texture;

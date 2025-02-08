@@ -1,18 +1,15 @@
 package gd;
 @:cppInclude('iostream') class InputEventMouseMotion extends gd.InputEventMouse {
 	public function new(?native:cpp.Pointer<gdnative.InputEventMouseMotion.InputEventMouseMotion_extern>) {
-		if (Type.getClassName(Type.getClass(this)) == "gd.InputEventMouseMotion") cpp.vm.Gc.setFinalizer(this, cpp.Callable.fromStaticFunction(__finalize));
 		if (native == null) {
 			gd.Utils.checkAndWarnForMissingOwner(this, "InputEventMouseMotion");
 			native = gdnative.InputEventMouseMotion.InputEventMouseMotion_extern.__alloc();
 		};
-		null;
+		if (Type.getClassName(Type.getClass(this)) == "gd.InputEventMouseMotion") cpp.vm.Gc.setFinalizer(this, cpp.Callable.fromStaticFunction(__finalize));
 		super(native.reinterpret());
 	}
 	extern inline function __inputeventmousemotion_ptr():cpp.Pointer<gdnative.InputEventMouseMotion.InputEventMouseMotion_extern> return cast __gd.ptr;
-	static function __finalize(inst:gd.InputEventMouseMotion) {
-		inst.__ref = new gdnative.Ref.Ref_extern();
-	}
+	static function __finalize(inst:gd.InputEventMouseMotion) inst.__ref = new gdnative.Ref.Ref_extern();
 	public function set_tilt(p_tilt:gd.Vector2):gd.Vector2 {
 		__inputeventmousemotion_ptr().value.set_tilt(((p_tilt : gd.Vector2)));
 		return p_tilt;

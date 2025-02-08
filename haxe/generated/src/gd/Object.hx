@@ -1,18 +1,13 @@
 package gd;
 @:cppInclude('iostream') class Object {
 	public function new(?native:cpp.Pointer<gdnative.Object.Object_extern>) {
-		if (Type.getClassName(Type.getClass(this)) == "gd.Object") cpp.vm.Gc.setFinalizer(this, cpp.Callable.fromStaticFunction(__finalize));
 		if (native == null) {
 			gd.Utils.checkAndWarnForMissingOwner(this, "Object");
 			native = gdnative.Object.Object_extern.__alloc();
 		};
-		null;
 		__gd = native;
 	}
 	extern inline function __object_ptr():cpp.Pointer<gdnative.Object.Object_extern> return cast __gd.ptr;
-	static function __finalize(inst:gd.Object) {
-		null;
-	}
 	static public final NOTIFICATION_POSTINITIALIZE : Int = 0;
 	static public final NOTIFICATION_PREDELETE : Int = 1;
 	static public final NOTIFICATION_EXTENSION_RELOADED : Int = 2;

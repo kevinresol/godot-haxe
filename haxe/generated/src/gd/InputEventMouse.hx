@@ -1,18 +1,15 @@
 package gd;
 @:cppInclude('iostream') class InputEventMouse extends gd.InputEventWithModifiers {
 	public function new(?native:cpp.Pointer<gdnative.InputEventMouse.InputEventMouse_extern>) {
-		if (Type.getClassName(Type.getClass(this)) == "gd.InputEventMouse") cpp.vm.Gc.setFinalizer(this, cpp.Callable.fromStaticFunction(__finalize));
 		if (native == null) {
 			gd.Utils.checkAndWarnForMissingOwner(this, "InputEventMouse");
 			native = gdnative.InputEventMouse.InputEventMouse_extern.__alloc();
 		};
-		null;
+		if (Type.getClassName(Type.getClass(this)) == "gd.InputEventMouse") cpp.vm.Gc.setFinalizer(this, cpp.Callable.fromStaticFunction(__finalize));
 		super(native.reinterpret());
 	}
 	extern inline function __inputeventmouse_ptr():cpp.Pointer<gdnative.InputEventMouse.InputEventMouse_extern> return cast __gd.ptr;
-	static function __finalize(inst:gd.InputEventMouse) {
-		inst.__ref = new gdnative.Ref.Ref_extern();
-	}
+	static function __finalize(inst:gd.InputEventMouse) inst.__ref = new gdnative.Ref.Ref_extern();
 	public function set_button_mask(p_button_mask:Int):Int {
 		__inputeventmouse_ptr().value.set_button_mask(((p_button_mask : Int)));
 		return p_button_mask;

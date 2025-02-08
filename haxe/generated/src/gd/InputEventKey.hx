@@ -1,18 +1,15 @@
 package gd;
 @:cppInclude('iostream') class InputEventKey extends gd.InputEventWithModifiers {
 	public function new(?native:cpp.Pointer<gdnative.InputEventKey.InputEventKey_extern>) {
-		if (Type.getClassName(Type.getClass(this)) == "gd.InputEventKey") cpp.vm.Gc.setFinalizer(this, cpp.Callable.fromStaticFunction(__finalize));
 		if (native == null) {
 			gd.Utils.checkAndWarnForMissingOwner(this, "InputEventKey");
 			native = gdnative.InputEventKey.InputEventKey_extern.__alloc();
 		};
-		null;
+		if (Type.getClassName(Type.getClass(this)) == "gd.InputEventKey") cpp.vm.Gc.setFinalizer(this, cpp.Callable.fromStaticFunction(__finalize));
 		super(native.reinterpret());
 	}
 	extern inline function __inputeventkey_ptr():cpp.Pointer<gdnative.InputEventKey.InputEventKey_extern> return cast __gd.ptr;
-	static function __finalize(inst:gd.InputEventKey) {
-		inst.__ref = new gdnative.Ref.Ref_extern();
-	}
+	static function __finalize(inst:gd.InputEventKey) inst.__ref = new gdnative.Ref.Ref_extern();
 	public function set_pressed(p_pressed:Bool):Void __inputeventkey_ptr().value.set_pressed(((p_pressed : Bool)));
 	public function set_keycode(p_keycode:gd.Key):gd.Key {
 		__inputeventkey_ptr().value.set_keycode(((p_keycode : gd.Key)));
