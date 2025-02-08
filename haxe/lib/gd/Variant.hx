@@ -5,6 +5,12 @@ abstract Variant(Variant_obj) from Variant_obj to Variant_obj {
 	@:from static inline function fromBool(v:Bool):Variant
 		return Variant_obj.fromBool(v);
 
+	@:from static inline function fromUInt64(v:cpp.UInt64):Variant
+		return Variant_obj.fromUInt64(v);
+
+	@:from static inline function fromInt64(v:cpp.Int64):Variant
+		return Variant_obj.fromInt64(v);
+
 	@:from static inline function fromInt(v:Int):Variant
 		return Variant_obj.fromInt(v);
 
@@ -40,6 +46,8 @@ abstract Variant(Variant_obj) from Variant_obj to Variant_obj {
 
 extern class Variant_obj {
 	static function fromBool(v:Bool):Variant_obj;
+	static function fromUInt64(v:cpp.UInt64):Variant_obj;
+	static function fromInt64(v:cpp.Int64):Variant_obj;
 	static function fromInt(v:Int):Variant_obj;
 	static function fromFloat(v:Float):Variant_obj;
 	static function fromString(v:std.String):Variant_obj;

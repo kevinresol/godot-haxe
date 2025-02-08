@@ -9,19 +9,19 @@ abstract Variant(cpp.Struct<Variant_extern>) from cpp.Struct<Variant_extern> to 
 		return @:privateAccess v.__gd;
 
 	@:from
-	extern static inline function fromFloat(v:Float):Variant
-		return new Variant_extern(v);
+	extern static inline function fromInt64(v:cpp.Int64):Variant
+		return new Variant_extern(cast v); // haxe tries to some weird casts
+
+	@:from
+	extern static inline function fromUInt64(v:cpp.UInt64):Variant
+		return new Variant_extern(cast v); // haxe tries to some weird casts
 
 	@:from
 	extern static inline function fromInt(v:Int):Variant
 		return new Variant_extern(v);
 
 	@:from
-	extern static inline function fromInt64(v:cpp.Int64):Variant
-		return new Variant_extern(v);
-
-	@:from
-	extern static inline function fromUInt64(v:cpp.UInt64):Variant
+	extern static inline function fromFloat(v:Float):Variant
 		return new Variant_extern(v);
 
 	@:from
@@ -184,10 +184,10 @@ extern class Variant_extern {
 	@:overload(function(v:gdnative.Object.Object_extern):Void {})
 	@:overload(function(v:cpp.ConstPointer<cpp.Char>):Void {})
 	@:overload(function(v:cpp.ConstCharStar):Void {})
-	@:overload(function(v:Float):Void {})
-	@:overload(function(v:Int):Void {})
-	@:overload(function(v:cpp.Int64):Void {})
 	@:overload(function(v:cpp.UInt64):Void {})
+	@:overload(function(v:cpp.Int64):Void {})
+	@:overload(function(v:Int):Void {})
+	@:overload(function(v:Float):Void {})
 	@:overload(function(v:Bool):Void {})
 	function new();
 
