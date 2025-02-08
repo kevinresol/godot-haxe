@@ -157,18 +157,18 @@ class Cppia {
 	static var count = 0;
 
 	public static function frame():Void {
-		if (count++ == 200) {
-			count = 0;
-			printThreadId("frame");
-			trace({
-				MEM_INFO_USAGE: cpp.vm.Gc.memInfo(cpp.vm.Gc.MEM_INFO_USAGE),
-				MEM_INFO_RESERVED: cpp.vm.Gc.memInfo(cpp.vm.Gc.MEM_INFO_RESERVED),
-				MEM_INFO_CURRENT: cpp.vm.Gc.memInfo(cpp.vm.Gc.MEM_INFO_CURRENT),
-				MEM_INFO_LARGE: cpp.vm.Gc.memInfo(cpp.vm.Gc.MEM_INFO_LARGE),
-			});
-		}
+		// if (count++ == 200) {
+		// 	count = 0;
+		// 	printThreadId("frame");
+		// 	trace({
+		// 		MEM_INFO_USAGE: cpp.vm.Gc.memInfo(cpp.vm.Gc.MEM_INFO_USAGE),
+		// 		MEM_INFO_RESERVED: cpp.vm.Gc.memInfo(cpp.vm.Gc.MEM_INFO_RESERVED),
+		// 		MEM_INFO_CURRENT: cpp.vm.Gc.memInfo(cpp.vm.Gc.MEM_INFO_CURRENT),
+		// 		MEM_INFO_LARGE: cpp.vm.Gc.memInfo(cpp.vm.Gc.MEM_INFO_LARGE),
+		// 	});
+		// }
 
-		cpp.vm.Gc.trace(gd.InputEventMouseMotion, true);
+		// cpp.vm.Gc.trace(gd.InputEventMouseMotion, true);
 	}
 
 	public static function instanceHasProperty(inst:Dynamic, name:std.String):Bool {

@@ -29,6 +29,9 @@ print(Glob("cpp/src/*.cpp"))
 sources = []
 for root, dirnames, filenames in os.walk('cpp/src'):
   sources += Glob(os.path.join(root, '*.cpp'))
+  
+outDir = 'bin'
+libName = 'gdcppia'
     
 # print full path for each source file
 for source in sources:
@@ -36,25 +39,25 @@ for source in sources:
 
 if env["platform"] == "macos":
     library = env.SharedLibrary(
-        "demo/bin/libgdcppia.{}.{}.framework/libgdcppia.{}.{}".format(
-            env["platform"], env["target"], env["platform"], env["target"]
+        "{}/lib{}.{}.{}.framework/libgdcppia.{}.{}".format(
+            outDir, libName, env["platform"], env["target"], env["platform"], env["target"]
         ),
         source=sources,
     )
 elif env["platform"] == "ios":
     if env["ios_simulator"]:
         library = env.StaticLibrary(
-            "demo/bin/libgdcppia.{}.{}.simulator.a".format(env["platform"], env["target"]),
+            "{}/lib{}.{}.{}.simulator.a".format(outDir, libName,env["platform"], env["target"]),
             source=sources,
         )
     else:
         library = env.StaticLibrary(
-            "demo/bin/libgdcppia.{}.{}.a".format(env["platform"], env["target"]),
+            "{}/lib{}.{}.{}.a".format(outDir, libName, env["platform"], env["target"]),
             source=sources,
         )
 else:
     library = env.SharedLibrary(
-        "demo/bin/libgdcppia{}{}".format(env["suffix"], env["SHLIBSUFFIX"]),
+        "{}/lib{}{}{}".format(outDir, libName, env["suffix"], env["SHLIBSUFFIX"]),
         source=sources,
     )
 

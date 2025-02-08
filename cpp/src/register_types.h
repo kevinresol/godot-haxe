@@ -1,5 +1,5 @@
-#ifndef GDEXAMPLE_REGISTER_TYPES_H
-#define GDEXAMPLE_REGISTER_TYPES_H
+#ifndef GDCPPIA_REGISTER_TYPES_H
+#define GDCPPIA_REGISTER_TYPES_H
 
 #include <godot_cpp/core/class_db.hpp>
 
@@ -10,4 +10,4 @@ void uninitialize_cppia_module(ModuleInitializationLevel p_level);
 
 }  // namespace godot
 
-#endif  // GDEXAMPLE_REGISTER_TYPES_H
+#endif  // GDCPPIA_REGISTER_TYPES_H

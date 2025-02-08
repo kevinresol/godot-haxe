@@ -1,5 +1,5 @@
-demo/bin/**
-!demo/bin/gdexample.gdextension
+bin/**
+!bin/gdcppia.gdextension
 
 # for projects that use SCons for building: http://http://www.scons.org/
 .sconsign.dblite
