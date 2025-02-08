@@ -6,11 +6,7 @@ package gd;
 			gd.Utils.checkAndWarnForMissingOwner(this, "RefCounted");
 			native = gdnative.RefCounted.RefCounted_extern.__alloc();
 		};
-		{
-			trace('pre __ref', native, Type.getClassName(Type.getClass(this)), "ref", native.value.get_reference_count());
-			__ref = native;
-			trace('post __ref', native, Type.getClassName(Type.getClass(this)), "ref", native.value.get_reference_count());
-		};
+		__ref = native;
 		super(native.reinterpret());
 	}
 	extern inline function __refcounted_ptr():cpp.Pointer<gdnative.RefCounted.RefCounted_extern> return cast __gd.ptr;

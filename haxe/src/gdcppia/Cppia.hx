@@ -118,7 +118,7 @@ class Cppia {
 			rc1 = @:privateAccess json.__gd.reinterpret();
 		}
 
-		final scn = ResourceLoader.singleton.load('res://sub.tscn');
+		final scn = ResourceLoader.singleton.load('res://sub.tscn', '', IGNORE);
 		print(scn, scn.get_reference_count());
 		id2 = scn.get_instance_id();
 		rc2 = @:privateAccess scn.__gd.reinterpret();

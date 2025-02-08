@@ -15,12 +15,6 @@ class Utils {
 			throw 'Class type is null';
 
 		final inst:Dynamic = Type.createInstance(classType, [native]);
-		switch Std.downcast(inst, gd.RefCounted) {
-			case null:
-				// trace('Instance is not a gd.RefCounted');
-			case node:
-				node.__ref = untyped __cpp__('godot::Ref(reinterpret_cast<godot::RefCounted*>({0}))', native.ptr);
-		}
 		return inst;
 	}
 }

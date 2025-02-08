@@ -189,13 +189,7 @@ class ClassBuilder extends EnumBuilder {
 						// trace($v{'Allocating $cname'});
 						native = $p{['gdnative', cname, '${cname}_extern']}.__alloc();
 					}
-					${
-						cname == 'RefCounted' ? macro {
-							trace('pre __ref', native, Type.getClassName(Type.getClass(this)), "ref", native.value.get_reference_count());
-							__ref = native;
-							trace('post __ref', native, Type.getClassName(Type.getClass(this)), "ref", native.value.get_reference_count());
-						} : macro null
-					};
+					${cname == 'RefCounted' ? macro __ref = native : macro null};
 					${parent == null ? macro __gd = native : macro super(native.reinterpret())};
 				}
 			})

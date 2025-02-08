@@ -5,13 +5,8 @@ abstract Ref<T:gdnative.RefCounted.RefCounted_extern>(cpp.Struct<Ref_extern<T>>)
 		return new Ref_extern<gdnative.RefCounted.RefCounted_extern>((p_from.reinterpret() : cpp.Pointer<gdnative.RefCounted.RefCounted_extern>));
 
 	@:from
-	extern static inline function fromPointer<T:gdnative.RefCounted.RefCounted_extern>(v:cpp.Pointer<T>):Ref<T> {
-		trace('fromPointer pre', (v.value.get_class() : std.String), v.value.get_reference_count());
-		final ref = new Ref_extern(v);
-		trace('fromPointer post', (v.value.get_class() : std.String), v.value.get_reference_count());
-
-		return ref;
-	}
+	extern static inline function fromPointer<T:gdnative.RefCounted.RefCounted_extern>(v:cpp.Pointer<T>):Ref<T>
+		return new Ref_extern<T>(v);
 
 	@:to
 	public extern inline function ptr():cpp.Pointer<T> {
