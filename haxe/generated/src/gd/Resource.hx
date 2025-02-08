@@ -1,13 +1,18 @@
 package gd;
-class Resource extends gd.RefCounted {
+@:cppInclude('iostream') class Resource extends gd.RefCounted {
 	public function new(?native:cpp.Pointer<gdnative.Resource.Resource_extern>) {
+		if (Type.getClassName(Type.getClass(this)) == "gd.Resource") cpp.vm.Gc.setFinalizer(this, cpp.Callable.fromStaticFunction(__finalize));
 		if (native == null) {
 			gd.Utils.checkAndWarnForMissingOwner(this, "Resource");
 			native = gdnative.Resource.Resource_extern.__alloc();
 		};
+		null;
 		super(native.reinterpret());
 	}
 	extern inline function __resource_ptr():cpp.Pointer<gdnative.Resource.Resource_extern> return cast __gd.ptr;
+	static function __finalize(inst:gd.Resource) {
+		untyped __cpp__("std::cout << \"Resource::finalize\" << std::endl");
+	}
 	public function _setup_local_to_scene():Void __resource_ptr().value._setup_local_to_scene();
 	public function _get_rid():gd.RID return __resource_ptr().value._get_rid();
 	public function _reset_state():Void __resource_ptr().value._reset_state();

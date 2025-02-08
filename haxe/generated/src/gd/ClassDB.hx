@@ -1,10 +1,12 @@
 package gd;
-class ClassDB extends gd.Object {
+@:cppInclude('iostream') class ClassDB extends gd.Object {
 	public function new(?native:cpp.Pointer<gdnative.ClassDB.ClassDB_extern>) {
+		if (Type.getClassName(Type.getClass(this)) == "gd.ClassDB") cpp.vm.Gc.setFinalizer(this, cpp.Callable.fromStaticFunction(__finalize));
 		if (native == null) {
 			gd.Utils.checkAndWarnForMissingOwner(this, "ClassDB");
 			native = gdnative.ClassDB.ClassDB_extern.__alloc();
 		};
+		null;
 		super(native.reinterpret());
 	}
 	static public var singleton(get, null) : gd.ClassDB;
@@ -13,6 +15,9 @@ class ClassDB extends gd.Object {
 		return singleton;
 	}
 	extern inline function __classdb_ptr():cpp.Pointer<gdnative.ClassDB.ClassDB_extern> return cast __gd.ptr;
+	static function __finalize(inst:gd.ClassDB) {
+		untyped __cpp__("std::cout << \"ClassDB::finalize\" << std::endl");
+	}
 	public function get_class_list():gd.PackedStringArray return __classdb_ptr().value.get_class_list();
 	public function get_inheriters_from_class(p_class:std.String):gd.PackedStringArray return __classdb_ptr().value.get_inheriters_from_class(((p_class : std.String)));
 	public function get_parent_class(p_class:std.String):std.String return __classdb_ptr().value.get_parent_class(((p_class : std.String)));

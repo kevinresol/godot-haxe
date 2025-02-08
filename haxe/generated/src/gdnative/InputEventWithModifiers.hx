@@ -4,13 +4,9 @@ package gdnative;
 **/
 @:forward abstract InputEventWithModifiers(gdnative.Ref<InputEventWithModifiers_extern>) from gdnative.Ref<InputEventWithModifiers_extern> to gdnative.Ref<InputEventWithModifiers_extern> {
 	@:from
-	static inline function fromWrapper(v:gd.InputEventWithModifiers):gdnative.InputEventWithModifiers return @:privateAccess v.__ref.ptr().reinterpret();
+	static inline function fromWrapper(v:gd.InputEventWithModifiers):gdnative.InputEventWithModifiers return @:privateAccess v.__gd.reinterpret();
 	@:to
-	inline function toWrapper():gd.InputEventWithModifiers {
-		final v = new gd.InputEventWithModifiers(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
+	inline function toWrapper():gd.InputEventWithModifiers return new gd.InputEventWithModifiers(this);
 }
 @:include("godot_cpp/classes/input_event_with_modifiers.hpp") @:native("godot::InputEventWithModifiers") @:structAccess extern class InputEventWithModifiers_extern extends gdnative.InputEventFromWindow.InputEventFromWindow_extern {
 	extern static inline function __alloc():cpp.Pointer<InputEventWithModifiers_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::InputEventWithModifiers"));

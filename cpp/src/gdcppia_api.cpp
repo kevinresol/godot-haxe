@@ -182,6 +182,7 @@ void instance_call(void* p_instance, ::String p_method_name,
   gdcppia::Cppia_obj::instanceCall(::Dynamic(*root), p_method_name, p_args);
 }
 
+void frame() { gdcppia::Cppia_obj::frame(); }
 void gc_compact() { gdcppia::Cppia_obj::gcCompact(); }
 void analyze_code(::String p_source, ::String p_class_name) {
   // auto result =

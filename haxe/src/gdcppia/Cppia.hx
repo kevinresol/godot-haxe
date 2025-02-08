@@ -14,27 +14,29 @@ using Lambda;
 class Cppia {
 	static final mutex = new sys.thread.Mutex();
 
-	static function printThreadId(name:String) {
+	static function printThreadId(name:std.String) {
 		trace('Thread ID for $name');
 		untyped __cpp__('std::thread::id currentThreadId = std::this_thread::get_id()');
 		untyped __cpp__('std::hash<std::thread::id> hasher');
 		untyped __cpp__('size_t hashedId = hasher(currentThreadId)');
+		untyped __cpp__('std::cout << "Current Thread ID: " << currentThreadId << std::endl');
 		untyped __cpp__('std::cout << "Current Thread ID (Hashed): " << hashedId << std::endl');
 	}
+
+	static var rc1:cpp.Pointer<gdnative.RefCounted.RefCounted_extern>;
+	static var rc2:cpp.Pointer<gdnative.RefCounted.RefCounted_extern>;
+	static var id1:Int;
+	static var id2:Int;
+	static var id3:Int;
 
 	public static function main() {
 		trace("Hello from Haxe!");
 
-		// printThreadId("main");
+		printThreadId("main");
 
-		final up = Key.UP;
-		final nativeup = gdnative.Key.UP;
-		trace(up);
-		trace(nativeup);
-		trace(up == UP);
-		trace(nativeup == UP);
-		trace(nativeup == up);
-		trace(up == nativeup);
+		sys.thread.Thread.create(() -> {
+			printThreadId("thread");
+		});
 
 		final oldTrace = haxe.Log.trace;
 		haxe.Log.trace = (v:Dynamic, ?infos:haxe.PosInfos) -> {
@@ -97,38 +99,73 @@ class Cppia {
 		print("foo in dict: ", 'foo' in dict, dict['foo']);
 		print("42 in dict: ", 42 in dict, dict[42]);
 
-		trace('JSON checks (host)');
-		final json = new JSON();
-		switch json.parse('{"foo": 42, "bar": true, "baz": ["hello", "world"]}') {
-			case OK:
-				final data = json.data;
-				print(data, ":", type_string(typeof(data)));
-				print(data["foo"], ":", type_string(typeof(data["foo"])));
-				print(data["bar"], ":", type_string(typeof(data["bar"])));
-				print(data["baz"], ":", type_string(typeof(data["baz"])));
-				print(data["baz"][0], ":", type_string(typeof(data["baz"][0])));
-			case err:
-				trace('Error parsing JSON: $err');
+		{
+			trace('JSON checks (host)');
+			final json = new JSON();
+			switch json.parse('{"foo": 42, "bar": true, "baz": ["hello", "world"]}') {
+				case OK:
+					final data = json.data;
+					print(data, ":", type_string(typeof(data)));
+					print(data["foo"], ":", type_string(typeof(data["foo"])));
+					print(data["bar"], ":", type_string(typeof(data["bar"])));
+					print(data["baz"], ":", type_string(typeof(data["baz"])));
+					print(data["baz"][0], ":", type_string(typeof(data["baz"][0])));
+				case err:
+					trace('Error parsing JSON: $err');
+			}
+			trace('json', json.get_reference_count());
+			id1 = json.get_instance_id();
+			rc1 = @:privateAccess json.__gd.reinterpret();
 		}
+
+		final scn = ResourceLoader.singleton.load('res://sub.tscn');
+		print(scn, scn.get_reference_count());
+		id2 = scn.get_instance_id();
+		rc2 = @:privateAccess scn.__gd.reinterpret();
 
 		final x = new Node2D();
 		print(x);
-		x.free();
+		id3 = x.get_instance_id();
 
-		final scn = ResourceLoader.singleton.load('res://sub.tscn');
-		print(scn);
-		scn.free();
+		trace('id1', id1, is_instance_id_valid(id1));
+		trace('id2', id2, is_instance_id_valid(id2));
+		trace('id3', id3, is_instance_id_valid(id3));
+
+		x.free();
 	}
 
 	static var module:Module;
 
 	public static function runBytes(data:std.Array<UInt8>) {
+		gcCompact();
+		trace('runBytes');
+		trace('id1', id1, is_instance_id_valid(id1));
+		trace('id2', id2, is_instance_id_valid(id2));
+		trace('id3', id3, is_instance_id_valid(id3));
+
 		// printThreadId("runBytes");
 		final bytes = haxe.io.Bytes.ofData(data);
 		trace('Loaded bytes:${bytes.length}');
 
 		module = new Module(data);
 		trace('Done booting module');
+	}
+
+	static var count = 0;
+
+	public static function frame():Void {
+		if (count++ == 200) {
+			count = 0;
+			printThreadId("frame");
+			trace({
+				MEM_INFO_USAGE: cpp.vm.Gc.memInfo(cpp.vm.Gc.MEM_INFO_USAGE),
+				MEM_INFO_RESERVED: cpp.vm.Gc.memInfo(cpp.vm.Gc.MEM_INFO_RESERVED),
+				MEM_INFO_CURRENT: cpp.vm.Gc.memInfo(cpp.vm.Gc.MEM_INFO_CURRENT),
+				MEM_INFO_LARGE: cpp.vm.Gc.memInfo(cpp.vm.Gc.MEM_INFO_LARGE),
+			});
+		}
+
+		cpp.vm.Gc.trace(gd.InputEventMouseMotion, true);
 	}
 
 	public static function instanceHasProperty(inst:Dynamic, name:std.String):Bool {

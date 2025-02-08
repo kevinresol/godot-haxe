@@ -263,8 +263,8 @@ class BuiltinClassBuilder extends Builder {
 				abs.fields = (macro class {
 					@:to
 					extern inline function toHaxe():std.String {
-						untyped __cpp__('auto __utf8 = {0}.value.utf8()', this);
-						return untyped __cpp__('::String::create(__utf8.get_data(), __utf8.length())');
+						final utf8:gdnative.CharString.CharString_extern = untyped __cpp__('{0}->utf8()', this);
+						return cpp.NativeString.fromPointerLen(cast utf8.get_data(), utf8.length().toInt());
 					}
 
 					@:from

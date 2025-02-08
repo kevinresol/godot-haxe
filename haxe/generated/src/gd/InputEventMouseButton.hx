@@ -1,13 +1,18 @@
 package gd;
-class InputEventMouseButton extends gd.InputEventMouse {
+@:cppInclude('iostream') class InputEventMouseButton extends gd.InputEventMouse {
 	public function new(?native:cpp.Pointer<gdnative.InputEventMouseButton.InputEventMouseButton_extern>) {
+		if (Type.getClassName(Type.getClass(this)) == "gd.InputEventMouseButton") cpp.vm.Gc.setFinalizer(this, cpp.Callable.fromStaticFunction(__finalize));
 		if (native == null) {
 			gd.Utils.checkAndWarnForMissingOwner(this, "InputEventMouseButton");
 			native = gdnative.InputEventMouseButton.InputEventMouseButton_extern.__alloc();
 		};
+		null;
 		super(native.reinterpret());
 	}
 	extern inline function __inputeventmousebutton_ptr():cpp.Pointer<gdnative.InputEventMouseButton.InputEventMouseButton_extern> return cast __gd.ptr;
+	static function __finalize(inst:gd.InputEventMouseButton) {
+		untyped __cpp__("std::cout << \"InputEventMouseButton::finalize\" << std::endl");
+	}
 	public function set_factor(p_factor:Float):Float {
 		__inputeventmousebutton_ptr().value.set_factor(((p_factor : Float)));
 		return p_factor;

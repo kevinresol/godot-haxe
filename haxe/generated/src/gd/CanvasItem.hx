@@ -1,13 +1,18 @@
 package gd;
-class CanvasItem extends gd.Node {
+@:cppInclude('iostream') class CanvasItem extends gd.Node {
 	public function new(?native:cpp.Pointer<gdnative.CanvasItem.CanvasItem_extern>) {
+		if (Type.getClassName(Type.getClass(this)) == "gd.CanvasItem") cpp.vm.Gc.setFinalizer(this, cpp.Callable.fromStaticFunction(__finalize));
 		if (native == null) {
 			gd.Utils.checkAndWarnForMissingOwner(this, "CanvasItem");
 			native = gdnative.CanvasItem.CanvasItem_extern.__alloc();
 		};
+		null;
 		super(native.reinterpret());
 	}
 	extern inline function __canvasitem_ptr():cpp.Pointer<gdnative.CanvasItem.CanvasItem_extern> return cast __gd.ptr;
+	static function __finalize(inst:gd.CanvasItem) {
+		untyped __cpp__("std::cout << \"CanvasItem::finalize\" << std::endl");
+	}
 	static public final NOTIFICATION_TRANSFORM_CHANGED : Int = 2000;
 	static public final NOTIFICATION_LOCAL_TRANSFORM_CHANGED : Int = 35;
 	static public final NOTIFICATION_DRAW : Int = 30;

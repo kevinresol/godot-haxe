@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://ccpvn22epnitt" path="res://icon.svg" id="3_bcw0c"]
 
 [node name="Main" type="Node2D"]
-position = Vector2(74.8526, 74.8526)
+position = Vector2(54.6644, 54.6644)
 script = ExtResource("1_0xm2m")
 speed = 42
 

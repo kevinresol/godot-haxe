@@ -1,13 +1,18 @@
 package gd;
-class Object {
+@:cppInclude('iostream') class Object {
 	public function new(?native:cpp.Pointer<gdnative.Object.Object_extern>) {
+		if (Type.getClassName(Type.getClass(this)) == "gd.Object") cpp.vm.Gc.setFinalizer(this, cpp.Callable.fromStaticFunction(__finalize));
 		if (native == null) {
 			gd.Utils.checkAndWarnForMissingOwner(this, "Object");
 			native = gdnative.Object.Object_extern.__alloc();
 		};
+		null;
 		__gd = native;
 	}
 	extern inline function __object_ptr():cpp.Pointer<gdnative.Object.Object_extern> return cast __gd.ptr;
+	static function __finalize(inst:gd.Object) {
+		untyped __cpp__("std::cout << \"Object::finalize\" << std::endl");
+	}
 	static public final NOTIFICATION_POSTINITIALIZE : Int = 0;
 	static public final NOTIFICATION_PREDELETE : Int = 1;
 	static public final NOTIFICATION_EXTENSION_RELOADED : Int = 2;
@@ -99,22 +104,6 @@ class Object {
 	}
 	public function cast_to<T:(gd.Object)>(cls:Class<T>):T {
 		final ret:T = Type.createInstance(cls, [__gd]);
-		switch [Std.downcast(this, gd.RefCounted), Std.downcast(((ret : Dynamic)), gd.RefCounted)] {
-			case [null, null]:
-			case [null, _]:{
-				final from = Type.getClassName(Type.getClass(this));
-				final to = Type.getClassName(Type.getClass(ret));
-				throw 'Casting from a non-refcounted object ($from) to a refcounted object ($to) is not allowed, as it does not make sense';
-			};
-			case [_, null]:{
-				final from = Type.getClassName(Type.getClass(this));
-				final to = Type.getClassName(Type.getClass(ret));
-				throw 'Casting from a refcounted object ($from) to a non-refcounted object ($to) is not allowed, as it will lose the refcounting mechanism';
-			};
-			case [from, to]:{
-				to.__ref = from.__ref;
-			};
-		};
 		return ret;
 	}
 }

@@ -28,6 +28,7 @@ bool instance_has_method(void* instance, ::String method_name);
 void instance_call(void* instance, ::String method_name,
                    ::Array<::Dynamic> args);
 
+void frame();
 void gc_compact();
 void analyze_code(::String p_source, ::String p_class_name);
 

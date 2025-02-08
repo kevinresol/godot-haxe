@@ -1,13 +1,18 @@
 package gd;
-class Node extends gd.Object {
+@:cppInclude('iostream') class Node extends gd.Object {
 	public function new(?native:cpp.Pointer<gdnative.Node.Node_extern>) {
+		if (Type.getClassName(Type.getClass(this)) == "gd.Node") cpp.vm.Gc.setFinalizer(this, cpp.Callable.fromStaticFunction(__finalize));
 		if (native == null) {
 			gd.Utils.checkAndWarnForMissingOwner(this, "Node");
 			native = gdnative.Node.Node_extern.__alloc();
 		};
+		null;
 		super(native.reinterpret());
 	}
 	extern inline function __node_ptr():cpp.Pointer<gdnative.Node.Node_extern> return cast __gd.ptr;
+	static function __finalize(inst:gd.Node) {
+		untyped __cpp__("std::cout << \"Node::finalize\" << std::endl");
+	}
 	static public final NOTIFICATION_ENTER_TREE : Int = 10;
 	static public final NOTIFICATION_EXIT_TREE : Int = 11;
 	static public final NOTIFICATION_MOVED_IN_PARENT : Int = 12;

@@ -58,7 +58,7 @@ class ClassBuilder extends EnumBuilder {
 		cls.fields = cls.fields.concat((macro class {
 			// put the alloc function in extern class to make sure the header file is included
 			extern static inline function __alloc():cpp.Pointer<$local>
-				return gdnative.Memory.Memory_extern.memnew(untyped __cpp__($v{'godot::$cname'}));
+				return gdnative.Memory.Memory_extern.memnew(untyped __cpp__($v{'godot::${cname == 'ClassDB' ? 'ClassDBSingleton' : cname}'}));
 		}).fields);
 
 		// singleton
@@ -118,17 +118,23 @@ class ClassBuilder extends EnumBuilder {
 
 		if (clazz.is_refcounted) {
 			abs.fields = abs.fields.concat((macro class {
-				@:from static inline function fromWrapper(v:gd.$cname):gdnative.$cname
-					return @:privateAccess v.__ref.ptr().reinterpret();
+				// @:from static inline function fromWrapper(v:gd.$cname):gdnative.$cname
+				// 	return @:privateAccess v.__ref.ptr().reinterpret();
 
-				@:to inline function toWrapper():gd.$cname {
-					final v = new gd.$cname(this.ptr());
-					v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-					return v;
-				}
+				// @:to inline function toWrapper():gd.$cname {
+				// 	final v = new gd.$cname(this.ptr());
+				// 	// v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
+				// 	return v;
+				// }
+
+				@:from static inline function fromWrapper(v:gd.$cname):gdnative.$cname
+					return @:privateAccess v.__gd.reinterpret();
+
+				@:to inline function toWrapper():gd.$cname
+					return new gd.$cname(this);
 			}).fields);
-			final ref = macro :gdnative.Ref<$local>;
-			abs.kind = TDAbstract(ref, [AbFrom(ref), AbTo(ref)]);
+			final refct = macro :gdnative.Ref<$local>;
+			abs.kind = TDAbstract(refct, [AbFrom(refct), AbTo(refct)]);
 		} else {
 			abs.fields = abs.fields.concat((macro class {
 				@:from static inline function fromWrapper(v:gd.$cname):gdnative.$cname
@@ -176,12 +182,21 @@ class ClassBuilder extends EnumBuilder {
 					}
 				],
 				expr: isScriptExtern ? null : macro {
+					if (Type.getClassName(Type.getClass(this)) == $v{'gd.$cname'})
+						cpp.vm.Gc.setFinalizer(this, cpp.Callable.fromStaticFunction(__finalize));
 					if (native == null) {
 						gd.Utils.checkAndWarnForMissingOwner(this, $v{cname});
 						// trace($v{'Allocating $cname'});
 						native = $p{['gdnative', cname, '${cname}_extern']}.__alloc();
 					}
-					${parent == null ? macro __gd = native : macro super(native.reinterpret())}
+					${
+						cname == 'RefCounted' ? macro {
+							trace('pre __ref', native, Type.getClassName(Type.getClass(this)), "ref", native.value.get_reference_count());
+							__ref = native;
+							trace('post __ref', native, Type.getClassName(Type.getClass(this)), "ref", native.value.get_reference_count());
+						} : macro null
+					};
+					${parent == null ? macro __gd = native : macro super(native.reinterpret())};
 				}
 			})
 		});
@@ -241,7 +256,25 @@ class ClassBuilder extends EnumBuilder {
 				// `__gd` is `gdnative.Object`(haxe) and `__gd.ptr` is always a `godot::Object*`(cpp)
 				// so we cast it into the correct pointer type before dereferencing
 				extern inline function $fname():cpp.Pointer<$native> return cast __gd.ptr;
+
+				// debug gc
+				static function __finalize(inst:gd.$cname) {
+					// ${
+					// 	if (!clazz.is_refcounted) {
+					// 		macro null;
+					// 	} else {
+					// 		macro {
+					// 			final ptr:cpp.Star<gdnative.RefCounted.RefCounted_extern> = cast inst.__gd.ptr;
+					// 			final c:Int = untyped __cpp__('{0}->get_reference_count()', ptr);
+					// 			untyped __cpp__($v{'printf("RefCounted $cname finalized with refcount %d\\n", {0})'}, c);
+					// 			// untyped __cpp__($v{'std::cout << "$cname::finalize" << {0} << std::endl'}, c);
+					untyped __cpp__($v{'std::cout << "$cname::finalize" << std::endl'});
+					// 		}
+					// 	}
+					// }
+				}
 			}).fields);
+			cls.meta.push({pos: null, name: ':cppInclude', params: [macro 'iostream']});
 		}
 
 		// constants
@@ -385,19 +418,19 @@ class ClassBuilder extends EnumBuilder {
 
 						public function cast_to<T:gd.Object>(cls:Class<T>):T {
 							final ret:T = Type.createInstance(cls, [__gd]);
-							switch [Std.downcast(this, gd.RefCounted), Std.downcast((ret : Dynamic), gd.RefCounted)] {
-								case [null, null]: // no-op
-								case [null, _]: // user is doing a wrong cast
-									final from = Type.getClassName(Type.getClass(this));
-									final to = Type.getClassName(Type.getClass(ret));
-									throw 'Casting from a non-refcounted object ($from) to a refcounted object ($to) is not allowed, as it does not make sense';
-								case [_, null]: // no one should really do this because all members are inherited anyway
-									final from = Type.getClassName(Type.getClass(this));
-									final to = Type.getClassName(Type.getClass(ret));
-									throw 'Casting from a refcounted object ($from) to a non-refcounted object ($to) is not allowed, as it will lose the refcounting mechanism';
-								case [from, to]:
-									to.__ref = from.__ref;
-							}
+							// switch [Std.downcast(this, gd.RefCounted), Std.downcast((ret : Dynamic), gd.RefCounted)] {
+							// 	case [null, null]: // no-op
+							// 	case [null, _]: // user is doing a wrong cast
+							// 		final from = Type.getClassName(Type.getClass(this));
+							// 		final to = Type.getClassName(Type.getClass(ret));
+							// 		throw 'Casting from a non-refcounted object ($from) to a refcounted object ($to) is not allowed, as it does not make sense';
+							// 	case [_, null]: // no one should really do this because all members are inherited anyway
+							// 		final from = Type.getClassName(Type.getClass(this));
+							// 		final to = Type.getClassName(Type.getClass(ret));
+							// 		throw 'Casting from a refcounted object ($from) to a non-refcounted object ($to) is not allowed, as it will lose the refcounting mechanism';
+							// 	case [from, to]:
+							// 		to.__ref = from.__ref;
+							// }
 							return ret;
 						}
 					}).fields);
@@ -409,6 +442,7 @@ class ClassBuilder extends EnumBuilder {
 						public var __ref:gdnative.Ref<$nct>;
 					}).fields);
 				}
+
 			default:
 		}
 

@@ -4,13 +4,9 @@ package gdnative;
 **/
 @:forward abstract JSON(gdnative.Ref<JSON_extern>) from gdnative.Ref<JSON_extern> to gdnative.Ref<JSON_extern> {
 	@:from
-	static inline function fromWrapper(v:gd.JSON):gdnative.JSON return @:privateAccess v.__ref.ptr().reinterpret();
+	static inline function fromWrapper(v:gd.JSON):gdnative.JSON return @:privateAccess v.__gd.reinterpret();
 	@:to
-	inline function toWrapper():gd.JSON {
-		final v = new gd.JSON(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
+	inline function toWrapper():gd.JSON return new gd.JSON(this);
 }
 @:include("godot_cpp/classes/json.hpp") @:native("godot::JSON") @:structAccess extern class JSON_extern extends gdnative.Resource.Resource_extern {
 	extern static inline function __alloc():cpp.Pointer<JSON_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::JSON"));

@@ -4,13 +4,9 @@ package gdnative;
 **/
 @:forward abstract Texture2D(gdnative.Ref<Texture2D_extern>) from gdnative.Ref<Texture2D_extern> to gdnative.Ref<Texture2D_extern> {
 	@:from
-	static inline function fromWrapper(v:gd.Texture2D):gdnative.Texture2D return @:privateAccess v.__ref.ptr().reinterpret();
+	static inline function fromWrapper(v:gd.Texture2D):gdnative.Texture2D return @:privateAccess v.__gd.reinterpret();
 	@:to
-	inline function toWrapper():gd.Texture2D {
-		final v = new gd.Texture2D(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
+	inline function toWrapper():gd.Texture2D return new gd.Texture2D(this);
 }
 @:include("godot_cpp/classes/texture2d.hpp") @:native("godot::Texture2D") @:structAccess extern class Texture2D_extern extends gdnative.Texture.Texture_extern {
 	extern static inline function __alloc():cpp.Pointer<Texture2D_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::Texture2D"));

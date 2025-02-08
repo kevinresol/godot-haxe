@@ -4,13 +4,9 @@ package gdnative;
 **/
 @:forward abstract InputEventKey(gdnative.Ref<InputEventKey_extern>) from gdnative.Ref<InputEventKey_extern> to gdnative.Ref<InputEventKey_extern> {
 	@:from
-	static inline function fromWrapper(v:gd.InputEventKey):gdnative.InputEventKey return @:privateAccess v.__ref.ptr().reinterpret();
+	static inline function fromWrapper(v:gd.InputEventKey):gdnative.InputEventKey return @:privateAccess v.__gd.reinterpret();
 	@:to
-	inline function toWrapper():gd.InputEventKey {
-		final v = new gd.InputEventKey(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
+	inline function toWrapper():gd.InputEventKey return new gd.InputEventKey(this);
 }
 @:include("godot_cpp/classes/input_event_key.hpp") @:native("godot::InputEventKey") @:structAccess extern class InputEventKey_extern extends gdnative.InputEventWithModifiers.InputEventWithModifiers_extern {
 	extern static inline function __alloc():cpp.Pointer<InputEventKey_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::InputEventKey"));

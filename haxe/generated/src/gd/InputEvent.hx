@@ -1,13 +1,18 @@
 package gd;
-class InputEvent extends gd.Resource {
+@:cppInclude('iostream') class InputEvent extends gd.Resource {
 	public function new(?native:cpp.Pointer<gdnative.InputEvent.InputEvent_extern>) {
+		if (Type.getClassName(Type.getClass(this)) == "gd.InputEvent") cpp.vm.Gc.setFinalizer(this, cpp.Callable.fromStaticFunction(__finalize));
 		if (native == null) {
 			gd.Utils.checkAndWarnForMissingOwner(this, "InputEvent");
 			native = gdnative.InputEvent.InputEvent_extern.__alloc();
 		};
+		null;
 		super(native.reinterpret());
 	}
 	extern inline function __inputevent_ptr():cpp.Pointer<gdnative.InputEvent.InputEvent_extern> return cast __gd.ptr;
+	static function __finalize(inst:gd.InputEvent) {
+		untyped __cpp__("std::cout << \"InputEvent::finalize\" << std::endl");
+	}
 	static public final DEVICE_ID_EMULATION : Int = -1;
 	public function set_device(p_device:Int):Int {
 		__inputevent_ptr().value.set_device(((p_device : Int)));

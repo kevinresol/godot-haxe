@@ -1,13 +1,18 @@
 package gd;
-class Node2D extends gd.CanvasItem {
+@:cppInclude('iostream') class Node2D extends gd.CanvasItem {
 	public function new(?native:cpp.Pointer<gdnative.Node2D.Node2D_extern>) {
+		if (Type.getClassName(Type.getClass(this)) == "gd.Node2D") cpp.vm.Gc.setFinalizer(this, cpp.Callable.fromStaticFunction(__finalize));
 		if (native == null) {
 			gd.Utils.checkAndWarnForMissingOwner(this, "Node2D");
 			native = gdnative.Node2D.Node2D_extern.__alloc();
 		};
+		null;
 		super(native.reinterpret());
 	}
 	extern inline function __node2d_ptr():cpp.Pointer<gdnative.Node2D.Node2D_extern> return cast __gd.ptr;
+	static function __finalize(inst:gd.Node2D) {
+		untyped __cpp__("std::cout << \"Node2D::finalize\" << std::endl");
+	}
 	public function set_position(p_position:gd.Vector2):gd.Vector2 {
 		__node2d_ptr().value.set_position(((p_position : gd.Vector2)));
 		return p_position;

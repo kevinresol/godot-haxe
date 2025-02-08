@@ -13,14 +13,14 @@
 
 extern "C" const char *hxRunLibrary();
 extern "C" void hxcpp_set_top_of_stack();
+void __hxcpp_gc_safe_point();
 
 namespace godot {
 
 CppiaScriptLanguage *CppiaScriptLanguage::singleton = nullptr;
 CppiaScriptLanguage::CppiaScriptLanguage() { singleton = this; }
 CppiaScriptLanguage::~CppiaScriptLanguage() {
-  gdcppia::gc_compact();
-  hx::SetTopOfStack((int *)0, true);
+  printf("CppiaScriptLanguage::~CppiaScriptLanguage\n");
   singleton = nullptr;
 }
 
@@ -48,7 +48,10 @@ void CppiaScriptLanguage::_init() {
   gdcppia::load_bytecode(bytecode.ptr(), bytecode.size());
 }
 void CppiaScriptLanguage::_finish() {
-  // TODO: wind down the haxe runtime
+  printf("CppiaScriptLanguage::_finish\n");
+
+  gdcppia::gc_compact();
+  hx::SetTopOfStack((int *)0, true);
 }
 
 String CppiaScriptLanguage::_get_name() const { return "Cppia"; }
@@ -273,6 +276,8 @@ TypedArray<Dictionary> CppiaScriptLanguage::_get_public_annotations() const {
 
 void CppiaScriptLanguage::_frame() {
   // printf("_frame\n");
+  gdcppia::frame();
+  // __hxcpp_gc_safe_point();
 }
 
 bool CppiaScriptLanguage::_handles_global_class_type(const String &type) const {

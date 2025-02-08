@@ -4,13 +4,9 @@ package gdnative;
 **/
 @:forward abstract InputEventMouseButton(gdnative.Ref<InputEventMouseButton_extern>) from gdnative.Ref<InputEventMouseButton_extern> to gdnative.Ref<InputEventMouseButton_extern> {
 	@:from
-	static inline function fromWrapper(v:gd.InputEventMouseButton):gdnative.InputEventMouseButton return @:privateAccess v.__ref.ptr().reinterpret();
+	static inline function fromWrapper(v:gd.InputEventMouseButton):gdnative.InputEventMouseButton return @:privateAccess v.__gd.reinterpret();
 	@:to
-	inline function toWrapper():gd.InputEventMouseButton {
-		final v = new gd.InputEventMouseButton(this.ptr());
-		v.__ref = new gdnative.Ref.Ref_extern(untyped __cpp__('{0}.get()', this));
-		return v;
-	}
+	inline function toWrapper():gd.InputEventMouseButton return new gd.InputEventMouseButton(this);
 }
 @:include("godot_cpp/classes/input_event_mouse_button.hpp") @:native("godot::InputEventMouseButton") @:structAccess extern class InputEventMouseButton_extern extends gdnative.InputEventMouse.InputEventMouse_extern {
 	extern static inline function __alloc():cpp.Pointer<InputEventMouseButton_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::InputEventMouseButton"));
