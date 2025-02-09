@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1rxbwajffble"]
+
+[ext_resource type="Script" uid="uid://h5t3d3pmutxg" path="res://Main.hx" id="1_0xm2m"]
+[ext_resource type="Texture2D" uid="uid://ccpvn22epnitt" path="res://icon.svg" id="3_bcw0c"]
+
+[node name="Main" type="Node2D"]
+position = Vector2(54.6644, 54.6644)
+script = ExtResource("1_0xm2m")
+speed = 42
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+texture = ExtResource("3_bcw0c")
+flip_v = true

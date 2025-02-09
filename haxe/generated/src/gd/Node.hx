@@ -203,6 +203,7 @@ package gd;
 	}
 	public function get_auto_translate_mode():gd.node.AutoTranslateMode return __node_ptr().value.get_auto_translate_mode();
 	public function set_translation_domain_inherited():Void __node_ptr().value.set_translation_domain_inherited();
+	public function get_tree():gd.SceneTree return __node_ptr().value.get_tree();
 	public function duplicate(?p_flags:cpp.Int64):gd.Node return switch [p_flags] {
 		case [null]:__node_ptr().value.duplicate();
 		default:__node_ptr().value.duplicate(((p_flags : cpp.Int64)));

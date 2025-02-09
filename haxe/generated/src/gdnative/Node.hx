@@ -112,6 +112,7 @@ package gdnative;
 	function set_auto_translate_mode(p_mode:gdnative.node.AutoTranslateMode):Void;
 	function get_auto_translate_mode():gdnative.node.AutoTranslateMode;
 	function set_translation_domain_inherited():Void;
+	function get_tree():gdnative.SceneTree;
 	overload function duplicate():gdnative.Node;
 	overload function duplicate(p_flags:cpp.Int64):gdnative.Node;
 	overload function replace_by(p_node:gdnative.Node):Void;

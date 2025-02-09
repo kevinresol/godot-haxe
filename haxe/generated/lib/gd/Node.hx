@@ -133,6 +133,7 @@ extern class Node extends gd.Object {
 	function set_auto_translate_mode(p_mode:gd.node.AutoTranslateMode):gd.node.AutoTranslateMode;
 	function get_auto_translate_mode():gd.node.AutoTranslateMode;
 	function set_translation_domain_inherited():Void;
+	function get_tree():gd.SceneTree;
 	function duplicate(?p_flags:cpp.Int64):gd.Node;
 	function replace_by(p_node:gd.Node, ?p_keep_groups:Bool):Void;
 	function set_scene_instance_load_placeholder(p_load_placeholder:Bool):Void;

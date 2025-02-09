@@ -28,6 +28,7 @@ class Builder {
 			'Timer',
 			'InputEventMouseMotion',
 			'InputEventMouseButton',
+			'SceneTree',
 		])
 			for (ancestor in getClassInheritance(c))
 				classes.set(ancestor, true);

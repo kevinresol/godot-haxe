@@ -12,6 +12,7 @@ config.log
 # Haxe
 haxe/bin
 export_classes.info
+dump
 
 run.sh
 extension_api.json
