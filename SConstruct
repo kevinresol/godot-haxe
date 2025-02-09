@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 import os
-import fnmatch
+import subprocess
 
 env = SConscript("godot-cpp/SConstruct")
 
@@ -13,7 +13,12 @@ env = SConscript("godot-cpp/SConstruct")
 # - LINKFLAGS are for linking flags
 
 # tweak this if you want to use different folders, or more folders, to store your source code in.
-env.Append(CPPPATH=["cpp/src/", "haxe/bin/include/", "haxe/src/include/", "/Users/kevin/haxe/haxelib/hxcpp/git/include/"])
+env.Append(CPPPATH=[
+    "cpp/src/",
+    "haxe/bin/include/",
+    "haxe/src/include/",
+    subprocess.run(['haxelib', 'libpath', 'hxcpp'], capture_output=True, text=True).stdout.rstrip() + "include/"
+])
 env.Append(CPPDEFINES=[
     "HXCPP_SCRIPTABLE",
     "HXCPP_VISIT_ALLOCS",
