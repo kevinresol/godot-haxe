@@ -40,4 +40,4 @@ jobs:
       - run: mv haxe/bin/libcppia_x86_64-debug.a haxe/bin/libcppia.a
 
       - run: scons
-      - run: godot --verbose --path test main.tscn
+      - run: godot --headless --verbose --path test main.tscn
