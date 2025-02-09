@@ -22,8 +22,7 @@ jobs:
       - name: Install Haxe Libraries
         run: haxelib git hxcpp https://github.com/HaxeFoundation/hxcpp
       - run: yes | haxelib run hxcpp
-      
+
+      - run: scons use_hot_reload=no generate_template_get_node=no
       - name: Build
         run: haxe --cwd haxe build.hxml
-        
-      
