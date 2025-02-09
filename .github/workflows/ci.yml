@@ -36,6 +36,7 @@ jobs:
 
       - name: Build
         run: haxe --cwd haxe build.hxml
+      - run: ls -lah haxe/bin
       - run: mv haxe/bin/libcppia*-debug.a haxe/bin/libcppia.a
 
       - run: scons
