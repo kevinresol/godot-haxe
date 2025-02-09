@@ -15,6 +15,11 @@ jobs:
         with:
           submodules: recursive
 
+      - name: Setup Godot
+        uses: chickensoft-games/setup-godot@v1
+        with:
+          version: 4.3.0
+
       - name: Install Lix
         uses: lix-pm/setup-lix@master
 
@@ -31,3 +36,6 @@ jobs:
 
       - name: Build
         run: haxe --cwd haxe build.hxml
+
+      - run: scons
+      - run: godot --verbose --path test main.tscn
