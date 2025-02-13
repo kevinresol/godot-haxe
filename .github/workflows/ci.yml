@@ -19,6 +19,7 @@ jobs:
         uses: chickensoft-games/setup-godot@v1
         with:
           version: 4.4.0-beta3
+          use-dotnet: false
 
       - name: Install Lix
         uses: lix-pm/setup-lix@master
