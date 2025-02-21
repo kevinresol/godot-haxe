@@ -44,4 +44,5 @@ jobs:
 
       - run: ls -Lah test/bin
 
+      - run: godot --headless --import test/project.godot
       - run: godot --headless --verbose --path test main.tscn
