@@ -42,6 +42,6 @@ jobs:
 
       - run: scons
 
-      - run: ls -lah test/bin
+      - run: ls -Lah test/bin
 
       - run: godot --headless --verbose --path test main.tscn
