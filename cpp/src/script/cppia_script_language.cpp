@@ -18,14 +18,9 @@ void __hxcpp_gc_safe_point();
 namespace godot {
 
 CppiaScriptLanguage *CppiaScriptLanguage::singleton = nullptr;
-CppiaScriptLanguage::CppiaScriptLanguage() { singleton = this; }
-CppiaScriptLanguage::~CppiaScriptLanguage() {
-  printf("CppiaScriptLanguage::~CppiaScriptLanguage\n");
-  singleton = nullptr;
-}
-
-void CppiaScriptLanguage::_init() {
-  printf("CppiaScriptLanguage::_init\n");
+CppiaScriptLanguage::CppiaScriptLanguage() {
+  printf("CppiaScriptLanguage::CppiaScriptLanguage\n");
+  singleton = this;
 
   // init haxe runtime
   hxcpp_set_top_of_stack();
@@ -33,6 +28,14 @@ void CppiaScriptLanguage::_init() {
   if (err) {
     fprintf(stderr, "Error %s\n", err);
   }
+}
+CppiaScriptLanguage::~CppiaScriptLanguage() {
+  printf("CppiaScriptLanguage::~CppiaScriptLanguage\n");
+  singleton = nullptr;
+}
+
+void CppiaScriptLanguage::_init() {
+  printf("CppiaScriptLanguage::_init\n");
 
   printf("Engine::get_singleton()->is_editor_hint() = %d\n",
          Engine::get_singleton()->is_editor_hint());
