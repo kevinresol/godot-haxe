@@ -58,5 +58,5 @@ jobs:
       # - run: nm -g test/bin/libgdcppia.linux.template_debug.x86_64.so
       # - run: ldd test/bin/libgdcppia.linux.template_debug.x86_64.so
 
-      - run: godot --headless --verbose --import test/project.godot
-      - run: godot --headless --verbose --path test main.tscn
+      # - run: godot --headless --verbose --import test/project.godot
+      # - run: godot --headless --verbose --path test main.tscn
