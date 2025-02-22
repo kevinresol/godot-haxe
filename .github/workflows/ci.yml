@@ -7,7 +7,7 @@ on:
 
 jobs:
   test:
-    runs-on: macos-latest
+    runs-on: macos-13
 
     steps:
       - name: Check out repo
@@ -35,8 +35,7 @@ jobs:
       - run: scons use_hot_reload=no generate_template_get_node=no build_library=no
         working-directory: godot-cpp
 
-      - name: Build
-        run: haxe --cwd haxe build.hxml
+      - run: haxe --cwd haxe build.hxml
       - run: lipo -create -output haxe/bin/libcppia.a haxe/bin/libcppia_arm64-debug.a haxe/bin/libcppia_x86_64-debug.a
       - run: ls -lah haxe/bin
       # - run: mv haxe/bin/libcppia_x86_64-debug.a haxe/bin/libcppia.a
