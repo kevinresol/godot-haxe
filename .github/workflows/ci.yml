@@ -15,6 +15,12 @@ jobs:
         with:
           submodules: recursive
 
+      - name: Cache hxcpp
+        uses: actions/cache@v4
+        with:
+          path: haxe/bin/**/*.o
+          key: hxcpp-${{ runner.os }}
+
       - name: Setup Godot
         uses: chickensoft-games/setup-godot@v1
         with:
