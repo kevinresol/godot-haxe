@@ -44,8 +44,8 @@ for source in sources:
 
 if env["platform"] == "macos":
     library = env.SharedLibrary(
-        "{}/lib{}.{}.{}.framework/libgdcppia.{}.{}".format(
-            outDir, libName, env["platform"], env["target"], env["platform"], env["target"]
+        "{}/lib{}.{}.{}.framework/lib{}.{}.{}".format(
+            outDir, libName, env["platform"], env["target"], libName, env["platform"], env["target"]
         ),
         source=sources,
     )
