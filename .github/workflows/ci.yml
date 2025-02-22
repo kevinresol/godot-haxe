@@ -40,7 +40,7 @@ jobs:
       - run: ls -lah haxe/bin
       - run: mv haxe/bin/libcppia_x86_64-debug.a haxe/bin/libcppia.a
 
-      - run: scons platform=linux target=template_debug debug_symbols=yes custom_api_file=./godot-cpp/gdextension/extension_api.json use_hot_reload=no generate_template_get_node=no generate_bindings=yes
+      - run: scons use_hot_reload=no generate_template_get_node=no
 
       - run: ls -Lah test/bin
       - run: nm -g test/bin/libgdcppia.linux.template_debug.x86_64.so
