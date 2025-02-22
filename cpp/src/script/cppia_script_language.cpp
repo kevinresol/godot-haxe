@@ -193,9 +193,15 @@ String CppiaScriptLanguage::_auto_indent_code(const String &code,
 
 /* Thread Functions */
 
-void CppiaScriptLanguage::_thread_enter() {}
+void CppiaScriptLanguage::_thread_enter() {
+  printf("CppiaScriptLanguage::_thread_enter\n");
+  hxcpp_set_top_of_stack();
+}
 
-void CppiaScriptLanguage::_thread_exit() {}
+void CppiaScriptLanguage::_thread_exit() {
+  printf("CppiaScriptLanguage::_thread_exit\n");
+  hx::SetTopOfStack((int *)0, true);
+}
 
 /* Debugger Functions */
 
