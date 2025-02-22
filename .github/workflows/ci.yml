@@ -21,6 +21,12 @@ jobs:
           path: haxe/bin/**/*.o
           key: hxcpp-${{ runner.os }}
 
+      - name: Cache godot-cpp
+        uses: actions/cache@v4
+        with:
+          path: godot-cpp/**/*.o
+          key: godot-cpp-${{ runner.os }}
+
       - name: Setup Godot
         uses: chickensoft-games/setup-godot@v1
         with:
