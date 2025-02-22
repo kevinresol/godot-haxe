@@ -43,6 +43,7 @@ jobs:
       - run: scons
 
       - run: ls -Lah test/bin
+      - run: nm -D test/bin/libgdcppia.linux.template_debug.x86_64.so
 
       - run: godot --headless --import test/project.godot
       - run: godot --headless --verbose --path test main.tscn

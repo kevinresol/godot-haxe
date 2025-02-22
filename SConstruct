@@ -52,7 +52,7 @@ if env["platform"] == "macos":
 elif env["platform"] == "ios":
     if env["ios_simulator"]:
         library = env.StaticLibrary(
-            "{}/lib{}.{}.{}.simulator.a".format(outDir, libName,env["platform"], env["target"]),
+            "{}/lib{}.{}.{}.simulator.a".format(outDir, libName, env["platform"], env["target"]),
             source=sources,
         )
     else:
