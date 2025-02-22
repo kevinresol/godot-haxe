@@ -7,7 +7,7 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
 
     steps:
       - name: Check out repo
@@ -37,14 +37,15 @@ jobs:
 
       - name: Build
         run: haxe --cwd haxe build.hxml
+      - run: lipo -create -output haxe/bin/libcppia.a haxe/bin/libcppia_arm64-debug.a haxe/bin/libcppia_x86_64-debug.a
       - run: ls -lah haxe/bin
-      - run: mv haxe/bin/libcppia_x86_64-debug.a haxe/bin/libcppia.a
+      # - run: mv haxe/bin/libcppia_x86_64-debug.a haxe/bin/libcppia.a
 
       - run: scons use_hot_reload=no generate_template_get_node=no
 
       - run: ls -Lah test/bin
-      - run: nm -g test/bin/libgdcppia.linux.template_debug.x86_64.so
-      - run: ldd test/bin/libgdcppia.linux.template_debug.x86_64.so
+      # - run: nm -g test/bin/libgdcppia.linux.template_debug.x86_64.so
+      # - run: ldd test/bin/libgdcppia.linux.template_debug.x86_64.so
 
       - run: godot --headless --import test/project.godot
       - run: godot --headless --verbose --path test main.tscn
