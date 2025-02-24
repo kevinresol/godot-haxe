@@ -35,6 +35,8 @@ jobs:
 
       - name: Install Lix
         uses: lix-pm/setup-lix@master
+        with:
+          lix-version: 15.12.4
 
       - name: Install Haxe
         run: lix install haxe 4.3.6 --global
