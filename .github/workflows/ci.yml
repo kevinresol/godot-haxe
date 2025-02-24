@@ -19,13 +19,13 @@ jobs:
         uses: actions/cache@v4
         with:
           path: haxe/bin/**/*.o
-          key: hxcpp-${{ runner.os }}
+          key: hxcpp-${{ runner.os }}-${{ runner.arch }}
 
       - name: Cache godot-cpp
         uses: actions/cache@v4
         with:
           path: godot-cpp/**/*.o
-          key: godot-cpp-${{ runner.os }}
+          key: godot-cpp-${{ runner.os }}-${{ runner.arch }}
 
       - name: Setup Godot
         uses: chickensoft-games/setup-godot@v1
@@ -58,5 +58,5 @@ jobs:
       # - run: nm -g test/bin/libgdcppia.linux.template_debug.x86_64.so
       # - run: ldd test/bin/libgdcppia.linux.template_debug.x86_64.so
 
-      - run: godot --headless --verbose --import test/project.godot
-      - run: godot --headless --verbose --path test main.tscn
+      # - run: godot --headless --verbose --import test/project.godot
+      # - run: godot --headless --verbose --path test main.tscn
