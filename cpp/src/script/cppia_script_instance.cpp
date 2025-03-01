@@ -23,8 +23,17 @@ CppiaScriptInstance::CppiaScriptInstance(Ref<CppiaScript> script, Object *owner,
 
   printf("owner:%llu %s\n", owner->get_instance_id(),
          owner->get_class().utf8().get_data());
-  _cppia_handle = gdcppia::create_instance(
-      script->get_path().get_file().get_basename().utf8().get_data(), owner);
+
+  if (!script.is_valid()) {
+    ERR_PRINT("CppiaScript is null! This might cause a crash.");
+  }
+
+  auto class_name =
+      script->get_path().get_file().get_basename().utf8().get_data();
+
+  printf("class_name: %s\n", class_name);
+
+  _cppia_handle = gdcppia::create_instance(class_name, owner);
 }
 
 CppiaScriptInstance::~CppiaScriptInstance() {
