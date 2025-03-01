@@ -28,6 +28,13 @@ CppiaScriptInstance::CppiaScriptInstance(Ref<CppiaScript> script, Object *owner,
     ERR_PRINT("CppiaScript is null! This might cause a crash.");
   }
 
+  UtilityFunctions::print("get_path");
+  UtilityFunctions::print(script->get_path());
+  UtilityFunctions::print("get_file");
+  UtilityFunctions::print(script->get_path().get_file());
+  UtilityFunctions::print("get_basename");
+  UtilityFunctions::print(script->get_path().get_file().get_basename());
+
   auto class_name =
       script->get_path().get_file().get_basename().utf8().get_data();
 
