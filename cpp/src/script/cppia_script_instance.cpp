@@ -35,12 +35,12 @@ CppiaScriptInstance::CppiaScriptInstance(Ref<CppiaScript> script, Object *owner,
   UtilityFunctions::print("get_basename");
   UtilityFunctions::print(script->get_path().get_file().get_basename());
 
-  auto class_name =
-      script->get_path().get_file().get_basename().utf8().get_data();
+  auto class_name = script->get_path().get_file().get_basename().utf8();
 
-  printf("class_name: %s\n", class_name);
+  printf("class_name: %s\n", class_name.get_data());
 
-  _cppia_handle = gdcppia::create_instance(class_name, owner);
+  _cppia_handle = gdcppia::create_instance(
+      ::String::create(class_name.get_data(), class_name.length()), owner);
 }
 
 CppiaScriptInstance::~CppiaScriptInstance() {
