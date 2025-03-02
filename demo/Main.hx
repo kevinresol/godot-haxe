@@ -8,8 +8,8 @@ class Base extends Node2D {
 
 	function new(owner) {
 		super(owner);
-		trace('new Base()');
-		trace(__props);
+		// trace('new Base()');
+		// trace(__props);
 	}
 }
 
@@ -21,7 +21,7 @@ class Main extends Base {
 
 	function new(owner) {
 		super(owner);
-		trace('new Main()');
+		// trace('new Main()');
 		// trace(__props);
 	}
 

@@ -42,6 +42,22 @@ abstract Variant(Variant_obj) from Variant_obj to Variant_obj {
 		this.set_indexed(index, value);
 		return value;
 	}
+
+	@:op(A == B)
+	inline function __op_equal_to_bool(p_rhs:Bool):Bool
+		return this.__op_equal_to_variant(p_rhs);
+
+	@:op(A == B)
+	inline function __op_equal_to_float(p_rhs:Float):Bool
+		return this.__op_equal_to_variant(p_rhs);
+
+	@:op(A == B)
+	inline function __op_equal_to_string(p_rhs:std.String):Bool
+		return this.__op_equal_to_variant(p_rhs);
+
+	@:op(A == B)
+	inline function __op_equal_to_variant(p_rhs:gd.Variant):Bool
+		return this.__op_equal_to_variant(p_rhs);
 }
 
 extern class Variant_obj {
@@ -58,4 +74,6 @@ extern class Variant_obj {
 	function set_named(name:std.String, value:Variant):Bool;
 	function get_indexed(index:Int):Variant;
 	function set_indexed(index:Int, value:Variant):Bool;
+
+	function __op_equal_to_variant(p_rhs:gd.Variant):Bool;
 }

@@ -2,3 +2,6 @@
 --cppia .godot/cppia/bin/script.cppia
 --class-path ../haxe/lib
 --class-path ../haxe/generated/lib
+
+--library tink_unittest
+--define no-deprecation-warnings

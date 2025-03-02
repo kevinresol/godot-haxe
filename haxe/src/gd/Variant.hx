@@ -48,6 +48,10 @@ abstract Variant(Variant_obj) from Variant_obj to Variant_obj {
 		this.set_indexed(index, value);
 		return value;
 	}
+
+	@:op(A == B)
+	inline function __op_equal_to_variant(p_rhs:gd.Variant):Bool
+		return @:privateAccess this.__op_equal_to_variant(p_rhs);
 }
 
 class Variant_obj {
@@ -107,4 +111,7 @@ class Variant_obj {
 		__gd.set_indexed(index, value.__gd, valid, oob);
 		return valid;
 	}
+
+	function __op_equal_to_variant(p_rhs:gd.Variant):Bool
+		return @:privateAccess this.__gd == ((p_rhs : gdnative.Variant));
 }

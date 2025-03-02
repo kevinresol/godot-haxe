@@ -3,15 +3,17 @@
 --class-path src
 --class-path generated/src
 --cpp bin
--D static_link
--D scriptable
--D HXCPP_CPP17
+--define static_link
+--define scriptable
+--define HXCPP_CPP17
+
 --debug
+--dce no 
 
 --each
--D HAXE_OUTPUT_PART=cppia_x86_64
--D HXCPP_M64
+--define HAXE_OUTPUT_PART=cppia_x86_64
+--define HXCPP_M64
 
 --next
--D HAXE_OUTPUT_PART=cppia_arm64
--D HXCPP_ARM64
+--define HAXE_OUTPUT_PART=cppia_arm64
+--define HXCPP_ARM64

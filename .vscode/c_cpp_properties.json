@@ -6,7 +6,7 @@
 				"${workspaceFolder}/**",
 				"~/haxe/haxelib/hxcpp/git/include"
 			],
-			"defines": ["HXCPP_SCRIPTABLE"],
+			"defines": ["HXCPP_SCRIPTABLE", "HXCPP_STACK_TRACE"],
 			"macFrameworkPath": [
 				"/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks"
 			],

@@ -141,6 +141,10 @@ abstract Variant(cpp.Struct<Variant_extern>) from cpp.Struct<Variant_extern> to 
 	// 	return this.get_named(name, r_valid);
 	// public extern inline function get_indexed(index:cpp.Int64, r_valid:cpp.Reference<Bool>, r_oob:cpp.Reference<Bool>):Variant
 	// 	return this.get_indexed(index, r_valid, r_oob);
+
+	@:op(A == B)
+	extern inline function __op_equal_to_variant(p_rhs:gdnative.Variant):Bool
+		return untyped __cpp__('{0} == {1}', val(), @:privateAccess p_rhs.val());
 }
 
 @:include("godot_cpp/classes/object.hpp")
