@@ -40,15 +40,7 @@ void CppiaScriptLanguage::_init() {
   printf("Engine::get_singleton()->is_editor_hint() = %d\n",
          Engine::get_singleton()->is_editor_hint());
 
-  // load cppia bytecode
-  String path = "res://.godot/cppia/bin/script.cppia";
-  printf("FileAccess::file_exists(path) = %s\n",
-         FileAccess::file_exists(path) ? "true" : "false");
-
-  PackedByteArray bytecode = FileAccess::get_file_as_bytes(path);
-  printf("bytecode.size() = %lld\n", bytecode.size());
-
-  gdcppia::load_bytecode(bytecode.ptr(), bytecode.size());
+  _reload_all_scripts();
 }
 void CppiaScriptLanguage::_finish() {
   printf("CppiaScriptLanguage::_finish\n");
@@ -198,12 +190,12 @@ String CppiaScriptLanguage::_auto_indent_code(const String &code,
 
 void CppiaScriptLanguage::_thread_enter() {
   printf("CppiaScriptLanguage::_thread_enter\n");
-  hxcpp_set_top_of_stack();
+  // hxcpp_set_top_of_stack();
 }
 
 void CppiaScriptLanguage::_thread_exit() {
   printf("CppiaScriptLanguage::_thread_exit\n");
-  hx::SetTopOfStack((int *)0, true);
+  // hx::SetTopOfStack((int *)0, true);
 }
 
 /* Debugger Functions */
@@ -252,7 +244,16 @@ TypedArray<Dictionary> CppiaScriptLanguage::_debug_get_current_stack_info() {
 
 void CppiaScriptLanguage::_reload_all_scripts() {
   printf("_reload_all_scripts\n");
-  // TODO: Trigger the hot reloader
+
+  // load cppia bytecode
+  String path = "res://.godot/cppia/bin/script.cppia";
+  printf("FileAccess::file_exists(path) = %s\n",
+         FileAccess::file_exists(path) ? "true" : "false");
+
+  PackedByteArray bytecode = FileAccess::get_file_as_bytes(path);
+  printf("bytecode.size() = %lld\n", bytecode.size());
+
+  gdcppia::load_bytecode(bytecode.ptr(), bytecode.size());
 }
 
 void CppiaScriptLanguage::_reload_tool_script(const Ref<Script> &script,
