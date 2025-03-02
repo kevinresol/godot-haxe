@@ -56,8 +56,8 @@ jobs:
 
       - run: scons use_hot_reload=no generate_template_get_node=no debug_symbols=yes
 
-      - run: ls -Lah test/bin
-      - run: haxe --cwd test cppia.hxml
+      - run: lix download && haxe cppia.hxml
+        working-directory: test
       # - run: nm -g test/bin/libgdcppia.linux.template_debug.x86_64.so
       # - run: ldd test/bin/libgdcppia.linux.template_debug.x86_64.so
 
