@@ -23,6 +23,13 @@ abstract Variant(Variant_obj) from Variant_obj to Variant_obj {
 	@:from static inline function fromObject(v:gd.Object):Variant
 		return Variant_obj.fromObject(v);
 
+	inline function toString():std.String
+		return this.toString();
+
+	@:to
+	inline function toArray():gd.Array
+		return this.toArray();
+
 	@:arrayAccess
 	inline function __get_named(name:std.String):Variant
 		return this.get_named(name);
@@ -68,6 +75,9 @@ extern class Variant_obj {
 	static function fromFloat(v:Float):Variant_obj;
 	static function fromString(v:std.String):Variant_obj;
 	static function fromObject(v:gd.Object):Variant_obj;
+
+	public function toString():std.String;
+	public function toArray():gd.Array;
 
 	function get_type():gd.variant.Type;
 	function get_named(name:std.String):Variant;

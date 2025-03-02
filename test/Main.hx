@@ -22,7 +22,8 @@ class JsonTest {
 				final data = json.data;
 				asserts.assert(data["foo"] == 42);
 				asserts.assert(data["bar"] == true);
-				// TODO: assert(data["baz"].length == 2)
+				// TODO: make it possible to call .size() on the Variant directly
+				asserts.assert((data["baz"] : gd.Array).size() == 2);
 				asserts.assert(data["baz"][0] == "hello");
 			case err:
 				asserts.fail('Error parsing JSON: $err');

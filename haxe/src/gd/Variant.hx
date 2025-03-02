@@ -29,6 +29,13 @@ abstract Variant(Variant_obj) from Variant_obj to Variant_obj {
 	@:from static inline function fromObject(v:gd.Object):Variant
 		return Variant_obj.fromObject(v);
 
+	inline function toString():std.String
+		return this.toString();
+
+	@:to
+	inline function toArray():gd.Array
+		return this.toArray();
+
 	@:arrayAccess
 	inline function __get_named(name:std.String):Variant
 		return this.get_named(name);
@@ -80,6 +87,12 @@ class Variant_obj {
 
 	public static function fromObject(v:gd.Object)
 		return new Variant_obj(v);
+
+	public function toString():std.String
+		return UtilityFunctions.str(this);
+
+	public function toArray():gd.Array
+		return (__gd : gdnative.Array);
 
 	public function get_type():gd.variant.Type
 		return __gd.get_type();

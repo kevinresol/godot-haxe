@@ -123,6 +123,10 @@ abstract Variant(cpp.Struct<Variant_extern>) from cpp.Struct<Variant_extern> to 
 		return ((untyped __cpp__('{0}.operator godot::String()', val()) : gdnative.String) : std.String);
 	}
 
+	@:to inline function toArray():gdnative.Array {
+		return (untyped __cpp__('{0}.operator godot::Array()', val()) : gdnative.Array);
+	}
+
 	@:to inline function toObjectPointer():gdnative.Object {
 		return (untyped __cpp__('(godot::Object*){0}', val()) : gdnative.Object);
 	}
