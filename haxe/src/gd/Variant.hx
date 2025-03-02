@@ -30,7 +30,7 @@ abstract Variant(Variant_obj) from Variant_obj to Variant_obj {
 		return Variant_obj.fromObject(v);
 
 	inline function toString():std.String
-		return this.toString();
+		return UtilityFunctions.str(this);
 
 	@:to
 	inline function toArray():gd.Array
@@ -87,9 +87,6 @@ class Variant_obj {
 
 	public static function fromObject(v:gd.Object)
 		return new Variant_obj(v);
-
-	public function toString():std.String
-		return UtilityFunctions.str(this);
 
 	public function toArray():gd.Array
 		return (__gd : gdnative.Array);

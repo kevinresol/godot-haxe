@@ -34,6 +34,7 @@ extern class Rect2_wrapper {
 @:forward @:forwardStatics abstract Rect2(Rect2_wrapper) from Rect2_wrapper to Rect2_wrapper {
 	@:to
 	inline function toVariant():gd.Variant return @:privateAccess this.toVariant();
+	inline function toString():std.String return gd.UtilityFunctions.str(toVariant());
 	public extern overload inline function new() this = Rect2_wrapper._new0();
 	public extern overload inline function new(p_from:gd.Rect2) this = Rect2_wrapper._new1(p_from);
 	public extern overload inline function new(p_position:gd.Vector2, p_size:gd.Vector2) this = Rect2_wrapper._new2(p_position, p_size);

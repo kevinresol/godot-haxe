@@ -49,6 +49,7 @@ extern class Dictionary_wrapper {
 @:forward @:forwardStatics abstract Dictionary(Dictionary_wrapper) from Dictionary_wrapper to Dictionary_wrapper {
 	@:to
 	inline function toVariant():gd.Variant return @:privateAccess this.toVariant();
+	inline function toString():std.String return gd.UtilityFunctions.str(toVariant());
 	public extern overload inline function new() this = Dictionary_wrapper._new0();
 	public extern overload inline function new(p_from:gd.Dictionary) this = Dictionary_wrapper._new1(p_from);
 	public extern overload inline function new(p_base:gd.Dictionary, p_key_type:cpp.Int64, p_key_class_name:std.String, p_key_script:gd.Variant, p_value_type:cpp.Int64, p_value_class_name:std.String, p_value_script:gd.Variant) this = Dictionary_wrapper._new2(p_base, p_key_type, p_key_class_name, p_key_script, p_value_type, p_value_class_name, p_value_script);

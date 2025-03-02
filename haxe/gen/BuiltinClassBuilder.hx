@@ -333,6 +333,9 @@ class BuiltinClassBuilder extends Builder {
 			@:to
 			inline function toVariant():gd.Variant
 				return @:privateAccess this.toVariant();
+
+			inline function toString():std.String
+				return gd.UtilityFunctions.str(toVariant());
 		}
 		abs.kind = TDAbstract(wct, [AbFrom(wct), AbTo(wct)]);
 		abs.meta = [{pos: null, name: ':forward'}, {pos: null, name: ':forwardStatics'},];

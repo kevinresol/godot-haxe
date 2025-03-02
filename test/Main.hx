@@ -1,3 +1,4 @@
+import gd.Vector2;
 import tink.testrunner.*;
 import tink.unit.*;
 
@@ -10,6 +11,7 @@ class Main extends gd.Node2D {
 			new VarargsTest(),
 			new EnumTest(),
 			new OperatorTest(),
+			new ConstantTest(),
 			new ArrayTest(),
 			new DictionaryTest(),
 			new JsonTest(),
@@ -52,6 +54,18 @@ class OperatorTest {
 		final v = new gd.Vector2(42, 2) * 2;
 		asserts.assert(v.x == 84);
 		asserts.assert(v.y == 4);
+		return asserts.done();
+	}
+}
+
+@:asserts
+class ConstantTest {
+	public function new() {}
+
+	public function test() {
+		asserts.assert(gd.Vector2.ONE == new gd.Vector2(1, 1));
+		asserts.assert(gd.Color.RED == new gd.Color(1, 0, 0, 1));
+
 		return asserts.done();
 	}
 }

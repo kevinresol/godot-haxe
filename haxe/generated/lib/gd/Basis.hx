@@ -48,6 +48,7 @@ extern class Basis_wrapper {
 @:forward @:forwardStatics abstract Basis(Basis_wrapper) from Basis_wrapper to Basis_wrapper {
 	@:to
 	inline function toVariant():gd.Variant return @:privateAccess this.toVariant();
+	inline function toString():std.String return gd.UtilityFunctions.str(toVariant());
 	public extern overload inline function new() this = Basis_wrapper._new0();
 	public extern overload inline function new(p_from:gd.Basis) this = Basis_wrapper._new1(p_from);
 	public extern overload inline function new(p_from:gd.Quaternion) this = Basis_wrapper._new2(p_from);

@@ -22,6 +22,7 @@ class RID_wrapper {
 @:forward @:forwardStatics abstract RID(RID_wrapper) from RID_wrapper to RID_wrapper {
 	@:to
 	inline function toVariant():gd.Variant return @:privateAccess this.toVariant();
+	inline function toString():std.String return gd.UtilityFunctions.str(toVariant());
 	public extern overload inline function new() this = @:privateAccess RID_wrapper._new0();
 	public extern overload inline function new(p_from:gd.RID) this = @:privateAccess RID_wrapper._new1(p_from);
 	@:op(A == B)

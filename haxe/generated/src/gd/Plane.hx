@@ -66,6 +66,7 @@ class Plane_wrapper {
 @:forward @:forwardStatics abstract Plane(Plane_wrapper) from Plane_wrapper to Plane_wrapper {
 	@:to
 	inline function toVariant():gd.Variant return @:privateAccess this.toVariant();
+	inline function toString():std.String return gd.UtilityFunctions.str(toVariant());
 	public extern overload inline function new() this = @:privateAccess Plane_wrapper._new0();
 	public extern overload inline function new(p_from:gd.Plane) this = @:privateAccess Plane_wrapper._new1(p_from);
 	public extern overload inline function new(p_normal:gd.Vector3) this = @:privateAccess Plane_wrapper._new2(p_normal);

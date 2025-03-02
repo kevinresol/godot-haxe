@@ -108,6 +108,7 @@ class Array_wrapper {
 @:forward @:forwardStatics abstract Array(Array_wrapper) from Array_wrapper to Array_wrapper {
 	@:to
 	inline function toVariant():gd.Variant return @:privateAccess this.toVariant();
+	inline function toString():std.String return gd.UtilityFunctions.str(toVariant());
 	public extern overload inline function new() this = @:privateAccess Array_wrapper._new0();
 	public extern overload inline function new(p_from:gd.Array) this = @:privateAccess Array_wrapper._new1(p_from);
 	public extern overload inline function new(p_base:gd.Array, p_type:cpp.Int64, p_class_name:std.String, p_script:gd.Variant) this = @:privateAccess Array_wrapper._new2(p_base, p_type, p_class_name, p_script);

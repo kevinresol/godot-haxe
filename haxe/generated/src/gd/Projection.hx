@@ -80,6 +80,7 @@ class Projection_wrapper {
 @:forward @:forwardStatics abstract Projection(Projection_wrapper) from Projection_wrapper to Projection_wrapper {
 	@:to
 	inline function toVariant():gd.Variant return @:privateAccess this.toVariant();
+	inline function toString():std.String return gd.UtilityFunctions.str(toVariant());
 	public extern overload inline function new() this = @:privateAccess Projection_wrapper._new0();
 	public extern overload inline function new(p_from:gd.Projection) this = @:privateAccess Projection_wrapper._new1(p_from);
 	public extern overload inline function new(p_from:gd.Transform3D) this = @:privateAccess Projection_wrapper._new2(p_from);

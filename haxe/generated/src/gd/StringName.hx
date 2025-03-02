@@ -228,6 +228,7 @@ class StringName_wrapper {
 @:forward @:forwardStatics abstract StringName(StringName_wrapper) from StringName_wrapper to StringName_wrapper {
 	@:to
 	inline function toVariant():gd.Variant return @:privateAccess this.toVariant();
+	inline function toString():std.String return gd.UtilityFunctions.str(toVariant());
 	public extern overload inline function new() this = @:privateAccess StringName_wrapper._new0();
 	public extern overload inline function new(p_from:std.String) this = @:privateAccess StringName_wrapper._new1(p_from);
 	@:op(A == B)

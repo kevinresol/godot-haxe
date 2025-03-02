@@ -52,6 +52,7 @@ class PackedFloat32Array_wrapper {
 @:forward @:forwardStatics abstract PackedFloat32Array(PackedFloat32Array_wrapper) from PackedFloat32Array_wrapper to PackedFloat32Array_wrapper {
 	@:to
 	inline function toVariant():gd.Variant return @:privateAccess this.toVariant();
+	inline function toString():std.String return gd.UtilityFunctions.str(toVariant());
 	public extern overload inline function new() this = @:privateAccess PackedFloat32Array_wrapper._new0();
 	public extern overload inline function new(p_from:gd.PackedFloat32Array) this = @:privateAccess PackedFloat32Array_wrapper._new1(p_from);
 	public extern overload inline function new(p_from:gd.Array) this = @:privateAccess PackedFloat32Array_wrapper._new2(p_from);

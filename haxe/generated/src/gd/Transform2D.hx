@@ -65,6 +65,7 @@ class Transform2D_wrapper {
 @:forward @:forwardStatics abstract Transform2D(Transform2D_wrapper) from Transform2D_wrapper to Transform2D_wrapper {
 	@:to
 	inline function toVariant():gd.Variant return @:privateAccess this.toVariant();
+	inline function toString():std.String return gd.UtilityFunctions.str(toVariant());
 	public extern overload inline function new() this = @:privateAccess Transform2D_wrapper._new0();
 	public extern overload inline function new(p_from:gd.Transform2D) this = @:privateAccess Transform2D_wrapper._new1(p_from);
 	public extern overload inline function new(p_rotation:Float, p_position:gd.Vector2) this = @:privateAccess Transform2D_wrapper._new2(p_rotation, p_position);

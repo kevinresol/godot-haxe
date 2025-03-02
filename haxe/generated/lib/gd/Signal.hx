@@ -24,6 +24,7 @@ extern class Signal_wrapper {
 @:forward @:forwardStatics abstract Signal(Signal_wrapper) from Signal_wrapper to Signal_wrapper {
 	@:to
 	inline function toVariant():gd.Variant return @:privateAccess this.toVariant();
+	inline function toString():std.String return gd.UtilityFunctions.str(toVariant());
 	public extern overload inline function new() this = Signal_wrapper._new0();
 	public extern overload inline function new(p_from:gd.Signal) this = Signal_wrapper._new1(p_from);
 	public extern overload inline function new(p_object:gd.Object, p_signal:std.String) this = Signal_wrapper._new2(p_object, p_signal);

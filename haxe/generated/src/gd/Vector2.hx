@@ -100,6 +100,7 @@ class Vector2_wrapper {
 @:forward @:forwardStatics abstract Vector2(Vector2_wrapper) from Vector2_wrapper to Vector2_wrapper {
 	@:to
 	inline function toVariant():gd.Variant return @:privateAccess this.toVariant();
+	inline function toString():std.String return gd.UtilityFunctions.str(toVariant());
 	public extern overload inline function new() this = @:privateAccess Vector2_wrapper._new0();
 	public extern overload inline function new(p_from:gd.Vector2) this = @:privateAccess Vector2_wrapper._new1(p_from);
 	public extern overload inline function new(p_x:Float, p_y:Float) this = @:privateAccess Vector2_wrapper._new2(p_x, p_y);

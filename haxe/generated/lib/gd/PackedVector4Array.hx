@@ -38,6 +38,7 @@ extern class PackedVector4Array_wrapper {
 @:forward @:forwardStatics abstract PackedVector4Array(PackedVector4Array_wrapper) from PackedVector4Array_wrapper to PackedVector4Array_wrapper {
 	@:to
 	inline function toVariant():gd.Variant return @:privateAccess this.toVariant();
+	inline function toString():std.String return gd.UtilityFunctions.str(toVariant());
 	public extern overload inline function new() this = PackedVector4Array_wrapper._new0();
 	public extern overload inline function new(p_from:gd.PackedVector4Array) this = PackedVector4Array_wrapper._new1(p_from);
 	public extern overload inline function new(p_from:gd.Array) this = PackedVector4Array_wrapper._new2(p_from);
