@@ -13,6 +13,7 @@ class Main extends gd.Node2D {
 			new ArrayTest(),
 			new DictionaryTest(),
 			new JsonTest(),
+			new InstanceMethodTest(this),
 		])).handle(result -> get_tree().quit(result.summary().failures.length));
 	}
 }
@@ -137,5 +138,27 @@ class JsonTest {
 			case err:
 				asserts.fail('Error parsing JSON: $err');
 		}
+	}
+}
+
+@:asserts
+class InstanceMethodTest {
+	final node:gd.Node2D;
+
+	public function new(node:gd.Node2D)
+		this.node = node;
+
+	public function test() {
+		asserts.assert(node.get_child_count() == 1);
+		asserts.assert(node.get_child_count(false) == 1);
+		asserts.assert(node.get_child_count(true) == 1);
+		asserts.assert(node.get_name() == 'Main');
+		asserts.assert(node.get_index() == 0);
+		asserts.assert(node.get_tree_string() == '.\nNode2D\nNode2D/Sprite2D\n');
+		asserts.assert(node.get_scene_file_path() == 'res://main.tscn');
+		final sprite = node.get_node('Node2D/Sprite2D').cast_to(gd.Sprite2D);
+		asserts.assert(sprite.get_name() == 'Sprite2D');
+
+		return asserts.done();
 	}
 }
