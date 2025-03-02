@@ -55,6 +55,10 @@ abstract Variant(Variant_obj) from Variant_obj to Variant_obj {
 		return this.__op_equal_to_variant(p_rhs);
 
 	@:op(A == B)
+	inline function __op_equal_to_int(p_rhs:Int):Bool
+		return this.__op_equal_to_variant(p_rhs);
+
+	@:op(A == B)
 	inline function __op_equal_to_float(p_rhs:Float):Bool
 		return this.__op_equal_to_variant(p_rhs);
 
