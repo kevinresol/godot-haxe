@@ -17,6 +17,7 @@ class Main extends gd.Node2D {
 			new DictionaryTest(),
 			new JsonTest(),
 			new InstanceMethodTest(this),
+			new MemoryTest(),
 		])).handle(result -> get_tree().quit(result.summary().failures.length));
 	}
 }
@@ -49,6 +50,7 @@ class OperatorTest {
 	public function new() {}
 
 	public function test() {
+		asserts.assert(new gd.Vector2(42, 0) == new gd.Vector2(42, 0));
 		final v = new gd.Vector2(42, 0) + new gd.Vector2(3, 4);
 		asserts.assert(v.x == 45);
 		asserts.assert(v.y == 4);
@@ -137,10 +139,13 @@ class DictionaryTest {
 
 @:asserts
 class JsonTest {
+	public static var instanceId(default, null):cpp.Int64;
+
 	public function new() {}
 
 	public function parse() {
 		final json = new gd.JSON();
+		instanceId = json.get_instance_id();
 		return switch json.parse('{"foo": 42, "bar": true, "baz": ["hello", "world"]}') {
 			case OK:
 				final data = json.data;
@@ -190,6 +195,20 @@ class InstanceMethodTest {
 		asserts.assert(node.get_scene_file_path() == 'res://main.tscn');
 		final sprite = node.get_node('Node2D/Sprite2D').cast_to(gd.Sprite2D);
 		asserts.assert(sprite.get_name() == 'Sprite2D');
+
+		return asserts.done();
+	}
+}
+
+@:asserts
+class MemoryTest {
+	public function new() {}
+
+	public function test() {
+		cpp.vm.Gc.compact(); // force a GC cycle
+
+		asserts.assert(JsonTest.instanceId != 0); // make sure it is set
+		asserts.assert(!gd.Global.is_instance_id_valid(JsonTest.instanceId));
 
 		return asserts.done();
 	}
