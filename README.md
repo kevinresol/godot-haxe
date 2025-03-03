@@ -30,7 +30,7 @@ node.process_mode = DISABLED;
 ## Built-in Value Types
 
 Built-in types like `Vector2` and `Rect2` are value types, which means they are copied when passed around.
-Also, GDExtension code has no direct access to the memory location for these values and they are always copied between the extension and the engine.
+Also, GDExtension code has no direct access to the memory location for these values and they are always copied between the extension (this library) and the engine (godot).
 
 Therefore, code like below will not work:
 

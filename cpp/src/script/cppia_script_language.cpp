@@ -19,7 +19,9 @@ namespace godot {
 
 CppiaScriptLanguage *CppiaScriptLanguage::singleton = nullptr;
 CppiaScriptLanguage::CppiaScriptLanguage() {
-  printf("CppiaScriptLanguage::CppiaScriptLanguage\n");
+  uint64_t tid;
+  pthread_threadid_np(NULL, &tid);
+  printf("CppiaScriptLanguage::CppiaScriptLanguage (%llu)\n", tid);
   singleton = this;
 
   // init haxe runtime

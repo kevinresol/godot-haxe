@@ -5,22 +5,17 @@ import tink.unit.*;
 @:rtti
 class Main extends gd.Node2D {
 	override function _ready() {
-		static var executed = false;
-
-		if (!executed) {
-			executed = true;
-			Runner.run(TestBatch.make([
-				new UtilityFunctionTest(),
-				new EnumTest(),
-				new OperatorTest(),
-				new ConstantTest(),
-				new ArrayTest(),
-				new DictionaryTest(),
-				new JsonTest(),
-				new InstanceMethodTest(this),
-				new MemoryTest(),
-			])).handle(result -> get_tree().quit(result.summary().failures.length));
-		}
+		Runner.run(TestBatch.make([
+			new UtilityFunctionTest(),
+			new EnumTest(),
+			new OperatorTest(),
+			new ConstantTest(),
+			new ArrayTest(),
+			new DictionaryTest(),
+			new JsonTest(),
+			new InstanceMethodTest(this),
+			new MemoryTest(),
+		])).handle(result -> get_tree().quit(result.summary().failures.length));
 	}
 }
 

@@ -14,13 +14,10 @@ using Lambda;
 class Cppia {
 	static final mutex = new sys.thread.Mutex();
 
-	static function printThreadId(name:std.String) {
-		trace('Thread ID for $name');
-		untyped __cpp__('std::thread::id currentThreadId = std::this_thread::get_id()');
-		untyped __cpp__('std::hash<std::thread::id> hasher');
-		untyped __cpp__('size_t hashedId = hasher(currentThreadId)');
-		untyped __cpp__('std::cout << "Current Thread ID: " << currentThreadId << std::endl');
-		untyped __cpp__('std::cout << "Current Thread ID (Hashed): " << hashedId << std::endl');
+	public static function printThreadId(name:std.String) {
+		var tid:cpp.UInt64 = 0;
+		untyped __cpp__('pthread_threadid_np(NULL, &{0})', tid);
+		trace('$name thread id: $tid');
 	}
 
 	static var rc1:cpp.Pointer<gdnative.RefCounted.RefCounted_extern>;
@@ -70,6 +67,10 @@ class Cppia {
 		trace('varargs checks (host)');
 		print(min(1, 2, 3));
 		print(max(1, 2, 3));
+
+		// trace('Variant checks (host)');
+		// final arr:gd.Variant = new gd.Array();
+		// print(arr.size());
 
 		trace('Enum checks (host)');
 		print(gd.variant.Type.INT);
@@ -205,14 +206,18 @@ class Cppia {
 	}
 
 	public static function instanceCall(inst:Dynamic, methodName:std.String, args:std.Array<Dynamic>):Void {
-		// printThreadId("instanceCall");
 		if (inst == null) {
 			trace('Instance is null');
 			return;
 		}
 		final fn = Reflect.field(inst, methodName);
 		if (fn != null) {
-			Reflect.callMethod(inst, fn, args);
+			printThreadId('instanceCall $methodName');
+			try {
+				Reflect.callMethod(inst, fn, args);
+			} catch (e) {
+				trace(haxe.CallStack.toString(haxe.CallStack.exceptionStack()));
+			}
 		}
 	}
 
