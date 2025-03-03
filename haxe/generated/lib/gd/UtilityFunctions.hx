@@ -87,7 +87,7 @@ package gd;
 	static function seed(p_base:cpp.Int64):Void;
 	static function rand_from_seed(p_seed:cpp.Int64):gd.PackedInt64Array;
 	static function weakref(p_obj:gd.Variant):gd.Variant;
-	static function typeof(p_variable:gd.Variant):cpp.Int64;
+	static function typeof(p_variable:gd.Variant):gd.variant.Type;
 	static function type_convert(p_variant:gd.Variant, p_type:cpp.Int64):gd.Variant;
 	static function str(p_arg1:gd.Variant, p_args:haxe.Rest<gd.Variant>):std.String;
 	static function error_string(p_error:cpp.Int64):std.String;

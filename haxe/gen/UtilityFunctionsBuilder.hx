@@ -71,7 +71,7 @@ class UtilityFunctionsBuilder extends Builder {
 					access: isScriptExtern ? [AStatic] : [APublic, AStatic],
 					kind: FFun({
 						args: makeArgumentsForWrapper(arguments, fn.is_vararg),
-						ret: makeHaxeType(rtype),
+						ret: makeHaxeType(fname == 'typeof' ? 'enum::Variant.Type' : rtype),
 						expr: isScriptExtern ? null : {
 							final f = macro gdnative.UtilityFunctions.$fname;
 
@@ -81,7 +81,10 @@ class UtilityFunctionsBuilder extends Builder {
 								final callArgs = arguments.map(arg -> macro $i{'p_${arg.name}'});
 								macro $f($a{callArgs});
 							}
-							rtype == 'void' ? e : macro return $e;
+							switch fname {
+								case 'typeof': macro return cast $e;
+								default: rtype == 'void' ? e : macro return $e;
+							}
 						},
 					})
 				});

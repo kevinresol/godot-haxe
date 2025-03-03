@@ -101,7 +101,7 @@ package gd;
 	public static function seed(p_base:cpp.Int64):Void gdnative.UtilityFunctions.seed(p_base);
 	public static function rand_from_seed(p_seed:cpp.Int64):gd.PackedInt64Array return gdnative.UtilityFunctions.rand_from_seed(p_seed);
 	public static function weakref(p_obj:gd.Variant):gd.Variant return gdnative.UtilityFunctions.weakref(p_obj);
-	public static function typeof(p_variable:gd.Variant):cpp.Int64 return gdnative.UtilityFunctions.typeof(p_variable);
+	public static function typeof(p_variable:gd.Variant):gd.variant.Type return cast gdnative.UtilityFunctions.typeof(p_variable);
 	public static function type_convert(p_variant:gd.Variant, p_type:cpp.Int64):gd.Variant return gdnative.UtilityFunctions.type_convert(p_variant, p_type);
 	public static function str(p_arg1:gd.Variant, p_args:haxe.Rest<gd.Variant>):std.String return {
 		final vlen = p_args.length, len = 1 + vlen;

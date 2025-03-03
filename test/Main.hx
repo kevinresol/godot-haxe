@@ -1,3 +1,4 @@
+import gdutil.Global;
 import gd.Vector2;
 import tink.testrunner.*;
 import tink.unit.*;
@@ -75,14 +76,14 @@ class UtilityFunctionTest {
 	public function new() {}
 
 	public function typeof() {
-		asserts.assert(gd.Global.typeof(42) == gd.variant.Type.INT);
-		asserts.assert(gd.Global.typeof(42.3) == gd.variant.Type.FLOAT);
-		asserts.assert(gd.Global.typeof(true) == gd.variant.Type.BOOL);
-		asserts.assert(gd.Global.typeof('HaxeString') == gd.variant.Type.STRING);
-		asserts.assert(gd.Global.typeof(new gd.Vector2()) == gd.variant.Type.VECTOR2);
-		asserts.assert(gd.Global.typeof(new gd.Vector2(42, 44)) == gd.variant.Type.VECTOR2);
-		asserts.assert(gd.Global.typeof(new gd.Vector3(42, 44, 46)) == gd.variant.Type.VECTOR3);
-		asserts.assert(gd.Global.typeof(new gd.NodePath('Node/Path')) == gd.variant.Type.NODE_PATH);
+		asserts.assert(gd.Global.typeof(42) == INT);
+		asserts.assert(gd.Global.typeof(42.3) == FLOAT);
+		asserts.assert(gd.Global.typeof(true) == BOOL);
+		asserts.assert(gd.Global.typeof('HaxeString') == STRING);
+		asserts.assert(gd.Global.typeof(new gd.Vector2()) == VECTOR2);
+		asserts.assert(gd.Global.typeof(new gd.Vector2(42, 44)) == VECTOR2);
+		asserts.assert(gd.Global.typeof(new gd.Vector3(42, 44, 46)) == VECTOR3);
+		asserts.assert(gd.Global.typeof(new gd.NodePath('Node/Path')) == NODE_PATH);
 		return asserts.done();
 	}
 }
@@ -152,6 +153,23 @@ class JsonTest {
 			case err:
 				asserts.fail('Error parsing JSON: $err');
 		}
+	}
+
+	public function stringifyArray() {
+		final arr = new gd.Array();
+		for (i in 0...3)
+			arr.push_back(i);
+		final json = gd.JSON.stringify(arr);
+		asserts.assert(json == '[0,1,2]');
+		return asserts.done();
+	}
+
+	public function stringifyDictionary() {
+		final dict = new gd.Dictionary();
+		dict['foo'] = 42;
+		final json = gd.JSON.stringify(dict);
+		asserts.assert(json == '{"foo":42}');
+		return asserts.done();
 	}
 }
 
