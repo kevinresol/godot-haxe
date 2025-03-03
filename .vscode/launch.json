@@ -13,6 +13,14 @@
 			"cwd": "${workspaceFolder}"
 		},
 		{
+			"name": "Debug Test",
+			"type": "lldb",
+			"request": "launch",
+			"program": "~/Codes/godot/bin/godot.macos.editor.dev.arm64",
+			"args": ["--headless", "--path", "test", "--verbose", "main.tscn"],
+			"cwd": "${workspaceFolder}"
+		},
+		{
 			"name": "Debug Editor",
 			"type": "lldb",
 			"request": "launch",

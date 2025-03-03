@@ -1,4 +1,3 @@
-import gdutil.Global;
 import gd.Vector2;
 import tink.testrunner.*;
 import tink.unit.*;
@@ -6,31 +5,22 @@ import tink.unit.*;
 @:rtti
 class Main extends gd.Node2D {
 	override function _ready() {
-		Runner.run(TestBatch.make([
-			//
-			new UtilityFunctionTest(),
-			new VarargsTest(),
-			new EnumTest(),
-			new OperatorTest(),
-			new ConstantTest(),
-			new ArrayTest(),
-			new DictionaryTest(),
-			new JsonTest(),
-			new InstanceMethodTest(this),
-			new MemoryTest(),
-		])).handle(result -> get_tree().quit(result.summary().failures.length));
-	}
-}
+		static var executed = false;
 
-@:asserts
-class VarargsTest {
-	public function new() {}
-
-	public function test() {
-		asserts.assert(gd.Global.min(1, 2, 3, 4) == 1);
-		asserts.assert(gd.Global.max(1, 2, 3, 4) == 4);
-
-		return asserts.done();
+		if (!executed) {
+			executed = true;
+			Runner.run(TestBatch.make([
+				new UtilityFunctionTest(),
+				new EnumTest(),
+				new OperatorTest(),
+				new ConstantTest(),
+				new ArrayTest(),
+				new DictionaryTest(),
+				new JsonTest(),
+				new InstanceMethodTest(this),
+				new MemoryTest(),
+			])).handle(result -> get_tree().quit(result.summary().failures.length));
+		}
 	}
 }
 
@@ -86,6 +76,13 @@ class UtilityFunctionTest {
 		asserts.assert(gd.Global.typeof(new gd.Vector2(42, 44)) == VECTOR2);
 		asserts.assert(gd.Global.typeof(new gd.Vector3(42, 44, 46)) == VECTOR3);
 		asserts.assert(gd.Global.typeof(new gd.NodePath('Node/Path')) == NODE_PATH);
+		return asserts.done();
+	}
+
+	public function varargs() {
+		asserts.assert(gd.Global.min(1, 2, 3, 4) == 1);
+		asserts.assert(gd.Global.max(1, 2, 3, 4) == 4);
+
 		return asserts.done();
 	}
 }
@@ -196,6 +193,10 @@ class InstanceMethodTest {
 		final sprite = node.get_node('Node2D/Sprite2D').cast_to(gd.Sprite2D);
 		asserts.assert(sprite.get_name() == 'Sprite2D');
 
+		trace(node.get_class());
+		trace(sprite.get_class());
+		trace(sprite.get_class());
+		trace(sprite.get_class());
 		return asserts.done();
 	}
 }

@@ -5,6 +5,7 @@
 	],
 	"C_Cpp.clang_format_fallbackStyle": "Google",
 	"haxe.configurations": [
+		["--cwd", "test", "cppia.hxml"],
 		["--cwd", "demo", "cppia.hxml"],
 		["--cwd", "haxe", "build.hxml"],
 		["--cwd", "haxe", "gen.hxml"]
