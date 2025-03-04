@@ -77,58 +77,61 @@ class Macro {
 	}
 
 	static function makePropertyInfo(cls:ClassType, field:Field):Array<Expr> {
-		var exported = false;
-		var type = macro gd.variant.Type.NIL;
-		var hint = macro gd.PropertyHint.NONE;
-		var hintString = macro '';
-		var usage = macro gd.PropertyUsageFlags.NONE;
-
 		final infos = [];
+		var exported = false;
 
 		for (meta in field.meta) {
-			if (exportAnnotations.contains(meta.name)) {
-				// ref: https://github.com/godotengine/godot/blob/1753893c60ac309c21a77201725fa2820caf7f1e/modules/gdscript/gdscript_parser.cpp#L102
-				// TODO: fully implement all export annotations
-				if (exported) {
-					Context.error('Multiple export annotations on field is not allowed', meta.pos);
-				} else {
-					exported = true;
-					type = switch field.kind {
-						case FVar(t, _) | FProp(_, _, t, _):
-							if (t == null)
-								Context.error('Exported field must be typed explicity', field.pos);
-							complexTypeToVariantTypeExpr(t);
-						default: throw 'Unreachable';
+			switch exportGroupAnnotations.get(meta.name) {
+				case null: // no-op
+				case {args: args, usage: usage}:
+					if (meta.params.length < args.mandatory || meta.params.length > args.mandatory + args.optional) {
+						final count = args.optional == 0 ? '${args.mandatory}' : '${args.mandatory} to ${args.mandatory + args.optional}';
+						Context.error('${meta.name} expects ${count} argument(s)', meta.pos);
 					}
-					if (meta.name == 'export_range')
-						hint = macro gd.PropertyHint.RANGE;
-					usage = macro gd.PropertyUsageFlags.DEFAULT;
-					hintString = macro $v{meta.params.map(p -> new haxe.macro.Printer().printExpr(p)).join(',')};
-				}
-			} else {
-				switch exportGroupAnnotations.get(meta.name) {
-					case null:
-					case usage:
+					for (arg in meta.params) {
+						if (!arg.expr.match(EConst(CString(_)))) {
+							Context.error('This ${meta.name} argument should be a string', arg.pos);
+						}
+					}
+					infos.push(macro {
+						type: gd.variant.Type.NIL,
+						name: ${meta.params[0]},
+						className: $v{cls.name},
+						hint: gd.PropertyHint.NONE,
+						hintString: ${meta.params[1] ?? macro ''},
+						usage: $usage,
+					});
+			}
+
+			switch exportAnnotations.get(meta.name) {
+				case null: // no-op
+				case {hint: hint}:
+					// ref: https://github.com/godotengine/godot/blob/1753893c60ac309c21a77201725fa2820caf7f1e/modules/gdscript/gdscript_parser.cpp#L102
+					// TODO: fully implement all export annotations
+					if (exported) {
+						Context.error('Multiple export annotations on field is not allowed', meta.pos);
+					} else {
+						exported = true;
+
 						infos.push(macro {
-							type: gd.variant.Type.NIL,
-							name: $e{meta.params[0]},
+							type: ${
+								switch field.kind {
+									case FVar(t, _) | FProp(_, _, t, _):
+										if (t == null)
+											Context.error('Exported field must be typed explicity', field.pos);
+										complexTypeToVariantTypeExpr(t);
+									default: throw 'Unreachable';
+								}
+							},
+							name: $v{field.name},
 							className: $v{cls.name},
-							hint: gd.PropertyHint.NONE,
-							hintString: "",
-							usage: $usage,
+							hint: ${hint},
+							hintString: $v{meta.params.map(p -> new haxe.macro.Printer().printExpr(p)).join(',')},
+							usage: gd.PropertyUsageFlags.DEFAULT,
 						});
-				}
+					}
 			}
 		}
-
-		infos.push(macro {
-			type: $e{type},
-			name: $v{field.name},
-			className: $v{cls.name},
-			hint: $hint,
-			hintString: $hintString,
-			usage: $usage,
-		});
 
 		return infos;
 	}
@@ -152,32 +155,32 @@ class Macro {
 	}
 
 	static final exportAnnotations = [
-		'export',
-		'export_enum',
-		'export_file',
-		'export_dir',
-		'export_global_file',
-		'export_global_dir',
-		'export_multiline',
-		'export_placeholder',
-		'export_range',
-		'export_exp_easing',
-		'export_color_no_alpha',
-		'export_node_path',
-		'export_flags',
-		'export_flags_2d_render',
-		'export_flags_2d_physics',
-		'export_flags_2d_navigation',
-		'export_flags_3d_render',
-		'export_flags_3d_physics',
-		'export_flags_3d_navigation',
-		'export_flags_avoidance',
+		'export' => {hint: macro gd.PropertyHint.NONE},
+		'export_enum' => {hint: macro gd.PropertyHint.ENUM},
+		'export_file' => {hint: macro gd.PropertyHint.FILE},
+		'export_dir' => {hint: macro gd.PropertyHint.DIR},
+		'export_global_file' => {hint: macro gd.PropertyHint.GLOBAL_FILE},
+		'export_global_dir' => {hint: macro gd.PropertyHint.GLOBAL_DIR},
+		'export_multiline' => {hint: macro gd.PropertyHint.MULTILINE_TEXT},
+		'export_placeholder' => {hint: macro gd.PropertyHint.PLACEHOLDER_TEXT},
+		'export_range' => {hint: macro gd.PropertyHint.RANGE},
+		'export_exp_easing' => {hint: macro gd.PropertyHint.EXP_EASING},
+		'export_color_no_alpha' => {hint: macro gd.PropertyHint.COLOR_NO_ALPHA},
+		'export_node_path' => {hint: macro gd.PropertyHint.NODE_PATH_VALID_TYPES},
+		'export_flags' => {hint: macro gd.PropertyHint.FLAGS},
+		'export_flags_2d_render' => {hint: macro gd.PropertyHint.LAYERS_2D_RENDER},
+		'export_flags_2d_physics' => {hint: macro gd.PropertyHint.LAYERS_2D_PHYSICS},
+		'export_flags_2d_navigation' => {hint: macro gd.PropertyHint.LAYERS_2D_NAVIGATION},
+		'export_flags_3d_render' => {hint: macro gd.PropertyHint.LAYERS_3D_RENDER},
+		'export_flags_3d_physics' => {hint: macro gd.PropertyHint.LAYERS_3D_PHYSICS},
+		'export_flags_3d_navigation' => {hint: macro gd.PropertyHint.LAYERS_3D_NAVIGATION},
+		'export_flags_avoidance' => {hint: macro gd.PropertyHint.LAYERS_AVOIDANCE},
 	];
 
 	static final exportGroupAnnotations = [
-		'export_category' => (macro gd.PropertyUsageFlags.CATEGORY),
-		'export_group' => (macro gd.PropertyUsageFlags.GROUP),
-		'export_subgroup' => (macro gd.PropertyUsageFlags.SUBGROUP),
+		'export_category' => {args: {mandatory: 1, optional: 0}, usage: (macro gd.PropertyUsageFlags.CATEGORY)},
+		'export_group' => {args: {mandatory: 1, optional: 1}, usage: (macro gd.PropertyUsageFlags.GROUP)},
+		'export_subgroup' => {args: {mandatory: 1, optional: 1}, usage: (macro gd.PropertyUsageFlags.SUBGROUP)},
 	];
 }
 /**
