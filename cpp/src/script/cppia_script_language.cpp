@@ -6,6 +6,7 @@
 #include <godot_cpp/classes/editor_interface.hpp>
 #include <godot_cpp/classes/engine.hpp>
 #include <godot_cpp/classes/file_access.hpp>
+#include <godot_cpp/classes/os.hpp>
 #include <godot_cpp/classes/resource_loader.hpp>
 
 #include "../helper.h"
@@ -246,6 +247,9 @@ TypedArray<Dictionary> CppiaScriptLanguage::_debug_get_current_stack_info() {
 
 void CppiaScriptLanguage::_reload_all_scripts() {
   printf("_reload_all_scripts\n");
+
+  // compile cppia bytecode
+  OS::get_singleton()->execute("haxe", {"cppia.hxml"});
 
   // load cppia bytecode
   String path = "res://.godot/cppia/bin/script.cppia";
