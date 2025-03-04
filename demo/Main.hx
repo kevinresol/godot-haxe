@@ -15,6 +15,9 @@ class Base extends Node2D {
 
 @:rtti
 class Main extends Base {
+	@export_category("MyCategory")
+	@export_group("MyGroup")
+	@export_subgroup("MySubGroup")
 	@export_range(0, 100)
 	var speed:Float = 42;
 

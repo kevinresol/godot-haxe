@@ -6,6 +6,7 @@ import haxe.macro.Type;
 
 using haxe.macro.TypeTools;
 using StringTools;
+using Lambda;
 
 class Macro {
 	static macro function buildObject():std.Array<Field> {
@@ -20,7 +21,7 @@ class Macro {
 				kind: FVar(macro :std.Array<gdcppia.PropertyInfo>, {
 					final props:Expr = {
 						pos: Context.currentPos(),
-						expr: EArrayDecl(fields.filter(f -> f.kind.match(FVar(_) | FProp(_))).map(f -> makePropertyInfo(cls, f)))
+						expr: EArrayDecl(fields.filter(f -> f.kind.match(FVar(_) | FProp(_))).flatMap(f -> makePropertyInfo(cls, f)))
 					}
 
 					if (parent == null || parent.isExtern)
@@ -75,17 +76,21 @@ class Macro {
 		return fields;
 	}
 
-	static function makePropertyInfo(cls:ClassType, field:Field):Expr {
+	static function makePropertyInfo(cls:ClassType, field:Field):Array<Expr> {
 		var exported = false;
 		var type = macro gd.variant.Type.NIL;
 		var hint = macro gd.PropertyHint.NONE;
 		var hintString = macro '';
 		var usage = macro gd.PropertyUsageFlags.NONE;
 
+		final infos = [];
+
 		for (meta in field.meta) {
 			if (exportAnnotations.contains(meta.name)) {
+				// ref: https://github.com/godotengine/godot/blob/1753893c60ac309c21a77201725fa2820caf7f1e/modules/gdscript/gdscript_parser.cpp#L102
+				// TODO: fully implement all export annotations
 				if (exported) {
-					Context.error('Multiple export annotations on field', field.pos);
+					Context.error('Multiple export annotations on field is not allowed', meta.pos);
 				} else {
 					exported = true;
 					type = switch field.kind {
@@ -100,17 +105,32 @@ class Macro {
 					usage = macro gd.PropertyUsageFlags.DEFAULT;
 					hintString = macro $v{meta.params.map(p -> new haxe.macro.Printer().printExpr(p)).join(',')};
 				}
+			} else {
+				switch exportGroupAnnotations.get(meta.name) {
+					case null:
+					case usage:
+						infos.push(macro {
+							type: gd.variant.Type.NIL,
+							name: $e{meta.params[0]},
+							className: $v{cls.name},
+							hint: gd.PropertyHint.NONE,
+							hintString: "",
+							usage: $usage,
+						});
+				}
 			}
 		}
 
-		return macro {
+		infos.push(macro {
 			type: $e{type},
 			name: $v{field.name},
 			className: $v{cls.name},
 			hint: $hint,
 			hintString: $hintString,
 			usage: $usage,
-		}
+		});
+
+		return infos;
 	}
 
 	static function complexTypeToVariantTypeExpr(type:ComplexType):Expr {
@@ -152,6 +172,12 @@ class Macro {
 		'export_flags_3d_physics',
 		'export_flags_3d_navigation',
 		'export_flags_avoidance',
+	];
+
+	static final exportGroupAnnotations = [
+		'export_category' => (macro gd.PropertyUsageFlags.CATEGORY),
+		'export_group' => (macro gd.PropertyUsageFlags.GROUP),
+		'export_subgroup' => (macro gd.PropertyUsageFlags.SUBGROUP),
 	];
 }
 /**
