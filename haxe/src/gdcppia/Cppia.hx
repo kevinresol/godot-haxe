@@ -212,7 +212,7 @@ class Cppia {
 		}
 		final fn = Reflect.field(inst, methodName);
 		if (fn != null) {
-			printThreadId('instanceCall $methodName');
+			// printThreadId('instanceCall $methodName');
 			try {
 				Reflect.callMethod(inst, fn, args);
 			} catch (e) {

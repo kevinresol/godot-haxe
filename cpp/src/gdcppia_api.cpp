@@ -82,9 +82,13 @@ bool instance_get(void* p_instance, godot::StringName p_name,
 
 const GDExtensionPropertyInfo* instance_get_property_list(
     const godot::StringName& p_name, uint32_t* r_count) {
-  auto info = gdcppia::Cppia_obj::module->makeClassInfo(to_haxe_string(p_name));
+  auto props =
+      gdcppia::Cppia_obj::module->getPropertyInfo(to_haxe_string(p_name));
 
-  if (info == null() || (*r_count = info->properties.__length()) == 0) {
+  // auto info =
+  // gdcppia::Cppia_obj::module->makeClassInfo(to_haxe_string(p_name));
+
+  if ((*r_count = props.__length()) == 0) {
     *r_count = 0;
     return nullptr;
   }
@@ -93,7 +97,7 @@ const GDExtensionPropertyInfo* instance_get_property_list(
       godot::memnew_arr(GDExtensionPropertyInfo, *r_count);
 
   for (int i = 0; i < *r_count; i++) {
-    auto prop = (gdcppia::PropertyInfo)info->properties[i];
+    auto prop = (gdcppia::PropertyInfo)props[i];
 
     ret[i].type = static_cast<GDExtensionVariantType>(prop->type.get());
     ret[i].name = memnew(godot::StringName((const char*)prop->name));

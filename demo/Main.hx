@@ -15,7 +15,6 @@ class Base extends Node2D {
 
 @:rtti
 class Main extends Base {
-	@export
 	@export_range(0, 100)
 	var speed:Float = 42;
 

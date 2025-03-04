@@ -2,6 +2,7 @@ package gdutil;
 
 import haxe.macro.Context;
 import haxe.macro.Expr;
+import haxe.macro.Type;
 
 using haxe.macro.TypeTools;
 using StringTools;
@@ -16,9 +17,12 @@ class Macro {
 				name: '__props',
 				access: [APublic, AStatic],
 				// TODO: build Array<PropertyInfo> from fields
-				kind: FVar(macro :std.Array<std.String>, {
-					final props = macro [$v{'${cls.name}1'}, $v{'${cls.name}2'}];
-					props;
+				kind: FVar(macro :std.Array<gdcppia.PropertyInfo>, {
+					final props:Expr = {
+						pos: Context.currentPos(),
+						expr: EArrayDecl(fields.filter(f -> f.kind.match(FVar(_) | FProp(_))).map(f -> makePropertyInfo(cls, f)))
+					}
+
 					if (parent == null || parent.isExtern)
 						props;
 					else
@@ -70,4 +74,105 @@ class Macro {
 
 		return fields;
 	}
+
+	static function makePropertyInfo(cls:ClassType, field:Field):Expr {
+		var exported = false;
+		var type = macro gd.variant.Type.NIL;
+		var hint = macro gd.PropertyHint.NONE;
+		var hintString = macro '';
+		var usage = macro gd.PropertyUsageFlags.NONE;
+
+		for (meta in field.meta) {
+			if (exportAnnotations.contains(meta.name)) {
+				if (exported) {
+					Context.error('Multiple export annotations on field', field.pos);
+				} else {
+					exported = true;
+					type = switch field.kind {
+						case FVar(t, _) | FProp(_, _, t, _):
+							if (t == null)
+								Context.error('Exported field must be typed explicity', field.pos);
+							complexTypeToVariantTypeExpr(t);
+						default: throw 'Unreachable';
+					}
+					if (meta.name == 'export_range')
+						hint = macro gd.PropertyHint.RANGE;
+					usage = macro gd.PropertyUsageFlags.DEFAULT;
+					hintString = macro $v{meta.params.map(p -> new haxe.macro.Printer().printExpr(p)).join(',')};
+				}
+			}
+		}
+
+		return macro {
+			type: $e{type},
+			name: $v{field.name},
+			className: $v{cls.name},
+			hint: $hint,
+			hintString: $hintString,
+			usage: $usage,
+		}
+	}
+
+	static function complexTypeToVariantTypeExpr(type:ComplexType):Expr {
+		return switch type {
+			case null:
+				macro gd.variant.Type.NIL; // TODO: infer type, or force user to explicity specify
+			case macro :Int:
+				macro gd.variant.Type.INT;
+			case macro :Float:
+				macro gd.variant.Type.FLOAT;
+			case macro :Bool:
+				macro gd.variant.Type.BOOL;
+			case macro :String:
+				macro gd.variant.Type.STRING;
+			// TODO: objects
+			case _:
+				macro gd.variant.Type.NIL;
+		}
+	}
+
+	static final exportAnnotations = [
+		'export',
+		'export_enum',
+		'export_file',
+		'export_dir',
+		'export_global_file',
+		'export_global_dir',
+		'export_multiline',
+		'export_placeholder',
+		'export_range',
+		'export_exp_easing',
+		'export_color_no_alpha',
+		'export_node_path',
+		'export_flags',
+		'export_flags_2d_render',
+		'export_flags_2d_physics',
+		'export_flags_2d_navigation',
+		'export_flags_3d_render',
+		'export_flags_3d_physics',
+		'export_flags_3d_navigation',
+		'export_flags_avoidance',
+	];
 }
+/**
+	register_annotation(MethodInfo("@export"), AnnotationInfo::VARIABLE, &GDScriptParser::export_annotations<PROPERTY_HINT_NONE, Variant::NIL>);
+	register_annotation(MethodInfo("@export_enum", PropertyInfo(Variant::STRING, "names")), AnnotationInfo::VARIABLE, &GDScriptParser::export_annotations<PROPERTY_HINT_ENUM, Variant::NIL>, varray(), true);
+	register_annotation(MethodInfo("@export_file", PropertyInfo(Variant::STRING, "filter")), AnnotationInfo::VARIABLE, &GDScriptParser::export_annotations<PROPERTY_HINT_FILE, Variant::STRING>, varray(""), true);
+	register_annotation(MethodInfo("@export_dir"), AnnotationInfo::VARIABLE, &GDScriptParser::export_annotations<PROPERTY_HINT_DIR, Variant::STRING>);
+	register_annotation(MethodInfo("@export_global_file", PropertyInfo(Variant::STRING, "filter")), AnnotationInfo::VARIABLE, &GDScriptParser::export_annotations<PROPERTY_HINT_GLOBAL_FILE, Variant::STRING>, varray(""), true);
+	register_annotation(MethodInfo("@export_global_dir"), AnnotationInfo::VARIABLE, &GDScriptParser::export_annotations<PROPERTY_HINT_GLOBAL_DIR, Variant::STRING>);
+	register_annotation(MethodInfo("@export_multiline"), AnnotationInfo::VARIABLE, &GDScriptParser::export_annotations<PROPERTY_HINT_MULTILINE_TEXT, Variant::STRING>);
+	register_annotation(MethodInfo("@export_placeholder", PropertyInfo(Variant::STRING, "placeholder")), AnnotationInfo::VARIABLE, &GDScriptParser::export_annotations<PROPERTY_HINT_PLACEHOLDER_TEXT, Variant::STRING>);
+	register_annotation(MethodInfo("@export_range", PropertyInfo(Variant::FLOAT, "min"), PropertyInfo(Variant::FLOAT, "max"), PropertyInfo(Variant::FLOAT, "step"), PropertyInfo(Variant::STRING, "extra_hints")), AnnotationInfo::VARIABLE, &GDScriptParser::export_annotations<PROPERTY_HINT_RANGE, Variant::FLOAT>, varray(1.0, ""), true);
+	register_annotation(MethodInfo("@export_exp_easing", PropertyInfo(Variant::STRING, "hints")), AnnotationInfo::VARIABLE, &GDScriptParser::export_annotations<PROPERTY_HINT_EXP_EASING, Variant::FLOAT>, varray(""), true);
+	register_annotation(MethodInfo("@export_color_no_alpha"), AnnotationInfo::VARIABLE, &GDScriptParser::export_annotations<PROPERTY_HINT_COLOR_NO_ALPHA, Variant::COLOR>);
+	register_annotation(MethodInfo("@export_node_path", PropertyInfo(Variant::STRING, "type")), AnnotationInfo::VARIABLE, &GDScriptParser::export_annotations<PROPERTY_HINT_NODE_PATH_VALID_TYPES, Variant::NODE_PATH>, varray(""), true);
+	register_annotation(MethodInfo("@export_flags", PropertyInfo(Variant::STRING, "names")), AnnotationInfo::VARIABLE, &GDScriptParser::export_annotations<PROPERTY_HINT_FLAGS, Variant::INT>, varray(), true);
+	register_annotation(MethodInfo("@export_flags_2d_render"), AnnotationInfo::VARIABLE, &GDScriptParser::export_annotations<PROPERTY_HINT_LAYERS_2D_RENDER, Variant::INT>);
+	register_annotation(MethodInfo("@export_flags_2d_physics"), AnnotationInfo::VARIABLE, &GDScriptParser::export_annotations<PROPERTY_HINT_LAYERS_2D_PHYSICS, Variant::INT>);
+	register_annotation(MethodInfo("@export_flags_2d_navigation"), AnnotationInfo::VARIABLE, &GDScriptParser::export_annotations<PROPERTY_HINT_LAYERS_2D_NAVIGATION, Variant::INT>);
+	register_annotation(MethodInfo("@export_flags_3d_render"), AnnotationInfo::VARIABLE, &GDScriptParser::export_annotations<PROPERTY_HINT_LAYERS_3D_RENDER, Variant::INT>);
+	register_annotation(MethodInfo("@export_flags_3d_physics"), AnnotationInfo::VARIABLE, &GDScriptParser::export_annotations<PROPERTY_HINT_LAYERS_3D_PHYSICS, Variant::INT>);
+	register_annotation(MethodInfo("@export_flags_3d_navigation"), AnnotationInfo::VARIABLE, &GDScriptParser::export_annotations<PROPERTY_HINT_LAYERS_3D_NAVIGATION, Variant::INT>);
+	register_annotation(MethodInfo("@export_flags_avoidance"), AnnotationInfo::VARIABLE, &GDScriptParser::export_annotations<PROPERTY_HINT_LAYERS_AVOIDANCE, Variant::INT>);
+**/

@@ -46,6 +46,14 @@ class Module {
 		}
 	}
 
+	function getPropertyInfo(className:String):Array<PropertyInfo> {
+		final classType = module.resolveClass(className);
+		final info = Reflect.getProperty(classType, '__props');
+		trace(info);
+
+		return info;
+	}
+
 	function makeClassInfo(className:String):ClassInfo {
 		static final cache = new Map<String, ClassInfo>();
 
@@ -75,7 +83,7 @@ class Module {
 										name: f.name,
 										className: className,
 										hint: PropertyHint.NONE,
-										hintString: 'TODO: hint string',
+										hintString: '',
 										usage: PropertyUsageFlags.DEFAULT,
 									}
 								}
@@ -124,35 +132,4 @@ class Module {
 				NIL; // make sense?
 		}
 	}
-}
-
-@:structInit
-@:unreflective
-class ClassInfo {
-	public final name:String;
-	public final parent:String;
-	public final properties:Array<PropertyInfo>;
-	public final methods:Array<MethodInfo>;
-}
-
-@:structInit
-@:unreflective
-class PropertyInfo {
-	public final type:gdnative.variant.Type;
-	public final name:String;
-	public final className:String;
-	public final hint:cpp.UInt64; // Bitfield of `PropertyHint` (defined in `extension_api.json`).
-	public final hintString:String;
-	public final usage:cpp.UInt64; // Bitfield of `PropertyUsageFlags` (defined in `extension_api.json`).
-}
-
-@:structInit
-@:unreflective
-class MethodInfo {
-	public final name:String;
-	public final returnValue:PropertyInfo;
-	public final flags:UInt32; // Bitfield of `GDExtensionClassMethodFlags`.
-	public final id:Int32;
-	public final arguments:Array<PropertyInfo>;
-	public final defaultArguments:Array<Int>; // TODO: type this properly.
 }

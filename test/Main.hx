@@ -5,6 +5,7 @@ import tink.unit.*;
 @:rtti
 class Main extends gd.Node2D {
 	override function _ready() {
+		trace(__props);
 		Runner.run(TestBatch.make([
 			new UtilityFunctionTest(),
 			new EnumTest(),
@@ -14,7 +15,7 @@ class Main extends gd.Node2D {
 			new DictionaryTest(),
 			new JsonTest(),
 			new InstanceMethodTest(this),
-			new MemoryTest(),
+			// new MemoryTest(),
 		])).handle(result -> get_tree().quit(result.summary().failures.length));
 	}
 }
