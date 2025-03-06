@@ -103,6 +103,7 @@ class CppiaScriptLanguage : public ScriptLanguageExtension {
   /* Script Objects */
   Object *_create_script() const override;
   void _reload_all_scripts() override;
+  // void _reload_scripts(const Array &p_scripts, bool p_soft_reload) override;
   void _reload_tool_script(const Ref<Script> &script,
                            bool soft_reload) override;
 

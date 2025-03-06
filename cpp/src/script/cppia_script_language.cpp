@@ -14,15 +14,18 @@
 
 extern "C" const char *hxRunLibrary();
 extern "C" void hxcpp_set_top_of_stack();
-void __hxcpp_gc_safe_point();
 
 namespace godot {
 
-CppiaScriptLanguage *CppiaScriptLanguage::singleton = nullptr;
-CppiaScriptLanguage::CppiaScriptLanguage() {
+void printThreadId(const char *msg) {
   uint64_t tid;
   pthread_threadid_np(NULL, &tid);
-  printf("CppiaScriptLanguage::CppiaScriptLanguage (%llu)\n", tid);
+  printf("%s (%llu)\n", msg, tid);
+}
+
+CppiaScriptLanguage *CppiaScriptLanguage::singleton = nullptr;
+CppiaScriptLanguage::CppiaScriptLanguage() {
+  printThreadId("CppiaScriptLanguage::CppiaScriptLanguage");
   singleton = this;
 
   // init haxe runtime
@@ -191,15 +194,9 @@ String CppiaScriptLanguage::_auto_indent_code(const String &code,
 
 /* Thread Functions */
 
-void CppiaScriptLanguage::_thread_enter() {
-  printf("CppiaScriptLanguage::_thread_enter\n");
-  // hxcpp_set_top_of_stack();
-}
+void CppiaScriptLanguage::_thread_enter() { hxcpp_set_top_of_stack(); }
 
-void CppiaScriptLanguage::_thread_exit() {
-  printf("CppiaScriptLanguage::_thread_exit\n");
-  // hx::SetTopOfStack((int *)0, true);
-}
+void CppiaScriptLanguage::_thread_exit() { hx::SetTopOfStack((int *)0, true); }
 
 /* Debugger Functions */
 
@@ -253,14 +250,16 @@ void CppiaScriptLanguage::_reload_all_scripts() {
 
   // load cppia bytecode
   String path = "res://.godot/cppia/bin/script.cppia";
-  printf("FileAccess::file_exists(path) = %s\n",
-         FileAccess::file_exists(path) ? "true" : "false");
 
   PackedByteArray bytecode = FileAccess::get_file_as_bytes(path);
-  printf("bytecode.size() = %lld\n", bytecode.size());
 
   gdcppia::load_bytecode(bytecode.ptr(), bytecode.size());
 }
+
+// void _reload_scripts(const Array &p_scripts, bool p_soft_reload) {
+//   printf("_reload_scripts\n");
+//   UtilityFunctions::print(p_scripts);
+// }
 
 void CppiaScriptLanguage::_reload_tool_script(const Ref<Script> &script,
                                               bool soft_reload) {

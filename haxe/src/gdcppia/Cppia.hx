@@ -14,10 +14,14 @@ using Lambda;
 class Cppia {
 	static final mutex = new sys.thread.Mutex();
 
-	public static function printThreadId(name:std.String) {
+	public static function getThreadId() {
 		var tid:cpp.UInt64 = 0;
 		untyped __cpp__('pthread_threadid_np(NULL, &{0})', tid);
-		trace('$name thread id: $tid');
+		return tid;
+	}
+
+	public static function printThreadId(name:std.String) {
+		trace('$name thread id: ${getThreadId()}');
 	}
 
 	static var rc1:cpp.Pointer<gdnative.RefCounted.RefCounted_extern>;
@@ -31,14 +35,10 @@ class Cppia {
 
 		printThreadId("main");
 
-		sys.thread.Thread.create(() -> {
-			printThreadId("thread");
-		});
-
 		final oldTrace = haxe.Log.trace;
 		haxe.Log.trace = (v:Dynamic, ?infos:haxe.PosInfos) -> {
 			// oldTrace(v, infos);
-			print(haxe.Log.formatOutput(v, infos));
+			print('(${getThreadId()})' + haxe.Log.formatOutput(v, infos));
 		}
 
 		trace('UtilityFunctions::print checks (host)');
