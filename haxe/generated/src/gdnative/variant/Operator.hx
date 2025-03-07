@@ -1,8 +1,8 @@
 package gdnative.variant;
-@:native("godot::Variant::Operator") extern enum abstract Operator(Operator_extern) {
+@:semantics(reference) @:cpp.ValueType({ type : "Operator", namespace : ["godot", "Variant"] }) @:include("godot_cpp/variant/variant.hpp") extern enum abstract Operator(Int) to Int {
 	@:op(A == B)
 	static inline function eq(v1:Operator, v2:Operator):Bool return __cast(v1) == __cast(v2);
-	static inline function __cast(v:Operator):Operator_extern return untyped __cpp__("(cpp::Struct<godot::Variant::Operator, cpp::EnumHandler>){0}", v);
+	static inline function __cast(v:Operator):Int return v;
 	@:native("godot::Variant::Operator::OP_EQUAL")
 	final EQUAL;
 	@:native("godot::Variant::Operator::OP_NOT_EQUAL")
@@ -55,7 +55,4 @@ package gdnative.variant;
 	final IN;
 	@:native("godot::Variant::Operator::OP_MAX")
 	final MAX;
-}
-@:include("godot_cpp/variant/variant.hpp") @:native("cpp::Struct<godot::Variant::Operator, cpp::EnumHandler>") extern class Operator_extern {
-
 }

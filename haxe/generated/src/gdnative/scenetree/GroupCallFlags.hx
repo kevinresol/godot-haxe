@@ -1,8 +1,8 @@
 package gdnative.scenetree;
-@:native("godot::SceneTree::GroupCallFlags") extern enum abstract GroupCallFlags(GroupCallFlags_extern) {
+@:semantics(reference) @:cpp.ValueType({ type : "GroupCallFlags", namespace : ["godot", "SceneTree"] }) @:include("godot_cpp/classes/scene_tree.hpp") extern enum abstract GroupCallFlags(Int) to Int {
 	@:op(A == B)
 	static inline function eq(v1:GroupCallFlags, v2:GroupCallFlags):Bool return __cast(v1) == __cast(v2);
-	static inline function __cast(v:GroupCallFlags):GroupCallFlags_extern return untyped __cpp__("(cpp::Struct<godot::SceneTree::GroupCallFlags, cpp::EnumHandler>){0}", v);
+	static inline function __cast(v:GroupCallFlags):Int return v;
 	@:native("godot::SceneTree::GroupCallFlags::GROUP_CALL_DEFAULT")
 	final DEFAULT;
 	@:native("godot::SceneTree::GroupCallFlags::GROUP_CALL_REVERSE")
@@ -11,7 +11,4 @@ package gdnative.scenetree;
 	final DEFERRED;
 	@:native("godot::SceneTree::GroupCallFlags::GROUP_CALL_UNIQUE")
 	final UNIQUE;
-}
-@:include("godot_cpp/classes/scene_tree.hpp") @:native("cpp::Struct<godot::SceneTree::GroupCallFlags, cpp::EnumHandler>") extern class GroupCallFlags_extern {
-
 }

@@ -8,7 +8,7 @@ package gdnative;
 	@:to
 	inline function toWrapper():gd.Resource return new gd.Resource(this);
 }
-@:include("godot_cpp/classes/resource.hpp") @:native("godot::Resource") @:structAccess extern class Resource_extern extends gdnative.RefCounted.RefCounted_extern {
+@:include("godot_cpp/classes/resource.hpp") @:semantic(reference) @:cpp.PointerType({ type : "Resource", namespace : ['godot'] }) extern class Resource_extern extends gdnative.RefCounted.RefCounted_extern {
 	extern static inline function __alloc():cpp.Pointer<Resource_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::Resource"));
 	function _setup_local_to_scene():Void;
 	function _get_rid():gdnative.RID;

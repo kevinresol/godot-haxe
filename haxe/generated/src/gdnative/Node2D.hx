@@ -2,13 +2,13 @@ package gdnative;
 /**
 	Class
 **/
-@:forward abstract Node2D(cpp.Pointer<Node2D_extern>) from cpp.Pointer<Node2D_extern> to cpp.Pointer<Node2D_extern> {
+@:forward abstract Node2D(Node2D_extern) from Node2D_extern to Node2D_extern {
 	@:from
 	static inline function fromWrapper(v:gd.Node2D):gdnative.Node2D return @:privateAccess v.__gd.reinterpret();
 	@:to
 	inline function toWrapper():gd.Node2D return new gd.Node2D(this);
 }
-@:include("godot_cpp/classes/node2d.hpp") @:native("godot::Node2D") @:structAccess extern class Node2D_extern extends gdnative.CanvasItem.CanvasItem_extern {
+@:include("godot_cpp/classes/node2d.hpp") @:semantic(reference) @:cpp.PointerType({ type : "Node2D", namespace : ['godot'] }) extern class Node2D_extern extends gdnative.CanvasItem.CanvasItem_extern {
 	extern static inline function __alloc():cpp.Pointer<Node2D_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::Node2D"));
 	function set_position(p_position:gdnative.Vector2):Void;
 	function set_rotation(p_radians:Float):Void;

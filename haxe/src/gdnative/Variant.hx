@@ -63,7 +63,7 @@ abstract Variant(cpp.Struct<Variant_extern>) from cpp.Struct<Variant_extern> to 
 
 	@:from
 	extern static inline function fromObject(v:gdnative.Object):Variant
-		return new Variant_extern(v.ptr);
+		return new Variant_extern(v);
 
 	@:from
 	extern static inline function fromObjectWrapper(v:gd.Object):Variant

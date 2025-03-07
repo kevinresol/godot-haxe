@@ -1,8 +1,8 @@
 package gdnative.canvasitem;
-@:native("godot::CanvasItem::TextureRepeat") extern enum abstract TextureRepeat(TextureRepeat_extern) {
+@:semantics(reference) @:cpp.ValueType({ type : "TextureRepeat", namespace : ["godot", "CanvasItem"] }) @:include("godot_cpp/classes/canvas_item.hpp") extern enum abstract TextureRepeat(Int) to Int {
 	@:op(A == B)
 	static inline function eq(v1:TextureRepeat, v2:TextureRepeat):Bool return __cast(v1) == __cast(v2);
-	static inline function __cast(v:TextureRepeat):TextureRepeat_extern return untyped __cpp__("(cpp::Struct<godot::CanvasItem::TextureRepeat, cpp::EnumHandler>){0}", v);
+	static inline function __cast(v:TextureRepeat):Int return v;
 	@:native("godot::CanvasItem::TextureRepeat::TEXTURE_REPEAT_PARENT_NODE")
 	final PARENT_NODE;
 	@:native("godot::CanvasItem::TextureRepeat::TEXTURE_REPEAT_DISABLED")
@@ -13,7 +13,4 @@ package gdnative.canvasitem;
 	final MIRROR;
 	@:native("godot::CanvasItem::TextureRepeat::TEXTURE_REPEAT_MAX")
 	final MAX;
-}
-@:include("godot_cpp/classes/canvas_item.hpp") @:native("cpp::Struct<godot::CanvasItem::TextureRepeat, cpp::EnumHandler>") extern class TextureRepeat_extern {
-
 }

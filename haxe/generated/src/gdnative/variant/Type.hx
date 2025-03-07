@@ -1,8 +1,8 @@
 package gdnative.variant;
-@:native("godot::Variant::Type") extern enum abstract Type(Type_extern) {
+@:semantics(reference) @:cpp.ValueType({ type : "Type", namespace : ["godot", "Variant"] }) @:include("godot_cpp/variant/variant.hpp") extern enum abstract Type(Int) to Int {
 	@:op(A == B)
 	static inline function eq(v1:Type, v2:Type):Bool return __cast(v1) == __cast(v2);
-	static inline function __cast(v:Type):Type_extern return untyped __cpp__("(cpp::Struct<godot::Variant::Type, cpp::EnumHandler>){0}", v);
+	static inline function __cast(v:Type):Int return v;
 	final NIL;
 	final BOOL;
 	final INT;
@@ -43,7 +43,4 @@ package gdnative.variant;
 	final PACKED_COLOR_ARRAY;
 	final PACKED_VECTOR4_ARRAY;
 	final MAX;
-}
-@:include("godot_cpp/variant/variant.hpp") @:native("cpp::Struct<godot::Variant::Type, cpp::EnumHandler>") extern class Type_extern {
-
 }

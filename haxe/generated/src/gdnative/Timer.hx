@@ -2,13 +2,13 @@ package gdnative;
 /**
 	Class
 **/
-@:forward abstract Timer(cpp.Pointer<Timer_extern>) from cpp.Pointer<Timer_extern> to cpp.Pointer<Timer_extern> {
+@:forward abstract Timer(Timer_extern) from Timer_extern to Timer_extern {
 	@:from
 	static inline function fromWrapper(v:gd.Timer):gdnative.Timer return @:privateAccess v.__gd.reinterpret();
 	@:to
 	inline function toWrapper():gd.Timer return new gd.Timer(this);
 }
-@:include("godot_cpp/classes/timer.hpp") @:native("godot::Timer") @:structAccess extern class Timer_extern extends gdnative.Node.Node_extern {
+@:include("godot_cpp/classes/timer.hpp") @:semantic(reference) @:cpp.PointerType({ type : "Timer", namespace : ['godot'] }) extern class Timer_extern extends gdnative.Node.Node_extern {
 	extern static inline function __alloc():cpp.Pointer<Timer_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::Timer"));
 	function set_wait_time(p_time_sec:Float):Void;
 	function get_wait_time():Float;

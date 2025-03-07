@@ -1,8 +1,8 @@
 package gdnative;
-@:native("godot::MIDIMessage") extern enum abstract MIDIMessage(MIDIMessage_extern) {
+@:semantics(reference) @:cpp.ValueType({ type : "MIDIMessage", namespace : ["godot"] }) @:include("godot_cpp/classes/global_constants.hpp") extern enum abstract MIDIMessage(Int) to Int {
 	@:op(A == B)
 	static inline function eq(v1:MIDIMessage, v2:MIDIMessage):Bool return __cast(v1) == __cast(v2);
-	static inline function __cast(v:MIDIMessage):MIDIMessage_extern return untyped __cpp__("(cpp::Struct<godot::MIDIMessage, cpp::EnumHandler>){0}", v);
+	static inline function __cast(v:MIDIMessage):Int return v;
 	@:native("godot::MIDIMessage::MIDI_MESSAGE_NONE")
 	final NONE;
 	@:native("godot::MIDIMessage::MIDI_MESSAGE_NOTE_OFF")
@@ -41,7 +41,4 @@ package gdnative;
 	final ACTIVE_SENSING;
 	@:native("godot::MIDIMessage::MIDI_MESSAGE_SYSTEM_RESET")
 	final SYSTEM_RESET;
-}
-@:include("godot_cpp/classes/global_constants.hpp") @:native("cpp::Struct<godot::MIDIMessage, cpp::EnumHandler>") extern class MIDIMessage_extern {
-
 }

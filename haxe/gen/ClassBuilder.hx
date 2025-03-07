@@ -48,8 +48,16 @@ class ClassBuilder extends EnumBuilder {
 		cls.isExtern = true;
 		cls.meta = [
 			{pos: null, name: ':include', params: [macro $v{hpp}]},
-			{pos: null, name: ':native', params: [macro $v{'godot::${cname == 'ClassDB' ? 'ClassDBSingleton' : cname}'}]},
-			{pos: null, name: ':structAccess', params: []},
+			{pos: null, name: ':semantic', params: [macro reference]},
+			{
+				pos: null,
+				name: ':cpp.PointerType',
+				params: [
+					macro {type: $v{cname == 'ClassDB' ? 'ClassDBSingleton' : cname}, namespace: ['godot']}
+				]
+			},
+			// {pos: null, name: ':native', params: [macro $v{'godot::${cname == 'ClassDB' ? 'ClassDBSingleton' : cname}'}]},
+			// {pos: null, name: ':structAccess', params: []},
 		];
 
 		final local = TPath({pack: [], name: nativeName});
@@ -143,8 +151,9 @@ class ClassBuilder extends EnumBuilder {
 				@:to inline function toWrapper():gd.$cname
 					return new gd.$cname(this);
 			}).fields);
-			final pointer = macro :cpp.Pointer<$local>;
-			abs.kind = TDAbstract(pointer, [AbFrom(pointer), AbTo(pointer)]);
+			// final pointer = macro :cpp.Pointer<$local>;
+			// abs.kind = TDAbstract(pointer, [AbFrom(pointer), AbTo(pointer)]);
+			abs.kind = TDAbstract(local, [AbFrom(local), AbTo(local)]);
 		}
 
 		final source = printTypeDefinition(abs) + '\n' + printTypeDefinition(cls);

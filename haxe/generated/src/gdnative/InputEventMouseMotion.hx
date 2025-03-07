@@ -8,7 +8,7 @@ package gdnative;
 	@:to
 	inline function toWrapper():gd.InputEventMouseMotion return new gd.InputEventMouseMotion(this);
 }
-@:include("godot_cpp/classes/input_event_mouse_motion.hpp") @:native("godot::InputEventMouseMotion") @:structAccess extern class InputEventMouseMotion_extern extends gdnative.InputEventMouse.InputEventMouse_extern {
+@:include("godot_cpp/classes/input_event_mouse_motion.hpp") @:semantic(reference) @:cpp.PointerType({ type : "InputEventMouseMotion", namespace : ['godot'] }) extern class InputEventMouseMotion_extern extends gdnative.InputEventMouse.InputEventMouse_extern {
 	extern static inline function __alloc():cpp.Pointer<InputEventMouseMotion_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::InputEventMouseMotion"));
 	function set_tilt(p_tilt:gdnative.Vector2):Void;
 	function get_tilt():gdnative.Vector2;

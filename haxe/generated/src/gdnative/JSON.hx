@@ -8,7 +8,7 @@ package gdnative;
 	@:to
 	inline function toWrapper():gd.JSON return new gd.JSON(this);
 }
-@:include("godot_cpp/classes/json.hpp") @:native("godot::JSON") @:structAccess extern class JSON_extern extends gdnative.Resource.Resource_extern {
+@:include("godot_cpp/classes/json.hpp") @:semantic(reference) @:cpp.PointerType({ type : "JSON", namespace : ['godot'] }) extern class JSON_extern extends gdnative.Resource.Resource_extern {
 	extern static inline function __alloc():cpp.Pointer<JSON_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::JSON"));
 	overload static function stringify(p_data:gdnative.Variant):gdnative.String;
 	overload static function stringify(p_data:gdnative.Variant, p_indent:gdnative.String):gdnative.String;

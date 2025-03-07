@@ -1,8 +1,8 @@
 package gdnative;
-@:native("godot::Error") extern enum abstract Error(Error_extern) {
+@:semantics(reference) @:cpp.ValueType({ type : "Error", namespace : ["godot"] }) @:include("godot_cpp/classes/global_constants.hpp") extern enum abstract Error(Int) to Int {
 	@:op(A == B)
 	static inline function eq(v1:Error, v2:Error):Bool return __cast(v1) == __cast(v2);
-	static inline function __cast(v:Error):Error_extern return untyped __cpp__("(cpp::Struct<godot::Error, cpp::EnumHandler>){0}", v);
+	static inline function __cast(v:Error):Int return v;
 	final OK;
 	final FAILED;
 	@:native("godot::Error::ERR_UNAVAILABLE")
@@ -99,7 +99,4 @@ package gdnative;
 	final BUG;
 	@:native("godot::Error::ERR_PRINTER_ON_FIRE")
 	final PRINTER_ON_FIRE;
-}
-@:include("godot_cpp/classes/global_constants.hpp") @:native("cpp::Struct<godot::Error, cpp::EnumHandler>") extern class Error_extern {
-
 }

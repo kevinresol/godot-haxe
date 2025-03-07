@@ -22,16 +22,25 @@ class EnumBuilder extends Builder {
 			static inline function eq(v1:$ect, v2:$ect):Bool
 				return __cast(v1) == __cast(v2);
 
-			static inline function __cast(v:$ect):$ecct
-				return untyped __cpp__($v{'($ecnative){0}'}, v);
+			static inline function __cast(v:$ect):Int
+				return v;
+
+			// static inline function __cast(v:$ect):$ecct
+			// 	return untyped __cpp__($v{'($ecnative){0}'}, v);
 		}
 		enm.isExtern = true;
 		enm.pack = config.pack.concat(parts.map(p -> p.toLowerCase()));
-		enm.kind = TDAbstract(TPath({pack: [], name: ecname}), [AbEnum]);
-		enm.meta = [{pos: null, name: ':native', params: [macro $v{ntype}]}];
-		final ecls = macro class $ecname {}
-		ecls.isExtern = true;
-		ecls.meta = [
+		enm.kind = TDAbstract(/* TPath({pack: [], name: ecname}) */ macro :Int, [AbEnum, AbTo(macro :Int)]);
+		enm.meta = [
+			// {pos: null, name: ':native', params: [macro $v{ntype}]}
+			{pos: null, name: ':semantics', params: [macro reference]},
+			{
+				pos: null,
+				name: ':cpp.ValueType',
+				params: [
+					macro {type: $v{ename}, namespace: $a{['godot'].concat(parts).map(v -> macro $v{v})}}
+				]
+			},
 			{
 				pos: null,
 				name: ':include',
@@ -39,8 +48,19 @@ class EnumBuilder extends Builder {
 					macro $v{hpp ?? (parts[0] == 'Variant' ? 'godot_cpp/variant/variant.hpp' : 'godot_cpp/classes/global_constants.hpp')}
 				]
 			},
-			{pos: null, name: ':native', params: [macro $v{ecnative}]}
 		];
+		// final ecls = macro class $ecname {}
+		// ecls.isExtern = true;
+		// ecls.meta = [
+		// 	{
+		// 		pos: null,
+		// 		name: ':include',
+		// 		params: [
+		// 			macro $v{hpp ?? (parts[0] == 'Variant' ? 'godot_cpp/variant/variant.hpp' : 'godot_cpp/classes/global_constants.hpp')}
+		// 		]
+		// 	},
+		// 	{pos: null, name: ':native', params: [macro $v{ecnative}]}
+		// ];
 		for (v in e.values) {
 			final hname = getHaxeEnumEntryName(e.name, v.name, e.values.map(v -> v.name));
 			final nname = getNativeEnumEntryName(e.name, v.name);
@@ -53,7 +73,7 @@ class EnumBuilder extends Builder {
 			});
 		}
 
-		final source = printTypeDefinition(enm) + '\n' + printTypeDefinition(ecls);
+		final source = printTypeDefinition(enm); // + '\n' + printTypeDefinition(ecls);
 		write('${config.folder}/${enm.pack.join('/')}/$ename.hx', source);
 	}
 

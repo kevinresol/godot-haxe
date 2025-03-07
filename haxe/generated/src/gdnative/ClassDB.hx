@@ -2,13 +2,13 @@ package gdnative;
 /**
 	Class
 **/
-@:forward abstract ClassDB(cpp.Pointer<ClassDB_extern>) from cpp.Pointer<ClassDB_extern> to cpp.Pointer<ClassDB_extern> {
+@:forward abstract ClassDB(ClassDB_extern) from ClassDB_extern to ClassDB_extern {
 	@:from
 	static inline function fromWrapper(v:gd.ClassDB):gdnative.ClassDB return @:privateAccess v.__gd.reinterpret();
 	@:to
 	inline function toWrapper():gd.ClassDB return new gd.ClassDB(this);
 }
-@:include("godot_cpp/classes/class_db_singleton.hpp") @:native("godot::ClassDBSingleton") @:structAccess extern class ClassDB_extern extends gdnative.Object.Object_extern {
+@:include("godot_cpp/classes/class_db_singleton.hpp") @:semantic(reference) @:cpp.PointerType({ type : "ClassDBSingleton", namespace : ['godot'] }) extern class ClassDB_extern extends gdnative.Object.Object_extern {
 	extern static inline function __alloc():cpp.Pointer<ClassDB_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::ClassDBSingleton"));
 	static function get_singleton():cpp.Pointer<ClassDB_extern>;
 	function get_class_list():gdnative.PackedStringArray;

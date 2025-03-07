@@ -1,8 +1,8 @@
 package gdnative;
-@:native("godot::JoyAxis") extern enum abstract JoyAxis(JoyAxis_extern) {
+@:semantics(reference) @:cpp.ValueType({ type : "JoyAxis", namespace : ["godot"] }) @:include("godot_cpp/classes/global_constants.hpp") extern enum abstract JoyAxis(Int) to Int {
 	@:op(A == B)
 	static inline function eq(v1:JoyAxis, v2:JoyAxis):Bool return __cast(v1) == __cast(v2);
-	static inline function __cast(v:JoyAxis):JoyAxis_extern return untyped __cpp__("(cpp::Struct<godot::JoyAxis, cpp::EnumHandler>){0}", v);
+	static inline function __cast(v:JoyAxis):Int return v;
 	@:native("godot::JoyAxis::JOY_AXIS_INVALID")
 	final INVALID;
 	@:native("godot::JoyAxis::JOY_AXIS_LEFT_X")
@@ -21,7 +21,4 @@ package gdnative;
 	final SDL_MAX;
 	@:native("godot::JoyAxis::JOY_AXIS_MAX")
 	final MAX;
-}
-@:include("godot_cpp/classes/global_constants.hpp") @:native("cpp::Struct<godot::JoyAxis, cpp::EnumHandler>") extern class JoyAxis_extern {
-
 }

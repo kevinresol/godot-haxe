@@ -1,8 +1,8 @@
 package gdnative;
-@:native("godot::JoyButton") extern enum abstract JoyButton(JoyButton_extern) {
+@:semantics(reference) @:cpp.ValueType({ type : "JoyButton", namespace : ["godot"] }) @:include("godot_cpp/classes/global_constants.hpp") extern enum abstract JoyButton(Int) to Int {
 	@:op(A == B)
 	static inline function eq(v1:JoyButton, v2:JoyButton):Bool return __cast(v1) == __cast(v2);
-	static inline function __cast(v:JoyButton):JoyButton_extern return untyped __cpp__("(cpp::Struct<godot::JoyButton, cpp::EnumHandler>){0}", v);
+	static inline function __cast(v:JoyButton):Int return v;
 	@:native("godot::JoyButton::JOY_BUTTON_INVALID")
 	final INVALID;
 	@:native("godot::JoyButton::JOY_BUTTON_A")
@@ -51,7 +51,4 @@ package gdnative;
 	final SDL_MAX;
 	@:native("godot::JoyButton::JOY_BUTTON_MAX")
 	final MAX;
-}
-@:include("godot_cpp/classes/global_constants.hpp") @:native("cpp::Struct<godot::JoyButton, cpp::EnumHandler>") extern class JoyButton_extern {
-
 }

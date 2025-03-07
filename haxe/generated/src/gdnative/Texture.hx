@@ -8,6 +8,6 @@ package gdnative;
 	@:to
 	inline function toWrapper():gd.Texture return new gd.Texture(this);
 }
-@:include("godot_cpp/classes/texture.hpp") @:native("godot::Texture") @:structAccess extern class Texture_extern extends gdnative.Resource.Resource_extern {
+@:include("godot_cpp/classes/texture.hpp") @:semantic(reference) @:cpp.PointerType({ type : "Texture", namespace : ['godot'] }) extern class Texture_extern extends gdnative.Resource.Resource_extern {
 	extern static inline function __alloc():cpp.Pointer<Texture_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::Texture"));
 }

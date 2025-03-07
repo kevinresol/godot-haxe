@@ -1,8 +1,8 @@
 package gdnative.node;
-@:native("godot::Node::ProcessMode") extern enum abstract ProcessMode(ProcessMode_extern) {
+@:semantics(reference) @:cpp.ValueType({ type : "ProcessMode", namespace : ["godot", "Node"] }) @:include("godot_cpp/classes/node.hpp") extern enum abstract ProcessMode(Int) to Int {
 	@:op(A == B)
 	static inline function eq(v1:ProcessMode, v2:ProcessMode):Bool return __cast(v1) == __cast(v2);
-	static inline function __cast(v:ProcessMode):ProcessMode_extern return untyped __cpp__("(cpp::Struct<godot::Node::ProcessMode, cpp::EnumHandler>){0}", v);
+	static inline function __cast(v:ProcessMode):Int return v;
 	@:native("godot::Node::ProcessMode::PROCESS_MODE_INHERIT")
 	final INHERIT;
 	@:native("godot::Node::ProcessMode::PROCESS_MODE_PAUSABLE")
@@ -13,7 +13,4 @@ package gdnative.node;
 	final ALWAYS;
 	@:native("godot::Node::ProcessMode::PROCESS_MODE_DISABLED")
 	final DISABLED;
-}
-@:include("godot_cpp/classes/node.hpp") @:native("cpp::Struct<godot::Node::ProcessMode, cpp::EnumHandler>") extern class ProcessMode_extern {
-
 }

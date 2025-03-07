@@ -1,8 +1,8 @@
 package gdnative;
-@:native("godot::InlineAlignment") extern enum abstract InlineAlignment(InlineAlignment_extern) {
+@:semantics(reference) @:cpp.ValueType({ type : "InlineAlignment", namespace : ["godot"] }) @:include("godot_cpp/classes/global_constants.hpp") extern enum abstract InlineAlignment(Int) to Int {
 	@:op(A == B)
 	static inline function eq(v1:InlineAlignment, v2:InlineAlignment):Bool return __cast(v1) == __cast(v2);
-	static inline function __cast(v:InlineAlignment):InlineAlignment_extern return untyped __cpp__("(cpp::Struct<godot::InlineAlignment, cpp::EnumHandler>){0}", v);
+	static inline function __cast(v:InlineAlignment):Int return v;
 	@:native("godot::InlineAlignment::INLINE_ALIGNMENT_TOP_TO")
 	final TOP_TO;
 	@:native("godot::InlineAlignment::INLINE_ALIGNMENT_CENTER_TO")
@@ -29,7 +29,4 @@ package gdnative;
 	final IMAGE_MASK;
 	@:native("godot::InlineAlignment::INLINE_ALIGNMENT_TEXT_MASK")
 	final TEXT_MASK;
-}
-@:include("godot_cpp/classes/global_constants.hpp") @:native("cpp::Struct<godot::InlineAlignment, cpp::EnumHandler>") extern class InlineAlignment_extern {
-
 }

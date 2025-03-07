@@ -1,8 +1,8 @@
 package gdnative;
-@:native("godot::Key") extern enum abstract Key(Key_extern) {
+@:semantics(reference) @:cpp.ValueType({ type : "Key", namespace : ["godot"] }) @:include("godot_cpp/classes/global_constants.hpp") extern enum abstract Key(Int) to Int {
 	@:op(A == B)
 	static inline function eq(v1:Key, v2:Key):Bool return __cast(v1) == __cast(v2);
-	static inline function __cast(v:Key):Key_extern return untyped __cpp__("(cpp::Struct<godot::Key, cpp::EnumHandler>){0}", v);
+	static inline function __cast(v:Key):Int return v;
 	@:native("godot::Key::KEY_NONE")
 	final NONE;
 	@:native("godot::Key::KEY_SPECIAL")
@@ -389,7 +389,4 @@ package gdnative;
 	final YEN;
 	@:native("godot::Key::KEY_SECTION")
 	final SECTION;
-}
-@:include("godot_cpp/classes/global_constants.hpp") @:native("cpp::Struct<godot::Key, cpp::EnumHandler>") extern class Key_extern {
-
 }

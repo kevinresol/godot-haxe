@@ -1,8 +1,8 @@
 package gdnative;
-@:native("godot::PropertyHint") extern enum abstract PropertyHint(PropertyHint_extern) {
+@:semantics(reference) @:cpp.ValueType({ type : "PropertyHint", namespace : ["godot"] }) @:include("godot_cpp/classes/global_constants.hpp") extern enum abstract PropertyHint(Int) to Int {
 	@:op(A == B)
 	static inline function eq(v1:PropertyHint, v2:PropertyHint):Bool return __cast(v1) == __cast(v2);
-	static inline function __cast(v:PropertyHint):PropertyHint_extern return untyped __cpp__("(cpp::Struct<godot::PropertyHint, cpp::EnumHandler>){0}", v);
+	static inline function __cast(v:PropertyHint):Int return v;
 	@:native("godot::PropertyHint::PROPERTY_HINT_NONE")
 	final NONE;
 	@:native("godot::PropertyHint::PROPERTY_HINT_RANGE")
@@ -87,7 +87,4 @@ package gdnative;
 	final ONESHOT;
 	@:native("godot::PropertyHint::PROPERTY_HINT_MAX")
 	final MAX;
-}
-@:include("godot_cpp/classes/global_constants.hpp") @:native("cpp::Struct<godot::PropertyHint, cpp::EnumHandler>") extern class PropertyHint_extern {
-
 }
