@@ -7,16 +7,16 @@ class RID_wrapper {
 	static function _new1(p_from:gd.RID):RID_wrapper return new RID_wrapper(new gdnative.RID(p_from));
 	public function is_valid():Bool return __gd.is_valid();
 	public function get_id():cpp.Int64 return __gd.get_id();
-	function __op_equal_to_variant(p_rhs:gd.Variant):Bool return this.__gd == ((p_rhs : gdnative.Variant));
-	function __op_not_equal_variant(p_rhs:gd.Variant):Bool return this.__gd != ((p_rhs : gdnative.Variant));
-	function __op_equal_to_rid(p_rhs:gd.RID):Bool return this.__gd == ((p_rhs : gdnative.RID));
-	function __op_not_equal_rid(p_rhs:gd.RID):Bool return this.__gd != ((p_rhs : gdnative.RID));
-	function __op_less_than_rid(p_rhs:gd.RID):Bool return this.__gd < ((p_rhs : gdnative.RID));
-	function __op_less_equal_rid(p_rhs:gd.RID):Bool return this.__gd <= ((p_rhs : gdnative.RID));
-	function __op_greater_than_rid(p_rhs:gd.RID):Bool return this.__gd > ((p_rhs : gdnative.RID));
-	function __op_greater_equal_rid(p_rhs:gd.RID):Bool return this.__gd >= ((p_rhs : gdnative.RID));
-	function __op_membership_in_dictionary(p_rhs:gd.Dictionary):Bool return this.__gd in ((p_rhs : gdnative.Dictionary));
-	function __op_membership_in_array(p_rhs:gd.Array):Bool return this.__gd in ((p_rhs : gdnative.Array));
+	function __op_equal_to_variant(p_rhs:gd.Variant):Bool return @:privateAccess this.__gd.__op_equal_to_variant(((p_rhs : gdnative.Variant)));
+	function __op_not_equal_variant(p_rhs:gd.Variant):Bool return @:privateAccess this.__gd.__op_not_equal_variant(((p_rhs : gdnative.Variant)));
+	function __op_equal_to_rid(p_rhs:gd.RID):Bool return @:privateAccess this.__gd.__op_equal_to_rid(((p_rhs : gdnative.RID)));
+	function __op_not_equal_rid(p_rhs:gd.RID):Bool return @:privateAccess this.__gd.__op_not_equal_rid(((p_rhs : gdnative.RID)));
+	function __op_less_than_rid(p_rhs:gd.RID):Bool return @:privateAccess this.__gd.__op_less_than_rid(((p_rhs : gdnative.RID)));
+	function __op_less_equal_rid(p_rhs:gd.RID):Bool return @:privateAccess this.__gd.__op_less_equal_rid(((p_rhs : gdnative.RID)));
+	function __op_greater_than_rid(p_rhs:gd.RID):Bool return @:privateAccess this.__gd.__op_greater_than_rid(((p_rhs : gdnative.RID)));
+	function __op_greater_equal_rid(p_rhs:gd.RID):Bool return @:privateAccess this.__gd.__op_greater_equal_rid(((p_rhs : gdnative.RID)));
+	function __op_membership_in_dictionary(p_rhs:gd.Dictionary):Bool return @:privateAccess this.__gd.__op_membership_in_dictionary(((p_rhs : gdnative.Dictionary)));
+	function __op_membership_in_array(p_rhs:gd.Array):Bool return @:privateAccess this.__gd.__op_membership_in_array(((p_rhs : gdnative.Array)));
 }
 
 @:forward @:forwardStatics abstract RID(RID_wrapper) from RID_wrapper to RID_wrapper {

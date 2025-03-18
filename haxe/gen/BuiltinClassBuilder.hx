@@ -532,7 +532,7 @@ class BuiltinClassBuilder extends Builder {
 						ret: makeHaxeType(op.return_type),
 						expr: isScriptExtern ? null : {
 							final rct = op.right_type != null ? makeGodotType(op.right_type) : macro :Void;
-							macro return ${makeOperatorMeta(op.name, macro this.__gd, macro(p_rhs : $rct))}
+							macro return @:privateAccess this.__gd.$fname($a{op.right_type == null ? [] : [macro(p_rhs : $rct)]});
 						}
 					}),
 				});
@@ -544,7 +544,7 @@ class BuiltinClassBuilder extends Builder {
 					kind: FFun({
 						args: op.right_type == null ? [] : [{name: 'p_rhs', type: makeHaxeType(op.right_type)}],
 						ret: makeHaxeType(op.return_type),
-						expr: macro return @:privateAccess this.$fname($a{op.right_type == null ? [] : [macro $i{'p_rhs'}]}),
+						expr: macro return @:privateAccess this.$fname($a{op.right_type == null ? [] : [macro p_rhs]}),
 					}),
 					meta: [
 						{
@@ -846,7 +846,7 @@ class BuiltinClassBuilder extends Builder {
 			]: false;
 			case ['Vector2i' | 'Vector3i' | 'Vector4i', MULTIPLY, 'float']: false;
 			case ['Vector2i' | 'Vector3i' | 'Vector4i', DIVIDE, _]: false;
-			case _: true;
+			case _: op.name != UNARY_PLUS;
 		}
 	}
 

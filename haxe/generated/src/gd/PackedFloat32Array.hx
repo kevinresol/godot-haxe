@@ -40,13 +40,13 @@ class PackedFloat32Array_wrapper {
 		default:__gd.rfind(((p_value : Float)), ((p_from : cpp.Int64)));
 	};
 	public function count(p_value:Float):cpp.Int64 return __gd.count(((p_value : Float)));
-	function __op_equal_to_variant(p_rhs:gd.Variant):Bool return this.__gd == ((p_rhs : gdnative.Variant));
-	function __op_not_equal_variant(p_rhs:gd.Variant):Bool return this.__gd != ((p_rhs : gdnative.Variant));
-	function __op_membership_in_dictionary(p_rhs:gd.Dictionary):Bool return this.__gd in ((p_rhs : gdnative.Dictionary));
-	function __op_membership_in_array(p_rhs:gd.Array):Bool return this.__gd in ((p_rhs : gdnative.Array));
-	function __op_equal_to_packedfloat32array(p_rhs:gd.PackedFloat32Array):Bool return this.__gd == ((p_rhs : gdnative.PackedFloat32Array));
-	function __op_not_equal_packedfloat32array(p_rhs:gd.PackedFloat32Array):Bool return this.__gd != ((p_rhs : gdnative.PackedFloat32Array));
-	function __op_add_packedfloat32array(p_rhs:gd.PackedFloat32Array):gd.PackedFloat32Array return this.__gd + ((p_rhs : gdnative.PackedFloat32Array));
+	function __op_equal_to_variant(p_rhs:gd.Variant):Bool return @:privateAccess this.__gd.__op_equal_to_variant(((p_rhs : gdnative.Variant)));
+	function __op_not_equal_variant(p_rhs:gd.Variant):Bool return @:privateAccess this.__gd.__op_not_equal_variant(((p_rhs : gdnative.Variant)));
+	function __op_membership_in_dictionary(p_rhs:gd.Dictionary):Bool return @:privateAccess this.__gd.__op_membership_in_dictionary(((p_rhs : gdnative.Dictionary)));
+	function __op_membership_in_array(p_rhs:gd.Array):Bool return @:privateAccess this.__gd.__op_membership_in_array(((p_rhs : gdnative.Array)));
+	function __op_equal_to_packedfloat32array(p_rhs:gd.PackedFloat32Array):Bool return @:privateAccess this.__gd.__op_equal_to_packedfloat32array(((p_rhs : gdnative.PackedFloat32Array)));
+	function __op_not_equal_packedfloat32array(p_rhs:gd.PackedFloat32Array):Bool return @:privateAccess this.__gd.__op_not_equal_packedfloat32array(((p_rhs : gdnative.PackedFloat32Array)));
+	function __op_add_packedfloat32array(p_rhs:gd.PackedFloat32Array):gd.PackedFloat32Array return @:privateAccess this.__gd.__op_add_packedfloat32array(((p_rhs : gdnative.PackedFloat32Array)));
 }
 
 @:forward @:forwardStatics abstract PackedFloat32Array(PackedFloat32Array_wrapper) from PackedFloat32Array_wrapper to PackedFloat32Array_wrapper {

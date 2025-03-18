@@ -66,13 +66,13 @@ class Projection_wrapper {
 		__gd.w = v;
 		v;
 	};
-	function __op_equal_to_variant(p_rhs:gd.Variant):Bool return this.__gd == ((p_rhs : gdnative.Variant));
-	function __op_not_equal_variant(p_rhs:gd.Variant):Bool return this.__gd != ((p_rhs : gdnative.Variant));
-	function __op_equal_to_projection(p_rhs:gd.Projection):Bool return this.__gd == ((p_rhs : gdnative.Projection));
-	function __op_not_equal_projection(p_rhs:gd.Projection):Bool return this.__gd != ((p_rhs : gdnative.Projection));
-	function __op_multiply_projection(p_rhs:gd.Projection):gd.Projection return this.__gd * ((p_rhs : gdnative.Projection));
-	function __op_membership_in_dictionary(p_rhs:gd.Dictionary):Bool return this.__gd in ((p_rhs : gdnative.Dictionary));
-	function __op_membership_in_array(p_rhs:gd.Array):Bool return this.__gd in ((p_rhs : gdnative.Array));
+	function __op_equal_to_variant(p_rhs:gd.Variant):Bool return @:privateAccess this.__gd.__op_equal_to_variant(((p_rhs : gdnative.Variant)));
+	function __op_not_equal_variant(p_rhs:gd.Variant):Bool return @:privateAccess this.__gd.__op_not_equal_variant(((p_rhs : gdnative.Variant)));
+	function __op_equal_to_projection(p_rhs:gd.Projection):Bool return @:privateAccess this.__gd.__op_equal_to_projection(((p_rhs : gdnative.Projection)));
+	function __op_not_equal_projection(p_rhs:gd.Projection):Bool return @:privateAccess this.__gd.__op_not_equal_projection(((p_rhs : gdnative.Projection)));
+	function __op_multiply_projection(p_rhs:gd.Projection):gd.Projection return @:privateAccess this.__gd.__op_multiply_projection(((p_rhs : gdnative.Projection)));
+	function __op_membership_in_dictionary(p_rhs:gd.Dictionary):Bool return @:privateAccess this.__gd.__op_membership_in_dictionary(((p_rhs : gdnative.Dictionary)));
+	function __op_membership_in_array(p_rhs:gd.Array):Bool return @:privateAccess this.__gd.__op_membership_in_array(((p_rhs : gdnative.Array)));
 	public static final IDENTITY : gd.Projection = new gd.Projection(new gd.Vector4(1, 0, 0, 0), new gd.Vector4(0, 1, 0, 0), new gd.Vector4(0, 0, 1, 0), new gd.Vector4(0, 0, 0, 1));
 	public static final ZERO : gd.Projection = new gd.Projection(new gd.Vector4(0, 0, 0, 0), new gd.Vector4(0, 0, 0, 0), new gd.Vector4(0, 0, 0, 0), new gd.Vector4(0, 0, 0, 0));
 }

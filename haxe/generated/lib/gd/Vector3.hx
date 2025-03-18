@@ -57,7 +57,6 @@ extern class Vector3_wrapper {
 	function __op_equal_to_variant(p_rhs:gd.Variant):Bool;
 	function __op_not_equal_variant(p_rhs:gd.Variant):Bool;
 	function __op_unary_minus():gd.Vector3;
-	function __op_unary_plus():gd.Vector3;
 	function __op_multiply_int(p_rhs:cpp.Int64):gd.Vector3;
 	function __op_divide_int(p_rhs:cpp.Int64):gd.Vector3;
 	function __op_multiply_float(p_rhs:Float):gd.Vector3;

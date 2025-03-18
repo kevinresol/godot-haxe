@@ -46,12 +46,12 @@ class Callable_wrapper {
 		for (i in 0 ... vlen) untyped __cpp__('ptrs[{0}] = &{1}.value', 0 + i, ((p_args[i] : gdnative.Variant)));
 		__gd.bind(untyped __cpp__('ptrs.data()'), len);
 	};
-	function __op_equal_to_variant(p_rhs:gd.Variant):Bool return this.__gd == ((p_rhs : gdnative.Variant));
-	function __op_not_equal_variant(p_rhs:gd.Variant):Bool return this.__gd != ((p_rhs : gdnative.Variant));
-	function __op_equal_to_callable(p_rhs:gd.Callable):Bool return this.__gd == ((p_rhs : gdnative.Callable));
-	function __op_not_equal_callable(p_rhs:gd.Callable):Bool return this.__gd != ((p_rhs : gdnative.Callable));
-	function __op_membership_in_dictionary(p_rhs:gd.Dictionary):Bool return this.__gd in ((p_rhs : gdnative.Dictionary));
-	function __op_membership_in_array(p_rhs:gd.Array):Bool return this.__gd in ((p_rhs : gdnative.Array));
+	function __op_equal_to_variant(p_rhs:gd.Variant):Bool return @:privateAccess this.__gd.__op_equal_to_variant(((p_rhs : gdnative.Variant)));
+	function __op_not_equal_variant(p_rhs:gd.Variant):Bool return @:privateAccess this.__gd.__op_not_equal_variant(((p_rhs : gdnative.Variant)));
+	function __op_equal_to_callable(p_rhs:gd.Callable):Bool return @:privateAccess this.__gd.__op_equal_to_callable(((p_rhs : gdnative.Callable)));
+	function __op_not_equal_callable(p_rhs:gd.Callable):Bool return @:privateAccess this.__gd.__op_not_equal_callable(((p_rhs : gdnative.Callable)));
+	function __op_membership_in_dictionary(p_rhs:gd.Dictionary):Bool return @:privateAccess this.__gd.__op_membership_in_dictionary(((p_rhs : gdnative.Dictionary)));
+	function __op_membership_in_array(p_rhs:gd.Array):Bool return @:privateAccess this.__gd.__op_membership_in_array(((p_rhs : gdnative.Array)));
 }
 
 @:forward @:forwardStatics abstract Callable(Callable_wrapper) from Callable_wrapper to Callable_wrapper {

@@ -26,7 +26,6 @@ extern class Vector2i_wrapper {
 	function __op_equal_to_variant(p_rhs:gd.Variant):Bool;
 	function __op_not_equal_variant(p_rhs:gd.Variant):Bool;
 	function __op_unary_minus():gd.Vector2i;
-	function __op_unary_plus():gd.Vector2i;
 	function __op_multiply_int(p_rhs:cpp.Int64):gd.Vector2i;
 	function __op_modulus_int(p_rhs:cpp.Int64):gd.Vector2i;
 	function __op_equal_to_vector2i(p_rhs:gd.Vector2i):Bool;

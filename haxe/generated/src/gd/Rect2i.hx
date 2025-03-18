@@ -32,12 +32,12 @@ class Rect2i_wrapper {
 		__gd.size = v;
 		v;
 	};
-	function __op_equal_to_variant(p_rhs:gd.Variant):Bool return this.__gd == ((p_rhs : gdnative.Variant));
-	function __op_not_equal_variant(p_rhs:gd.Variant):Bool return this.__gd != ((p_rhs : gdnative.Variant));
-	function __op_equal_to_rect2i(p_rhs:gd.Rect2i):Bool return this.__gd == ((p_rhs : gdnative.Rect2i));
-	function __op_not_equal_rect2i(p_rhs:gd.Rect2i):Bool return this.__gd != ((p_rhs : gdnative.Rect2i));
-	function __op_membership_in_dictionary(p_rhs:gd.Dictionary):Bool return this.__gd in ((p_rhs : gdnative.Dictionary));
-	function __op_membership_in_array(p_rhs:gd.Array):Bool return this.__gd in ((p_rhs : gdnative.Array));
+	function __op_equal_to_variant(p_rhs:gd.Variant):Bool return @:privateAccess this.__gd.__op_equal_to_variant(((p_rhs : gdnative.Variant)));
+	function __op_not_equal_variant(p_rhs:gd.Variant):Bool return @:privateAccess this.__gd.__op_not_equal_variant(((p_rhs : gdnative.Variant)));
+	function __op_equal_to_rect2i(p_rhs:gd.Rect2i):Bool return @:privateAccess this.__gd.__op_equal_to_rect2i(((p_rhs : gdnative.Rect2i)));
+	function __op_not_equal_rect2i(p_rhs:gd.Rect2i):Bool return @:privateAccess this.__gd.__op_not_equal_rect2i(((p_rhs : gdnative.Rect2i)));
+	function __op_membership_in_dictionary(p_rhs:gd.Dictionary):Bool return @:privateAccess this.__gd.__op_membership_in_dictionary(((p_rhs : gdnative.Dictionary)));
+	function __op_membership_in_array(p_rhs:gd.Array):Bool return @:privateAccess this.__gd.__op_membership_in_array(((p_rhs : gdnative.Array)));
 }
 
 @:forward @:forwardStatics abstract Rect2i(Rect2i_wrapper) from Rect2i_wrapper to Rect2i_wrapper {

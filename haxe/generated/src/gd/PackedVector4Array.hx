@@ -40,13 +40,13 @@ class PackedVector4Array_wrapper {
 		default:__gd.rfind(((p_value : gd.Vector4)), ((p_from : cpp.Int64)));
 	};
 	public function count(p_value:gd.Vector4):cpp.Int64 return __gd.count(((p_value : gd.Vector4)));
-	function __op_equal_to_variant(p_rhs:gd.Variant):Bool return this.__gd == ((p_rhs : gdnative.Variant));
-	function __op_not_equal_variant(p_rhs:gd.Variant):Bool return this.__gd != ((p_rhs : gdnative.Variant));
-	function __op_membership_in_dictionary(p_rhs:gd.Dictionary):Bool return this.__gd in ((p_rhs : gdnative.Dictionary));
-	function __op_membership_in_array(p_rhs:gd.Array):Bool return this.__gd in ((p_rhs : gdnative.Array));
-	function __op_equal_to_packedvector4array(p_rhs:gd.PackedVector4Array):Bool return this.__gd == ((p_rhs : gdnative.PackedVector4Array));
-	function __op_not_equal_packedvector4array(p_rhs:gd.PackedVector4Array):Bool return this.__gd != ((p_rhs : gdnative.PackedVector4Array));
-	function __op_add_packedvector4array(p_rhs:gd.PackedVector4Array):gd.PackedVector4Array return this.__gd + ((p_rhs : gdnative.PackedVector4Array));
+	function __op_equal_to_variant(p_rhs:gd.Variant):Bool return @:privateAccess this.__gd.__op_equal_to_variant(((p_rhs : gdnative.Variant)));
+	function __op_not_equal_variant(p_rhs:gd.Variant):Bool return @:privateAccess this.__gd.__op_not_equal_variant(((p_rhs : gdnative.Variant)));
+	function __op_membership_in_dictionary(p_rhs:gd.Dictionary):Bool return @:privateAccess this.__gd.__op_membership_in_dictionary(((p_rhs : gdnative.Dictionary)));
+	function __op_membership_in_array(p_rhs:gd.Array):Bool return @:privateAccess this.__gd.__op_membership_in_array(((p_rhs : gdnative.Array)));
+	function __op_equal_to_packedvector4array(p_rhs:gd.PackedVector4Array):Bool return @:privateAccess this.__gd.__op_equal_to_packedvector4array(((p_rhs : gdnative.PackedVector4Array)));
+	function __op_not_equal_packedvector4array(p_rhs:gd.PackedVector4Array):Bool return @:privateAccess this.__gd.__op_not_equal_packedvector4array(((p_rhs : gdnative.PackedVector4Array)));
+	function __op_add_packedvector4array(p_rhs:gd.PackedVector4Array):gd.PackedVector4Array return @:privateAccess this.__gd.__op_add_packedvector4array(((p_rhs : gdnative.PackedVector4Array)));
 }
 
 @:forward @:forwardStatics abstract PackedVector4Array(PackedVector4Array_wrapper) from PackedVector4Array_wrapper to PackedVector4Array_wrapper {

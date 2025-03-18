@@ -40,13 +40,13 @@ class PackedInt64Array_wrapper {
 		default:__gd.rfind(((p_value : cpp.Int64)), ((p_from : cpp.Int64)));
 	};
 	public function count(p_value:cpp.Int64):cpp.Int64 return __gd.count(((p_value : cpp.Int64)));
-	function __op_equal_to_variant(p_rhs:gd.Variant):Bool return this.__gd == ((p_rhs : gdnative.Variant));
-	function __op_not_equal_variant(p_rhs:gd.Variant):Bool return this.__gd != ((p_rhs : gdnative.Variant));
-	function __op_membership_in_dictionary(p_rhs:gd.Dictionary):Bool return this.__gd in ((p_rhs : gdnative.Dictionary));
-	function __op_membership_in_array(p_rhs:gd.Array):Bool return this.__gd in ((p_rhs : gdnative.Array));
-	function __op_equal_to_packedint64array(p_rhs:gd.PackedInt64Array):Bool return this.__gd == ((p_rhs : gdnative.PackedInt64Array));
-	function __op_not_equal_packedint64array(p_rhs:gd.PackedInt64Array):Bool return this.__gd != ((p_rhs : gdnative.PackedInt64Array));
-	function __op_add_packedint64array(p_rhs:gd.PackedInt64Array):gd.PackedInt64Array return this.__gd + ((p_rhs : gdnative.PackedInt64Array));
+	function __op_equal_to_variant(p_rhs:gd.Variant):Bool return @:privateAccess this.__gd.__op_equal_to_variant(((p_rhs : gdnative.Variant)));
+	function __op_not_equal_variant(p_rhs:gd.Variant):Bool return @:privateAccess this.__gd.__op_not_equal_variant(((p_rhs : gdnative.Variant)));
+	function __op_membership_in_dictionary(p_rhs:gd.Dictionary):Bool return @:privateAccess this.__gd.__op_membership_in_dictionary(((p_rhs : gdnative.Dictionary)));
+	function __op_membership_in_array(p_rhs:gd.Array):Bool return @:privateAccess this.__gd.__op_membership_in_array(((p_rhs : gdnative.Array)));
+	function __op_equal_to_packedint64array(p_rhs:gd.PackedInt64Array):Bool return @:privateAccess this.__gd.__op_equal_to_packedint64array(((p_rhs : gdnative.PackedInt64Array)));
+	function __op_not_equal_packedint64array(p_rhs:gd.PackedInt64Array):Bool return @:privateAccess this.__gd.__op_not_equal_packedint64array(((p_rhs : gdnative.PackedInt64Array)));
+	function __op_add_packedint64array(p_rhs:gd.PackedInt64Array):gd.PackedInt64Array return @:privateAccess this.__gd.__op_add_packedint64array(((p_rhs : gdnative.PackedInt64Array)));
 }
 
 @:forward @:forwardStatics abstract PackedInt64Array(PackedInt64Array_wrapper) from PackedInt64Array_wrapper to PackedInt64Array_wrapper {

@@ -48,12 +48,12 @@ class Dictionary_wrapper {
 	public function make_read_only():Void __gd.make_read_only();
 	public function is_read_only():Bool return __gd.is_read_only();
 	public function recursive_equal(p_dictionary:gd.Dictionary, p_recursion_count:cpp.Int64):Bool return __gd.recursive_equal(((p_dictionary : gd.Dictionary)), ((p_recursion_count : cpp.Int64)));
-	function __op_equal_to_variant(p_rhs:gd.Variant):Bool return this.__gd == ((p_rhs : gdnative.Variant));
-	function __op_not_equal_variant(p_rhs:gd.Variant):Bool return this.__gd != ((p_rhs : gdnative.Variant));
-	function __op_equal_to_dictionary(p_rhs:gd.Dictionary):Bool return this.__gd == ((p_rhs : gdnative.Dictionary));
-	function __op_not_equal_dictionary(p_rhs:gd.Dictionary):Bool return this.__gd != ((p_rhs : gdnative.Dictionary));
-	function __op_membership_in_dictionary(p_rhs:gd.Dictionary):Bool return this.__gd in ((p_rhs : gdnative.Dictionary));
-	function __op_membership_in_array(p_rhs:gd.Array):Bool return this.__gd in ((p_rhs : gdnative.Array));
+	function __op_equal_to_variant(p_rhs:gd.Variant):Bool return @:privateAccess this.__gd.__op_equal_to_variant(((p_rhs : gdnative.Variant)));
+	function __op_not_equal_variant(p_rhs:gd.Variant):Bool return @:privateAccess this.__gd.__op_not_equal_variant(((p_rhs : gdnative.Variant)));
+	function __op_equal_to_dictionary(p_rhs:gd.Dictionary):Bool return @:privateAccess this.__gd.__op_equal_to_dictionary(((p_rhs : gdnative.Dictionary)));
+	function __op_not_equal_dictionary(p_rhs:gd.Dictionary):Bool return @:privateAccess this.__gd.__op_not_equal_dictionary(((p_rhs : gdnative.Dictionary)));
+	function __op_membership_in_dictionary(p_rhs:gd.Dictionary):Bool return @:privateAccess this.__gd.__op_membership_in_dictionary(((p_rhs : gdnative.Dictionary)));
+	function __op_membership_in_array(p_rhs:gd.Array):Bool return @:privateAccess this.__gd.__op_membership_in_array(((p_rhs : gdnative.Array)));
 	function __get_padded(key:gd.Variant):gd.Variant return __gd.get(key, new gd.Variant());
 }
 
