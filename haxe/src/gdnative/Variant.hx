@@ -96,26 +96,28 @@ abstract Variant(cpp.Struct<Variant_extern>) from cpp.Struct<Variant_extern> to 
 		// final typeName:std.String = this.get_type_name(type);
 		// trace('Type is $type, $typeName');
 
-		return if (type == gdnative.variant.Type.NIL) {
-			null;
-		} else if (type == gdnative.variant.Type.BOOL) {
-			final v = (cast val() : Bool);
-			v;
-		} else if (type == gdnative.variant.Type.INT) {
-			final v = (cast val() : Int);
-			v;
-		} else if (type == gdnative.variant.Type.FLOAT) {
-			final v = (cast val() : Float);
-			v;
-		} else if (type == gdnative.variant.Type.STRING) {
-			toHaxeString();
-		} else if (type == gdnative.variant.Type.OBJECT) {
-			final name:std.String = this.call("get_class");
-			// TODO: is there a chance the class doesn't exist?
-			gd.Utils.createClassWrapper(toObjectPointer(), Type.resolveClass('gd.$name'));
-		} else {
-			trace('Unhandled type $type');
-			throw 'Unhandled type $type';
+		return switch this.get_type() {
+			case NIL:
+				null;
+			case BOOL:
+				final v = (cast val() : Bool);
+				v;
+			case INT:
+				final v = (cast val() : Int);
+				v;
+			case FLOAT:
+				final v = (cast val() : Float);
+				v;
+
+			case STRING:
+				toHaxeString();
+			case OBJECT:
+				final name:std.String = this.call("get_class");
+				// TODO: is there a chance the class doesn't exist?
+				gd.Utils.createClassWrapper(toObjectPointer(), Type.resolveClass('gd.$name'));
+			case _:
+				trace('Unhandled type $type');
+				throw 'Unhandled type $type';
 		}
 	}
 
