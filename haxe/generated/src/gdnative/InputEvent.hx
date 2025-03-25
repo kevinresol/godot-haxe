@@ -8,7 +8,7 @@ package gdnative;
 	@:to
 	inline function toWrapper():gd.InputEvent return new gd.InputEvent(this);
 }
-@:include("godot_cpp/classes/input_event.hpp") @:semantic(reference) @:cpp.PointerType({ type : "InputEvent", namespace : ['godot'] }) extern class InputEvent_extern extends gdnative.Resource.Resource_extern {
+@:include("godot_cpp/classes/input_event.hpp") @:native("godot::InputEvent") @:structAccess extern class InputEvent_extern extends gdnative.Resource.Resource_extern {
 	extern static inline function __alloc():cpp.Pointer<InputEvent_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::InputEvent"));
 	function set_device(p_device:cpp.Int64):Void;
 	function get_device():cpp.Int64;

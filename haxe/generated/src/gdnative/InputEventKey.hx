@@ -8,7 +8,7 @@ package gdnative;
 	@:to
 	inline function toWrapper():gd.InputEventKey return new gd.InputEventKey(this);
 }
-@:include("godot_cpp/classes/input_event_key.hpp") @:semantic(reference) @:cpp.PointerType({ type : "InputEventKey", namespace : ['godot'] }) extern class InputEventKey_extern extends gdnative.InputEventWithModifiers.InputEventWithModifiers_extern {
+@:include("godot_cpp/classes/input_event_key.hpp") @:native("godot::InputEventKey") @:structAccess extern class InputEventKey_extern extends gdnative.InputEventWithModifiers.InputEventWithModifiers_extern {
 	extern static inline function __alloc():cpp.Pointer<InputEventKey_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::InputEventKey"));
 	function set_pressed(p_pressed:Bool):Void;
 	function set_keycode(p_keycode:gdnative.Key):Void;

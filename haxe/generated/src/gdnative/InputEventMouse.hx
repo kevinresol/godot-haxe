@@ -8,7 +8,7 @@ package gdnative;
 	@:to
 	inline function toWrapper():gd.InputEventMouse return new gd.InputEventMouse(this);
 }
-@:include("godot_cpp/classes/input_event_mouse.hpp") @:semantic(reference) @:cpp.PointerType({ type : "InputEventMouse", namespace : ['godot'] }) extern class InputEventMouse_extern extends gdnative.InputEventWithModifiers.InputEventWithModifiers_extern {
+@:include("godot_cpp/classes/input_event_mouse.hpp") @:native("godot::InputEventMouse") @:structAccess extern class InputEventMouse_extern extends gdnative.InputEventWithModifiers.InputEventWithModifiers_extern {
 	extern static inline function __alloc():cpp.Pointer<InputEventMouse_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::InputEventMouse"));
 	function set_button_mask(p_button_mask:Int):Void;
 	function get_button_mask():Int;

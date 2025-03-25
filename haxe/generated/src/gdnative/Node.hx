@@ -2,13 +2,13 @@ package gdnative;
 /**
 	Class
 **/
-@:forward abstract Node(Node_extern) from Node_extern to Node_extern {
+@:forward abstract Node(cpp.Pointer<Node_extern>) from cpp.Pointer<Node_extern> to cpp.Pointer<Node_extern> {
 	@:from
 	static inline function fromWrapper(v:gd.Node):gdnative.Node return @:privateAccess v.__gd.reinterpret();
 	@:to
 	inline function toWrapper():gd.Node return new gd.Node(this);
 }
-@:include("godot_cpp/classes/node.hpp") @:semantic(reference) @:cpp.PointerType({ type : "Node", namespace : ['godot'] }) extern class Node_extern extends gdnative.Object.Object_extern {
+@:include("godot_cpp/classes/node.hpp") @:native("godot::Node") @:structAccess extern class Node_extern extends gdnative.Object.Object_extern {
 	extern static inline function __alloc():cpp.Pointer<Node_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::Node"));
 	function _process(p_delta:Float):Void;
 	function _physics_process(p_delta:Float):Void;

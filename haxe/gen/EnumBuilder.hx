@@ -38,7 +38,12 @@ class EnumBuilder extends Builder {
 				pos: null,
 				name: ':cpp.ValueType',
 				params: [
-					macro {type: $v{ename}, namespace: $a{['godot'].concat(parts).map(v -> macro $v{v})}}
+					{
+						final parts = ntype.split('::');
+						final type = parts.pop();
+						final namespace = parts.map(p -> macro $v{p});
+						macro {type: $v{type}, namespace: $a{namespace}}
+					}
 				]
 			},
 			{

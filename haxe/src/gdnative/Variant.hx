@@ -137,7 +137,7 @@ abstract Variant(cpp.Struct<Variant_extern>) from cpp.Struct<Variant_extern> to 
 
 	// public inline function get_type():gdnative.variant.Type
 	// 	return this.get_type();
-	// public extern inline function set_named(name:StringName, value:Variant, r_valid:cpp.Reference<Bool>):Void
+	// public extern inline function set_named(name:StringName,  value:Variant, r_valid:cpp.Reference<Bool>):Void
 	// 	this.set_named(name, value, r_valid);
 	// public extern inline function set_indexed(index:cpp.Int64, value:Variant, r_valid:cpp.Reference<Bool>, r_oob:cpp.Reference<Bool>):Void
 	// 	this.set_indexed(index, value, r_valid, r_oob);
@@ -189,7 +189,7 @@ extern class Variant_extern {
 	@:overload(function(v:gdnative.PackedVector3Array):Void {})
 	@:overload(function(v:gdnative.PackedColorArray):Void {})
 	@:overload(function(v:gdnative.PackedVector4Array):Void {})
-	@:overload(function(v:gdnative.Object.Object_extern):Void {})
+	@:overload(function(v:cpp.Pointer<gdnative.Object.Object_extern>):Void {})
 	@:overload(function(v:cpp.ConstPointer<cpp.Char>):Void {})
 	@:overload(function(v:cpp.ConstCharStar):Void {})
 	@:overload(function(v:cpp.UInt64):Void {})

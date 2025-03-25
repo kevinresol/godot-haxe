@@ -2,13 +2,13 @@ package gdnative;
 /**
 	Class
 **/
-@:forward abstract Object(Object_extern) from Object_extern to Object_extern {
+@:forward abstract Object(cpp.Pointer<Object_extern>) from cpp.Pointer<Object_extern> to cpp.Pointer<Object_extern> {
 	@:from
 	static inline function fromWrapper(v:gd.Object):gdnative.Object return @:privateAccess v.__gd.reinterpret();
 	@:to
 	inline function toWrapper():gd.Object return new gd.Object(this);
 }
-@:include("godot_cpp/classes/object.hpp") @:semantic(reference) @:cpp.PointerType({ type : "Object", namespace : ['godot'] }) extern class Object_extern {
+@:include("godot_cpp/classes/object.hpp") @:native("godot::Object") @:structAccess extern class Object_extern {
 	extern static inline function __alloc():cpp.Pointer<Object_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::Object"));
 	function get_class():gdnative.String;
 	function is_class(p_class:gdnative.String):Bool;
