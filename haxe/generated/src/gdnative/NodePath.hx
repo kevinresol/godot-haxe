@@ -23,9 +23,9 @@ package gdnative;
 	inline function toVariant():gdnative.Variant return new gdnative.Variant.Variant_extern(abstract);
 	inline function val():NodePath_extern return untyped __cpp__('{0}.value', abstract);
 	@:op(A == B)
-	extern inline function __op_equal_to_variant(p_rhs:gdnative.Variant):Bool return untyped __cpp__('{0} == {1}', val(), @:privateAccess p_rhs.val());
+	extern inline function __op_equal_to_variant(p_rhs:gdnative.Variant):Bool return untyped __cpp__('{0} == {1}', val(), p_rhs.toReference());
 	@:op(A != B)
-	extern inline function __op_not_equal_variant(p_rhs:gdnative.Variant):Bool return untyped __cpp__('{0} != {1}', val(), @:privateAccess p_rhs.val());
+	extern inline function __op_not_equal_variant(p_rhs:gdnative.Variant):Bool return untyped __cpp__('{0} != {1}', val(), p_rhs.toReference());
 	@:op(A == B)
 	extern inline function __op_equal_to_nodepath(p_rhs:gdnative.NodePath):Bool return untyped __cpp__('{0} == {1}', val(), @:privateAccess p_rhs.val());
 	@:op(A != B)

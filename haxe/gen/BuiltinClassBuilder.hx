@@ -917,8 +917,13 @@ class BuiltinClassBuilder extends Builder {
 	}
 
 	function makeOperatorExpr(op:Operator):Expr {
-		final right = op.right_type == null ? macro null : switch [isBuiltinClass(op.right_type), isPrimitive(op.right_type)] {
-			case [true, false]: macro @:privateAccess p_rhs.val();
+		final right = op.right_type == null ? macro null : switch [
+			isBuiltinClass(op.right_type),
+			isPrimitive(op.right_type),
+			op.right_type == 'Variant'
+		] {
+			case [true, false, false]: macro @:privateAccess p_rhs.val();
+			case [true, false, true]: macro p_rhs.toReference();
 			case _: macro p_rhs;
 		}
 		return switch op.name {

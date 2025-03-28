@@ -194,15 +194,15 @@ class Builder {
 
 		for (i => arg in args) {
 			if (arg.type == 'Variant') {
-				exprs.push(macro untyped __cpp__('ptrs[{0}] = &{1}.value', $v{i}, @:privateAccess $i{'p_${arg.name}'}.__gd));
+				exprs.push(macro untyped __cpp__('ptrs[{0}] = {1}', $v{i}, @:privateAccess $i{'p_${arg.name}'}.__gd.toStar()));
 			} else {
 				final name = 'arg$i';
-				exprs.push(macro final $name:gdnative.Variant = $i{'p_${arg.name}'});
-				exprs.push(macro untyped __cpp__('ptrs[{0}] = &{1}.value', $v{i}, $i{name}));
+				exprs.push(macro final $name:gdnative.Variant = $i{'p_${arg.name}'}); // explicit var to make sure it is stack allocated
+				exprs.push(macro untyped __cpp__('ptrs[{0}] = {1}', $v{i}, $i{name}.toStar()));
 			}
 		}
 		exprs.push(macro for (i in 0...vlen)
-			untyped __cpp__('ptrs[{0}] = &{1}.value', $v{args.length} + i, (p_args[i] : gdnative.Variant)));
+			untyped __cpp__('ptrs[{0}] = {1}', $v{args.length} + i, (p_args[i] : gdnative.Variant)));
 		exprs.push(macro $f(untyped __cpp__('ptrs.data()'), len));
 		return macro $b{exprs};
 	}

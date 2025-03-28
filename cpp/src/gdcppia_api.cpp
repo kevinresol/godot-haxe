@@ -200,7 +200,8 @@ void analyze_code(::String p_source, ::String p_class_name) {
 }
 
 ::Dynamic to_haxe_dynamic(const godot::Variant* p_val) {
-  return gdcppia::Cppia_obj::fromVariant(*p_val);
+  return gdcppia::Cppia_obj::fromVariant(
+      cpp::marshal::ValueReference<godot::Variant>(p_val));
 }
 
 ::Array<::Dynamic> to_haxe_dynamic_array(const godot::Variant** p_ptr,
@@ -214,7 +215,8 @@ void analyze_code(::String p_source, ::String p_class_name) {
 }
 
 godot::Variant from_haxe_dynamic(::Dynamic val) {
-  return gdcppia::Cppia_obj::toVariant(val);
+  return (cpp::marshal::ValueReference<godot::Variant>)
+      gdcppia::Cppia_obj::toVariant(val);
 }
 
 }  // namespace gdcppia

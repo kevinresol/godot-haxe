@@ -98,7 +98,7 @@ class Variant_obj {
 		var valid:Bool = false;
 		final result = __gd.get_named(name, valid);
 		// TODO: should we really just return nil if not valid?
-		return new Variant_obj(valid ? result : new gdnative.Variant.Variant_extern());
+		return valid ? new Variant_obj(result) : new Variant_obj(new gdnative.Variant.Variant_extern());
 	}
 
 	public function set_named(name:std.String, value:Variant):Bool {
@@ -112,7 +112,7 @@ class Variant_obj {
 		var oob = false; // TODO: perhaps we should throw if out-of-bounds?
 		final result = __gd.get_indexed(index, valid, oob);
 		// TODO: should we really just return nil if not valid?
-		return new Variant_obj(valid ? result : new gdnative.Variant.Variant_extern());
+		return valid ? new Variant_obj(result) : new Variant_obj(new gdnative.Variant.Variant_extern());
 	}
 
 	public function set_indexed(index:Int, value:Variant):Bool {

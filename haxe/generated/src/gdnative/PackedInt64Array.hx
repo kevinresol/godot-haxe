@@ -15,9 +15,9 @@ package gdnative;
 	inline function toVariant():gdnative.Variant return new gdnative.Variant.Variant_extern(abstract);
 	inline function val():PackedInt64Array_extern return untyped __cpp__('{0}.value', abstract);
 	@:op(A == B)
-	extern inline function __op_equal_to_variant(p_rhs:gdnative.Variant):Bool return untyped __cpp__('{0} == {1}', val(), @:privateAccess p_rhs.val());
+	extern inline function __op_equal_to_variant(p_rhs:gdnative.Variant):Bool return untyped __cpp__('{0} == {1}', val(), p_rhs.toReference());
 	@:op(A != B)
-	extern inline function __op_not_equal_variant(p_rhs:gdnative.Variant):Bool return untyped __cpp__('{0} != {1}', val(), @:privateAccess p_rhs.val());
+	extern inline function __op_not_equal_variant(p_rhs:gdnative.Variant):Bool return untyped __cpp__('{0} != {1}', val(), p_rhs.toReference());
 	@:op(A in B)
 	extern inline function __op_membership_in_dictionary(p_rhs:gdnative.Dictionary):Bool return p_rhs.has(abstract);
 	@:op(A in B)

@@ -3,7 +3,7 @@ package gdnative;
 import cpp.abi.ThisCall;
 
 @:forward
-abstract Variant(cpp.Struct<Variant_extern>) from cpp.Struct<Variant_extern> to cpp.Struct<Variant_extern> {
+abstract Variant(Variant_extern) from Variant_extern to Variant_extern {
 	@:from
 	extern static inline function fromWrapper(v:gd.Variant):Variant
 		return @:privateAccess v.__gd;
@@ -116,8 +116,8 @@ abstract Variant(cpp.Struct<Variant_extern>) from cpp.Struct<Variant_extern> to 
 				// TODO: is there a chance the class doesn't exist?
 				gd.Utils.createClassWrapper(toObjectPointer(), Type.resolveClass('gd.$name'));
 			case _:
-				trace('Unhandled type $type');
-				throw 'Unhandled type $type';
+				trace('Unhandled type ${(type : Int)}');
+				throw 'Unhandled type ${(type : Int)}';
 		}
 	}
 
@@ -133,8 +133,20 @@ abstract Variant(cpp.Struct<Variant_extern>) from cpp.Struct<Variant_extern> to 
 		return (untyped __cpp__('(godot::Object*){0}', val()) : gdnative.Object);
 	}
 
+	@:to extern inline function toPointer():cpp.Pointer<Variant_extern> {
+		return cast this;
+	}
+
+	@:to extern inline function toStar():cpp.Star<Variant_extern> {
+		return cast this;
+	}
+
+	@:to extern inline function toReference():cpp.Reference<Variant_extern> {
+		return untyped __cpp__('static_cast<godot::Variant &>(static_cast<cpp::marshal::ValueReference<godot::Variant>>({0}))', this);
+	}
+
 	inline function val():Variant_extern {
-		return untyped __cpp__('{0}.get()', this);
+		return toPointer().value;
 	}
 
 	// public inline function get_type():gdnative.variant.Type
@@ -154,8 +166,10 @@ abstract Variant(cpp.Struct<Variant_extern>) from cpp.Struct<Variant_extern> to 
 }
 
 @:include("godot_cpp/classes/object.hpp")
-@:native("godot::Variant")
-@:structAccess
+// @:native("godot::Variant")
+// @:structAccess
+@:semantics(reference)
+@:cpp.ValueType({type: 'Variant', namespace: ['godot']})
 extern class Variant_extern {
 	@:overload(function(v:gdnative.Vector2):Void {})
 	@:overload(function(v:gdnative.Vector2i):Void {})

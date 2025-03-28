@@ -11,6 +11,6 @@ class PropertyInfo {
 	public final usage:cpp.UInt64; // Bitfield of `PropertyUsageFlags` (defined in `extension_api.json`).
 
 	public function toString() {
-		return 'PropertyInfo(type=$type, name=$name, className=$className, hint=$hint, hintString=$hintString, usage=$usage)';
+		return 'PropertyInfo(type=${(type : Int)}, name=$name, className=$className, hint=$hint, hintString=$hintString, usage=$usage)';
 	}
 }

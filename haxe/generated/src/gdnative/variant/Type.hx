@@ -3,7 +3,6 @@ package gdnative.variant;
 	@:op(A == B)
 	static inline function eq(v1:Type, v2:Type):Bool return __cast(v1) == __cast(v2);
 	static inline function __cast(v:Type):Int return v;
-	inline function toString():Int return this;
 	final NIL;
 	final BOOL;
 	final INT;

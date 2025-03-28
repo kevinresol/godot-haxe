@@ -25,25 +25,25 @@ class Callable_wrapper {
 	public function call(p_args:haxe.Rest<gd.Variant>):gd.Variant return {
 		final vlen = p_args.length, len = 0 + vlen;
 		untyped __cpp__('std::vector<const godot::Variant*> ptrs; ptrs.resize({0})', len);
-		for (i in 0 ... vlen) untyped __cpp__('ptrs[{0}] = &{1}.value', 0 + i, ((p_args[i] : gdnative.Variant)));
+		for (i in 0 ... vlen) untyped __cpp__('ptrs[{0}] = {1}', 0 + i, ((p_args[i] : gdnative.Variant)));
 		__gd.call(untyped __cpp__('ptrs.data()'), len);
 	};
 	public function call_deferred(p_args:haxe.Rest<gd.Variant>):Void {
 		final vlen = p_args.length, len = 0 + vlen;
 		untyped __cpp__('std::vector<const godot::Variant*> ptrs; ptrs.resize({0})', len);
-		for (i in 0 ... vlen) untyped __cpp__('ptrs[{0}] = &{1}.value', 0 + i, ((p_args[i] : gdnative.Variant)));
+		for (i in 0 ... vlen) untyped __cpp__('ptrs[{0}] = {1}', 0 + i, ((p_args[i] : gdnative.Variant)));
 		__gd.call_deferred(untyped __cpp__('ptrs.data()'), len);
 	}
 	public function rpc(p_args:haxe.Rest<gd.Variant>):Void {
 		final vlen = p_args.length, len = 0 + vlen;
 		untyped __cpp__('std::vector<const godot::Variant*> ptrs; ptrs.resize({0})', len);
-		for (i in 0 ... vlen) untyped __cpp__('ptrs[{0}] = &{1}.value', 0 + i, ((p_args[i] : gdnative.Variant)));
+		for (i in 0 ... vlen) untyped __cpp__('ptrs[{0}] = {1}', 0 + i, ((p_args[i] : gdnative.Variant)));
 		__gd.rpc(untyped __cpp__('ptrs.data()'), len);
 	}
 	public function bind(p_args:haxe.Rest<gd.Variant>):gd.Callable return {
 		final vlen = p_args.length, len = 0 + vlen;
 		untyped __cpp__('std::vector<const godot::Variant*> ptrs; ptrs.resize({0})', len);
-		for (i in 0 ... vlen) untyped __cpp__('ptrs[{0}] = &{1}.value', 0 + i, ((p_args[i] : gdnative.Variant)));
+		for (i in 0 ... vlen) untyped __cpp__('ptrs[{0}] = {1}', 0 + i, ((p_args[i] : gdnative.Variant)));
 		__gd.bind(untyped __cpp__('ptrs.data()'), len);
 	};
 	function __op_equal_to_variant(p_rhs:gd.Variant):Bool return @:privateAccess this.__gd.__op_equal_to_variant(((p_rhs : gdnative.Variant)));
