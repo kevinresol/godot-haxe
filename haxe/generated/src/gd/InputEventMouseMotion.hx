@@ -14,7 +14,10 @@ package gd;
 		__inputeventmousemotion_ptr().value.set_tilt(((p_tilt : gd.Vector2)));
 		return p_tilt;
 	}
-	public function get_tilt():gd.Vector2 return __inputeventmousemotion_ptr().value.get_tilt();
+	public function get_tilt():gd.Vector2 return {
+		final v = __inputeventmousemotion_ptr().value.get_tilt();
+		v;
+	};
 	public function set_pressure(p_pressure:Float):Float {
 		__inputeventmousemotion_ptr().value.set_pressure(((p_pressure : Float)));
 		return p_pressure;
@@ -29,22 +32,34 @@ package gd;
 		__inputeventmousemotion_ptr().value.set_relative(((p_relative : gd.Vector2)));
 		return p_relative;
 	}
-	public function get_relative():gd.Vector2 return __inputeventmousemotion_ptr().value.get_relative();
+	public function get_relative():gd.Vector2 return {
+		final v = __inputeventmousemotion_ptr().value.get_relative();
+		v;
+	};
 	public function set_screen_relative(p_relative:gd.Vector2):gd.Vector2 {
 		__inputeventmousemotion_ptr().value.set_screen_relative(((p_relative : gd.Vector2)));
 		return p_relative;
 	}
-	public function get_screen_relative():gd.Vector2 return __inputeventmousemotion_ptr().value.get_screen_relative();
+	public function get_screen_relative():gd.Vector2 return {
+		final v = __inputeventmousemotion_ptr().value.get_screen_relative();
+		v;
+	};
 	public function set_velocity(p_velocity:gd.Vector2):gd.Vector2 {
 		__inputeventmousemotion_ptr().value.set_velocity(((p_velocity : gd.Vector2)));
 		return p_velocity;
 	}
-	public function get_velocity():gd.Vector2 return __inputeventmousemotion_ptr().value.get_velocity();
+	public function get_velocity():gd.Vector2 return {
+		final v = __inputeventmousemotion_ptr().value.get_velocity();
+		v;
+	};
 	public function set_screen_velocity(p_velocity:gd.Vector2):gd.Vector2 {
 		__inputeventmousemotion_ptr().value.set_screen_velocity(((p_velocity : gd.Vector2)));
 		return p_velocity;
 	}
-	public function get_screen_velocity():gd.Vector2 return __inputeventmousemotion_ptr().value.get_screen_velocity();
+	public function get_screen_velocity():gd.Vector2 return {
+		final v = __inputeventmousemotion_ptr().value.get_screen_velocity();
+		v;
+	};
 	public var tilt(get, set) : gd.Vector2;
 	public var pressure(get, set) : Float;
 	public var pen_inverted(get, set) : Bool;

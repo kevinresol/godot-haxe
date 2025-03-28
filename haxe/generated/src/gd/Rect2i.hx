@@ -2,24 +2,48 @@ package gd;
 class Rect2i_wrapper {
 	final __gd : gdnative.Rect2i;
 	public function new(value:gdnative.Rect2i) __gd = value;
-	function toVariant():gd.Variant return @:privateAccess new gd.Variant.Variant_obj(new gdnative.Variant.Variant_extern(this));
+	function toVariant():gd.Variant return @:privateAccess new gd.Variant.Variant_obj(((__gd : gdnative.Variant)));
 	static function _new0():Rect2i_wrapper return new Rect2i_wrapper(new gdnative.Rect2i());
 	static function _new1(p_from:gd.Rect2i):Rect2i_wrapper return new Rect2i_wrapper(new gdnative.Rect2i(p_from));
 	static function _new2(p_position:gd.Vector2i, p_size:gd.Vector2i):Rect2i_wrapper return new Rect2i_wrapper(new gdnative.Rect2i(p_position, p_size));
 	static function _new3(p_x:cpp.Int64, p_y:cpp.Int64, p_width:cpp.Int64, p_height:cpp.Int64):Rect2i_wrapper return new Rect2i_wrapper(new gdnative.Rect2i(p_x, p_y, p_width, p_height));
-	public function get_center():gd.Vector2i return __gd.get_center();
+	public function get_center():gd.Vector2i return {
+		final v = __gd.get_center();
+		v;
+	};
 	public function get_area():cpp.Int64 return __gd.get_area();
 	public function has_area():Bool return __gd.has_area();
 	public function has_point(p_point:gd.Vector2i):Bool return __gd.has_point(((p_point : gd.Vector2i)));
 	public function intersects(p_b:gd.Rect2i):Bool return __gd.intersects(((p_b : gd.Rect2i)));
 	public function encloses(p_b:gd.Rect2i):Bool return __gd.encloses(((p_b : gd.Rect2i)));
-	public function intersection(p_b:gd.Rect2i):gd.Rect2i return __gd.intersection(((p_b : gd.Rect2i)));
-	public function merge(p_b:gd.Rect2i):gd.Rect2i return __gd.merge(((p_b : gd.Rect2i)));
-	public function expand(p_to:gd.Vector2i):gd.Rect2i return __gd.expand(((p_to : gd.Vector2i)));
-	public function grow(p_amount:cpp.Int64):gd.Rect2i return __gd.grow(((p_amount : cpp.Int64)));
-	public function grow_side(p_side:gd.Side, p_amount:cpp.Int64):gd.Rect2i return __gd.grow_side(((p_side : gd.Side)), ((p_amount : cpp.Int64)));
-	public function grow_individual(p_left:cpp.Int64, p_top:cpp.Int64, p_right:cpp.Int64, p_bottom:cpp.Int64):gd.Rect2i return __gd.grow_individual(((p_left : cpp.Int64)), ((p_top : cpp.Int64)), ((p_right : cpp.Int64)), ((p_bottom : cpp.Int64)));
-	public function abs():gd.Rect2i return __gd.abs();
+	public function intersection(p_b:gd.Rect2i):gd.Rect2i return {
+		final v = __gd.intersection(((p_b : gd.Rect2i)));
+		v;
+	};
+	public function merge(p_b:gd.Rect2i):gd.Rect2i return {
+		final v = __gd.merge(((p_b : gd.Rect2i)));
+		v;
+	};
+	public function expand(p_to:gd.Vector2i):gd.Rect2i return {
+		final v = __gd.expand(((p_to : gd.Vector2i)));
+		v;
+	};
+	public function grow(p_amount:cpp.Int64):gd.Rect2i return {
+		final v = __gd.grow(((p_amount : cpp.Int64)));
+		v;
+	};
+	public function grow_side(p_side:gd.Side, p_amount:cpp.Int64):gd.Rect2i return {
+		final v = __gd.grow_side(((p_side : gd.Side)), ((p_amount : cpp.Int64)));
+		v;
+	};
+	public function grow_individual(p_left:cpp.Int64, p_top:cpp.Int64, p_right:cpp.Int64, p_bottom:cpp.Int64):gd.Rect2i return {
+		final v = __gd.grow_individual(((p_left : cpp.Int64)), ((p_top : cpp.Int64)), ((p_right : cpp.Int64)), ((p_bottom : cpp.Int64)));
+		v;
+	};
+	public function abs():gd.Rect2i return {
+		final v = __gd.abs();
+		v;
+	};
 	public var position(get, set) : gd.Vector2i;
 	function get_position():gd.Vector2i return __gd.position;
 	function set_position(v:gd.Vector2i):gd.Vector2i return {

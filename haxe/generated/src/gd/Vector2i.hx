@@ -2,7 +2,7 @@ package gd;
 class Vector2i_wrapper {
 	final __gd : gdnative.Vector2i;
 	public function new(value:gdnative.Vector2i) __gd = value;
-	function toVariant():gd.Variant return @:privateAccess new gd.Variant.Variant_obj(new gdnative.Variant.Variant_extern(this));
+	function toVariant():gd.Variant return @:privateAccess new gd.Variant.Variant_obj(((__gd : gdnative.Variant)));
 	static function _new0():Vector2i_wrapper return new Vector2i_wrapper(new gdnative.Vector2i());
 	static function _new1(p_from:gd.Vector2i):Vector2i_wrapper return new Vector2i_wrapper(new gdnative.Vector2i(p_from));
 	static function _new2(p_x:cpp.Int64, p_y:cpp.Int64):Vector2i_wrapper return new Vector2i_wrapper(new gdnative.Vector2i(p_x, p_y));
@@ -13,16 +13,46 @@ class Vector2i_wrapper {
 	public function distance_squared_to(p_to:gd.Vector2i):cpp.Int64 return __gd.distance_squared_to(((p_to : gd.Vector2i)));
 	public function length():Float return __gd.length();
 	public function length_squared():cpp.Int64 return __gd.length_squared();
-	public function sign():gd.Vector2i return __gd.sign();
-	public function abs():gd.Vector2i return __gd.abs();
-	public function clamp(p_min:gd.Vector2i, p_max:gd.Vector2i):gd.Vector2i return __gd.clamp(((p_min : gd.Vector2i)), ((p_max : gd.Vector2i)));
-	public function clampi(p_min:cpp.Int64, p_max:cpp.Int64):gd.Vector2i return __gd.clampi(((p_min : cpp.Int64)), ((p_max : cpp.Int64)));
-	public function snapped(p_step:gd.Vector2i):gd.Vector2i return __gd.snapped(((p_step : gd.Vector2i)));
-	public function snappedi(p_step:cpp.Int64):gd.Vector2i return __gd.snappedi(((p_step : cpp.Int64)));
-	public function min(p_with:gd.Vector2i):gd.Vector2i return __gd.min(((p_with : gd.Vector2i)));
-	public function mini(p_with:cpp.Int64):gd.Vector2i return __gd.mini(((p_with : cpp.Int64)));
-	public function max(p_with:gd.Vector2i):gd.Vector2i return __gd.max(((p_with : gd.Vector2i)));
-	public function maxi(p_with:cpp.Int64):gd.Vector2i return __gd.maxi(((p_with : cpp.Int64)));
+	public function sign():gd.Vector2i return {
+		final v = __gd.sign();
+		v;
+	};
+	public function abs():gd.Vector2i return {
+		final v = __gd.abs();
+		v;
+	};
+	public function clamp(p_min:gd.Vector2i, p_max:gd.Vector2i):gd.Vector2i return {
+		final v = __gd.clamp(((p_min : gd.Vector2i)), ((p_max : gd.Vector2i)));
+		v;
+	};
+	public function clampi(p_min:cpp.Int64, p_max:cpp.Int64):gd.Vector2i return {
+		final v = __gd.clampi(((p_min : cpp.Int64)), ((p_max : cpp.Int64)));
+		v;
+	};
+	public function snapped(p_step:gd.Vector2i):gd.Vector2i return {
+		final v = __gd.snapped(((p_step : gd.Vector2i)));
+		v;
+	};
+	public function snappedi(p_step:cpp.Int64):gd.Vector2i return {
+		final v = __gd.snappedi(((p_step : cpp.Int64)));
+		v;
+	};
+	public function min(p_with:gd.Vector2i):gd.Vector2i return {
+		final v = __gd.min(((p_with : gd.Vector2i)));
+		v;
+	};
+	public function mini(p_with:cpp.Int64):gd.Vector2i return {
+		final v = __gd.mini(((p_with : cpp.Int64)));
+		v;
+	};
+	public function max(p_with:gd.Vector2i):gd.Vector2i return {
+		final v = __gd.max(((p_with : gd.Vector2i)));
+		v;
+	};
+	public function maxi(p_with:cpp.Int64):gd.Vector2i return {
+		final v = __gd.maxi(((p_with : cpp.Int64)));
+		v;
+	};
 	public var x(get, set) : cpp.Int64;
 	function get_x():cpp.Int64 return __gd.x;
 	function set_x(v:cpp.Int64):cpp.Int64 return {

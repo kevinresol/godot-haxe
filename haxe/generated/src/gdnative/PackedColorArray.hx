@@ -2,7 +2,7 @@ package gdnative;
 /**
 	Built-in Class
 **/
-@:forward abstract PackedColorArray(cpp.Struct<PackedColorArray_extern>) from cpp.Struct<PackedColorArray_extern> to cpp.Struct<PackedColorArray_extern> {
+@:forward abstract PackedColorArray(PackedColorArray_extern) from PackedColorArray_extern to PackedColorArray_extern {
 	@:from
 	static inline function fromWrapper(v:gd.PackedColorArray):gdnative.PackedColorArray return fromWrapperInternal(v);
 	@:from
@@ -12,8 +12,8 @@ package gdnative;
 	@:to
 	inline function toWrapperInternal():gd.PackedColorArray.PackedColorArray_wrapper return new gd.PackedColorArray.PackedColorArray_wrapper(this);
 	@:to
-	inline function toVariant():gdnative.Variant return new gdnative.Variant.Variant_extern(abstract);
-	inline function val():PackedColorArray_extern return untyped __cpp__('{0}.value', abstract);
+	inline function toVariant():gdnative.Variant return new gdnative.Variant.Variant_extern(untyped __cpp__("static_cast<godot::PackedColorArray &>({0})", this));
+	inline function val():PackedColorArray_extern return untyped __cpp__('(*{0})', this);
 	@:op(A == B)
 	extern inline function __op_equal_to_variant(p_rhs:gdnative.Variant):Bool return untyped __cpp__('{0} == {1}', val(), p_rhs.toReference());
 	@:op(A != B)
@@ -33,7 +33,7 @@ package gdnative;
 	public extern overload inline function new(p_from:gd.Array) this = new gdnative.PackedColorArray.PackedColorArray_extern(p_from);
 }
 
-@:include("godot_cpp/variant/packed_color_array.hpp") @:native("godot::PackedColorArray") @:structAccess extern class PackedColorArray_extern {
+@:include("godot_cpp/variant/packed_color_array.hpp") @:semantics(reference) @:cpp.ValueType({ type : "PackedColorArray", namespace : ['godot'] }) extern class PackedColorArray_extern {
 	@:overload(function(p_from:gdnative.PackedColorArray):Void { })
 	@:overload(function(p_from:gdnative.Array):Void { })
 	function new();

@@ -19,7 +19,10 @@ package gd;
 	public function _draw_rect_region(p_to_canvas_item:gd.RID, p_rect:gd.Rect2, p_src_rect:gd.Rect2, p_modulate:gd.Color, p_transpose:Bool, p_clip_uv:Bool):Void __texture2d_ptr().value._draw_rect_region(((p_to_canvas_item : gd.RID)), ((p_rect : gd.Rect2)), ((p_src_rect : gd.Rect2)), ((p_modulate : gd.Color)), ((p_transpose : Bool)), ((p_clip_uv : Bool)));
 	public function get_width():cpp.Int64 return __texture2d_ptr().value.get_width();
 	public function get_height():cpp.Int64 return __texture2d_ptr().value.get_height();
-	public function get_size():gd.Vector2 return __texture2d_ptr().value.get_size();
+	public function get_size():gd.Vector2 return {
+		final v = __texture2d_ptr().value.get_size();
+		v;
+	};
 	public function has_alpha():Bool return __texture2d_ptr().value.has_alpha();
 	public function draw(p_canvas_item:gd.RID, p_position:gd.Vector2, ?p_modulate:gd.Color, ?p_transpose:Bool):Void switch [p_canvas_item, p_position, p_modulate, p_transpose] {
 		case [_, _, null, _]:__texture2d_ptr().value.draw(((p_canvas_item : gd.RID)), ((p_position : gd.Vector2)));

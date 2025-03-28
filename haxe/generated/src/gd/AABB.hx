@@ -2,12 +2,18 @@ package gd;
 class AABB_wrapper {
 	final __gd : gdnative.AABB;
 	public function new(value:gdnative.AABB) __gd = value;
-	function toVariant():gd.Variant return @:privateAccess new gd.Variant.Variant_obj(new gdnative.Variant.Variant_extern(this));
+	function toVariant():gd.Variant return @:privateAccess new gd.Variant.Variant_obj(((__gd : gdnative.Variant)));
 	static function _new0():AABB_wrapper return new AABB_wrapper(new gdnative.AABB());
 	static function _new1(p_from:gd.AABB):AABB_wrapper return new AABB_wrapper(new gdnative.AABB(p_from));
 	static function _new2(p_position:gd.Vector3, p_size:gd.Vector3):AABB_wrapper return new AABB_wrapper(new gdnative.AABB(p_position, p_size));
-	public function abs():gd.AABB return __gd.abs();
-	public function get_center():gd.Vector3 return __gd.get_center();
+	public function abs():gd.AABB return {
+		final v = __gd.abs();
+		v;
+	};
+	public function get_center():gd.Vector3 return {
+		final v = __gd.get_center();
+		v;
+	};
 	public function get_volume():Float return __gd.get_volume();
 	public function has_volume():Bool return __gd.has_volume();
 	public function has_surface():Bool return __gd.has_surface();
@@ -17,18 +23,42 @@ class AABB_wrapper {
 	public function intersects(p_with:gd.AABB):Bool return __gd.intersects(((p_with : gd.AABB)));
 	public function encloses(p_with:gd.AABB):Bool return __gd.encloses(((p_with : gd.AABB)));
 	public function intersects_plane(p_plane:gd.Plane):Bool return __gd.intersects_plane(((p_plane : gd.Plane)));
-	public function intersection(p_with:gd.AABB):gd.AABB return __gd.intersection(((p_with : gd.AABB)));
-	public function merge(p_with:gd.AABB):gd.AABB return __gd.merge(((p_with : gd.AABB)));
-	public function expand(p_to_point:gd.Vector3):gd.AABB return __gd.expand(((p_to_point : gd.Vector3)));
-	public function grow(p_by:Float):gd.AABB return __gd.grow(((p_by : Float)));
-	public function get_support(p_direction:gd.Vector3):gd.Vector3 return __gd.get_support(((p_direction : gd.Vector3)));
-	public function get_longest_axis():gd.Vector3 return __gd.get_longest_axis();
+	public function intersection(p_with:gd.AABB):gd.AABB return {
+		final v = __gd.intersection(((p_with : gd.AABB)));
+		v;
+	};
+	public function merge(p_with:gd.AABB):gd.AABB return {
+		final v = __gd.merge(((p_with : gd.AABB)));
+		v;
+	};
+	public function expand(p_to_point:gd.Vector3):gd.AABB return {
+		final v = __gd.expand(((p_to_point : gd.Vector3)));
+		v;
+	};
+	public function grow(p_by:Float):gd.AABB return {
+		final v = __gd.grow(((p_by : Float)));
+		v;
+	};
+	public function get_support(p_direction:gd.Vector3):gd.Vector3 return {
+		final v = __gd.get_support(((p_direction : gd.Vector3)));
+		v;
+	};
+	public function get_longest_axis():gd.Vector3 return {
+		final v = __gd.get_longest_axis();
+		v;
+	};
 	public function get_longest_axis_index():cpp.Int64 return __gd.get_longest_axis_index();
 	public function get_longest_axis_size():Float return __gd.get_longest_axis_size();
-	public function get_shortest_axis():gd.Vector3 return __gd.get_shortest_axis();
+	public function get_shortest_axis():gd.Vector3 return {
+		final v = __gd.get_shortest_axis();
+		v;
+	};
 	public function get_shortest_axis_index():cpp.Int64 return __gd.get_shortest_axis_index();
 	public function get_shortest_axis_size():Float return __gd.get_shortest_axis_size();
-	public function get_endpoint(p_idx:cpp.Int64):gd.Vector3 return __gd.get_endpoint(((p_idx : cpp.Int64)));
+	public function get_endpoint(p_idx:cpp.Int64):gd.Vector3 return {
+		final v = __gd.get_endpoint(((p_idx : cpp.Int64)));
+		v;
+	};
 	public var position(get, set) : gd.Vector3;
 	function get_position():gd.Vector3 return __gd.position;
 	function set_position(v:gd.Vector3):gd.Vector3 return {

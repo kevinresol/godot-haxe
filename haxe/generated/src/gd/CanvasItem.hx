@@ -16,7 +16,10 @@ package gd;
 	static public final NOTIFICATION_EXIT_CANVAS : Int = 33;
 	static public final NOTIFICATION_WORLD_2D_CHANGED : Int = 36;
 	public function _draw():Void __canvasitem_ptr().value._draw();
-	public function get_canvas_item():gd.RID return __canvasitem_ptr().value.get_canvas_item();
+	public function get_canvas_item():gd.RID return {
+		final v = __canvasitem_ptr().value.get_canvas_item();
+		v;
+	};
 	public function set_visible(p_visible:Bool):Bool {
 		__canvasitem_ptr().value.set_visible(((p_visible : Bool)));
 		return p_visible;
@@ -38,12 +41,18 @@ package gd;
 		__canvasitem_ptr().value.set_modulate(((p_modulate : gd.Color)));
 		return p_modulate;
 	}
-	public function get_modulate():gd.Color return __canvasitem_ptr().value.get_modulate();
+	public function get_modulate():gd.Color return {
+		final v = __canvasitem_ptr().value.get_modulate();
+		v;
+	};
 	public function set_self_modulate(p_self_modulate:gd.Color):gd.Color {
 		__canvasitem_ptr().value.set_self_modulate(((p_self_modulate : gd.Color)));
 		return p_self_modulate;
 	}
-	public function get_self_modulate():gd.Color return __canvasitem_ptr().value.get_self_modulate();
+	public function get_self_modulate():gd.Color return {
+		final v = __canvasitem_ptr().value.get_self_modulate();
+		v;
+	};
 	public function set_z_index(p_z_index:cpp.Int64):cpp.Int64 {
 		__canvasitem_ptr().value.set_z_index(((p_z_index : cpp.Int64)));
 		return p_z_index;
@@ -161,18 +170,51 @@ package gd;
 		default:__canvasitem_ptr().value.draw_animation_slice(((p_animation_length : Float)), ((p_slice_begin : Float)), ((p_slice_end : Float)), ((p_offset : Float)));
 	};
 	public function draw_end_animation():Void __canvasitem_ptr().value.draw_end_animation();
-	public function get_transform():gd.Transform2D return __canvasitem_ptr().value.get_transform();
-	public function get_global_transform():gd.Transform2D return __canvasitem_ptr().value.get_global_transform();
-	public function get_global_transform_with_canvas():gd.Transform2D return __canvasitem_ptr().value.get_global_transform_with_canvas();
-	public function get_viewport_transform():gd.Transform2D return __canvasitem_ptr().value.get_viewport_transform();
-	public function get_viewport_rect():gd.Rect2 return __canvasitem_ptr().value.get_viewport_rect();
-	public function get_canvas_transform():gd.Transform2D return __canvasitem_ptr().value.get_canvas_transform();
-	public function get_screen_transform():gd.Transform2D return __canvasitem_ptr().value.get_screen_transform();
-	public function get_local_mouse_position():gd.Vector2 return __canvasitem_ptr().value.get_local_mouse_position();
-	public function get_global_mouse_position():gd.Vector2 return __canvasitem_ptr().value.get_global_mouse_position();
-	public function get_canvas():gd.RID return __canvasitem_ptr().value.get_canvas();
+	public function get_transform():gd.Transform2D return {
+		final v = __canvasitem_ptr().value.get_transform();
+		v;
+	};
+	public function get_global_transform():gd.Transform2D return {
+		final v = __canvasitem_ptr().value.get_global_transform();
+		v;
+	};
+	public function get_global_transform_with_canvas():gd.Transform2D return {
+		final v = __canvasitem_ptr().value.get_global_transform_with_canvas();
+		v;
+	};
+	public function get_viewport_transform():gd.Transform2D return {
+		final v = __canvasitem_ptr().value.get_viewport_transform();
+		v;
+	};
+	public function get_viewport_rect():gd.Rect2 return {
+		final v = __canvasitem_ptr().value.get_viewport_rect();
+		v;
+	};
+	public function get_canvas_transform():gd.Transform2D return {
+		final v = __canvasitem_ptr().value.get_canvas_transform();
+		v;
+	};
+	public function get_screen_transform():gd.Transform2D return {
+		final v = __canvasitem_ptr().value.get_screen_transform();
+		v;
+	};
+	public function get_local_mouse_position():gd.Vector2 return {
+		final v = __canvasitem_ptr().value.get_local_mouse_position();
+		v;
+	};
+	public function get_global_mouse_position():gd.Vector2 return {
+		final v = __canvasitem_ptr().value.get_global_mouse_position();
+		v;
+	};
+	public function get_canvas():gd.RID return {
+		final v = __canvasitem_ptr().value.get_canvas();
+		v;
+	};
 	public function set_instance_shader_parameter(p_name:std.String, p_value:gd.Variant):Void __canvasitem_ptr().value.set_instance_shader_parameter(((p_name : std.String)), ((p_value : gd.Variant)));
-	public function get_instance_shader_parameter(p_name:std.String):gd.Variant return __canvasitem_ptr().value.get_instance_shader_parameter(((p_name : std.String)));
+	public function get_instance_shader_parameter(p_name:std.String):gd.Variant return {
+		final v = __canvasitem_ptr().value.get_instance_shader_parameter(((p_name : std.String)));
+		v;
+	};
 	public function set_use_parent_material(p_enable:Bool):Bool {
 		__canvasitem_ptr().value.set_use_parent_material(((p_enable : Bool)));
 		return p_enable;
@@ -183,7 +225,10 @@ package gd;
 	public function set_notify_transform(p_enable:Bool):Void __canvasitem_ptr().value.set_notify_transform(((p_enable : Bool)));
 	public function is_transform_notification_enabled():Bool return __canvasitem_ptr().value.is_transform_notification_enabled();
 	public function force_update_transform():Void __canvasitem_ptr().value.force_update_transform();
-	public function make_canvas_position_local(p_viewport_point:gd.Vector2):gd.Vector2 return __canvasitem_ptr().value.make_canvas_position_local(((p_viewport_point : gd.Vector2)));
+	public function make_canvas_position_local(p_viewport_point:gd.Vector2):gd.Vector2 return {
+		final v = __canvasitem_ptr().value.make_canvas_position_local(((p_viewport_point : gd.Vector2)));
+		v;
+	};
 	public function make_input_local(p_event:gd.InputEvent):gd.InputEvent return __canvasitem_ptr().value.make_input_local(((p_event : gd.InputEvent)));
 	public function set_visibility_layer(p_layer:cpp.Int64):cpp.Int64 {
 		__canvasitem_ptr().value.set_visibility_layer(((p_layer : cpp.Int64)));

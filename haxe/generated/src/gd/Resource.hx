@@ -11,27 +11,48 @@ package gd;
 	extern inline function __resource_ptr():cpp.Pointer<gdnative.Resource.Resource_extern> return cast __gd.ptr;
 	static function __finalize(inst:gd.Resource) inst.__ref = new gdnative.Ref.Ref_extern();
 	public function _setup_local_to_scene():Void __resource_ptr().value._setup_local_to_scene();
-	public function _get_rid():gd.RID return __resource_ptr().value._get_rid();
+	public function _get_rid():gd.RID return {
+		final v = __resource_ptr().value._get_rid();
+		v;
+	};
 	public function _reset_state():Void __resource_ptr().value._reset_state();
 	public function _set_path_cache(p_path:std.String):Void __resource_ptr().value._set_path_cache(((p_path : std.String)));
 	public function set_path(p_path:std.String):Void __resource_ptr().value.set_path(((p_path : std.String)));
 	public function take_over_path(p_path:std.String):Void __resource_ptr().value.take_over_path(((p_path : std.String)));
-	public function get_path():std.String return __resource_ptr().value.get_path();
+	public function get_path():std.String return {
+		final v = __resource_ptr().value.get_path();
+		v;
+	};
 	public function set_path_cache(p_path:std.String):Void __resource_ptr().value.set_path_cache(((p_path : std.String)));
 	public function set_name(p_name:std.String):Void __resource_ptr().value.set_name(((p_name : std.String)));
-	public function get_name():std.String return __resource_ptr().value.get_name();
-	public function get_rid():gd.RID return __resource_ptr().value.get_rid();
+	public function get_name():std.String return {
+		final v = __resource_ptr().value.get_name();
+		v;
+	};
+	public function get_rid():gd.RID return {
+		final v = __resource_ptr().value.get_rid();
+		v;
+	};
 	public function set_local_to_scene(p_enable:Bool):Void __resource_ptr().value.set_local_to_scene(((p_enable : Bool)));
 	public function is_local_to_scene():Bool return __resource_ptr().value.is_local_to_scene();
 	public function get_local_scene():gd.Node return __resource_ptr().value.get_local_scene();
 	public function setup_local_to_scene():Void __resource_ptr().value.setup_local_to_scene();
 	public function reset_state():Void __resource_ptr().value.reset_state();
 	public function set_id_for_path(p_path:std.String, p_id:std.String):Void __resource_ptr().value.set_id_for_path(((p_path : std.String)), ((p_id : std.String)));
-	public function get_id_for_path(p_path:std.String):std.String return __resource_ptr().value.get_id_for_path(((p_path : std.String)));
+	public function get_id_for_path(p_path:std.String):std.String return {
+		final v = __resource_ptr().value.get_id_for_path(((p_path : std.String)));
+		v;
+	};
 	public function is_built_in():Bool return __resource_ptr().value.is_built_in();
-	public static function generate_scene_unique_id():std.String return gdnative.Resource.Resource_extern.generate_scene_unique_id();
+	public static function generate_scene_unique_id():std.String return {
+		final v = gdnative.Resource.Resource_extern.generate_scene_unique_id();
+		v;
+	};
 	public function set_scene_unique_id(p_id:std.String):Void __resource_ptr().value.set_scene_unique_id(((p_id : std.String)));
-	public function get_scene_unique_id():std.String return __resource_ptr().value.get_scene_unique_id();
+	public function get_scene_unique_id():std.String return {
+		final v = __resource_ptr().value.get_scene_unique_id();
+		v;
+	};
 	public function emit_changed():Void __resource_ptr().value.emit_changed();
 	public function duplicate(?p_subresources:Bool):gd.Resource return switch [p_subresources] {
 		case [null]:__resource_ptr().value.duplicate();

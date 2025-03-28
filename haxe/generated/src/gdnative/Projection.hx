@@ -2,7 +2,7 @@ package gdnative;
 /**
 	Built-in Class
 **/
-@:forward abstract Projection(cpp.Struct<Projection_extern>) from cpp.Struct<Projection_extern> to cpp.Struct<Projection_extern> {
+@:forward abstract Projection(Projection_extern) from Projection_extern to Projection_extern {
 	@:from
 	static inline function fromWrapper(v:gd.Projection):gdnative.Projection return fromWrapperInternal(v);
 	@:from
@@ -12,8 +12,8 @@ package gdnative;
 	@:to
 	inline function toWrapperInternal():gd.Projection.Projection_wrapper return new gd.Projection.Projection_wrapper(this);
 	@:to
-	inline function toVariant():gdnative.Variant return new gdnative.Variant.Variant_extern(abstract);
-	inline function val():Projection_extern return untyped __cpp__('{0}.value', abstract);
+	inline function toVariant():gdnative.Variant return new gdnative.Variant.Variant_extern(untyped __cpp__("static_cast<godot::Projection &>({0})", this));
+	inline function val():Projection_extern return untyped __cpp__('(*{0})', this);
 	@:op(A == B)
 	extern inline function __op_equal_to_variant(p_rhs:gdnative.Variant):Bool return untyped __cpp__('{0} == {1}', val(), p_rhs.toReference());
 	@:op(A != B)
@@ -34,7 +34,7 @@ package gdnative;
 	public extern overload inline function new(p_x_axis:gd.Vector4, p_y_axis:gd.Vector4, p_z_axis:gd.Vector4, p_w_axis:gd.Vector4) this = new gdnative.Projection.Projection_extern(p_x_axis, p_y_axis, p_z_axis, p_w_axis);
 }
 
-@:include("godot_cpp/variant/projection.hpp") @:native("godot::Projection") @:structAccess extern class Projection_extern {
+@:include("godot_cpp/variant/projection.hpp") @:semantics(reference) @:cpp.ValueType({ type : "Projection", namespace : ['godot'] }) extern class Projection_extern {
 	@:overload(function(p_from:gdnative.Projection):Void { })
 	@:overload(function(p_from:gdnative.Transform3D):Void { })
 	@:overload(function(p_x_axis:gdnative.Vector4, p_y_axis:gdnative.Vector4, p_z_axis:gdnative.Vector4, p_w_axis:gdnative.Vector4):Void { })

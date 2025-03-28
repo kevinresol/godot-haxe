@@ -2,7 +2,7 @@ package gdnative;
 /**
 	Built-in Class
 **/
-@:forward abstract Transform2D(cpp.Struct<Transform2D_extern>) from cpp.Struct<Transform2D_extern> to cpp.Struct<Transform2D_extern> {
+@:forward abstract Transform2D(Transform2D_extern) from Transform2D_extern to Transform2D_extern {
 	@:from
 	static inline function fromWrapper(v:gd.Transform2D):gdnative.Transform2D return fromWrapperInternal(v);
 	@:from
@@ -12,8 +12,8 @@ package gdnative;
 	@:to
 	inline function toWrapperInternal():gd.Transform2D.Transform2D_wrapper return new gd.Transform2D.Transform2D_wrapper(this);
 	@:to
-	inline function toVariant():gdnative.Variant return new gdnative.Variant.Variant_extern(abstract);
-	inline function val():Transform2D_extern return untyped __cpp__('{0}.value', abstract);
+	inline function toVariant():gdnative.Variant return new gdnative.Variant.Variant_extern(untyped __cpp__("static_cast<godot::Transform2D &>({0})", this));
+	inline function val():Transform2D_extern return untyped __cpp__('(*{0})', this);
 	@:op(A == B)
 	extern inline function __op_equal_to_variant(p_rhs:gdnative.Variant):Bool return untyped __cpp__('{0} == {1}', val(), p_rhs.toReference());
 	@:op(A != B)
@@ -44,7 +44,7 @@ package gdnative;
 	public extern overload inline function new(p_xx:Float, p_xy:Float, p_yx:Float, p_yy:Float, p_ox:Float, p_oy:Float) this = new gdnative.Transform2D.Transform2D_extern(p_xx, p_xy, p_yx, p_yy, p_ox, p_oy);
 }
 
-@:include("godot_cpp/variant/transform2d.hpp") @:native("godot::Transform2D") @:structAccess extern class Transform2D_extern {
+@:include("godot_cpp/variant/transform2d.hpp") @:semantics(reference) @:cpp.ValueType({ type : "Transform2D", namespace : ['godot'] }) extern class Transform2D_extern {
 	@:overload(function(p_from:gdnative.Transform2D):Void { })
 	@:overload(function(p_rotation:Float, p_position:gdnative.Vector2):Void { })
 	@:overload(function(p_rotation:Float, p_scale:gdnative.Vector2, p_skew:Float, p_position:gdnative.Vector2):Void { })

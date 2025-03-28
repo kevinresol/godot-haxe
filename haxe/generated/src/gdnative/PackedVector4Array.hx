@@ -2,7 +2,7 @@ package gdnative;
 /**
 	Built-in Class
 **/
-@:forward abstract PackedVector4Array(cpp.Struct<PackedVector4Array_extern>) from cpp.Struct<PackedVector4Array_extern> to cpp.Struct<PackedVector4Array_extern> {
+@:forward abstract PackedVector4Array(PackedVector4Array_extern) from PackedVector4Array_extern to PackedVector4Array_extern {
 	@:from
 	static inline function fromWrapper(v:gd.PackedVector4Array):gdnative.PackedVector4Array return fromWrapperInternal(v);
 	@:from
@@ -12,8 +12,8 @@ package gdnative;
 	@:to
 	inline function toWrapperInternal():gd.PackedVector4Array.PackedVector4Array_wrapper return new gd.PackedVector4Array.PackedVector4Array_wrapper(this);
 	@:to
-	inline function toVariant():gdnative.Variant return new gdnative.Variant.Variant_extern(abstract);
-	inline function val():PackedVector4Array_extern return untyped __cpp__('{0}.value', abstract);
+	inline function toVariant():gdnative.Variant return new gdnative.Variant.Variant_extern(untyped __cpp__("static_cast<godot::PackedVector4Array &>({0})", this));
+	inline function val():PackedVector4Array_extern return untyped __cpp__('(*{0})', this);
 	@:op(A == B)
 	extern inline function __op_equal_to_variant(p_rhs:gdnative.Variant):Bool return untyped __cpp__('{0} == {1}', val(), p_rhs.toReference());
 	@:op(A != B)
@@ -33,7 +33,7 @@ package gdnative;
 	public extern overload inline function new(p_from:gd.Array) this = new gdnative.PackedVector4Array.PackedVector4Array_extern(p_from);
 }
 
-@:include("godot_cpp/variant/packed_vector4_array.hpp") @:native("godot::PackedVector4Array") @:structAccess extern class PackedVector4Array_extern {
+@:include("godot_cpp/variant/packed_vector4_array.hpp") @:semantics(reference) @:cpp.ValueType({ type : "PackedVector4Array", namespace : ['godot'] }) extern class PackedVector4Array_extern {
 	@:overload(function(p_from:gdnative.PackedVector4Array):Void { })
 	@:overload(function(p_from:gdnative.Array):Void { })
 	function new();

@@ -2,23 +2,44 @@ package gd;
 class NodePath_wrapper {
 	final __gd : gdnative.NodePath;
 	public function new(value:gdnative.NodePath) __gd = value;
-	function toVariant():gd.Variant return @:privateAccess new gd.Variant.Variant_obj(new gdnative.Variant.Variant_extern(this));
+	function toVariant():gd.Variant return @:privateAccess new gd.Variant.Variant_obj(((__gd : gdnative.Variant)));
 	static function _new0():NodePath_wrapper return new NodePath_wrapper(new gdnative.NodePath());
 	static function _new1(p_from:std.String):NodePath_wrapper return new NodePath_wrapper(new gdnative.NodePath(p_from));
 	static function _new2(p_from:std.String):NodePath_wrapper return new NodePath_wrapper(new gdnative.NodePath(p_from));
 	public function is_absolute():Bool return __gd.is_absolute();
 	public function get_name_count():cpp.Int64 return __gd.get_name_count();
-	public function get_name(p_idx:cpp.Int64):std.String return __gd.get_name(((p_idx : cpp.Int64)));
+	public function get_name(p_idx:cpp.Int64):std.String return {
+		final v = __gd.get_name(((p_idx : cpp.Int64)));
+		v;
+	};
 	public function get_subname_count():cpp.Int64 return __gd.get_subname_count();
 	public function hash():cpp.Int64 return __gd.hash();
-	public function get_subname(p_idx:cpp.Int64):std.String return __gd.get_subname(((p_idx : cpp.Int64)));
-	public function get_concatenated_names():std.String return __gd.get_concatenated_names();
-	public function get_concatenated_subnames():std.String return __gd.get_concatenated_subnames();
-	public function slice(p_begin:cpp.Int64, ?p_end:cpp.Int64):std.String return switch [p_begin, p_end] {
-		case [_, null]:__gd.slice(((p_begin : cpp.Int64)));
-		default:__gd.slice(((p_begin : cpp.Int64)), ((p_end : cpp.Int64)));
+	public function get_subname(p_idx:cpp.Int64):std.String return {
+		final v = __gd.get_subname(((p_idx : cpp.Int64)));
+		v;
 	};
-	public function get_as_property_path():std.String return __gd.get_as_property_path();
+	public function get_concatenated_names():std.String return {
+		final v = __gd.get_concatenated_names();
+		v;
+	};
+	public function get_concatenated_subnames():std.String return {
+		final v = __gd.get_concatenated_subnames();
+		v;
+	};
+	public function slice(p_begin:cpp.Int64, ?p_end:cpp.Int64):std.String return switch [p_begin, p_end] {
+		case [_, null]:{
+			final v = __gd.slice(((p_begin : cpp.Int64)));
+			v;
+		};
+		default:{
+			final v = __gd.slice(((p_begin : cpp.Int64)), ((p_end : cpp.Int64)));
+			v;
+		};
+	};
+	public function get_as_property_path():std.String return {
+		final v = __gd.get_as_property_path();
+		v;
+	};
 	public function is_empty():Bool return __gd.is_empty();
 	function __op_equal_to_variant(p_rhs:gd.Variant):Bool return @:privateAccess this.__gd.__op_equal_to_variant(((p_rhs : gdnative.Variant)));
 	function __op_not_equal_variant(p_rhs:gd.Variant):Bool return @:privateAccess this.__gd.__op_not_equal_variant(((p_rhs : gdnative.Variant)));

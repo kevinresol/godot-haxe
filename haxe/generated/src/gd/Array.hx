@@ -2,7 +2,7 @@ package gd;
 class Array_wrapper {
 	final __gd : gdnative.Array;
 	public function new(value:gdnative.Array) __gd = value;
-	function toVariant():gd.Variant return @:privateAccess new gd.Variant.Variant_obj(new gdnative.Variant.Variant_extern(this));
+	function toVariant():gd.Variant return @:privateAccess new gd.Variant.Variant_obj(((__gd : gdnative.Variant)));
 	static function _new0():Array_wrapper return new Array_wrapper(new gdnative.Array());
 	static function _new1(p_from:gd.Array):Array_wrapper return new Array_wrapper(new gdnative.Array(p_from));
 	static function _new2(p_base:gd.Array, p_type:cpp.Int64, p_class_name:std.String, p_script:gd.Variant):Array_wrapper return new Array_wrapper(new gdnative.Array(p_base, p_type, p_class_name, p_script));
@@ -21,7 +21,10 @@ class Array_wrapper {
 	public function clear():Void __gd.clear();
 	public function hash():cpp.Int64 return __gd.hash();
 	public function assign(p_array:gd.Array):Void __gd.assign(((p_array : gd.Array)));
-	public function get(p_index:cpp.Int64):gd.Variant return __gd.get(((p_index : cpp.Int64)));
+	public function get(p_index:cpp.Int64):gd.Variant return {
+		final v = __gd.get(((p_index : cpp.Int64)));
+		v;
+	};
 	public function set(p_index:cpp.Int64, p_value:gd.Variant):Void __gd.set(((p_index : cpp.Int64)), ((p_value : gd.Variant)));
 	public function push_back(p_value:gd.Variant):Void __gd.push_back(((p_value : gd.Variant)));
 	public function push_front(p_value:gd.Variant):Void __gd.push_front(((p_value : gd.Variant)));
@@ -32,9 +35,18 @@ class Array_wrapper {
 	public function remove_at(p_position:cpp.Int64):Void __gd.remove_at(((p_position : cpp.Int64)));
 	public function fill(p_value:gd.Variant):Void __gd.fill(((p_value : gd.Variant)));
 	public function erase(p_value:gd.Variant):Void __gd.erase(((p_value : gd.Variant)));
-	public function front():gd.Variant return __gd.front();
-	public function back():gd.Variant return __gd.back();
-	public function pick_random():gd.Variant return __gd.pick_random();
+	public function front():gd.Variant return {
+		final v = __gd.front();
+		v;
+	};
+	public function back():gd.Variant return {
+		final v = __gd.back();
+		v;
+	};
+	public function pick_random():gd.Variant return {
+		final v = __gd.pick_random();
+		v;
+	};
 	public function find(p_what:gd.Variant, ?p_from:cpp.Int64):cpp.Int64 return switch [p_what, p_from] {
 		case [_, null]:__gd.find(((p_what : gd.Variant)));
 		default:__gd.find(((p_what : gd.Variant)), ((p_from : cpp.Int64)));
@@ -53,9 +65,18 @@ class Array_wrapper {
 	};
 	public function count(p_value:gd.Variant):cpp.Int64 return __gd.count(((p_value : gd.Variant)));
 	public function has(p_value:gd.Variant):Bool return __gd.has(((p_value : gd.Variant)));
-	public function pop_back():gd.Variant return __gd.pop_back();
-	public function pop_front():gd.Variant return __gd.pop_front();
-	public function pop_at(p_position:cpp.Int64):gd.Variant return __gd.pop_at(((p_position : cpp.Int64)));
+	public function pop_back():gd.Variant return {
+		final v = __gd.pop_back();
+		v;
+	};
+	public function pop_front():gd.Variant return {
+		final v = __gd.pop_front();
+		v;
+	};
+	public function pop_at(p_position:cpp.Int64):gd.Variant return {
+		final v = __gd.pop_at(((p_position : cpp.Int64)));
+		v;
+	};
 	public function sort():Void __gd.sort();
 	public function sort_custom(p_func:gd.Callable):Void __gd.sort_custom(((p_func : gd.Callable)));
 	public function shuffle():Void __gd.shuffle();
@@ -69,27 +90,66 @@ class Array_wrapper {
 	};
 	public function reverse():Void __gd.reverse();
 	public function duplicate(?p_deep:Bool):gd.Array return switch [p_deep] {
-		case [null]:__gd.duplicate();
-		default:__gd.duplicate(((p_deep : Bool)));
+		case [null]:{
+			final v = __gd.duplicate();
+			v;
+		};
+		default:{
+			final v = __gd.duplicate(((p_deep : Bool)));
+			v;
+		};
 	};
 	public function slice(p_begin:cpp.Int64, ?p_end:cpp.Int64, ?p_step:cpp.Int64, ?p_deep:Bool):gd.Array return switch [p_begin, p_end, p_step, p_deep] {
-		case [_, null, _, _]:__gd.slice(((p_begin : cpp.Int64)));
-		case [_, _, null, _]:__gd.slice(((p_begin : cpp.Int64)), ((p_end : cpp.Int64)));
-		case [_, _, _, null]:__gd.slice(((p_begin : cpp.Int64)), ((p_end : cpp.Int64)), ((p_step : cpp.Int64)));
-		default:__gd.slice(((p_begin : cpp.Int64)), ((p_end : cpp.Int64)), ((p_step : cpp.Int64)), ((p_deep : Bool)));
+		case [_, null, _, _]:{
+			final v = __gd.slice(((p_begin : cpp.Int64)));
+			v;
+		};
+		case [_, _, null, _]:{
+			final v = __gd.slice(((p_begin : cpp.Int64)), ((p_end : cpp.Int64)));
+			v;
+		};
+		case [_, _, _, null]:{
+			final v = __gd.slice(((p_begin : cpp.Int64)), ((p_end : cpp.Int64)), ((p_step : cpp.Int64)));
+			v;
+		};
+		default:{
+			final v = __gd.slice(((p_begin : cpp.Int64)), ((p_end : cpp.Int64)), ((p_step : cpp.Int64)), ((p_deep : Bool)));
+			v;
+		};
 	};
-	public function filter(p_method:gd.Callable):gd.Array return __gd.filter(((p_method : gd.Callable)));
-	public function map(p_method:gd.Callable):gd.Array return __gd.map(((p_method : gd.Callable)));
-	public function reduce(p_method:gd.Callable, p_accum:gd.Variant):gd.Variant return __gd.reduce(((p_method : gd.Callable)), ((p_accum : gd.Variant)));
+	public function filter(p_method:gd.Callable):gd.Array return {
+		final v = __gd.filter(((p_method : gd.Callable)));
+		v;
+	};
+	public function map(p_method:gd.Callable):gd.Array return {
+		final v = __gd.map(((p_method : gd.Callable)));
+		v;
+	};
+	public function reduce(p_method:gd.Callable, p_accum:gd.Variant):gd.Variant return {
+		final v = __gd.reduce(((p_method : gd.Callable)), ((p_accum : gd.Variant)));
+		v;
+	};
 	public function any(p_method:gd.Callable):Bool return __gd.any(((p_method : gd.Callable)));
 	public function all(p_method:gd.Callable):Bool return __gd.all(((p_method : gd.Callable)));
-	public function max():gd.Variant return __gd.max();
-	public function min():gd.Variant return __gd.min();
+	public function max():gd.Variant return {
+		final v = __gd.max();
+		v;
+	};
+	public function min():gd.Variant return {
+		final v = __gd.min();
+		v;
+	};
 	public function is_typed():Bool return __gd.is_typed();
 	public function is_same_typed(p_array:gd.Array):Bool return __gd.is_same_typed(((p_array : gd.Array)));
 	public function get_typed_builtin():cpp.Int64 return __gd.get_typed_builtin();
-	public function get_typed_class_name():std.String return __gd.get_typed_class_name();
-	public function get_typed_script():gd.Variant return __gd.get_typed_script();
+	public function get_typed_class_name():std.String return {
+		final v = __gd.get_typed_class_name();
+		v;
+	};
+	public function get_typed_script():gd.Variant return {
+		final v = __gd.get_typed_script();
+		v;
+	};
 	public function make_read_only():Void __gd.make_read_only();
 	public function is_read_only():Bool return __gd.is_read_only();
 	function __op_equal_to_variant(p_rhs:gd.Variant):Bool return @:privateAccess this.__gd.__op_equal_to_variant(((p_rhs : gdnative.Variant)));

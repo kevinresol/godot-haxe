@@ -2,7 +2,7 @@ package gdnative;
 /**
 	Built-in Class
 **/
-@:forward abstract Plane(cpp.Struct<Plane_extern>) from cpp.Struct<Plane_extern> to cpp.Struct<Plane_extern> {
+@:forward abstract Plane(Plane_extern) from Plane_extern to Plane_extern {
 	@:from
 	static inline function fromWrapper(v:gd.Plane):gdnative.Plane return fromWrapperInternal(v);
 	@:from
@@ -12,8 +12,8 @@ package gdnative;
 	@:to
 	inline function toWrapperInternal():gd.Plane.Plane_wrapper return new gd.Plane.Plane_wrapper(this);
 	@:to
-	inline function toVariant():gdnative.Variant return new gdnative.Variant.Variant_extern(abstract);
-	inline function val():Plane_extern return untyped __cpp__('{0}.value', abstract);
+	inline function toVariant():gdnative.Variant return new gdnative.Variant.Variant_extern(untyped __cpp__("static_cast<godot::Plane &>({0})", this));
+	inline function val():Plane_extern return untyped __cpp__('(*{0})', this);
 	@:op(A == B)
 	extern inline function __op_equal_to_variant(p_rhs:gdnative.Variant):Bool return untyped __cpp__('{0} == {1}', val(), p_rhs.toReference());
 	@:op(A != B)
@@ -37,7 +37,7 @@ package gdnative;
 	public extern overload inline function new(p_a:Float, p_b:Float, p_c:Float, p_d:Float) this = new gdnative.Plane.Plane_extern(p_a, p_b, p_c, p_d);
 }
 
-@:include("godot_cpp/variant/plane.hpp") @:native("godot::Plane") @:structAccess extern class Plane_extern {
+@:include("godot_cpp/variant/plane.hpp") @:semantics(reference) @:cpp.ValueType({ type : "Plane", namespace : ['godot'] }) extern class Plane_extern {
 	@:overload(function(p_from:gdnative.Plane):Void { })
 	@:overload(function(p_normal:gdnative.Vector3):Void { })
 	@:overload(function(p_normal:gdnative.Vector3, p_d:Float):Void { })

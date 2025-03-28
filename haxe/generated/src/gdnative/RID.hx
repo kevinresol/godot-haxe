@@ -2,7 +2,7 @@ package gdnative;
 /**
 	Built-in Class
 **/
-@:forward abstract RID(cpp.Struct<RID_extern>) from cpp.Struct<RID_extern> to cpp.Struct<RID_extern> {
+@:forward abstract RID(RID_extern) from RID_extern to RID_extern {
 	@:from
 	static inline function fromWrapper(v:gd.RID):gdnative.RID return fromWrapperInternal(v);
 	@:from
@@ -12,8 +12,8 @@ package gdnative;
 	@:to
 	inline function toWrapperInternal():gd.RID.RID_wrapper return new gd.RID.RID_wrapper(this);
 	@:to
-	inline function toVariant():gdnative.Variant return new gdnative.Variant.Variant_extern(abstract);
-	inline function val():RID_extern return untyped __cpp__('{0}.value', abstract);
+	inline function toVariant():gdnative.Variant return new gdnative.Variant.Variant_extern(untyped __cpp__("static_cast<godot::RID &>({0})", this));
+	inline function val():RID_extern return untyped __cpp__('(*{0})', this);
 	@:op(A == B)
 	extern inline function __op_equal_to_variant(p_rhs:gdnative.Variant):Bool return untyped __cpp__('{0} == {1}', val(), p_rhs.toReference());
 	@:op(A != B)
@@ -38,7 +38,7 @@ package gdnative;
 	public extern overload inline function new(p_from:gd.RID) this = new gdnative.RID.RID_extern(p_from);
 }
 
-@:include("godot_cpp/variant/rid.hpp") @:native("godot::RID") @:structAccess extern class RID_extern {
+@:include("godot_cpp/variant/rid.hpp") @:semantics(reference) @:cpp.ValueType({ type : "RID", namespace : ['godot'] }) extern class RID_extern {
 	@:overload(function(p_from:gdnative.RID):Void { })
 	function new();
 	function is_valid():Bool;

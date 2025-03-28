@@ -2,7 +2,7 @@ package gdnative;
 /**
 	Built-in Class
 **/
-@:forward abstract Vector4(cpp.Struct<Vector4_extern>) from cpp.Struct<Vector4_extern> to cpp.Struct<Vector4_extern> {
+@:forward abstract Vector4(Vector4_extern) from Vector4_extern to Vector4_extern {
 	@:from
 	static inline function fromWrapper(v:gd.Vector4):gdnative.Vector4 return fromWrapperInternal(v);
 	@:from
@@ -12,8 +12,8 @@ package gdnative;
 	@:to
 	inline function toWrapperInternal():gd.Vector4.Vector4_wrapper return new gd.Vector4.Vector4_wrapper(this);
 	@:to
-	inline function toVariant():gdnative.Variant return new gdnative.Variant.Variant_extern(abstract);
-	inline function val():Vector4_extern return untyped __cpp__('{0}.value', abstract);
+	inline function toVariant():gdnative.Variant return new gdnative.Variant.Variant_extern(untyped __cpp__("static_cast<godot::Vector4 &>({0})", this));
+	inline function val():Vector4_extern return untyped __cpp__('(*{0})', this);
 	@:op(A == B)
 	extern inline function __op_equal_to_variant(p_rhs:gdnative.Variant):Bool return untyped __cpp__('{0} == {1}', val(), p_rhs.toReference());
 	@:op(A != B)
@@ -59,7 +59,7 @@ package gdnative;
 	public extern overload inline function new(p_x:Float, p_y:Float, p_z:Float, p_w:Float) this = new gdnative.Vector4.Vector4_extern(p_x, p_y, p_z, p_w);
 }
 
-@:include("godot_cpp/variant/vector4.hpp") @:native("godot::Vector4") @:structAccess extern class Vector4_extern {
+@:include("godot_cpp/variant/vector4.hpp") @:semantics(reference) @:cpp.ValueType({ type : "Vector4", namespace : ['godot'] }) extern class Vector4_extern {
 	@:overload(function(p_from:gdnative.Vector4):Void { })
 	@:overload(function(p_x:Float, p_y:Float, p_z:Float, p_w:Float):Void { })
 	function new();

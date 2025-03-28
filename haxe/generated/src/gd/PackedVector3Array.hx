@@ -2,11 +2,14 @@ package gd;
 class PackedVector3Array_wrapper {
 	final __gd : gdnative.PackedVector3Array;
 	public function new(value:gdnative.PackedVector3Array) __gd = value;
-	function toVariant():gd.Variant return @:privateAccess new gd.Variant.Variant_obj(new gdnative.Variant.Variant_extern(this));
+	function toVariant():gd.Variant return @:privateAccess new gd.Variant.Variant_obj(((__gd : gdnative.Variant)));
 	static function _new0():PackedVector3Array_wrapper return new PackedVector3Array_wrapper(new gdnative.PackedVector3Array());
 	static function _new1(p_from:gd.PackedVector3Array):PackedVector3Array_wrapper return new PackedVector3Array_wrapper(new gdnative.PackedVector3Array(p_from));
 	static function _new2(p_from:gd.Array):PackedVector3Array_wrapper return new PackedVector3Array_wrapper(new gdnative.PackedVector3Array(p_from));
-	public function get(p_index:cpp.Int64):gd.Vector3 return __gd.get(((p_index : cpp.Int64)));
+	public function get(p_index:cpp.Int64):gd.Vector3 return {
+		final v = __gd.get(((p_index : cpp.Int64)));
+		v;
+	};
 	public function size():cpp.Int64 return __gd.size();
 	public function is_empty():Bool return __gd.is_empty();
 	public function set(p_index:cpp.Int64, p_value:gd.Vector3):Void __gd.set(((p_index : cpp.Int64)), ((p_value : gd.Vector3)));
@@ -21,16 +24,28 @@ class PackedVector3Array_wrapper {
 	public function has(p_value:gd.Vector3):Bool return __gd.has(((p_value : gd.Vector3)));
 	public function reverse():Void __gd.reverse();
 	public function slice(p_begin:cpp.Int64, ?p_end:cpp.Int64):gd.PackedVector3Array return switch [p_begin, p_end] {
-		case [_, null]:__gd.slice(((p_begin : cpp.Int64)));
-		default:__gd.slice(((p_begin : cpp.Int64)), ((p_end : cpp.Int64)));
+		case [_, null]:{
+			final v = __gd.slice(((p_begin : cpp.Int64)));
+			v;
+		};
+		default:{
+			final v = __gd.slice(((p_begin : cpp.Int64)), ((p_end : cpp.Int64)));
+			v;
+		};
 	};
-	public function to_byte_array():gd.PackedByteArray return __gd.to_byte_array();
+	public function to_byte_array():gd.PackedByteArray return {
+		final v = __gd.to_byte_array();
+		v;
+	};
 	public function sort():Void __gd.sort();
 	public function bsearch(p_value:gd.Vector3, ?p_before:Bool):cpp.Int64 return switch [p_value, p_before] {
 		case [_, null]:__gd.bsearch(((p_value : gd.Vector3)));
 		default:__gd.bsearch(((p_value : gd.Vector3)), ((p_before : Bool)));
 	};
-	public function duplicate():gd.PackedVector3Array return __gd.duplicate();
+	public function duplicate():gd.PackedVector3Array return {
+		final v = __gd.duplicate();
+		v;
+	};
 	public function find(p_value:gd.Vector3, ?p_from:cpp.Int64):cpp.Int64 return switch [p_value, p_from] {
 		case [_, null]:__gd.find(((p_value : gd.Vector3)));
 		default:__gd.find(((p_value : gd.Vector3)), ((p_from : cpp.Int64)));

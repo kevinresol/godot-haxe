@@ -22,7 +22,10 @@ package gd;
 		__sprite2d_ptr().value.set_offset(((p_offset : gd.Vector2)));
 		return p_offset;
 	}
-	public function get_offset():gd.Vector2 return __sprite2d_ptr().value.get_offset();
+	public function get_offset():gd.Vector2 return {
+		final v = __sprite2d_ptr().value.get_offset();
+		v;
+	};
 	public function set_flip_h(p_flip_h:Bool):Bool {
 		__sprite2d_ptr().value.set_flip_h(((p_flip_h : Bool)));
 		return p_flip_h;
@@ -43,7 +46,10 @@ package gd;
 		__sprite2d_ptr().value.set_region_rect(((p_rect : gd.Rect2)));
 		return p_rect;
 	}
-	public function get_region_rect():gd.Rect2 return __sprite2d_ptr().value.get_region_rect();
+	public function get_region_rect():gd.Rect2 return {
+		final v = __sprite2d_ptr().value.get_region_rect();
+		v;
+	};
 	public function set_region_filter_clip_enabled(p_enabled:Bool):Bool {
 		__sprite2d_ptr().value.set_region_filter_clip_enabled(((p_enabled : Bool)));
 		return p_enabled;
@@ -58,7 +64,10 @@ package gd;
 		__sprite2d_ptr().value.set_frame_coords(((p_coords : gd.Vector2i)));
 		return p_coords;
 	}
-	public function get_frame_coords():gd.Vector2i return __sprite2d_ptr().value.get_frame_coords();
+	public function get_frame_coords():gd.Vector2i return {
+		final v = __sprite2d_ptr().value.get_frame_coords();
+		v;
+	};
 	public function set_vframes(p_vframes:cpp.Int64):cpp.Int64 {
 		__sprite2d_ptr().value.set_vframes(((p_vframes : cpp.Int64)));
 		return p_vframes;
@@ -69,7 +78,10 @@ package gd;
 		return p_hframes;
 	}
 	public function get_hframes():cpp.Int64 return __sprite2d_ptr().value.get_hframes();
-	public function get_rect():gd.Rect2 return __sprite2d_ptr().value.get_rect();
+	public function get_rect():gd.Rect2 return {
+		final v = __sprite2d_ptr().value.get_rect();
+		v;
+	};
 	public var texture(get, set) : gd.Texture2D;
 	public var centered(get, set) : Bool;
 	function get_centered():Bool return is_centered();

@@ -2,12 +2,15 @@ package gd;
 class Rect2_wrapper {
 	final __gd : gdnative.Rect2;
 	public function new(value:gdnative.Rect2) __gd = value;
-	function toVariant():gd.Variant return @:privateAccess new gd.Variant.Variant_obj(new gdnative.Variant.Variant_extern(this));
+	function toVariant():gd.Variant return @:privateAccess new gd.Variant.Variant_obj(((__gd : gdnative.Variant)));
 	static function _new0():Rect2_wrapper return new Rect2_wrapper(new gdnative.Rect2());
 	static function _new1(p_from:gd.Rect2):Rect2_wrapper return new Rect2_wrapper(new gdnative.Rect2(p_from));
 	static function _new2(p_position:gd.Vector2, p_size:gd.Vector2):Rect2_wrapper return new Rect2_wrapper(new gdnative.Rect2(p_position, p_size));
 	static function _new3(p_x:Float, p_y:Float, p_width:Float, p_height:Float):Rect2_wrapper return new Rect2_wrapper(new gdnative.Rect2(p_x, p_y, p_width, p_height));
-	public function get_center():gd.Vector2 return __gd.get_center();
+	public function get_center():gd.Vector2 return {
+		final v = __gd.get_center();
+		v;
+	};
 	public function get_area():Float return __gd.get_area();
 	public function has_area():Bool return __gd.has_area();
 	public function has_point(p_point:gd.Vector2):Bool return __gd.has_point(((p_point : gd.Vector2)));
@@ -18,14 +21,38 @@ class Rect2_wrapper {
 		default:__gd.intersects(((p_b : gd.Rect2)), ((p_include_borders : Bool)));
 	};
 	public function encloses(p_b:gd.Rect2):Bool return __gd.encloses(((p_b : gd.Rect2)));
-	public function intersection(p_b:gd.Rect2):gd.Rect2 return __gd.intersection(((p_b : gd.Rect2)));
-	public function merge(p_b:gd.Rect2):gd.Rect2 return __gd.merge(((p_b : gd.Rect2)));
-	public function expand(p_to:gd.Vector2):gd.Rect2 return __gd.expand(((p_to : gd.Vector2)));
-	public function get_support(p_direction:gd.Vector2):gd.Vector2 return __gd.get_support(((p_direction : gd.Vector2)));
-	public function grow(p_amount:Float):gd.Rect2 return __gd.grow(((p_amount : Float)));
-	public function grow_side(p_side:gd.Side, p_amount:Float):gd.Rect2 return __gd.grow_side(((p_side : gd.Side)), ((p_amount : Float)));
-	public function grow_individual(p_left:Float, p_top:Float, p_right:Float, p_bottom:Float):gd.Rect2 return __gd.grow_individual(((p_left : Float)), ((p_top : Float)), ((p_right : Float)), ((p_bottom : Float)));
-	public function abs():gd.Rect2 return __gd.abs();
+	public function intersection(p_b:gd.Rect2):gd.Rect2 return {
+		final v = __gd.intersection(((p_b : gd.Rect2)));
+		v;
+	};
+	public function merge(p_b:gd.Rect2):gd.Rect2 return {
+		final v = __gd.merge(((p_b : gd.Rect2)));
+		v;
+	};
+	public function expand(p_to:gd.Vector2):gd.Rect2 return {
+		final v = __gd.expand(((p_to : gd.Vector2)));
+		v;
+	};
+	public function get_support(p_direction:gd.Vector2):gd.Vector2 return {
+		final v = __gd.get_support(((p_direction : gd.Vector2)));
+		v;
+	};
+	public function grow(p_amount:Float):gd.Rect2 return {
+		final v = __gd.grow(((p_amount : Float)));
+		v;
+	};
+	public function grow_side(p_side:gd.Side, p_amount:Float):gd.Rect2 return {
+		final v = __gd.grow_side(((p_side : gd.Side)), ((p_amount : Float)));
+		v;
+	};
+	public function grow_individual(p_left:Float, p_top:Float, p_right:Float, p_bottom:Float):gd.Rect2 return {
+		final v = __gd.grow_individual(((p_left : Float)), ((p_top : Float)), ((p_right : Float)), ((p_bottom : Float)));
+		v;
+	};
+	public function abs():gd.Rect2 return {
+		final v = __gd.abs();
+		v;
+	};
 	public var position(get, set) : gd.Vector2;
 	function get_position():gd.Vector2 return __gd.position;
 	function set_position(v:gd.Vector2):gd.Vector2 return {

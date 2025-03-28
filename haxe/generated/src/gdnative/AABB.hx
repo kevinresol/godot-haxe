@@ -2,7 +2,7 @@ package gdnative;
 /**
 	Built-in Class
 **/
-@:forward abstract AABB(cpp.Struct<AABB_extern>) from cpp.Struct<AABB_extern> to cpp.Struct<AABB_extern> {
+@:forward abstract AABB(AABB_extern) from AABB_extern to AABB_extern {
 	@:from
 	static inline function fromWrapper(v:gd.AABB):gdnative.AABB return fromWrapperInternal(v);
 	@:from
@@ -12,8 +12,8 @@ package gdnative;
 	@:to
 	inline function toWrapperInternal():gd.AABB.AABB_wrapper return new gd.AABB.AABB_wrapper(this);
 	@:to
-	inline function toVariant():gdnative.Variant return new gdnative.Variant.Variant_extern(abstract);
-	inline function val():AABB_extern return untyped __cpp__('{0}.value', abstract);
+	inline function toVariant():gdnative.Variant return new gdnative.Variant.Variant_extern(untyped __cpp__("static_cast<godot::AABB &>({0})", this));
+	inline function val():AABB_extern return untyped __cpp__('(*{0})', this);
 	@:op(A == B)
 	extern inline function __op_equal_to_variant(p_rhs:gdnative.Variant):Bool return untyped __cpp__('{0} == {1}', val(), p_rhs.toReference());
 	@:op(A != B)
@@ -31,7 +31,7 @@ package gdnative;
 	public extern overload inline function new(p_position:gd.Vector3, p_size:gd.Vector3) this = new gdnative.AABB.AABB_extern(p_position, p_size);
 }
 
-@:include("godot_cpp/variant/aabb.hpp") @:native("godot::AABB") @:structAccess extern class AABB_extern {
+@:include("godot_cpp/variant/aabb.hpp") @:semantics(reference) @:cpp.ValueType({ type : "AABB", namespace : ['godot'] }) extern class AABB_extern {
 	@:overload(function(p_from:gdnative.AABB):Void { })
 	@:overload(function(p_position:gdnative.Vector3, p_size:gdnative.Vector3):Void { })
 	function new();

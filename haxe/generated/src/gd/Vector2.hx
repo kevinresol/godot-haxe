@@ -2,60 +2,156 @@ package gd;
 class Vector2_wrapper {
 	final __gd : gdnative.Vector2;
 	public function new(value:gdnative.Vector2) __gd = value;
-	function toVariant():gd.Variant return @:privateAccess new gd.Variant.Variant_obj(new gdnative.Variant.Variant_extern(this));
+	function toVariant():gd.Variant return @:privateAccess new gd.Variant.Variant_obj(((__gd : gdnative.Variant)));
 	static function _new0():Vector2_wrapper return new Vector2_wrapper(new gdnative.Vector2());
 	static function _new1(p_from:gd.Vector2):Vector2_wrapper return new Vector2_wrapper(new gdnative.Vector2(p_from));
 	static function _new2(p_x:Float, p_y:Float):Vector2_wrapper return new Vector2_wrapper(new gdnative.Vector2(p_x, p_y));
 	public function angle():Float return __gd.angle();
 	public function angle_to(p_to:gd.Vector2):Float return __gd.angle_to(((p_to : gd.Vector2)));
 	public function angle_to_point(p_to:gd.Vector2):Float return __gd.angle_to_point(((p_to : gd.Vector2)));
-	public function direction_to(p_to:gd.Vector2):gd.Vector2 return __gd.direction_to(((p_to : gd.Vector2)));
+	public function direction_to(p_to:gd.Vector2):gd.Vector2 return {
+		final v = __gd.direction_to(((p_to : gd.Vector2)));
+		v;
+	};
 	public function distance_to(p_to:gd.Vector2):Float return __gd.distance_to(((p_to : gd.Vector2)));
 	public function distance_squared_to(p_to:gd.Vector2):Float return __gd.distance_squared_to(((p_to : gd.Vector2)));
 	public function length():Float return __gd.length();
 	public function length_squared():Float return __gd.length_squared();
 	public function limit_length(?p_length:Float):gd.Vector2 return switch [p_length] {
-		case [null]:__gd.limit_length();
-		default:__gd.limit_length(((p_length : Float)));
+		case [null]:{
+			final v = __gd.limit_length();
+			v;
+		};
+		default:{
+			final v = __gd.limit_length(((p_length : Float)));
+			v;
+		};
 	};
-	public function normalized():gd.Vector2 return __gd.normalized();
+	public function normalized():gd.Vector2 return {
+		final v = __gd.normalized();
+		v;
+	};
 	public function is_normalized():Bool return __gd.is_normalized();
 	public function is_equal_approx(p_to:gd.Vector2):Bool return __gd.is_equal_approx(((p_to : gd.Vector2)));
 	public function is_zero_approx():Bool return __gd.is_zero_approx();
 	public function is_finite():Bool return __gd.is_finite();
-	public function posmod(p_mod:Float):gd.Vector2 return __gd.posmod(((p_mod : Float)));
-	public function posmodv(p_modv:gd.Vector2):gd.Vector2 return __gd.posmodv(((p_modv : gd.Vector2)));
-	public function project(p_b:gd.Vector2):gd.Vector2 return __gd.project(((p_b : gd.Vector2)));
-	public function lerp(p_to:gd.Vector2, p_weight:Float):gd.Vector2 return __gd.lerp(((p_to : gd.Vector2)), ((p_weight : Float)));
-	public function slerp(p_to:gd.Vector2, p_weight:Float):gd.Vector2 return __gd.slerp(((p_to : gd.Vector2)), ((p_weight : Float)));
-	public function cubic_interpolate(p_b:gd.Vector2, p_pre_a:gd.Vector2, p_post_b:gd.Vector2, p_weight:Float):gd.Vector2 return __gd.cubic_interpolate(((p_b : gd.Vector2)), ((p_pre_a : gd.Vector2)), ((p_post_b : gd.Vector2)), ((p_weight : Float)));
-	public function cubic_interpolate_in_time(p_b:gd.Vector2, p_pre_a:gd.Vector2, p_post_b:gd.Vector2, p_weight:Float, p_b_t:Float, p_pre_a_t:Float, p_post_b_t:Float):gd.Vector2 return __gd.cubic_interpolate_in_time(((p_b : gd.Vector2)), ((p_pre_a : gd.Vector2)), ((p_post_b : gd.Vector2)), ((p_weight : Float)), ((p_b_t : Float)), ((p_pre_a_t : Float)), ((p_post_b_t : Float)));
-	public function bezier_interpolate(p_control_1:gd.Vector2, p_control_2:gd.Vector2, p_end:gd.Vector2, p_t:Float):gd.Vector2 return __gd.bezier_interpolate(((p_control_1 : gd.Vector2)), ((p_control_2 : gd.Vector2)), ((p_end : gd.Vector2)), ((p_t : Float)));
+	public function posmod(p_mod:Float):gd.Vector2 return {
+		final v = __gd.posmod(((p_mod : Float)));
+		v;
+	};
+	public function posmodv(p_modv:gd.Vector2):gd.Vector2 return {
+		final v = __gd.posmodv(((p_modv : gd.Vector2)));
+		v;
+	};
+	public function project(p_b:gd.Vector2):gd.Vector2 return {
+		final v = __gd.project(((p_b : gd.Vector2)));
+		v;
+	};
+	public function lerp(p_to:gd.Vector2, p_weight:Float):gd.Vector2 return {
+		final v = __gd.lerp(((p_to : gd.Vector2)), ((p_weight : Float)));
+		v;
+	};
+	public function slerp(p_to:gd.Vector2, p_weight:Float):gd.Vector2 return {
+		final v = __gd.slerp(((p_to : gd.Vector2)), ((p_weight : Float)));
+		v;
+	};
+	public function cubic_interpolate(p_b:gd.Vector2, p_pre_a:gd.Vector2, p_post_b:gd.Vector2, p_weight:Float):gd.Vector2 return {
+		final v = __gd.cubic_interpolate(((p_b : gd.Vector2)), ((p_pre_a : gd.Vector2)), ((p_post_b : gd.Vector2)), ((p_weight : Float)));
+		v;
+	};
+	public function cubic_interpolate_in_time(p_b:gd.Vector2, p_pre_a:gd.Vector2, p_post_b:gd.Vector2, p_weight:Float, p_b_t:Float, p_pre_a_t:Float, p_post_b_t:Float):gd.Vector2 return {
+		final v = __gd.cubic_interpolate_in_time(((p_b : gd.Vector2)), ((p_pre_a : gd.Vector2)), ((p_post_b : gd.Vector2)), ((p_weight : Float)), ((p_b_t : Float)), ((p_pre_a_t : Float)), ((p_post_b_t : Float)));
+		v;
+	};
+	public function bezier_interpolate(p_control_1:gd.Vector2, p_control_2:gd.Vector2, p_end:gd.Vector2, p_t:Float):gd.Vector2 return {
+		final v = __gd.bezier_interpolate(((p_control_1 : gd.Vector2)), ((p_control_2 : gd.Vector2)), ((p_end : gd.Vector2)), ((p_t : Float)));
+		v;
+	};
 	public function max_axis_index():cpp.Int64 return __gd.max_axis_index();
 	public function min_axis_index():cpp.Int64 return __gd.min_axis_index();
-	public function move_toward(p_to:gd.Vector2, p_delta:Float):gd.Vector2 return __gd.move_toward(((p_to : gd.Vector2)), ((p_delta : Float)));
-	public function rotated(p_angle:Float):gd.Vector2 return __gd.rotated(((p_angle : Float)));
-	public function orthogonal():gd.Vector2 return __gd.orthogonal();
-	public function floor():gd.Vector2 return __gd.floor();
-	public function ceil():gd.Vector2 return __gd.ceil();
-	public function round():gd.Vector2 return __gd.round();
+	public function move_toward(p_to:gd.Vector2, p_delta:Float):gd.Vector2 return {
+		final v = __gd.move_toward(((p_to : gd.Vector2)), ((p_delta : Float)));
+		v;
+	};
+	public function rotated(p_angle:Float):gd.Vector2 return {
+		final v = __gd.rotated(((p_angle : Float)));
+		v;
+	};
+	public function orthogonal():gd.Vector2 return {
+		final v = __gd.orthogonal();
+		v;
+	};
+	public function floor():gd.Vector2 return {
+		final v = __gd.floor();
+		v;
+	};
+	public function ceil():gd.Vector2 return {
+		final v = __gd.ceil();
+		v;
+	};
+	public function round():gd.Vector2 return {
+		final v = __gd.round();
+		v;
+	};
 	public function aspect():Float return __gd.aspect();
 	public function dot(p_with:gd.Vector2):Float return __gd.dot(((p_with : gd.Vector2)));
-	public function slide(p_n:gd.Vector2):gd.Vector2 return __gd.slide(((p_n : gd.Vector2)));
-	public function bounce(p_n:gd.Vector2):gd.Vector2 return __gd.bounce(((p_n : gd.Vector2)));
-	public function reflect(p_line:gd.Vector2):gd.Vector2 return __gd.reflect(((p_line : gd.Vector2)));
+	public function slide(p_n:gd.Vector2):gd.Vector2 return {
+		final v = __gd.slide(((p_n : gd.Vector2)));
+		v;
+	};
+	public function bounce(p_n:gd.Vector2):gd.Vector2 return {
+		final v = __gd.bounce(((p_n : gd.Vector2)));
+		v;
+	};
+	public function reflect(p_line:gd.Vector2):gd.Vector2 return {
+		final v = __gd.reflect(((p_line : gd.Vector2)));
+		v;
+	};
 	public function cross(p_with:gd.Vector2):Float return __gd.cross(((p_with : gd.Vector2)));
-	public function abs():gd.Vector2 return __gd.abs();
-	public function sign():gd.Vector2 return __gd.sign();
-	public function clamp(p_min:gd.Vector2, p_max:gd.Vector2):gd.Vector2 return __gd.clamp(((p_min : gd.Vector2)), ((p_max : gd.Vector2)));
-	public function clampf(p_min:Float, p_max:Float):gd.Vector2 return __gd.clampf(((p_min : Float)), ((p_max : Float)));
-	public function snapped(p_step:gd.Vector2):gd.Vector2 return __gd.snapped(((p_step : gd.Vector2)));
-	public function snappedf(p_step:Float):gd.Vector2 return __gd.snappedf(((p_step : Float)));
-	public function min(p_with:gd.Vector2):gd.Vector2 return __gd.min(((p_with : gd.Vector2)));
-	public function minf(p_with:Float):gd.Vector2 return __gd.minf(((p_with : Float)));
-	public function max(p_with:gd.Vector2):gd.Vector2 return __gd.max(((p_with : gd.Vector2)));
-	public function maxf(p_with:Float):gd.Vector2 return __gd.maxf(((p_with : Float)));
-	public static function from_angle(p_angle:Float):gd.Vector2 return gdnative.Vector2.Vector2_extern.from_angle(((p_angle : Float)));
+	public function abs():gd.Vector2 return {
+		final v = __gd.abs();
+		v;
+	};
+	public function sign():gd.Vector2 return {
+		final v = __gd.sign();
+		v;
+	};
+	public function clamp(p_min:gd.Vector2, p_max:gd.Vector2):gd.Vector2 return {
+		final v = __gd.clamp(((p_min : gd.Vector2)), ((p_max : gd.Vector2)));
+		v;
+	};
+	public function clampf(p_min:Float, p_max:Float):gd.Vector2 return {
+		final v = __gd.clampf(((p_min : Float)), ((p_max : Float)));
+		v;
+	};
+	public function snapped(p_step:gd.Vector2):gd.Vector2 return {
+		final v = __gd.snapped(((p_step : gd.Vector2)));
+		v;
+	};
+	public function snappedf(p_step:Float):gd.Vector2 return {
+		final v = __gd.snappedf(((p_step : Float)));
+		v;
+	};
+	public function min(p_with:gd.Vector2):gd.Vector2 return {
+		final v = __gd.min(((p_with : gd.Vector2)));
+		v;
+	};
+	public function minf(p_with:Float):gd.Vector2 return {
+		final v = __gd.minf(((p_with : Float)));
+		v;
+	};
+	public function max(p_with:gd.Vector2):gd.Vector2 return {
+		final v = __gd.max(((p_with : gd.Vector2)));
+		v;
+	};
+	public function maxf(p_with:Float):gd.Vector2 return {
+		final v = __gd.maxf(((p_with : Float)));
+		v;
+	};
+	public static function from_angle(p_angle:Float):gd.Vector2 return {
+		final v = gdnative.Vector2.Vector2_extern.from_angle(((p_angle : Float)));
+		v;
+	};
 	public var x(get, set) : Float;
 	function get_x():Float return __gd.x;
 	function set_x(v:Float):Float return {

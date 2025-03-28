@@ -2,10 +2,11 @@ package gdnative;
 /**
 	Built-in Class
 **/
-@:forward abstract StringName(cpp.Struct<StringName_extern>) from cpp.Struct<StringName_extern> to cpp.Struct<StringName_extern> {
+@:forward abstract StringName(StringName_extern) from StringName_extern to StringName_extern {
 	@:to
 	extern inline function toHaxe():std.String {
-		return ((untyped __cpp__('(godot::String){0}', this) : gdnative.String));
+		final s:gdnative.String = untyped __cpp__('godot::String({0})', this);
+		return s;
 	}
 	@:from
 	extern static inline function fromHaxe(v:std.String):StringName {
@@ -20,8 +21,8 @@ package gdnative;
 	@:to
 	inline function toWrapperInternal():gd.StringName.StringName_wrapper return new gd.StringName.StringName_wrapper(this);
 	@:to
-	inline function toVariant():gdnative.Variant return new gdnative.Variant.Variant_extern(abstract);
-	inline function val():StringName_extern return untyped __cpp__('{0}.value', abstract);
+	inline function toVariant():gdnative.Variant return new gdnative.Variant.Variant_extern(untyped __cpp__("static_cast<godot::StringName &>({0})", this));
+	inline function val():StringName_extern return untyped __cpp__('(*{0})', this);
 	@:op(A == B)
 	extern inline function __op_equal_to_variant(p_rhs:gdnative.Variant):Bool return untyped __cpp__('{0} == {1}', val(), p_rhs.toReference());
 	@:op(A != B)
@@ -138,7 +139,7 @@ package gdnative;
 	public extern overload inline function new(p_from:std.String) this = new gdnative.StringName.StringName_extern(p_from);
 }
 
-@:include("godot_cpp/variant/string_name.hpp") @:native("godot::StringName") @:structAccess extern class StringName_extern {
+@:include("godot_cpp/variant/string_name.hpp") @:semantics(reference) @:cpp.ValueType({ type : "StringName", namespace : ['godot'] }) extern class StringName_extern {
 	@:overload(function(p_from:gdnative.StringName):Void { })
 	@:overload(function(p_from:gdnative.String):Void { })
 	function new();

@@ -2,7 +2,7 @@ package gd;
 class Dictionary_wrapper {
 	final __gd : gdnative.Dictionary;
 	public function new(value:gdnative.Dictionary) __gd = value;
-	function toVariant():gd.Variant return @:privateAccess new gd.Variant.Variant_obj(new gdnative.Variant.Variant_extern(this));
+	function toVariant():gd.Variant return @:privateAccess new gd.Variant.Variant_obj(((__gd : gdnative.Variant)));
 	static function _new0():Dictionary_wrapper return new Dictionary_wrapper(new gdnative.Dictionary());
 	static function _new1(p_from:gd.Dictionary):Dictionary_wrapper return new Dictionary_wrapper(new gdnative.Dictionary(p_from));
 	static function _new2(p_base:gd.Dictionary, p_key_type:cpp.Int64, p_key_class_name:std.String, p_key_script:gd.Variant, p_value_type:cpp.Int64, p_value_class_name:std.String, p_value_script:gd.Variant):Dictionary_wrapper return new Dictionary_wrapper(new gdnative.Dictionary(p_base, p_key_type, p_key_class_name, p_key_script, p_value_type, p_value_class_name, p_value_script));
@@ -16,22 +16,49 @@ class Dictionary_wrapper {
 		default:__gd.merge(((p_dictionary : gd.Dictionary)), ((p_overwrite : Bool)));
 	};
 	public function merged(p_dictionary:gd.Dictionary, ?p_overwrite:Bool):gd.Dictionary return switch [p_dictionary, p_overwrite] {
-		case [_, null]:__gd.merged(((p_dictionary : gd.Dictionary)));
-		default:__gd.merged(((p_dictionary : gd.Dictionary)), ((p_overwrite : Bool)));
+		case [_, null]:{
+			final v = __gd.merged(((p_dictionary : gd.Dictionary)));
+			v;
+		};
+		default:{
+			final v = __gd.merged(((p_dictionary : gd.Dictionary)), ((p_overwrite : Bool)));
+			v;
+		};
 	};
 	public function has(p_key:gd.Variant):Bool return __gd.has(((p_key : gd.Variant)));
 	public function has_all(p_keys:gd.Array):Bool return __gd.has_all(((p_keys : gd.Array)));
-	public function find_key(p_value:gd.Variant):gd.Variant return __gd.find_key(((p_value : gd.Variant)));
+	public function find_key(p_value:gd.Variant):gd.Variant return {
+		final v = __gd.find_key(((p_value : gd.Variant)));
+		v;
+	};
 	public function erase(p_key:gd.Variant):Bool return __gd.erase(((p_key : gd.Variant)));
 	public function hash():cpp.Int64 return __gd.hash();
-	public function keys():gd.Array return __gd.keys();
-	public function values():gd.Array return __gd.values();
-	public function duplicate(?p_deep:Bool):gd.Dictionary return switch [p_deep] {
-		case [null]:__gd.duplicate();
-		default:__gd.duplicate(((p_deep : Bool)));
+	public function keys():gd.Array return {
+		final v = __gd.keys();
+		v;
 	};
-	public function get(p_key:gd.Variant, p_default:gd.Variant):gd.Variant return __gd.get(((p_key : gd.Variant)), ((p_default : gd.Variant)));
-	public function get_or_add(p_key:gd.Variant, p_default:gd.Variant):gd.Variant return __gd.get_or_add(((p_key : gd.Variant)), ((p_default : gd.Variant)));
+	public function values():gd.Array return {
+		final v = __gd.values();
+		v;
+	};
+	public function duplicate(?p_deep:Bool):gd.Dictionary return switch [p_deep] {
+		case [null]:{
+			final v = __gd.duplicate();
+			v;
+		};
+		default:{
+			final v = __gd.duplicate(((p_deep : Bool)));
+			v;
+		};
+	};
+	public function get(p_key:gd.Variant, p_default:gd.Variant):gd.Variant return {
+		final v = __gd.get(((p_key : gd.Variant)), ((p_default : gd.Variant)));
+		v;
+	};
+	public function get_or_add(p_key:gd.Variant, p_default:gd.Variant):gd.Variant return {
+		final v = __gd.get_or_add(((p_key : gd.Variant)), ((p_default : gd.Variant)));
+		v;
+	};
 	public function set(p_key:gd.Variant, p_value:gd.Variant):Bool return __gd.set(((p_key : gd.Variant)), ((p_value : gd.Variant)));
 	public function is_typed():Bool return __gd.is_typed();
 	public function is_typed_key():Bool return __gd.is_typed_key();
@@ -41,10 +68,22 @@ class Dictionary_wrapper {
 	public function is_same_typed_value(p_dictionary:gd.Dictionary):Bool return __gd.is_same_typed_value(((p_dictionary : gd.Dictionary)));
 	public function get_typed_key_builtin():cpp.Int64 return __gd.get_typed_key_builtin();
 	public function get_typed_value_builtin():cpp.Int64 return __gd.get_typed_value_builtin();
-	public function get_typed_key_class_name():std.String return __gd.get_typed_key_class_name();
-	public function get_typed_value_class_name():std.String return __gd.get_typed_value_class_name();
-	public function get_typed_key_script():gd.Variant return __gd.get_typed_key_script();
-	public function get_typed_value_script():gd.Variant return __gd.get_typed_value_script();
+	public function get_typed_key_class_name():std.String return {
+		final v = __gd.get_typed_key_class_name();
+		v;
+	};
+	public function get_typed_value_class_name():std.String return {
+		final v = __gd.get_typed_value_class_name();
+		v;
+	};
+	public function get_typed_key_script():gd.Variant return {
+		final v = __gd.get_typed_key_script();
+		v;
+	};
+	public function get_typed_value_script():gd.Variant return {
+		final v = __gd.get_typed_value_script();
+		v;
+	};
 	public function make_read_only():Void __gd.make_read_only();
 	public function is_read_only():Bool return __gd.is_read_only();
 	public function recursive_equal(p_dictionary:gd.Dictionary, p_recursion_count:cpp.Int64):Bool return __gd.recursive_equal(((p_dictionary : gd.Dictionary)), ((p_recursion_count : cpp.Int64)));

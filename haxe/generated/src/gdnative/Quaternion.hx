@@ -2,7 +2,7 @@ package gdnative;
 /**
 	Built-in Class
 **/
-@:forward abstract Quaternion(cpp.Struct<Quaternion_extern>) from cpp.Struct<Quaternion_extern> to cpp.Struct<Quaternion_extern> {
+@:forward abstract Quaternion(Quaternion_extern) from Quaternion_extern to Quaternion_extern {
 	@:from
 	static inline function fromWrapper(v:gd.Quaternion):gdnative.Quaternion return fromWrapperInternal(v);
 	@:from
@@ -12,8 +12,8 @@ package gdnative;
 	@:to
 	inline function toWrapperInternal():gd.Quaternion.Quaternion_wrapper return new gd.Quaternion.Quaternion_wrapper(this);
 	@:to
-	inline function toVariant():gdnative.Variant return new gdnative.Variant.Variant_extern(abstract);
-	inline function val():Quaternion_extern return untyped __cpp__('{0}.value', abstract);
+	inline function toVariant():gdnative.Variant return new gdnative.Variant.Variant_extern(untyped __cpp__("static_cast<godot::Quaternion &>({0})", this));
+	inline function val():Quaternion_extern return untyped __cpp__('(*{0})', this);
 	@:op(A == B)
 	extern inline function __op_equal_to_variant(p_rhs:gdnative.Variant):Bool return untyped __cpp__('{0} == {1}', val(), p_rhs.toReference());
 	@:op(A != B)
@@ -49,7 +49,7 @@ package gdnative;
 	public extern overload inline function new(p_x:Float, p_y:Float, p_z:Float, p_w:Float) this = new gdnative.Quaternion.Quaternion_extern(p_x, p_y, p_z, p_w);
 }
 
-@:include("godot_cpp/variant/quaternion.hpp") @:native("godot::Quaternion") @:structAccess extern class Quaternion_extern {
+@:include("godot_cpp/variant/quaternion.hpp") @:semantics(reference) @:cpp.ValueType({ type : "Quaternion", namespace : ['godot'] }) extern class Quaternion_extern {
 	@:overload(function(p_from:gdnative.Quaternion):Void { })
 	@:overload(function(p_axis:gdnative.Vector3, p_angle:Float):Void { })
 	@:overload(function(p_arc_from:gdnative.Vector3, p_arc_to:gdnative.Vector3):Void { })

@@ -2,7 +2,7 @@ package gdnative;
 /**
 	Built-in Class
 **/
-@:forward abstract NodePath(cpp.Struct<NodePath_extern>) from cpp.Struct<NodePath_extern> to cpp.Struct<NodePath_extern> {
+@:forward abstract NodePath(NodePath_extern) from NodePath_extern to NodePath_extern {
 	@:to
 	extern inline function toHaxe():std.String {
 		return ((untyped __cpp__('(godot::String){0}', this) : gdnative.String));
@@ -20,8 +20,8 @@ package gdnative;
 	@:to
 	inline function toWrapperInternal():gd.NodePath.NodePath_wrapper return new gd.NodePath.NodePath_wrapper(this);
 	@:to
-	inline function toVariant():gdnative.Variant return new gdnative.Variant.Variant_extern(abstract);
-	inline function val():NodePath_extern return untyped __cpp__('{0}.value', abstract);
+	inline function toVariant():gdnative.Variant return new gdnative.Variant.Variant_extern(untyped __cpp__("static_cast<godot::NodePath &>({0})", this));
+	inline function val():NodePath_extern return untyped __cpp__('(*{0})', this);
 	@:op(A == B)
 	extern inline function __op_equal_to_variant(p_rhs:gdnative.Variant):Bool return untyped __cpp__('{0} == {1}', val(), p_rhs.toReference());
 	@:op(A != B)
@@ -38,7 +38,7 @@ package gdnative;
 	public extern overload inline function new(p_from:std.String) this = new gdnative.NodePath.NodePath_extern(p_from);
 }
 
-@:include("godot_cpp/variant/node_path.hpp") @:native("godot::NodePath") @:structAccess extern class NodePath_extern {
+@:include("godot_cpp/variant/node_path.hpp") @:semantics(reference) @:cpp.ValueType({ type : "NodePath", namespace : ['godot'] }) extern class NodePath_extern {
 	@:overload(function(p_from:gdnative.NodePath):Void { })
 	@:overload(function(p_from:gdnative.String):Void { })
 	function new();

@@ -2,7 +2,7 @@ package gd;
 class Quaternion_wrapper {
 	final __gd : gdnative.Quaternion;
 	public function new(value:gdnative.Quaternion) __gd = value;
-	function toVariant():gd.Variant return @:privateAccess new gd.Variant.Variant_obj(new gdnative.Variant.Variant_extern(this));
+	function toVariant():gd.Variant return @:privateAccess new gd.Variant.Variant_obj(((__gd : gdnative.Variant)));
 	static function _new0():Quaternion_wrapper return new Quaternion_wrapper(new gdnative.Quaternion());
 	static function _new1(p_from:gd.Quaternion):Quaternion_wrapper return new Quaternion_wrapper(new gdnative.Quaternion(p_from));
 	static function _new2(p_axis:gd.Vector3, p_angle:Float):Quaternion_wrapper return new Quaternion_wrapper(new gdnative.Quaternion(p_axis, p_angle));
@@ -10,25 +10,61 @@ class Quaternion_wrapper {
 	static function _new4(p_x:Float, p_y:Float, p_z:Float, p_w:Float):Quaternion_wrapper return new Quaternion_wrapper(new gdnative.Quaternion(p_x, p_y, p_z, p_w));
 	public function length():Float return __gd.length();
 	public function length_squared():Float return __gd.length_squared();
-	public function normalized():gd.Quaternion return __gd.normalized();
+	public function normalized():gd.Quaternion return {
+		final v = __gd.normalized();
+		v;
+	};
 	public function is_normalized():Bool return __gd.is_normalized();
 	public function is_equal_approx(p_to:gd.Quaternion):Bool return __gd.is_equal_approx(((p_to : gd.Quaternion)));
 	public function is_finite():Bool return __gd.is_finite();
-	public function inverse():gd.Quaternion return __gd.inverse();
-	public function log():gd.Quaternion return __gd.log();
-	public function exp():gd.Quaternion return __gd.exp();
+	public function inverse():gd.Quaternion return {
+		final v = __gd.inverse();
+		v;
+	};
+	public function log():gd.Quaternion return {
+		final v = __gd.log();
+		v;
+	};
+	public function exp():gd.Quaternion return {
+		final v = __gd.exp();
+		v;
+	};
 	public function angle_to(p_to:gd.Quaternion):Float return __gd.angle_to(((p_to : gd.Quaternion)));
 	public function dot(p_with:gd.Quaternion):Float return __gd.dot(((p_with : gd.Quaternion)));
-	public function slerp(p_to:gd.Quaternion, p_weight:Float):gd.Quaternion return __gd.slerp(((p_to : gd.Quaternion)), ((p_weight : Float)));
-	public function slerpni(p_to:gd.Quaternion, p_weight:Float):gd.Quaternion return __gd.slerpni(((p_to : gd.Quaternion)), ((p_weight : Float)));
-	public function spherical_cubic_interpolate(p_b:gd.Quaternion, p_pre_a:gd.Quaternion, p_post_b:gd.Quaternion, p_weight:Float):gd.Quaternion return __gd.spherical_cubic_interpolate(((p_b : gd.Quaternion)), ((p_pre_a : gd.Quaternion)), ((p_post_b : gd.Quaternion)), ((p_weight : Float)));
-	public function spherical_cubic_interpolate_in_time(p_b:gd.Quaternion, p_pre_a:gd.Quaternion, p_post_b:gd.Quaternion, p_weight:Float, p_b_t:Float, p_pre_a_t:Float, p_post_b_t:Float):gd.Quaternion return __gd.spherical_cubic_interpolate_in_time(((p_b : gd.Quaternion)), ((p_pre_a : gd.Quaternion)), ((p_post_b : gd.Quaternion)), ((p_weight : Float)), ((p_b_t : Float)), ((p_pre_a_t : Float)), ((p_post_b_t : Float)));
-	public function get_euler(?p_order:gd.EulerOrder):gd.Vector3 return switch [p_order] {
-		case [null]:__gd.get_euler();
-		default:__gd.get_euler(((p_order : gd.EulerOrder)));
+	public function slerp(p_to:gd.Quaternion, p_weight:Float):gd.Quaternion return {
+		final v = __gd.slerp(((p_to : gd.Quaternion)), ((p_weight : Float)));
+		v;
 	};
-	public static function from_euler(p_euler:gd.Vector3):gd.Quaternion return gdnative.Quaternion.Quaternion_extern.from_euler(((p_euler : gd.Vector3)));
-	public function get_axis():gd.Vector3 return __gd.get_axis();
+	public function slerpni(p_to:gd.Quaternion, p_weight:Float):gd.Quaternion return {
+		final v = __gd.slerpni(((p_to : gd.Quaternion)), ((p_weight : Float)));
+		v;
+	};
+	public function spherical_cubic_interpolate(p_b:gd.Quaternion, p_pre_a:gd.Quaternion, p_post_b:gd.Quaternion, p_weight:Float):gd.Quaternion return {
+		final v = __gd.spherical_cubic_interpolate(((p_b : gd.Quaternion)), ((p_pre_a : gd.Quaternion)), ((p_post_b : gd.Quaternion)), ((p_weight : Float)));
+		v;
+	};
+	public function spherical_cubic_interpolate_in_time(p_b:gd.Quaternion, p_pre_a:gd.Quaternion, p_post_b:gd.Quaternion, p_weight:Float, p_b_t:Float, p_pre_a_t:Float, p_post_b_t:Float):gd.Quaternion return {
+		final v = __gd.spherical_cubic_interpolate_in_time(((p_b : gd.Quaternion)), ((p_pre_a : gd.Quaternion)), ((p_post_b : gd.Quaternion)), ((p_weight : Float)), ((p_b_t : Float)), ((p_pre_a_t : Float)), ((p_post_b_t : Float)));
+		v;
+	};
+	public function get_euler(?p_order:gd.EulerOrder):gd.Vector3 return switch [p_order] {
+		case [null]:{
+			final v = __gd.get_euler();
+			v;
+		};
+		default:{
+			final v = __gd.get_euler(((p_order : gd.EulerOrder)));
+			v;
+		};
+	};
+	public static function from_euler(p_euler:gd.Vector3):gd.Quaternion return {
+		final v = gdnative.Quaternion.Quaternion_extern.from_euler(((p_euler : gd.Vector3)));
+		v;
+	};
+	public function get_axis():gd.Vector3 return {
+		final v = __gd.get_axis();
+		v;
+	};
 	public function get_angle():Float return __gd.get_angle();
 	public var x(get, set) : Float;
 	function get_x():Float return __gd.x;

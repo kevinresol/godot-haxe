@@ -154,7 +154,7 @@ class Builder {
 							final ct = makeHaxeType(arg.type);
 							macro($i{'p_${arg.name}'} : $ct);
 						});
-						final fullArgCallExpr = macro $target.$fname($a{callArgs});
+						final fullArgCallExpr = stackAllocateValueType(rtype, macro $target.$fname($a{callArgs}));
 
 						// Due to the difference concept of optional arguments between Haxe and C++,
 						// we need to do null checks to find out what args are omitted and call the correct overload.
@@ -172,7 +172,7 @@ class Builder {
 												v[specifiedArgCount] = macro null;
 												[macro $a{v}];
 											},
-											expr: macro $target.$fname($a{callArgs.slice(0, specifiedArgCount)})
+											expr: stackAllocateValueType(rtype, macro $target.$fname($a{callArgs.slice(0, specifiedArgCount)}))
 										}
 									}
 								], fullArgCallExpr)
@@ -181,9 +181,29 @@ class Builder {
 							fullArgCallExpr;
 					}
 
-					rtype == 'void' ? e : macro return $e;
+					if (rtype == 'void')
+						e // else if (isValueType(rtype))
+					// 	macro {final ret = $e; return ret;} // explicit var to make sure it is stack allocated
+					else
+						macro return $e;
 				}
 			})
+		}
+	}
+
+	function isValueType(type:String) {
+		return switch type {
+			case 'float' | 'int' | 'bool': false;
+			case _: isBuiltinClass(type);
+		}
+	}
+
+	function stackAllocateValueType(type:String, expr:Expr):Expr {
+		if (!isValueType(type))
+			return expr;
+		return macro {
+			final v = $expr; // explicit var to make sure it is stack allocated
+			v;
 		}
 	}
 

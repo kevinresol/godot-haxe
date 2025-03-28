@@ -2,7 +2,7 @@ package gd;
 class Color_wrapper {
 	final __gd : gdnative.Color;
 	public function new(value:gdnative.Color) __gd = value;
-	function toVariant():gd.Variant return @:privateAccess new gd.Variant.Variant_obj(new gdnative.Variant.Variant_extern(this));
+	function toVariant():gd.Variant return @:privateAccess new gd.Variant.Variant_obj(((__gd : gdnative.Variant)));
 	static function _new0():Color_wrapper return new Color_wrapper(new gdnative.Color());
 	static function _new1(p_from:gd.Color):Color_wrapper return new Color_wrapper(new gdnative.Color(p_from));
 	static function _new2(p_from:gd.Color, p_alpha:Float):Color_wrapper return new Color_wrapper(new gdnative.Color(p_from, p_alpha));
@@ -17,33 +17,90 @@ class Color_wrapper {
 	public function to_abgr64():cpp.Int64 return __gd.to_abgr64();
 	public function to_rgba64():cpp.Int64 return __gd.to_rgba64();
 	public function to_html(?p_with_alpha:Bool):std.String return switch [p_with_alpha] {
-		case [null]:__gd.to_html();
-		default:__gd.to_html(((p_with_alpha : Bool)));
+		case [null]:{
+			final v = __gd.to_html();
+			v;
+		};
+		default:{
+			final v = __gd.to_html(((p_with_alpha : Bool)));
+			v;
+		};
 	};
 	public function clamp(?p_min:gd.Color, ?p_max:gd.Color):gd.Color return switch [p_min, p_max] {
-		case [null, _]:__gd.clamp();
-		case [_, null]:__gd.clamp(((p_min : gd.Color)));
-		default:__gd.clamp(((p_min : gd.Color)), ((p_max : gd.Color)));
+		case [null, _]:{
+			final v = __gd.clamp();
+			v;
+		};
+		case [_, null]:{
+			final v = __gd.clamp(((p_min : gd.Color)));
+			v;
+		};
+		default:{
+			final v = __gd.clamp(((p_min : gd.Color)), ((p_max : gd.Color)));
+			v;
+		};
 	};
-	public function inverted():gd.Color return __gd.inverted();
-	public function lerp(p_to:gd.Color, p_weight:Float):gd.Color return __gd.lerp(((p_to : gd.Color)), ((p_weight : Float)));
-	public function lightened(p_amount:Float):gd.Color return __gd.lightened(((p_amount : Float)));
-	public function darkened(p_amount:Float):gd.Color return __gd.darkened(((p_amount : Float)));
-	public function blend(p_over:gd.Color):gd.Color return __gd.blend(((p_over : gd.Color)));
+	public function inverted():gd.Color return {
+		final v = __gd.inverted();
+		v;
+	};
+	public function lerp(p_to:gd.Color, p_weight:Float):gd.Color return {
+		final v = __gd.lerp(((p_to : gd.Color)), ((p_weight : Float)));
+		v;
+	};
+	public function lightened(p_amount:Float):gd.Color return {
+		final v = __gd.lightened(((p_amount : Float)));
+		v;
+	};
+	public function darkened(p_amount:Float):gd.Color return {
+		final v = __gd.darkened(((p_amount : Float)));
+		v;
+	};
+	public function blend(p_over:gd.Color):gd.Color return {
+		final v = __gd.blend(((p_over : gd.Color)));
+		v;
+	};
 	public function get_luminance():Float return __gd.get_luminance();
-	public function srgb_to_linear():gd.Color return __gd.srgb_to_linear();
-	public function linear_to_srgb():gd.Color return __gd.linear_to_srgb();
-	public function is_equal_approx(p_to:gd.Color):Bool return __gd.is_equal_approx(((p_to : gd.Color)));
-	public static function hex(p_hex:cpp.Int64):gd.Color return gdnative.Color.Color_extern.hex(((p_hex : cpp.Int64)));
-	public static function hex64(p_hex:cpp.Int64):gd.Color return gdnative.Color.Color_extern.hex64(((p_hex : cpp.Int64)));
-	public static function html(p_rgba:std.String):gd.Color return gdnative.Color.Color_extern.html(((p_rgba : std.String)));
-	public static function html_is_valid(p_color:std.String):Bool return gdnative.Color.Color_extern.html_is_valid(((p_color : std.String)));
-	public static function from_string(p_str:std.String, p_default:gd.Color):gd.Color return gdnative.Color.Color_extern.from_string(((p_str : std.String)), ((p_default : gd.Color)));
-	public static function from_hsv(p_h:Float, p_s:Float, p_v:Float, ?p_alpha:Float):gd.Color return switch [p_h, p_s, p_v, p_alpha] {
-		case [_, _, _, null]:gdnative.Color.Color_extern.from_hsv(((p_h : Float)), ((p_s : Float)), ((p_v : Float)));
-		default:gdnative.Color.Color_extern.from_hsv(((p_h : Float)), ((p_s : Float)), ((p_v : Float)), ((p_alpha : Float)));
+	public function srgb_to_linear():gd.Color return {
+		final v = __gd.srgb_to_linear();
+		v;
 	};
-	public static function from_rgbe9995(p_rgbe:cpp.Int64):gd.Color return gdnative.Color.Color_extern.from_rgbe9995(((p_rgbe : cpp.Int64)));
+	public function linear_to_srgb():gd.Color return {
+		final v = __gd.linear_to_srgb();
+		v;
+	};
+	public function is_equal_approx(p_to:gd.Color):Bool return __gd.is_equal_approx(((p_to : gd.Color)));
+	public static function hex(p_hex:cpp.Int64):gd.Color return {
+		final v = gdnative.Color.Color_extern.hex(((p_hex : cpp.Int64)));
+		v;
+	};
+	public static function hex64(p_hex:cpp.Int64):gd.Color return {
+		final v = gdnative.Color.Color_extern.hex64(((p_hex : cpp.Int64)));
+		v;
+	};
+	public static function html(p_rgba:std.String):gd.Color return {
+		final v = gdnative.Color.Color_extern.html(((p_rgba : std.String)));
+		v;
+	};
+	public static function html_is_valid(p_color:std.String):Bool return gdnative.Color.Color_extern.html_is_valid(((p_color : std.String)));
+	public static function from_string(p_str:std.String, p_default:gd.Color):gd.Color return {
+		final v = gdnative.Color.Color_extern.from_string(((p_str : std.String)), ((p_default : gd.Color)));
+		v;
+	};
+	public static function from_hsv(p_h:Float, p_s:Float, p_v:Float, ?p_alpha:Float):gd.Color return switch [p_h, p_s, p_v, p_alpha] {
+		case [_, _, _, null]:{
+			final v = gdnative.Color.Color_extern.from_hsv(((p_h : Float)), ((p_s : Float)), ((p_v : Float)));
+			v;
+		};
+		default:{
+			final v = gdnative.Color.Color_extern.from_hsv(((p_h : Float)), ((p_s : Float)), ((p_v : Float)), ((p_alpha : Float)));
+			v;
+		};
+	};
+	public static function from_rgbe9995(p_rgbe:cpp.Int64):gd.Color return {
+		final v = gdnative.Color.Color_extern.from_rgbe9995(((p_rgbe : cpp.Int64)));
+		v;
+	};
 	public var r(get, set) : Float;
 	function get_r():Float return __gd.r;
 	function set_r(v:Float):Float return {

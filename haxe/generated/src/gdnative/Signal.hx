@@ -2,7 +2,7 @@ package gdnative;
 /**
 	Built-in Class
 **/
-@:forward abstract Signal(cpp.Struct<Signal_extern>) from cpp.Struct<Signal_extern> to cpp.Struct<Signal_extern> {
+@:forward abstract Signal(Signal_extern) from Signal_extern to Signal_extern {
 	@:from
 	static inline function fromWrapper(v:gd.Signal):gdnative.Signal return fromWrapperInternal(v);
 	@:from
@@ -12,8 +12,8 @@ package gdnative;
 	@:to
 	inline function toWrapperInternal():gd.Signal.Signal_wrapper return new gd.Signal.Signal_wrapper(this);
 	@:to
-	inline function toVariant():gdnative.Variant return new gdnative.Variant.Variant_extern(abstract);
-	inline function val():Signal_extern return untyped __cpp__('{0}.value', abstract);
+	inline function toVariant():gdnative.Variant return new gdnative.Variant.Variant_extern(untyped __cpp__("static_cast<godot::Signal &>({0})", this));
+	inline function val():Signal_extern return untyped __cpp__('(*{0})', this);
 	@:op(A == B)
 	extern inline function __op_equal_to_variant(p_rhs:gdnative.Variant):Bool return untyped __cpp__('{0} == {1}', val(), p_rhs.toReference());
 	@:op(A != B)
@@ -31,7 +31,7 @@ package gdnative;
 	public extern overload inline function new(p_object:gd.Object, p_signal:std.String) this = new gdnative.Signal.Signal_extern(p_object, p_signal);
 }
 
-@:include("godot_cpp/variant/signal.hpp") @:native("godot::Signal") @:structAccess extern class Signal_extern {
+@:include("godot_cpp/variant/signal.hpp") @:semantics(reference) @:cpp.ValueType({ type : "Signal", namespace : ['godot'] }) extern class Signal_extern {
 	@:overload(function(p_from:gdnative.Signal):Void { })
 	@:overload(function(p_object:gdnative.Object, p_signal:gdnative.StringName):Void { })
 	function new();

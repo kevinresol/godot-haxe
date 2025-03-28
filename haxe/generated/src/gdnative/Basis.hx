@@ -2,7 +2,7 @@ package gdnative;
 /**
 	Built-in Class
 **/
-@:forward abstract Basis(cpp.Struct<Basis_extern>) from cpp.Struct<Basis_extern> to cpp.Struct<Basis_extern> {
+@:forward abstract Basis(Basis_extern) from Basis_extern to Basis_extern {
 	@:from
 	static inline function fromWrapper(v:gd.Basis):gdnative.Basis return fromWrapperInternal(v);
 	@:from
@@ -12,8 +12,8 @@ package gdnative;
 	@:to
 	inline function toWrapperInternal():gd.Basis.Basis_wrapper return new gd.Basis.Basis_wrapper(this);
 	@:to
-	inline function toVariant():gdnative.Variant return new gdnative.Variant.Variant_extern(abstract);
-	inline function val():Basis_extern return untyped __cpp__('{0}.value', abstract);
+	inline function toVariant():gdnative.Variant return new gdnative.Variant.Variant_extern(untyped __cpp__("static_cast<godot::Basis &>({0})", this));
+	inline function val():Basis_extern return untyped __cpp__('(*{0})', this);
 	@:op(A == B)
 	extern inline function __op_equal_to_variant(p_rhs:gdnative.Variant):Bool return untyped __cpp__('{0} == {1}', val(), p_rhs.toReference());
 	@:op(A != B)
@@ -44,7 +44,7 @@ package gdnative;
 	public extern overload inline function new(p_xx:Float, p_xy:Float, p_xz:Float, p_yx:Float, p_yy:Float, p_yz:Float, p_zx:Float, p_zy:Float, p_zz:Float) this = new gdnative.Basis.Basis_extern(p_xx, p_xy, p_xz, p_yx, p_yy, p_yz, p_zx, p_zy, p_zz);
 }
 
-@:include("godot_cpp/variant/basis.hpp") @:native("godot::Basis") @:structAccess extern class Basis_extern {
+@:include("godot_cpp/variant/basis.hpp") @:semantics(reference) @:cpp.ValueType({ type : "Basis", namespace : ['godot'] }) extern class Basis_extern {
 	@:overload(function(p_from:gdnative.Basis):Void { })
 	@:overload(function(p_from:gdnative.Quaternion):Void { })
 	@:overload(function(p_axis:gdnative.Vector3, p_angle:Float):Void { })

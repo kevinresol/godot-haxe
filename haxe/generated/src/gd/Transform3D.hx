@@ -2,26 +2,62 @@ package gd;
 class Transform3D_wrapper {
 	final __gd : gdnative.Transform3D;
 	public function new(value:gdnative.Transform3D) __gd = value;
-	function toVariant():gd.Variant return @:privateAccess new gd.Variant.Variant_obj(new gdnative.Variant.Variant_extern(this));
+	function toVariant():gd.Variant return @:privateAccess new gd.Variant.Variant_obj(((__gd : gdnative.Variant)));
 	static function _new0():Transform3D_wrapper return new Transform3D_wrapper(new gdnative.Transform3D());
 	static function _new1(p_from:gd.Transform3D):Transform3D_wrapper return new Transform3D_wrapper(new gdnative.Transform3D(p_from));
 	static function _new2(p_basis:gd.Basis, p_origin:gd.Vector3):Transform3D_wrapper return new Transform3D_wrapper(new gdnative.Transform3D(p_basis, p_origin));
 	static function _new3(p_x_axis:gd.Vector3, p_y_axis:gd.Vector3, p_z_axis:gd.Vector3, p_origin:gd.Vector3):Transform3D_wrapper return new Transform3D_wrapper(new gdnative.Transform3D(p_x_axis, p_y_axis, p_z_axis, p_origin));
 	static function _new4(p_xx:Float, p_xy:Float, p_xz:Float, p_yx:Float, p_yy:Float, p_yz:Float, p_zx:Float, p_zy:Float, p_zz:Float, p_tx:Float, p_ty:Float, p_tz:Float):Transform3D_wrapper return new Transform3D_wrapper(new gdnative.Transform3D(p_xx, p_xy, p_xz, p_yx, p_yy, p_yz, p_zx, p_zy, p_zz, p_tx, p_ty, p_tz));
-	public function inverse():gd.Transform3D return __gd.inverse();
-	public function affine_inverse():gd.Transform3D return __gd.affine_inverse();
-	public function orthonormalized():gd.Transform3D return __gd.orthonormalized();
-	public function rotated(p_axis:gd.Vector3, p_angle:Float):gd.Transform3D return __gd.rotated(((p_axis : gd.Vector3)), ((p_angle : Float)));
-	public function rotated_local(p_axis:gd.Vector3, p_angle:Float):gd.Transform3D return __gd.rotated_local(((p_axis : gd.Vector3)), ((p_angle : Float)));
-	public function scaled(p_scale:gd.Vector3):gd.Transform3D return __gd.scaled(((p_scale : gd.Vector3)));
-	public function scaled_local(p_scale:gd.Vector3):gd.Transform3D return __gd.scaled_local(((p_scale : gd.Vector3)));
-	public function translated(p_offset:gd.Vector3):gd.Transform3D return __gd.translated(((p_offset : gd.Vector3)));
-	public function translated_local(p_offset:gd.Vector3):gd.Transform3D return __gd.translated_local(((p_offset : gd.Vector3)));
-	public function looking_at(p_target:gd.Vector3, ?p_up:gd.Vector3):gd.Transform3D return switch [p_target, p_up] {
-		case [_, null]:__gd.looking_at(((p_target : gd.Vector3)));
-		default:__gd.looking_at(((p_target : gd.Vector3)), ((p_up : gd.Vector3)));
+	public function inverse():gd.Transform3D return {
+		final v = __gd.inverse();
+		v;
 	};
-	public function interpolate_with(p_xform:gd.Transform3D, p_weight:Float):gd.Transform3D return __gd.interpolate_with(((p_xform : gd.Transform3D)), ((p_weight : Float)));
+	public function affine_inverse():gd.Transform3D return {
+		final v = __gd.affine_inverse();
+		v;
+	};
+	public function orthonormalized():gd.Transform3D return {
+		final v = __gd.orthonormalized();
+		v;
+	};
+	public function rotated(p_axis:gd.Vector3, p_angle:Float):gd.Transform3D return {
+		final v = __gd.rotated(((p_axis : gd.Vector3)), ((p_angle : Float)));
+		v;
+	};
+	public function rotated_local(p_axis:gd.Vector3, p_angle:Float):gd.Transform3D return {
+		final v = __gd.rotated_local(((p_axis : gd.Vector3)), ((p_angle : Float)));
+		v;
+	};
+	public function scaled(p_scale:gd.Vector3):gd.Transform3D return {
+		final v = __gd.scaled(((p_scale : gd.Vector3)));
+		v;
+	};
+	public function scaled_local(p_scale:gd.Vector3):gd.Transform3D return {
+		final v = __gd.scaled_local(((p_scale : gd.Vector3)));
+		v;
+	};
+	public function translated(p_offset:gd.Vector3):gd.Transform3D return {
+		final v = __gd.translated(((p_offset : gd.Vector3)));
+		v;
+	};
+	public function translated_local(p_offset:gd.Vector3):gd.Transform3D return {
+		final v = __gd.translated_local(((p_offset : gd.Vector3)));
+		v;
+	};
+	public function looking_at(p_target:gd.Vector3, ?p_up:gd.Vector3):gd.Transform3D return switch [p_target, p_up] {
+		case [_, null]:{
+			final v = __gd.looking_at(((p_target : gd.Vector3)));
+			v;
+		};
+		default:{
+			final v = __gd.looking_at(((p_target : gd.Vector3)), ((p_up : gd.Vector3)));
+			v;
+		};
+	};
+	public function interpolate_with(p_xform:gd.Transform3D, p_weight:Float):gd.Transform3D return {
+		final v = __gd.interpolate_with(((p_xform : gd.Transform3D)), ((p_weight : Float)));
+		v;
+	};
 	public function is_equal_approx(p_xform:gd.Transform3D):Bool return __gd.is_equal_approx(((p_xform : gd.Transform3D)));
 	public function is_finite():Bool return __gd.is_finite();
 	public var basis(get, set) : gd.Basis;

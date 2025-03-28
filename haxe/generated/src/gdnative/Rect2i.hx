@@ -2,7 +2,7 @@ package gdnative;
 /**
 	Built-in Class
 **/
-@:forward abstract Rect2i(cpp.Struct<Rect2i_extern>) from cpp.Struct<Rect2i_extern> to cpp.Struct<Rect2i_extern> {
+@:forward abstract Rect2i(Rect2i_extern) from Rect2i_extern to Rect2i_extern {
 	@:from
 	static inline function fromWrapper(v:gd.Rect2i):gdnative.Rect2i return fromWrapperInternal(v);
 	@:from
@@ -12,8 +12,8 @@ package gdnative;
 	@:to
 	inline function toWrapperInternal():gd.Rect2i.Rect2i_wrapper return new gd.Rect2i.Rect2i_wrapper(this);
 	@:to
-	inline function toVariant():gdnative.Variant return new gdnative.Variant.Variant_extern(abstract);
-	inline function val():Rect2i_extern return untyped __cpp__('{0}.value', abstract);
+	inline function toVariant():gdnative.Variant return new gdnative.Variant.Variant_extern(untyped __cpp__("static_cast<godot::Rect2i &>({0})", this));
+	inline function val():Rect2i_extern return untyped __cpp__('(*{0})', this);
 	@:op(A == B)
 	extern inline function __op_equal_to_variant(p_rhs:gdnative.Variant):Bool return untyped __cpp__('{0} == {1}', val(), p_rhs.toReference());
 	@:op(A != B)
@@ -32,7 +32,7 @@ package gdnative;
 	public extern overload inline function new(p_x:cpp.Int64, p_y:cpp.Int64, p_width:cpp.Int64, p_height:cpp.Int64) this = new gdnative.Rect2i.Rect2i_extern(p_x, p_y, p_width, p_height);
 }
 
-@:include("godot_cpp/variant/rect2i.hpp") @:native("godot::Rect2i") @:structAccess extern class Rect2i_extern {
+@:include("godot_cpp/variant/rect2i.hpp") @:semantics(reference) @:cpp.ValueType({ type : "Rect2i", namespace : ['godot'] }) extern class Rect2i_extern {
 	@:overload(function(p_from:gdnative.Rect2i):Void { })
 	@:overload(function(p_position:gdnative.Vector2i, p_size:gdnative.Vector2i):Void { })
 	@:overload(function(p_x:cpp.Int64, p_y:cpp.Int64, p_width:cpp.Int64, p_height:cpp.Int64):Void { })

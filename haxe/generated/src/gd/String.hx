@@ -2,7 +2,7 @@ package gd;
 class String_wrapper {
 	final __gd : gdnative.String;
 	public function new(value:gdnative.String) __gd = value;
-	function toVariant():gd.Variant return @:privateAccess new gd.Variant.Variant_obj(new gdnative.Variant.Variant_extern(this));
+	function toVariant():gd.Variant return @:privateAccess new gd.Variant.Variant_obj(((__gd : gdnative.Variant)));
 	static function _new0():String_wrapper return new String_wrapper(new gdnative.String());
 	static function _new1(p_from:std.String):String_wrapper return new String_wrapper(new gdnative.String(p_from));
 	static function _new2(p_from:std.String):String_wrapper return new String_wrapper(new gdnative.String(p_from));
@@ -15,11 +15,23 @@ class String_wrapper {
 	public function filenocasecmp_to(p_to:std.String):cpp.Int64 return __gd.filenocasecmp_to(((p_to : std.String)));
 	public function length():cpp.Int64 return __gd.length();
 	public function substr(p_from:cpp.Int64, ?p_len:cpp.Int64):std.String return switch [p_from, p_len] {
-		case [_, null]:__gd.substr(((p_from : cpp.Int64)));
-		default:__gd.substr(((p_from : cpp.Int64)), ((p_len : cpp.Int64)));
+		case [_, null]:{
+			final v = __gd.substr(((p_from : cpp.Int64)));
+			v;
+		};
+		default:{
+			final v = __gd.substr(((p_from : cpp.Int64)), ((p_len : cpp.Int64)));
+			v;
+		};
 	};
-	public function get_slice(p_delimiter:std.String, p_slice:cpp.Int64):std.String return __gd.get_slice(((p_delimiter : std.String)), ((p_slice : cpp.Int64)));
-	public function get_slicec(p_delimiter:cpp.Int64, p_slice:cpp.Int64):std.String return __gd.get_slicec(((p_delimiter : cpp.Int64)), ((p_slice : cpp.Int64)));
+	public function get_slice(p_delimiter:std.String, p_slice:cpp.Int64):std.String return {
+		final v = __gd.get_slice(((p_delimiter : std.String)), ((p_slice : cpp.Int64)));
+		v;
+	};
+	public function get_slicec(p_delimiter:cpp.Int64, p_slice:cpp.Int64):std.String return {
+		final v = __gd.get_slicec(((p_delimiter : cpp.Int64)), ((p_slice : cpp.Int64)));
+		v;
+	};
 	public function get_slice_count(p_delimiter:std.String):cpp.Int64 return __gd.get_slice_count(((p_delimiter : std.String)));
 	public function find(p_what:std.String, ?p_from:cpp.Int64):cpp.Int64 return switch [p_what, p_from] {
 		case [_, null]:__gd.find(((p_what : std.String)));
@@ -53,87 +65,264 @@ class String_wrapper {
 	public function ends_with(p_text:std.String):Bool return __gd.ends_with(((p_text : std.String)));
 	public function is_subsequence_of(p_text:std.String):Bool return __gd.is_subsequence_of(((p_text : std.String)));
 	public function is_subsequence_ofn(p_text:std.String):Bool return __gd.is_subsequence_ofn(((p_text : std.String)));
-	public function bigrams():gd.PackedStringArray return __gd.bigrams();
+	public function bigrams():gd.PackedStringArray return {
+		final v = __gd.bigrams();
+		v;
+	};
 	public function similarity(p_text:std.String):Float return __gd.similarity(((p_text : std.String)));
 	public function format(p_values:gd.Variant, ?p_placeholder:std.String):std.String return switch [p_values, p_placeholder] {
-		case [_, null]:__gd.format(((p_values : gd.Variant)));
-		default:__gd.format(((p_values : gd.Variant)), ((p_placeholder : std.String)));
+		case [_, null]:{
+			final v = __gd.format(((p_values : gd.Variant)));
+			v;
+		};
+		default:{
+			final v = __gd.format(((p_values : gd.Variant)), ((p_placeholder : std.String)));
+			v;
+		};
 	};
-	public function replace(p_what:std.String, p_forwhat:std.String):std.String return __gd.replace(((p_what : std.String)), ((p_forwhat : std.String)));
-	public function replacen(p_what:std.String, p_forwhat:std.String):std.String return __gd.replacen(((p_what : std.String)), ((p_forwhat : std.String)));
-	public function repeat(p_count:cpp.Int64):std.String return __gd.repeat(((p_count : cpp.Int64)));
-	public function reverse():std.String return __gd.reverse();
-	public function insert(p_position:cpp.Int64, p_what:std.String):std.String return __gd.insert(((p_position : cpp.Int64)), ((p_what : std.String)));
+	public function replace(p_what:std.String, p_forwhat:std.String):std.String return {
+		final v = __gd.replace(((p_what : std.String)), ((p_forwhat : std.String)));
+		v;
+	};
+	public function replacen(p_what:std.String, p_forwhat:std.String):std.String return {
+		final v = __gd.replacen(((p_what : std.String)), ((p_forwhat : std.String)));
+		v;
+	};
+	public function repeat(p_count:cpp.Int64):std.String return {
+		final v = __gd.repeat(((p_count : cpp.Int64)));
+		v;
+	};
+	public function reverse():std.String return {
+		final v = __gd.reverse();
+		v;
+	};
+	public function insert(p_position:cpp.Int64, p_what:std.String):std.String return {
+		final v = __gd.insert(((p_position : cpp.Int64)), ((p_what : std.String)));
+		v;
+	};
 	public function erase(p_position:cpp.Int64, ?p_chars:cpp.Int64):std.String return switch [p_position, p_chars] {
-		case [_, null]:__gd.erase(((p_position : cpp.Int64)));
-		default:__gd.erase(((p_position : cpp.Int64)), ((p_chars : cpp.Int64)));
+		case [_, null]:{
+			final v = __gd.erase(((p_position : cpp.Int64)));
+			v;
+		};
+		default:{
+			final v = __gd.erase(((p_position : cpp.Int64)), ((p_chars : cpp.Int64)));
+			v;
+		};
 	};
-	public function capitalize():std.String return __gd.capitalize();
-	public function to_camel_case():std.String return __gd.to_camel_case();
-	public function to_pascal_case():std.String return __gd.to_pascal_case();
-	public function to_snake_case():std.String return __gd.to_snake_case();
+	public function capitalize():std.String return {
+		final v = __gd.capitalize();
+		v;
+	};
+	public function to_camel_case():std.String return {
+		final v = __gd.to_camel_case();
+		v;
+	};
+	public function to_pascal_case():std.String return {
+		final v = __gd.to_pascal_case();
+		v;
+	};
+	public function to_snake_case():std.String return {
+		final v = __gd.to_snake_case();
+		v;
+	};
 	public function split(?p_delimiter:std.String, ?p_allow_empty:Bool, ?p_maxsplit:cpp.Int64):gd.PackedStringArray return switch [p_delimiter, p_allow_empty, p_maxsplit] {
-		case [null, _, _]:__gd.split();
-		case [_, null, _]:__gd.split(((p_delimiter : std.String)));
-		case [_, _, null]:__gd.split(((p_delimiter : std.String)), ((p_allow_empty : Bool)));
-		default:__gd.split(((p_delimiter : std.String)), ((p_allow_empty : Bool)), ((p_maxsplit : cpp.Int64)));
+		case [null, _, _]:{
+			final v = __gd.split();
+			v;
+		};
+		case [_, null, _]:{
+			final v = __gd.split(((p_delimiter : std.String)));
+			v;
+		};
+		case [_, _, null]:{
+			final v = __gd.split(((p_delimiter : std.String)), ((p_allow_empty : Bool)));
+			v;
+		};
+		default:{
+			final v = __gd.split(((p_delimiter : std.String)), ((p_allow_empty : Bool)), ((p_maxsplit : cpp.Int64)));
+			v;
+		};
 	};
 	public function rsplit(?p_delimiter:std.String, ?p_allow_empty:Bool, ?p_maxsplit:cpp.Int64):gd.PackedStringArray return switch [p_delimiter, p_allow_empty, p_maxsplit] {
-		case [null, _, _]:__gd.rsplit();
-		case [_, null, _]:__gd.rsplit(((p_delimiter : std.String)));
-		case [_, _, null]:__gd.rsplit(((p_delimiter : std.String)), ((p_allow_empty : Bool)));
-		default:__gd.rsplit(((p_delimiter : std.String)), ((p_allow_empty : Bool)), ((p_maxsplit : cpp.Int64)));
+		case [null, _, _]:{
+			final v = __gd.rsplit();
+			v;
+		};
+		case [_, null, _]:{
+			final v = __gd.rsplit(((p_delimiter : std.String)));
+			v;
+		};
+		case [_, _, null]:{
+			final v = __gd.rsplit(((p_delimiter : std.String)), ((p_allow_empty : Bool)));
+			v;
+		};
+		default:{
+			final v = __gd.rsplit(((p_delimiter : std.String)), ((p_allow_empty : Bool)), ((p_maxsplit : cpp.Int64)));
+			v;
+		};
 	};
 	public function split_floats(p_delimiter:std.String, ?p_allow_empty:Bool):gd.PackedFloat64Array return switch [p_delimiter, p_allow_empty] {
-		case [_, null]:__gd.split_floats(((p_delimiter : std.String)));
-		default:__gd.split_floats(((p_delimiter : std.String)), ((p_allow_empty : Bool)));
+		case [_, null]:{
+			final v = __gd.split_floats(((p_delimiter : std.String)));
+			v;
+		};
+		default:{
+			final v = __gd.split_floats(((p_delimiter : std.String)), ((p_allow_empty : Bool)));
+			v;
+		};
 	};
-	public function join(p_parts:gd.PackedStringArray):std.String return __gd.join(((p_parts : gd.PackedStringArray)));
-	public function to_upper():std.String return __gd.to_upper();
-	public function to_lower():std.String return __gd.to_lower();
-	public function left(p_length:cpp.Int64):std.String return __gd.left(((p_length : cpp.Int64)));
-	public function right(p_length:cpp.Int64):std.String return __gd.right(((p_length : cpp.Int64)));
+	public function join(p_parts:gd.PackedStringArray):std.String return {
+		final v = __gd.join(((p_parts : gd.PackedStringArray)));
+		v;
+	};
+	public function to_upper():std.String return {
+		final v = __gd.to_upper();
+		v;
+	};
+	public function to_lower():std.String return {
+		final v = __gd.to_lower();
+		v;
+	};
+	public function left(p_length:cpp.Int64):std.String return {
+		final v = __gd.left(((p_length : cpp.Int64)));
+		v;
+	};
+	public function right(p_length:cpp.Int64):std.String return {
+		final v = __gd.right(((p_length : cpp.Int64)));
+		v;
+	};
 	public function strip_edges(?p_left:Bool, ?p_right:Bool):std.String return switch [p_left, p_right] {
-		case [null, _]:__gd.strip_edges();
-		case [_, null]:__gd.strip_edges(((p_left : Bool)));
-		default:__gd.strip_edges(((p_left : Bool)), ((p_right : Bool)));
+		case [null, _]:{
+			final v = __gd.strip_edges();
+			v;
+		};
+		case [_, null]:{
+			final v = __gd.strip_edges(((p_left : Bool)));
+			v;
+		};
+		default:{
+			final v = __gd.strip_edges(((p_left : Bool)), ((p_right : Bool)));
+			v;
+		};
 	};
-	public function strip_escapes():std.String return __gd.strip_escapes();
-	public function lstrip(p_chars:std.String):std.String return __gd.lstrip(((p_chars : std.String)));
-	public function rstrip(p_chars:std.String):std.String return __gd.rstrip(((p_chars : std.String)));
-	public function get_extension():std.String return __gd.get_extension();
-	public function get_basename():std.String return __gd.get_basename();
-	public function path_join(p_file:std.String):std.String return __gd.path_join(((p_file : std.String)));
+	public function strip_escapes():std.String return {
+		final v = __gd.strip_escapes();
+		v;
+	};
+	public function lstrip(p_chars:std.String):std.String return {
+		final v = __gd.lstrip(((p_chars : std.String)));
+		v;
+	};
+	public function rstrip(p_chars:std.String):std.String return {
+		final v = __gd.rstrip(((p_chars : std.String)));
+		v;
+	};
+	public function get_extension():std.String return {
+		final v = __gd.get_extension();
+		v;
+	};
+	public function get_basename():std.String return {
+		final v = __gd.get_basename();
+		v;
+	};
+	public function path_join(p_file:std.String):std.String return {
+		final v = __gd.path_join(((p_file : std.String)));
+		v;
+	};
 	public function unicode_at(p_at:cpp.Int64):cpp.Int64 return __gd.unicode_at(((p_at : cpp.Int64)));
-	public function indent(p_prefix:std.String):std.String return __gd.indent(((p_prefix : std.String)));
-	public function dedent():std.String return __gd.dedent();
+	public function indent(p_prefix:std.String):std.String return {
+		final v = __gd.indent(((p_prefix : std.String)));
+		v;
+	};
+	public function dedent():std.String return {
+		final v = __gd.dedent();
+		v;
+	};
 	public function hash():cpp.Int64 return __gd.hash();
-	public function md5_text():std.String return __gd.md5_text();
-	public function sha1_text():std.String return __gd.sha1_text();
-	public function sha256_text():std.String return __gd.sha256_text();
-	public function md5_buffer():gd.PackedByteArray return __gd.md5_buffer();
-	public function sha1_buffer():gd.PackedByteArray return __gd.sha1_buffer();
-	public function sha256_buffer():gd.PackedByteArray return __gd.sha256_buffer();
+	public function md5_text():std.String return {
+		final v = __gd.md5_text();
+		v;
+	};
+	public function sha1_text():std.String return {
+		final v = __gd.sha1_text();
+		v;
+	};
+	public function sha256_text():std.String return {
+		final v = __gd.sha256_text();
+		v;
+	};
+	public function md5_buffer():gd.PackedByteArray return {
+		final v = __gd.md5_buffer();
+		v;
+	};
+	public function sha1_buffer():gd.PackedByteArray return {
+		final v = __gd.sha1_buffer();
+		v;
+	};
+	public function sha256_buffer():gd.PackedByteArray return {
+		final v = __gd.sha256_buffer();
+		v;
+	};
 	public function is_empty():Bool return __gd.is_empty();
 	public function contains(p_what:std.String):Bool return __gd.contains(((p_what : std.String)));
 	public function containsn(p_what:std.String):Bool return __gd.containsn(((p_what : std.String)));
 	public function is_absolute_path():Bool return __gd.is_absolute_path();
 	public function is_relative_path():Bool return __gd.is_relative_path();
-	public function simplify_path():std.String return __gd.simplify_path();
-	public function get_base_dir():std.String return __gd.get_base_dir();
-	public function get_file():std.String return __gd.get_file();
-	public function xml_escape(?p_escape_quotes:Bool):std.String return switch [p_escape_quotes] {
-		case [null]:__gd.xml_escape();
-		default:__gd.xml_escape(((p_escape_quotes : Bool)));
+	public function simplify_path():std.String return {
+		final v = __gd.simplify_path();
+		v;
 	};
-	public function xml_unescape():std.String return __gd.xml_unescape();
-	public function uri_encode():std.String return __gd.uri_encode();
-	public function uri_decode():std.String return __gd.uri_decode();
-	public function c_escape():std.String return __gd.c_escape();
-	public function c_unescape():std.String return __gd.c_unescape();
-	public function json_escape():std.String return __gd.json_escape();
-	public function validate_node_name():std.String return __gd.validate_node_name();
-	public function validate_filename():std.String return __gd.validate_filename();
+	public function get_base_dir():std.String return {
+		final v = __gd.get_base_dir();
+		v;
+	};
+	public function get_file():std.String return {
+		final v = __gd.get_file();
+		v;
+	};
+	public function xml_escape(?p_escape_quotes:Bool):std.String return switch [p_escape_quotes] {
+		case [null]:{
+			final v = __gd.xml_escape();
+			v;
+		};
+		default:{
+			final v = __gd.xml_escape(((p_escape_quotes : Bool)));
+			v;
+		};
+	};
+	public function xml_unescape():std.String return {
+		final v = __gd.xml_unescape();
+		v;
+	};
+	public function uri_encode():std.String return {
+		final v = __gd.uri_encode();
+		v;
+	};
+	public function uri_decode():std.String return {
+		final v = __gd.uri_decode();
+		v;
+	};
+	public function c_escape():std.String return {
+		final v = __gd.c_escape();
+		v;
+	};
+	public function c_unescape():std.String return {
+		final v = __gd.c_unescape();
+		v;
+	};
+	public function json_escape():std.String return {
+		final v = __gd.json_escape();
+		v;
+	};
+	public function validate_node_name():std.String return {
+		final v = __gd.validate_node_name();
+		v;
+	};
+	public function validate_filename():std.String return {
+		final v = __gd.validate_filename();
+		v;
+	};
 	public function is_valid_ascii_identifier():Bool return __gd.is_valid_ascii_identifier();
 	public function is_valid_unicode_identifier():Bool return __gd.is_valid_unicode_identifier();
 	public function is_valid_identifier():Bool return __gd.is_valid_identifier();
@@ -151,40 +340,115 @@ class String_wrapper {
 	public function hex_to_int():cpp.Int64 return __gd.hex_to_int();
 	public function bin_to_int():cpp.Int64 return __gd.bin_to_int();
 	public function lpad(p_min_length:cpp.Int64, ?p_character:std.String):std.String return switch [p_min_length, p_character] {
-		case [_, null]:__gd.lpad(((p_min_length : cpp.Int64)));
-		default:__gd.lpad(((p_min_length : cpp.Int64)), ((p_character : std.String)));
+		case [_, null]:{
+			final v = __gd.lpad(((p_min_length : cpp.Int64)));
+			v;
+		};
+		default:{
+			final v = __gd.lpad(((p_min_length : cpp.Int64)), ((p_character : std.String)));
+			v;
+		};
 	};
 	public function rpad(p_min_length:cpp.Int64, ?p_character:std.String):std.String return switch [p_min_length, p_character] {
-		case [_, null]:__gd.rpad(((p_min_length : cpp.Int64)));
-		default:__gd.rpad(((p_min_length : cpp.Int64)), ((p_character : std.String)));
+		case [_, null]:{
+			final v = __gd.rpad(((p_min_length : cpp.Int64)));
+			v;
+		};
+		default:{
+			final v = __gd.rpad(((p_min_length : cpp.Int64)), ((p_character : std.String)));
+			v;
+		};
 	};
-	public function pad_decimals(p_digits:cpp.Int64):std.String return __gd.pad_decimals(((p_digits : cpp.Int64)));
-	public function pad_zeros(p_digits:cpp.Int64):std.String return __gd.pad_zeros(((p_digits : cpp.Int64)));
-	public function trim_prefix(p_prefix:std.String):std.String return __gd.trim_prefix(((p_prefix : std.String)));
-	public function trim_suffix(p_suffix:std.String):std.String return __gd.trim_suffix(((p_suffix : std.String)));
-	public function to_ascii_buffer():gd.PackedByteArray return __gd.to_ascii_buffer();
-	public function to_utf8_buffer():gd.PackedByteArray return __gd.to_utf8_buffer();
-	public function to_utf16_buffer():gd.PackedByteArray return __gd.to_utf16_buffer();
-	public function to_utf32_buffer():gd.PackedByteArray return __gd.to_utf32_buffer();
-	public function hex_decode():gd.PackedByteArray return __gd.hex_decode();
-	public function to_wchar_buffer():gd.PackedByteArray return __gd.to_wchar_buffer();
-	public static function num_scientific(p_number:Float):std.String return gdnative.String.String_extern.num_scientific(((p_number : Float)));
+	public function pad_decimals(p_digits:cpp.Int64):std.String return {
+		final v = __gd.pad_decimals(((p_digits : cpp.Int64)));
+		v;
+	};
+	public function pad_zeros(p_digits:cpp.Int64):std.String return {
+		final v = __gd.pad_zeros(((p_digits : cpp.Int64)));
+		v;
+	};
+	public function trim_prefix(p_prefix:std.String):std.String return {
+		final v = __gd.trim_prefix(((p_prefix : std.String)));
+		v;
+	};
+	public function trim_suffix(p_suffix:std.String):std.String return {
+		final v = __gd.trim_suffix(((p_suffix : std.String)));
+		v;
+	};
+	public function to_ascii_buffer():gd.PackedByteArray return {
+		final v = __gd.to_ascii_buffer();
+		v;
+	};
+	public function to_utf8_buffer():gd.PackedByteArray return {
+		final v = __gd.to_utf8_buffer();
+		v;
+	};
+	public function to_utf16_buffer():gd.PackedByteArray return {
+		final v = __gd.to_utf16_buffer();
+		v;
+	};
+	public function to_utf32_buffer():gd.PackedByteArray return {
+		final v = __gd.to_utf32_buffer();
+		v;
+	};
+	public function hex_decode():gd.PackedByteArray return {
+		final v = __gd.hex_decode();
+		v;
+	};
+	public function to_wchar_buffer():gd.PackedByteArray return {
+		final v = __gd.to_wchar_buffer();
+		v;
+	};
+	public static function num_scientific(p_number:Float):std.String return {
+		final v = gdnative.String.String_extern.num_scientific(((p_number : Float)));
+		v;
+	};
 	public static function num(p_number:Float, ?p_decimals:cpp.Int64):std.String return switch [p_number, p_decimals] {
-		case [_, null]:gdnative.String.String_extern.num(((p_number : Float)));
-		default:gdnative.String.String_extern.num(((p_number : Float)), ((p_decimals : cpp.Int64)));
+		case [_, null]:{
+			final v = gdnative.String.String_extern.num(((p_number : Float)));
+			v;
+		};
+		default:{
+			final v = gdnative.String.String_extern.num(((p_number : Float)), ((p_decimals : cpp.Int64)));
+			v;
+		};
 	};
 	public static function num_int64(p_number:cpp.Int64, ?p_base:cpp.Int64, ?p_capitalize_hex:Bool):std.String return switch [p_number, p_base, p_capitalize_hex] {
-		case [_, null, _]:gdnative.String.String_extern.num_int64(((p_number : cpp.Int64)));
-		case [_, _, null]:gdnative.String.String_extern.num_int64(((p_number : cpp.Int64)), ((p_base : cpp.Int64)));
-		default:gdnative.String.String_extern.num_int64(((p_number : cpp.Int64)), ((p_base : cpp.Int64)), ((p_capitalize_hex : Bool)));
+		case [_, null, _]:{
+			final v = gdnative.String.String_extern.num_int64(((p_number : cpp.Int64)));
+			v;
+		};
+		case [_, _, null]:{
+			final v = gdnative.String.String_extern.num_int64(((p_number : cpp.Int64)), ((p_base : cpp.Int64)));
+			v;
+		};
+		default:{
+			final v = gdnative.String.String_extern.num_int64(((p_number : cpp.Int64)), ((p_base : cpp.Int64)), ((p_capitalize_hex : Bool)));
+			v;
+		};
 	};
 	public static function num_uint64(p_number:cpp.Int64, ?p_base:cpp.Int64, ?p_capitalize_hex:Bool):std.String return switch [p_number, p_base, p_capitalize_hex] {
-		case [_, null, _]:gdnative.String.String_extern.num_uint64(((p_number : cpp.Int64)));
-		case [_, _, null]:gdnative.String.String_extern.num_uint64(((p_number : cpp.Int64)), ((p_base : cpp.Int64)));
-		default:gdnative.String.String_extern.num_uint64(((p_number : cpp.Int64)), ((p_base : cpp.Int64)), ((p_capitalize_hex : Bool)));
+		case [_, null, _]:{
+			final v = gdnative.String.String_extern.num_uint64(((p_number : cpp.Int64)));
+			v;
+		};
+		case [_, _, null]:{
+			final v = gdnative.String.String_extern.num_uint64(((p_number : cpp.Int64)), ((p_base : cpp.Int64)));
+			v;
+		};
+		default:{
+			final v = gdnative.String.String_extern.num_uint64(((p_number : cpp.Int64)), ((p_base : cpp.Int64)), ((p_capitalize_hex : Bool)));
+			v;
+		};
 	};
-	public static function chr(p_char:cpp.Int64):std.String return gdnative.String.String_extern.chr(((p_char : cpp.Int64)));
-	public static function humanize_size(p_size:cpp.Int64):std.String return gdnative.String.String_extern.humanize_size(((p_size : cpp.Int64)));
+	public static function chr(p_char:cpp.Int64):std.String return {
+		final v = gdnative.String.String_extern.chr(((p_char : cpp.Int64)));
+		v;
+	};
+	public static function humanize_size(p_size:cpp.Int64):std.String return {
+		final v = gdnative.String.String_extern.humanize_size(((p_size : cpp.Int64)));
+		v;
+	};
 	function __op_equal_to_variant(p_rhs:gd.Variant):Bool return @:privateAccess this.__gd.__op_equal_to_variant(((p_rhs : gdnative.Variant)));
 	function __op_not_equal_variant(p_rhs:gd.Variant):Bool return @:privateAccess this.__gd.__op_not_equal_variant(((p_rhs : gdnative.Variant)));
 	function __op_modulus_variant(p_rhs:gd.Variant):std.String return @:privateAccess this.__gd.__op_modulus_variant(((p_rhs : gdnative.Variant)));

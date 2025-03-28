@@ -2,7 +2,7 @@ package gdnative;
 /**
 	Built-in Class
 **/
-@:forward abstract Callable(cpp.Struct<Callable_extern>) from cpp.Struct<Callable_extern> to cpp.Struct<Callable_extern> {
+@:forward abstract Callable(Callable_extern) from Callable_extern to Callable_extern {
 	@:from
 	static inline function fromWrapper(v:gd.Callable):gdnative.Callable return fromWrapperInternal(v);
 	@:from
@@ -12,8 +12,8 @@ package gdnative;
 	@:to
 	inline function toWrapperInternal():gd.Callable.Callable_wrapper return new gd.Callable.Callable_wrapper(this);
 	@:to
-	inline function toVariant():gdnative.Variant return new gdnative.Variant.Variant_extern(abstract);
-	inline function val():Callable_extern return untyped __cpp__('{0}.value', abstract);
+	inline function toVariant():gdnative.Variant return new gdnative.Variant.Variant_extern(untyped __cpp__("static_cast<godot::Callable &>({0})", this));
+	inline function val():Callable_extern return untyped __cpp__('(*{0})', this);
 	@:op(A == B)
 	extern inline function __op_equal_to_variant(p_rhs:gdnative.Variant):Bool return untyped __cpp__('{0} == {1}', val(), p_rhs.toReference());
 	@:op(A != B)
@@ -31,7 +31,7 @@ package gdnative;
 	public extern overload inline function new(p_object:gd.Object, p_method:std.String) this = new gdnative.Callable.Callable_extern(p_object, p_method);
 }
 
-@:include("godot_cpp/variant/callable.hpp") @:native("godot::Callable") @:structAccess extern class Callable_extern {
+@:include("godot_cpp/variant/callable.hpp") @:semantics(reference) @:cpp.ValueType({ type : "Callable", namespace : ['godot'] }) extern class Callable_extern {
 	@:overload(function(p_from:gdnative.Callable):Void { })
 	@:overload(function(p_object:gdnative.Object, p_method:gdnative.StringName):Void { })
 	function new();

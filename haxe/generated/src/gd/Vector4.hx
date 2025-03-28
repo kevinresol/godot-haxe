@@ -2,7 +2,7 @@ package gd;
 class Vector4_wrapper {
 	final __gd : gdnative.Vector4;
 	public function new(value:gdnative.Vector4) __gd = value;
-	function toVariant():gd.Variant return @:privateAccess new gd.Variant.Variant_obj(new gdnative.Variant.Variant_extern(this));
+	function toVariant():gd.Variant return @:privateAccess new gd.Variant.Variant_obj(((__gd : gdnative.Variant)));
 	static function _new0():Vector4_wrapper return new Vector4_wrapper(new gdnative.Vector4());
 	static function _new1(p_from:gd.Vector4):Vector4_wrapper return new Vector4_wrapper(new gdnative.Vector4(p_from));
 	static function _new2(p_x:Float, p_y:Float, p_z:Float, p_w:Float):Vector4_wrapper return new Vector4_wrapper(new gdnative.Vector4(p_x, p_y, p_z, p_w));
@@ -10,34 +10,97 @@ class Vector4_wrapper {
 	public function max_axis_index():cpp.Int64 return __gd.max_axis_index();
 	public function length():Float return __gd.length();
 	public function length_squared():Float return __gd.length_squared();
-	public function abs():gd.Vector4 return __gd.abs();
-	public function sign():gd.Vector4 return __gd.sign();
-	public function floor():gd.Vector4 return __gd.floor();
-	public function ceil():gd.Vector4 return __gd.ceil();
-	public function round():gd.Vector4 return __gd.round();
-	public function lerp(p_to:gd.Vector4, p_weight:Float):gd.Vector4 return __gd.lerp(((p_to : gd.Vector4)), ((p_weight : Float)));
-	public function cubic_interpolate(p_b:gd.Vector4, p_pre_a:gd.Vector4, p_post_b:gd.Vector4, p_weight:Float):gd.Vector4 return __gd.cubic_interpolate(((p_b : gd.Vector4)), ((p_pre_a : gd.Vector4)), ((p_post_b : gd.Vector4)), ((p_weight : Float)));
-	public function cubic_interpolate_in_time(p_b:gd.Vector4, p_pre_a:gd.Vector4, p_post_b:gd.Vector4, p_weight:Float, p_b_t:Float, p_pre_a_t:Float, p_post_b_t:Float):gd.Vector4 return __gd.cubic_interpolate_in_time(((p_b : gd.Vector4)), ((p_pre_a : gd.Vector4)), ((p_post_b : gd.Vector4)), ((p_weight : Float)), ((p_b_t : Float)), ((p_pre_a_t : Float)), ((p_post_b_t : Float)));
-	public function posmod(p_mod:Float):gd.Vector4 return __gd.posmod(((p_mod : Float)));
-	public function posmodv(p_modv:gd.Vector4):gd.Vector4 return __gd.posmodv(((p_modv : gd.Vector4)));
-	public function snapped(p_step:gd.Vector4):gd.Vector4 return __gd.snapped(((p_step : gd.Vector4)));
-	public function snappedf(p_step:Float):gd.Vector4 return __gd.snappedf(((p_step : Float)));
-	public function clamp(p_min:gd.Vector4, p_max:gd.Vector4):gd.Vector4 return __gd.clamp(((p_min : gd.Vector4)), ((p_max : gd.Vector4)));
-	public function clampf(p_min:Float, p_max:Float):gd.Vector4 return __gd.clampf(((p_min : Float)), ((p_max : Float)));
-	public function normalized():gd.Vector4 return __gd.normalized();
+	public function abs():gd.Vector4 return {
+		final v = __gd.abs();
+		v;
+	};
+	public function sign():gd.Vector4 return {
+		final v = __gd.sign();
+		v;
+	};
+	public function floor():gd.Vector4 return {
+		final v = __gd.floor();
+		v;
+	};
+	public function ceil():gd.Vector4 return {
+		final v = __gd.ceil();
+		v;
+	};
+	public function round():gd.Vector4 return {
+		final v = __gd.round();
+		v;
+	};
+	public function lerp(p_to:gd.Vector4, p_weight:Float):gd.Vector4 return {
+		final v = __gd.lerp(((p_to : gd.Vector4)), ((p_weight : Float)));
+		v;
+	};
+	public function cubic_interpolate(p_b:gd.Vector4, p_pre_a:gd.Vector4, p_post_b:gd.Vector4, p_weight:Float):gd.Vector4 return {
+		final v = __gd.cubic_interpolate(((p_b : gd.Vector4)), ((p_pre_a : gd.Vector4)), ((p_post_b : gd.Vector4)), ((p_weight : Float)));
+		v;
+	};
+	public function cubic_interpolate_in_time(p_b:gd.Vector4, p_pre_a:gd.Vector4, p_post_b:gd.Vector4, p_weight:Float, p_b_t:Float, p_pre_a_t:Float, p_post_b_t:Float):gd.Vector4 return {
+		final v = __gd.cubic_interpolate_in_time(((p_b : gd.Vector4)), ((p_pre_a : gd.Vector4)), ((p_post_b : gd.Vector4)), ((p_weight : Float)), ((p_b_t : Float)), ((p_pre_a_t : Float)), ((p_post_b_t : Float)));
+		v;
+	};
+	public function posmod(p_mod:Float):gd.Vector4 return {
+		final v = __gd.posmod(((p_mod : Float)));
+		v;
+	};
+	public function posmodv(p_modv:gd.Vector4):gd.Vector4 return {
+		final v = __gd.posmodv(((p_modv : gd.Vector4)));
+		v;
+	};
+	public function snapped(p_step:gd.Vector4):gd.Vector4 return {
+		final v = __gd.snapped(((p_step : gd.Vector4)));
+		v;
+	};
+	public function snappedf(p_step:Float):gd.Vector4 return {
+		final v = __gd.snappedf(((p_step : Float)));
+		v;
+	};
+	public function clamp(p_min:gd.Vector4, p_max:gd.Vector4):gd.Vector4 return {
+		final v = __gd.clamp(((p_min : gd.Vector4)), ((p_max : gd.Vector4)));
+		v;
+	};
+	public function clampf(p_min:Float, p_max:Float):gd.Vector4 return {
+		final v = __gd.clampf(((p_min : Float)), ((p_max : Float)));
+		v;
+	};
+	public function normalized():gd.Vector4 return {
+		final v = __gd.normalized();
+		v;
+	};
 	public function is_normalized():Bool return __gd.is_normalized();
-	public function direction_to(p_to:gd.Vector4):gd.Vector4 return __gd.direction_to(((p_to : gd.Vector4)));
+	public function direction_to(p_to:gd.Vector4):gd.Vector4 return {
+		final v = __gd.direction_to(((p_to : gd.Vector4)));
+		v;
+	};
 	public function distance_to(p_to:gd.Vector4):Float return __gd.distance_to(((p_to : gd.Vector4)));
 	public function distance_squared_to(p_to:gd.Vector4):Float return __gd.distance_squared_to(((p_to : gd.Vector4)));
 	public function dot(p_with:gd.Vector4):Float return __gd.dot(((p_with : gd.Vector4)));
-	public function inverse():gd.Vector4 return __gd.inverse();
+	public function inverse():gd.Vector4 return {
+		final v = __gd.inverse();
+		v;
+	};
 	public function is_equal_approx(p_to:gd.Vector4):Bool return __gd.is_equal_approx(((p_to : gd.Vector4)));
 	public function is_zero_approx():Bool return __gd.is_zero_approx();
 	public function is_finite():Bool return __gd.is_finite();
-	public function min(p_with:gd.Vector4):gd.Vector4 return __gd.min(((p_with : gd.Vector4)));
-	public function minf(p_with:Float):gd.Vector4 return __gd.minf(((p_with : Float)));
-	public function max(p_with:gd.Vector4):gd.Vector4 return __gd.max(((p_with : gd.Vector4)));
-	public function maxf(p_with:Float):gd.Vector4 return __gd.maxf(((p_with : Float)));
+	public function min(p_with:gd.Vector4):gd.Vector4 return {
+		final v = __gd.min(((p_with : gd.Vector4)));
+		v;
+	};
+	public function minf(p_with:Float):gd.Vector4 return {
+		final v = __gd.minf(((p_with : Float)));
+		v;
+	};
+	public function max(p_with:gd.Vector4):gd.Vector4 return {
+		final v = __gd.max(((p_with : gd.Vector4)));
+		v;
+	};
+	public function maxf(p_with:Float):gd.Vector4 return {
+		final v = __gd.maxf(((p_with : Float)));
+		v;
+	};
 	public var x(get, set) : Float;
 	function get_x():Float return __gd.x;
 	function set_x(v:Float):Float return {

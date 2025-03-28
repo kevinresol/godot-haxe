@@ -2,7 +2,7 @@ package gdnative;
 /**
 	Built-in Class
 **/
-@:forward abstract Vector3(cpp.Struct<Vector3_extern>) from cpp.Struct<Vector3_extern> to cpp.Struct<Vector3_extern> {
+@:forward abstract Vector3(Vector3_extern) from Vector3_extern to Vector3_extern {
 	@:from
 	static inline function fromWrapper(v:gd.Vector3):gdnative.Vector3 return fromWrapperInternal(v);
 	@:from
@@ -12,8 +12,8 @@ package gdnative;
 	@:to
 	inline function toWrapperInternal():gd.Vector3.Vector3_wrapper return new gd.Vector3.Vector3_wrapper(this);
 	@:to
-	inline function toVariant():gdnative.Variant return new gdnative.Variant.Variant_extern(abstract);
-	inline function val():Vector3_extern return untyped __cpp__('{0}.value', abstract);
+	inline function toVariant():gdnative.Variant return new gdnative.Variant.Variant_extern(untyped __cpp__("static_cast<godot::Vector3 &>({0})", this));
+	inline function val():Vector3_extern return untyped __cpp__('(*{0})', this);
 	@:op(A == B)
 	extern inline function __op_equal_to_variant(p_rhs:gdnative.Variant):Bool return untyped __cpp__('{0} == {1}', val(), p_rhs.toReference());
 	@:op(A != B)
@@ -59,7 +59,7 @@ package gdnative;
 	public extern overload inline function new(p_x:Float, p_y:Float, p_z:Float) this = new gdnative.Vector3.Vector3_extern(p_x, p_y, p_z);
 }
 
-@:include("godot_cpp/variant/vector3.hpp") @:native("godot::Vector3") @:structAccess extern class Vector3_extern {
+@:include("godot_cpp/variant/vector3.hpp") @:semantics(reference) @:cpp.ValueType({ type : "Vector3", namespace : ['godot'] }) extern class Vector3_extern {
 	@:overload(function(p_from:gdnative.Vector3):Void { })
 	@:overload(function(p_x:Float, p_y:Float, p_z:Float):Void { })
 	function new();

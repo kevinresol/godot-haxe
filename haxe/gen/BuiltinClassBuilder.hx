@@ -43,9 +43,15 @@ class BuiltinClassBuilder extends Builder {
 		final cls = macro class $ename {};
 		cls.isExtern = true;
 		cls.meta = [
+			// {pos: null, name: ':native', params: [macro $v{'godot::$cname'}]},
+			// {pos: null, name: ':structAccess', params: []},
 			{pos: null, name: ':include', params: [macro $v{hpp}]},
-			{pos: null, name: ':native', params: [macro $v{'godot::$cname'}]},
-			{pos: null, name: ':structAccess', params: []},
+			{pos: null, name: ':semantics', params: [macro reference]},
+			{
+				pos: null,
+				name: ':cpp.ValueType',
+				params: [macro {type: $v{cname}, namespace: ['godot']}]
+			},
 		];
 
 		final abs = macro class $cname {
@@ -62,15 +68,14 @@ class BuiltinClassBuilder extends Builder {
 				return new $wtp(this);
 
 			@:to inline function toVariant():gdnative.Variant
-				return new gdnative.Variant.Variant_extern(abstract);
+				return new gdnative.Variant.Variant_extern(untyped __cpp__($v{'static_cast<godot::$cname &>({0})'}, this));
 
 			inline function val():$ect
-				return untyped __cpp__('{0}.value', abstract);
+				return untyped __cpp__('(*{0})', this);
 		}
-		final struct = macro :cpp.Struct<$ect>;
 		abs.doc = 'Built-in Class';
 		abs.pack = config.pack;
-		abs.kind = TDAbstract(struct, [AbFrom(struct), AbTo(struct)]);
+		abs.kind = TDAbstract(ect, [AbFrom(ect), AbTo(ect)]);
 		abs.meta = [{pos: null, name: ':forward'},];
 
 		// constructor
@@ -278,7 +283,8 @@ class BuiltinClassBuilder extends Builder {
 					@:to
 					extern inline function toHaxe():std.String {
 						// TODO: perhaps there is a more direct way
-						return (untyped __cpp__('(godot::String){0}', this) : gdnative.String);
+						final s:gdnative.String = untyped __cpp__('godot::String({0})', this); // explicit var to ensure stack-allocated
+						return s;
 					}
 
 					@:from
@@ -324,7 +330,7 @@ class BuiltinClassBuilder extends Builder {
 				__gd = value;
 
 			function toVariant():gd.Variant
-				return @:privateAccess new gd.Variant.Variant_obj(new gdnative.Variant.Variant_extern(this));
+				return @:privateAccess new gd.Variant.Variant_obj((__gd : gdnative.Variant));
 		});
 		cls.pack = config.pack;
 		cls.isExtern = isScriptExtern;

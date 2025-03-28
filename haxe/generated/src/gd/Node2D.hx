@@ -28,11 +28,17 @@ package gd;
 		__node2d_ptr().value.set_scale(((p_scale : gd.Vector2)));
 		return p_scale;
 	}
-	public function get_position():gd.Vector2 return __node2d_ptr().value.get_position();
+	public function get_position():gd.Vector2 return {
+		final v = __node2d_ptr().value.get_position();
+		v;
+	};
 	public function get_rotation():Float return __node2d_ptr().value.get_rotation();
 	public function get_rotation_degrees():Float return __node2d_ptr().value.get_rotation_degrees();
 	public function get_skew():Float return __node2d_ptr().value.get_skew();
-	public function get_scale():gd.Vector2 return __node2d_ptr().value.get_scale();
+	public function get_scale():gd.Vector2 return {
+		final v = __node2d_ptr().value.get_scale();
+		v;
+	};
 	public function rotate(p_radians:Float):Void __node2d_ptr().value.rotate(((p_radians : Float)));
 	public function move_local_x(p_delta:Float, ?p_scaled:Bool):Void switch [p_delta, p_scaled] {
 		case [_, null]:__node2d_ptr().value.move_local_x(((p_delta : Float)));
@@ -49,7 +55,10 @@ package gd;
 		__node2d_ptr().value.set_global_position(((p_position : gd.Vector2)));
 		return p_position;
 	}
-	public function get_global_position():gd.Vector2 return __node2d_ptr().value.get_global_position();
+	public function get_global_position():gd.Vector2 return {
+		final v = __node2d_ptr().value.get_global_position();
+		v;
+	};
 	public function set_global_rotation(p_radians:Float):Float {
 		__node2d_ptr().value.set_global_rotation(((p_radians : Float)));
 		return p_radians;
@@ -69,14 +78,26 @@ package gd;
 		__node2d_ptr().value.set_global_scale(((p_scale : gd.Vector2)));
 		return p_scale;
 	}
-	public function get_global_scale():gd.Vector2 return __node2d_ptr().value.get_global_scale();
+	public function get_global_scale():gd.Vector2 return {
+		final v = __node2d_ptr().value.get_global_scale();
+		v;
+	};
 	public function set_transform(p_xform:gd.Transform2D):Void __node2d_ptr().value.set_transform(((p_xform : gd.Transform2D)));
 	public function set_global_transform(p_xform:gd.Transform2D):Void __node2d_ptr().value.set_global_transform(((p_xform : gd.Transform2D)));
 	public function look_at(p_point:gd.Vector2):Void __node2d_ptr().value.look_at(((p_point : gd.Vector2)));
 	public function get_angle_to(p_point:gd.Vector2):Float return __node2d_ptr().value.get_angle_to(((p_point : gd.Vector2)));
-	public function to_local(p_global_point:gd.Vector2):gd.Vector2 return __node2d_ptr().value.to_local(((p_global_point : gd.Vector2)));
-	public function to_global(p_local_point:gd.Vector2):gd.Vector2 return __node2d_ptr().value.to_global(((p_local_point : gd.Vector2)));
-	public function get_relative_transform_to_parent(p_parent:gd.Node):gd.Transform2D return __node2d_ptr().value.get_relative_transform_to_parent(((p_parent : gd.Node)));
+	public function to_local(p_global_point:gd.Vector2):gd.Vector2 return {
+		final v = __node2d_ptr().value.to_local(((p_global_point : gd.Vector2)));
+		v;
+	};
+	public function to_global(p_local_point:gd.Vector2):gd.Vector2 return {
+		final v = __node2d_ptr().value.to_global(((p_local_point : gd.Vector2)));
+		v;
+	};
+	public function get_relative_transform_to_parent(p_parent:gd.Node):gd.Transform2D return {
+		final v = __node2d_ptr().value.get_relative_transform_to_parent(((p_parent : gd.Node)));
+		v;
+	};
 	public var position(get, set) : gd.Vector2;
 	public var rotation(get, set) : Float;
 	public var rotation_degrees(get, set) : Float;

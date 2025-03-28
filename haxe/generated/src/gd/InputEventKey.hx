@@ -40,10 +40,22 @@ package gd;
 	public function get_keycode_with_modifiers():gd.Key return __inputeventkey_ptr().value.get_keycode_with_modifiers();
 	public function get_physical_keycode_with_modifiers():gd.Key return __inputeventkey_ptr().value.get_physical_keycode_with_modifiers();
 	public function get_key_label_with_modifiers():gd.Key return __inputeventkey_ptr().value.get_key_label_with_modifiers();
-	public function as_text_keycode():std.String return __inputeventkey_ptr().value.as_text_keycode();
-	public function as_text_physical_keycode():std.String return __inputeventkey_ptr().value.as_text_physical_keycode();
-	public function as_text_key_label():std.String return __inputeventkey_ptr().value.as_text_key_label();
-	public function as_text_location():std.String return __inputeventkey_ptr().value.as_text_location();
+	public function as_text_keycode():std.String return {
+		final v = __inputeventkey_ptr().value.as_text_keycode();
+		v;
+	};
+	public function as_text_physical_keycode():std.String return {
+		final v = __inputeventkey_ptr().value.as_text_physical_keycode();
+		v;
+	};
+	public function as_text_key_label():std.String return {
+		final v = __inputeventkey_ptr().value.as_text_key_label();
+		v;
+	};
+	public function as_text_location():std.String return {
+		final v = __inputeventkey_ptr().value.as_text_location();
+		v;
+	};
 	public var keycode(get, set) : gd.Key;
 	public var physical_keycode(get, set) : gd.Key;
 	public var key_label(get, set) : gd.Key;

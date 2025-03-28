@@ -2,7 +2,7 @@ package gdnative;
 /**
 	Built-in Class
 **/
-@:forward abstract Vector4i(cpp.Struct<Vector4i_extern>) from cpp.Struct<Vector4i_extern> to cpp.Struct<Vector4i_extern> {
+@:forward abstract Vector4i(Vector4i_extern) from Vector4i_extern to Vector4i_extern {
 	@:from
 	static inline function fromWrapper(v:gd.Vector4i):gdnative.Vector4i return fromWrapperInternal(v);
 	@:from
@@ -12,8 +12,8 @@ package gdnative;
 	@:to
 	inline function toWrapperInternal():gd.Vector4i.Vector4i_wrapper return new gd.Vector4i.Vector4i_wrapper(this);
 	@:to
-	inline function toVariant():gdnative.Variant return new gdnative.Variant.Variant_extern(abstract);
-	inline function val():Vector4i_extern return untyped __cpp__('{0}.value', abstract);
+	inline function toVariant():gdnative.Variant return new gdnative.Variant.Variant_extern(untyped __cpp__("static_cast<godot::Vector4i &>({0})", this));
+	inline function val():Vector4i_extern return untyped __cpp__('(*{0})', this);
 	@:op(A == B)
 	extern inline function __op_equal_to_variant(p_rhs:gdnative.Variant):Bool return untyped __cpp__('{0} == {1}', val(), p_rhs.toReference());
 	@:op(A != B)
@@ -53,7 +53,7 @@ package gdnative;
 	public extern overload inline function new(p_x:cpp.Int64, p_y:cpp.Int64, p_z:cpp.Int64, p_w:cpp.Int64) this = new gdnative.Vector4i.Vector4i_extern(p_x, p_y, p_z, p_w);
 }
 
-@:include("godot_cpp/variant/vector4i.hpp") @:native("godot::Vector4i") @:structAccess extern class Vector4i_extern {
+@:include("godot_cpp/variant/vector4i.hpp") @:semantics(reference) @:cpp.ValueType({ type : "Vector4i", namespace : ['godot'] }) extern class Vector4i_extern {
 	@:overload(function(p_from:gdnative.Vector4i):Void { })
 	@:overload(function(p_x:cpp.Int64, p_y:cpp.Int64, p_z:cpp.Int64, p_w:cpp.Int64):Void { })
 	function new();

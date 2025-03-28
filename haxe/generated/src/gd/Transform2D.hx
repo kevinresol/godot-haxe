@@ -2,33 +2,78 @@ package gd;
 class Transform2D_wrapper {
 	final __gd : gdnative.Transform2D;
 	public function new(value:gdnative.Transform2D) __gd = value;
-	function toVariant():gd.Variant return @:privateAccess new gd.Variant.Variant_obj(new gdnative.Variant.Variant_extern(this));
+	function toVariant():gd.Variant return @:privateAccess new gd.Variant.Variant_obj(((__gd : gdnative.Variant)));
 	static function _new0():Transform2D_wrapper return new Transform2D_wrapper(new gdnative.Transform2D());
 	static function _new1(p_from:gd.Transform2D):Transform2D_wrapper return new Transform2D_wrapper(new gdnative.Transform2D(p_from));
 	static function _new2(p_rotation:Float, p_position:gd.Vector2):Transform2D_wrapper return new Transform2D_wrapper(new gdnative.Transform2D(p_rotation, p_position));
 	static function _new3(p_rotation:Float, p_scale:gd.Vector2, p_skew:Float, p_position:gd.Vector2):Transform2D_wrapper return new Transform2D_wrapper(new gdnative.Transform2D(p_rotation, p_scale, p_skew, p_position));
 	static function _new4(p_x_axis:gd.Vector2, p_y_axis:gd.Vector2, p_origin:gd.Vector2):Transform2D_wrapper return new Transform2D_wrapper(new gdnative.Transform2D(p_x_axis, p_y_axis, p_origin));
 	static function _new5(p_xx:Float, p_xy:Float, p_yx:Float, p_yy:Float, p_ox:Float, p_oy:Float):Transform2D_wrapper return new Transform2D_wrapper(new gdnative.Transform2D(p_xx, p_xy, p_yx, p_yy, p_ox, p_oy));
-	public function inverse():gd.Transform2D return __gd.inverse();
-	public function affine_inverse():gd.Transform2D return __gd.affine_inverse();
+	public function inverse():gd.Transform2D return {
+		final v = __gd.inverse();
+		v;
+	};
+	public function affine_inverse():gd.Transform2D return {
+		final v = __gd.affine_inverse();
+		v;
+	};
 	public function get_rotation():Float return __gd.get_rotation();
-	public function get_origin():gd.Vector2 return __gd.get_origin();
-	public function get_scale():gd.Vector2 return __gd.get_scale();
+	public function get_origin():gd.Vector2 return {
+		final v = __gd.get_origin();
+		v;
+	};
+	public function get_scale():gd.Vector2 return {
+		final v = __gd.get_scale();
+		v;
+	};
 	public function get_skew():Float return __gd.get_skew();
-	public function orthonormalized():gd.Transform2D return __gd.orthonormalized();
-	public function rotated(p_angle:Float):gd.Transform2D return __gd.rotated(((p_angle : Float)));
-	public function rotated_local(p_angle:Float):gd.Transform2D return __gd.rotated_local(((p_angle : Float)));
-	public function scaled(p_scale:gd.Vector2):gd.Transform2D return __gd.scaled(((p_scale : gd.Vector2)));
-	public function scaled_local(p_scale:gd.Vector2):gd.Transform2D return __gd.scaled_local(((p_scale : gd.Vector2)));
-	public function translated(p_offset:gd.Vector2):gd.Transform2D return __gd.translated(((p_offset : gd.Vector2)));
-	public function translated_local(p_offset:gd.Vector2):gd.Transform2D return __gd.translated_local(((p_offset : gd.Vector2)));
+	public function orthonormalized():gd.Transform2D return {
+		final v = __gd.orthonormalized();
+		v;
+	};
+	public function rotated(p_angle:Float):gd.Transform2D return {
+		final v = __gd.rotated(((p_angle : Float)));
+		v;
+	};
+	public function rotated_local(p_angle:Float):gd.Transform2D return {
+		final v = __gd.rotated_local(((p_angle : Float)));
+		v;
+	};
+	public function scaled(p_scale:gd.Vector2):gd.Transform2D return {
+		final v = __gd.scaled(((p_scale : gd.Vector2)));
+		v;
+	};
+	public function scaled_local(p_scale:gd.Vector2):gd.Transform2D return {
+		final v = __gd.scaled_local(((p_scale : gd.Vector2)));
+		v;
+	};
+	public function translated(p_offset:gd.Vector2):gd.Transform2D return {
+		final v = __gd.translated(((p_offset : gd.Vector2)));
+		v;
+	};
+	public function translated_local(p_offset:gd.Vector2):gd.Transform2D return {
+		final v = __gd.translated_local(((p_offset : gd.Vector2)));
+		v;
+	};
 	public function determinant():Float return __gd.determinant();
-	public function basis_xform(p_v:gd.Vector2):gd.Vector2 return __gd.basis_xform(((p_v : gd.Vector2)));
-	public function basis_xform_inv(p_v:gd.Vector2):gd.Vector2 return __gd.basis_xform_inv(((p_v : gd.Vector2)));
-	public function interpolate_with(p_xform:gd.Transform2D, p_weight:Float):gd.Transform2D return __gd.interpolate_with(((p_xform : gd.Transform2D)), ((p_weight : Float)));
+	public function basis_xform(p_v:gd.Vector2):gd.Vector2 return {
+		final v = __gd.basis_xform(((p_v : gd.Vector2)));
+		v;
+	};
+	public function basis_xform_inv(p_v:gd.Vector2):gd.Vector2 return {
+		final v = __gd.basis_xform_inv(((p_v : gd.Vector2)));
+		v;
+	};
+	public function interpolate_with(p_xform:gd.Transform2D, p_weight:Float):gd.Transform2D return {
+		final v = __gd.interpolate_with(((p_xform : gd.Transform2D)), ((p_weight : Float)));
+		v;
+	};
 	public function is_equal_approx(p_xform:gd.Transform2D):Bool return __gd.is_equal_approx(((p_xform : gd.Transform2D)));
 	public function is_finite():Bool return __gd.is_finite();
-	public function looking_at(p_target:gd.Vector2):gd.Transform2D return __gd.looking_at(((p_target : gd.Vector2)));
+	public function looking_at(p_target:gd.Vector2):gd.Transform2D return {
+		final v = __gd.looking_at(((p_target : gd.Vector2)));
+		v;
+	};
 	public var x(get, set) : gd.Vector2;
 	function get_x():gd.Vector2 return __gd.x;
 	function set_x(v:gd.Vector2):gd.Vector2 return {

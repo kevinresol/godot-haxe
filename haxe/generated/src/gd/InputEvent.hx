@@ -37,7 +37,10 @@ package gd;
 	public function is_pressed():Bool return __inputevent_ptr().value.is_pressed();
 	public function is_released():Bool return __inputevent_ptr().value.is_released();
 	public function is_echo():Bool return __inputevent_ptr().value.is_echo();
-	public function as_text():std.String return __inputevent_ptr().value.as_text();
+	public function as_text():std.String return {
+		final v = __inputevent_ptr().value.as_text();
+		v;
+	};
 	public function is_match(p_event:gd.InputEvent, ?p_exact_match:Bool):Bool return switch [p_event, p_exact_match] {
 		case [_, null]:__inputevent_ptr().value.is_match(((p_event : gd.InputEvent)));
 		default:__inputevent_ptr().value.is_match(((p_event : gd.InputEvent)), ((p_exact_match : Bool)));

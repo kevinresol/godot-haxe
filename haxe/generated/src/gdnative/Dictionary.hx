@@ -2,7 +2,7 @@ package gdnative;
 /**
 	Built-in Class
 **/
-@:forward abstract Dictionary(cpp.Struct<Dictionary_extern>) from cpp.Struct<Dictionary_extern> to cpp.Struct<Dictionary_extern> {
+@:forward abstract Dictionary(Dictionary_extern) from Dictionary_extern to Dictionary_extern {
 	@:from
 	static inline function fromWrapper(v:gd.Dictionary):gdnative.Dictionary return fromWrapperInternal(v);
 	@:from
@@ -12,8 +12,8 @@ package gdnative;
 	@:to
 	inline function toWrapperInternal():gd.Dictionary.Dictionary_wrapper return new gd.Dictionary.Dictionary_wrapper(this);
 	@:to
-	inline function toVariant():gdnative.Variant return new gdnative.Variant.Variant_extern(abstract);
-	inline function val():Dictionary_extern return untyped __cpp__('{0}.value', abstract);
+	inline function toVariant():gdnative.Variant return new gdnative.Variant.Variant_extern(untyped __cpp__("static_cast<godot::Dictionary &>({0})", this));
+	inline function val():Dictionary_extern return untyped __cpp__('(*{0})', this);
 	@:op(A == B)
 	extern inline function __op_equal_to_variant(p_rhs:gdnative.Variant):Bool return untyped __cpp__('{0} == {1}', val(), p_rhs.toReference());
 	@:op(A != B)
@@ -31,7 +31,7 @@ package gdnative;
 	public extern overload inline function new(p_base:gd.Dictionary, p_key_type:cpp.Int64, p_key_class_name:std.String, p_key_script:gd.Variant, p_value_type:cpp.Int64, p_value_class_name:std.String, p_value_script:gd.Variant) this = new gdnative.Dictionary.Dictionary_extern(p_base, p_key_type, p_key_class_name, p_key_script, p_value_type, p_value_class_name, p_value_script);
 }
 
-@:include("godot_cpp/variant/dictionary.hpp") @:native("godot::Dictionary") @:structAccess extern class Dictionary_extern {
+@:include("godot_cpp/variant/dictionary.hpp") @:semantics(reference) @:cpp.ValueType({ type : "Dictionary", namespace : ['godot'] }) extern class Dictionary_extern {
 	@:overload(function(p_from:gdnative.Dictionary):Void { })
 	@:overload(function(p_base:gdnative.Dictionary, p_key_type:cpp.Int64, p_key_class_name:gdnative.StringName, p_key_script:gdnative.Variant, p_value_type:cpp.Int64, p_value_class_name:gdnative.StringName, p_value_script:gdnative.Variant):Void { })
 	function new();

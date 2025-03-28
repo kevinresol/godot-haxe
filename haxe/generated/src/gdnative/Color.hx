@@ -2,7 +2,7 @@ package gdnative;
 /**
 	Built-in Class
 **/
-@:forward abstract Color(cpp.Struct<Color_extern>) from cpp.Struct<Color_extern> to cpp.Struct<Color_extern> {
+@:forward abstract Color(Color_extern) from Color_extern to Color_extern {
 	@:from
 	static inline function fromWrapper(v:gd.Color):gdnative.Color return fromWrapperInternal(v);
 	@:from
@@ -12,8 +12,8 @@ package gdnative;
 	@:to
 	inline function toWrapperInternal():gd.Color.Color_wrapper return new gd.Color.Color_wrapper(this);
 	@:to
-	inline function toVariant():gdnative.Variant return new gdnative.Variant.Variant_extern(abstract);
-	inline function val():Color_extern return untyped __cpp__('{0}.value', abstract);
+	inline function toVariant():gdnative.Variant return new gdnative.Variant.Variant_extern(untyped __cpp__("static_cast<godot::Color &>({0})", this));
+	inline function val():Color_extern return untyped __cpp__('(*{0})', this);
 	@:op(A == B)
 	extern inline function __op_equal_to_variant(p_rhs:gdnative.Variant):Bool return untyped __cpp__('{0} == {1}', val(), p_rhs.toReference());
 	@:op(A != B)
@@ -55,7 +55,7 @@ package gdnative;
 	public extern overload inline function new(p_code:std.String, p_alpha:Float) this = new gdnative.Color.Color_extern(p_code, p_alpha);
 }
 
-@:include("godot_cpp/variant/color.hpp") @:native("godot::Color") @:structAccess extern class Color_extern {
+@:include("godot_cpp/variant/color.hpp") @:semantics(reference) @:cpp.ValueType({ type : "Color", namespace : ['godot'] }) extern class Color_extern {
 	@:overload(function(p_from:gdnative.Color):Void { })
 	@:overload(function(p_from:gdnative.Color, p_alpha:Float):Void { })
 	@:overload(function(p_r:Float, p_g:Float, p_b:Float):Void { })

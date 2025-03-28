@@ -2,7 +2,7 @@ package gdnative;
 /**
 	Built-in Class
 **/
-@:forward abstract PackedFloat64Array(cpp.Struct<PackedFloat64Array_extern>) from cpp.Struct<PackedFloat64Array_extern> to cpp.Struct<PackedFloat64Array_extern> {
+@:forward abstract PackedFloat64Array(PackedFloat64Array_extern) from PackedFloat64Array_extern to PackedFloat64Array_extern {
 	@:from
 	static inline function fromWrapper(v:gd.PackedFloat64Array):gdnative.PackedFloat64Array return fromWrapperInternal(v);
 	@:from
@@ -12,8 +12,8 @@ package gdnative;
 	@:to
 	inline function toWrapperInternal():gd.PackedFloat64Array.PackedFloat64Array_wrapper return new gd.PackedFloat64Array.PackedFloat64Array_wrapper(this);
 	@:to
-	inline function toVariant():gdnative.Variant return new gdnative.Variant.Variant_extern(abstract);
-	inline function val():PackedFloat64Array_extern return untyped __cpp__('{0}.value', abstract);
+	inline function toVariant():gdnative.Variant return new gdnative.Variant.Variant_extern(untyped __cpp__("static_cast<godot::PackedFloat64Array &>({0})", this));
+	inline function val():PackedFloat64Array_extern return untyped __cpp__('(*{0})', this);
 	@:op(A == B)
 	extern inline function __op_equal_to_variant(p_rhs:gdnative.Variant):Bool return untyped __cpp__('{0} == {1}', val(), p_rhs.toReference());
 	@:op(A != B)
@@ -33,7 +33,7 @@ package gdnative;
 	public extern overload inline function new(p_from:gd.Array) this = new gdnative.PackedFloat64Array.PackedFloat64Array_extern(p_from);
 }
 
-@:include("godot_cpp/variant/packed_float64_array.hpp") @:native("godot::PackedFloat64Array") @:structAccess extern class PackedFloat64Array_extern {
+@:include("godot_cpp/variant/packed_float64_array.hpp") @:semantics(reference) @:cpp.ValueType({ type : "PackedFloat64Array", namespace : ['godot'] }) extern class PackedFloat64Array_extern {
 	@:overload(function(p_from:gdnative.PackedFloat64Array):Void { })
 	@:overload(function(p_from:gdnative.Array):Void { })
 	function new();

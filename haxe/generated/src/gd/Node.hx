@@ -56,7 +56,10 @@ package gd;
 	public function _enter_tree():Void __node_ptr().value._enter_tree();
 	public function _exit_tree():Void __node_ptr().value._exit_tree();
 	public function _ready():Void __node_ptr().value._ready();
-	public function _get_configuration_warnings():gd.PackedStringArray return __node_ptr().value._get_configuration_warnings();
+	public function _get_configuration_warnings():gd.PackedStringArray return {
+		final v = __node_ptr().value._get_configuration_warnings();
+		v;
+	};
 	public function _input(p_event:gd.InputEvent):Void __node_ptr().value._input(((p_event : gd.InputEvent)));
 	public function _shortcut_input(p_event:gd.InputEvent):Void __node_ptr().value._shortcut_input(((p_event : gd.InputEvent)));
 	public function _unhandled_input(p_event:gd.InputEvent):Void __node_ptr().value._unhandled_input(((p_event : gd.InputEvent)));
@@ -70,7 +73,10 @@ package gd;
 		__node_ptr().value.set_name(((p_name : std.String)));
 		return p_name;
 	}
-	public function get_name():std.String return __node_ptr().value.get_name();
+	public function get_name():std.String return {
+		final v = __node_ptr().value.get_name();
+		v;
+	};
 	public function add_child(p_node:gd.Node, ?p_force_readable_name:Bool, ?p_internal:gd.node.InternalMode):Void switch [p_node, p_force_readable_name, p_internal] {
 		case [_, null, _]:__node_ptr().value.add_child(((p_node : gd.Node)));
 		case [_, _, null]:__node_ptr().value.add_child(((p_node : gd.Node)), ((p_force_readable_name : Bool)));
@@ -100,15 +106,27 @@ package gd;
 	};
 	public function find_parent(p_pattern:std.String):gd.Node return __node_ptr().value.find_parent(((p_pattern : std.String)));
 	public function has_node_and_resource(p_path:std.String):Bool return __node_ptr().value.has_node_and_resource(((p_path : std.String)));
-	public function get_node_and_resource(p_path:std.String):gd.Array return __node_ptr().value.get_node_and_resource(((p_path : std.String)));
+	public function get_node_and_resource(p_path:std.String):gd.Array return {
+		final v = __node_ptr().value.get_node_and_resource(((p_path : std.String)));
+		v;
+	};
 	public function is_inside_tree():Bool return __node_ptr().value.is_inside_tree();
 	public function is_part_of_edited_scene():Bool return __node_ptr().value.is_part_of_edited_scene();
 	public function is_ancestor_of(p_node:gd.Node):Bool return __node_ptr().value.is_ancestor_of(((p_node : gd.Node)));
 	public function is_greater_than(p_node:gd.Node):Bool return __node_ptr().value.is_greater_than(((p_node : gd.Node)));
-	public function get_path():std.String return __node_ptr().value.get_path();
+	public function get_path():std.String return {
+		final v = __node_ptr().value.get_path();
+		v;
+	};
 	public function get_path_to(p_node:gd.Node, ?p_use_unique_path:Bool):std.String return switch [p_node, p_use_unique_path] {
-		case [_, null]:__node_ptr().value.get_path_to(((p_node : gd.Node)));
-		default:__node_ptr().value.get_path_to(((p_node : gd.Node)), ((p_use_unique_path : Bool)));
+		case [_, null]:{
+			final v = __node_ptr().value.get_path_to(((p_node : gd.Node)));
+			v;
+		};
+		default:{
+			final v = __node_ptr().value.get_path_to(((p_node : gd.Node)), ((p_use_unique_path : Bool)));
+			v;
+		};
 	};
 	public function add_to_group(p_group:std.String, ?p_persistent:Bool):Void switch [p_group, p_persistent] {
 		case [_, null]:__node_ptr().value.add_to_group(((p_group : std.String)));
@@ -128,13 +146,22 @@ package gd;
 	};
 	public function print_tree():Void __node_ptr().value.print_tree();
 	public function print_tree_pretty():Void __node_ptr().value.print_tree_pretty();
-	public function get_tree_string():std.String return __node_ptr().value.get_tree_string();
-	public function get_tree_string_pretty():std.String return __node_ptr().value.get_tree_string_pretty();
+	public function get_tree_string():std.String return {
+		final v = __node_ptr().value.get_tree_string();
+		v;
+	};
+	public function get_tree_string_pretty():std.String return {
+		final v = __node_ptr().value.get_tree_string_pretty();
+		v;
+	};
 	public function set_scene_file_path(p_scene_file_path:std.String):std.String {
 		__node_ptr().value.set_scene_file_path(((p_scene_file_path : std.String)));
 		return p_scene_file_path;
 	}
-	public function get_scene_file_path():std.String return __node_ptr().value.get_scene_file_path();
+	public function get_scene_file_path():std.String return {
+		final v = __node_ptr().value.get_scene_file_path();
+		v;
+	};
 	public function propagate_notification(p_what:cpp.Int64):Void __node_ptr().value.propagate_notification(((p_what : cpp.Int64)));
 	public function propagate_call(p_method:std.String, ?p_args:gd.Array, ?p_parent_first:Bool):Void switch [p_method, p_args, p_parent_first] {
 		case [_, null, _]:__node_ptr().value.propagate_call(((p_method : std.String)));
@@ -226,24 +253,42 @@ package gd;
 	public function get_multiplayer_authority():cpp.Int64 return __node_ptr().value.get_multiplayer_authority();
 	public function is_multiplayer_authority():Bool return __node_ptr().value.is_multiplayer_authority();
 	public function rpc_config(p_method:std.String, p_config:gd.Variant):Void __node_ptr().value.rpc_config(((p_method : std.String)), ((p_config : gd.Variant)));
-	public function get_rpc_config():gd.Variant return __node_ptr().value.get_rpc_config();
+	public function get_rpc_config():gd.Variant return {
+		final v = __node_ptr().value.get_rpc_config();
+		v;
+	};
 	public function set_editor_description(p_editor_description:std.String):std.String {
 		__node_ptr().value.set_editor_description(((p_editor_description : std.String)));
 		return p_editor_description;
 	}
-	public function get_editor_description():std.String return __node_ptr().value.get_editor_description();
+	public function get_editor_description():std.String return {
+		final v = __node_ptr().value.get_editor_description();
+		v;
+	};
 	public function set_unique_name_in_owner(p_enable:Bool):Bool {
 		__node_ptr().value.set_unique_name_in_owner(((p_enable : Bool)));
 		return p_enable;
 	}
 	public function is_unique_name_in_owner():Bool return __node_ptr().value.is_unique_name_in_owner();
 	public function atr(p_message:std.String, ?p_context:std.String):std.String return switch [p_message, p_context] {
-		case [_, null]:__node_ptr().value.atr(((p_message : std.String)));
-		default:__node_ptr().value.atr(((p_message : std.String)), ((p_context : std.String)));
+		case [_, null]:{
+			final v = __node_ptr().value.atr(((p_message : std.String)));
+			v;
+		};
+		default:{
+			final v = __node_ptr().value.atr(((p_message : std.String)), ((p_context : std.String)));
+			v;
+		};
 	};
 	public function atr_n(p_message:std.String, p_plural_message:std.String, p_n:cpp.Int64, ?p_context:std.String):std.String return switch [p_message, p_plural_message, p_n, p_context] {
-		case [_, _, _, null]:__node_ptr().value.atr_n(((p_message : std.String)), ((p_plural_message : std.String)), ((p_n : cpp.Int64)));
-		default:__node_ptr().value.atr_n(((p_message : std.String)), ((p_plural_message : std.String)), ((p_n : cpp.Int64)), ((p_context : std.String)));
+		case [_, _, _, null]:{
+			final v = __node_ptr().value.atr_n(((p_message : std.String)), ((p_plural_message : std.String)), ((p_n : cpp.Int64)));
+			v;
+		};
+		default:{
+			final v = __node_ptr().value.atr_n(((p_message : std.String)), ((p_plural_message : std.String)), ((p_n : cpp.Int64)), ((p_context : std.String)));
+			v;
+		};
 	};
 	public function rpc(p_method:std.String, p_args:haxe.Rest<gd.Variant>):gd.Error return {
 		final vlen = p_args.length, len = 1 + vlen;

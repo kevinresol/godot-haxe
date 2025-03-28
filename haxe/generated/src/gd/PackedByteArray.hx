@@ -2,7 +2,7 @@ package gd;
 class PackedByteArray_wrapper {
 	final __gd : gdnative.PackedByteArray;
 	public function new(value:gdnative.PackedByteArray) __gd = value;
-	function toVariant():gd.Variant return @:privateAccess new gd.Variant.Variant_obj(new gdnative.Variant.Variant_extern(this));
+	function toVariant():gd.Variant return @:privateAccess new gd.Variant.Variant_obj(((__gd : gdnative.Variant)));
 	static function _new0():PackedByteArray_wrapper return new PackedByteArray_wrapper(new gdnative.PackedByteArray());
 	static function _new1(p_from:gd.PackedByteArray):PackedByteArray_wrapper return new PackedByteArray_wrapper(new gdnative.PackedByteArray(p_from));
 	static function _new2(p_from:gd.Array):PackedByteArray_wrapper return new PackedByteArray_wrapper(new gdnative.PackedByteArray(p_from));
@@ -21,15 +21,24 @@ class PackedByteArray_wrapper {
 	public function has(p_value:cpp.Int64):Bool return __gd.has(((p_value : cpp.Int64)));
 	public function reverse():Void __gd.reverse();
 	public function slice(p_begin:cpp.Int64, ?p_end:cpp.Int64):gd.PackedByteArray return switch [p_begin, p_end] {
-		case [_, null]:__gd.slice(((p_begin : cpp.Int64)));
-		default:__gd.slice(((p_begin : cpp.Int64)), ((p_end : cpp.Int64)));
+		case [_, null]:{
+			final v = __gd.slice(((p_begin : cpp.Int64)));
+			v;
+		};
+		default:{
+			final v = __gd.slice(((p_begin : cpp.Int64)), ((p_end : cpp.Int64)));
+			v;
+		};
 	};
 	public function sort():Void __gd.sort();
 	public function bsearch(p_value:cpp.Int64, ?p_before:Bool):cpp.Int64 return switch [p_value, p_before] {
 		case [_, null]:__gd.bsearch(((p_value : cpp.Int64)));
 		default:__gd.bsearch(((p_value : cpp.Int64)), ((p_before : Bool)));
 	};
-	public function duplicate():gd.PackedByteArray return __gd.duplicate();
+	public function duplicate():gd.PackedByteArray return {
+		final v = __gd.duplicate();
+		v;
+	};
 	public function find(p_value:cpp.Int64, ?p_from:cpp.Int64):cpp.Int64 return switch [p_value, p_from] {
 		case [_, null]:__gd.find(((p_value : cpp.Int64)));
 		default:__gd.find(((p_value : cpp.Int64)), ((p_from : cpp.Int64)));
@@ -39,23 +48,59 @@ class PackedByteArray_wrapper {
 		default:__gd.rfind(((p_value : cpp.Int64)), ((p_from : cpp.Int64)));
 	};
 	public function count(p_value:cpp.Int64):cpp.Int64 return __gd.count(((p_value : cpp.Int64)));
-	public function get_string_from_ascii():std.String return __gd.get_string_from_ascii();
-	public function get_string_from_utf8():std.String return __gd.get_string_from_utf8();
-	public function get_string_from_utf16():std.String return __gd.get_string_from_utf16();
-	public function get_string_from_utf32():std.String return __gd.get_string_from_utf32();
-	public function get_string_from_wchar():std.String return __gd.get_string_from_wchar();
-	public function hex_encode():std.String return __gd.hex_encode();
+	public function get_string_from_ascii():std.String return {
+		final v = __gd.get_string_from_ascii();
+		v;
+	};
+	public function get_string_from_utf8():std.String return {
+		final v = __gd.get_string_from_utf8();
+		v;
+	};
+	public function get_string_from_utf16():std.String return {
+		final v = __gd.get_string_from_utf16();
+		v;
+	};
+	public function get_string_from_utf32():std.String return {
+		final v = __gd.get_string_from_utf32();
+		v;
+	};
+	public function get_string_from_wchar():std.String return {
+		final v = __gd.get_string_from_wchar();
+		v;
+	};
+	public function hex_encode():std.String return {
+		final v = __gd.hex_encode();
+		v;
+	};
 	public function compress(?p_compression_mode:cpp.Int64):gd.PackedByteArray return switch [p_compression_mode] {
-		case [null]:__gd.compress();
-		default:__gd.compress(((p_compression_mode : cpp.Int64)));
+		case [null]:{
+			final v = __gd.compress();
+			v;
+		};
+		default:{
+			final v = __gd.compress(((p_compression_mode : cpp.Int64)));
+			v;
+		};
 	};
 	public function decompress(p_buffer_size:cpp.Int64, ?p_compression_mode:cpp.Int64):gd.PackedByteArray return switch [p_buffer_size, p_compression_mode] {
-		case [_, null]:__gd.decompress(((p_buffer_size : cpp.Int64)));
-		default:__gd.decompress(((p_buffer_size : cpp.Int64)), ((p_compression_mode : cpp.Int64)));
+		case [_, null]:{
+			final v = __gd.decompress(((p_buffer_size : cpp.Int64)));
+			v;
+		};
+		default:{
+			final v = __gd.decompress(((p_buffer_size : cpp.Int64)), ((p_compression_mode : cpp.Int64)));
+			v;
+		};
 	};
 	public function decompress_dynamic(p_max_output_size:cpp.Int64, ?p_compression_mode:cpp.Int64):gd.PackedByteArray return switch [p_max_output_size, p_compression_mode] {
-		case [_, null]:__gd.decompress_dynamic(((p_max_output_size : cpp.Int64)));
-		default:__gd.decompress_dynamic(((p_max_output_size : cpp.Int64)), ((p_compression_mode : cpp.Int64)));
+		case [_, null]:{
+			final v = __gd.decompress_dynamic(((p_max_output_size : cpp.Int64)));
+			v;
+		};
+		default:{
+			final v = __gd.decompress_dynamic(((p_max_output_size : cpp.Int64)), ((p_compression_mode : cpp.Int64)));
+			v;
+		};
 	};
 	public function decode_u8(p_byte_offset:cpp.Int64):cpp.Int64 return __gd.decode_u8(((p_byte_offset : cpp.Int64)));
 	public function decode_s8(p_byte_offset:cpp.Int64):cpp.Int64 return __gd.decode_s8(((p_byte_offset : cpp.Int64)));
@@ -73,17 +118,35 @@ class PackedByteArray_wrapper {
 		default:__gd.has_encoded_var(((p_byte_offset : cpp.Int64)), ((p_allow_objects : Bool)));
 	};
 	public function decode_var(p_byte_offset:cpp.Int64, ?p_allow_objects:Bool):gd.Variant return switch [p_byte_offset, p_allow_objects] {
-		case [_, null]:__gd.decode_var(((p_byte_offset : cpp.Int64)));
-		default:__gd.decode_var(((p_byte_offset : cpp.Int64)), ((p_allow_objects : Bool)));
+		case [_, null]:{
+			final v = __gd.decode_var(((p_byte_offset : cpp.Int64)));
+			v;
+		};
+		default:{
+			final v = __gd.decode_var(((p_byte_offset : cpp.Int64)), ((p_allow_objects : Bool)));
+			v;
+		};
 	};
 	public function decode_var_size(p_byte_offset:cpp.Int64, ?p_allow_objects:Bool):cpp.Int64 return switch [p_byte_offset, p_allow_objects] {
 		case [_, null]:__gd.decode_var_size(((p_byte_offset : cpp.Int64)));
 		default:__gd.decode_var_size(((p_byte_offset : cpp.Int64)), ((p_allow_objects : Bool)));
 	};
-	public function to_int32_array():gd.PackedInt32Array return __gd.to_int32_array();
-	public function to_int64_array():gd.PackedInt64Array return __gd.to_int64_array();
-	public function to_float32_array():gd.PackedFloat32Array return __gd.to_float32_array();
-	public function to_float64_array():gd.PackedFloat64Array return __gd.to_float64_array();
+	public function to_int32_array():gd.PackedInt32Array return {
+		final v = __gd.to_int32_array();
+		v;
+	};
+	public function to_int64_array():gd.PackedInt64Array return {
+		final v = __gd.to_int64_array();
+		v;
+	};
+	public function to_float32_array():gd.PackedFloat32Array return {
+		final v = __gd.to_float32_array();
+		v;
+	};
+	public function to_float64_array():gd.PackedFloat64Array return {
+		final v = __gd.to_float64_array();
+		v;
+	};
 	public function encode_u8(p_byte_offset:cpp.Int64, p_value:cpp.Int64):Void __gd.encode_u8(((p_byte_offset : cpp.Int64)), ((p_value : cpp.Int64)));
 	public function encode_s8(p_byte_offset:cpp.Int64, p_value:cpp.Int64):Void __gd.encode_s8(((p_byte_offset : cpp.Int64)), ((p_value : cpp.Int64)));
 	public function encode_u16(p_byte_offset:cpp.Int64, p_value:cpp.Int64):Void __gd.encode_u16(((p_byte_offset : cpp.Int64)), ((p_value : cpp.Int64)));

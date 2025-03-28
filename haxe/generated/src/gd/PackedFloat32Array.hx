@@ -2,7 +2,7 @@ package gd;
 class PackedFloat32Array_wrapper {
 	final __gd : gdnative.PackedFloat32Array;
 	public function new(value:gdnative.PackedFloat32Array) __gd = value;
-	function toVariant():gd.Variant return @:privateAccess new gd.Variant.Variant_obj(new gdnative.Variant.Variant_extern(this));
+	function toVariant():gd.Variant return @:privateAccess new gd.Variant.Variant_obj(((__gd : gdnative.Variant)));
 	static function _new0():PackedFloat32Array_wrapper return new PackedFloat32Array_wrapper(new gdnative.PackedFloat32Array());
 	static function _new1(p_from:gd.PackedFloat32Array):PackedFloat32Array_wrapper return new PackedFloat32Array_wrapper(new gdnative.PackedFloat32Array(p_from));
 	static function _new2(p_from:gd.Array):PackedFloat32Array_wrapper return new PackedFloat32Array_wrapper(new gdnative.PackedFloat32Array(p_from));
@@ -21,16 +21,28 @@ class PackedFloat32Array_wrapper {
 	public function has(p_value:Float):Bool return __gd.has(((p_value : Float)));
 	public function reverse():Void __gd.reverse();
 	public function slice(p_begin:cpp.Int64, ?p_end:cpp.Int64):gd.PackedFloat32Array return switch [p_begin, p_end] {
-		case [_, null]:__gd.slice(((p_begin : cpp.Int64)));
-		default:__gd.slice(((p_begin : cpp.Int64)), ((p_end : cpp.Int64)));
+		case [_, null]:{
+			final v = __gd.slice(((p_begin : cpp.Int64)));
+			v;
+		};
+		default:{
+			final v = __gd.slice(((p_begin : cpp.Int64)), ((p_end : cpp.Int64)));
+			v;
+		};
 	};
-	public function to_byte_array():gd.PackedByteArray return __gd.to_byte_array();
+	public function to_byte_array():gd.PackedByteArray return {
+		final v = __gd.to_byte_array();
+		v;
+	};
 	public function sort():Void __gd.sort();
 	public function bsearch(p_value:Float, ?p_before:Bool):cpp.Int64 return switch [p_value, p_before] {
 		case [_, null]:__gd.bsearch(((p_value : Float)));
 		default:__gd.bsearch(((p_value : Float)), ((p_before : Bool)));
 	};
-	public function duplicate():gd.PackedFloat32Array return __gd.duplicate();
+	public function duplicate():gd.PackedFloat32Array return {
+		final v = __gd.duplicate();
+		v;
+	};
 	public function find(p_value:Float, ?p_from:cpp.Int64):cpp.Int64 return switch [p_value, p_from] {
 		case [_, null]:__gd.find(((p_value : Float)));
 		default:__gd.find(((p_value : Float)), ((p_from : cpp.Int64)));
