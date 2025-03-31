@@ -47,9 +47,17 @@ class ClassBuilder extends EnumBuilder {
 		}
 		cls.isExtern = true;
 		cls.meta = [
+			// {pos: null, name: ':native', params: [macro $v{'godot::${cname == 'ClassDB' ? 'ClassDBSingleton' : cname}'}]},
+			// {pos: null, name: ':structAccess', params: []},
 			{pos: null, name: ':include', params: [macro $v{hpp}]},
-			{pos: null, name: ':native', params: [macro $v{'godot::${cname == 'ClassDB' ? 'ClassDBSingleton' : cname}'}]},
-			{pos: null, name: ':structAccess', params: []},
+			{pos: null, name: ':semantics', params: [macro reference]},
+			{
+				pos: null,
+				name: ':cpp.PointerType',
+				params: [
+					macro {type: $v{cname == 'ClassDB' ? 'ClassDBSingleton' : cname}, namespace: ['godot']}
+				]
+			},
 		];
 
 		final local = TPath({pack: [], name: nativeName});
@@ -57,8 +65,8 @@ class ClassBuilder extends EnumBuilder {
 		// native alloc
 		cls.fields = cls.fields.concat((macro class {
 			// put the alloc function in extern class to make sure the header file is included
-			extern static inline function __alloc():cpp.Pointer<$local>
-				return gdnative.Memory.Memory_extern.memnew(untyped __cpp__($v{'godot::${cname == 'ClassDB' ? 'ClassDBSingleton' : cname}'}));
+			extern static inline function __alloc():$local
+				return gdnative.Memory.memnew(untyped __cpp__($v{'godot::${cname == 'ClassDB' ? 'ClassDBSingleton' : cname}'}));
 		}).fields);
 
 		// singleton
@@ -69,7 +77,7 @@ class ClassBuilder extends EnumBuilder {
 				access: [AStatic],
 				kind: FFun({
 					args: [],
-					ret: macro :cpp.Pointer<$local>,
+					ret: local,
 				})
 			});
 		}
@@ -128,7 +136,7 @@ class ClassBuilder extends EnumBuilder {
 				// }
 
 				@:from static inline function fromWrapper(v:gd.$cname):gdnative.$cname
-					return @:privateAccess v.__gd.reinterpret();
+					return cast @:privateAccess v.__gd;
 
 				@:to inline function toWrapper():gd.$cname
 					return new gd.$cname(this);
@@ -138,13 +146,12 @@ class ClassBuilder extends EnumBuilder {
 		} else {
 			abs.fields = abs.fields.concat((macro class {
 				@:from static inline function fromWrapper(v:gd.$cname):gdnative.$cname
-					return @:privateAccess v.__gd.reinterpret();
+					return cast @:privateAccess v.__gd;
 
 				@:to inline function toWrapper():gd.$cname
 					return new gd.$cname(this);
 			}).fields);
-			final pointer = macro :cpp.Pointer<$local>;
-			abs.kind = TDAbstract(pointer, [AbFrom(pointer), AbTo(pointer)]);
+			abs.kind = TDAbstract(local, [AbFrom(local), AbTo(local)]);
 		}
 
 		final source = printTypeDefinition(abs) + '\n' + printTypeDefinition(cls);
@@ -177,13 +184,13 @@ class ClassBuilder extends EnumBuilder {
 				args: [
 					{
 						name: isScriptExtern ? 'owner' : 'native',
-						type: isScriptExtern ? macro :Dynamic : macro :cpp.Pointer<$nct>,
+						type: isScriptExtern ? macro :Dynamic : nct,
 						opt: true,
 					}
 				],
 				expr: isScriptExtern ? null : {
 					final exprs = [
-						macro if (native == null) {
+						macro if (/* native == null */ untyped __cpp__('{0} == {1}', native, null)) {
 							gd.Utils.checkAndWarnForMissingOwner(this, $v{cname});
 							// trace($v{'Allocating $cname'});
 							native = $p{['gdnative', cname, '${cname}_extern']}.__alloc();
@@ -196,7 +203,7 @@ class ClassBuilder extends EnumBuilder {
 						exprs.push(macro if (Type.getClassName(Type.getClass(this)) == $v{'gd.$cname'}) cpp.vm.Gc.setFinalizer(this,
 							cpp.Callable.fromStaticFunction(__finalize)));
 
-					exprs.push(parent == null ? macro __gd = native : macro super(native.reinterpret()));
+					exprs.push(parent == null ? macro __gd = native : macro super(cast native));
 					macro $b{exprs}
 				}
 			})
@@ -254,9 +261,9 @@ class ClassBuilder extends EnumBuilder {
 			final native = TPath({pack: Config.nativeExtern.pack, name: cname, sub: '${cname}_extern'});
 			final fname = getPointerHelperName(cname);
 			cls.fields = cls.fields.concat((macro class {
-				// `__gd` is `gdnative.Object`(haxe) and `__gd.ptr` is always a `godot::Object*`(cpp)
+				// `__gd` is `gdnative.Object` in haxe with @:cpp.PointerType thus a `godot::Object*` in cpp
 				// so we cast it into the correct pointer type before dereferencing
-				extern inline function $fname():cpp.Pointer<$native> return cast __gd.ptr;
+				extern inline function $fname():$native return cast __gd;
 			}).fields);
 			if (clazz.is_refcounted)
 				cls.fields = cls.fields.concat((macro class {
@@ -291,7 +298,7 @@ class ClassBuilder extends EnumBuilder {
 					if (isStatic) {
 						macro $p{Config.nativeExtern.pack.concat([cname, '${cname}_extern'])};
 					} else {
-						macro $i{getPointerHelperName(cname)}().value;
+						macro $i{getPointerHelperName(cname)}();
 					}
 				}));
 			} catch (e) {}
@@ -404,7 +411,7 @@ class ClassBuilder extends EnumBuilder {
 						public var __gd:gdnative.Object;
 
 						public function free() {
-							gdnative.Memory.Memory_extern.memdelete(__gd.ptr);
+							gdnative.Memory.memdelete(__gd);
 						}
 
 						public function cast_to<T:gd.Object>(cls:Class<T>):T {

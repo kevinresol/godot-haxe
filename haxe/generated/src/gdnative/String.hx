@@ -98,7 +98,7 @@ package gdnative;
 	@:op(A % B)
 	extern inline function __op_modulus_nodepath(p_rhs:gdnative.NodePath):gdnative.String return untyped __cpp__('{0} % {1}', val(), @:privateAccess p_rhs.val());
 	@:op(A % B)
-	extern inline function __op_modulus_object(p_rhs:gdnative.Object):gdnative.String return untyped __cpp__('{0} % {1}', val(), p_rhs);
+	extern inline function __op_modulus_object(p_rhs:gdnative.Object):gdnative.String return untyped __cpp__('{0} % {1}', val(), untyped __cpp__('{0}.ptr', p_rhs));
 	@:op(A in B)
 	extern inline function __op_membership_in_object(p_rhs:gdnative.Object):Bool return false;
 	@:op(A % B)

@@ -1,44 +1,44 @@
 package gd;
 @:cppInclude('iostream') class Texture2D extends gd.Texture {
-	public function new(?native:cpp.Pointer<gdnative.Texture2D.Texture2D_extern>) {
-		if (native == null) {
+	public function new(?native:gdnative.Texture2D.Texture2D_extern) {
+		if (untyped __cpp__('{0} == {1}', native, null)) {
 			gd.Utils.checkAndWarnForMissingOwner(this, "Texture2D");
 			native = gdnative.Texture2D.Texture2D_extern.__alloc();
 		};
 		if (Type.getClassName(Type.getClass(this)) == "gd.Texture2D") cpp.vm.Gc.setFinalizer(this, cpp.Callable.fromStaticFunction(__finalize));
-		super(native.reinterpret());
+		super(cast native);
 	}
-	extern inline function __texture2d_ptr():cpp.Pointer<gdnative.Texture2D.Texture2D_extern> return cast __gd.ptr;
+	extern inline function __texture2d_ptr():gdnative.Texture2D.Texture2D_extern return cast __gd;
 	static function __finalize(inst:gd.Texture2D) inst.__ref = new gdnative.Ref.Ref_extern();
-	public function _get_width():cpp.Int64 return __texture2d_ptr().value._get_width();
-	public function _get_height():cpp.Int64 return __texture2d_ptr().value._get_height();
-	public function _is_pixel_opaque(p_x:cpp.Int64, p_y:cpp.Int64):Bool return __texture2d_ptr().value._is_pixel_opaque(((p_x : cpp.Int64)), ((p_y : cpp.Int64)));
-	public function _has_alpha():Bool return __texture2d_ptr().value._has_alpha();
-	public function _draw(p_to_canvas_item:gd.RID, p_pos:gd.Vector2, p_modulate:gd.Color, p_transpose:Bool):Void __texture2d_ptr().value._draw(((p_to_canvas_item : gd.RID)), ((p_pos : gd.Vector2)), ((p_modulate : gd.Color)), ((p_transpose : Bool)));
-	public function _draw_rect(p_to_canvas_item:gd.RID, p_rect:gd.Rect2, p_tile:Bool, p_modulate:gd.Color, p_transpose:Bool):Void __texture2d_ptr().value._draw_rect(((p_to_canvas_item : gd.RID)), ((p_rect : gd.Rect2)), ((p_tile : Bool)), ((p_modulate : gd.Color)), ((p_transpose : Bool)));
-	public function _draw_rect_region(p_to_canvas_item:gd.RID, p_rect:gd.Rect2, p_src_rect:gd.Rect2, p_modulate:gd.Color, p_transpose:Bool, p_clip_uv:Bool):Void __texture2d_ptr().value._draw_rect_region(((p_to_canvas_item : gd.RID)), ((p_rect : gd.Rect2)), ((p_src_rect : gd.Rect2)), ((p_modulate : gd.Color)), ((p_transpose : Bool)), ((p_clip_uv : Bool)));
-	public function get_width():cpp.Int64 return __texture2d_ptr().value.get_width();
-	public function get_height():cpp.Int64 return __texture2d_ptr().value.get_height();
+	public function _get_width():cpp.Int64 return __texture2d_ptr()._get_width();
+	public function _get_height():cpp.Int64 return __texture2d_ptr()._get_height();
+	public function _is_pixel_opaque(p_x:cpp.Int64, p_y:cpp.Int64):Bool return __texture2d_ptr()._is_pixel_opaque(((p_x : cpp.Int64)), ((p_y : cpp.Int64)));
+	public function _has_alpha():Bool return __texture2d_ptr()._has_alpha();
+	public function _draw(p_to_canvas_item:gd.RID, p_pos:gd.Vector2, p_modulate:gd.Color, p_transpose:Bool):Void __texture2d_ptr()._draw(((p_to_canvas_item : gd.RID)), ((p_pos : gd.Vector2)), ((p_modulate : gd.Color)), ((p_transpose : Bool)));
+	public function _draw_rect(p_to_canvas_item:gd.RID, p_rect:gd.Rect2, p_tile:Bool, p_modulate:gd.Color, p_transpose:Bool):Void __texture2d_ptr()._draw_rect(((p_to_canvas_item : gd.RID)), ((p_rect : gd.Rect2)), ((p_tile : Bool)), ((p_modulate : gd.Color)), ((p_transpose : Bool)));
+	public function _draw_rect_region(p_to_canvas_item:gd.RID, p_rect:gd.Rect2, p_src_rect:gd.Rect2, p_modulate:gd.Color, p_transpose:Bool, p_clip_uv:Bool):Void __texture2d_ptr()._draw_rect_region(((p_to_canvas_item : gd.RID)), ((p_rect : gd.Rect2)), ((p_src_rect : gd.Rect2)), ((p_modulate : gd.Color)), ((p_transpose : Bool)), ((p_clip_uv : Bool)));
+	public function get_width():cpp.Int64 return __texture2d_ptr().get_width();
+	public function get_height():cpp.Int64 return __texture2d_ptr().get_height();
 	public function get_size():gd.Vector2 return {
-		final v = __texture2d_ptr().value.get_size();
+		final v = __texture2d_ptr().get_size();
 		v;
 	};
-	public function has_alpha():Bool return __texture2d_ptr().value.has_alpha();
+	public function has_alpha():Bool return __texture2d_ptr().has_alpha();
 	public function draw(p_canvas_item:gd.RID, p_position:gd.Vector2, ?p_modulate:gd.Color, ?p_transpose:Bool):Void switch [p_canvas_item, p_position, p_modulate, p_transpose] {
-		case [_, _, null, _]:__texture2d_ptr().value.draw(((p_canvas_item : gd.RID)), ((p_position : gd.Vector2)));
-		case [_, _, _, null]:__texture2d_ptr().value.draw(((p_canvas_item : gd.RID)), ((p_position : gd.Vector2)), ((p_modulate : gd.Color)));
-		default:__texture2d_ptr().value.draw(((p_canvas_item : gd.RID)), ((p_position : gd.Vector2)), ((p_modulate : gd.Color)), ((p_transpose : Bool)));
+		case [_, _, null, _]:__texture2d_ptr().draw(((p_canvas_item : gd.RID)), ((p_position : gd.Vector2)));
+		case [_, _, _, null]:__texture2d_ptr().draw(((p_canvas_item : gd.RID)), ((p_position : gd.Vector2)), ((p_modulate : gd.Color)));
+		default:__texture2d_ptr().draw(((p_canvas_item : gd.RID)), ((p_position : gd.Vector2)), ((p_modulate : gd.Color)), ((p_transpose : Bool)));
 	};
 	public function draw_rect(p_canvas_item:gd.RID, p_rect:gd.Rect2, p_tile:Bool, ?p_modulate:gd.Color, ?p_transpose:Bool):Void switch [p_canvas_item, p_rect, p_tile, p_modulate, p_transpose] {
-		case [_, _, _, null, _]:__texture2d_ptr().value.draw_rect(((p_canvas_item : gd.RID)), ((p_rect : gd.Rect2)), ((p_tile : Bool)));
-		case [_, _, _, _, null]:__texture2d_ptr().value.draw_rect(((p_canvas_item : gd.RID)), ((p_rect : gd.Rect2)), ((p_tile : Bool)), ((p_modulate : gd.Color)));
-		default:__texture2d_ptr().value.draw_rect(((p_canvas_item : gd.RID)), ((p_rect : gd.Rect2)), ((p_tile : Bool)), ((p_modulate : gd.Color)), ((p_transpose : Bool)));
+		case [_, _, _, null, _]:__texture2d_ptr().draw_rect(((p_canvas_item : gd.RID)), ((p_rect : gd.Rect2)), ((p_tile : Bool)));
+		case [_, _, _, _, null]:__texture2d_ptr().draw_rect(((p_canvas_item : gd.RID)), ((p_rect : gd.Rect2)), ((p_tile : Bool)), ((p_modulate : gd.Color)));
+		default:__texture2d_ptr().draw_rect(((p_canvas_item : gd.RID)), ((p_rect : gd.Rect2)), ((p_tile : Bool)), ((p_modulate : gd.Color)), ((p_transpose : Bool)));
 	};
 	public function draw_rect_region(p_canvas_item:gd.RID, p_rect:gd.Rect2, p_src_rect:gd.Rect2, ?p_modulate:gd.Color, ?p_transpose:Bool, ?p_clip_uv:Bool):Void switch [p_canvas_item, p_rect, p_src_rect, p_modulate, p_transpose, p_clip_uv] {
-		case [_, _, _, null, _, _]:__texture2d_ptr().value.draw_rect_region(((p_canvas_item : gd.RID)), ((p_rect : gd.Rect2)), ((p_src_rect : gd.Rect2)));
-		case [_, _, _, _, null, _]:__texture2d_ptr().value.draw_rect_region(((p_canvas_item : gd.RID)), ((p_rect : gd.Rect2)), ((p_src_rect : gd.Rect2)), ((p_modulate : gd.Color)));
-		case [_, _, _, _, _, null]:__texture2d_ptr().value.draw_rect_region(((p_canvas_item : gd.RID)), ((p_rect : gd.Rect2)), ((p_src_rect : gd.Rect2)), ((p_modulate : gd.Color)), ((p_transpose : Bool)));
-		default:__texture2d_ptr().value.draw_rect_region(((p_canvas_item : gd.RID)), ((p_rect : gd.Rect2)), ((p_src_rect : gd.Rect2)), ((p_modulate : gd.Color)), ((p_transpose : Bool)), ((p_clip_uv : Bool)));
+		case [_, _, _, null, _, _]:__texture2d_ptr().draw_rect_region(((p_canvas_item : gd.RID)), ((p_rect : gd.Rect2)), ((p_src_rect : gd.Rect2)));
+		case [_, _, _, _, null, _]:__texture2d_ptr().draw_rect_region(((p_canvas_item : gd.RID)), ((p_rect : gd.Rect2)), ((p_src_rect : gd.Rect2)), ((p_modulate : gd.Color)));
+		case [_, _, _, _, _, null]:__texture2d_ptr().draw_rect_region(((p_canvas_item : gd.RID)), ((p_rect : gd.Rect2)), ((p_src_rect : gd.Rect2)), ((p_modulate : gd.Color)), ((p_transpose : Bool)));
+		default:__texture2d_ptr().draw_rect_region(((p_canvas_item : gd.RID)), ((p_rect : gd.Rect2)), ((p_src_rect : gd.Rect2)), ((p_modulate : gd.Color)), ((p_transpose : Bool)), ((p_clip_uv : Bool)));
 	};
-	public function create_placeholder():gd.Resource return __texture2d_ptr().value.create_placeholder();
+	public function create_placeholder():gd.Resource return __texture2d_ptr().create_placeholder();
 }

@@ -4,12 +4,12 @@ package gdnative;
 **/
 @:forward abstract JSON(gdnative.Ref<JSON_extern>) from gdnative.Ref<JSON_extern> to gdnative.Ref<JSON_extern> {
 	@:from
-	static inline function fromWrapper(v:gd.JSON):gdnative.JSON return @:privateAccess v.__gd.reinterpret();
+	static inline function fromWrapper(v:gd.JSON):gdnative.JSON return cast @:privateAccess v.__gd;
 	@:to
 	inline function toWrapper():gd.JSON return new gd.JSON(this);
 }
-@:include("godot_cpp/classes/json.hpp") @:native("godot::JSON") @:structAccess extern class JSON_extern extends gdnative.Resource.Resource_extern {
-	extern static inline function __alloc():cpp.Pointer<JSON_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::JSON"));
+@:include("godot_cpp/classes/json.hpp") @:semantics(reference) @:cpp.PointerType({ type : "JSON", namespace : ['godot'] }) extern class JSON_extern extends gdnative.Resource.Resource_extern {
+	extern static inline function __alloc():JSON_extern return gdnative.Memory.memnew(untyped __cpp__("godot::JSON"));
 	overload static function stringify(p_data:gdnative.Variant):gdnative.String;
 	overload static function stringify(p_data:gdnative.Variant, p_indent:gdnative.String):gdnative.String;
 	overload static function stringify(p_data:gdnative.Variant, p_indent:gdnative.String, p_sort_keys:Bool):gdnative.String;

@@ -194,8 +194,12 @@ class Builder {
 	function isValueType(type:String) {
 		return switch type {
 			case 'float' | 'int' | 'bool': false;
-			case _: isBuiltinClass(type);
+			case _: isBuiltinClass(type) || isEnum(type);
 		}
+	}
+
+	function isEnum(type:String):Bool {
+		return type.startsWith('enum::');
 	}
 
 	function stackAllocateValueType(type:String, expr:Expr):Expr {
@@ -210,7 +214,7 @@ class Builder {
 	function makeVarArgCall(args:Array<Argument>, f:Expr):Expr {
 		final exprs = [];
 		exprs.push(macro final vlen = p_args.length, len = $v{args.length} + vlen);
-		exprs.push(macro untyped __cpp__('std::vector<const godot::Variant*> ptrs; ptrs.resize({0})', len));
+		exprs.push(macro untyped __cpp__('std::vector<const godot::Variant*> ptrs({0})', len));
 
 		for (i => arg in args) {
 			if (arg.type == 'Variant') {

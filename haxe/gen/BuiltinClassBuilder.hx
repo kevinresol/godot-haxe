@@ -930,6 +930,7 @@ class BuiltinClassBuilder extends Builder {
 		] {
 			case [true, false, false]: macro @:privateAccess p_rhs.val();
 			case [true, false, true]: macro p_rhs.toReference();
+			case [false, false, _]: macro untyped __cpp__('{0}.ptr', p_rhs);
 			case _: macro p_rhs;
 		}
 		return switch op.name {

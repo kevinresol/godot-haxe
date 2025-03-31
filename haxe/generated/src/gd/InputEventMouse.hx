@@ -1,34 +1,34 @@
 package gd;
 @:cppInclude('iostream') class InputEventMouse extends gd.InputEventWithModifiers {
-	public function new(?native:cpp.Pointer<gdnative.InputEventMouse.InputEventMouse_extern>) {
-		if (native == null) {
+	public function new(?native:gdnative.InputEventMouse.InputEventMouse_extern) {
+		if (untyped __cpp__('{0} == {1}', native, null)) {
 			gd.Utils.checkAndWarnForMissingOwner(this, "InputEventMouse");
 			native = gdnative.InputEventMouse.InputEventMouse_extern.__alloc();
 		};
 		if (Type.getClassName(Type.getClass(this)) == "gd.InputEventMouse") cpp.vm.Gc.setFinalizer(this, cpp.Callable.fromStaticFunction(__finalize));
-		super(native.reinterpret());
+		super(cast native);
 	}
-	extern inline function __inputeventmouse_ptr():cpp.Pointer<gdnative.InputEventMouse.InputEventMouse_extern> return cast __gd.ptr;
+	extern inline function __inputeventmouse_ptr():gdnative.InputEventMouse.InputEventMouse_extern return cast __gd;
 	static function __finalize(inst:gd.InputEventMouse) inst.__ref = new gdnative.Ref.Ref_extern();
 	public function set_button_mask(p_button_mask:Int):Int {
-		__inputeventmouse_ptr().value.set_button_mask(((p_button_mask : Int)));
+		__inputeventmouse_ptr().set_button_mask(((p_button_mask : Int)));
 		return p_button_mask;
 	}
-	public function get_button_mask():Int return __inputeventmouse_ptr().value.get_button_mask();
+	public function get_button_mask():Int return __inputeventmouse_ptr().get_button_mask();
 	public function set_position(p_position:gd.Vector2):gd.Vector2 {
-		__inputeventmouse_ptr().value.set_position(((p_position : gd.Vector2)));
+		__inputeventmouse_ptr().set_position(((p_position : gd.Vector2)));
 		return p_position;
 	}
 	public function get_position():gd.Vector2 return {
-		final v = __inputeventmouse_ptr().value.get_position();
+		final v = __inputeventmouse_ptr().get_position();
 		v;
 	};
 	public function set_global_position(p_global_position:gd.Vector2):gd.Vector2 {
-		__inputeventmouse_ptr().value.set_global_position(((p_global_position : gd.Vector2)));
+		__inputeventmouse_ptr().set_global_position(((p_global_position : gd.Vector2)));
 		return p_global_position;
 	}
 	public function get_global_position():gd.Vector2 return {
-		final v = __inputeventmouse_ptr().value.get_global_position();
+		final v = __inputeventmouse_ptr().get_global_position();
 		v;
 	};
 	public var button_mask(get, set) : Int;

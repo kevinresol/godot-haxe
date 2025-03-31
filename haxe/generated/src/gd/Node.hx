@@ -1,13 +1,13 @@
 package gd;
 @:cppInclude('iostream') class Node extends gd.Object {
-	public function new(?native:cpp.Pointer<gdnative.Node.Node_extern>) {
-		if (native == null) {
+	public function new(?native:gdnative.Node.Node_extern) {
+		if (untyped __cpp__('{0} == {1}', native, null)) {
 			gd.Utils.checkAndWarnForMissingOwner(this, "Node");
 			native = gdnative.Node.Node_extern.__alloc();
 		};
-		super(native.reinterpret());
+		super(cast native);
 	}
-	extern inline function __node_ptr():cpp.Pointer<gdnative.Node.Node_extern> return cast __gd.ptr;
+	extern inline function __node_ptr():gdnative.Node.Node_extern return cast __gd;
 	static public final NOTIFICATION_ENTER_TREE : Int = 10;
 	static public final NOTIFICATION_EXIT_TREE : Int = 11;
 	static public final NOTIFICATION_MOVED_IN_PARENT : Int = 12;
@@ -51,284 +51,296 @@ package gd;
 	static public final NOTIFICATION_APPLICATION_FOCUS_IN : Int = 2016;
 	static public final NOTIFICATION_APPLICATION_FOCUS_OUT : Int = 2017;
 	static public final NOTIFICATION_TEXT_SERVER_CHANGED : Int = 2018;
-	public function _process(p_delta:Float):Void __node_ptr().value._process(((p_delta : Float)));
-	public function _physics_process(p_delta:Float):Void __node_ptr().value._physics_process(((p_delta : Float)));
-	public function _enter_tree():Void __node_ptr().value._enter_tree();
-	public function _exit_tree():Void __node_ptr().value._exit_tree();
-	public function _ready():Void __node_ptr().value._ready();
+	public function _process(p_delta:Float):Void __node_ptr()._process(((p_delta : Float)));
+	public function _physics_process(p_delta:Float):Void __node_ptr()._physics_process(((p_delta : Float)));
+	public function _enter_tree():Void __node_ptr()._enter_tree();
+	public function _exit_tree():Void __node_ptr()._exit_tree();
+	public function _ready():Void __node_ptr()._ready();
 	public function _get_configuration_warnings():gd.PackedStringArray return {
-		final v = __node_ptr().value._get_configuration_warnings();
+		final v = __node_ptr()._get_configuration_warnings();
 		v;
 	};
-	public function _input(p_event:gd.InputEvent):Void __node_ptr().value._input(((p_event : gd.InputEvent)));
-	public function _shortcut_input(p_event:gd.InputEvent):Void __node_ptr().value._shortcut_input(((p_event : gd.InputEvent)));
-	public function _unhandled_input(p_event:gd.InputEvent):Void __node_ptr().value._unhandled_input(((p_event : gd.InputEvent)));
-	public function _unhandled_key_input(p_event:gd.InputEvent):Void __node_ptr().value._unhandled_key_input(((p_event : gd.InputEvent)));
+	public function _input(p_event:gd.InputEvent):Void __node_ptr()._input(((p_event : gd.InputEvent)));
+	public function _shortcut_input(p_event:gd.InputEvent):Void __node_ptr()._shortcut_input(((p_event : gd.InputEvent)));
+	public function _unhandled_input(p_event:gd.InputEvent):Void __node_ptr()._unhandled_input(((p_event : gd.InputEvent)));
+	public function _unhandled_key_input(p_event:gd.InputEvent):Void __node_ptr()._unhandled_key_input(((p_event : gd.InputEvent)));
 	public static function print_orphan_nodes():Void gdnative.Node.Node_extern.print_orphan_nodes();
 	public function add_sibling(p_sibling:gd.Node, ?p_force_readable_name:Bool):Void switch [p_sibling, p_force_readable_name] {
-		case [_, null]:__node_ptr().value.add_sibling(((p_sibling : gd.Node)));
-		default:__node_ptr().value.add_sibling(((p_sibling : gd.Node)), ((p_force_readable_name : Bool)));
+		case [_, null]:__node_ptr().add_sibling(((p_sibling : gd.Node)));
+		default:__node_ptr().add_sibling(((p_sibling : gd.Node)), ((p_force_readable_name : Bool)));
 	};
 	public function set_name(p_name:std.String):std.String {
-		__node_ptr().value.set_name(((p_name : std.String)));
+		__node_ptr().set_name(((p_name : std.String)));
 		return p_name;
 	}
 	public function get_name():std.String return {
-		final v = __node_ptr().value.get_name();
+		final v = __node_ptr().get_name();
 		v;
 	};
 	public function add_child(p_node:gd.Node, ?p_force_readable_name:Bool, ?p_internal:gd.node.InternalMode):Void switch [p_node, p_force_readable_name, p_internal] {
-		case [_, null, _]:__node_ptr().value.add_child(((p_node : gd.Node)));
-		case [_, _, null]:__node_ptr().value.add_child(((p_node : gd.Node)), ((p_force_readable_name : Bool)));
-		default:__node_ptr().value.add_child(((p_node : gd.Node)), ((p_force_readable_name : Bool)), ((p_internal : gd.node.InternalMode)));
+		case [_, null, _]:__node_ptr().add_child(((p_node : gd.Node)));
+		case [_, _, null]:__node_ptr().add_child(((p_node : gd.Node)), ((p_force_readable_name : Bool)));
+		default:__node_ptr().add_child(((p_node : gd.Node)), ((p_force_readable_name : Bool)), ((p_internal : gd.node.InternalMode)));
 	};
-	public function remove_child(p_node:gd.Node):Void __node_ptr().value.remove_child(((p_node : gd.Node)));
+	public function remove_child(p_node:gd.Node):Void __node_ptr().remove_child(((p_node : gd.Node)));
 	public function reparent(p_new_parent:gd.Node, ?p_keep_global_transform:Bool):Void switch [p_new_parent, p_keep_global_transform] {
-		case [_, null]:__node_ptr().value.reparent(((p_new_parent : gd.Node)));
-		default:__node_ptr().value.reparent(((p_new_parent : gd.Node)), ((p_keep_global_transform : Bool)));
+		case [_, null]:__node_ptr().reparent(((p_new_parent : gd.Node)));
+		default:__node_ptr().reparent(((p_new_parent : gd.Node)), ((p_keep_global_transform : Bool)));
 	};
 	public function get_child_count(?p_include_internal:Bool):cpp.Int64 return switch [p_include_internal] {
-		case [null]:__node_ptr().value.get_child_count();
-		default:__node_ptr().value.get_child_count(((p_include_internal : Bool)));
+		case [null]:__node_ptr().get_child_count();
+		default:__node_ptr().get_child_count(((p_include_internal : Bool)));
 	};
 	public function get_child(p_idx:cpp.Int64, ?p_include_internal:Bool):gd.Node return switch [p_idx, p_include_internal] {
-		case [_, null]:__node_ptr().value.get_child(((p_idx : cpp.Int64)));
-		default:__node_ptr().value.get_child(((p_idx : cpp.Int64)), ((p_include_internal : Bool)));
+		case [_, null]:__node_ptr().get_child(((p_idx : cpp.Int64)));
+		default:__node_ptr().get_child(((p_idx : cpp.Int64)), ((p_include_internal : Bool)));
 	};
-	public function has_node(p_path:std.String):Bool return __node_ptr().value.has_node(((p_path : std.String)));
-	public function get_node(p_path:std.String):gd.Node return __node_ptr().value.get_node(((p_path : std.String)));
-	public function get_node_or_null(p_path:std.String):gd.Node return __node_ptr().value.get_node_or_null(((p_path : std.String)));
-	public function get_parent():gd.Node return __node_ptr().value.get_parent();
+	public function has_node(p_path:std.String):Bool return __node_ptr().has_node(((p_path : std.String)));
+	public function get_node(p_path:std.String):gd.Node return __node_ptr().get_node(((p_path : std.String)));
+	public function get_node_or_null(p_path:std.String):gd.Node return __node_ptr().get_node_or_null(((p_path : std.String)));
+	public function get_parent():gd.Node return __node_ptr().get_parent();
 	public function find_child(p_pattern:std.String, ?p_recursive:Bool, ?p_owned:Bool):gd.Node return switch [p_pattern, p_recursive, p_owned] {
-		case [_, null, _]:__node_ptr().value.find_child(((p_pattern : std.String)));
-		case [_, _, null]:__node_ptr().value.find_child(((p_pattern : std.String)), ((p_recursive : Bool)));
-		default:__node_ptr().value.find_child(((p_pattern : std.String)), ((p_recursive : Bool)), ((p_owned : Bool)));
+		case [_, null, _]:__node_ptr().find_child(((p_pattern : std.String)));
+		case [_, _, null]:__node_ptr().find_child(((p_pattern : std.String)), ((p_recursive : Bool)));
+		default:__node_ptr().find_child(((p_pattern : std.String)), ((p_recursive : Bool)), ((p_owned : Bool)));
 	};
-	public function find_parent(p_pattern:std.String):gd.Node return __node_ptr().value.find_parent(((p_pattern : std.String)));
-	public function has_node_and_resource(p_path:std.String):Bool return __node_ptr().value.has_node_and_resource(((p_path : std.String)));
+	public function find_parent(p_pattern:std.String):gd.Node return __node_ptr().find_parent(((p_pattern : std.String)));
+	public function has_node_and_resource(p_path:std.String):Bool return __node_ptr().has_node_and_resource(((p_path : std.String)));
 	public function get_node_and_resource(p_path:std.String):gd.Array return {
-		final v = __node_ptr().value.get_node_and_resource(((p_path : std.String)));
+		final v = __node_ptr().get_node_and_resource(((p_path : std.String)));
 		v;
 	};
-	public function is_inside_tree():Bool return __node_ptr().value.is_inside_tree();
-	public function is_part_of_edited_scene():Bool return __node_ptr().value.is_part_of_edited_scene();
-	public function is_ancestor_of(p_node:gd.Node):Bool return __node_ptr().value.is_ancestor_of(((p_node : gd.Node)));
-	public function is_greater_than(p_node:gd.Node):Bool return __node_ptr().value.is_greater_than(((p_node : gd.Node)));
+	public function is_inside_tree():Bool return __node_ptr().is_inside_tree();
+	public function is_part_of_edited_scene():Bool return __node_ptr().is_part_of_edited_scene();
+	public function is_ancestor_of(p_node:gd.Node):Bool return __node_ptr().is_ancestor_of(((p_node : gd.Node)));
+	public function is_greater_than(p_node:gd.Node):Bool return __node_ptr().is_greater_than(((p_node : gd.Node)));
 	public function get_path():std.String return {
-		final v = __node_ptr().value.get_path();
+		final v = __node_ptr().get_path();
 		v;
 	};
 	public function get_path_to(p_node:gd.Node, ?p_use_unique_path:Bool):std.String return switch [p_node, p_use_unique_path] {
 		case [_, null]:{
-			final v = __node_ptr().value.get_path_to(((p_node : gd.Node)));
+			final v = __node_ptr().get_path_to(((p_node : gd.Node)));
 			v;
 		};
 		default:{
-			final v = __node_ptr().value.get_path_to(((p_node : gd.Node)), ((p_use_unique_path : Bool)));
+			final v = __node_ptr().get_path_to(((p_node : gd.Node)), ((p_use_unique_path : Bool)));
 			v;
 		};
 	};
 	public function add_to_group(p_group:std.String, ?p_persistent:Bool):Void switch [p_group, p_persistent] {
-		case [_, null]:__node_ptr().value.add_to_group(((p_group : std.String)));
-		default:__node_ptr().value.add_to_group(((p_group : std.String)), ((p_persistent : Bool)));
+		case [_, null]:__node_ptr().add_to_group(((p_group : std.String)));
+		default:__node_ptr().add_to_group(((p_group : std.String)), ((p_persistent : Bool)));
 	};
-	public function remove_from_group(p_group:std.String):Void __node_ptr().value.remove_from_group(((p_group : std.String)));
-	public function is_in_group(p_group:std.String):Bool return __node_ptr().value.is_in_group(((p_group : std.String)));
-	public function move_child(p_child_node:gd.Node, p_to_index:cpp.Int64):Void __node_ptr().value.move_child(((p_child_node : gd.Node)), ((p_to_index : cpp.Int64)));
+	public function remove_from_group(p_group:std.String):Void __node_ptr().remove_from_group(((p_group : std.String)));
+	public function is_in_group(p_group:std.String):Bool return __node_ptr().is_in_group(((p_group : std.String)));
+	public function move_child(p_child_node:gd.Node, p_to_index:cpp.Int64):Void __node_ptr().move_child(((p_child_node : gd.Node)), ((p_to_index : cpp.Int64)));
 	public function set_owner(p_owner:gd.Node):gd.Node {
-		__node_ptr().value.set_owner(((p_owner : gd.Node)));
+		__node_ptr().set_owner(((p_owner : gd.Node)));
 		return p_owner;
 	}
-	public function get_owner():gd.Node return __node_ptr().value.get_owner();
+	public function get_owner():gd.Node return __node_ptr().get_owner();
 	public function get_index(?p_include_internal:Bool):cpp.Int64 return switch [p_include_internal] {
-		case [null]:__node_ptr().value.get_index();
-		default:__node_ptr().value.get_index(((p_include_internal : Bool)));
+		case [null]:__node_ptr().get_index();
+		default:__node_ptr().get_index(((p_include_internal : Bool)));
 	};
-	public function print_tree():Void __node_ptr().value.print_tree();
-	public function print_tree_pretty():Void __node_ptr().value.print_tree_pretty();
+	public function print_tree():Void __node_ptr().print_tree();
+	public function print_tree_pretty():Void __node_ptr().print_tree_pretty();
 	public function get_tree_string():std.String return {
-		final v = __node_ptr().value.get_tree_string();
+		final v = __node_ptr().get_tree_string();
 		v;
 	};
 	public function get_tree_string_pretty():std.String return {
-		final v = __node_ptr().value.get_tree_string_pretty();
+		final v = __node_ptr().get_tree_string_pretty();
 		v;
 	};
 	public function set_scene_file_path(p_scene_file_path:std.String):std.String {
-		__node_ptr().value.set_scene_file_path(((p_scene_file_path : std.String)));
+		__node_ptr().set_scene_file_path(((p_scene_file_path : std.String)));
 		return p_scene_file_path;
 	}
 	public function get_scene_file_path():std.String return {
-		final v = __node_ptr().value.get_scene_file_path();
+		final v = __node_ptr().get_scene_file_path();
 		v;
 	};
-	public function propagate_notification(p_what:cpp.Int64):Void __node_ptr().value.propagate_notification(((p_what : cpp.Int64)));
+	public function propagate_notification(p_what:cpp.Int64):Void __node_ptr().propagate_notification(((p_what : cpp.Int64)));
 	public function propagate_call(p_method:std.String, ?p_args:gd.Array, ?p_parent_first:Bool):Void switch [p_method, p_args, p_parent_first] {
-		case [_, null, _]:__node_ptr().value.propagate_call(((p_method : std.String)));
-		case [_, _, null]:__node_ptr().value.propagate_call(((p_method : std.String)), ((p_args : gd.Array)));
-		default:__node_ptr().value.propagate_call(((p_method : std.String)), ((p_args : gd.Array)), ((p_parent_first : Bool)));
+		case [_, null, _]:__node_ptr().propagate_call(((p_method : std.String)));
+		case [_, _, null]:__node_ptr().propagate_call(((p_method : std.String)), ((p_args : gd.Array)));
+		default:__node_ptr().propagate_call(((p_method : std.String)), ((p_args : gd.Array)), ((p_parent_first : Bool)));
 	};
-	public function set_physics_process(p_enable:Bool):Void __node_ptr().value.set_physics_process(((p_enable : Bool)));
-	public function get_physics_process_delta_time():Float return __node_ptr().value.get_physics_process_delta_time();
-	public function is_physics_processing():Bool return __node_ptr().value.is_physics_processing();
-	public function get_process_delta_time():Float return __node_ptr().value.get_process_delta_time();
-	public function set_process(p_enable:Bool):Void __node_ptr().value.set_process(((p_enable : Bool)));
+	public function set_physics_process(p_enable:Bool):Void __node_ptr().set_physics_process(((p_enable : Bool)));
+	public function get_physics_process_delta_time():Float return __node_ptr().get_physics_process_delta_time();
+	public function is_physics_processing():Bool return __node_ptr().is_physics_processing();
+	public function get_process_delta_time():Float return __node_ptr().get_process_delta_time();
+	public function set_process(p_enable:Bool):Void __node_ptr().set_process(((p_enable : Bool)));
 	public function set_process_priority(p_priority:cpp.Int64):cpp.Int64 {
-		__node_ptr().value.set_process_priority(((p_priority : cpp.Int64)));
+		__node_ptr().set_process_priority(((p_priority : cpp.Int64)));
 		return p_priority;
 	}
-	public function get_process_priority():cpp.Int64 return __node_ptr().value.get_process_priority();
-	public function set_physics_process_priority(p_priority:cpp.Int64):Void __node_ptr().value.set_physics_process_priority(((p_priority : cpp.Int64)));
-	public function get_physics_process_priority():cpp.Int64 return __node_ptr().value.get_physics_process_priority();
-	public function is_processing():Bool return __node_ptr().value.is_processing();
-	public function set_process_input(p_enable:Bool):Void __node_ptr().value.set_process_input(((p_enable : Bool)));
-	public function is_processing_input():Bool return __node_ptr().value.is_processing_input();
-	public function set_process_shortcut_input(p_enable:Bool):Void __node_ptr().value.set_process_shortcut_input(((p_enable : Bool)));
-	public function is_processing_shortcut_input():Bool return __node_ptr().value.is_processing_shortcut_input();
-	public function set_process_unhandled_input(p_enable:Bool):Void __node_ptr().value.set_process_unhandled_input(((p_enable : Bool)));
-	public function is_processing_unhandled_input():Bool return __node_ptr().value.is_processing_unhandled_input();
-	public function set_process_unhandled_key_input(p_enable:Bool):Void __node_ptr().value.set_process_unhandled_key_input(((p_enable : Bool)));
-	public function is_processing_unhandled_key_input():Bool return __node_ptr().value.is_processing_unhandled_key_input();
+	public function get_process_priority():cpp.Int64 return __node_ptr().get_process_priority();
+	public function set_physics_process_priority(p_priority:cpp.Int64):Void __node_ptr().set_physics_process_priority(((p_priority : cpp.Int64)));
+	public function get_physics_process_priority():cpp.Int64 return __node_ptr().get_physics_process_priority();
+	public function is_processing():Bool return __node_ptr().is_processing();
+	public function set_process_input(p_enable:Bool):Void __node_ptr().set_process_input(((p_enable : Bool)));
+	public function is_processing_input():Bool return __node_ptr().is_processing_input();
+	public function set_process_shortcut_input(p_enable:Bool):Void __node_ptr().set_process_shortcut_input(((p_enable : Bool)));
+	public function is_processing_shortcut_input():Bool return __node_ptr().is_processing_shortcut_input();
+	public function set_process_unhandled_input(p_enable:Bool):Void __node_ptr().set_process_unhandled_input(((p_enable : Bool)));
+	public function is_processing_unhandled_input():Bool return __node_ptr().is_processing_unhandled_input();
+	public function set_process_unhandled_key_input(p_enable:Bool):Void __node_ptr().set_process_unhandled_key_input(((p_enable : Bool)));
+	public function is_processing_unhandled_key_input():Bool return __node_ptr().is_processing_unhandled_key_input();
 	public function set_process_mode(p_mode:gd.node.ProcessMode):gd.node.ProcessMode {
-		__node_ptr().value.set_process_mode(((p_mode : gd.node.ProcessMode)));
+		__node_ptr().set_process_mode(((p_mode : gd.node.ProcessMode)));
 		return p_mode;
 	}
-	public function get_process_mode():gd.node.ProcessMode return __node_ptr().value.get_process_mode();
-	public function can_process():Bool return __node_ptr().value.can_process();
+	public function get_process_mode():gd.node.ProcessMode return {
+		final v = __node_ptr().get_process_mode();
+		v;
+	};
+	public function can_process():Bool return __node_ptr().can_process();
 	public function set_process_thread_group(p_mode:gd.node.ProcessThreadGroup):gd.node.ProcessThreadGroup {
-		__node_ptr().value.set_process_thread_group(((p_mode : gd.node.ProcessThreadGroup)));
+		__node_ptr().set_process_thread_group(((p_mode : gd.node.ProcessThreadGroup)));
 		return p_mode;
 	}
-	public function get_process_thread_group():gd.node.ProcessThreadGroup return __node_ptr().value.get_process_thread_group();
+	public function get_process_thread_group():gd.node.ProcessThreadGroup return {
+		final v = __node_ptr().get_process_thread_group();
+		v;
+	};
 	public function set_process_thread_messages(p_flags:Int):Int {
-		__node_ptr().value.set_process_thread_messages(((p_flags : Int)));
+		__node_ptr().set_process_thread_messages(((p_flags : Int)));
 		return p_flags;
 	}
-	public function get_process_thread_messages():Int return __node_ptr().value.get_process_thread_messages();
+	public function get_process_thread_messages():Int return __node_ptr().get_process_thread_messages();
 	public function set_process_thread_group_order(p_order:cpp.Int64):cpp.Int64 {
-		__node_ptr().value.set_process_thread_group_order(((p_order : cpp.Int64)));
+		__node_ptr().set_process_thread_group_order(((p_order : cpp.Int64)));
 		return p_order;
 	}
-	public function get_process_thread_group_order():cpp.Int64 return __node_ptr().value.get_process_thread_group_order();
-	public function set_display_folded(p_fold:Bool):Void __node_ptr().value.set_display_folded(((p_fold : Bool)));
-	public function is_displayed_folded():Bool return __node_ptr().value.is_displayed_folded();
-	public function set_process_internal(p_enable:Bool):Void __node_ptr().value.set_process_internal(((p_enable : Bool)));
-	public function is_processing_internal():Bool return __node_ptr().value.is_processing_internal();
-	public function set_physics_process_internal(p_enable:Bool):Void __node_ptr().value.set_physics_process_internal(((p_enable : Bool)));
-	public function is_physics_processing_internal():Bool return __node_ptr().value.is_physics_processing_internal();
+	public function get_process_thread_group_order():cpp.Int64 return __node_ptr().get_process_thread_group_order();
+	public function set_display_folded(p_fold:Bool):Void __node_ptr().set_display_folded(((p_fold : Bool)));
+	public function is_displayed_folded():Bool return __node_ptr().is_displayed_folded();
+	public function set_process_internal(p_enable:Bool):Void __node_ptr().set_process_internal(((p_enable : Bool)));
+	public function is_processing_internal():Bool return __node_ptr().is_processing_internal();
+	public function set_physics_process_internal(p_enable:Bool):Void __node_ptr().set_physics_process_internal(((p_enable : Bool)));
+	public function is_physics_processing_internal():Bool return __node_ptr().is_physics_processing_internal();
 	public function set_physics_interpolation_mode(p_mode:gd.node.PhysicsInterpolationMode):gd.node.PhysicsInterpolationMode {
-		__node_ptr().value.set_physics_interpolation_mode(((p_mode : gd.node.PhysicsInterpolationMode)));
+		__node_ptr().set_physics_interpolation_mode(((p_mode : gd.node.PhysicsInterpolationMode)));
 		return p_mode;
 	}
-	public function get_physics_interpolation_mode():gd.node.PhysicsInterpolationMode return __node_ptr().value.get_physics_interpolation_mode();
-	public function is_physics_interpolated():Bool return __node_ptr().value.is_physics_interpolated();
-	public function is_physics_interpolated_and_enabled():Bool return __node_ptr().value.is_physics_interpolated_and_enabled();
-	public function reset_physics_interpolation():Void __node_ptr().value.reset_physics_interpolation();
+	public function get_physics_interpolation_mode():gd.node.PhysicsInterpolationMode return {
+		final v = __node_ptr().get_physics_interpolation_mode();
+		v;
+	};
+	public function is_physics_interpolated():Bool return __node_ptr().is_physics_interpolated();
+	public function is_physics_interpolated_and_enabled():Bool return __node_ptr().is_physics_interpolated_and_enabled();
+	public function reset_physics_interpolation():Void __node_ptr().reset_physics_interpolation();
 	public function set_auto_translate_mode(p_mode:gd.node.AutoTranslateMode):gd.node.AutoTranslateMode {
-		__node_ptr().value.set_auto_translate_mode(((p_mode : gd.node.AutoTranslateMode)));
+		__node_ptr().set_auto_translate_mode(((p_mode : gd.node.AutoTranslateMode)));
 		return p_mode;
 	}
-	public function get_auto_translate_mode():gd.node.AutoTranslateMode return __node_ptr().value.get_auto_translate_mode();
-	public function set_translation_domain_inherited():Void __node_ptr().value.set_translation_domain_inherited();
-	public function get_tree():gd.SceneTree return __node_ptr().value.get_tree();
+	public function get_auto_translate_mode():gd.node.AutoTranslateMode return {
+		final v = __node_ptr().get_auto_translate_mode();
+		v;
+	};
+	public function set_translation_domain_inherited():Void __node_ptr().set_translation_domain_inherited();
+	public function get_tree():gd.SceneTree return __node_ptr().get_tree();
 	public function duplicate(?p_flags:cpp.Int64):gd.Node return switch [p_flags] {
-		case [null]:__node_ptr().value.duplicate();
-		default:__node_ptr().value.duplicate(((p_flags : cpp.Int64)));
+		case [null]:__node_ptr().duplicate();
+		default:__node_ptr().duplicate(((p_flags : cpp.Int64)));
 	};
 	public function replace_by(p_node:gd.Node, ?p_keep_groups:Bool):Void switch [p_node, p_keep_groups] {
-		case [_, null]:__node_ptr().value.replace_by(((p_node : gd.Node)));
-		default:__node_ptr().value.replace_by(((p_node : gd.Node)), ((p_keep_groups : Bool)));
+		case [_, null]:__node_ptr().replace_by(((p_node : gd.Node)));
+		default:__node_ptr().replace_by(((p_node : gd.Node)), ((p_keep_groups : Bool)));
 	};
-	public function set_scene_instance_load_placeholder(p_load_placeholder:Bool):Void __node_ptr().value.set_scene_instance_load_placeholder(((p_load_placeholder : Bool)));
-	public function get_scene_instance_load_placeholder():Bool return __node_ptr().value.get_scene_instance_load_placeholder();
-	public function set_editable_instance(p_node:gd.Node, p_is_editable:Bool):Void __node_ptr().value.set_editable_instance(((p_node : gd.Node)), ((p_is_editable : Bool)));
-	public function is_editable_instance(p_node:gd.Node):Bool return __node_ptr().value.is_editable_instance(((p_node : gd.Node)));
-	public function queue_free():Void __node_ptr().value.queue_free();
-	public function request_ready():Void __node_ptr().value.request_ready();
-	public function is_node_ready():Bool return __node_ptr().value.is_node_ready();
+	public function set_scene_instance_load_placeholder(p_load_placeholder:Bool):Void __node_ptr().set_scene_instance_load_placeholder(((p_load_placeholder : Bool)));
+	public function get_scene_instance_load_placeholder():Bool return __node_ptr().get_scene_instance_load_placeholder();
+	public function set_editable_instance(p_node:gd.Node, p_is_editable:Bool):Void __node_ptr().set_editable_instance(((p_node : gd.Node)), ((p_is_editable : Bool)));
+	public function is_editable_instance(p_node:gd.Node):Bool return __node_ptr().is_editable_instance(((p_node : gd.Node)));
+	public function queue_free():Void __node_ptr().queue_free();
+	public function request_ready():Void __node_ptr().request_ready();
+	public function is_node_ready():Bool return __node_ptr().is_node_ready();
 	public function set_multiplayer_authority(p_id:cpp.Int64, ?p_recursive:Bool):Void switch [p_id, p_recursive] {
-		case [_, null]:__node_ptr().value.set_multiplayer_authority(((p_id : cpp.Int64)));
-		default:__node_ptr().value.set_multiplayer_authority(((p_id : cpp.Int64)), ((p_recursive : Bool)));
+		case [_, null]:__node_ptr().set_multiplayer_authority(((p_id : cpp.Int64)));
+		default:__node_ptr().set_multiplayer_authority(((p_id : cpp.Int64)), ((p_recursive : Bool)));
 	};
-	public function get_multiplayer_authority():cpp.Int64 return __node_ptr().value.get_multiplayer_authority();
-	public function is_multiplayer_authority():Bool return __node_ptr().value.is_multiplayer_authority();
-	public function rpc_config(p_method:std.String, p_config:gd.Variant):Void __node_ptr().value.rpc_config(((p_method : std.String)), ((p_config : gd.Variant)));
+	public function get_multiplayer_authority():cpp.Int64 return __node_ptr().get_multiplayer_authority();
+	public function is_multiplayer_authority():Bool return __node_ptr().is_multiplayer_authority();
+	public function rpc_config(p_method:std.String, p_config:gd.Variant):Void __node_ptr().rpc_config(((p_method : std.String)), ((p_config : gd.Variant)));
 	public function get_rpc_config():gd.Variant return {
-		final v = __node_ptr().value.get_rpc_config();
+		final v = __node_ptr().get_rpc_config();
 		v;
 	};
 	public function set_editor_description(p_editor_description:std.String):std.String {
-		__node_ptr().value.set_editor_description(((p_editor_description : std.String)));
+		__node_ptr().set_editor_description(((p_editor_description : std.String)));
 		return p_editor_description;
 	}
 	public function get_editor_description():std.String return {
-		final v = __node_ptr().value.get_editor_description();
+		final v = __node_ptr().get_editor_description();
 		v;
 	};
 	public function set_unique_name_in_owner(p_enable:Bool):Bool {
-		__node_ptr().value.set_unique_name_in_owner(((p_enable : Bool)));
+		__node_ptr().set_unique_name_in_owner(((p_enable : Bool)));
 		return p_enable;
 	}
-	public function is_unique_name_in_owner():Bool return __node_ptr().value.is_unique_name_in_owner();
+	public function is_unique_name_in_owner():Bool return __node_ptr().is_unique_name_in_owner();
 	public function atr(p_message:std.String, ?p_context:std.String):std.String return switch [p_message, p_context] {
 		case [_, null]:{
-			final v = __node_ptr().value.atr(((p_message : std.String)));
+			final v = __node_ptr().atr(((p_message : std.String)));
 			v;
 		};
 		default:{
-			final v = __node_ptr().value.atr(((p_message : std.String)), ((p_context : std.String)));
+			final v = __node_ptr().atr(((p_message : std.String)), ((p_context : std.String)));
 			v;
 		};
 	};
 	public function atr_n(p_message:std.String, p_plural_message:std.String, p_n:cpp.Int64, ?p_context:std.String):std.String return switch [p_message, p_plural_message, p_n, p_context] {
 		case [_, _, _, null]:{
-			final v = __node_ptr().value.atr_n(((p_message : std.String)), ((p_plural_message : std.String)), ((p_n : cpp.Int64)));
+			final v = __node_ptr().atr_n(((p_message : std.String)), ((p_plural_message : std.String)), ((p_n : cpp.Int64)));
 			v;
 		};
 		default:{
-			final v = __node_ptr().value.atr_n(((p_message : std.String)), ((p_plural_message : std.String)), ((p_n : cpp.Int64)), ((p_context : std.String)));
+			final v = __node_ptr().atr_n(((p_message : std.String)), ((p_plural_message : std.String)), ((p_n : cpp.Int64)), ((p_context : std.String)));
 			v;
 		};
 	};
 	public function rpc(p_method:std.String, p_args:haxe.Rest<gd.Variant>):gd.Error return {
 		final vlen = p_args.length, len = 1 + vlen;
-		untyped __cpp__('std::vector<const godot::Variant*> ptrs; ptrs.resize({0})', len);
+		untyped __cpp__('std::vector<const godot::Variant*> ptrs({0})', len);
 		final arg0:gdnative.Variant = p_method;
 		untyped __cpp__('ptrs[{0}] = {1}', 0, arg0.toStar());
 		for (i in 0 ... vlen) untyped __cpp__('ptrs[{0}] = {1}', 1 + i, ((p_args[i] : gdnative.Variant)));
-		__node_ptr().value.rpc(untyped __cpp__('ptrs.data()'), len);
+		__node_ptr().rpc(untyped __cpp__('ptrs.data()'), len);
 	};
 	public function rpc_id(p_peer_id:cpp.Int64, p_method:std.String, p_args:haxe.Rest<gd.Variant>):gd.Error return {
 		final vlen = p_args.length, len = 2 + vlen;
-		untyped __cpp__('std::vector<const godot::Variant*> ptrs; ptrs.resize({0})', len);
+		untyped __cpp__('std::vector<const godot::Variant*> ptrs({0})', len);
 		final arg0:gdnative.Variant = p_peer_id;
 		untyped __cpp__('ptrs[{0}] = {1}', 0, arg0.toStar());
 		final arg1:gdnative.Variant = p_method;
 		untyped __cpp__('ptrs[{0}] = {1}', 1, arg1.toStar());
 		for (i in 0 ... vlen) untyped __cpp__('ptrs[{0}] = {1}', 2 + i, ((p_args[i] : gdnative.Variant)));
-		__node_ptr().value.rpc_id(untyped __cpp__('ptrs.data()'), len);
+		__node_ptr().rpc_id(untyped __cpp__('ptrs.data()'), len);
 	};
-	public function update_configuration_warnings():Void __node_ptr().value.update_configuration_warnings();
+	public function update_configuration_warnings():Void __node_ptr().update_configuration_warnings();
 	public function call_deferred_thread_group(p_method:std.String, p_args:haxe.Rest<gd.Variant>):gd.Variant return {
 		final vlen = p_args.length, len = 1 + vlen;
-		untyped __cpp__('std::vector<const godot::Variant*> ptrs; ptrs.resize({0})', len);
+		untyped __cpp__('std::vector<const godot::Variant*> ptrs({0})', len);
 		final arg0:gdnative.Variant = p_method;
 		untyped __cpp__('ptrs[{0}] = {1}', 0, arg0.toStar());
 		for (i in 0 ... vlen) untyped __cpp__('ptrs[{0}] = {1}', 1 + i, ((p_args[i] : gdnative.Variant)));
-		__node_ptr().value.call_deferred_thread_group(untyped __cpp__('ptrs.data()'), len);
+		__node_ptr().call_deferred_thread_group(untyped __cpp__('ptrs.data()'), len);
 	};
-	public function set_deferred_thread_group(p_property:std.String, p_value:gd.Variant):Void __node_ptr().value.set_deferred_thread_group(((p_property : std.String)), ((p_value : gd.Variant)));
-	public function notify_deferred_thread_group(p_what:cpp.Int64):Void __node_ptr().value.notify_deferred_thread_group(((p_what : cpp.Int64)));
+	public function set_deferred_thread_group(p_property:std.String, p_value:gd.Variant):Void __node_ptr().set_deferred_thread_group(((p_property : std.String)), ((p_value : gd.Variant)));
+	public function notify_deferred_thread_group(p_what:cpp.Int64):Void __node_ptr().notify_deferred_thread_group(((p_what : cpp.Int64)));
 	public function call_thread_safe(p_method:std.String, p_args:haxe.Rest<gd.Variant>):gd.Variant return {
 		final vlen = p_args.length, len = 1 + vlen;
-		untyped __cpp__('std::vector<const godot::Variant*> ptrs; ptrs.resize({0})', len);
+		untyped __cpp__('std::vector<const godot::Variant*> ptrs({0})', len);
 		final arg0:gdnative.Variant = p_method;
 		untyped __cpp__('ptrs[{0}] = {1}', 0, arg0.toStar());
 		for (i in 0 ... vlen) untyped __cpp__('ptrs[{0}] = {1}', 1 + i, ((p_args[i] : gdnative.Variant)));
-		__node_ptr().value.call_thread_safe(untyped __cpp__('ptrs.data()'), len);
+		__node_ptr().call_thread_safe(untyped __cpp__('ptrs.data()'), len);
 	};
-	public function set_thread_safe(p_property:std.String, p_value:gd.Variant):Void __node_ptr().value.set_thread_safe(((p_property : std.String)), ((p_value : gd.Variant)));
-	public function notify_thread_safe(p_what:cpp.Int64):Void __node_ptr().value.notify_thread_safe(((p_what : cpp.Int64)));
+	public function set_thread_safe(p_property:std.String, p_value:gd.Variant):Void __node_ptr().set_thread_safe(((p_property : std.String)), ((p_value : gd.Variant)));
+	public function notify_thread_safe(p_what:cpp.Int64):Void __node_ptr().notify_thread_safe(((p_what : cpp.Int64)));
 	public var name(get, set) : std.String;
 	public var unique_name_in_owner(get, set) : Bool;
 	function get_unique_name_in_owner():Bool return is_unique_name_in_owner();

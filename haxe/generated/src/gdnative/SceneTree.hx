@@ -2,14 +2,14 @@ package gdnative;
 /**
 	Class
 **/
-@:forward abstract SceneTree(cpp.Pointer<SceneTree_extern>) from cpp.Pointer<SceneTree_extern> to cpp.Pointer<SceneTree_extern> {
+@:forward abstract SceneTree(SceneTree_extern) from SceneTree_extern to SceneTree_extern {
 	@:from
-	static inline function fromWrapper(v:gd.SceneTree):gdnative.SceneTree return @:privateAccess v.__gd.reinterpret();
+	static inline function fromWrapper(v:gd.SceneTree):gdnative.SceneTree return cast @:privateAccess v.__gd;
 	@:to
 	inline function toWrapper():gd.SceneTree return new gd.SceneTree(this);
 }
-@:include("godot_cpp/classes/scene_tree.hpp") @:native("godot::SceneTree") @:structAccess extern class SceneTree_extern extends gdnative.MainLoop.MainLoop_extern {
-	extern static inline function __alloc():cpp.Pointer<SceneTree_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::SceneTree"));
+@:include("godot_cpp/classes/scene_tree.hpp") @:semantics(reference) @:cpp.PointerType({ type : "SceneTree", namespace : ['godot'] }) extern class SceneTree_extern extends gdnative.MainLoop.MainLoop_extern {
+	extern static inline function __alloc():SceneTree_extern return gdnative.Memory.memnew(untyped __cpp__("godot::SceneTree"));
 	function has_group(p_name:gdnative.StringName):Bool;
 	function is_auto_accept_quit():Bool;
 	function set_auto_accept_quit(p_enabled:Bool):Void;

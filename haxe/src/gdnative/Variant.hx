@@ -62,8 +62,9 @@ abstract Variant(Variant_extern) from Variant_extern to Variant_extern {
 	}
 
 	@:from
-	extern static inline function fromObject(v:gdnative.Object):Variant
-		return new Variant_extern(v);
+	extern static inline function fromObject(v:gdnative.Object.Object_extern):Variant {
+		return new Variant_extern(untyped __cpp__('{0}.ptr', v));
+	}
 
 	@:from
 	extern static inline function fromObjectWrapper(v:gd.Object):Variant
@@ -205,7 +206,7 @@ extern class Variant_extern {
 	@:overload(function(v:gdnative.PackedVector3Array):Void {})
 	@:overload(function(v:gdnative.PackedColorArray):Void {})
 	@:overload(function(v:gdnative.PackedVector4Array):Void {})
-	@:overload(function(v:cpp.Pointer<gdnative.Object.Object_extern>):Void {})
+	@:overload(function(v:gdnative.Object.Object_extern):Void {})
 	@:overload(function(v:cpp.ConstPointer<cpp.Char>):Void {})
 	@:overload(function(v:cpp.ConstCharStar):Void {})
 	@:overload(function(v:cpp.UInt64):Void {})

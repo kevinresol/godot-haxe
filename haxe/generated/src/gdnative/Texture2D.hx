@@ -4,12 +4,12 @@ package gdnative;
 **/
 @:forward abstract Texture2D(gdnative.Ref<Texture2D_extern>) from gdnative.Ref<Texture2D_extern> to gdnative.Ref<Texture2D_extern> {
 	@:from
-	static inline function fromWrapper(v:gd.Texture2D):gdnative.Texture2D return @:privateAccess v.__gd.reinterpret();
+	static inline function fromWrapper(v:gd.Texture2D):gdnative.Texture2D return cast @:privateAccess v.__gd;
 	@:to
 	inline function toWrapper():gd.Texture2D return new gd.Texture2D(this);
 }
-@:include("godot_cpp/classes/texture2d.hpp") @:native("godot::Texture2D") @:structAccess extern class Texture2D_extern extends gdnative.Texture.Texture_extern {
-	extern static inline function __alloc():cpp.Pointer<Texture2D_extern> return gdnative.Memory.Memory_extern.memnew(untyped __cpp__("godot::Texture2D"));
+@:include("godot_cpp/classes/texture2d.hpp") @:semantics(reference) @:cpp.PointerType({ type : "Texture2D", namespace : ['godot'] }) extern class Texture2D_extern extends gdnative.Texture.Texture_extern {
+	extern static inline function __alloc():Texture2D_extern return gdnative.Memory.memnew(untyped __cpp__("godot::Texture2D"));
 	function _get_width():cpp.Int64;
 	function _get_height():cpp.Int64;
 	function _is_pixel_opaque(p_x:cpp.Int64, p_y:cpp.Int64):Bool;
