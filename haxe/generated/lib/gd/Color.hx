@@ -1,6 +1,7 @@
 package gd;
 extern class Color_wrapper {
 	function toVariant():gd.Variant;
+	function toString():std.String;
 	static function _new0():Color_wrapper;
 	static function _new1(p_from:gd.Color):Color_wrapper;
 	static function _new2(p_from:gd.Color, p_alpha:Float):Color_wrapper;
@@ -210,7 +211,7 @@ extern class Color_wrapper {
 @:forward @:forwardStatics abstract Color(Color_wrapper) from Color_wrapper to Color_wrapper {
 	@:to
 	inline function toVariant():gd.Variant return @:privateAccess this.toVariant();
-	inline function toString():std.String return gd.UtilityFunctions.str(toVariant());
+	inline function toString():std.String return @:privateAccess this.toString();
 	public extern overload inline function new() this = Color_wrapper._new0();
 	public extern overload inline function new(p_from:gd.Color) this = Color_wrapper._new1(p_from);
 	public extern overload inline function new(p_from:gd.Color, p_alpha:Float) this = Color_wrapper._new2(p_from, p_alpha);

@@ -12,7 +12,7 @@ package gdnative;
 	@:to
 	inline function toWrapperInternal():gd.Quaternion.Quaternion_wrapper return new gd.Quaternion.Quaternion_wrapper(this);
 	@:to
-	inline function toVariant():gdnative.Variant return new gdnative.Variant.Variant_extern(untyped __cpp__("static_cast<godot::Quaternion &>({0})", this));
+	inline function toVariant():gdnative.Variant return new gdnative.Variant.Variant_extern(untyped __cpp__('*({0}.ptr)', this));
 	inline function val():Quaternion_extern return untyped __cpp__('(*{0})', this);
 	@:op(A == B)
 	extern inline function __op_equal_to_variant(p_rhs:gdnative.Variant):Bool return untyped __cpp__('{0} == {1}', val(), p_rhs.toReference());

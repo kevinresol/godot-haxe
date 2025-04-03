@@ -1,4 +1,3 @@
-import gd.Vector2;
 import tink.testrunner.*;
 import tink.unit.*;
 

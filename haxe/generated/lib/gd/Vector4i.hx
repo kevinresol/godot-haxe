@@ -1,6 +1,7 @@
 package gd;
 extern class Vector4i_wrapper {
 	function toVariant():gd.Variant;
+	function toString():std.String;
 	static function _new0():Vector4i_wrapper;
 	static function _new1(p_from:gd.Vector4i):Vector4i_wrapper;
 	static function _new2(p_x:cpp.Int64, p_y:cpp.Int64, p_z:cpp.Int64, p_w:cpp.Int64):Vector4i_wrapper;
@@ -50,7 +51,7 @@ extern class Vector4i_wrapper {
 @:forward @:forwardStatics abstract Vector4i(Vector4i_wrapper) from Vector4i_wrapper to Vector4i_wrapper {
 	@:to
 	inline function toVariant():gd.Variant return @:privateAccess this.toVariant();
-	inline function toString():std.String return gd.UtilityFunctions.str(toVariant());
+	inline function toString():std.String return @:privateAccess this.toString();
 	public extern overload inline function new() this = Vector4i_wrapper._new0();
 	public extern overload inline function new(p_from:gd.Vector4i) this = Vector4i_wrapper._new1(p_from);
 	public extern overload inline function new(p_x:cpp.Int64, p_y:cpp.Int64, p_z:cpp.Int64, p_w:cpp.Int64) this = Vector4i_wrapper._new2(p_x, p_y, p_z, p_w);

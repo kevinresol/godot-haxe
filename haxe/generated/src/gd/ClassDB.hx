@@ -77,7 +77,10 @@ package gd;
 		final arg1:gdnative.Variant = p_method;
 		untyped __cpp__('ptrs[{0}] = {1}', 1, arg1.toStar());
 		for (i in 0 ... vlen) untyped __cpp__('ptrs[{0}] = {1}', 2 + i, ((p_args[i] : gdnative.Variant)));
-		__classdb_ptr().class_call_static(untyped __cpp__('ptrs.data()'), len);
+		{
+			final v = __classdb_ptr().class_call_static(untyped __cpp__('ptrs.data()'), len);
+			v;
+		};
 	};
 	public function class_get_integer_constant_list(p_class:std.String, ?p_no_inheritance:Bool):gd.PackedStringArray return switch [p_class, p_no_inheritance] {
 		case [_, null]:{

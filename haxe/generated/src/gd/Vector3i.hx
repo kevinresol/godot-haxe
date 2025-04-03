@@ -2,7 +2,11 @@ package gd;
 class Vector3i_wrapper {
 	final __gd : gdnative.Vector3i;
 	public function new(value:gdnative.Vector3i) __gd = value;
-	function toVariant():gd.Variant return @:privateAccess new gd.Variant.Variant_obj(((__gd : gdnative.Variant)));
+	function toVariant():gd.Variant {
+		final v:gdnative.Variant = __gd;
+		return @:privateAccess new gd.Variant.Variant_obj(v);
+	}
+	function toString():std.String return gd.UtilityFunctions.str(toVariant());
 	static function _new0():Vector3i_wrapper return new Vector3i_wrapper(new gdnative.Vector3i());
 	static function _new1(p_from:gd.Vector3i):Vector3i_wrapper return new Vector3i_wrapper(new gdnative.Vector3i(p_from));
 	static function _new2(p_x:cpp.Int64, p_y:cpp.Int64, p_z:cpp.Int64):Vector3i_wrapper return new Vector3i_wrapper(new gdnative.Vector3i(p_x, p_y, p_z));
@@ -102,7 +106,7 @@ class Vector3i_wrapper {
 @:forward @:forwardStatics abstract Vector3i(Vector3i_wrapper) from Vector3i_wrapper to Vector3i_wrapper {
 	@:to
 	inline function toVariant():gd.Variant return @:privateAccess this.toVariant();
-	inline function toString():std.String return gd.UtilityFunctions.str(toVariant());
+	inline function toString():std.String return @:privateAccess this.toString();
 	public extern overload inline function new() this = @:privateAccess Vector3i_wrapper._new0();
 	public extern overload inline function new(p_from:gd.Vector3i) this = @:privateAccess Vector3i_wrapper._new1(p_from);
 	public extern overload inline function new(p_x:cpp.Int64, p_y:cpp.Int64, p_z:cpp.Int64) this = @:privateAccess Vector3i_wrapper._new2(p_x, p_y, p_z);

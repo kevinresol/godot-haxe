@@ -2,7 +2,11 @@ package gd;
 class PackedColorArray_wrapper {
 	final __gd : gdnative.PackedColorArray;
 	public function new(value:gdnative.PackedColorArray) __gd = value;
-	function toVariant():gd.Variant return @:privateAccess new gd.Variant.Variant_obj(((__gd : gdnative.Variant)));
+	function toVariant():gd.Variant {
+		final v:gdnative.Variant = __gd;
+		return @:privateAccess new gd.Variant.Variant_obj(v);
+	}
+	function toString():std.String return gd.UtilityFunctions.str(toVariant());
 	static function _new0():PackedColorArray_wrapper return new PackedColorArray_wrapper(new gdnative.PackedColorArray());
 	static function _new1(p_from:gd.PackedColorArray):PackedColorArray_wrapper return new PackedColorArray_wrapper(new gdnative.PackedColorArray(p_from));
 	static function _new2(p_from:gd.Array):PackedColorArray_wrapper return new PackedColorArray_wrapper(new gdnative.PackedColorArray(p_from));
@@ -67,7 +71,7 @@ class PackedColorArray_wrapper {
 @:forward @:forwardStatics abstract PackedColorArray(PackedColorArray_wrapper) from PackedColorArray_wrapper to PackedColorArray_wrapper {
 	@:to
 	inline function toVariant():gd.Variant return @:privateAccess this.toVariant();
-	inline function toString():std.String return gd.UtilityFunctions.str(toVariant());
+	inline function toString():std.String return @:privateAccess this.toString();
 	public extern overload inline function new() this = @:privateAccess PackedColorArray_wrapper._new0();
 	public extern overload inline function new(p_from:gd.PackedColorArray) this = @:privateAccess PackedColorArray_wrapper._new1(p_from);
 	public extern overload inline function new(p_from:gd.Array) this = @:privateAccess PackedColorArray_wrapper._new2(p_from);

@@ -1,6 +1,7 @@
 package gd;
 extern class Signal_wrapper {
 	function toVariant():gd.Variant;
+	function toString():std.String;
 	static function _new0():Signal_wrapper;
 	static function _new1(p_from:gd.Signal):Signal_wrapper;
 	static function _new2(p_object:gd.Object, p_signal:std.String):Signal_wrapper;
@@ -24,7 +25,7 @@ extern class Signal_wrapper {
 @:forward @:forwardStatics abstract Signal(Signal_wrapper) from Signal_wrapper to Signal_wrapper {
 	@:to
 	inline function toVariant():gd.Variant return @:privateAccess this.toVariant();
-	inline function toString():std.String return gd.UtilityFunctions.str(toVariant());
+	inline function toString():std.String return @:privateAccess this.toString();
 	public extern overload inline function new() this = Signal_wrapper._new0();
 	public extern overload inline function new(p_from:gd.Signal) this = Signal_wrapper._new1(p_from);
 	public extern overload inline function new(p_object:gd.Object, p_signal:std.String) this = Signal_wrapper._new2(p_object, p_signal);

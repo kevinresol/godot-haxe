@@ -1,6 +1,7 @@
 package gd;
 extern class PackedColorArray_wrapper {
 	function toVariant():gd.Variant;
+	function toString():std.String;
 	static function _new0():PackedColorArray_wrapper;
 	static function _new1(p_from:gd.PackedColorArray):PackedColorArray_wrapper;
 	static function _new2(p_from:gd.Array):PackedColorArray_wrapper;
@@ -38,7 +39,7 @@ extern class PackedColorArray_wrapper {
 @:forward @:forwardStatics abstract PackedColorArray(PackedColorArray_wrapper) from PackedColorArray_wrapper to PackedColorArray_wrapper {
 	@:to
 	inline function toVariant():gd.Variant return @:privateAccess this.toVariant();
-	inline function toString():std.String return gd.UtilityFunctions.str(toVariant());
+	inline function toString():std.String return @:privateAccess this.toString();
 	public extern overload inline function new() this = PackedColorArray_wrapper._new0();
 	public extern overload inline function new(p_from:gd.PackedColorArray) this = PackedColorArray_wrapper._new1(p_from);
 	public extern overload inline function new(p_from:gd.Array) this = PackedColorArray_wrapper._new2(p_from);

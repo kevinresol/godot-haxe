@@ -1,6 +1,7 @@
 package gd;
 extern class Rect2i_wrapper {
 	function toVariant():gd.Variant;
+	function toString():std.String;
 	static function _new0():Rect2i_wrapper;
 	static function _new1(p_from:gd.Rect2i):Rect2i_wrapper;
 	static function _new2(p_position:gd.Vector2i, p_size:gd.Vector2i):Rect2i_wrapper;
@@ -31,7 +32,7 @@ extern class Rect2i_wrapper {
 @:forward @:forwardStatics abstract Rect2i(Rect2i_wrapper) from Rect2i_wrapper to Rect2i_wrapper {
 	@:to
 	inline function toVariant():gd.Variant return @:privateAccess this.toVariant();
-	inline function toString():std.String return gd.UtilityFunctions.str(toVariant());
+	inline function toString():std.String return @:privateAccess this.toString();
 	public extern overload inline function new() this = Rect2i_wrapper._new0();
 	public extern overload inline function new(p_from:gd.Rect2i) this = Rect2i_wrapper._new1(p_from);
 	public extern overload inline function new(p_position:gd.Vector2i, p_size:gd.Vector2i) this = Rect2i_wrapper._new2(p_position, p_size);

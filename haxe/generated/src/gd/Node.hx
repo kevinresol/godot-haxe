@@ -308,7 +308,10 @@ package gd;
 		final arg0:gdnative.Variant = p_method;
 		untyped __cpp__('ptrs[{0}] = {1}', 0, arg0.toStar());
 		for (i in 0 ... vlen) untyped __cpp__('ptrs[{0}] = {1}', 1 + i, ((p_args[i] : gdnative.Variant)));
-		__node_ptr().rpc(untyped __cpp__('ptrs.data()'), len);
+		{
+			final v = __node_ptr().rpc(untyped __cpp__('ptrs.data()'), len);
+			v;
+		};
 	};
 	public function rpc_id(p_peer_id:cpp.Int64, p_method:std.String, p_args:haxe.Rest<gd.Variant>):gd.Error return {
 		final vlen = p_args.length, len = 2 + vlen;
@@ -318,7 +321,10 @@ package gd;
 		final arg1:gdnative.Variant = p_method;
 		untyped __cpp__('ptrs[{0}] = {1}', 1, arg1.toStar());
 		for (i in 0 ... vlen) untyped __cpp__('ptrs[{0}] = {1}', 2 + i, ((p_args[i] : gdnative.Variant)));
-		__node_ptr().rpc_id(untyped __cpp__('ptrs.data()'), len);
+		{
+			final v = __node_ptr().rpc_id(untyped __cpp__('ptrs.data()'), len);
+			v;
+		};
 	};
 	public function update_configuration_warnings():Void __node_ptr().update_configuration_warnings();
 	public function call_deferred_thread_group(p_method:std.String, p_args:haxe.Rest<gd.Variant>):gd.Variant return {
@@ -327,7 +333,10 @@ package gd;
 		final arg0:gdnative.Variant = p_method;
 		untyped __cpp__('ptrs[{0}] = {1}', 0, arg0.toStar());
 		for (i in 0 ... vlen) untyped __cpp__('ptrs[{0}] = {1}', 1 + i, ((p_args[i] : gdnative.Variant)));
-		__node_ptr().call_deferred_thread_group(untyped __cpp__('ptrs.data()'), len);
+		{
+			final v = __node_ptr().call_deferred_thread_group(untyped __cpp__('ptrs.data()'), len);
+			v;
+		};
 	};
 	public function set_deferred_thread_group(p_property:std.String, p_value:gd.Variant):Void __node_ptr().set_deferred_thread_group(((p_property : std.String)), ((p_value : gd.Variant)));
 	public function notify_deferred_thread_group(p_what:cpp.Int64):Void __node_ptr().notify_deferred_thread_group(((p_what : cpp.Int64)));
@@ -337,7 +346,10 @@ package gd;
 		final arg0:gdnative.Variant = p_method;
 		untyped __cpp__('ptrs[{0}] = {1}', 0, arg0.toStar());
 		for (i in 0 ... vlen) untyped __cpp__('ptrs[{0}] = {1}', 1 + i, ((p_args[i] : gdnative.Variant)));
-		__node_ptr().call_thread_safe(untyped __cpp__('ptrs.data()'), len);
+		{
+			final v = __node_ptr().call_thread_safe(untyped __cpp__('ptrs.data()'), len);
+			v;
+		};
 	};
 	public function set_thread_safe(p_property:std.String, p_value:gd.Variant):Void __node_ptr().set_thread_safe(((p_property : std.String)), ((p_value : gd.Variant)));
 	public function notify_thread_safe(p_what:cpp.Int64):Void __node_ptr().notify_thread_safe(((p_what : cpp.Int64)));

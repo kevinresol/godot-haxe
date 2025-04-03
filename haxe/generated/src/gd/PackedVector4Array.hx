@@ -2,7 +2,11 @@ package gd;
 class PackedVector4Array_wrapper {
 	final __gd : gdnative.PackedVector4Array;
 	public function new(value:gdnative.PackedVector4Array) __gd = value;
-	function toVariant():gd.Variant return @:privateAccess new gd.Variant.Variant_obj(((__gd : gdnative.Variant)));
+	function toVariant():gd.Variant {
+		final v:gdnative.Variant = __gd;
+		return @:privateAccess new gd.Variant.Variant_obj(v);
+	}
+	function toString():std.String return gd.UtilityFunctions.str(toVariant());
 	static function _new0():PackedVector4Array_wrapper return new PackedVector4Array_wrapper(new gdnative.PackedVector4Array());
 	static function _new1(p_from:gd.PackedVector4Array):PackedVector4Array_wrapper return new PackedVector4Array_wrapper(new gdnative.PackedVector4Array(p_from));
 	static function _new2(p_from:gd.Array):PackedVector4Array_wrapper return new PackedVector4Array_wrapper(new gdnative.PackedVector4Array(p_from));
@@ -67,7 +71,7 @@ class PackedVector4Array_wrapper {
 @:forward @:forwardStatics abstract PackedVector4Array(PackedVector4Array_wrapper) from PackedVector4Array_wrapper to PackedVector4Array_wrapper {
 	@:to
 	inline function toVariant():gd.Variant return @:privateAccess this.toVariant();
-	inline function toString():std.String return gd.UtilityFunctions.str(toVariant());
+	inline function toString():std.String return @:privateAccess this.toString();
 	public extern overload inline function new() this = @:privateAccess PackedVector4Array_wrapper._new0();
 	public extern overload inline function new(p_from:gd.PackedVector4Array) this = @:privateAccess PackedVector4Array_wrapper._new1(p_from);
 	public extern overload inline function new(p_from:gd.Array) this = @:privateAccess PackedVector4Array_wrapper._new2(p_from);

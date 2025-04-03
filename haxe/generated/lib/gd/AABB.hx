@@ -1,6 +1,7 @@
 package gd;
 extern class AABB_wrapper {
 	function toVariant():gd.Variant;
+	function toString():std.String;
 	static function _new0():AABB_wrapper;
 	static function _new1(p_from:gd.AABB):AABB_wrapper;
 	static function _new2(p_position:gd.Vector3, p_size:gd.Vector3):AABB_wrapper;
@@ -40,7 +41,7 @@ extern class AABB_wrapper {
 @:forward @:forwardStatics abstract AABB(AABB_wrapper) from AABB_wrapper to AABB_wrapper {
 	@:to
 	inline function toVariant():gd.Variant return @:privateAccess this.toVariant();
-	inline function toString():std.String return gd.UtilityFunctions.str(toVariant());
+	inline function toString():std.String return @:privateAccess this.toString();
 	public extern overload inline function new() this = AABB_wrapper._new0();
 	public extern overload inline function new(p_from:gd.AABB) this = AABB_wrapper._new1(p_from);
 	public extern overload inline function new(p_position:gd.Vector3, p_size:gd.Vector3) this = AABB_wrapper._new2(p_position, p_size);

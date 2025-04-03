@@ -2,7 +2,11 @@ package gd;
 class PackedFloat64Array_wrapper {
 	final __gd : gdnative.PackedFloat64Array;
 	public function new(value:gdnative.PackedFloat64Array) __gd = value;
-	function toVariant():gd.Variant return @:privateAccess new gd.Variant.Variant_obj(((__gd : gdnative.Variant)));
+	function toVariant():gd.Variant {
+		final v:gdnative.Variant = __gd;
+		return @:privateAccess new gd.Variant.Variant_obj(v);
+	}
+	function toString():std.String return gd.UtilityFunctions.str(toVariant());
 	static function _new0():PackedFloat64Array_wrapper return new PackedFloat64Array_wrapper(new gdnative.PackedFloat64Array());
 	static function _new1(p_from:gd.PackedFloat64Array):PackedFloat64Array_wrapper return new PackedFloat64Array_wrapper(new gdnative.PackedFloat64Array(p_from));
 	static function _new2(p_from:gd.Array):PackedFloat64Array_wrapper return new PackedFloat64Array_wrapper(new gdnative.PackedFloat64Array(p_from));
@@ -64,7 +68,7 @@ class PackedFloat64Array_wrapper {
 @:forward @:forwardStatics abstract PackedFloat64Array(PackedFloat64Array_wrapper) from PackedFloat64Array_wrapper to PackedFloat64Array_wrapper {
 	@:to
 	inline function toVariant():gd.Variant return @:privateAccess this.toVariant();
-	inline function toString():std.String return gd.UtilityFunctions.str(toVariant());
+	inline function toString():std.String return @:privateAccess this.toString();
 	public extern overload inline function new() this = @:privateAccess PackedFloat64Array_wrapper._new0();
 	public extern overload inline function new(p_from:gd.PackedFloat64Array) this = @:privateAccess PackedFloat64Array_wrapper._new1(p_from);
 	public extern overload inline function new(p_from:gd.Array) this = @:privateAccess PackedFloat64Array_wrapper._new2(p_from);

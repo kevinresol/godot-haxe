@@ -2,7 +2,11 @@ package gd;
 class Array_wrapper {
 	final __gd : gdnative.Array;
 	public function new(value:gdnative.Array) __gd = value;
-	function toVariant():gd.Variant return @:privateAccess new gd.Variant.Variant_obj(((__gd : gdnative.Variant)));
+	function toVariant():gd.Variant {
+		final v:gdnative.Variant = __gd;
+		return @:privateAccess new gd.Variant.Variant_obj(v);
+	}
+	function toString():std.String return gd.UtilityFunctions.str(toVariant());
 	static function _new0():Array_wrapper return new Array_wrapper(new gdnative.Array());
 	static function _new1(p_from:gd.Array):Array_wrapper return new Array_wrapper(new gdnative.Array(p_from));
 	static function _new2(p_base:gd.Array, p_type:cpp.Int64, p_class_name:std.String, p_script:gd.Variant):Array_wrapper return new Array_wrapper(new gdnative.Array(p_base, p_type, p_class_name, p_script));
@@ -168,7 +172,7 @@ class Array_wrapper {
 @:forward @:forwardStatics abstract Array(Array_wrapper) from Array_wrapper to Array_wrapper {
 	@:to
 	inline function toVariant():gd.Variant return @:privateAccess this.toVariant();
-	inline function toString():std.String return gd.UtilityFunctions.str(toVariant());
+	inline function toString():std.String return @:privateAccess this.toString();
 	public extern overload inline function new() this = @:privateAccess Array_wrapper._new0();
 	public extern overload inline function new(p_from:gd.Array) this = @:privateAccess Array_wrapper._new1(p_from);
 	public extern overload inline function new(p_base:gd.Array, p_type:cpp.Int64, p_class_name:std.String, p_script:gd.Variant) this = @:privateAccess Array_wrapper._new2(p_base, p_type, p_class_name, p_script);

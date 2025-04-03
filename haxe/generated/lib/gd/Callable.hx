@@ -1,6 +1,7 @@
 package gd;
 extern class Callable_wrapper {
 	function toVariant():gd.Variant;
+	function toString():std.String;
 	static function _new0():Callable_wrapper;
 	static function _new1(p_from:gd.Callable):Callable_wrapper;
 	static function _new2(p_object:gd.Object, p_method:std.String):Callable_wrapper;
@@ -35,7 +36,7 @@ extern class Callable_wrapper {
 @:forward @:forwardStatics abstract Callable(Callable_wrapper) from Callable_wrapper to Callable_wrapper {
 	@:to
 	inline function toVariant():gd.Variant return @:privateAccess this.toVariant();
-	inline function toString():std.String return gd.UtilityFunctions.str(toVariant());
+	inline function toString():std.String return @:privateAccess this.toString();
 	public extern overload inline function new() this = Callable_wrapper._new0();
 	public extern overload inline function new(p_from:gd.Callable) this = Callable_wrapper._new1(p_from);
 	public extern overload inline function new(p_object:gd.Object, p_method:std.String) this = Callable_wrapper._new2(p_object, p_method);

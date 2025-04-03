@@ -2,7 +2,11 @@ package gd;
 class Callable_wrapper {
 	final __gd : gdnative.Callable;
 	public function new(value:gdnative.Callable) __gd = value;
-	function toVariant():gd.Variant return @:privateAccess new gd.Variant.Variant_obj(((__gd : gdnative.Variant)));
+	function toVariant():gd.Variant {
+		final v:gdnative.Variant = __gd;
+		return @:privateAccess new gd.Variant.Variant_obj(v);
+	}
+	function toString():std.String return gd.UtilityFunctions.str(toVariant());
 	static function _new0():Callable_wrapper return new Callable_wrapper(new gdnative.Callable());
 	static function _new1(p_from:gd.Callable):Callable_wrapper return new Callable_wrapper(new gdnative.Callable(p_from));
 	static function _new2(p_object:gd.Object, p_method:std.String):Callable_wrapper return new Callable_wrapper(new gdnative.Callable(p_object, p_method));
@@ -44,7 +48,10 @@ class Callable_wrapper {
 		final vlen = p_args.length, len = 0 + vlen;
 		untyped __cpp__('std::vector<const godot::Variant*> ptrs({0})', len);
 		for (i in 0 ... vlen) untyped __cpp__('ptrs[{0}] = {1}', 0 + i, ((p_args[i] : gdnative.Variant)));
-		__gd.call(untyped __cpp__('ptrs.data()'), len);
+		{
+			final v = __gd.call(untyped __cpp__('ptrs.data()'), len);
+			v;
+		};
 	};
 	public function call_deferred(p_args:haxe.Rest<gd.Variant>):Void {
 		final vlen = p_args.length, len = 0 + vlen;
@@ -62,7 +69,10 @@ class Callable_wrapper {
 		final vlen = p_args.length, len = 0 + vlen;
 		untyped __cpp__('std::vector<const godot::Variant*> ptrs({0})', len);
 		for (i in 0 ... vlen) untyped __cpp__('ptrs[{0}] = {1}', 0 + i, ((p_args[i] : gdnative.Variant)));
-		__gd.bind(untyped __cpp__('ptrs.data()'), len);
+		{
+			final v = __gd.bind(untyped __cpp__('ptrs.data()'), len);
+			v;
+		};
 	};
 	function __op_equal_to_variant(p_rhs:gd.Variant):Bool return @:privateAccess this.__gd.__op_equal_to_variant(((p_rhs : gdnative.Variant)));
 	function __op_not_equal_variant(p_rhs:gd.Variant):Bool return @:privateAccess this.__gd.__op_not_equal_variant(((p_rhs : gdnative.Variant)));
@@ -75,7 +85,7 @@ class Callable_wrapper {
 @:forward @:forwardStatics abstract Callable(Callable_wrapper) from Callable_wrapper to Callable_wrapper {
 	@:to
 	inline function toVariant():gd.Variant return @:privateAccess this.toVariant();
-	inline function toString():std.String return gd.UtilityFunctions.str(toVariant());
+	inline function toString():std.String return @:privateAccess this.toString();
 	public extern overload inline function new() this = @:privateAccess Callable_wrapper._new0();
 	public extern overload inline function new(p_from:gd.Callable) this = @:privateAccess Callable_wrapper._new1(p_from);
 	public extern overload inline function new(p_object:gd.Object, p_method:std.String) this = @:privateAccess Callable_wrapper._new2(p_object, p_method);

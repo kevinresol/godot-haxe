@@ -2,7 +2,11 @@ package gd;
 class Rect2_wrapper {
 	final __gd : gdnative.Rect2;
 	public function new(value:gdnative.Rect2) __gd = value;
-	function toVariant():gd.Variant return @:privateAccess new gd.Variant.Variant_obj(((__gd : gdnative.Variant)));
+	function toVariant():gd.Variant {
+		final v:gdnative.Variant = __gd;
+		return @:privateAccess new gd.Variant.Variant_obj(v);
+	}
+	function toString():std.String return gd.UtilityFunctions.str(toVariant());
 	static function _new0():Rect2_wrapper return new Rect2_wrapper(new gdnative.Rect2());
 	static function _new1(p_from:gd.Rect2):Rect2_wrapper return new Rect2_wrapper(new gdnative.Rect2(p_from));
 	static function _new2(p_position:gd.Vector2, p_size:gd.Vector2):Rect2_wrapper return new Rect2_wrapper(new gdnative.Rect2(p_position, p_size));
@@ -76,7 +80,7 @@ class Rect2_wrapper {
 @:forward @:forwardStatics abstract Rect2(Rect2_wrapper) from Rect2_wrapper to Rect2_wrapper {
 	@:to
 	inline function toVariant():gd.Variant return @:privateAccess this.toVariant();
-	inline function toString():std.String return gd.UtilityFunctions.str(toVariant());
+	inline function toString():std.String return @:privateAccess this.toString();
 	public extern overload inline function new() this = @:privateAccess Rect2_wrapper._new0();
 	public extern overload inline function new(p_from:gd.Rect2) this = @:privateAccess Rect2_wrapper._new1(p_from);
 	public extern overload inline function new(p_position:gd.Vector2, p_size:gd.Vector2) this = @:privateAccess Rect2_wrapper._new2(p_position, p_size);

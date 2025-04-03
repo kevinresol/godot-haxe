@@ -73,7 +73,10 @@ package gd;
 		untyped __cpp__('ptrs[{0}] = {1}', 0, @:privateAccess p_arg1.__gd.toStar());
 		untyped __cpp__('ptrs[{0}] = {1}', 1, @:privateAccess p_arg2.__gd.toStar());
 		for (i in 0 ... vlen) untyped __cpp__('ptrs[{0}] = {1}', 2 + i, ((p_args[i] : gdnative.Variant)));
-		gdnative.UtilityFunctions.max(untyped __cpp__('ptrs.data()'), len);
+		{
+			final v = gdnative.UtilityFunctions.max(untyped __cpp__('ptrs.data()'), len);
+			v;
+		};
 	};
 	public static function maxi(p_a:cpp.Int64, p_b:cpp.Int64):cpp.Int64 return gdnative.UtilityFunctions.maxi(p_a, p_b);
 	public static function maxf(p_a:Float, p_b:Float):Float return gdnative.UtilityFunctions.maxf(p_a, p_b);
@@ -83,7 +86,10 @@ package gd;
 		untyped __cpp__('ptrs[{0}] = {1}', 0, @:privateAccess p_arg1.__gd.toStar());
 		untyped __cpp__('ptrs[{0}] = {1}', 1, @:privateAccess p_arg2.__gd.toStar());
 		for (i in 0 ... vlen) untyped __cpp__('ptrs[{0}] = {1}', 2 + i, ((p_args[i] : gdnative.Variant)));
-		gdnative.UtilityFunctions.min(untyped __cpp__('ptrs.data()'), len);
+		{
+			final v = gdnative.UtilityFunctions.min(untyped __cpp__('ptrs.data()'), len);
+			v;
+		};
 	};
 	public static function mini(p_a:cpp.Int64, p_b:cpp.Int64):cpp.Int64 return gdnative.UtilityFunctions.mini(p_a, p_b);
 	public static function minf(p_a:Float, p_b:Float):Float return gdnative.UtilityFunctions.minf(p_a, p_b);
@@ -108,7 +114,10 @@ package gd;
 		untyped __cpp__('std::vector<const godot::Variant*> ptrs({0})', len);
 		untyped __cpp__('ptrs[{0}] = {1}', 0, @:privateAccess p_arg1.__gd.toStar());
 		for (i in 0 ... vlen) untyped __cpp__('ptrs[{0}] = {1}', 1 + i, ((p_args[i] : gdnative.Variant)));
-		gdnative.UtilityFunctions.str(untyped __cpp__('ptrs.data()'), len);
+		{
+			final v = gdnative.UtilityFunctions.str(untyped __cpp__('ptrs.data()'), len);
+			v;
+		};
 	};
 	public static function error_string(p_error:cpp.Int64):std.String return gdnative.UtilityFunctions.error_string(p_error);
 	public static function type_string(p_type:cpp.Int64):std.String return gdnative.UtilityFunctions.type_string(p_type);

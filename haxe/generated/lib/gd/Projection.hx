@@ -1,6 +1,7 @@
 package gd;
 extern class Projection_wrapper {
 	function toVariant():gd.Variant;
+	function toString():std.String;
 	static function _new0():Projection_wrapper;
 	static function _new1(p_from:gd.Projection):Projection_wrapper;
 	static function _new2(p_from:gd.Transform3D):Projection_wrapper;
@@ -49,7 +50,7 @@ extern class Projection_wrapper {
 @:forward @:forwardStatics abstract Projection(Projection_wrapper) from Projection_wrapper to Projection_wrapper {
 	@:to
 	inline function toVariant():gd.Variant return @:privateAccess this.toVariant();
-	inline function toString():std.String return gd.UtilityFunctions.str(toVariant());
+	inline function toString():std.String return @:privateAccess this.toString();
 	public extern overload inline function new() this = Projection_wrapper._new0();
 	public extern overload inline function new(p_from:gd.Projection) this = Projection_wrapper._new1(p_from);
 	public extern overload inline function new(p_from:gd.Transform3D) this = Projection_wrapper._new2(p_from);

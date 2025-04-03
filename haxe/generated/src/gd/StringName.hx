@@ -2,7 +2,11 @@ package gd;
 class StringName_wrapper {
 	final __gd : gdnative.StringName;
 	public function new(value:gdnative.StringName) __gd = value;
-	function toVariant():gd.Variant return @:privateAccess new gd.Variant.Variant_obj(((__gd : gdnative.Variant)));
+	function toVariant():gd.Variant {
+		final v:gdnative.Variant = __gd;
+		return @:privateAccess new gd.Variant.Variant_obj(v);
+	}
+	function toString():std.String return gd.UtilityFunctions.str(toVariant());
 	static function _new0():StringName_wrapper return new StringName_wrapper(new gdnative.StringName());
 	static function _new1(p_from:std.String):StringName_wrapper return new StringName_wrapper(new gdnative.StringName(p_from));
 	static function _new2(p_from:std.String):StringName_wrapper return new StringName_wrapper(new gdnative.StringName(p_from));
@@ -459,7 +463,7 @@ class StringName_wrapper {
 @:forward @:forwardStatics abstract StringName(StringName_wrapper) from StringName_wrapper to StringName_wrapper {
 	@:to
 	inline function toVariant():gd.Variant return @:privateAccess this.toVariant();
-	inline function toString():std.String return gd.UtilityFunctions.str(toVariant());
+	inline function toString():std.String return @:privateAccess this.toString();
 	public extern overload inline function new() this = @:privateAccess StringName_wrapper._new0();
 	public extern overload inline function new(p_from:std.String) this = @:privateAccess StringName_wrapper._new1(p_from);
 	@:op(A == B)

@@ -68,7 +68,7 @@ class BuiltinClassBuilder extends Builder {
 				return new $wtp(this);
 
 			@:to inline function toVariant():gdnative.Variant
-				return new gdnative.Variant.Variant_extern(untyped __cpp__($v{'static_cast<godot::$cname &>({0})'}, this));
+				return new gdnative.Variant.Variant_extern(untyped __cpp__('*({0}.ptr)', this));
 
 			inline function val():$ect
 				return untyped __cpp__('(*{0})', this);
@@ -321,6 +321,8 @@ class BuiltinClassBuilder extends Builder {
 		final act = TPath({pack: Config.nativeExtern.pack, name: cname});
 		final cls = isScriptExtern ? (macro class $wname {
 			function toVariant():gd.Variant;
+
+			function toString():std.String;
 		}) : (macro class $wname {
 			// cpp.Struct is not a real haxe class so cppia can't access its fields directly
 			// so we need a real haxe class as wrapper and expose the fields getter/setter as real haxe functions
@@ -329,8 +331,13 @@ class BuiltinClassBuilder extends Builder {
 			public function new(value:$act)
 				__gd = value;
 
-			function toVariant():gd.Variant
-				return @:privateAccess new gd.Variant.Variant_obj((__gd : gdnative.Variant));
+			function toVariant():gd.Variant {
+				final v:gdnative.Variant = __gd; // explicit var to ensure stack-allocated
+				return @:privateAccess new gd.Variant.Variant_obj(v);
+			}
+
+			function toString():std.String
+				return gd.UtilityFunctions.str(toVariant());
 		});
 		cls.pack = config.pack;
 		cls.isExtern = isScriptExtern;
@@ -341,7 +348,7 @@ class BuiltinClassBuilder extends Builder {
 				return @:privateAccess this.toVariant();
 
 			inline function toString():std.String
-				return gd.UtilityFunctions.str(toVariant());
+				return @:privateAccess this.toString();
 		}
 		abs.kind = TDAbstract(wct, [AbFrom(wct), AbTo(wct)]);
 		abs.meta = [{pos: null, name: ':forward'}, {pos: null, name: ':forwardStatics'},];

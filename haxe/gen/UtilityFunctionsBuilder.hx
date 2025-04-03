@@ -76,7 +76,7 @@ class UtilityFunctionsBuilder extends Builder {
 							final f = macro gdnative.UtilityFunctions.$fname;
 
 							final e = if (fn.is_vararg) {
-								makeVarArgCall(arguments, f);
+								makeVarArgCall(arguments, rtype, f);
 							} else {
 								final callArgs = arguments.map(arg -> macro $i{'p_${arg.name}'});
 								macro $f($a{callArgs});

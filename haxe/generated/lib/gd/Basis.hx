@@ -1,6 +1,7 @@
 package gd;
 extern class Basis_wrapper {
 	function toVariant():gd.Variant;
+	function toString():std.String;
 	static function _new0():Basis_wrapper;
 	static function _new1(p_from:gd.Basis):Basis_wrapper;
 	static function _new2(p_from:gd.Quaternion):Basis_wrapper;
@@ -48,7 +49,7 @@ extern class Basis_wrapper {
 @:forward @:forwardStatics abstract Basis(Basis_wrapper) from Basis_wrapper to Basis_wrapper {
 	@:to
 	inline function toVariant():gd.Variant return @:privateAccess this.toVariant();
-	inline function toString():std.String return gd.UtilityFunctions.str(toVariant());
+	inline function toString():std.String return @:privateAccess this.toString();
 	public extern overload inline function new() this = Basis_wrapper._new0();
 	public extern overload inline function new(p_from:gd.Basis) this = Basis_wrapper._new1(p_from);
 	public extern overload inline function new(p_from:gd.Quaternion) this = Basis_wrapper._new2(p_from);

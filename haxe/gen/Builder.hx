@@ -148,7 +148,7 @@ class Builder {
 					final target = getTarget(fn.is_static);
 
 					final e = if (fn.is_vararg) {
-						makeVarArgCall(args, macro $target.$fname);
+						makeVarArgCall(args, rtype, macro $target.$fname);
 					} else {
 						final callArgs = args.map(arg -> {
 							final ct = makeHaxeType(arg.type);
@@ -211,7 +211,7 @@ class Builder {
 		}
 	}
 
-	function makeVarArgCall(args:Array<Argument>, f:Expr):Expr {
+	function makeVarArgCall(args:Array<Argument>, type:String, f:Expr):Expr {
 		final exprs = [];
 		exprs.push(macro final vlen = p_args.length, len = $v{args.length} + vlen);
 		exprs.push(macro untyped __cpp__('std::vector<const godot::Variant*> ptrs({0})', len));
@@ -227,7 +227,7 @@ class Builder {
 		}
 		exprs.push(macro for (i in 0...vlen)
 			untyped __cpp__('ptrs[{0}] = {1}', $v{args.length} + i, (p_args[i] : gdnative.Variant)));
-		exprs.push(macro $f(untyped __cpp__('ptrs.data()'), len));
+		exprs.push(stackAllocateValueType(type, macro $f(untyped __cpp__('ptrs.data()'), len)));
 		return macro $b{exprs};
 	}
 

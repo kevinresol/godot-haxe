@@ -70,7 +70,10 @@ package gd;
 		final arg0:gdnative.Variant = p_signal;
 		untyped __cpp__('ptrs[{0}] = {1}', 0, arg0.toStar());
 		for (i in 0 ... vlen) untyped __cpp__('ptrs[{0}] = {1}', 1 + i, ((p_args[i] : gdnative.Variant)));
-		__object_ptr().emit_signal(untyped __cpp__('ptrs.data()'), len);
+		{
+			final v = __object_ptr().emit_signal(untyped __cpp__('ptrs.data()'), len);
+			v;
+		};
 	};
 	public function call(p_method:std.String, p_args:haxe.Rest<gd.Variant>):gd.Variant return {
 		final vlen = p_args.length, len = 1 + vlen;
@@ -78,7 +81,10 @@ package gd;
 		final arg0:gdnative.Variant = p_method;
 		untyped __cpp__('ptrs[{0}] = {1}', 0, arg0.toStar());
 		for (i in 0 ... vlen) untyped __cpp__('ptrs[{0}] = {1}', 1 + i, ((p_args[i] : gdnative.Variant)));
-		__object_ptr().call(untyped __cpp__('ptrs.data()'), len);
+		{
+			final v = __object_ptr().call(untyped __cpp__('ptrs.data()'), len);
+			v;
+		};
 	};
 	public function call_deferred(p_method:std.String, p_args:haxe.Rest<gd.Variant>):gd.Variant return {
 		final vlen = p_args.length, len = 1 + vlen;
@@ -86,7 +92,10 @@ package gd;
 		final arg0:gdnative.Variant = p_method;
 		untyped __cpp__('ptrs[{0}] = {1}', 0, arg0.toStar());
 		for (i in 0 ... vlen) untyped __cpp__('ptrs[{0}] = {1}', 1 + i, ((p_args[i] : gdnative.Variant)));
-		__object_ptr().call_deferred(untyped __cpp__('ptrs.data()'), len);
+		{
+			final v = __object_ptr().call_deferred(untyped __cpp__('ptrs.data()'), len);
+			v;
+		};
 	};
 	public function set_deferred(p_property:std.String, p_value:gd.Variant):Void __object_ptr().set_deferred(((p_property : std.String)), ((p_value : gd.Variant)));
 	public function callv(p_method:std.String, p_arg_array:gd.Array):gd.Variant return {
