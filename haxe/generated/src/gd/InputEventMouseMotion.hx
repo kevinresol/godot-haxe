@@ -1,7 +1,7 @@
 package gd;
 @:cppInclude('iostream') class InputEventMouseMotion extends gd.InputEventMouse {
 	public function new(?native:gdnative.InputEventMouseMotion.InputEventMouseMotion_extern) {
-		if (untyped __cpp__('{0} == {1}', native, null)) {
+		if (untyped __cpp__('{0} == {1}', native, null) || untyped __cpp__('{0}->value == nullptr', native)) {
 			gd.Utils.checkAndWarnForMissingOwner(this, "InputEventMouseMotion");
 			native = gdnative.InputEventMouseMotion.InputEventMouseMotion_extern.__alloc();
 		};

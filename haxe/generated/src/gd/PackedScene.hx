@@ -1,7 +1,7 @@
 package gd;
 @:cppInclude('iostream') class PackedScene extends gd.Resource {
 	public function new(?native:gdnative.PackedScene.PackedScene_extern) {
-		if (untyped __cpp__('{0} == {1}', native, null)) {
+		if (untyped __cpp__('{0} == {1}', native, null) || untyped __cpp__('{0}->value == nullptr', native)) {
 			gd.Utils.checkAndWarnForMissingOwner(this, "PackedScene");
 			native = gdnative.PackedScene.PackedScene_extern.__alloc();
 		};

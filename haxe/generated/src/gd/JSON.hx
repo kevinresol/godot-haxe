@@ -1,7 +1,7 @@
 package gd;
 @:cppInclude('iostream') class JSON extends gd.Resource {
 	public function new(?native:gdnative.JSON.JSON_extern) {
-		if (untyped __cpp__('{0} == {1}', native, null)) {
+		if (untyped __cpp__('{0} == {1}', native, null) || untyped __cpp__('{0}->value == nullptr', native)) {
 			gd.Utils.checkAndWarnForMissingOwner(this, "JSON");
 			native = gdnative.JSON.JSON_extern.__alloc();
 		};

@@ -1,7 +1,7 @@
 package gd;
 @:cppInclude('iostream') class Resource extends gd.RefCounted {
 	public function new(?native:gdnative.Resource.Resource_extern) {
-		if (untyped __cpp__('{0} == {1}', native, null)) {
+		if (untyped __cpp__('{0} == {1}', native, null) || untyped __cpp__('{0}->value == nullptr', native)) {
 			gd.Utils.checkAndWarnForMissingOwner(this, "Resource");
 			native = gdnative.Resource.Resource_extern.__alloc();
 		};

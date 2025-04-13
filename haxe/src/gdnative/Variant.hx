@@ -9,40 +9,58 @@ abstract Variant(Variant_extern) from Variant_extern to Variant_extern {
 		return @:privateAccess v.__gd;
 
 	@:from
-	extern static inline function fromInt64(v:cpp.Int64):Variant
-		return new Variant_extern(cast v); // haxe tries to some weird casts
+	extern static inline function fromInt64(v:cpp.Int64):Variant {
+		final v = new Variant_extern(cast v); // haxe tries to some weird casts // force stack-allocation
+		return v;
+	}
 
 	@:from
-	extern static inline function fromUInt64(v:cpp.UInt64):Variant
-		return new Variant_extern(cast v); // haxe tries to some weird casts
+	extern static inline function fromUInt64(v:cpp.UInt64):Variant {
+		final v = new Variant_extern(cast v); // haxe tries to some weird casts // force stack-allocation
+		return v;
+	}
 
 	@:from
-	extern static inline function fromInt(v:Int):Variant
-		return new Variant_extern(v);
+	extern static inline function fromInt(v:Int):Variant {
+		final v = new Variant_extern(v); // force stack-allocation
+		return v;
+	}
 
 	@:from
-	extern static inline function fromFloat(v:Float):Variant
-		return new Variant_extern(v);
+	extern static inline function fromFloat(v:Float):Variant {
+		final v = new Variant_extern(v); // force stack-allocation
+		return v;
+	}
 
 	@:from
-	extern static inline function fromBool(v:Bool):Variant
-		return new Variant_extern(v);
+	extern static inline function fromBool(v:Bool):Variant {
+		final v = new Variant_extern(v); // force stack-allocation
+		return v;
+	}
 
 	@:from
-	extern static inline function fromHaxeString(v:std.String):Variant
-		return new Variant_extern(cpp.NativeString.c_str(v));
+	extern static inline function fromHaxeString(v:std.String):Variant {
+		final v = new Variant_extern(cpp.NativeString.c_str(v)); // force stack-allocation
+		return v;
+	}
 
 	@:from
-	extern static inline function fromString(v:gdnative.String):Variant
-		return new Variant_extern(v);
+	extern static inline function fromString(v:gdnative.String):Variant {
+		final v = new Variant_extern(v); // force stack-allocation
+		return v;
+	}
 
 	@:from
-	extern static inline function fromStringName(v:gdnative.StringName):Variant
-		return new Variant_extern(v);
+	extern static inline function fromStringName(v:gdnative.StringName):Variant {
+		final v = new Variant_extern(v); // force stack-allocation
+		return v;
+	}
 
 	@:from
-	extern static inline function fromNodePath(v:gdnative.NodePath):Variant
-		return new Variant_extern(v);
+	extern static inline function fromNodePath(v:gdnative.NodePath):Variant {
+		final v = new Variant_extern(v); // force stack-allocation
+		return v;
+	}
 
 	// @:from
 	// extern static inline function fromNodePathWrapper(v:gd.NodePath):Variant
@@ -53,8 +71,10 @@ abstract Variant(Variant_extern) from Variant_extern to Variant_extern {
 	// }
 
 	@:from
-	extern static inline function fromColor(v:gdnative.Color):Variant
-		return new Variant_extern(v);
+	extern static inline function fromColor(v:gdnative.Color):Variant {
+		final v = new Variant_extern(v); // force stack-allocation
+		return v;
+	}
 
 	@:from
 	extern static inline function fromColorWrapper(v:gd.Color):Variant {
@@ -63,7 +83,8 @@ abstract Variant(Variant_extern) from Variant_extern to Variant_extern {
 
 	@:from
 	extern static inline function fromObject(v:gdnative.Object.Object_extern):Variant {
-		return new Variant_extern(untyped __cpp__('{0}.ptr', v));
+		final v = new Variant_extern(untyped __cpp__('(godot::Object*){0}', v));
+		return v;
 	}
 
 	@:from

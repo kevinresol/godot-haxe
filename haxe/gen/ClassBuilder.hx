@@ -190,7 +190,9 @@ class ClassBuilder extends EnumBuilder {
 				],
 				expr: isScriptExtern ? null : {
 					final exprs = [
-						macro if (/* native == null */ untyped __cpp__('{0} == {1}', native, null)) {
+						// FIXME: workaround null check: https://github.com/HaxeFoundation/haxe/pull/11981#issuecomment-2760549465
+						// otherwise we should be able to use `if (native == null)` directly
+						macro if (untyped __cpp__('{0} == {1}', native, null) || untyped __cpp__('{0}->value == nullptr', native)) {
 							gd.Utils.checkAndWarnForMissingOwner(this, $v{cname});
 							// trace($v{'Allocating $cname'});
 							native = $p{['gdnative', cname, '${cname}_extern']}.__alloc();

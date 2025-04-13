@@ -71,6 +71,7 @@ class UtilityFunctionTest {
 		asserts.assert(gd.Global.typeof(new gd.Vector2(42, 44)) == VECTOR2);
 		asserts.assert(gd.Global.typeof(new gd.Vector3(42, 44, 46)) == VECTOR3);
 		asserts.assert(gd.Global.typeof(new gd.NodePath('Node/Path')) == NODE_PATH);
+		asserts.assert(gd.Global.typeof(new gd.JSON()) == OBJECT);
 		return asserts.done();
 	}
 

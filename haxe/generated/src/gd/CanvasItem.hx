@@ -1,7 +1,7 @@
 package gd;
 @:cppInclude('iostream') class CanvasItem extends gd.Node {
 	public function new(?native:gdnative.CanvasItem.CanvasItem_extern) {
-		if (untyped __cpp__('{0} == {1}', native, null)) {
+		if (untyped __cpp__('{0} == {1}', native, null) || untyped __cpp__('{0}->value == nullptr', native)) {
 			gd.Utils.checkAndWarnForMissingOwner(this, "CanvasItem");
 			native = gdnative.CanvasItem.CanvasItem_extern.__alloc();
 		};

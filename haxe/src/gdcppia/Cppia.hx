@@ -62,6 +62,7 @@ class Cppia {
 		print(typeof(new Vector2()));
 		print(typeof(new Vector2(42, 44)));
 		print(typeof(new Vector3(42, 44, 46)));
+		print(typeof(new JSON()));
 		// print(typeof(('Node/Path' : NodePath)));
 
 		trace('varargs checks (host)');

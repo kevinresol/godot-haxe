@@ -1,7 +1,7 @@
 package gd;
 @:cppInclude('iostream') class Node2D extends gd.CanvasItem {
 	public function new(?native:gdnative.Node2D.Node2D_extern) {
-		if (untyped __cpp__('{0} == {1}', native, null)) {
+		if (untyped __cpp__('{0} == {1}', native, null) || untyped __cpp__('{0}->value == nullptr', native)) {
 			gd.Utils.checkAndWarnForMissingOwner(this, "Node2D");
 			native = gdnative.Node2D.Node2D_extern.__alloc();
 		};

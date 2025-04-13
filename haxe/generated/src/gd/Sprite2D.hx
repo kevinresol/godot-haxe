@@ -1,7 +1,7 @@
 package gd;
 @:cppInclude('iostream') class Sprite2D extends gd.Node2D {
 	public function new(?native:gdnative.Sprite2D.Sprite2D_extern) {
-		if (untyped __cpp__('{0} == {1}', native, null)) {
+		if (untyped __cpp__('{0} == {1}', native, null) || untyped __cpp__('{0}->value == nullptr', native)) {
 			gd.Utils.checkAndWarnForMissingOwner(this, "Sprite2D");
 			native = gdnative.Sprite2D.Sprite2D_extern.__alloc();
 		};

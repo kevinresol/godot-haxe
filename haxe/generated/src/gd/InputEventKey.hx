@@ -1,7 +1,7 @@
 package gd;
 @:cppInclude('iostream') class InputEventKey extends gd.InputEventWithModifiers {
 	public function new(?native:gdnative.InputEventKey.InputEventKey_extern) {
-		if (untyped __cpp__('{0} == {1}', native, null)) {
+		if (untyped __cpp__('{0} == {1}', native, null) || untyped __cpp__('{0}->value == nullptr', native)) {
 			gd.Utils.checkAndWarnForMissingOwner(this, "InputEventKey");
 			native = gdnative.InputEventKey.InputEventKey_extern.__alloc();
 		};

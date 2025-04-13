@@ -1,7 +1,7 @@
 package gd;
 @:cppInclude('iostream') class Texture2D extends gd.Texture {
 	public function new(?native:gdnative.Texture2D.Texture2D_extern) {
-		if (untyped __cpp__('{0} == {1}', native, null)) {
+		if (untyped __cpp__('{0} == {1}', native, null) || untyped __cpp__('{0}->value == nullptr', native)) {
 			gd.Utils.checkAndWarnForMissingOwner(this, "Texture2D");
 			native = gdnative.Texture2D.Texture2D_extern.__alloc();
 		};

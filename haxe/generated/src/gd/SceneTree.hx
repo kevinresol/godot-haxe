@@ -1,7 +1,7 @@
 package gd;
 @:cppInclude('iostream') class SceneTree extends gd.MainLoop {
 	public function new(?native:gdnative.SceneTree.SceneTree_extern) {
-		if (untyped __cpp__('{0} == {1}', native, null)) {
+		if (untyped __cpp__('{0} == {1}', native, null) || untyped __cpp__('{0}->value == nullptr', native)) {
 			gd.Utils.checkAndWarnForMissingOwner(this, "SceneTree");
 			native = gdnative.SceneTree.SceneTree_extern.__alloc();
 		};

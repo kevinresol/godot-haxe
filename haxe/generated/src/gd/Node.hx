@@ -1,7 +1,7 @@
 package gd;
 @:cppInclude('iostream') class Node extends gd.Object {
 	public function new(?native:gdnative.Node.Node_extern) {
-		if (untyped __cpp__('{0} == {1}', native, null)) {
+		if (untyped __cpp__('{0} == {1}', native, null) || untyped __cpp__('{0}->value == nullptr', native)) {
 			gd.Utils.checkAndWarnForMissingOwner(this, "Node");
 			native = gdnative.Node.Node_extern.__alloc();
 		};

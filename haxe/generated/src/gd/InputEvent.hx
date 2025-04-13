@@ -1,7 +1,7 @@
 package gd;
 @:cppInclude('iostream') class InputEvent extends gd.Resource {
 	public function new(?native:gdnative.InputEvent.InputEvent_extern) {
-		if (untyped __cpp__('{0} == {1}', native, null)) {
+		if (untyped __cpp__('{0} == {1}', native, null) || untyped __cpp__('{0}->value == nullptr', native)) {
 			gd.Utils.checkAndWarnForMissingOwner(this, "InputEvent");
 			native = gdnative.InputEvent.InputEvent_extern.__alloc();
 		};
