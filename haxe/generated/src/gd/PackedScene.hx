@@ -5,11 +5,9 @@ package gd;
 			gd.Utils.checkAndWarnForMissingOwner(this, "PackedScene");
 			native = gdnative.PackedScene.PackedScene_extern.__alloc();
 		};
-		if (Type.getClassName(Type.getClass(this)) == "gd.PackedScene") cpp.vm.Gc.setFinalizer(this, cpp.Callable.fromStaticFunction(__finalize));
 		super(cast native);
 	}
 	extern inline function __packedscene_ptr():gdnative.PackedScene.PackedScene_extern return cast __gd;
-	static function __finalize(inst:gd.PackedScene) inst.__ref = new gdnative.Ref.Ref_extern();
 	public function pack(p_path:gd.Node):gd.Error return {
 		final v = __packedscene_ptr().pack(((p_path : gd.Node)));
 		v;

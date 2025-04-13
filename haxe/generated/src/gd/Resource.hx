@@ -5,11 +5,9 @@ package gd;
 			gd.Utils.checkAndWarnForMissingOwner(this, "Resource");
 			native = gdnative.Resource.Resource_extern.__alloc();
 		};
-		if (Type.getClassName(Type.getClass(this)) == "gd.Resource") cpp.vm.Gc.setFinalizer(this, cpp.Callable.fromStaticFunction(__finalize));
 		super(cast native);
 	}
 	extern inline function __resource_ptr():gdnative.Resource.Resource_extern return cast __gd;
-	static function __finalize(inst:gd.Resource) inst.__ref = new gdnative.Ref.Ref_extern();
 	public function _setup_local_to_scene():Void __resource_ptr()._setup_local_to_scene();
 	public function _get_rid():gd.RID return {
 		final v = __resource_ptr()._get_rid();

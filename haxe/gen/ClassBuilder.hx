@@ -201,9 +201,6 @@ class ClassBuilder extends EnumBuilder {
 
 					if (cname == 'RefCounted')
 						exprs.push(macro __ref = native);
-					if (clazz.is_refcounted)
-						exprs.push(macro if (Type.getClassName(Type.getClass(this)) == $v{'gd.$cname'}) cpp.vm.Gc.setFinalizer(this,
-							cpp.Callable.fromStaticFunction(__finalize)));
 
 					exprs.push(parent == null ? macro __gd = native : macro super(cast native));
 					macro $b{exprs}
@@ -267,13 +264,6 @@ class ClassBuilder extends EnumBuilder {
 				// so we cast it into the correct pointer type before dereferencing
 				extern inline function $fname():$native return cast __gd;
 			}).fields);
-			if (clazz.is_refcounted)
-				cls.fields = cls.fields.concat((macro class {
-					// hxcpp gc doesn't seem to actually delete the object right away,
-					// therefore we manually null out the Ref in the finalizer, so that Godot can do its job
-					static function __finalize(inst:gd.$cname)
-						inst.__ref = new gdnative.Ref.Ref_extern();
-				}).fields);
 			cls.meta.push({pos: null, name: ':cppInclude', params: [macro 'iostream']});
 		}
 

@@ -5,11 +5,9 @@ package gd;
 			gd.Utils.checkAndWarnForMissingOwner(this, "InputEvent");
 			native = gdnative.InputEvent.InputEvent_extern.__alloc();
 		};
-		if (Type.getClassName(Type.getClass(this)) == "gd.InputEvent") cpp.vm.Gc.setFinalizer(this, cpp.Callable.fromStaticFunction(__finalize));
 		super(cast native);
 	}
 	extern inline function __inputevent_ptr():gdnative.InputEvent.InputEvent_extern return cast __gd;
-	static function __finalize(inst:gd.InputEvent) inst.__ref = new gdnative.Ref.Ref_extern();
 	static public final DEVICE_ID_EMULATION : Int = -1;
 	public function set_device(p_device:cpp.Int64):cpp.Int64 {
 		__inputevent_ptr().set_device(((p_device : cpp.Int64)));

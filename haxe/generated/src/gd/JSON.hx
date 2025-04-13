@@ -5,11 +5,9 @@ package gd;
 			gd.Utils.checkAndWarnForMissingOwner(this, "JSON");
 			native = gdnative.JSON.JSON_extern.__alloc();
 		};
-		if (Type.getClassName(Type.getClass(this)) == "gd.JSON") cpp.vm.Gc.setFinalizer(this, cpp.Callable.fromStaticFunction(__finalize));
 		super(cast native);
 	}
 	extern inline function __json_ptr():gdnative.JSON.JSON_extern return cast __gd;
-	static function __finalize(inst:gd.JSON) inst.__ref = new gdnative.Ref.Ref_extern();
 	public static function stringify(p_data:gd.Variant, ?p_indent:std.String, ?p_sort_keys:Bool, ?p_full_precision:Bool):std.String return switch [p_data, p_indent, p_sort_keys, p_full_precision] {
 		case [_, null, _, _]:{
 			final v = gdnative.JSON.JSON_extern.stringify(((p_data : gd.Variant)));

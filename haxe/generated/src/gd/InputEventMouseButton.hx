@@ -5,11 +5,9 @@ package gd;
 			gd.Utils.checkAndWarnForMissingOwner(this, "InputEventMouseButton");
 			native = gdnative.InputEventMouseButton.InputEventMouseButton_extern.__alloc();
 		};
-		if (Type.getClassName(Type.getClass(this)) == "gd.InputEventMouseButton") cpp.vm.Gc.setFinalizer(this, cpp.Callable.fromStaticFunction(__finalize));
 		super(cast native);
 	}
 	extern inline function __inputeventmousebutton_ptr():gdnative.InputEventMouseButton.InputEventMouseButton_extern return cast __gd;
-	static function __finalize(inst:gd.InputEventMouseButton) inst.__ref = new gdnative.Ref.Ref_extern();
 	public function set_factor(p_factor:Float):Float {
 		__inputeventmousebutton_ptr().set_factor(((p_factor : Float)));
 		return p_factor;

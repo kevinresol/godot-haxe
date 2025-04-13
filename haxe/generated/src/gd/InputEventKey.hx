@@ -5,11 +5,9 @@ package gd;
 			gd.Utils.checkAndWarnForMissingOwner(this, "InputEventKey");
 			native = gdnative.InputEventKey.InputEventKey_extern.__alloc();
 		};
-		if (Type.getClassName(Type.getClass(this)) == "gd.InputEventKey") cpp.vm.Gc.setFinalizer(this, cpp.Callable.fromStaticFunction(__finalize));
 		super(cast native);
 	}
 	extern inline function __inputeventkey_ptr():gdnative.InputEventKey.InputEventKey_extern return cast __gd;
-	static function __finalize(inst:gd.InputEventKey) inst.__ref = new gdnative.Ref.Ref_extern();
 	public function set_pressed(p_pressed:Bool):Void __inputeventkey_ptr().set_pressed(((p_pressed : Bool)));
 	public function set_keycode(p_keycode:gd.Key):gd.Key {
 		__inputeventkey_ptr().set_keycode(((p_keycode : gd.Key)));

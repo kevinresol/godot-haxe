@@ -5,11 +5,9 @@ package gd;
 			gd.Utils.checkAndWarnForMissingOwner(this, "InputEventMouseMotion");
 			native = gdnative.InputEventMouseMotion.InputEventMouseMotion_extern.__alloc();
 		};
-		if (Type.getClassName(Type.getClass(this)) == "gd.InputEventMouseMotion") cpp.vm.Gc.setFinalizer(this, cpp.Callable.fromStaticFunction(__finalize));
 		super(cast native);
 	}
 	extern inline function __inputeventmousemotion_ptr():gdnative.InputEventMouseMotion.InputEventMouseMotion_extern return cast __gd;
-	static function __finalize(inst:gd.InputEventMouseMotion) inst.__ref = new gdnative.Ref.Ref_extern();
 	public function set_tilt(p_tilt:gd.Vector2):gd.Vector2 {
 		__inputeventmousemotion_ptr().set_tilt(((p_tilt : gd.Vector2)));
 		return p_tilt;

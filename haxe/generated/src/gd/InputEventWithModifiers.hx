@@ -5,11 +5,9 @@ package gd;
 			gd.Utils.checkAndWarnForMissingOwner(this, "InputEventWithModifiers");
 			native = gdnative.InputEventWithModifiers.InputEventWithModifiers_extern.__alloc();
 		};
-		if (Type.getClassName(Type.getClass(this)) == "gd.InputEventWithModifiers") cpp.vm.Gc.setFinalizer(this, cpp.Callable.fromStaticFunction(__finalize));
 		super(cast native);
 	}
 	extern inline function __inputeventwithmodifiers_ptr():gdnative.InputEventWithModifiers.InputEventWithModifiers_extern return cast __gd;
-	static function __finalize(inst:gd.InputEventWithModifiers) inst.__ref = new gdnative.Ref.Ref_extern();
 	public function set_command_or_control_autoremap(p_enable:Bool):Bool {
 		__inputeventwithmodifiers_ptr().set_command_or_control_autoremap(((p_enable : Bool)));
 		return p_enable;

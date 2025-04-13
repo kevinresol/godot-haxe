@@ -14,6 +14,7 @@ class Main extends gd.Node2D {
 			new DictionaryTest(),
 			new JsonTest(),
 			new InstanceMethodTest(this),
+			new ResourceTest(),
 			// new MemoryTest(),
 		])).handle(result -> get_tree().quit(result.summary().failures.length));
 	}
@@ -186,13 +187,29 @@ class InstanceMethodTest {
 		asserts.assert(node.get_index() == 0);
 		asserts.assert(node.get_tree_string() == '.\nNode2D\nNode2D/Sprite2D\n');
 		asserts.assert(node.get_scene_file_path() == 'res://main.tscn');
+		asserts.assert(node.get_class() == 'Node2D');
+
 		final sprite = node.get_node('Node2D/Sprite2D').cast_to(gd.Sprite2D);
 		asserts.assert(sprite.get_name() == 'Sprite2D');
+		asserts.assert(sprite.get_class() == 'Sprite2D');
 
-		trace(node.get_class());
-		trace(sprite.get_class());
-		trace(sprite.get_class());
-		trace(sprite.get_class());
+		return asserts.done();
+	}
+}
+
+@:asserts
+class ResourceTest {
+	public function new() {}
+
+	public function load() {
+		final res = gd.ResourceLoader.singleton.load('res://sub.tscn');
+
+		asserts.assert(res.get_path() == 'res://sub.tscn');
+		asserts.assert(res.get_class() == 'PackedScene');
+
+		final scn = res.cast_to(gd.PackedScene);
+		asserts.assert(scn.can_instantiate());
+
 		return asserts.done();
 	}
 }

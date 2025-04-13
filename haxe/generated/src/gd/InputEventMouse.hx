@@ -5,11 +5,9 @@ package gd;
 			gd.Utils.checkAndWarnForMissingOwner(this, "InputEventMouse");
 			native = gdnative.InputEventMouse.InputEventMouse_extern.__alloc();
 		};
-		if (Type.getClassName(Type.getClass(this)) == "gd.InputEventMouse") cpp.vm.Gc.setFinalizer(this, cpp.Callable.fromStaticFunction(__finalize));
 		super(cast native);
 	}
 	extern inline function __inputeventmouse_ptr():gdnative.InputEventMouse.InputEventMouse_extern return cast __gd;
-	static function __finalize(inst:gd.InputEventMouse) inst.__ref = new gdnative.Ref.Ref_extern();
 	public function set_button_mask(p_button_mask:Int):Int {
 		__inputeventmouse_ptr().set_button_mask(((p_button_mask : Int)));
 		return p_button_mask;

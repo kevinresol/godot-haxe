@@ -120,7 +120,7 @@ class Cppia {
 			rc1 = cast @:privateAccess json.__gd;
 		}
 
-		final scn = ResourceLoader.singleton.load('res://sub.tscn', '', IGNORE);
+		final scn = ResourceLoader.singleton.load('res://sub.tscn');
 		print(scn, scn.get_reference_count());
 		id2 = scn.get_instance_id();
 		rc2 = cast @:privateAccess scn.__gd;
@@ -229,7 +229,7 @@ class Cppia {
 
 	public static function gcCompact() {
 		trace('gc compacting');
-		// cpp.vm.Gc.compact();
+		cpp.vm.Gc.compact();
 	}
 
 	public static function fromVariant(val:gdnative.Variant):Dynamic {
