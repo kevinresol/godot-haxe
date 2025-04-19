@@ -5,8 +5,10 @@ abstract Ref<T:gdnative.RefCounted.RefCounted_extern>(Ref_extern<T>) from Ref_ex
 		return new Ref_extern<gdnative.RefCounted.RefCounted_extern>(p_from);
 
 	@:from
-	extern static inline function fromPointer<T:gdnative.RefCounted.RefCounted_extern>(v:T):Ref<T>
-		return new Ref_extern<T>(v);
+	extern static inline function fromPointer<T:gdnative.RefCounted.RefCounted_extern>(v:T):Ref<T> {
+		final ref = new Ref_extern<T>(v); // force stack-allocation
+		return ref;
+	}
 
 	@:to
 	public extern inline function ptr():T {

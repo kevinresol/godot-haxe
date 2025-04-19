@@ -122,6 +122,34 @@ class Variant_obj {
 		return valid;
 	}
 
+	public function callp(method:std.String, args:haxe.Rest<gd.Variant>):gd.Variant {
+		final len = args.length;
+		untyped __cpp__('std::vector<const godot::Variant*> ptrs({0})', len);
+		for (i in 0...len)
+			untyped __cpp__('ptrs[{0}] = {1}', i, ((args[i] : gdnative.Variant)));
+
+		var ret:gdnative.Variant = new gdnative.Variant.Variant_extern();
+		var err:gdnative.Variant.GDExtensionCallError = new gdnative.Variant.GDExtensionCallError();
+		__gd.callp(method, untyped __cpp__('ptrs.data()'), len, ret, err);
+
+		switch err.error {
+			case GDEXTENSION_CALL_OK:
+				return ret;
+			case GDEXTENSION_CALL_ERROR_INVALID_METHOD:
+				throw 'Invalid method: $method';
+			case GDEXTENSION_CALL_ERROR_INVALID_ARGUMENT:
+				throw 'Invalid argument: (method: $method, argument: ${err.argument}, expected: ${err.expected})';
+			case GDEXTENSION_CALL_ERROR_TOO_MANY_ARGUMENTS:
+				throw 'Too many arguments: (method: $method, argument: ${err.argument}, expected: ${err.expected})';
+			case GDEXTENSION_CALL_ERROR_TOO_FEW_ARGUMENTS:
+				throw 'Too few argument: (method: $method, argument: ${err.argument}, expected: ${err.expected})';
+			case GDEXTENSION_CALL_ERROR_INSTANCE_IS_NULL:
+				throw 'Instance is null';
+			case GDEXTENSION_CALL_ERROR_METHOD_NOT_CONST:
+				throw 'Method not const: $method';
+		}
+	}
+
 	function __op_equal_to_variant(p_rhs:gd.Variant):Bool
 		return @:privateAccess this.__gd == ((p_rhs : gdnative.Variant));
 }

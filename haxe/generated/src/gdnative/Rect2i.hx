@@ -33,8 +33,8 @@ package gdnative;
 }
 
 @:include("godot_cpp/variant/rect2i.hpp") @:semantics(reference) @:cpp.ValueType({ type : "Rect2i", namespace : ['godot'] }) extern class Rect2i_extern {
-	@:overload(function(p_from:gdnative.Rect2i):Void { })
-	@:overload(function(p_position:gdnative.Vector2i, p_size:gdnative.Vector2i):Void { })
+	@:overload(function(p_from:cpp.Reference<gdnative.Rect2i>):Void { })
+	@:overload(function(p_position:cpp.Reference<gdnative.Vector2i>, p_size:cpp.Reference<gdnative.Vector2i>):Void { })
 	@:overload(function(p_x:cpp.Int64, p_y:cpp.Int64, p_width:cpp.Int64, p_height:cpp.Int64):Void { })
 	function new();
 	function get_center():gdnative.Vector2i;

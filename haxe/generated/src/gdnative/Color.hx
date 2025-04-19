@@ -56,12 +56,12 @@ package gdnative;
 }
 
 @:include("godot_cpp/variant/color.hpp") @:semantics(reference) @:cpp.ValueType({ type : "Color", namespace : ['godot'] }) extern class Color_extern {
-	@:overload(function(p_from:gdnative.Color):Void { })
-	@:overload(function(p_from:gdnative.Color, p_alpha:Float):Void { })
+	@:overload(function(p_from:cpp.Reference<gdnative.Color>):Void { })
+	@:overload(function(p_from:cpp.Reference<gdnative.Color>, p_alpha:Float):Void { })
 	@:overload(function(p_r:Float, p_g:Float, p_b:Float):Void { })
 	@:overload(function(p_r:Float, p_g:Float, p_b:Float, p_a:Float):Void { })
-	@:overload(function(p_code:gdnative.String):Void { })
-	@:overload(function(p_code:gdnative.String, p_alpha:Float):Void { })
+	@:overload(function(p_code:cpp.Reference<gdnative.String>):Void { })
+	@:overload(function(p_code:cpp.Reference<gdnative.String>, p_alpha:Float):Void { })
 	function new();
 	function to_argb32():cpp.Int64;
 	function to_abgr32():cpp.Int64;

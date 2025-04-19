@@ -34,8 +34,8 @@ package gdnative;
 }
 
 @:include("godot_cpp/variant/packed_byte_array.hpp") @:semantics(reference) @:cpp.ValueType({ type : "PackedByteArray", namespace : ['godot'] }) extern class PackedByteArray_extern {
-	@:overload(function(p_from:gdnative.PackedByteArray):Void { })
-	@:overload(function(p_from:gdnative.Array):Void { })
+	@:overload(function(p_from:cpp.Reference<gdnative.PackedByteArray>):Void { })
+	@:overload(function(p_from:cpp.Reference<gdnative.Array>):Void { })
 	function new();
 	function get(p_index:cpp.Int64):cpp.Int64;
 	function size():cpp.Int64;

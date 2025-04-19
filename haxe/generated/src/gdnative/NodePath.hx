@@ -39,8 +39,8 @@ package gdnative;
 }
 
 @:include("godot_cpp/variant/node_path.hpp") @:semantics(reference) @:cpp.ValueType({ type : "NodePath", namespace : ['godot'] }) extern class NodePath_extern {
-	@:overload(function(p_from:gdnative.NodePath):Void { })
-	@:overload(function(p_from:gdnative.String):Void { })
+	@:overload(function(p_from:cpp.Reference<gdnative.NodePath>):Void { })
+	@:overload(function(p_from:cpp.Reference<gdnative.String>):Void { })
 	function new();
 	function is_absolute():Bool;
 	function get_name_count():cpp.Int64;

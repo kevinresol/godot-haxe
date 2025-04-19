@@ -102,7 +102,7 @@ class Cppia {
 		print("42 in dict: ", 42 in dict, dict[42]);
 
 		{
-			trace('JSON checks (host)');
+			trace('JSON checks (host)1');
 			final json = new JSON();
 			switch json.parse('{"foo": 42, "bar": true, "baz": ["hello", "world"]}') {
 				case OK:
@@ -128,6 +128,10 @@ class Cppia {
 		final x = new Node2D();
 		print(x);
 		id3 = x.get_instance_id();
+
+		final vnode:gd.Variant = x;
+		final vsprite = vnode.callp('get_node', 'Sprite2D');
+		print(vsprite);
 
 		trace('id1', id1, is_instance_id_valid(id1));
 		trace('id2', id2, is_instance_id_valid(id2));
@@ -199,6 +203,12 @@ class Cppia {
 	}
 
 	public static function instanceHasMethod(inst:Dynamic, methodName:std.String):Bool {
+		// FIXME: don't consider built-in methods
+		switch methodName {
+			case 'get_name' | 'get_node' | 'get_class' | 'get_path' | 'can_instantiate':
+				return false;
+		}
+
 		if (inst == null) {
 			trace('Instance is null');
 			return false;

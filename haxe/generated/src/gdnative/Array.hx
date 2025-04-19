@@ -52,18 +52,18 @@ package gdnative;
 }
 
 @:include("godot_cpp/variant/array.hpp") @:semantics(reference) @:cpp.ValueType({ type : "Array", namespace : ['godot'] }) extern class Array_extern {
-	@:overload(function(p_from:gdnative.Array):Void { })
-	@:overload(function(p_base:gdnative.Array, p_type:cpp.Int64, p_class_name:gdnative.StringName, p_script:gdnative.Variant):Void { })
-	@:overload(function(p_from:gdnative.PackedByteArray):Void { })
-	@:overload(function(p_from:gdnative.PackedInt32Array):Void { })
-	@:overload(function(p_from:gdnative.PackedInt64Array):Void { })
-	@:overload(function(p_from:gdnative.PackedFloat32Array):Void { })
-	@:overload(function(p_from:gdnative.PackedFloat64Array):Void { })
-	@:overload(function(p_from:gdnative.PackedStringArray):Void { })
-	@:overload(function(p_from:gdnative.PackedVector2Array):Void { })
-	@:overload(function(p_from:gdnative.PackedVector3Array):Void { })
-	@:overload(function(p_from:gdnative.PackedColorArray):Void { })
-	@:overload(function(p_from:gdnative.PackedVector4Array):Void { })
+	@:overload(function(p_from:cpp.Reference<gdnative.Array>):Void { })
+	@:overload(function(p_base:cpp.Reference<gdnative.Array>, p_type:cpp.Int64, p_class_name:cpp.Reference<gdnative.StringName>, p_script:cpp.Reference<gdnative.Variant>):Void { })
+	@:overload(function(p_from:cpp.Reference<gdnative.PackedByteArray>):Void { })
+	@:overload(function(p_from:cpp.Reference<gdnative.PackedInt32Array>):Void { })
+	@:overload(function(p_from:cpp.Reference<gdnative.PackedInt64Array>):Void { })
+	@:overload(function(p_from:cpp.Reference<gdnative.PackedFloat32Array>):Void { })
+	@:overload(function(p_from:cpp.Reference<gdnative.PackedFloat64Array>):Void { })
+	@:overload(function(p_from:cpp.Reference<gdnative.PackedStringArray>):Void { })
+	@:overload(function(p_from:cpp.Reference<gdnative.PackedVector2Array>):Void { })
+	@:overload(function(p_from:cpp.Reference<gdnative.PackedVector3Array>):Void { })
+	@:overload(function(p_from:cpp.Reference<gdnative.PackedColorArray>):Void { })
+	@:overload(function(p_from:cpp.Reference<gdnative.PackedVector4Array>):Void { })
 	function new();
 	function size():cpp.Int64;
 	function is_empty():Bool;

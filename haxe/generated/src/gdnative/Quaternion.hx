@@ -50,9 +50,9 @@ package gdnative;
 }
 
 @:include("godot_cpp/variant/quaternion.hpp") @:semantics(reference) @:cpp.ValueType({ type : "Quaternion", namespace : ['godot'] }) extern class Quaternion_extern {
-	@:overload(function(p_from:gdnative.Quaternion):Void { })
-	@:overload(function(p_axis:gdnative.Vector3, p_angle:Float):Void { })
-	@:overload(function(p_arc_from:gdnative.Vector3, p_arc_to:gdnative.Vector3):Void { })
+	@:overload(function(p_from:cpp.Reference<gdnative.Quaternion>):Void { })
+	@:overload(function(p_axis:cpp.Reference<gdnative.Vector3>, p_angle:Float):Void { })
+	@:overload(function(p_arc_from:cpp.Reference<gdnative.Vector3>, p_arc_to:cpp.Reference<gdnative.Vector3>):Void { })
 	@:overload(function(p_x:Float, p_y:Float, p_z:Float, p_w:Float):Void { })
 	function new();
 	function length():Float;

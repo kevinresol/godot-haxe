@@ -60,7 +60,7 @@ package gdnative;
 }
 
 @:include("godot_cpp/variant/vector2.hpp") @:semantics(reference) @:cpp.ValueType({ type : "Vector2", namespace : ['godot'] }) extern class Vector2_extern {
-	@:overload(function(p_from:gdnative.Vector2):Void { })
+	@:overload(function(p_from:cpp.Reference<gdnative.Vector2>):Void { })
 	@:overload(function(p_x:Float, p_y:Float):Void { })
 	function new();
 	function angle():Float;

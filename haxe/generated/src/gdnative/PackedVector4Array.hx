@@ -34,8 +34,8 @@ package gdnative;
 }
 
 @:include("godot_cpp/variant/packed_vector4_array.hpp") @:semantics(reference) @:cpp.ValueType({ type : "PackedVector4Array", namespace : ['godot'] }) extern class PackedVector4Array_extern {
-	@:overload(function(p_from:gdnative.PackedVector4Array):Void { })
-	@:overload(function(p_from:gdnative.Array):Void { })
+	@:overload(function(p_from:cpp.Reference<gdnative.PackedVector4Array>):Void { })
+	@:overload(function(p_from:cpp.Reference<gdnative.Array>):Void { })
 	function new();
 	function get(p_index:cpp.Int64):gdnative.Vector4;
 	function size():cpp.Int64;

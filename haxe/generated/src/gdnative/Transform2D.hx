@@ -45,10 +45,10 @@ package gdnative;
 }
 
 @:include("godot_cpp/variant/transform2d.hpp") @:semantics(reference) @:cpp.ValueType({ type : "Transform2D", namespace : ['godot'] }) extern class Transform2D_extern {
-	@:overload(function(p_from:gdnative.Transform2D):Void { })
-	@:overload(function(p_rotation:Float, p_position:gdnative.Vector2):Void { })
-	@:overload(function(p_rotation:Float, p_scale:gdnative.Vector2, p_skew:Float, p_position:gdnative.Vector2):Void { })
-	@:overload(function(p_x_axis:gdnative.Vector2, p_y_axis:gdnative.Vector2, p_origin:gdnative.Vector2):Void { })
+	@:overload(function(p_from:cpp.Reference<gdnative.Transform2D>):Void { })
+	@:overload(function(p_rotation:Float, p_position:cpp.Reference<gdnative.Vector2>):Void { })
+	@:overload(function(p_rotation:Float, p_scale:cpp.Reference<gdnative.Vector2>, p_skew:Float, p_position:cpp.Reference<gdnative.Vector2>):Void { })
+	@:overload(function(p_x_axis:cpp.Reference<gdnative.Vector2>, p_y_axis:cpp.Reference<gdnative.Vector2>, p_origin:cpp.Reference<gdnative.Vector2>):Void { })
 	@:overload(function(p_xx:Float, p_xy:Float, p_yx:Float, p_yy:Float, p_ox:Float, p_oy:Float):Void { })
 	function new();
 	function inverse():gdnative.Transform2D;

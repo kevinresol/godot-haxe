@@ -10,7 +10,8 @@ package gdnative;
 	}
 	@:from
 	extern static inline function fromHaxe(v:std.String):String {
-		return untyped __cpp__('godot::String({0})', cpp.NativeString.c_str(v));
+		final v:gdnative.String = untyped __cpp__('godot::String({0})', cpp.NativeString.c_str(v));
+		return v;
 	}
 	@:from
 	static inline function fromWrapper(v:gd.String):gdnative.String return fromWrapperInternal(v);
@@ -140,9 +141,9 @@ package gdnative;
 }
 
 @:include("godot_cpp/variant/string.hpp") @:semantics(reference) @:cpp.ValueType({ type : "String", namespace : ['godot'] }) extern class String_extern {
-	@:overload(function(p_from:gdnative.String):Void { })
-	@:overload(function(p_from:gdnative.StringName):Void { })
-	@:overload(function(p_from:gdnative.NodePath):Void { })
+	@:overload(function(p_from:cpp.Reference<gdnative.String>):Void { })
+	@:overload(function(p_from:cpp.Reference<gdnative.StringName>):Void { })
+	@:overload(function(p_from:cpp.Reference<gdnative.NodePath>):Void { })
 	function new();
 	function casecmp_to(p_to:gdnative.String):cpp.Int64;
 	function nocasecmp_to(p_to:gdnative.String):cpp.Int64;

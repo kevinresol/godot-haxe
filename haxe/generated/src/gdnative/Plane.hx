@@ -38,11 +38,11 @@ package gdnative;
 }
 
 @:include("godot_cpp/variant/plane.hpp") @:semantics(reference) @:cpp.ValueType({ type : "Plane", namespace : ['godot'] }) extern class Plane_extern {
-	@:overload(function(p_from:gdnative.Plane):Void { })
-	@:overload(function(p_normal:gdnative.Vector3):Void { })
-	@:overload(function(p_normal:gdnative.Vector3, p_d:Float):Void { })
-	@:overload(function(p_normal:gdnative.Vector3, p_point:gdnative.Vector3):Void { })
-	@:overload(function(p_point1:gdnative.Vector3, p_point2:gdnative.Vector3, p_point3:gdnative.Vector3):Void { })
+	@:overload(function(p_from:cpp.Reference<gdnative.Plane>):Void { })
+	@:overload(function(p_normal:cpp.Reference<gdnative.Vector3>):Void { })
+	@:overload(function(p_normal:cpp.Reference<gdnative.Vector3>, p_d:Float):Void { })
+	@:overload(function(p_normal:cpp.Reference<gdnative.Vector3>, p_point:cpp.Reference<gdnative.Vector3>):Void { })
+	@:overload(function(p_point1:cpp.Reference<gdnative.Vector3>, p_point2:cpp.Reference<gdnative.Vector3>, p_point3:cpp.Reference<gdnative.Vector3>):Void { })
 	@:overload(function(p_a:Float, p_b:Float, p_c:Float, p_d:Float):Void { })
 	function new();
 	function normalized():gdnative.Plane;

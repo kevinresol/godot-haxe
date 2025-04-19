@@ -32,8 +32,8 @@ package gdnative;
 }
 
 @:include("godot_cpp/variant/callable.hpp") @:semantics(reference) @:cpp.ValueType({ type : "Callable", namespace : ['godot'] }) extern class Callable_extern {
-	@:overload(function(p_from:gdnative.Callable):Void { })
-	@:overload(function(p_object:gdnative.Object, p_method:gdnative.StringName):Void { })
+	@:overload(function(p_from:cpp.Reference<gdnative.Callable>):Void { })
+	@:overload(function(p_object:gdnative.Object, p_method:cpp.Reference<gdnative.StringName>):Void { })
 	function new();
 	static function create(p_variant:gdnative.Variant, p_method:gdnative.StringName):gdnative.Callable;
 	function callv(p_arguments:gdnative.Array):gdnative.Variant;

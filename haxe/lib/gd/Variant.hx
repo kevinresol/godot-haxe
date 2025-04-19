@@ -83,6 +83,8 @@ extern class Variant_obj {
 	public function toArray():gd.Array;
 
 	function get_type():gd.variant.Type;
+	function callp(method:std.String, args:haxe.Rest<Variant>):Variant;
+
 	function get_named(name:std.String):Variant;
 	function set_named(name:std.String, value:Variant):Bool;
 	function get_indexed(index:Int):Variant;

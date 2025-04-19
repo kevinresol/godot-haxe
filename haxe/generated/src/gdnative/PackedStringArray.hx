@@ -34,8 +34,8 @@ package gdnative;
 }
 
 @:include("godot_cpp/variant/packed_string_array.hpp") @:semantics(reference) @:cpp.ValueType({ type : "PackedStringArray", namespace : ['godot'] }) extern class PackedStringArray_extern {
-	@:overload(function(p_from:gdnative.PackedStringArray):Void { })
-	@:overload(function(p_from:gdnative.Array):Void { })
+	@:overload(function(p_from:cpp.Reference<gdnative.PackedStringArray>):Void { })
+	@:overload(function(p_from:cpp.Reference<gdnative.Array>):Void { })
 	function new();
 	function get(p_index:cpp.Int64):gdnative.String;
 	function size():cpp.Int64;

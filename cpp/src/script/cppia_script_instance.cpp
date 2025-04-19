@@ -148,11 +148,18 @@ void CppiaScriptInstance::call(const StringName *p_method,
                                GDExtensionVariantPtr r_return,
                                GDExtensionCallError *r_error) {
   // printf("call %s %d\n", p_method->to_utf8_buffer().ptr(), p_argument_count);
-  gdcppia::instance_call(_cppia_handle, gdcppia::to_haxe_string(*p_method),
+
+  auto method = gdcppia::to_haxe_string(*p_method);
+  if (!gdcppia::instance_has_method(_cppia_handle, method)) {
+    r_error->error = GDEXTENSION_CALL_ERROR_INVALID_METHOD;
+    return;
+  }
+
+  gdcppia::instance_call(_cppia_handle, method,
                          gdcppia::to_haxe_dynamic_array(
                              (const Variant **)p_args, p_argument_count));
 
-  // TODO:
+  // TODO: return value
   *((godot::Variant *)r_return) = godot::Variant();
   r_error->error = GDEXTENSION_CALL_OK;
 }

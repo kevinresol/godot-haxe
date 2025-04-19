@@ -34,8 +34,8 @@ package gdnative;
 }
 
 @:include("godot_cpp/variant/packed_color_array.hpp") @:semantics(reference) @:cpp.ValueType({ type : "PackedColorArray", namespace : ['godot'] }) extern class PackedColorArray_extern {
-	@:overload(function(p_from:gdnative.PackedColorArray):Void { })
-	@:overload(function(p_from:gdnative.Array):Void { })
+	@:overload(function(p_from:cpp.Reference<gdnative.PackedColorArray>):Void { })
+	@:overload(function(p_from:cpp.Reference<gdnative.Array>):Void { })
 	function new();
 	function get(p_index:cpp.Int64):gdnative.Color;
 	function size():cpp.Int64;

@@ -32,8 +32,8 @@ package gdnative;
 }
 
 @:include("godot_cpp/variant/signal.hpp") @:semantics(reference) @:cpp.ValueType({ type : "Signal", namespace : ['godot'] }) extern class Signal_extern {
-	@:overload(function(p_from:gdnative.Signal):Void { })
-	@:overload(function(p_object:gdnative.Object, p_signal:gdnative.StringName):Void { })
+	@:overload(function(p_from:cpp.Reference<gdnative.Signal>):Void { })
+	@:overload(function(p_object:gdnative.Object, p_signal:cpp.Reference<gdnative.StringName>):Void { })
 	function new();
 	function is_null():Bool;
 	function get_object():gdnative.Object;

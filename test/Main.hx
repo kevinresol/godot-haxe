@@ -1,3 +1,4 @@
+import gd.UtilityFunctions;
 import tink.testrunner.*;
 import tink.unit.*;
 
@@ -10,10 +11,12 @@ class Main extends gd.Node2D {
 			new EnumTest(),
 			new OperatorTest(),
 			new ConstantTest(),
+			new ConstructorTest(),
 			new ArrayTest(),
 			new DictionaryTest(),
 			new JsonTest(),
 			new InstanceMethodTest(this),
+			new VariantTest(this),
 			new ResourceTest(),
 			// new MemoryTest(),
 		])).handle(result -> get_tree().quit(result.summary().failures.length));
@@ -53,7 +56,23 @@ class ConstantTest {
 
 	public function test() {
 		asserts.assert(gd.Vector2.ONE == new gd.Vector2(1, 1));
+		asserts.assert(gd.Color.RED == new gd.Color(1, 0, 0));
+
+		return asserts.done();
+	}
+}
+
+@:asserts
+class ConstructorTest {
+	public function new() {}
+
+	public function overloads() {
+		asserts.assert(gd.Color.RED == new gd.Color(1, 0, 0));
 		asserts.assert(gd.Color.RED == new gd.Color(1, 0, 0, 1));
+		asserts.assert(gd.Color.RED == new gd.Color('red'));
+		asserts.assert(gd.Color.RED == new gd.Color('red', 1));
+		asserts.assert(gd.Color.RED == new gd.Color(new gd.Color('red')));
+		asserts.assert(gd.Color.RED == new gd.Color(new gd.Color('red'), 1));
 
 		return asserts.done();
 	}
@@ -192,6 +211,36 @@ class InstanceMethodTest {
 		final sprite = node.get_node('Node2D/Sprite2D').cast_to(gd.Sprite2D);
 		asserts.assert(sprite.get_name() == 'Sprite2D');
 		asserts.assert(sprite.get_class() == 'Sprite2D');
+
+		return asserts.done();
+	}
+}
+
+@:asserts
+class VariantTest {
+	final node:gd.Node2D;
+
+	public function new(node:gd.Node2D)
+		this.node = node;
+
+	public function callp() {
+		final vnode:gd.Variant = node;
+		final name:gd.Variant = 'Node2D/Sprite2D';
+
+		// when calling via variant we need to manually handle the string-related types
+		final vsprite = vnode.callp('get_node', new gd.NodePath('Node2D/Sprite2D'));
+		asserts.assert(vsprite.callp('get_name') == new gd.StringName('Sprite2D'));
+		asserts.assert(vsprite.callp('get_class') == 'Sprite2D');
+
+		final res = gd.ResourceLoader.singleton.load('res://sub.tscn');
+		final vres:gd.Variant = res;
+
+		asserts.assert(vres.callp("get_path") == 'res://sub.tscn');
+		asserts.assert(vres.callp("get_class") == 'PackedScene');
+
+		final scn = res.cast_to(gd.PackedScene);
+		final vscn:gd.Variant = scn;
+		asserts.assert(vscn.callp('can_instantiate') == true);
 
 		return asserts.done();
 	}

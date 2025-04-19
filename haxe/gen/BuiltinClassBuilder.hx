@@ -106,7 +106,10 @@ class BuiltinClassBuilder extends Builder {
 								expr: EFunction(FAnonymous, {
 									args: (ctors[i].arguments ?? []).map(arg -> ({
 										name: 'p_${arg.name}',
-										type: makeGodotType(arg.type),
+										type: {
+											final t = makeGodotType(arg.type);
+											isValueType(arg.type) ? macro :cpp.Reference<$t> : t;
+										}
 									} : FunctionArg)),
 									ret: macro :Void,
 									expr: macro {}
@@ -275,7 +278,8 @@ class BuiltinClassBuilder extends Builder {
 					@:from
 					extern static inline function fromHaxe(v:std.String):String {
 						// godot will make a copy of the string
-						return untyped __cpp__('godot::String({0})', cpp.NativeString.c_str(v));
+						final v:gdnative.String = untyped __cpp__('godot::String({0})', cpp.NativeString.c_str(v)); // explicit var to ensure stack-allocated
+						return v;
 					}
 				}).fields.concat(abs.fields);
 			case 'StringName':
@@ -290,7 +294,9 @@ class BuiltinClassBuilder extends Builder {
 					@:from
 					extern static inline function fromHaxe(v:std.String):StringName {
 						// godot will make a copy of the string
-						return untyped __cpp__('godot::StringName({0})', cpp.NativeString.c_str(v));
+						final v:gdnative.StringName = untyped __cpp__('godot::StringName({0})',
+							cpp.NativeString.c_str(v)); // explicit var to ensure stack-allocated;
+						return v;
 					}
 				}).fields.concat(abs.fields);
 			case 'NodePath':

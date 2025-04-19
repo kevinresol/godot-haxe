@@ -44,9 +44,9 @@ package gdnative;
 }
 
 @:include("godot_cpp/variant/transform3d.hpp") @:semantics(reference) @:cpp.ValueType({ type : "Transform3D", namespace : ['godot'] }) extern class Transform3D_extern {
-	@:overload(function(p_from:gdnative.Transform3D):Void { })
-	@:overload(function(p_basis:gdnative.Basis, p_origin:gdnative.Vector3):Void { })
-	@:overload(function(p_x_axis:gdnative.Vector3, p_y_axis:gdnative.Vector3, p_z_axis:gdnative.Vector3, p_origin:gdnative.Vector3):Void { })
+	@:overload(function(p_from:cpp.Reference<gdnative.Transform3D>):Void { })
+	@:overload(function(p_basis:cpp.Reference<gdnative.Basis>, p_origin:cpp.Reference<gdnative.Vector3>):Void { })
+	@:overload(function(p_x_axis:cpp.Reference<gdnative.Vector3>, p_y_axis:cpp.Reference<gdnative.Vector3>, p_z_axis:cpp.Reference<gdnative.Vector3>, p_origin:cpp.Reference<gdnative.Vector3>):Void { })
 	@:overload(function(p_xx:Float, p_xy:Float, p_xz:Float, p_yx:Float, p_yy:Float, p_yz:Float, p_zx:Float, p_zy:Float, p_zz:Float, p_tx:Float, p_ty:Float, p_tz:Float):Void { })
 	function new();
 	function inverse():gdnative.Transform3D;

@@ -35,9 +35,9 @@ package gdnative;
 }
 
 @:include("godot_cpp/variant/projection.hpp") @:semantics(reference) @:cpp.ValueType({ type : "Projection", namespace : ['godot'] }) extern class Projection_extern {
-	@:overload(function(p_from:gdnative.Projection):Void { })
-	@:overload(function(p_from:gdnative.Transform3D):Void { })
-	@:overload(function(p_x_axis:gdnative.Vector4, p_y_axis:gdnative.Vector4, p_z_axis:gdnative.Vector4, p_w_axis:gdnative.Vector4):Void { })
+	@:overload(function(p_from:cpp.Reference<gdnative.Projection>):Void { })
+	@:overload(function(p_from:cpp.Reference<gdnative.Transform3D>):Void { })
+	@:overload(function(p_x_axis:cpp.Reference<gdnative.Vector4>, p_y_axis:cpp.Reference<gdnative.Vector4>, p_z_axis:cpp.Reference<gdnative.Vector4>, p_w_axis:cpp.Reference<gdnative.Vector4>):Void { })
 	function new();
 	static function create_depth_correction(p_flip_y:Bool):gdnative.Projection;
 	static function create_light_atlas_rect(p_rect:gdnative.Rect2):gdnative.Projection;

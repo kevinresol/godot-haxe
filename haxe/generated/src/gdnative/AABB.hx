@@ -32,8 +32,8 @@ package gdnative;
 }
 
 @:include("godot_cpp/variant/aabb.hpp") @:semantics(reference) @:cpp.ValueType({ type : "AABB", namespace : ['godot'] }) extern class AABB_extern {
-	@:overload(function(p_from:gdnative.AABB):Void { })
-	@:overload(function(p_position:gdnative.Vector3, p_size:gdnative.Vector3):Void { })
+	@:overload(function(p_from:cpp.Reference<gdnative.AABB>):Void { })
+	@:overload(function(p_position:cpp.Reference<gdnative.Vector3>, p_size:cpp.Reference<gdnative.Vector3>):Void { })
 	function new();
 	function abs():gdnative.AABB;
 	function get_center():gdnative.Vector3;

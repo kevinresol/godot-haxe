@@ -45,10 +45,10 @@ package gdnative;
 }
 
 @:include("godot_cpp/variant/basis.hpp") @:semantics(reference) @:cpp.ValueType({ type : "Basis", namespace : ['godot'] }) extern class Basis_extern {
-	@:overload(function(p_from:gdnative.Basis):Void { })
-	@:overload(function(p_from:gdnative.Quaternion):Void { })
-	@:overload(function(p_axis:gdnative.Vector3, p_angle:Float):Void { })
-	@:overload(function(p_x_axis:gdnative.Vector3, p_y_axis:gdnative.Vector3, p_z_axis:gdnative.Vector3):Void { })
+	@:overload(function(p_from:cpp.Reference<gdnative.Basis>):Void { })
+	@:overload(function(p_from:cpp.Reference<gdnative.Quaternion>):Void { })
+	@:overload(function(p_axis:cpp.Reference<gdnative.Vector3>, p_angle:Float):Void { })
+	@:overload(function(p_x_axis:cpp.Reference<gdnative.Vector3>, p_y_axis:cpp.Reference<gdnative.Vector3>, p_z_axis:cpp.Reference<gdnative.Vector3>):Void { })
 	@:overload(function(p_xx:Float, p_xy:Float, p_xz:Float, p_yx:Float, p_yy:Float, p_yz:Float, p_zx:Float, p_zy:Float, p_zz:Float):Void { })
 	function new();
 	function inverse():gdnative.Basis;

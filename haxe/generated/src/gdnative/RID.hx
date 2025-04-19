@@ -39,7 +39,7 @@ package gdnative;
 }
 
 @:include("godot_cpp/variant/rid.hpp") @:semantics(reference) @:cpp.ValueType({ type : "RID", namespace : ['godot'] }) extern class RID_extern {
-	@:overload(function(p_from:gdnative.RID):Void { })
+	@:overload(function(p_from:cpp.Reference<gdnative.RID>):Void { })
 	function new();
 	function is_valid():Bool;
 	function get_id():cpp.Int64;

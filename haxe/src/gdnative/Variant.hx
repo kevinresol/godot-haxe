@@ -1,6 +1,9 @@
 package gdnative;
 
-import cpp.abi.ThisCall;
+import haxe.CallStack;
+import cpp.ConstStar;
+import cpp.Star;
+import cpp.Reference;
 
 @:forward
 abstract Variant(Variant_extern) from Variant_extern to Variant_extern {
@@ -131,13 +134,14 @@ abstract Variant(Variant_extern) from Variant_extern to Variant_extern {
 				final v = (cast val() : Float);
 				v;
 
-			case STRING:
+			case STRING | STRING_NAME | NODE_PATH:
 				toHaxeString();
 			case OBJECT:
 				final name:std.String = this.call("get_class");
 				// TODO: is there a chance the class doesn't exist?
 				gd.Utils.createClassWrapper(toObjectPointer(), Type.resolveClass('gd.$name'));
 			case _:
+				trace(CallStack.toString(CallStack.callStack()));
 				trace('Unhandled type ${(type : Int)}');
 				throw 'Unhandled type ${(type : Int)}';
 		}
@@ -187,7 +191,7 @@ abstract Variant(Variant_extern) from Variant_extern to Variant_extern {
 		return untyped __cpp__('{0} == {1}', val(), @:privateAccess p_rhs.val());
 }
 
-@:include("godot_cpp/classes/object.hpp")
+@:include("godot_cpp/variant/variant.hpp")
 // @:native("godot::Variant")
 // @:structAccess
 @:semantics(reference)
@@ -238,13 +242,39 @@ extern class Variant_extern {
 	function new();
 
 	function get_type():gdnative.variant.Type;
-	function get_type_name(type:gdnative.variant.Type):gdnative.String;
+	function get_type_name(p_type:gdnative.variant.Type):gdnative.String;
+
+	function callp(p_method:StringName, p_args:ConstStar<Star<Variant>>, p_argcount:Int, r_ret:Variant, r_error:GDExtensionCallError):Void;
+
 	overload function call(p_method:gdnative.StringName):gdnative.Variant;
 	overload function call(p_method:gdnative.StringName, p_arg0:gdnative.Variant):gdnative.Variant;
 
-	function set_named(name:StringName, value:cpp.Reference<Variant>, r_valid:cpp.Reference<Bool>):Void;
-	function set_indexed(index:cpp.Int64, value:cpp.Reference<Variant>, r_valid:cpp.Reference<Bool>, r_oob:cpp.Reference<Bool>):Void;
+	function set_named(p_name:StringName, p_value:cpp.Reference<Variant>, r_valid:cpp.Reference<Bool>):Void;
+	function set_indexed(p_index:cpp.Int64, value:cpp.Reference<Variant>, r_valid:cpp.Reference<Bool>, r_oob:cpp.Reference<Bool>):Void;
 
-	function get_named(name:StringName, r_valid:cpp.Reference<Bool>):Variant;
-	function get_indexed(index:cpp.Int64, r_valid:cpp.Reference<Bool>, r_oob:cpp.Reference<Bool>):Variant;
+	function get_named(p_name:StringName, r_valid:cpp.Reference<Bool>):Variant;
+	function get_indexed(p_index:cpp.Int64, r_valid:cpp.Reference<Bool>, r_oob:cpp.Reference<Bool>):Variant;
+}
+
+@:include("gdextension_interface.h")
+@:semantics(reference)
+@:cpp.ValueType({type: 'GDExtensionCallError'})
+extern class GDExtensionCallError {
+	final error:GDExtensionCallErrorType;
+	final argument:Int;
+	final expected:Int;
+	function new():Void;
+}
+
+@:include("gdextension_interface.h")
+@:semantics(reference)
+@:cpp.ValueType({type: 'GDExtensionCallErrorType'})
+extern enum abstract GDExtensionCallErrorType(Int) to Int {
+	final GDEXTENSION_CALL_OK;
+	final GDEXTENSION_CALL_ERROR_INVALID_METHOD;
+	final GDEXTENSION_CALL_ERROR_INVALID_ARGUMENT;
+	final GDEXTENSION_CALL_ERROR_TOO_MANY_ARGUMENTS;
+	final GDEXTENSION_CALL_ERROR_TOO_FEW_ARGUMENTS;
+	final GDEXTENSION_CALL_ERROR_INSTANCE_IS_NULL;
+	final GDEXTENSION_CALL_ERROR_METHOD_NOT_CONST;
 }

@@ -32,8 +32,8 @@ package gdnative;
 }
 
 @:include("godot_cpp/variant/dictionary.hpp") @:semantics(reference) @:cpp.ValueType({ type : "Dictionary", namespace : ['godot'] }) extern class Dictionary_extern {
-	@:overload(function(p_from:gdnative.Dictionary):Void { })
-	@:overload(function(p_base:gdnative.Dictionary, p_key_type:cpp.Int64, p_key_class_name:gdnative.StringName, p_key_script:gdnative.Variant, p_value_type:cpp.Int64, p_value_class_name:gdnative.StringName, p_value_script:gdnative.Variant):Void { })
+	@:overload(function(p_from:cpp.Reference<gdnative.Dictionary>):Void { })
+	@:overload(function(p_base:cpp.Reference<gdnative.Dictionary>, p_key_type:cpp.Int64, p_key_class_name:cpp.Reference<gdnative.StringName>, p_key_script:cpp.Reference<gdnative.Variant>, p_value_type:cpp.Int64, p_value_class_name:cpp.Reference<gdnative.StringName>, p_value_script:cpp.Reference<gdnative.Variant>):Void { })
 	function new();
 	function size():cpp.Int64;
 	function is_empty():Bool;
