@@ -101,6 +101,10 @@ class Cppia {
 		print("foo in dict: ", 'foo' in dict, dict['foo']);
 		print("42 in dict: ", 42 in dict, dict[42]);
 
+		trace('Signal checks (host)');
+		final signal = new Signal();
+		signal.emit(42, 'bar');
+
 		{
 			trace('JSON checks (host)1');
 			final json = new JSON();

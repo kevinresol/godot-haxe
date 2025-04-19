@@ -28,6 +28,12 @@ class Signal_wrapper {
 		v;
 	};
 	public function has_connections():Bool return __gd.has_connections();
+	public function emit(p_args:haxe.Rest<gd.Variant>):Void {
+		final vlen = p_args.length, len = 0 + vlen;
+		untyped __cpp__('std::vector<const godot::Variant*> ptrs({0})', len);
+		for (i in 0 ... vlen) untyped __cpp__('ptrs[{0}] = {1}', 0 + i, ((p_args[i] : gdnative.Variant)));
+		__gd.emit(untyped __cpp__('ptrs.data()'), len);
+	}
 	function __op_equal_to_variant(p_rhs:gd.Variant):Bool return @:privateAccess this.__gd.__op_equal_to_variant(((p_rhs : gdnative.Variant)));
 	function __op_not_equal_variant(p_rhs:gd.Variant):Bool return @:privateAccess this.__gd.__op_not_equal_variant(((p_rhs : gdnative.Variant)));
 	function __op_equal_to_signal(p_rhs:gd.Signal):Bool return @:privateAccess this.__gd.__op_equal_to_signal(((p_rhs : gdnative.Signal)));

@@ -60,6 +60,7 @@ package gdnative;
 }
 
 @:include("godot_cpp/variant/vector3.hpp") @:semantics(reference) @:cpp.ValueType({ type : "Vector3", namespace : ['godot'] }) extern class Vector3_extern {
+	function _native_ptr():cpp.Star<cpp.Void>;
 	@:overload(function(p_from:cpp.Reference<gdnative.Vector3>):Void { })
 	@:overload(function(p_x:Float, p_y:Float, p_z:Float):Void { })
 	function new();

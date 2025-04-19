@@ -54,6 +54,7 @@ package gdnative;
 }
 
 @:include("godot_cpp/variant/vector4i.hpp") @:semantics(reference) @:cpp.ValueType({ type : "Vector4i", namespace : ['godot'] }) extern class Vector4i_extern {
+	function _native_ptr():cpp.Star<cpp.Void>;
 	@:overload(function(p_from:cpp.Reference<gdnative.Vector4i>):Void { })
 	@:overload(function(p_x:cpp.Int64, p_y:cpp.Int64, p_z:cpp.Int64, p_w:cpp.Int64):Void { })
 	function new();

@@ -33,6 +33,7 @@ package gdnative;
 }
 
 @:include("godot_cpp/variant/rect2.hpp") @:semantics(reference) @:cpp.ValueType({ type : "Rect2", namespace : ['godot'] }) extern class Rect2_extern {
+	function _native_ptr():cpp.Star<cpp.Void>;
 	@:overload(function(p_from:cpp.Reference<gdnative.Rect2>):Void { })
 	@:overload(function(p_position:cpp.Reference<gdnative.Vector2>, p_size:cpp.Reference<gdnative.Vector2>):Void { })
 	@:overload(function(p_x:Float, p_y:Float, p_width:Float, p_height:Float):Void { })

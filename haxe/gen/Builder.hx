@@ -231,6 +231,24 @@ class Builder {
 		return macro $b{exprs};
 	}
 
+	function getNativeGodotType(gdType:String):String {
+		return switch gdType {
+			case 'void': 'void';
+			case 'float': 'float';
+			case 'int': 'int64_t';
+			case 'bool': 'bool';
+			case _: 'godot::$gdType';
+		}
+	}
+
+	function getExtensionVariantType(gdType:String):String {
+		return switch gdType {
+			case 'Callable': 'GDEXTENSION_VARIANT_TYPE_CALLABLE';
+			case 'Signal': 'GDEXTENSION_VARIANT_TYPE_SIGNAL';
+			case _: throw 'Unhandled type: $gdType';
+		}
+	}
+
 	function makeGodotType(gdType:String):ComplexType {
 		return switch gdType {
 			case 'void': macro :Void;

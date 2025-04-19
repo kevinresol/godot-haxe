@@ -50,6 +50,7 @@ package gdnative;
 }
 
 @:include("godot_cpp/variant/quaternion.hpp") @:semantics(reference) @:cpp.ValueType({ type : "Quaternion", namespace : ['godot'] }) extern class Quaternion_extern {
+	function _native_ptr():cpp.Star<cpp.Void>;
 	@:overload(function(p_from:cpp.Reference<gdnative.Quaternion>):Void { })
 	@:overload(function(p_axis:cpp.Reference<gdnative.Vector3>, p_angle:Float):Void { })
 	@:overload(function(p_arc_from:cpp.Reference<gdnative.Vector3>, p_arc_to:cpp.Reference<gdnative.Vector3>):Void { })

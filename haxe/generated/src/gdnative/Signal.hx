@@ -32,6 +32,7 @@ package gdnative;
 }
 
 @:include("godot_cpp/variant/signal.hpp") @:semantics(reference) @:cpp.ValueType({ type : "Signal", namespace : ['godot'] }) extern class Signal_extern {
+	function _native_ptr():cpp.Star<cpp.Void>;
 	@:overload(function(p_from:cpp.Reference<gdnative.Signal>):Void { })
 	@:overload(function(p_object:gdnative.Object, p_signal:cpp.Reference<gdnative.StringName>):Void { })
 	function new();
@@ -45,4 +46,9 @@ package gdnative;
 	function is_connected(p_callable:gdnative.Callable):Bool;
 	function get_connections():gdnative.Array;
 	function has_connections():Bool;
+	extern inline function emit(p_args:cpp.ConstStar<cpp.Star<gdnative.Variant.Variant_extern>>, p_count:Int):Void {
+		untyped __cpp__("static godot::StringName __sn(\"emit\")");
+		untyped __cpp__("static GDExtensionPtrBuiltInMethod mb = godot::internal::gdextension_interface_variant_get_ptr_builtin_method(GDEXTENSION_VARIANT_TYPE_SIGNAL, __sn._native_ptr(), 3286317445)");
+		untyped __cpp__('mb({0}, reinterpret_cast<GDExtensionConstTypePtr *>({1}), nullptr, {2})', _native_ptr(), p_args, p_count);
+	}
 }

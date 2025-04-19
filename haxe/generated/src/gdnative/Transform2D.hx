@@ -45,6 +45,7 @@ package gdnative;
 }
 
 @:include("godot_cpp/variant/transform2d.hpp") @:semantics(reference) @:cpp.ValueType({ type : "Transform2D", namespace : ['godot'] }) extern class Transform2D_extern {
+	function _native_ptr():cpp.Star<cpp.Void>;
 	@:overload(function(p_from:cpp.Reference<gdnative.Transform2D>):Void { })
 	@:overload(function(p_rotation:Float, p_position:cpp.Reference<gdnative.Vector2>):Void { })
 	@:overload(function(p_rotation:Float, p_scale:cpp.Reference<gdnative.Vector2>, p_skew:Float, p_position:cpp.Reference<gdnative.Vector2>):Void { })

@@ -40,7 +40,9 @@ class BuiltinClassBuilder extends Builder {
 		final aname = cname;
 		final act = TPath({pack: Config.nativeExtern.pack, name: aname});
 		final config = Config.nativeExtern;
-		final cls = macro class $ename {};
+		final cls = macro class $ename {
+			function _native_ptr():cpp.Star<cpp.Void>;
+		}
 		cls.isExtern = true;
 		cls.meta = [
 			// {pos: null, name: ':native', params: [macro $v{'godot::$cname'}]},
@@ -177,11 +179,30 @@ class BuiltinClassBuilder extends Builder {
 				for (i in 0...optArgCount + 1) {
 					cls.fields.push({
 						pos: null,
-						access: (optArgCount > 0 ? [AOverload] : []).concat(fn.is_static ? [AStatic] : []),
+						access: (optArgCount > 0 ? [AOverload] : []).concat(fn.is_static ? [AStatic] : []).concat(fn.is_vararg ? [AExtern, AInline] : []),
 						name: fname,
 						kind: FFun({
 							args: fargs.slice(0, fargs.length - optArgCount + i),
 							ret: rct,
+							expr: fn.is_vararg ? {
+								final exprs = [
+									macro untyped __cpp__($v{'static godot::StringName __sn("$fname")'}),
+									macro untyped __cpp__($v{'static GDExtensionPtrBuiltInMethod mb = godot::internal::gdextension_interface_variant_get_ptr_builtin_method(${getExtensionVariantType(cname)}, __sn._native_ptr(), ${fn.hash})'})
+								];
+
+								switch fn.return_type {
+									case null | 'void':
+										exprs.push(macro untyped __cpp__('mb({0}, reinterpret_cast<GDExtensionConstTypePtr *>({1}), nullptr, {2})',
+											_native_ptr(), p_args, p_count));
+									case _:
+										exprs.push(macro untyped __cpp__($v{'${getNativeGodotType(fn.return_type)} ret'}));
+										exprs.push(macro untyped __cpp__('mb({0}, reinterpret_cast<GDExtensionConstTypePtr *>({1}), &ret, {2})',
+											_native_ptr(), p_args, p_count));
+										exprs.push(macro return untyped __cpp__('ret'));
+								}
+
+								macro $b{exprs}
+							} : null
 						}),
 						meta: switch getMethodNative(cname, fname) {
 							case null: [];
@@ -219,6 +240,7 @@ class BuiltinClassBuilder extends Builder {
 				}
 			} catch (e) {}
 		}
+
 		// operators
 		for (op in clazz.operators.filter(op -> isValidOperator(cname, op))) {
 			try {
@@ -681,8 +703,8 @@ class BuiltinClassBuilder extends Builder {
 				clazz.methods.filter(m -> !['intersects_segment', 'intersects_ray'].contains(m.name));
 			case 'Basis' | 'Transform2D':
 				clazz.methods.filter(m -> !['is_conformal'].contains(m.name));
-			case 'Signal':
-				clazz.methods.filter(m -> !['emit'].contains(m.name)); // TODO: vararg
+			// case 'Signal':
+			// 	clazz.methods.filter(m -> !['emit'].contains(m.name)); // TODO: vararg
 			case 'Callable':
 				clazz.methods.filter(m -> !['rpc_id'].contains(m.name)); // TODO: vararg
 			default:

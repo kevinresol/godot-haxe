@@ -36,6 +36,7 @@ package gdnative;
 }
 
 @:include("godot_cpp/variant/packed_vector3_array.hpp") @:semantics(reference) @:cpp.ValueType({ type : "PackedVector3Array", namespace : ['godot'] }) extern class PackedVector3Array_extern {
+	function _native_ptr():cpp.Star<cpp.Void>;
 	@:overload(function(p_from:cpp.Reference<gdnative.PackedVector3Array>):Void { })
 	@:overload(function(p_from:cpp.Reference<gdnative.Array>):Void { })
 	function new();

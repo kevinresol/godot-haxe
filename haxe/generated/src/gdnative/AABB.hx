@@ -32,6 +32,7 @@ package gdnative;
 }
 
 @:include("godot_cpp/variant/aabb.hpp") @:semantics(reference) @:cpp.ValueType({ type : "AABB", namespace : ['godot'] }) extern class AABB_extern {
+	function _native_ptr():cpp.Star<cpp.Void>;
 	@:overload(function(p_from:cpp.Reference<gdnative.AABB>):Void { })
 	@:overload(function(p_position:cpp.Reference<gdnative.Vector3>, p_size:cpp.Reference<gdnative.Vector3>):Void { })
 	function new();

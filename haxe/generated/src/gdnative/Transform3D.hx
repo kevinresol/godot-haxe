@@ -44,6 +44,7 @@ package gdnative;
 }
 
 @:include("godot_cpp/variant/transform3d.hpp") @:semantics(reference) @:cpp.ValueType({ type : "Transform3D", namespace : ['godot'] }) extern class Transform3D_extern {
+	function _native_ptr():cpp.Star<cpp.Void>;
 	@:overload(function(p_from:cpp.Reference<gdnative.Transform3D>):Void { })
 	@:overload(function(p_basis:cpp.Reference<gdnative.Basis>, p_origin:cpp.Reference<gdnative.Vector3>):Void { })
 	@:overload(function(p_x_axis:cpp.Reference<gdnative.Vector3>, p_y_axis:cpp.Reference<gdnative.Vector3>, p_z_axis:cpp.Reference<gdnative.Vector3>, p_origin:cpp.Reference<gdnative.Vector3>):Void { })

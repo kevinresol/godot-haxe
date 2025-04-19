@@ -52,6 +52,7 @@ package gdnative;
 }
 
 @:include("godot_cpp/variant/array.hpp") @:semantics(reference) @:cpp.ValueType({ type : "Array", namespace : ['godot'] }) extern class Array_extern {
+	function _native_ptr():cpp.Star<cpp.Void>;
 	@:overload(function(p_from:cpp.Reference<gdnative.Array>):Void { })
 	@:overload(function(p_base:cpp.Reference<gdnative.Array>, p_type:cpp.Int64, p_class_name:cpp.Reference<gdnative.StringName>, p_script:cpp.Reference<gdnative.Variant>):Void { })
 	@:overload(function(p_from:cpp.Reference<gdnative.PackedByteArray>):Void { })

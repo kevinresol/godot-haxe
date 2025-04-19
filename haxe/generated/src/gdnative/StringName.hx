@@ -141,6 +141,7 @@ package gdnative;
 }
 
 @:include("godot_cpp/variant/string_name.hpp") @:semantics(reference) @:cpp.ValueType({ type : "StringName", namespace : ['godot'] }) extern class StringName_extern {
+	function _native_ptr():cpp.Star<cpp.Void>;
 	@:overload(function(p_from:cpp.Reference<gdnative.StringName>):Void { })
 	@:overload(function(p_from:cpp.Reference<gdnative.String>):Void { })
 	function new();

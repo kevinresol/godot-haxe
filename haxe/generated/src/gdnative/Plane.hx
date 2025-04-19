@@ -38,6 +38,7 @@ package gdnative;
 }
 
 @:include("godot_cpp/variant/plane.hpp") @:semantics(reference) @:cpp.ValueType({ type : "Plane", namespace : ['godot'] }) extern class Plane_extern {
+	function _native_ptr():cpp.Star<cpp.Void>;
 	@:overload(function(p_from:cpp.Reference<gdnative.Plane>):Void { })
 	@:overload(function(p_normal:cpp.Reference<gdnative.Vector3>):Void { })
 	@:overload(function(p_normal:cpp.Reference<gdnative.Vector3>, p_d:Float):Void { })

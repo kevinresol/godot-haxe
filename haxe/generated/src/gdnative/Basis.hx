@@ -45,6 +45,7 @@ package gdnative;
 }
 
 @:include("godot_cpp/variant/basis.hpp") @:semantics(reference) @:cpp.ValueType({ type : "Basis", namespace : ['godot'] }) extern class Basis_extern {
+	function _native_ptr():cpp.Star<cpp.Void>;
 	@:overload(function(p_from:cpp.Reference<gdnative.Basis>):Void { })
 	@:overload(function(p_from:cpp.Reference<gdnative.Quaternion>):Void { })
 	@:overload(function(p_axis:cpp.Reference<gdnative.Vector3>, p_angle:Float):Void { })

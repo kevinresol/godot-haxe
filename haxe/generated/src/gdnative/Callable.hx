@@ -32,6 +32,7 @@ package gdnative;
 }
 
 @:include("godot_cpp/variant/callable.hpp") @:semantics(reference) @:cpp.ValueType({ type : "Callable", namespace : ['godot'] }) extern class Callable_extern {
+	function _native_ptr():cpp.Star<cpp.Void>;
 	@:overload(function(p_from:cpp.Reference<gdnative.Callable>):Void { })
 	@:overload(function(p_object:gdnative.Object, p_method:cpp.Reference<gdnative.StringName>):Void { })
 	function new();
@@ -51,8 +52,28 @@ package gdnative;
 	function hash():cpp.Int64;
 	function bindv(p_arguments:gdnative.Array):gdnative.Callable;
 	function unbind(p_argcount:cpp.Int64):gdnative.Callable;
-	function call(p_args:cpp.ConstStar<cpp.Star<gdnative.Variant.Variant_extern>>, p_count:Int):gdnative.Variant;
-	function call_deferred(p_args:cpp.ConstStar<cpp.Star<gdnative.Variant.Variant_extern>>, p_count:Int):Void;
-	function rpc(p_args:cpp.ConstStar<cpp.Star<gdnative.Variant.Variant_extern>>, p_count:Int):Void;
-	function bind(p_args:cpp.ConstStar<cpp.Star<gdnative.Variant.Variant_extern>>, p_count:Int):gdnative.Callable;
+	extern inline function call(p_args:cpp.ConstStar<cpp.Star<gdnative.Variant.Variant_extern>>, p_count:Int):gdnative.Variant {
+		untyped __cpp__("static godot::StringName __sn(\"call\")");
+		untyped __cpp__("static GDExtensionPtrBuiltInMethod mb = godot::internal::gdextension_interface_variant_get_ptr_builtin_method(GDEXTENSION_VARIANT_TYPE_CALLABLE, __sn._native_ptr(), 3643564216)");
+		untyped __cpp__("godot::Variant ret");
+		untyped __cpp__('mb({0}, reinterpret_cast<GDExtensionConstTypePtr *>({1}), &ret, {2})', _native_ptr(), p_args, p_count);
+		return untyped __cpp__('ret');
+	}
+	extern inline function call_deferred(p_args:cpp.ConstStar<cpp.Star<gdnative.Variant.Variant_extern>>, p_count:Int):Void {
+		untyped __cpp__("static godot::StringName __sn(\"call_deferred\")");
+		untyped __cpp__("static GDExtensionPtrBuiltInMethod mb = godot::internal::gdextension_interface_variant_get_ptr_builtin_method(GDEXTENSION_VARIANT_TYPE_CALLABLE, __sn._native_ptr(), 3286317445)");
+		untyped __cpp__('mb({0}, reinterpret_cast<GDExtensionConstTypePtr *>({1}), nullptr, {2})', _native_ptr(), p_args, p_count);
+	}
+	extern inline function rpc(p_args:cpp.ConstStar<cpp.Star<gdnative.Variant.Variant_extern>>, p_count:Int):Void {
+		untyped __cpp__("static godot::StringName __sn(\"rpc\")");
+		untyped __cpp__("static GDExtensionPtrBuiltInMethod mb = godot::internal::gdextension_interface_variant_get_ptr_builtin_method(GDEXTENSION_VARIANT_TYPE_CALLABLE, __sn._native_ptr(), 3286317445)");
+		untyped __cpp__('mb({0}, reinterpret_cast<GDExtensionConstTypePtr *>({1}), nullptr, {2})', _native_ptr(), p_args, p_count);
+	}
+	extern inline function bind(p_args:cpp.ConstStar<cpp.Star<gdnative.Variant.Variant_extern>>, p_count:Int):gdnative.Callable {
+		untyped __cpp__("static godot::StringName __sn(\"bind\")");
+		untyped __cpp__("static GDExtensionPtrBuiltInMethod mb = godot::internal::gdextension_interface_variant_get_ptr_builtin_method(GDEXTENSION_VARIANT_TYPE_CALLABLE, __sn._native_ptr(), 3224143119)");
+		untyped __cpp__("godot::Callable ret");
+		untyped __cpp__('mb({0}, reinterpret_cast<GDExtensionConstTypePtr *>({1}), &ret, {2})', _native_ptr(), p_args, p_count);
+		return untyped __cpp__('ret');
+	}
 }

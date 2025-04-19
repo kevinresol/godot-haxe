@@ -39,6 +39,7 @@ package gdnative;
 }
 
 @:include("godot_cpp/variant/node_path.hpp") @:semantics(reference) @:cpp.ValueType({ type : "NodePath", namespace : ['godot'] }) extern class NodePath_extern {
+	function _native_ptr():cpp.Star<cpp.Void>;
 	@:overload(function(p_from:cpp.Reference<gdnative.NodePath>):Void { })
 	@:overload(function(p_from:cpp.Reference<gdnative.String>):Void { })
 	function new();

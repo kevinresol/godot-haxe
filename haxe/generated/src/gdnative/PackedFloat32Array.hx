@@ -34,6 +34,7 @@ package gdnative;
 }
 
 @:include("godot_cpp/variant/packed_float32_array.hpp") @:semantics(reference) @:cpp.ValueType({ type : "PackedFloat32Array", namespace : ['godot'] }) extern class PackedFloat32Array_extern {
+	function _native_ptr():cpp.Star<cpp.Void>;
 	@:overload(function(p_from:cpp.Reference<gdnative.PackedFloat32Array>):Void { })
 	@:overload(function(p_from:cpp.Reference<gdnative.Array>):Void { })
 	function new();
