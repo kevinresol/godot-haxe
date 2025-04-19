@@ -198,7 +198,7 @@ class InstanceMethodTest {
 	public function new(node:gd.Node2D)
 		this.node = node;
 
-	public function test() {
+	public function typed() {
 		asserts.assert(node.get_child_count() == 1);
 		asserts.assert(node.get_child_count(false) == 1);
 		asserts.assert(node.get_child_count(true) == 1);
@@ -211,6 +211,23 @@ class InstanceMethodTest {
 		final sprite = node.get_node('Node2D/Sprite2D').cast_to(gd.Sprite2D);
 		asserts.assert(sprite.get_name() == 'Sprite2D');
 		asserts.assert(sprite.get_class() == 'Sprite2D');
+
+		return asserts.done();
+	}
+
+	public function call() {
+		asserts.assert(node.call('get_child_count') == 1);
+		asserts.assert(node.call('get_child_count', false) == 1);
+		asserts.assert(node.call('get_child_count', true) == 1);
+		asserts.assert(node.call('get_name') == new gd.StringName('Main'));
+		asserts.assert(node.call('get_index') == 0);
+		asserts.assert(node.call('get_tree_string') == '.\nNode2D\nNode2D/Sprite2D\n');
+		asserts.assert(node.call('get_scene_file_path') == 'res://main.tscn');
+		asserts.assert(node.call('get_class') == 'Node2D');
+
+		final sprite = node.get_node('Node2D/Sprite2D').cast_to(gd.Sprite2D);
+		asserts.assert(sprite.call('get_name') == new gd.StringName('Sprite2D'));
+		asserts.assert(sprite.call('get_class') == 'Sprite2D');
 
 		return asserts.done();
 	}

@@ -205,7 +205,8 @@ class Cppia {
 	public static function instanceHasMethod(inst:Dynamic, methodName:std.String):Bool {
 		// FIXME: don't consider built-in methods
 		switch methodName {
-			case 'get_name' | 'get_node' | 'get_class' | 'get_path' | 'can_instantiate':
+			case 'get_name' | 'get_node' | 'get_class' | 'get_path' | 'can_instantiate' | 'get_child_count' | 'get_index' | 'get_tree_string' |
+				'get_scene_file_path':
 				return false;
 		}
 
