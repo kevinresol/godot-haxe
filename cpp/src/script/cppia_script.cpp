@@ -63,10 +63,12 @@ bool CppiaScript::_is_valid() const {
 }
 
 bool CppiaScript::_has_script_signal(const StringName &signal) const {
-  return false;
+  UtilityFunctions::print("CppiaScript::_has_script_signal", signal);
+  return signal == StringName("test");
 }
 
 TypedArray<Dictionary> CppiaScript::_get_script_signal_list() const {
+  UtilityFunctions::print("CppiaScript::_get_script_signal_list");
   TypedArray<Dictionary> ret;
   return ret;
 }

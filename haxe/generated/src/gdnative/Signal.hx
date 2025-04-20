@@ -48,7 +48,7 @@ package gdnative;
 	function has_connections():Bool;
 	extern inline function emit(p_args:cpp.ConstStar<cpp.Star<gdnative.Variant.Variant_extern>>, p_count:Int):Void {
 		untyped __cpp__("static godot::StringName __sn(\"emit\")");
-		untyped __cpp__("static GDExtensionPtrBuiltInMethod mb = godot::internal::gdextension_interface_variant_get_ptr_builtin_method(GDEXTENSION_VARIANT_TYPE_SIGNAL, __sn._native_ptr(), 3286317445)");
-		untyped __cpp__('mb({0}, reinterpret_cast<GDExtensionConstTypePtr *>({1}), nullptr, {2})', _native_ptr(), p_args, p_count);
+		untyped __cpp__("static GDExtensionPtrBuiltInMethod __mb = godot::internal::gdextension_interface_variant_get_ptr_builtin_method(GDEXTENSION_VARIANT_TYPE_SIGNAL, __sn._native_ptr(), 3286317445)");
+		untyped __cpp__('__mb({0}, reinterpret_cast<GDExtensionConstTypePtr *>({1}), nullptr, {2})', _native_ptr(), p_args, p_count);
 	}
 }

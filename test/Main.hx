@@ -1,3 +1,4 @@
+import gd.AABB;
 import gd.UtilityFunctions;
 import tink.testrunner.*;
 import tink.unit.*;
@@ -18,8 +19,16 @@ class Main extends gd.Node2D {
 			new InstanceMethodTest(this),
 			new VariantTest(this),
 			new ResourceTest(),
+			new SignalTest(this),
 			// new MemoryTest(),
 		])).handle(result -> get_tree().quit(result.summary().failures.length));
+	}
+
+	public var signalFired = false;
+
+	function _signal_callback() {
+		signalFired = true;
+		trace('Signal callback');
 	}
 }
 
@@ -275,6 +284,24 @@ class ResourceTest {
 
 		final scn = res.cast_to(gd.PackedScene);
 		asserts.assert(scn.can_instantiate());
+
+		return asserts.done();
+	}
+}
+
+@:asserts
+class SignalTest {
+	final node:Main;
+
+	public function new(node:Main)
+		this.node = node;
+
+	public function load() {
+		final signal = new gd.Signal(node, "test");
+		signal.connect(new gd.Callable(node, '_signal_callback'));
+		signal.emit();
+
+		asserts.assert(node.signalFired);
 
 		return asserts.done();
 	}

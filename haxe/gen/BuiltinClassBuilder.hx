@@ -187,16 +187,16 @@ class BuiltinClassBuilder extends Builder {
 							expr: fn.is_vararg ? {
 								final exprs = [
 									macro untyped __cpp__($v{'static godot::StringName __sn("$fname")'}),
-									macro untyped __cpp__($v{'static GDExtensionPtrBuiltInMethod mb = godot::internal::gdextension_interface_variant_get_ptr_builtin_method(${getExtensionVariantType(cname)}, __sn._native_ptr(), ${fn.hash})'})
+									macro untyped __cpp__($v{'static GDExtensionPtrBuiltInMethod __mb = godot::internal::gdextension_interface_variant_get_ptr_builtin_method(${getExtensionVariantType(cname)}, __sn._native_ptr(), ${fn.hash})'})
 								];
 
 								switch fn.return_type {
 									case null | 'void':
-										exprs.push(macro untyped __cpp__('mb({0}, reinterpret_cast<GDExtensionConstTypePtr *>({1}), nullptr, {2})',
+										exprs.push(macro untyped __cpp__('__mb({0}, reinterpret_cast<GDExtensionConstTypePtr *>({1}), nullptr, {2})',
 											_native_ptr(), p_args, p_count));
 									case _:
 										exprs.push(macro untyped __cpp__($v{'${getNativeGodotType(fn.return_type)} ret'}));
-										exprs.push(macro untyped __cpp__('mb({0}, reinterpret_cast<GDExtensionConstTypePtr *>({1}), &ret, {2})',
+										exprs.push(macro untyped __cpp__('__mb({0}, reinterpret_cast<GDExtensionConstTypePtr *>({1}), &ret, {2})',
 											_native_ptr(), p_args, p_count));
 										exprs.push(macro return untyped __cpp__('ret'));
 								}
