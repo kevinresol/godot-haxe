@@ -62,14 +62,37 @@ bool CppiaScript::_is_valid() const {
   return true;
 }
 
-bool CppiaScript::_has_script_signal(const StringName &signal) const {
-  UtilityFunctions::print("CppiaScript::_has_script_signal", signal);
-  return signal == StringName("test");
+bool CppiaScript::_has_script_signal(const StringName &name) const {
+  UtilityFunctions::print("CppiaScript::_has_script_signal", name);
+
+  if (!signals_loaded) {
+    gdcppia::script_populate_signal_list(get_global_name(), signals);
+    signals_loaded = true;
+  }
+
+  for (const gdcppia::GDMethodInfo &signal : signals) {
+    if (signal.name == name) return true;
+  }
+  return false;
 }
 
 TypedArray<Dictionary> CppiaScript::_get_script_signal_list() const {
   UtilityFunctions::print("CppiaScript::_get_script_signal_list");
+
+  if (!signals_loaded) {
+    gdcppia::script_populate_signal_list(get_global_name(), signals);
+    signals_loaded = true;
+  }
+
   TypedArray<Dictionary> ret;
+
+  ret.resize(signals.size());
+  for (int i = 0; i < signals.size(); i++) {
+    ret[i] = signals[i];
+  }
+
+  UtilityFunctions::print(signals.size());
+  UtilityFunctions::print(ret);
   return ret;
 }
 

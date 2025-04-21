@@ -54,6 +54,14 @@ class Module {
 		return info;
 	}
 
+	function getSignalInfo(className:String):Array<String> {
+		final classType = module.resolveClass(className);
+		final info = Reflect.getProperty(classType, '__signals');
+		trace(info);
+
+		return info;
+	}
+
 	function makeClassInfo(className:String):ClassInfo {
 		static final cache = new Map<String, ClassInfo>();
 

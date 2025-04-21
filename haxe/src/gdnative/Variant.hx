@@ -137,9 +137,9 @@ abstract Variant(Variant_extern) from Variant_extern to Variant_extern {
 			case STRING | STRING_NAME | NODE_PATH:
 				toHaxeString();
 			case OBJECT:
-				final name:std.String = this.call("get_class");
+				final name = this.call("get_class");
 				// TODO: is there a chance the class doesn't exist?
-				gd.Utils.createClassWrapper(toObjectPointer(), Type.resolveClass('gd.$name'));
+				gd.Utils.createClassWrapper(toObjectPointer(), Type.resolveClass('gd.${(name : std.String)}'));
 			case _:
 				trace(CallStack.toString(CallStack.callStack()));
 				trace('Unhandled type ${(type : Int)}');
@@ -148,7 +148,8 @@ abstract Variant(Variant_extern) from Variant_extern to Variant_extern {
 	}
 
 	@:to inline function toHaxeString():std.String {
-		return ((untyped __cpp__('{0}.operator godot::String()', val()) : gdnative.String) : std.String);
+		final v:gdnative.String = untyped __cpp__('{0}.operator godot::String()', val());
+		return v;
 	}
 
 	@:to inline function toArray():gdnative.Array {

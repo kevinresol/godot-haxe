@@ -25,6 +25,39 @@ void load_bytecode(const uint8_t* p_ptr, int p_size) {
   gdcppia::Cppia_obj::runBytes(data);
 }
 
+const void script_populate_signal_list(
+    const godot::StringName& p_name,
+    godot::Vector<gdcppia::GDMethodInfo>& r_signals) {
+  printf("script_populate_signal_list\n");
+
+  auto signals =
+      gdcppia::Cppia_obj::module->getSignalInfo(to_haxe_string(p_name));
+
+  r_signals.resize(signals.__length());
+  auto writable = r_signals.ptrw();
+  for (int i = 0; i < r_signals.size(); i++) {
+    auto signal = signals[i];
+
+    writable[i].name = godot::StringName((const char*)signal);
+
+    writable[i].return_val.type = GDEXTENSION_VARIANT_TYPE_NIL;
+    writable[i].return_val.name = godot::StringName();
+    writable[i].return_val.class_name = godot::StringName();
+    writable[i].return_val.hint = godot::PROPERTY_HINT_NONE;
+    writable[i].return_val.hint_string = godot::String();
+    writable[i].return_val.usage = godot::PROPERTY_USAGE_DEFAULT;
+
+    writable[i].flags = godot::MethodFlags::METHOD_FLAGS_DEFAULT;  // fn->flags;
+
+    // TODO
+    // writable[i].argument_count = 0;          // fn->arguments.__length();
+    // writable[i].arguments = nullptr;         // TODO
+    // writable[i].default_argument_count = 0;  //
+    // fn->defaultArguments.__length(); writable[i].default_arguments = nullptr;
+  }
+  printf("script_populate_signal_list end\n");
+}
+
 void* create_instance(::String p_class_name, godot::Object* p_owner) {
   ::Dynamic instance =
       gdcppia::Cppia_obj::module->createInstance(p_class_name, p_owner);

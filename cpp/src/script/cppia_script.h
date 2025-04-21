@@ -5,6 +5,8 @@
 #include <godot_cpp/templates/hash_map.hpp>
 #include <unordered_set>
 
+#include "utils.h"
+
 namespace godot {
 
 class CppiaScriptInstance;
@@ -17,6 +19,13 @@ class CppiaScript : public ScriptExtension {
   String source;
   String path;
   mutable Ref<CppiaScript> base;
+
+  mutable Vector<gdcppia::GDPropertyInfo> properties;
+  mutable Vector<gdcppia::GDMethodInfo> methods;
+  mutable Vector<gdcppia::GDMethodInfo> signals;
+  mutable bool properties_loaded = false;
+  mutable bool methods_loaded = false;
+  mutable bool signals_loaded = false;
 
  public:
   CppiaScript();

@@ -12,24 +12,43 @@ class Macro {
 	static macro function buildObject():std.Array<Field> {
 		final cls = Context.getLocalClass().get();
 		final fields = Context.getBuildFields();
+
+		// skip godot wrapper classes which are externs in cppia
 		if (!cls.isExtern) {
-			var parent = cls.superClass?.t.get();
+			final parent = cls.superClass?.t.get();
 			fields.push({
 				name: '__props',
-				access: [APublic, AStatic],
+				pos: Context.currentPos(),
+				access: [APublic, AStatic, AFinal],
 				// TODO: build Array<PropertyInfo> from fields
 				kind: FVar(macro :std.Array<gdcppia.PropertyInfo>, {
-					final props:Expr = {
+					final expr:Expr = {
 						pos: Context.currentPos(),
-						expr: EArrayDecl(fields.filter(f -> f.kind.match(FVar(_) | FProp(_))).flatMap(f -> makePropertyInfo(cls, f)))
+						expr: EArrayDecl(fields.filter(f -> getFieldInfo(f) == Property).flatMap(f -> makePropertyInfo(cls, f)))
 					}
 
 					if (parent == null || parent.isExtern)
-						props;
+						expr;
 					else
-						macro $p{parent.pack.concat([parent.name])}.__props.concat($props);
+						macro $p{parent.pack.concat([parent.name, '__props'])}.concat($expr);
 				}),
+			});
+
+			fields.push({
+				name: '__signals',
 				pos: Context.currentPos(),
+				access: [APublic, AStatic, AFinal],
+				kind: FVar(macro :std.Array<std.String>, {
+					final expr:Expr = {
+						pos: Context.currentPos(),
+						expr: EArrayDecl(fields.filter(f -> getFieldInfo(f) == Signal).map(f -> macro $v{f.name}))
+					}
+
+					if (parent == null || parent.isExtern)
+						expr;
+					else
+						macro $p{parent.pack.concat([parent.name, '__signals'])}.concat($expr);
+				}),
 			});
 		}
 		return fields;
@@ -74,6 +93,25 @@ class Macro {
 		}
 
 		return fields;
+	}
+
+	static function getFieldInfo(f:Field):FieldInfo {
+		return switch [hasSignalMeta(f), f.kind] {
+			case [true, FVar(_)]:
+				Signal;
+			case [true, FProp(_)]:
+				Context.error('Signal cannot be a property', f.pos);
+			case [true, FFun(_)]:
+				Context.error('Signal cannot be a method', f.pos);
+			case [false, FVar(_) | FProp(_)]:
+				Property;
+			case [false, FFun(_)]:
+				Method;
+		}
+	}
+
+	static function hasSignalMeta(f:Field):Bool {
+		return (f.meta ?? []).exists(m -> m.name == "signal");
 	}
 
 	static function makePropertyInfo(cls:ClassType, field:Field):Array<Expr> {
@@ -183,6 +221,7 @@ class Macro {
 		'export_subgroup' => {args: {mandatory: 1, optional: 1}, usage: (macro gd.PropertyUsageFlags.SUBGROUP)},
 	];
 }
+
 /**
 	register_annotation(MethodInfo("@export"), AnnotationInfo::VARIABLE, &GDScriptParser::export_annotations<PROPERTY_HINT_NONE, Variant::NIL>);
 	register_annotation(MethodInfo("@export_enum", PropertyInfo(Variant::STRING, "names")), AnnotationInfo::VARIABLE, &GDScriptParser::export_annotations<PROPERTY_HINT_ENUM, Variant::NIL>, varray(), true);
@@ -205,3 +244,8 @@ class Macro {
 	register_annotation(MethodInfo("@export_flags_3d_navigation"), AnnotationInfo::VARIABLE, &GDScriptParser::export_annotations<PROPERTY_HINT_LAYERS_3D_NAVIGATION, Variant::INT>);
 	register_annotation(MethodInfo("@export_flags_avoidance"), AnnotationInfo::VARIABLE, &GDScriptParser::export_annotations<PROPERTY_HINT_LAYERS_AVOIDANCE, Variant::INT>);
 **/
+enum FieldInfo {
+	Property;
+	Signal;
+	Method;
+}

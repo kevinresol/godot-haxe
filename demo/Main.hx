@@ -21,8 +21,11 @@ class Main extends Base {
 	@export_range(0, 100)
 	var speed:Float = 42;
 
+	@signal public final test:gd.Signal;
+
 	function new(owner) {
 		super(owner);
+		test = new gd.Signal(this, 'test');
 		// trace('new Main()');
 		// trace(__props);
 	}

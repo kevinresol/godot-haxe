@@ -5,6 +5,13 @@ import tink.unit.*;
 
 @:rtti
 class Main extends gd.Node2D {
+	@signal public final test:gd.Signal;
+
+	public function new(owner) {
+		super(owner);
+		test = new gd.Signal(this, 'test');
+	}
+
 	override function _ready() {
 		trace(__props);
 		Runner.run(TestBatch.make([
@@ -297,7 +304,7 @@ class SignalTest {
 		this.node = node;
 
 	public function load() {
-		final signal = new gd.Signal(node, "test");
+		final signal = node.test;
 		signal.connect(new gd.Callable(node, '_signal_callback'));
 		signal.emit();
 

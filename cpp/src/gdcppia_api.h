@@ -1,12 +1,18 @@
 #pragma once
 
 #include <hxcpp.h>
+#include <script/utils.h>
 
 #include <godot_cpp/classes/object.hpp>
 
 namespace gdcppia {
 
 void load_bytecode(const uint8_t* ptr, int size);
+
+const void script_populate_signal_list(
+    const godot::StringName& p_name,
+    godot::Vector<gdcppia::GDMethodInfo>& r_signals);
+
 void* create_instance(::String class_name, godot::Object* owner);
 void destroy_instance(void* instance);
 
