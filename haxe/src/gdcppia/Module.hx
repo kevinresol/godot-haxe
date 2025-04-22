@@ -48,8 +48,9 @@ class Module {
 
 	function getPropertyInfo(className:String):Array<PropertyInfo> {
 		final classType = module.resolveClass(className);
-		final info = Reflect.getProperty(classType, '__props');
+		final info:Array<PropertyInfo> = Reflect.getProperty(classType, '__props');
 		trace(info);
+		trace(info.map(v -> v.name));
 
 		return info;
 	}
@@ -64,8 +65,9 @@ class Module {
 
 	function getMethodInfo(className:String):Array<MethodInfo> {
 		final classType = module.resolveClass(className);
-		final info = Reflect.getProperty(classType, '__methods');
+		final info:Array<MethodInfo> = Reflect.getProperty(classType, '__methods');
 		trace(info);
+		trace(info.map(v -> v.name));
 
 		return info;
 	}

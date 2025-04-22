@@ -9,4 +9,8 @@ class MethodInfo {
 	public final id:cpp.Int32;
 	public final arguments:Array<PropertyInfo>;
 	public final defaultArguments:Array<Int>; // TODO: type this properly.
+
+	public function toString() {
+		return 'MethodInfo(name=$name, returnValue=$returnValue, flags=$flags, id=$id, arguments=$arguments, defaultArguments=$defaultArguments)';
+	}
 }

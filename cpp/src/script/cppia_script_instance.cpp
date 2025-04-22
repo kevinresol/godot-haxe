@@ -39,7 +39,7 @@ CppiaScriptInstance::CppiaScriptInstance(Ref<CppiaScript> script, Object *owner,
 
   printf("class_name: %s\n", class_name.get_data());
 
-  _cppia_handle = gdcppia::create_instance(
+  _cppia_handle = gdcppia::instance_create(
       ::String::create(class_name.get_data(), class_name.length()), owner);
 }
 
@@ -48,7 +48,7 @@ CppiaScriptInstance::~CppiaScriptInstance() {
     // TODO: mutex
     script->instances.erase(owner->get_instance_id());
   }
-  gdcppia::destroy_instance(_cppia_handle);
+  gdcppia::instance_destroy(_cppia_handle);
   _cppia_handle = nullptr;
 }
 
@@ -71,24 +71,30 @@ const GDExtensionPropertyInfo *CppiaScriptInstance::get_property_list(
     uint32_t *r_count) {
   printf("CppiaScriptInstance::get_property_list\n");
 
-  auto props = script->get_properties();
+  auto &props = script->get_properties();
 
   if ((*r_count = props.size()) == 0) {
     return nullptr;
   }
 
   GDExtensionPropertyInfo *ret = memnew_arr(GDExtensionPropertyInfo, *r_count);
+  int i = 0;
+  for (auto &kv : props) {
+    auto &value = kv.value;
 
-  for (int i = 0; i < *r_count; i++) {
-    auto &prop = props[i];
+    UtilityFunctions::print("value.name ", value.name);
+    UtilityFunctions::print("value.hint_string ", value.hint_string);
 
-    ret[i].type = prop.type;
-    ret[i].name = (void *)&prop.name;
-    ret[i].class_name = (void *)&prop.class_name;
-    ret[i].hint = prop.hint;
-    ret[i].hint_string = (void *)&prop.hint_string;
-    ret[i].usage = prop.usage;
+    ret[i].type = value.type;
+    ret[i].name = &value.name;
+    ret[i].class_name = &value.class_name;
+    ret[i].hint = value.hint;
+    ret[i].hint_string = &value.hint_string;
+    ret[i].usage = value.usage;
+
+    i++;
   }
+  printf("CppiaScriptInstance::get_property_list end\n");
   return ret;
 }
 
@@ -103,13 +109,13 @@ void CppiaScriptInstance::free_property_list(
 
 GDExtensionVariantType CppiaScriptInstance::get_property_type(
     const StringName &p_name, GDExtensionBool *r_is_valid) {
-  const auto props = script->get_properties();
-  for (const auto &prop : props) {
-    if (prop.name == p_name) {
-      *r_is_valid = true;
-      return prop.type;
-    }
+  const auto &props = script->get_properties();
+
+  if (props.has(p_name)) {
+    *r_is_valid = true;
+    return props[p_name].type;
   }
+
   *r_is_valid = false;
   return GDEXTENSION_VARIANT_TYPE_NIL;
 }
@@ -146,23 +152,23 @@ const GDExtensionMethodInfo *CppiaScriptInstance::get_method_list(
     uint32_t *r_count) {
   printf("CppiaScriptInstance::get_method_list\n");
 
-  auto methods = script->get_methods();
+  auto &methods = script->get_methods();
 
   if ((*r_count = methods.size()) == 0) {
     return nullptr;
   }
 
   GDExtensionMethodInfo *ret = memnew_arr(GDExtensionMethodInfo, *r_count);
+  int i = 0;
+  for (auto &kv : methods) {
+    auto &method = kv.value;
 
-  for (int i = 0; i < *r_count; i++) {
-    auto &method = methods[i];
-
-    ret[i].name = (void *)&method.name;
+    ret[i].name = &method.name;
     ret[i].return_value.type = method.return_val.type;
-    ret[i].return_value.name = (void *)&method.return_val.name;
-    ret[i].return_value.class_name = (void *)&method.return_val.class_name;
+    ret[i].return_value.name = &method.return_val.name;
+    ret[i].return_value.class_name = &method.return_val.class_name;
     ret[i].return_value.hint = method.return_val.hint;
-    ret[i].return_value.hint_string = (void *)&method.return_val.hint_string;
+    ret[i].return_value.hint_string = &method.return_val.hint_string;
     ret[i].return_value.usage = method.return_val.usage;
     ret[i].flags = method.flags;
     ret[i].argument_count = method.arguments.size();
@@ -170,12 +176,12 @@ const GDExtensionMethodInfo *CppiaScriptInstance::get_method_list(
         memnew_arr(GDExtensionPropertyInfo, method.arguments.size());
 
     for (int j = 0; j < method.arguments.size(); j++) {
-      auto &arg = method.arguments[j];
+      auto &arg = method.arguments.write[j];
       ret[i].arguments[j].type = arg.type;
-      ret[i].arguments[j].name = (void *)&arg.name;
-      ret[i].arguments[j].class_name = (void *)&arg.class_name;
+      ret[i].arguments[j].name = &arg.name;
+      ret[i].arguments[j].class_name = &arg.class_name;
       ret[i].arguments[j].hint = arg.hint;
-      ret[i].arguments[j].hint_string = (void *)&arg.hint_string;
+      ret[i].arguments[j].hint_string = &arg.hint_string;
       ret[i].arguments[j].usage = arg.usage;
     }
 
@@ -184,9 +190,11 @@ const GDExtensionMethodInfo *CppiaScriptInstance::get_method_list(
         memnew_arr(GDExtensionVariantPtr, method.default_arguments.size());
 
     for (int j = 0; j < method.default_arguments.size(); j++) {
-      auto &arg = method.default_arguments[j];
-      ret[i].default_arguments[j] = (void *)&arg;
+      auto &arg = method.default_arguments.write[j];
+      ret[i].default_arguments[j] = &arg;
     }
+
+    i++;
   }
   return ret;
 }
@@ -198,17 +206,16 @@ void CppiaScriptInstance::free_method_list(const GDExtensionMethodInfo *p_list,
     return;
   }
   for (int i = 0; i < p_count; i++) {
-    memdelete_arr(p_list[i].arguments);
-    memdelete_arr(p_list[i].default_arguments);
+    if (p_list[i].argument_count > 0) memdelete_arr(p_list[i].arguments);
+    if (p_list[i].default_argument_count > 0)
+      memdelete_arr(p_list[i].default_arguments);
   }
   memdelete_arr(p_list);
 }
 
 GDExtensionBool CppiaScriptInstance::has_method(const StringName &p_name) {
-  bool has = gdcppia::instance_has_method(_cppia_handle,
-                                          gdcppia::to_haxe_string(p_name));
-  // printf("has_method %s = %d\n", p_name.to_utf8_buffer().ptr(), has);
-  return has;
+  auto &methods = script->get_methods();
+  return methods.has(p_name);
 }
 
 void CppiaScriptInstance::call(const StringName *p_method,
@@ -218,12 +225,12 @@ void CppiaScriptInstance::call(const StringName *p_method,
                                GDExtensionCallError *r_error) {
   // printf("call %s %d\n", p_method->to_utf8_buffer().ptr(), p_argument_count);
 
-  auto method = gdcppia::to_haxe_string(*p_method);
-  if (!gdcppia::instance_has_method(_cppia_handle, method)) {
+  if (!has_method(*p_method)) {
     r_error->error = GDEXTENSION_CALL_ERROR_INVALID_METHOD;
     return;
   }
 
+  auto method = gdcppia::to_haxe_string(*p_method);
   gdcppia::instance_call(_cppia_handle, method,
                          gdcppia::to_haxe_dynamic_array(
                              (const Variant **)p_args, p_argument_count));

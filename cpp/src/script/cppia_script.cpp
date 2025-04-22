@@ -7,7 +7,6 @@
 
 #include "cppia_script_instance.h"
 #include "cppia_script_language.h"
-#include "gdcppia_api.h"
 
 namespace godot {
 
@@ -44,36 +43,25 @@ bool CppiaScript::_can_instantiate() const {
 }
 
 bool CppiaScript::_has_method(const StringName &name) const {
-  auto methods = get_methods();
+  const auto &methods = get_methods();
 
-  for (const gdcppia::GDMethodInfo &m : methods) {
-    if (m.flags & GDEXTENSION_METHOD_FLAG_STATIC && m.name == name) return true;
-  }
-
-  return false;
+  return methods.has(name) &&
+         (methods[name].flags & GDEXTENSION_METHOD_FLAG_STATIC) == 0;
 }
 
 bool CppiaScript::_has_static_method(const StringName &name) const {
-  auto methods = get_methods();
+  const auto &methods = get_methods();
 
-  for (const gdcppia::GDMethodInfo &m : methods) {
-    if (!(m.flags & GDEXTENSION_METHOD_FLAG_STATIC) && m.name == name) {
-      return true;
-    }
-  }
-
-  return false;
+  return methods.has(name) &&
+         (methods[name].flags & GDEXTENSION_METHOD_FLAG_STATIC) != 0;
 }
 
 Dictionary CppiaScript::_get_method_info(const StringName &method) const {
   printf("CppiaScript::_get_method_info\n");
 
-  auto methods = get_methods();
-  for (const gdcppia::GDMethodInfo &m : methods) {
-    if (m.name == method) return m;
-  }
+  const auto &methods = get_methods();
 
-  return Dictionary();
+  return methods.has(method) ? methods[method] : Dictionary();
 }
 
 bool CppiaScript::_is_valid() const {
@@ -84,27 +72,24 @@ bool CppiaScript::_is_valid() const {
 bool CppiaScript::_has_script_signal(const StringName &name) const {
   UtilityFunctions::print("CppiaScript::_has_script_signal", name);
 
-  auto signals = get_signals();
+  const auto &signals = get_signals();
 
-  for (const gdcppia::GDMethodInfo &signal : signals) {
-    if (signal.name == name) return true;
-  }
-  return false;
+  return signals.has(name);
 }
 
 TypedArray<Dictionary> CppiaScript::_get_script_signal_list() const {
   UtilityFunctions::print("CppiaScript::_get_script_signal_list");
 
-  auto signals = get_signals();
+  const auto &signals = get_signals();
 
   TypedArray<Dictionary> ret;
 
   ret.resize(signals.size());
-  for (int i = 0; i < signals.size(); i++) {
-    ret[i] = signals[i];
+  int i = 0;
+  for (const auto &kv : signals) {
+    ret[i++] = kv.value;
   }
 
-  UtilityFunctions::print(signals.size());
   UtilityFunctions::print(ret);
   return ret;
 }
@@ -112,13 +97,14 @@ TypedArray<Dictionary> CppiaScript::_get_script_signal_list() const {
 TypedArray<Dictionary> CppiaScript::_get_script_method_list() const {
   printf("CppiaScript::_get_script_method_list\n");
 
-  auto methods = get_methods();
+  const auto &methods = get_methods();
 
   TypedArray<Dictionary> ret;
 
   ret.resize(methods.size());
-  for (int i = 0; i < methods.size(); i++) {
-    ret[i] = methods[i];
+  int i = 0;
+  for (const auto &kv : methods) {
+    ret[i++] = kv.value;
   }
 
   return ret;
@@ -127,13 +113,14 @@ TypedArray<Dictionary> CppiaScript::_get_script_method_list() const {
 TypedArray<Dictionary> CppiaScript::_get_script_property_list() const {
   printf("CppiaScript::_get_script_property_list\n");
 
-  auto properties = get_properties();
+  const auto &properties = get_properties();
 
   TypedArray<Dictionary> ret;
 
   ret.resize(properties.size());
-  for (int i = 0; i < properties.size(); i++) {
-    ret[i] = properties[i];
+  int i = 0;
+  for (const auto &kv : properties) {
+    ret[i++] = kv.value;
   }
 
   return ret;

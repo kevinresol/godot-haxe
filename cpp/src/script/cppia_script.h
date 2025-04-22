@@ -5,6 +5,7 @@
 #include <godot_cpp/templates/hash_map.hpp>
 #include <unordered_set>
 
+#include "gdcppia_api.h"
 #include "utils.h"
 
 namespace godot {
@@ -20,9 +21,9 @@ class CppiaScript : public ScriptExtension {
   String path;
   mutable Ref<CppiaScript> base;
 
-  mutable Vector<gdcppia::GDPropertyInfo> properties;
-  mutable Vector<gdcppia::GDMethodInfo> methods;
-  mutable Vector<gdcppia::GDMethodInfo> signals;
+  mutable HashMap<StringName, gdcppia::GDPropertyInfo> properties;
+  mutable HashMap<StringName, gdcppia::GDMethodInfo> methods;
+  mutable HashMap<StringName, gdcppia::GDMethodInfo> signals;
   mutable bool properties_loaded = false;
   mutable bool methods_loaded = false;
   mutable bool signals_loaded = false;
@@ -84,21 +85,21 @@ class CppiaScript : public ScriptExtension {
   void load_from_disk(const String& path);
   void did_hot_reload();
 
-  const Vector<gdcppia::GDPropertyInfo>& get_properties() const {
+  HashMap<godot::StringName, gdcppia::GDPropertyInfo>& get_properties() const {
     if (!properties_loaded) {
       gdcppia::script_populate_property_list(get_global_name(), properties);
       properties_loaded = true;
     }
     return properties;
   }
-  const Vector<gdcppia::GDMethodInfo>& get_signals() const {
+  HashMap<godot::StringName, gdcppia::GDMethodInfo>& get_signals() const {
     if (!signals_loaded) {
       gdcppia::script_populate_signal_list(get_global_name(), signals);
       signals_loaded = true;
     }
     return signals;
   }
-  const Vector<gdcppia::GDMethodInfo>& get_methods() const {
+  HashMap<godot::StringName, gdcppia::GDMethodInfo>& get_methods() const {
     if (!methods_loaded) {
       gdcppia::script_populate_method_list(get_global_name(), methods);
       methods_loaded = true;
