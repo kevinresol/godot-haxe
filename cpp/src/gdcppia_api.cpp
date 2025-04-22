@@ -25,37 +25,84 @@ void load_bytecode(const uint8_t* p_ptr, int p_size) {
   gdcppia::Cppia_obj::runBytes(data);
 }
 
-const void script_populate_signal_list(
+void script_populate_property_list(
     const godot::StringName& p_name,
-    godot::Vector<gdcppia::GDMethodInfo>& r_signals) {
-  printf("script_populate_signal_list\n");
+    godot::Vector<gdcppia::GDPropertyInfo>& r_properties) {
+  printf("script_populate_property_list\n");
 
-  auto signals =
-      gdcppia::Cppia_obj::module->getSignalInfo(to_haxe_string(p_name));
+  auto properties =
+      gdcppia::Cppia_obj::module->getPropertyInfo(to_haxe_string(p_name));
 
-  r_signals.resize(signals.__length());
-  auto writable = r_signals.ptrw();
-  for (int i = 0; i < r_signals.size(); i++) {
-    auto signal = signals[i];
+  r_properties.resize(properties.__length());
+  auto writable = r_properties.ptrw();
+  for (int i = 0; i < r_properties.size(); i++) {
+    gdcppia::PropertyInfo prop = properties[i];
 
-    writable[i].name = godot::StringName((const char*)signal);
-
-    writable[i].return_val.type = GDEXTENSION_VARIANT_TYPE_NIL;
-    writable[i].return_val.name = godot::StringName();
-    writable[i].return_val.class_name = godot::StringName();
-    writable[i].return_val.hint = godot::PROPERTY_HINT_NONE;
-    writable[i].return_val.hint_string = godot::String();
-    writable[i].return_val.usage = godot::PROPERTY_USAGE_DEFAULT;
-
-    writable[i].flags = godot::MethodFlags::METHOD_FLAGS_DEFAULT;  // fn->flags;
-
-    // TODO
-    // writable[i].argument_count = 0;          // fn->arguments.__length();
-    // writable[i].arguments = nullptr;         // TODO
-    // writable[i].default_argument_count = 0;  //
-    // fn->defaultArguments.__length(); writable[i].default_arguments = nullptr;
+    writable[i].type = static_cast<GDExtensionVariantType>(prop->type->value);
+    writable[i].name = godot::StringName((const char*)prop->name);
+    writable[i].class_name = godot::StringName((const char*)prop->className);
+    writable[i].hint = static_cast<godot::PropertyHint>(prop->hint);
+    writable[i].hint_string = godot::String((const char*)prop->hintString);
+    writable[i].usage = prop->usage;
   }
-  printf("script_populate_signal_list end\n");
+
+  printf("script_populate_property_list end\n");
+}
+
+void script_populate_method_list(
+    const godot::StringName& p_name,
+    godot::Vector<gdcppia::GDMethodInfo>& r_methods) {
+  printf("script_populate_method_list\n");
+
+  auto methods =
+      gdcppia::Cppia_obj::module->getMethodInfo(to_haxe_string(p_name));
+
+  r_methods.resize(methods.__length());
+  auto writable = r_methods.ptrw();
+  for (int i = 0; i < r_methods.size(); i++) {
+    gdcppia::MethodInfo method = methods[i];
+
+    writable[i].name = godot::StringName((const char*)method->name);
+
+    writable[i].return_val.type =
+        static_cast<GDExtensionVariantType>(method->returnValue->type->value);
+    writable[i].return_val.name =
+        godot::StringName((const char*)method->returnValue->name);
+    writable[i].return_val.class_name =
+        godot::StringName((const char*)method->returnValue->className);
+    writable[i].return_val.hint =
+        static_cast<godot::PropertyHint>(method->returnValue->hint);
+    writable[i].return_val.hint_string =
+        godot::String((const char*)method->returnValue->hintString);
+    writable[i].return_val.usage = method->returnValue->usage;
+    // writable[i].id = method->id;
+
+    writable[i].flags = method->flags;
+
+    auto& arguments = writable[i].arguments;
+    arguments.resize(method->arguments.__length());
+    auto argumentsw = arguments.ptrw();
+
+    for (int j = 0; j < arguments.size(); j++) {
+      auto arg = (gdcppia::PropertyInfo)method->arguments[j];
+      argumentsw[j].type =
+          static_cast<GDExtensionVariantType>(arg->type->value);
+      argumentsw[j].name = godot::StringName((const char*)arg->name);
+      argumentsw[j].class_name = godot::StringName((const char*)arg->className);
+      argumentsw[j].hint = static_cast<godot::PropertyHint>(arg->hint);
+      argumentsw[j].hint_string = godot::String((const char*)arg->hintString);
+      argumentsw[j].usage = arg->usage;
+    }
+
+    auto& default_arguments = writable[i].default_arguments;
+    default_arguments.resize(method->defaultArguments.__length());
+    auto default_argumentsw = default_arguments.ptrw();
+
+    for (int j = 0; j < default_arguments.size(); j++) {
+      default_argumentsw[j] = godot::Variant();  // TODO
+    }
+  }
+  printf("script_populate_method_list end\n");
 }
 
 void* create_instance(::String p_class_name, godot::Object* p_owner) {
@@ -113,53 +160,8 @@ bool instance_get(void* p_instance, godot::StringName p_name,
   }
 }
 
-const GDExtensionPropertyInfo* instance_get_property_list(
-    const godot::StringName& p_name, uint32_t* r_count) {
-  auto props =
-      gdcppia::Cppia_obj::module->getPropertyInfo(to_haxe_string(p_name));
-
-  // auto info =
-  // gdcppia::Cppia_obj::module->makeClassInfo(to_haxe_string(p_name));
-
-  if ((*r_count = props.__length()) == 0) {
-    *r_count = 0;
-    return nullptr;
-  }
-
-  GDExtensionPropertyInfo* ret =
-      godot::memnew_arr(GDExtensionPropertyInfo, *r_count);
-
-  for (int i = 0; i < *r_count; i++) {
-    auto prop = (gdcppia::PropertyInfo)props[i];
-
-    ret[i].type = static_cast<GDExtensionVariantType>(prop->type->value);
-    ret[i].name = memnew(godot::StringName((const char*)prop->name));
-    ret[i].class_name = memnew(godot::StringName((const char*)prop->className));
-    ret[i].hint = prop->hint;
-    ret[i].hint_string = memnew(godot::String((const char*)prop->hintString));
-    ret[i].usage = prop->usage;
-  }
-
-  return ret;
-}
-
-void instance_free_property_list(const GDExtensionPropertyInfo* p_list,
-                                 uint32_t p_count) {
-  if (p_list == nullptr) {
-    return;
-  }
-
-  for (int i = 0; i < p_count; i++) {
-    godot::memdelete((godot::StringName*)p_list[i].name);
-    godot::memdelete((godot::StringName*)p_list[i].class_name);
-    godot::memdelete((godot::String*)p_list[i].hint_string);
-  }
-
-  godot::memdelete_arr(p_list);
-}
-
-const GDExtensionMethodInfo* instance_get_method_list(
-    const godot::StringName& p_name, uint32_t* r_count) {
+GDExtensionMethodInfo* instance_get_method_list(const godot::StringName& p_name,
+                                                uint32_t* r_count) {
   auto info = gdcppia::Cppia_obj::module->makeClassInfo(to_haxe_string(p_name));
 
   if (info == null() || (*r_count = info->methods.__length()) == 0) {

@@ -15,14 +15,15 @@ namespace gdcppia {
 
 struct GDPropertyInfo {
   GDExtensionVariantType type = GDEXTENSION_VARIANT_TYPE_NIL;
-  godot::BitField<godot::PropertyUsageFlags> usage =
-      godot::PROPERTY_USAGE_DEFAULT;
 
-  godot::String name;
+  godot::StringName name;
   godot::StringName class_name;
 
   godot::PropertyHint hint = godot::PROPERTY_HINT_NONE;
   godot::String hint_string;
+
+  godot::BitField<godot::PropertyUsageFlags> usage =
+      godot::PROPERTY_USAGE_DEFAULT;
 
   operator godot::Dictionary() const;
   operator godot::Variant() const;

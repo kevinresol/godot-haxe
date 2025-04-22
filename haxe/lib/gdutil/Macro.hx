@@ -50,6 +50,23 @@ class Macro {
 						macro $p{parent.pack.concat([parent.name, '__signals'])}.concat($expr);
 				}),
 			});
+
+			fields.push({
+				name: '__methods',
+				pos: Context.currentPos(),
+				access: [APublic, AStatic, AFinal],
+				kind: FVar(macro :std.Array<gdcppia.MethodInfo>, {
+					final expr:Expr = {
+						pos: Context.currentPos(),
+						expr: EArrayDecl(fields.filter(f -> getFieldInfo(f) == Method).map(f -> makeMethodInfo(cls, f)))
+					}
+
+					if (parent == null || parent.isExtern)
+						expr;
+					else
+						macro $p{parent.pack.concat([parent.name, '__methods'])}.concat($expr);
+				}),
+			});
 		}
 		return fields;
 	}
@@ -172,6 +189,31 @@ class Macro {
 		}
 
 		return infos;
+	}
+
+	static function makeMethodInfo(cls:ClassType, field:Field):Expr {
+		return switch field.kind {
+			case FFun(f):
+				macro {
+					name: $v{field.name},
+					returnValue: {
+						type: gd.variant.Type.NIL,
+						name: "",
+						className: "",
+						hint: gd.PropertyHint.NONE,
+						hintString: "",
+						usage: gd.PropertyUsageFlags.DEFAULT,
+					},
+					flags: cast $p{
+						['gd', 'MethodFlags', field.access.contains(AStatic) ? 'STATIC' : 'NORMAL']
+					},
+					id: 0, // TODO
+					arguments: [], // TODO
+					defaultArguments: [], // TODO
+				}
+			case _:
+				throw 'Unreachable';
+		}
 	}
 
 	static function complexTypeToVariantTypeExpr(type:ComplexType):Expr {

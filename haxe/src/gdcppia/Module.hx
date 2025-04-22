@@ -62,6 +62,14 @@ class Module {
 		return info;
 	}
 
+	function getMethodInfo(className:String):Array<MethodInfo> {
+		final classType = module.resolveClass(className);
+		final info = Reflect.getProperty(classType, '__methods');
+		trace(info);
+
+		return info;
+	}
+
 	function makeClassInfo(className:String):ClassInfo {
 		static final cache = new Map<String, ClassInfo>();
 

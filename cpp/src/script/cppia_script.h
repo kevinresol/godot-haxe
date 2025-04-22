@@ -84,9 +84,26 @@ class CppiaScript : public ScriptExtension {
   void load_from_disk(const String& path);
   void did_hot_reload();
 
-  const std::unordered_map<StringName, GDExtensionPropertyInfo>&
-  get_properties() const {
-    return _properties_cache;
+  const Vector<gdcppia::GDPropertyInfo>& get_properties() const {
+    if (!properties_loaded) {
+      gdcppia::script_populate_property_list(get_global_name(), properties);
+      properties_loaded = true;
+    }
+    return properties;
+  }
+  const Vector<gdcppia::GDMethodInfo>& get_signals() const {
+    if (!signals_loaded) {
+      gdcppia::script_populate_signal_list(get_global_name(), signals);
+      signals_loaded = true;
+    }
+    return signals;
+  }
+  const Vector<gdcppia::GDMethodInfo>& get_methods() const {
+    if (!methods_loaded) {
+      gdcppia::script_populate_method_list(get_global_name(), methods);
+      methods_loaded = true;
+    }
+    return methods;
   }
 
  protected:
@@ -98,7 +115,6 @@ class CppiaScript : public ScriptExtension {
   void* create_script_instance_internal(Object* for_object,
                                         bool is_placeholder) const;
 
-  std::unordered_map<StringName, GDExtensionPropertyInfo> _properties_cache;
   Variant _rpc_config;
 
   HashMap<uint64_t, CppiaScriptInstance*> instances;
