@@ -182,7 +182,7 @@ bool instance_set(void* p_instance, godot::StringName p_name,
     return false;
   } else {
     gdcppia::Cppia_obj::instanceSetProperty(::Dynamic(*root), name,
-                                            to_haxe_dynamic(p_val));
+                                            to_haxe_dynamic(*p_val));
     return true;
   }
 }
@@ -218,7 +218,7 @@ void gc_compact() { gdcppia::Cppia_obj::gcCompact(); }
   return ::String::create(utf8.get_data(), utf8.length());
 }
 
-::Dynamic to_haxe_dynamic(const godot::Variant* p_val) {
+::Dynamic to_haxe_dynamic(const godot::Variant& p_val) {
   return gdcppia::Cppia_obj::fromVariant(
       cpp::marshal::ValueReference<godot::Variant>(p_val));
 }
@@ -228,7 +228,7 @@ void gc_compact() { gdcppia::Cppia_obj::gcCompact(); }
   ::Array<::Dynamic> arr = ::Array_obj<::Dynamic>::__new(p_size);
   for (int i = 0; i < p_size; i++) {
     auto v = p_ptr[i];
-    arr[i] = to_haxe_dynamic(v);
+    arr[i] = to_haxe_dynamic(*v);
   }
   return arr;
 }

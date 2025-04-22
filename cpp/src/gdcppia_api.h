@@ -38,7 +38,7 @@ void gc_compact();
 
 // conversion functions
 ::String to_haxe_string(const godot::String& str);
-::Dynamic to_haxe_dynamic(const godot::Variant* val);
+::Dynamic to_haxe_dynamic(const godot::Variant& val);
 ::Array<::Dynamic> to_haxe_dynamic_array(const godot::Variant** ptr, int size);
 godot::Variant from_haxe_dynamic(::Dynamic value);
 

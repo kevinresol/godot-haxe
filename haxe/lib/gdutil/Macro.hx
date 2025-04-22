@@ -56,15 +56,22 @@ class Macro {
 				pos: Context.currentPos(),
 				access: [APublic, AStatic, AFinal],
 				kind: FVar(macro :std.Array<gdcppia.MethodInfo>, {
-					final expr:Expr = {
-						pos: Context.currentPos(),
-						expr: EArrayDecl(fields.filter(f -> getFieldInfo(f) == Method).map(f -> makeMethodInfo(cls, f)))
-					}
+					final expr = macro(${
+						{
+							pos: Context.currentPos(),
+							expr: EArrayDecl(fields.filter(f -> getFieldInfo(f) == Method).map(f -> makeMethodInfo(cls, f)))
+						}
+					} : std.Array<gdcppia.MethodInfo>);
 
 					if (parent == null || parent.isExtern)
 						expr;
 					else
-						macro $p{parent.pack.concat([parent.name, '__methods'])}.concat($expr);
+						macro {
+							final local = $expr;
+							$p{parent.pack.concat([parent.name, '__methods'])} //
+								.filter(p -> !Lambda.exists(local, l -> l.name == p.name)) // dont include overridden methods from parent
+								.concat(local);
+						}
 				}),
 			});
 		}
