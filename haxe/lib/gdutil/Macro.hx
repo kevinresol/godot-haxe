@@ -188,7 +188,7 @@ class Macro {
 							name: $v{field.name},
 							className: $v{cls.name},
 							hint: ${hint},
-							hintString: $v{meta.params.map(p -> new haxe.macro.Printer().printExpr(p)).join(',')},
+							hintString: $v{meta.params.map(p -> haxe.Json.parse(new haxe.macro.Printer().printExpr(p))).join(',')},
 							usage: gd.PropertyUsageFlags.DEFAULT,
 						});
 					}
@@ -233,7 +233,7 @@ class Macro {
 				macro gd.variant.Type.FLOAT;
 			case macro :Bool:
 				macro gd.variant.Type.BOOL;
-			case macro :String:
+			case(macro :String) | (macro :std.String):
 				macro gd.variant.Type.STRING;
 			// TODO: objects
 			case _:

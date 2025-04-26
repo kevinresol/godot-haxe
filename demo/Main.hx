@@ -21,6 +21,22 @@ class Main extends Base {
 	@export_range(0, 100)
 	var speed:Float = 42;
 
+	@export_category("")
+	@export_file
+	var file:String;
+
+	@export_file("*.tscn")
+	var fileFiltered:String;
+
+	@export_multiline
+	var multiline:String;
+
+	@export_flags("Fire", "Water", "Earth", "Wind") var spellElements:Int = 0;
+
+	@export_enum("Warrior", "Magician", "Thief") var characterClass:Int = 1;
+	@export_enum("Slow:30", "Average:60", "Very Fast:200") var characterSpeed:Int = 60;
+	@export_enum("Rebecca", "Mary", "Leah") var characterName:std.String = 'Mary';
+
 	@signal public final test:gd.Signal;
 
 	function new(owner) {
@@ -177,8 +193,9 @@ class Main extends Base {
 			// process_mode = DISABLED;
 		}
 		processed++;
-		final pos = get_position();
-		position = if (pos.x == 100 && pos.y == 100) {
+		final node = get_node("Node2D").cast_to(Node2D);
+		final pos = node.position;
+		node.position = if (pos.x == 100 && pos.y == 100) {
 			new Vector2();
 		} else {
 			pos.move_toward(target, delta * speed);
