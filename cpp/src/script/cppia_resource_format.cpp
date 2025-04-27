@@ -51,21 +51,21 @@ Variant CppiaResourceFormatLoader::_load(const String &path,
                                          const String &original_path,
                                          bool use_sub_threads,
                                          int32_t cache_mode) const {
+  printf("CppiaResourceFormatLoader::_load\n");
   CppiaScriptLanguage *language = CppiaScriptLanguage::get_singleton();
-  // Ref<CppiaScript> script = language->get_cached_script(path);
-  // if (script.is_null()) {
-  Ref<CppiaScript> script = Ref<CppiaScript>(language->_create_script());
+  Ref<CppiaScript> script = language->get_loaded_script(path);
   if (script.is_null()) {
-    return Variant();
-  }
+    script = Ref<CppiaScript>(language->_create_script());
+    if (script.is_null()) {
+      return Variant();
+    }
 
-  // language->push_cached_script(path, script);
-  script->load_from_disk(original_path);
-  // }
-  //  else if (cache_mode == ResourceLoader::CACHE_MODE_IGNORE) {
-  //   script->load_from_disk(original_path);
-  // }
-  script->set_path(original_path);
+    script->load_from_disk(original_path);
+    script->set_path(original_path);
+    language->set_loaded_script(path, script);
+  } else if (cache_mode == ResourceLoader::CACHE_MODE_IGNORE) {
+    script->load_from_disk(original_path);
+  }
 
   return Variant(script.ptr());
 }

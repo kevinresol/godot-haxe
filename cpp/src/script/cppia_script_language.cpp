@@ -162,6 +162,19 @@ Object *CppiaScriptLanguage::_create_script() const {
   return memnew(CppiaScript);
 }
 
+Ref<CppiaScript> CppiaScriptLanguage::get_loaded_script(
+    const String &path) const {
+  auto it = loaded_scripts.find(path);
+  if (it == loaded_scripts.end()) {
+    return Ref<CppiaScript>();
+  }
+  return it->value;
+}
+void CppiaScriptLanguage::set_loaded_script(const String &path,
+                                            const Ref<CppiaScript> &script) {
+  loaded_scripts[path] = script;
+}
+
 int CppiaScriptLanguage::_find_function(const String &class_name,
                                         const String &funciton_name) const {
   // TODO:

@@ -10,7 +10,7 @@
 
 namespace godot {
 
-CppiaScript::CppiaScript() : source() {}
+CppiaScript::CppiaScript() : source() { printf("CppiaScript\n"); }
 
 CppiaScript::~CppiaScript() { printf("~CppiaScript\n"); }
 
@@ -150,11 +150,7 @@ void CppiaScript::_update_exports() {
   }
 }
 
-StringName CppiaScript::_get_global_name() const {
-  // WIP
-  static StringName global_name = StringName("Main");
-  return global_name;
-}
+StringName CppiaScript::_get_global_name() const { return global_name; }
 
 void CppiaScript::load_from_disk(const String &p_path) {
   printf("CppiaScript::load_from_disk\n");
@@ -165,6 +161,9 @@ void CppiaScript::load_from_disk(const String &p_path) {
     file->close();
     path = p_path;
   }
+
+  // haxe class name must be the same as the file name
+  global_name = StringName(p_path.get_file().get_basename());
 }
 
 void CppiaScript::did_hot_reload() {

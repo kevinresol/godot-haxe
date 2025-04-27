@@ -19,6 +19,7 @@ class CppiaScript : public ScriptExtension {
 
   String source;
   String path;
+  StringName global_name;  // Haxe class name
   mutable Ref<CppiaScript> base;
 
   mutable HashMap<StringName, gdcppia::GDPropertyInfo> properties;
@@ -48,6 +49,7 @@ class CppiaScript : public ScriptExtension {
   void _set_source_code(const String& code) override;
   String _get_source_code() const override;
   bool _has_source_code() const override;
+  const StringName& get_global_name() const { return global_name; }
 
   /* META */
   bool _is_valid() const override;

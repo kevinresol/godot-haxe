@@ -11,6 +11,11 @@ class CppiaScriptLanguage : public ScriptLanguageExtension {
 
   static CppiaScriptLanguage *singleton;
 
+  HashMap<String, Ref<CppiaScript>> loaded_scripts;
+
+ protected:
+  static void _bind_methods();
+
  public:
   static CppiaScriptLanguage *get_singleton() { return singleton; }
 
@@ -102,6 +107,8 @@ class CppiaScriptLanguage : public ScriptLanguageExtension {
 
   /* Script Objects */
   Object *_create_script() const override;
+  Ref<CppiaScript> get_loaded_script(const String &path) const;
+  void set_loaded_script(const String &path, const Ref<CppiaScript> &script);
   void _reload_all_scripts() override;
   // void _reload_scripts(const Array &p_scripts, bool p_soft_reload) override;
   void _reload_tool_script(const Ref<Script> &script,
@@ -139,9 +146,6 @@ class CppiaScriptLanguage : public ScriptLanguageExtension {
   virtual Dictionary _get_global_class_name(const String &path) const override;
 
   void did_finish_hot_reload();
-
- protected:
-  static void _bind_methods();
 };
 
 }  // namespace godot
