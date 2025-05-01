@@ -1,5 +1,5 @@
 package gd;
-class Callable_wrapper {
+@:inlcude("haxe_callable_custom.hpp") class Callable_wrapper {
 	final __gd : gdnative.Callable;
 	public function new(value:gdnative.Callable) __gd = value;
 	function toVariant():gd.Variant {
@@ -80,6 +80,10 @@ class Callable_wrapper {
 	function __op_not_equal_callable(p_rhs:gd.Callable):Bool return @:privateAccess this.__gd.__op_not_equal_callable(((p_rhs : gdnative.Callable)));
 	function __op_membership_in_dictionary(p_rhs:gd.Dictionary):Bool return @:privateAccess this.__gd.__op_membership_in_dictionary(((p_rhs : gdnative.Dictionary)));
 	function __op_membership_in_array(p_rhs:gd.Array):Bool return @:privateAccess this.__gd.__op_membership_in_array(((p_rhs : gdnative.Array)));
+	static function _new_custom(f:haxe.Constraints.Function):Callable_wrapper {
+		final v:gdnative.HaxeCallableCustom.HaxeCallableCustom_extern = gdnative.Memory.Memory_extern.memnew(untyped __cpp__('gdcppia::HaxeCallableCustom({0})', f));
+		return new Callable_wrapper(new gdnative.Callable(v));
+	}
 }
 
 @:forward @:forwardStatics abstract Callable(Callable_wrapper) from Callable_wrapper to Callable_wrapper {
@@ -101,4 +105,5 @@ class Callable_wrapper {
 	inline function __op_membership_in_dictionary(p_rhs:gd.Dictionary):Bool return @:privateAccess this.__op_membership_in_dictionary(p_rhs);
 	@:op(A in B)
 	inline function __op_membership_in_array(p_rhs:gd.Array):Bool return @:privateAccess this.__op_membership_in_array(p_rhs);
+	public extern overload inline function new(f:haxe.Constraints.Function):Callable_wrapper this = @:privateAccess Callable_wrapper._new_custom(f);
 }

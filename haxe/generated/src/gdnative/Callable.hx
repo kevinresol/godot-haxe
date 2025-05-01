@@ -29,12 +29,14 @@ package gdnative;
 	public extern overload inline function new() this = new gdnative.Callable.Callable_extern();
 	public extern overload inline function new(p_from:gd.Callable) this = new gdnative.Callable.Callable_extern(p_from);
 	public extern overload inline function new(p_object:gd.Object, p_method:std.String) this = new gdnative.Callable.Callable_extern(p_object, p_method);
+	public extern overload inline function new(p_custom:gdnative.CallableCustom.CallableCustom_extern) this = new gdnative.Callable.Callable_extern(p_custom);
 }
 
 @:include("godot_cpp/variant/callable.hpp") @:semantics(reference) @:cpp.ValueType({ type : "Callable", namespace : ['godot'] }) extern class Callable_extern {
 	function _native_ptr():cpp.Star<cpp.Void>;
 	@:overload(function(p_from:cpp.Reference<gdnative.Callable>):Void { })
 	@:overload(function(p_object:gdnative.Object, p_method:cpp.Reference<gdnative.StringName>):Void { })
+	@:overload(function(p_custom:gdnative.CallableCustom.CallableCustom_extern):Void { })
 	function new();
 	static function create(p_variant:gdnative.Variant, p_method:gdnative.StringName):gdnative.Callable;
 	function callv(p_arguments:gdnative.Array):gdnative.Variant;

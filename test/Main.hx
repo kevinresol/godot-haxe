@@ -35,7 +35,7 @@ class Main extends gd.Node2D {
 
 	function _signal_callback() {
 		signalFired = true;
-		trace('Signal callback');
+		trace('Signal callback (instance method)');
 	}
 }
 
@@ -303,12 +303,26 @@ class SignalTest {
 	public function new(node:Main)
 		this.node = node;
 
-	public function load() {
+	public function method() {
 		final signal = node.test;
-		signal.connect(new gd.Callable(node, '_signal_callback'));
+		signal.connect(new gd.Callable(node, '_signal_callback'), gd.object.ConnectFlags.ONE_SHOT);
 		signal.emit();
 
 		asserts.assert(node.signalFired);
+
+		return asserts.done();
+	}
+
+	public function anonymous() {
+		final signal = node.test;
+		var signalFired = false;
+		signal.connect(new gd.Callable(() -> {
+			signalFired = true;
+			trace('Signal callback (anonymous function)');
+		}), gd.object.ConnectFlags.ONE_SHOT);
+		signal.emit();
+
+		asserts.assert(signalFired);
 
 		return asserts.done();
 	}

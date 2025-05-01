@@ -335,6 +335,31 @@ class BuiltinClassBuilder extends Builder {
 						return untyped __cpp__('godot::NodePath({0})', cpp.NativeString.c_str(v));
 					}
 				}).fields.concat(abs.fields);
+			case 'Callable':
+				abs.fields = abs.fields.concat((macro class {
+					public extern overload inline function new(p_custom:gdnative.CallableCustom.CallableCustom_extern)
+						this = new gdnative.Callable.Callable_extern(p_custom);
+				}).fields);
+
+				cls.fields.find(f -> f.name == 'new').meta.push({
+					pos: null,
+					name: ':overload',
+					params: [
+						{
+							pos: null,
+							expr: EFunction(FAnonymous, {
+								args: [
+									({
+										name: 'p_custom',
+										type: macro :gdnative.CallableCustom.CallableCustom_extern,
+									} : FunctionArg)
+								],
+								ret: macro :Void,
+								expr: macro {}
+							})
+						}
+					]
+				});
 			case _:
 		}
 		final source = printTypeDefinition(abs) + '\n\n' + printTypeDefinition(cls);
@@ -682,6 +707,40 @@ class BuiltinClassBuilder extends Builder {
 					extern static inline function __has_variant_key(key:gd.Variant, _this:gd.Dictionary):Bool
 						return _this.has(key);
 				}).fields);
+			case 'Callable':
+				if (!isScriptExtern) {
+					cls.meta.push({
+						pos: null,
+						name: ':inlcude',
+						params: [macro $v{'haxe_callable_custom.hpp'}]
+					});
+				}
+
+				cls.fields.push({
+					pos: null,
+					name: '_new_custom',
+					access: [AStatic],
+					kind: FFun({
+						args: [{name: 'f', type: macro :haxe.Constraints.Function}],
+						ret: TPath({pack: [], name: wname}),
+						expr: isScriptExtern ? null : macro {
+							final v:gdnative.HaxeCallableCustom.HaxeCallableCustom_extern = gdnative.Memory.Memory_extern.memnew(untyped __cpp__('gdcppia::HaxeCallableCustom({0})',
+								f));
+							return new Callable_wrapper(new gdnative.Callable(v));
+						},
+					}),
+				});
+
+				abs.fields.push({
+					pos: null,
+					access: [APublic, AExtern, AOverload, AInline],
+					name: 'new',
+					kind: FFun({
+						args: [{name: 'f', type: macro :haxe.Constraints.Function}],
+						ret: TPath({pack: [], name: wname}),
+						expr: macro this = @:privateAccess Callable_wrapper._new_custom(f)
+					}),
+				});
 			case _:
 		}
 		final source = printTypeDefinition(cls) + '\n\n' + printTypeDefinition(abs);

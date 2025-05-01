@@ -31,6 +31,7 @@ extern class Callable_wrapper {
 	function __op_not_equal_callable(p_rhs:gd.Callable):Bool;
 	function __op_membership_in_dictionary(p_rhs:gd.Dictionary):Bool;
 	function __op_membership_in_array(p_rhs:gd.Array):Bool;
+	static function _new_custom(f:haxe.Constraints.Function):Callable_wrapper;
 }
 
 @:forward @:forwardStatics abstract Callable(Callable_wrapper) from Callable_wrapper to Callable_wrapper {
@@ -52,4 +53,5 @@ extern class Callable_wrapper {
 	inline function __op_membership_in_dictionary(p_rhs:gd.Dictionary):Bool return @:privateAccess this.__op_membership_in_dictionary(p_rhs);
 	@:op(A in B)
 	inline function __op_membership_in_array(p_rhs:gd.Array):Bool return @:privateAccess this.__op_membership_in_array(p_rhs);
+	public extern overload inline function new(f:haxe.Constraints.Function):Callable_wrapper this = @:privateAccess Callable_wrapper._new_custom(f);
 }

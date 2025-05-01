@@ -3,6 +3,9 @@
 		<compilerflag value="-I${GODOT_CPPIA}../../godot-cpp/gdextension/" />
 		<compilerflag value="-I${GODOT_CPPIA}../../godot-cpp/include/" />
 		<compilerflag value="-I${GODOT_CPPIA}../../godot-cpp/gen/include/" />
+		<compilerflag value="-I${GODOT_CPPIA}cpp" />
+
+		<file name="${GODOT_CPPIA}cpp/haxe_callable_custom.cpp" />
 
 	</files>
 
@@ -10,5 +13,10 @@
 		<compilerflag value="-I${GODOT_CPPIA}../../godot-cpp/gdextension/" />
 		<compilerflag value="-I${GODOT_CPPIA}../../godot-cpp/include/" />
 		<compilerflag value="-I${GODOT_CPPIA}../../godot-cpp/gen/include/" />
+		<compilerflag value="-I${GODOT_CPPIA}cpp" />
+
+		<file name="${GODOT_CPPIA}cpp/haxe_callable_custom.cpp" />
 	</files>
+
+
 </xml>
