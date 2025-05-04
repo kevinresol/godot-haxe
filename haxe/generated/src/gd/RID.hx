@@ -7,8 +7,14 @@ class RID_wrapper {
 		return @:privateAccess new gd.Variant.Variant_obj(v);
 	}
 	function toString():std.String return gd.UtilityFunctions.str(toVariant());
-	static function _new0():RID_wrapper return new RID_wrapper(new gdnative.RID());
-	static function _new1(p_from:gd.RID):RID_wrapper return new RID_wrapper(new gdnative.RID(p_from));
+	static function _new0():RID_wrapper {
+		final v = new gdnative.RID();
+		return new RID_wrapper(v);
+	}
+	static function _new1(p_from:gd.RID):RID_wrapper {
+		final v = new gdnative.RID(p_from);
+		return new RID_wrapper(v);
+	}
 	public function is_valid():Bool return __gd.is_valid();
 	public function get_id():cpp.Int64 return __gd.get_id();
 	function __op_equal_to_variant(p_rhs:gd.Variant):Bool return @:privateAccess this.__gd.__op_equal_to_variant(((p_rhs : gdnative.Variant)));

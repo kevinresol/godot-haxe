@@ -7,10 +7,22 @@ class String_wrapper {
 		return @:privateAccess new gd.Variant.Variant_obj(v);
 	}
 	function toString():std.String return gd.UtilityFunctions.str(toVariant());
-	static function _new0():String_wrapper return new String_wrapper(new gdnative.String());
-	static function _new1(p_from:std.String):String_wrapper return new String_wrapper(new gdnative.String(p_from));
-	static function _new2(p_from:std.String):String_wrapper return new String_wrapper(new gdnative.String(p_from));
-	static function _new3(p_from:std.String):String_wrapper return new String_wrapper(new gdnative.String(p_from));
+	static function _new0():String_wrapper {
+		final v = new gdnative.String();
+		return new String_wrapper(v);
+	}
+	static function _new1(p_from:std.String):String_wrapper {
+		final v = new gdnative.String(p_from);
+		return new String_wrapper(v);
+	}
+	static function _new2(p_from:std.String):String_wrapper {
+		final v = new gdnative.String(p_from);
+		return new String_wrapper(v);
+	}
+	static function _new3(p_from:std.String):String_wrapper {
+		final v = new gdnative.String(p_from);
+		return new String_wrapper(v);
+	}
 	public function casecmp_to(p_to:std.String):cpp.Int64 return __gd.casecmp_to(((p_to : std.String)));
 	public function nocasecmp_to(p_to:std.String):cpp.Int64 return __gd.nocasecmp_to(((p_to : std.String)));
 	public function naturalcasecmp_to(p_to:std.String):cpp.Int64 return __gd.naturalcasecmp_to(((p_to : std.String)));

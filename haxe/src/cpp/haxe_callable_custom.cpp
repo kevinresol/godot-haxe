@@ -10,12 +10,10 @@ godot::Variant from_haxe_dynamic(::Dynamic value);
                                          int p_size);
 
 HaxeCallableCustom::HaxeCallableCustom(::Dynamic p_fn) : fn(p_fn) {
-  printf("HaxeCallableCustom\n");
   ::hx::GCAddRoot((hx::Object **)&fn.mPtr);
 }
 
 HaxeCallableCustom::~HaxeCallableCustom() {
-  printf("~HaxeCallableCustom\n");
   ::hx::GCRemoveRoot((hx::Object **)&fn.mPtr);
 }
 
@@ -40,8 +38,8 @@ void HaxeCallableCustom::call(const godot::Variant **p_arguments,
   ::Dynamic ret = const_cast<::Dynamic &>(fn)->__Run(
       to_haxe_dynamic_array(p_arguments, p_argcount));
 
-  // ::Dynamic ret =::Reflect_obj::callMethod(null(), fn,
-  // to_haxe_dynamic_array(p_arguments, p_argcount));
+  // // ::Dynamic ret =::Reflect_obj::callMethod(null(), fn,
+  // // to_haxe_dynamic_array(p_arguments, p_argcount));
 
   r_return_value = from_haxe_dynamic(ret);
 

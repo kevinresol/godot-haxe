@@ -7,9 +7,18 @@ class PackedVector2Array_wrapper {
 		return @:privateAccess new gd.Variant.Variant_obj(v);
 	}
 	function toString():std.String return gd.UtilityFunctions.str(toVariant());
-	static function _new0():PackedVector2Array_wrapper return new PackedVector2Array_wrapper(new gdnative.PackedVector2Array());
-	static function _new1(p_from:gd.PackedVector2Array):PackedVector2Array_wrapper return new PackedVector2Array_wrapper(new gdnative.PackedVector2Array(p_from));
-	static function _new2(p_from:gd.Array):PackedVector2Array_wrapper return new PackedVector2Array_wrapper(new gdnative.PackedVector2Array(p_from));
+	static function _new0():PackedVector2Array_wrapper {
+		final v = new gdnative.PackedVector2Array();
+		return new PackedVector2Array_wrapper(v);
+	}
+	static function _new1(p_from:gd.PackedVector2Array):PackedVector2Array_wrapper {
+		final v = new gdnative.PackedVector2Array(p_from);
+		return new PackedVector2Array_wrapper(v);
+	}
+	static function _new2(p_from:gd.Array):PackedVector2Array_wrapper {
+		final v = new gdnative.PackedVector2Array(p_from);
+		return new PackedVector2Array_wrapper(v);
+	}
 	public function get(p_index:cpp.Int64):gd.Vector2 return {
 		final v = __gd.get(((p_index : cpp.Int64)));
 		v;

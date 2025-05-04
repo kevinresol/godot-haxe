@@ -7,9 +7,18 @@ class Vector2_wrapper {
 		return @:privateAccess new gd.Variant.Variant_obj(v);
 	}
 	function toString():std.String return gd.UtilityFunctions.str(toVariant());
-	static function _new0():Vector2_wrapper return new Vector2_wrapper(new gdnative.Vector2());
-	static function _new1(p_from:gd.Vector2):Vector2_wrapper return new Vector2_wrapper(new gdnative.Vector2(p_from));
-	static function _new2(p_x:Float, p_y:Float):Vector2_wrapper return new Vector2_wrapper(new gdnative.Vector2(p_x, p_y));
+	static function _new0():Vector2_wrapper {
+		final v = new gdnative.Vector2();
+		return new Vector2_wrapper(v);
+	}
+	static function _new1(p_from:gd.Vector2):Vector2_wrapper {
+		final v = new gdnative.Vector2(p_from);
+		return new Vector2_wrapper(v);
+	}
+	static function _new2(p_x:Float, p_y:Float):Vector2_wrapper {
+		final v = new gdnative.Vector2(p_x, p_y);
+		return new Vector2_wrapper(v);
+	}
 	public function angle():Float return __gd.angle();
 	public function angle_to(p_to:gd.Vector2):Float return __gd.angle_to(((p_to : gd.Vector2)));
 	public function angle_to_point(p_to:gd.Vector2):Float return __gd.angle_to_point(((p_to : gd.Vector2)));

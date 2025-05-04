@@ -7,9 +7,18 @@ package gd;
 		return @:privateAccess new gd.Variant.Variant_obj(v);
 	}
 	function toString():std.String return gd.UtilityFunctions.str(toVariant());
-	static function _new0():Callable_wrapper return new Callable_wrapper(new gdnative.Callable());
-	static function _new1(p_from:gd.Callable):Callable_wrapper return new Callable_wrapper(new gdnative.Callable(p_from));
-	static function _new2(p_object:gd.Object, p_method:std.String):Callable_wrapper return new Callable_wrapper(new gdnative.Callable(p_object, p_method));
+	static function _new0():Callable_wrapper {
+		final v = new gdnative.Callable();
+		return new Callable_wrapper(v);
+	}
+	static function _new1(p_from:gd.Callable):Callable_wrapper {
+		final v = new gdnative.Callable(p_from);
+		return new Callable_wrapper(v);
+	}
+	static function _new2(p_object:gd.Object, p_method:std.String):Callable_wrapper {
+		final v = new gdnative.Callable(p_object, p_method);
+		return new Callable_wrapper(v);
+	}
 	public static function create(p_variant:gd.Variant, p_method:std.String):gd.Callable return {
 		final v = gdnative.Callable.Callable_extern.create(((p_variant : gd.Variant)), ((p_method : std.String)));
 		v;
@@ -82,7 +91,8 @@ package gd;
 	function __op_membership_in_array(p_rhs:gd.Array):Bool return @:privateAccess this.__gd.__op_membership_in_array(((p_rhs : gdnative.Array)));
 	static function _new_custom(f:haxe.Constraints.Function):Callable_wrapper {
 		final v:gdnative.HaxeCallableCustom.HaxeCallableCustom_extern = gdnative.Memory.Memory_extern.memnew(untyped __cpp__('gdcppia::HaxeCallableCustom({0})', f));
-		return new Callable_wrapper(new gdnative.Callable(v));
+		final n = new gdnative.Callable(v);
+		return new Callable_wrapper(n);
 	}
 }
 
@@ -106,4 +116,6 @@ package gd;
 	@:op(A in B)
 	inline function __op_membership_in_array(p_rhs:gd.Array):Bool return @:privateAccess this.__op_membership_in_array(p_rhs);
 	public extern overload inline function new(f:haxe.Constraints.Function):Callable_wrapper this = @:privateAccess Callable_wrapper._new_custom(f);
+	@:from
+	extern static inline function fromHaxe(f:haxe.Constraints.Function):Callable return new Callable(f);
 }

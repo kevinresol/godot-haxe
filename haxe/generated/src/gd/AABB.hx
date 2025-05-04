@@ -7,9 +7,18 @@ class AABB_wrapper {
 		return @:privateAccess new gd.Variant.Variant_obj(v);
 	}
 	function toString():std.String return gd.UtilityFunctions.str(toVariant());
-	static function _new0():AABB_wrapper return new AABB_wrapper(new gdnative.AABB());
-	static function _new1(p_from:gd.AABB):AABB_wrapper return new AABB_wrapper(new gdnative.AABB(p_from));
-	static function _new2(p_position:gd.Vector3, p_size:gd.Vector3):AABB_wrapper return new AABB_wrapper(new gdnative.AABB(p_position, p_size));
+	static function _new0():AABB_wrapper {
+		final v = new gdnative.AABB();
+		return new AABB_wrapper(v);
+	}
+	static function _new1(p_from:gd.AABB):AABB_wrapper {
+		final v = new gdnative.AABB(p_from);
+		return new AABB_wrapper(v);
+	}
+	static function _new2(p_position:gd.Vector3, p_size:gd.Vector3):AABB_wrapper {
+		final v = new gdnative.AABB(p_position, p_size);
+		return new AABB_wrapper(v);
+	}
 	public function abs():gd.AABB return {
 		final v = __gd.abs();
 		v;

@@ -7,9 +7,18 @@ class NodePath_wrapper {
 		return @:privateAccess new gd.Variant.Variant_obj(v);
 	}
 	function toString():std.String return gd.UtilityFunctions.str(toVariant());
-	static function _new0():NodePath_wrapper return new NodePath_wrapper(new gdnative.NodePath());
-	static function _new1(p_from:std.String):NodePath_wrapper return new NodePath_wrapper(new gdnative.NodePath(p_from));
-	static function _new2(p_from:std.String):NodePath_wrapper return new NodePath_wrapper(new gdnative.NodePath(p_from));
+	static function _new0():NodePath_wrapper {
+		final v = new gdnative.NodePath();
+		return new NodePath_wrapper(v);
+	}
+	static function _new1(p_from:std.String):NodePath_wrapper {
+		final v = new gdnative.NodePath(p_from);
+		return new NodePath_wrapper(v);
+	}
+	static function _new2(p_from:std.String):NodePath_wrapper {
+		final v = new gdnative.NodePath(p_from);
+		return new NodePath_wrapper(v);
+	}
 	public function is_absolute():Bool return __gd.is_absolute();
 	public function get_name_count():cpp.Int64 return __gd.get_name_count();
 	public function get_name(p_idx:cpp.Int64):std.String return {

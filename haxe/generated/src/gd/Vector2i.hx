@@ -7,9 +7,18 @@ class Vector2i_wrapper {
 		return @:privateAccess new gd.Variant.Variant_obj(v);
 	}
 	function toString():std.String return gd.UtilityFunctions.str(toVariant());
-	static function _new0():Vector2i_wrapper return new Vector2i_wrapper(new gdnative.Vector2i());
-	static function _new1(p_from:gd.Vector2i):Vector2i_wrapper return new Vector2i_wrapper(new gdnative.Vector2i(p_from));
-	static function _new2(p_x:cpp.Int64, p_y:cpp.Int64):Vector2i_wrapper return new Vector2i_wrapper(new gdnative.Vector2i(p_x, p_y));
+	static function _new0():Vector2i_wrapper {
+		final v = new gdnative.Vector2i();
+		return new Vector2i_wrapper(v);
+	}
+	static function _new1(p_from:gd.Vector2i):Vector2i_wrapper {
+		final v = new gdnative.Vector2i(p_from);
+		return new Vector2i_wrapper(v);
+	}
+	static function _new2(p_x:cpp.Int64, p_y:cpp.Int64):Vector2i_wrapper {
+		final v = new gdnative.Vector2i(p_x, p_y);
+		return new Vector2i_wrapper(v);
+	}
 	public function aspect():Float return __gd.aspect();
 	public function max_axis_index():cpp.Int64 return __gd.max_axis_index();
 	public function min_axis_index():cpp.Int64 return __gd.min_axis_index();

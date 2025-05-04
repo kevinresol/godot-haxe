@@ -7,9 +7,18 @@ class PackedFloat32Array_wrapper {
 		return @:privateAccess new gd.Variant.Variant_obj(v);
 	}
 	function toString():std.String return gd.UtilityFunctions.str(toVariant());
-	static function _new0():PackedFloat32Array_wrapper return new PackedFloat32Array_wrapper(new gdnative.PackedFloat32Array());
-	static function _new1(p_from:gd.PackedFloat32Array):PackedFloat32Array_wrapper return new PackedFloat32Array_wrapper(new gdnative.PackedFloat32Array(p_from));
-	static function _new2(p_from:gd.Array):PackedFloat32Array_wrapper return new PackedFloat32Array_wrapper(new gdnative.PackedFloat32Array(p_from));
+	static function _new0():PackedFloat32Array_wrapper {
+		final v = new gdnative.PackedFloat32Array();
+		return new PackedFloat32Array_wrapper(v);
+	}
+	static function _new1(p_from:gd.PackedFloat32Array):PackedFloat32Array_wrapper {
+		final v = new gdnative.PackedFloat32Array(p_from);
+		return new PackedFloat32Array_wrapper(v);
+	}
+	static function _new2(p_from:gd.Array):PackedFloat32Array_wrapper {
+		final v = new gdnative.PackedFloat32Array(p_from);
+		return new PackedFloat32Array_wrapper(v);
+	}
 	public function get(p_index:cpp.Int64):Float return __gd.get(((p_index : cpp.Int64)));
 	public function size():cpp.Int64 return __gd.size();
 	public function is_empty():Bool return __gd.is_empty();

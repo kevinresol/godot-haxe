@@ -7,9 +7,18 @@ class Vector3i_wrapper {
 		return @:privateAccess new gd.Variant.Variant_obj(v);
 	}
 	function toString():std.String return gd.UtilityFunctions.str(toVariant());
-	static function _new0():Vector3i_wrapper return new Vector3i_wrapper(new gdnative.Vector3i());
-	static function _new1(p_from:gd.Vector3i):Vector3i_wrapper return new Vector3i_wrapper(new gdnative.Vector3i(p_from));
-	static function _new2(p_x:cpp.Int64, p_y:cpp.Int64, p_z:cpp.Int64):Vector3i_wrapper return new Vector3i_wrapper(new gdnative.Vector3i(p_x, p_y, p_z));
+	static function _new0():Vector3i_wrapper {
+		final v = new gdnative.Vector3i();
+		return new Vector3i_wrapper(v);
+	}
+	static function _new1(p_from:gd.Vector3i):Vector3i_wrapper {
+		final v = new gdnative.Vector3i(p_from);
+		return new Vector3i_wrapper(v);
+	}
+	static function _new2(p_x:cpp.Int64, p_y:cpp.Int64, p_z:cpp.Int64):Vector3i_wrapper {
+		final v = new gdnative.Vector3i(p_x, p_y, p_z);
+		return new Vector3i_wrapper(v);
+	}
 	public function min_axis_index():cpp.Int64 return __gd.min_axis_index();
 	public function max_axis_index():cpp.Int64 return __gd.max_axis_index();
 	public function distance_to(p_to:gd.Vector3i):Float return __gd.distance_to(((p_to : gd.Vector3i)));

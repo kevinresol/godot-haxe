@@ -7,10 +7,22 @@ class Rect2_wrapper {
 		return @:privateAccess new gd.Variant.Variant_obj(v);
 	}
 	function toString():std.String return gd.UtilityFunctions.str(toVariant());
-	static function _new0():Rect2_wrapper return new Rect2_wrapper(new gdnative.Rect2());
-	static function _new1(p_from:gd.Rect2):Rect2_wrapper return new Rect2_wrapper(new gdnative.Rect2(p_from));
-	static function _new2(p_position:gd.Vector2, p_size:gd.Vector2):Rect2_wrapper return new Rect2_wrapper(new gdnative.Rect2(p_position, p_size));
-	static function _new3(p_x:Float, p_y:Float, p_width:Float, p_height:Float):Rect2_wrapper return new Rect2_wrapper(new gdnative.Rect2(p_x, p_y, p_width, p_height));
+	static function _new0():Rect2_wrapper {
+		final v = new gdnative.Rect2();
+		return new Rect2_wrapper(v);
+	}
+	static function _new1(p_from:gd.Rect2):Rect2_wrapper {
+		final v = new gdnative.Rect2(p_from);
+		return new Rect2_wrapper(v);
+	}
+	static function _new2(p_position:gd.Vector2, p_size:gd.Vector2):Rect2_wrapper {
+		final v = new gdnative.Rect2(p_position, p_size);
+		return new Rect2_wrapper(v);
+	}
+	static function _new3(p_x:Float, p_y:Float, p_width:Float, p_height:Float):Rect2_wrapper {
+		final v = new gdnative.Rect2(p_x, p_y, p_width, p_height);
+		return new Rect2_wrapper(v);
+	}
 	public function get_center():gd.Vector2 return {
 		final v = __gd.get_center();
 		v;

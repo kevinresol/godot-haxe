@@ -7,10 +7,22 @@ class Rect2i_wrapper {
 		return @:privateAccess new gd.Variant.Variant_obj(v);
 	}
 	function toString():std.String return gd.UtilityFunctions.str(toVariant());
-	static function _new0():Rect2i_wrapper return new Rect2i_wrapper(new gdnative.Rect2i());
-	static function _new1(p_from:gd.Rect2i):Rect2i_wrapper return new Rect2i_wrapper(new gdnative.Rect2i(p_from));
-	static function _new2(p_position:gd.Vector2i, p_size:gd.Vector2i):Rect2i_wrapper return new Rect2i_wrapper(new gdnative.Rect2i(p_position, p_size));
-	static function _new3(p_x:cpp.Int64, p_y:cpp.Int64, p_width:cpp.Int64, p_height:cpp.Int64):Rect2i_wrapper return new Rect2i_wrapper(new gdnative.Rect2i(p_x, p_y, p_width, p_height));
+	static function _new0():Rect2i_wrapper {
+		final v = new gdnative.Rect2i();
+		return new Rect2i_wrapper(v);
+	}
+	static function _new1(p_from:gd.Rect2i):Rect2i_wrapper {
+		final v = new gdnative.Rect2i(p_from);
+		return new Rect2i_wrapper(v);
+	}
+	static function _new2(p_position:gd.Vector2i, p_size:gd.Vector2i):Rect2i_wrapper {
+		final v = new gdnative.Rect2i(p_position, p_size);
+		return new Rect2i_wrapper(v);
+	}
+	static function _new3(p_x:cpp.Int64, p_y:cpp.Int64, p_width:cpp.Int64, p_height:cpp.Int64):Rect2i_wrapper {
+		final v = new gdnative.Rect2i(p_x, p_y, p_width, p_height);
+		return new Rect2i_wrapper(v);
+	}
 	public function get_center():gd.Vector2i return {
 		final v = __gd.get_center();
 		v;

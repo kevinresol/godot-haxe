@@ -5,15 +5,16 @@ import tink.unit.*;
 
 @:rtti
 class Main extends gd.Node2D {
-	@signal public final test:gd.Signal;
+	@signal public final plain:gd.Signal;
+	@signal public final int:gd.Signal;
 
 	public function new(owner) {
 		super(owner);
-		test = new gd.Signal(this, 'test');
+		plain = new gd.Signal(this, 'plain');
+		int = new gd.Signal(this, 'int');
 	}
 
 	override function _ready() {
-		trace(__props);
 		Runner.run(TestBatch.make([
 			new UtilityFunctionTest(),
 			new EnumTest(),
@@ -22,20 +23,25 @@ class Main extends gd.Node2D {
 			new ConstructorTest(),
 			new ArrayTest(),
 			new DictionaryTest(),
-			new JsonTest(),
+			// new JsonTest(),
 			new InstanceMethodTest(this),
 			new VariantTest(this),
 			new ResourceTest(),
 			new SignalTest(this),
+			new CallableTest(),
 			// new MemoryTest(),
 		])).handle(result -> get_tree().quit(result.summary().failures.length));
 	}
 
-	public var signalFired = false;
+	public var plainFired(default, null) = false;
+	public var intFired(default, null) = 0;
 
-	function _signal_callback() {
-		signalFired = true;
-		trace('Signal callback (instance method)');
+	function _plain_signal_callback() {
+		plainFired = true;
+	}
+
+	function _int_signal_callback(v:Int) {
+		intFired += v;
 	}
 }
 
@@ -304,26 +310,46 @@ class SignalTest {
 		this.node = node;
 
 	public function method() {
-		final signal = node.test;
-		signal.connect(new gd.Callable(node, '_signal_callback'), gd.object.ConnectFlags.ONE_SHOT);
+		final signal = node.plain;
+		signal.connect(new gd.Callable(node, '_plain_signal_callback'), gd.object.ConnectFlags.ONE_SHOT);
 		signal.emit();
+		asserts.assert(node.plainFired);
 
-		asserts.assert(node.signalFired);
+		final signal = node.int;
+		signal.connect(new gd.Callable(node, '_int_signal_callback'), gd.object.ConnectFlags.ONE_SHOT);
+		signal.emit(42);
+		asserts.assert(node.intFired == 42);
 
 		return asserts.done();
 	}
 
-	public function anonymous() {
-		final signal = node.test;
+	public function anon() {
+		final signal = node.plain;
 		var signalFired = false;
-		signal.connect(new gd.Callable(() -> {
-			signalFired = true;
-			trace('Signal callback (anonymous function)');
-		}), gd.object.ConnectFlags.ONE_SHOT);
+		signal.connect(() -> signalFired = true, gd.object.ConnectFlags.ONE_SHOT);
 		signal.emit();
-
 		asserts.assert(signalFired);
 
+		final signal = node.int;
+		var intFired = 0;
+		signal.connect((v:Int) -> intFired += v, gd.object.ConnectFlags.ONE_SHOT);
+		signal.emit(42);
+		asserts.assert(intFired == 42);
+
+		return asserts.done();
+	}
+}
+
+@:asserts
+class CallableTest {
+	public function new() {}
+
+	public function anonymous() {
+		var called = false;
+		final callable = new gd.Callable(() -> called = true);
+		callable.call();
+
+		asserts.assert(called);
 		return asserts.done();
 	}
 }

@@ -7,9 +7,18 @@ class PackedInt32Array_wrapper {
 		return @:privateAccess new gd.Variant.Variant_obj(v);
 	}
 	function toString():std.String return gd.UtilityFunctions.str(toVariant());
-	static function _new0():PackedInt32Array_wrapper return new PackedInt32Array_wrapper(new gdnative.PackedInt32Array());
-	static function _new1(p_from:gd.PackedInt32Array):PackedInt32Array_wrapper return new PackedInt32Array_wrapper(new gdnative.PackedInt32Array(p_from));
-	static function _new2(p_from:gd.Array):PackedInt32Array_wrapper return new PackedInt32Array_wrapper(new gdnative.PackedInt32Array(p_from));
+	static function _new0():PackedInt32Array_wrapper {
+		final v = new gdnative.PackedInt32Array();
+		return new PackedInt32Array_wrapper(v);
+	}
+	static function _new1(p_from:gd.PackedInt32Array):PackedInt32Array_wrapper {
+		final v = new gdnative.PackedInt32Array(p_from);
+		return new PackedInt32Array_wrapper(v);
+	}
+	static function _new2(p_from:gd.Array):PackedInt32Array_wrapper {
+		final v = new gdnative.PackedInt32Array(p_from);
+		return new PackedInt32Array_wrapper(v);
+	}
 	public function get(p_index:cpp.Int64):cpp.Int64 return __gd.get(((p_index : cpp.Int64)));
 	public function size():cpp.Int64 return __gd.size();
 	public function is_empty():Bool return __gd.is_empty();

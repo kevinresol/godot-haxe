@@ -452,7 +452,10 @@ class BuiltinClassBuilder extends Builder {
 								(macro $i{'p_${arg.name}'});
 							});
 
-							macro return new $wtp(new $tp($a{args}));
+							macro {
+								final v = new $tp($a{args});
+								return new $wtp(v);
+							}
 						}
 					})
 				});
@@ -726,21 +729,31 @@ class BuiltinClassBuilder extends Builder {
 						expr: isScriptExtern ? null : macro {
 							final v:gdnative.HaxeCallableCustom.HaxeCallableCustom_extern = gdnative.Memory.Memory_extern.memnew(untyped __cpp__('gdcppia::HaxeCallableCustom({0})',
 								f));
-							return new Callable_wrapper(new gdnative.Callable(v));
+							final n = new gdnative.Callable(v);
+							return new Callable_wrapper(n);
 						},
 					}),
 				});
 
-				abs.fields.push({
-					pos: null,
-					access: [APublic, AExtern, AOverload, AInline],
-					name: 'new',
-					kind: FFun({
-						args: [{name: 'f', type: macro :haxe.Constraints.Function}],
-						ret: TPath({pack: [], name: wname}),
-						expr: macro this = @:privateAccess Callable_wrapper._new_custom(f)
-					}),
-				});
+				abs.fields = abs.fields.concat((macro class {
+					public extern overload inline function new(f:haxe.Constraints.Function):Callable_wrapper
+						this = @:privateAccess Callable_wrapper._new_custom(f);
+
+					@:from
+					extern static inline function fromHaxe(f:haxe.Constraints.Function):Callable
+						return new Callable(f);
+				}).fields);
+
+			// abs.fields.push({
+			// 	pos: null,
+			// 	access: [APublic, AExtern, AOverload, AInline],
+			// 	name: 'new',
+			// 	kind: FFun({
+			// 		args: [{name: 'f', type: macro :haxe.Constraints.Function}],
+			// 		ret: TPath({pack: [], name: wname}),
+			// 		expr: macro this = @:privateAccess Callable_wrapper._new_custom(f)
+			// 	}),
+			// });
 			case _:
 		}
 		final source = printTypeDefinition(cls) + '\n\n' + printTypeDefinition(abs);

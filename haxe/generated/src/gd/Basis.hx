@@ -7,12 +7,30 @@ class Basis_wrapper {
 		return @:privateAccess new gd.Variant.Variant_obj(v);
 	}
 	function toString():std.String return gd.UtilityFunctions.str(toVariant());
-	static function _new0():Basis_wrapper return new Basis_wrapper(new gdnative.Basis());
-	static function _new1(p_from:gd.Basis):Basis_wrapper return new Basis_wrapper(new gdnative.Basis(p_from));
-	static function _new2(p_from:gd.Quaternion):Basis_wrapper return new Basis_wrapper(new gdnative.Basis(p_from));
-	static function _new3(p_axis:gd.Vector3, p_angle:Float):Basis_wrapper return new Basis_wrapper(new gdnative.Basis(p_axis, p_angle));
-	static function _new4(p_x_axis:gd.Vector3, p_y_axis:gd.Vector3, p_z_axis:gd.Vector3):Basis_wrapper return new Basis_wrapper(new gdnative.Basis(p_x_axis, p_y_axis, p_z_axis));
-	static function _new5(p_xx:Float, p_xy:Float, p_xz:Float, p_yx:Float, p_yy:Float, p_yz:Float, p_zx:Float, p_zy:Float, p_zz:Float):Basis_wrapper return new Basis_wrapper(new gdnative.Basis(p_xx, p_xy, p_xz, p_yx, p_yy, p_yz, p_zx, p_zy, p_zz));
+	static function _new0():Basis_wrapper {
+		final v = new gdnative.Basis();
+		return new Basis_wrapper(v);
+	}
+	static function _new1(p_from:gd.Basis):Basis_wrapper {
+		final v = new gdnative.Basis(p_from);
+		return new Basis_wrapper(v);
+	}
+	static function _new2(p_from:gd.Quaternion):Basis_wrapper {
+		final v = new gdnative.Basis(p_from);
+		return new Basis_wrapper(v);
+	}
+	static function _new3(p_axis:gd.Vector3, p_angle:Float):Basis_wrapper {
+		final v = new gdnative.Basis(p_axis, p_angle);
+		return new Basis_wrapper(v);
+	}
+	static function _new4(p_x_axis:gd.Vector3, p_y_axis:gd.Vector3, p_z_axis:gd.Vector3):Basis_wrapper {
+		final v = new gdnative.Basis(p_x_axis, p_y_axis, p_z_axis);
+		return new Basis_wrapper(v);
+	}
+	static function _new5(p_xx:Float, p_xy:Float, p_xz:Float, p_yx:Float, p_yy:Float, p_yz:Float, p_zx:Float, p_zy:Float, p_zz:Float):Basis_wrapper {
+		final v = new gdnative.Basis(p_xx, p_xy, p_xz, p_yx, p_yy, p_yz, p_zx, p_zy, p_zz);
+		return new Basis_wrapper(v);
+	}
 	public function inverse():gd.Basis return {
 		final v = __gd.inverse();
 		v;

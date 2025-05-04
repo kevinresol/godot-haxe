@@ -7,13 +7,34 @@ class Plane_wrapper {
 		return @:privateAccess new gd.Variant.Variant_obj(v);
 	}
 	function toString():std.String return gd.UtilityFunctions.str(toVariant());
-	static function _new0():Plane_wrapper return new Plane_wrapper(new gdnative.Plane());
-	static function _new1(p_from:gd.Plane):Plane_wrapper return new Plane_wrapper(new gdnative.Plane(p_from));
-	static function _new2(p_normal:gd.Vector3):Plane_wrapper return new Plane_wrapper(new gdnative.Plane(p_normal));
-	static function _new3(p_normal:gd.Vector3, p_d:Float):Plane_wrapper return new Plane_wrapper(new gdnative.Plane(p_normal, p_d));
-	static function _new4(p_normal:gd.Vector3, p_point:gd.Vector3):Plane_wrapper return new Plane_wrapper(new gdnative.Plane(p_normal, p_point));
-	static function _new5(p_point1:gd.Vector3, p_point2:gd.Vector3, p_point3:gd.Vector3):Plane_wrapper return new Plane_wrapper(new gdnative.Plane(p_point1, p_point2, p_point3));
-	static function _new6(p_a:Float, p_b:Float, p_c:Float, p_d:Float):Plane_wrapper return new Plane_wrapper(new gdnative.Plane(p_a, p_b, p_c, p_d));
+	static function _new0():Plane_wrapper {
+		final v = new gdnative.Plane();
+		return new Plane_wrapper(v);
+	}
+	static function _new1(p_from:gd.Plane):Plane_wrapper {
+		final v = new gdnative.Plane(p_from);
+		return new Plane_wrapper(v);
+	}
+	static function _new2(p_normal:gd.Vector3):Plane_wrapper {
+		final v = new gdnative.Plane(p_normal);
+		return new Plane_wrapper(v);
+	}
+	static function _new3(p_normal:gd.Vector3, p_d:Float):Plane_wrapper {
+		final v = new gdnative.Plane(p_normal, p_d);
+		return new Plane_wrapper(v);
+	}
+	static function _new4(p_normal:gd.Vector3, p_point:gd.Vector3):Plane_wrapper {
+		final v = new gdnative.Plane(p_normal, p_point);
+		return new Plane_wrapper(v);
+	}
+	static function _new5(p_point1:gd.Vector3, p_point2:gd.Vector3, p_point3:gd.Vector3):Plane_wrapper {
+		final v = new gdnative.Plane(p_point1, p_point2, p_point3);
+		return new Plane_wrapper(v);
+	}
+	static function _new6(p_a:Float, p_b:Float, p_c:Float, p_d:Float):Plane_wrapper {
+		final v = new gdnative.Plane(p_a, p_b, p_c, p_d);
+		return new Plane_wrapper(v);
+	}
 	public function normalized():gd.Plane return {
 		final v = __gd.normalized();
 		v;

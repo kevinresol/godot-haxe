@@ -7,9 +7,18 @@ class PackedColorArray_wrapper {
 		return @:privateAccess new gd.Variant.Variant_obj(v);
 	}
 	function toString():std.String return gd.UtilityFunctions.str(toVariant());
-	static function _new0():PackedColorArray_wrapper return new PackedColorArray_wrapper(new gdnative.PackedColorArray());
-	static function _new1(p_from:gd.PackedColorArray):PackedColorArray_wrapper return new PackedColorArray_wrapper(new gdnative.PackedColorArray(p_from));
-	static function _new2(p_from:gd.Array):PackedColorArray_wrapper return new PackedColorArray_wrapper(new gdnative.PackedColorArray(p_from));
+	static function _new0():PackedColorArray_wrapper {
+		final v = new gdnative.PackedColorArray();
+		return new PackedColorArray_wrapper(v);
+	}
+	static function _new1(p_from:gd.PackedColorArray):PackedColorArray_wrapper {
+		final v = new gdnative.PackedColorArray(p_from);
+		return new PackedColorArray_wrapper(v);
+	}
+	static function _new2(p_from:gd.Array):PackedColorArray_wrapper {
+		final v = new gdnative.PackedColorArray(p_from);
+		return new PackedColorArray_wrapper(v);
+	}
 	public function get(p_index:cpp.Int64):gd.Color return {
 		final v = __gd.get(((p_index : cpp.Int64)));
 		v;

@@ -7,12 +7,30 @@ class Transform2D_wrapper {
 		return @:privateAccess new gd.Variant.Variant_obj(v);
 	}
 	function toString():std.String return gd.UtilityFunctions.str(toVariant());
-	static function _new0():Transform2D_wrapper return new Transform2D_wrapper(new gdnative.Transform2D());
-	static function _new1(p_from:gd.Transform2D):Transform2D_wrapper return new Transform2D_wrapper(new gdnative.Transform2D(p_from));
-	static function _new2(p_rotation:Float, p_position:gd.Vector2):Transform2D_wrapper return new Transform2D_wrapper(new gdnative.Transform2D(p_rotation, p_position));
-	static function _new3(p_rotation:Float, p_scale:gd.Vector2, p_skew:Float, p_position:gd.Vector2):Transform2D_wrapper return new Transform2D_wrapper(new gdnative.Transform2D(p_rotation, p_scale, p_skew, p_position));
-	static function _new4(p_x_axis:gd.Vector2, p_y_axis:gd.Vector2, p_origin:gd.Vector2):Transform2D_wrapper return new Transform2D_wrapper(new gdnative.Transform2D(p_x_axis, p_y_axis, p_origin));
-	static function _new5(p_xx:Float, p_xy:Float, p_yx:Float, p_yy:Float, p_ox:Float, p_oy:Float):Transform2D_wrapper return new Transform2D_wrapper(new gdnative.Transform2D(p_xx, p_xy, p_yx, p_yy, p_ox, p_oy));
+	static function _new0():Transform2D_wrapper {
+		final v = new gdnative.Transform2D();
+		return new Transform2D_wrapper(v);
+	}
+	static function _new1(p_from:gd.Transform2D):Transform2D_wrapper {
+		final v = new gdnative.Transform2D(p_from);
+		return new Transform2D_wrapper(v);
+	}
+	static function _new2(p_rotation:Float, p_position:gd.Vector2):Transform2D_wrapper {
+		final v = new gdnative.Transform2D(p_rotation, p_position);
+		return new Transform2D_wrapper(v);
+	}
+	static function _new3(p_rotation:Float, p_scale:gd.Vector2, p_skew:Float, p_position:gd.Vector2):Transform2D_wrapper {
+		final v = new gdnative.Transform2D(p_rotation, p_scale, p_skew, p_position);
+		return new Transform2D_wrapper(v);
+	}
+	static function _new4(p_x_axis:gd.Vector2, p_y_axis:gd.Vector2, p_origin:gd.Vector2):Transform2D_wrapper {
+		final v = new gdnative.Transform2D(p_x_axis, p_y_axis, p_origin);
+		return new Transform2D_wrapper(v);
+	}
+	static function _new5(p_xx:Float, p_xy:Float, p_yx:Float, p_yy:Float, p_ox:Float, p_oy:Float):Transform2D_wrapper {
+		final v = new gdnative.Transform2D(p_xx, p_xy, p_yx, p_yy, p_ox, p_oy);
+		return new Transform2D_wrapper(v);
+	}
 	public function inverse():gd.Transform2D return {
 		final v = __gd.inverse();
 		v;

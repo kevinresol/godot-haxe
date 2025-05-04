@@ -54,4 +54,6 @@ extern class Callable_wrapper {
 	@:op(A in B)
 	inline function __op_membership_in_array(p_rhs:gd.Array):Bool return @:privateAccess this.__op_membership_in_array(p_rhs);
 	public extern overload inline function new(f:haxe.Constraints.Function):Callable_wrapper this = @:privateAccess Callable_wrapper._new_custom(f);
+	@:from
+	extern static inline function fromHaxe(f:haxe.Constraints.Function):Callable return new Callable(f);
 }

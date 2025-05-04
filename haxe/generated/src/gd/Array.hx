@@ -7,19 +7,58 @@ class Array_wrapper {
 		return @:privateAccess new gd.Variant.Variant_obj(v);
 	}
 	function toString():std.String return gd.UtilityFunctions.str(toVariant());
-	static function _new0():Array_wrapper return new Array_wrapper(new gdnative.Array());
-	static function _new1(p_from:gd.Array):Array_wrapper return new Array_wrapper(new gdnative.Array(p_from));
-	static function _new2(p_base:gd.Array, p_type:cpp.Int64, p_class_name:std.String, p_script:gd.Variant):Array_wrapper return new Array_wrapper(new gdnative.Array(p_base, p_type, p_class_name, p_script));
-	static function _new3(p_from:gd.PackedByteArray):Array_wrapper return new Array_wrapper(new gdnative.Array(p_from));
-	static function _new4(p_from:gd.PackedInt32Array):Array_wrapper return new Array_wrapper(new gdnative.Array(p_from));
-	static function _new5(p_from:gd.PackedInt64Array):Array_wrapper return new Array_wrapper(new gdnative.Array(p_from));
-	static function _new6(p_from:gd.PackedFloat32Array):Array_wrapper return new Array_wrapper(new gdnative.Array(p_from));
-	static function _new7(p_from:gd.PackedFloat64Array):Array_wrapper return new Array_wrapper(new gdnative.Array(p_from));
-	static function _new8(p_from:gd.PackedStringArray):Array_wrapper return new Array_wrapper(new gdnative.Array(p_from));
-	static function _new9(p_from:gd.PackedVector2Array):Array_wrapper return new Array_wrapper(new gdnative.Array(p_from));
-	static function _new10(p_from:gd.PackedVector3Array):Array_wrapper return new Array_wrapper(new gdnative.Array(p_from));
-	static function _new11(p_from:gd.PackedColorArray):Array_wrapper return new Array_wrapper(new gdnative.Array(p_from));
-	static function _new12(p_from:gd.PackedVector4Array):Array_wrapper return new Array_wrapper(new gdnative.Array(p_from));
+	static function _new0():Array_wrapper {
+		final v = new gdnative.Array();
+		return new Array_wrapper(v);
+	}
+	static function _new1(p_from:gd.Array):Array_wrapper {
+		final v = new gdnative.Array(p_from);
+		return new Array_wrapper(v);
+	}
+	static function _new2(p_base:gd.Array, p_type:cpp.Int64, p_class_name:std.String, p_script:gd.Variant):Array_wrapper {
+		final v = new gdnative.Array(p_base, p_type, p_class_name, p_script);
+		return new Array_wrapper(v);
+	}
+	static function _new3(p_from:gd.PackedByteArray):Array_wrapper {
+		final v = new gdnative.Array(p_from);
+		return new Array_wrapper(v);
+	}
+	static function _new4(p_from:gd.PackedInt32Array):Array_wrapper {
+		final v = new gdnative.Array(p_from);
+		return new Array_wrapper(v);
+	}
+	static function _new5(p_from:gd.PackedInt64Array):Array_wrapper {
+		final v = new gdnative.Array(p_from);
+		return new Array_wrapper(v);
+	}
+	static function _new6(p_from:gd.PackedFloat32Array):Array_wrapper {
+		final v = new gdnative.Array(p_from);
+		return new Array_wrapper(v);
+	}
+	static function _new7(p_from:gd.PackedFloat64Array):Array_wrapper {
+		final v = new gdnative.Array(p_from);
+		return new Array_wrapper(v);
+	}
+	static function _new8(p_from:gd.PackedStringArray):Array_wrapper {
+		final v = new gdnative.Array(p_from);
+		return new Array_wrapper(v);
+	}
+	static function _new9(p_from:gd.PackedVector2Array):Array_wrapper {
+		final v = new gdnative.Array(p_from);
+		return new Array_wrapper(v);
+	}
+	static function _new10(p_from:gd.PackedVector3Array):Array_wrapper {
+		final v = new gdnative.Array(p_from);
+		return new Array_wrapper(v);
+	}
+	static function _new11(p_from:gd.PackedColorArray):Array_wrapper {
+		final v = new gdnative.Array(p_from);
+		return new Array_wrapper(v);
+	}
+	static function _new12(p_from:gd.PackedVector4Array):Array_wrapper {
+		final v = new gdnative.Array(p_from);
+		return new Array_wrapper(v);
+	}
 	public function size():cpp.Int64 return __gd.size();
 	public function is_empty():Bool return __gd.is_empty();
 	public function clear():Void __gd.clear();

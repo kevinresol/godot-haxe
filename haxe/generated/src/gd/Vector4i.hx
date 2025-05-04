@@ -7,9 +7,18 @@ class Vector4i_wrapper {
 		return @:privateAccess new gd.Variant.Variant_obj(v);
 	}
 	function toString():std.String return gd.UtilityFunctions.str(toVariant());
-	static function _new0():Vector4i_wrapper return new Vector4i_wrapper(new gdnative.Vector4i());
-	static function _new1(p_from:gd.Vector4i):Vector4i_wrapper return new Vector4i_wrapper(new gdnative.Vector4i(p_from));
-	static function _new2(p_x:cpp.Int64, p_y:cpp.Int64, p_z:cpp.Int64, p_w:cpp.Int64):Vector4i_wrapper return new Vector4i_wrapper(new gdnative.Vector4i(p_x, p_y, p_z, p_w));
+	static function _new0():Vector4i_wrapper {
+		final v = new gdnative.Vector4i();
+		return new Vector4i_wrapper(v);
+	}
+	static function _new1(p_from:gd.Vector4i):Vector4i_wrapper {
+		final v = new gdnative.Vector4i(p_from);
+		return new Vector4i_wrapper(v);
+	}
+	static function _new2(p_x:cpp.Int64, p_y:cpp.Int64, p_z:cpp.Int64, p_w:cpp.Int64):Vector4i_wrapper {
+		final v = new gdnative.Vector4i(p_x, p_y, p_z, p_w);
+		return new Vector4i_wrapper(v);
+	}
 	public function min_axis_index():cpp.Int64 return __gd.min_axis_index();
 	public function max_axis_index():cpp.Int64 return __gd.max_axis_index();
 	public function length():Float return __gd.length();

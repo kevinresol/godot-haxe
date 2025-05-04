@@ -7,9 +7,18 @@ class Dictionary_wrapper {
 		return @:privateAccess new gd.Variant.Variant_obj(v);
 	}
 	function toString():std.String return gd.UtilityFunctions.str(toVariant());
-	static function _new0():Dictionary_wrapper return new Dictionary_wrapper(new gdnative.Dictionary());
-	static function _new1(p_from:gd.Dictionary):Dictionary_wrapper return new Dictionary_wrapper(new gdnative.Dictionary(p_from));
-	static function _new2(p_base:gd.Dictionary, p_key_type:cpp.Int64, p_key_class_name:std.String, p_key_script:gd.Variant, p_value_type:cpp.Int64, p_value_class_name:std.String, p_value_script:gd.Variant):Dictionary_wrapper return new Dictionary_wrapper(new gdnative.Dictionary(p_base, p_key_type, p_key_class_name, p_key_script, p_value_type, p_value_class_name, p_value_script));
+	static function _new0():Dictionary_wrapper {
+		final v = new gdnative.Dictionary();
+		return new Dictionary_wrapper(v);
+	}
+	static function _new1(p_from:gd.Dictionary):Dictionary_wrapper {
+		final v = new gdnative.Dictionary(p_from);
+		return new Dictionary_wrapper(v);
+	}
+	static function _new2(p_base:gd.Dictionary, p_key_type:cpp.Int64, p_key_class_name:std.String, p_key_script:gd.Variant, p_value_type:cpp.Int64, p_value_class_name:std.String, p_value_script:gd.Variant):Dictionary_wrapper {
+		final v = new gdnative.Dictionary(p_base, p_key_type, p_key_class_name, p_key_script, p_value_type, p_value_class_name, p_value_script);
+		return new Dictionary_wrapper(v);
+	}
 	public function size():cpp.Int64 return __gd.size();
 	public function is_empty():Bool return __gd.is_empty();
 	public function clear():Void __gd.clear();

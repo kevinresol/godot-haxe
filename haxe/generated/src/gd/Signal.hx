@@ -7,9 +7,18 @@ class Signal_wrapper {
 		return @:privateAccess new gd.Variant.Variant_obj(v);
 	}
 	function toString():std.String return gd.UtilityFunctions.str(toVariant());
-	static function _new0():Signal_wrapper return new Signal_wrapper(new gdnative.Signal());
-	static function _new1(p_from:gd.Signal):Signal_wrapper return new Signal_wrapper(new gdnative.Signal(p_from));
-	static function _new2(p_object:gd.Object, p_signal:std.String):Signal_wrapper return new Signal_wrapper(new gdnative.Signal(p_object, p_signal));
+	static function _new0():Signal_wrapper {
+		final v = new gdnative.Signal();
+		return new Signal_wrapper(v);
+	}
+	static function _new1(p_from:gd.Signal):Signal_wrapper {
+		final v = new gdnative.Signal(p_from);
+		return new Signal_wrapper(v);
+	}
+	static function _new2(p_object:gd.Object, p_signal:std.String):Signal_wrapper {
+		final v = new gdnative.Signal(p_object, p_signal);
+		return new Signal_wrapper(v);
+	}
 	public function is_null():Bool return __gd.is_null();
 	public function get_object():gd.Object return __gd.get_object();
 	public function get_object_id():cpp.Int64 return __gd.get_object_id();

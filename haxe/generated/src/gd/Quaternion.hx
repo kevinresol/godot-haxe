@@ -7,11 +7,26 @@ class Quaternion_wrapper {
 		return @:privateAccess new gd.Variant.Variant_obj(v);
 	}
 	function toString():std.String return gd.UtilityFunctions.str(toVariant());
-	static function _new0():Quaternion_wrapper return new Quaternion_wrapper(new gdnative.Quaternion());
-	static function _new1(p_from:gd.Quaternion):Quaternion_wrapper return new Quaternion_wrapper(new gdnative.Quaternion(p_from));
-	static function _new2(p_axis:gd.Vector3, p_angle:Float):Quaternion_wrapper return new Quaternion_wrapper(new gdnative.Quaternion(p_axis, p_angle));
-	static function _new3(p_arc_from:gd.Vector3, p_arc_to:gd.Vector3):Quaternion_wrapper return new Quaternion_wrapper(new gdnative.Quaternion(p_arc_from, p_arc_to));
-	static function _new4(p_x:Float, p_y:Float, p_z:Float, p_w:Float):Quaternion_wrapper return new Quaternion_wrapper(new gdnative.Quaternion(p_x, p_y, p_z, p_w));
+	static function _new0():Quaternion_wrapper {
+		final v = new gdnative.Quaternion();
+		return new Quaternion_wrapper(v);
+	}
+	static function _new1(p_from:gd.Quaternion):Quaternion_wrapper {
+		final v = new gdnative.Quaternion(p_from);
+		return new Quaternion_wrapper(v);
+	}
+	static function _new2(p_axis:gd.Vector3, p_angle:Float):Quaternion_wrapper {
+		final v = new gdnative.Quaternion(p_axis, p_angle);
+		return new Quaternion_wrapper(v);
+	}
+	static function _new3(p_arc_from:gd.Vector3, p_arc_to:gd.Vector3):Quaternion_wrapper {
+		final v = new gdnative.Quaternion(p_arc_from, p_arc_to);
+		return new Quaternion_wrapper(v);
+	}
+	static function _new4(p_x:Float, p_y:Float, p_z:Float, p_w:Float):Quaternion_wrapper {
+		final v = new gdnative.Quaternion(p_x, p_y, p_z, p_w);
+		return new Quaternion_wrapper(v);
+	}
 	public function length():Float return __gd.length();
 	public function length_squared():Float return __gd.length_squared();
 	public function normalized():gd.Quaternion return {

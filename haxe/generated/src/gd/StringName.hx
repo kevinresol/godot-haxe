@@ -7,9 +7,18 @@ class StringName_wrapper {
 		return @:privateAccess new gd.Variant.Variant_obj(v);
 	}
 	function toString():std.String return gd.UtilityFunctions.str(toVariant());
-	static function _new0():StringName_wrapper return new StringName_wrapper(new gdnative.StringName());
-	static function _new1(p_from:std.String):StringName_wrapper return new StringName_wrapper(new gdnative.StringName(p_from));
-	static function _new2(p_from:std.String):StringName_wrapper return new StringName_wrapper(new gdnative.StringName(p_from));
+	static function _new0():StringName_wrapper {
+		final v = new gdnative.StringName();
+		return new StringName_wrapper(v);
+	}
+	static function _new1(p_from:std.String):StringName_wrapper {
+		final v = new gdnative.StringName(p_from);
+		return new StringName_wrapper(v);
+	}
+	static function _new2(p_from:std.String):StringName_wrapper {
+		final v = new gdnative.StringName(p_from);
+		return new StringName_wrapper(v);
+	}
 	public function casecmp_to(p_to:std.String):cpp.Int64 return __gd.casecmp_to(((p_to : std.String)));
 	public function nocasecmp_to(p_to:std.String):cpp.Int64 return __gd.nocasecmp_to(((p_to : std.String)));
 	public function naturalcasecmp_to(p_to:std.String):cpp.Int64 return __gd.naturalcasecmp_to(((p_to : std.String)));

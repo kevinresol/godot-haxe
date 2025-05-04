@@ -7,13 +7,34 @@ class Color_wrapper {
 		return @:privateAccess new gd.Variant.Variant_obj(v);
 	}
 	function toString():std.String return gd.UtilityFunctions.str(toVariant());
-	static function _new0():Color_wrapper return new Color_wrapper(new gdnative.Color());
-	static function _new1(p_from:gd.Color):Color_wrapper return new Color_wrapper(new gdnative.Color(p_from));
-	static function _new2(p_from:gd.Color, p_alpha:Float):Color_wrapper return new Color_wrapper(new gdnative.Color(p_from, p_alpha));
-	static function _new3(p_r:Float, p_g:Float, p_b:Float):Color_wrapper return new Color_wrapper(new gdnative.Color(p_r, p_g, p_b));
-	static function _new4(p_r:Float, p_g:Float, p_b:Float, p_a:Float):Color_wrapper return new Color_wrapper(new gdnative.Color(p_r, p_g, p_b, p_a));
-	static function _new5(p_code:std.String):Color_wrapper return new Color_wrapper(new gdnative.Color(p_code));
-	static function _new6(p_code:std.String, p_alpha:Float):Color_wrapper return new Color_wrapper(new gdnative.Color(p_code, p_alpha));
+	static function _new0():Color_wrapper {
+		final v = new gdnative.Color();
+		return new Color_wrapper(v);
+	}
+	static function _new1(p_from:gd.Color):Color_wrapper {
+		final v = new gdnative.Color(p_from);
+		return new Color_wrapper(v);
+	}
+	static function _new2(p_from:gd.Color, p_alpha:Float):Color_wrapper {
+		final v = new gdnative.Color(p_from, p_alpha);
+		return new Color_wrapper(v);
+	}
+	static function _new3(p_r:Float, p_g:Float, p_b:Float):Color_wrapper {
+		final v = new gdnative.Color(p_r, p_g, p_b);
+		return new Color_wrapper(v);
+	}
+	static function _new4(p_r:Float, p_g:Float, p_b:Float, p_a:Float):Color_wrapper {
+		final v = new gdnative.Color(p_r, p_g, p_b, p_a);
+		return new Color_wrapper(v);
+	}
+	static function _new5(p_code:std.String):Color_wrapper {
+		final v = new gdnative.Color(p_code);
+		return new Color_wrapper(v);
+	}
+	static function _new6(p_code:std.String, p_alpha:Float):Color_wrapper {
+		final v = new gdnative.Color(p_code, p_alpha);
+		return new Color_wrapper(v);
+	}
 	public function to_argb32():cpp.Int64 return __gd.to_argb32();
 	public function to_abgr32():cpp.Int64 return __gd.to_abgr32();
 	public function to_rgba32():cpp.Int64 return __gd.to_rgba32();

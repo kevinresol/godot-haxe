@@ -7,10 +7,22 @@ class Projection_wrapper {
 		return @:privateAccess new gd.Variant.Variant_obj(v);
 	}
 	function toString():std.String return gd.UtilityFunctions.str(toVariant());
-	static function _new0():Projection_wrapper return new Projection_wrapper(new gdnative.Projection());
-	static function _new1(p_from:gd.Projection):Projection_wrapper return new Projection_wrapper(new gdnative.Projection(p_from));
-	static function _new2(p_from:gd.Transform3D):Projection_wrapper return new Projection_wrapper(new gdnative.Projection(p_from));
-	static function _new3(p_x_axis:gd.Vector4, p_y_axis:gd.Vector4, p_z_axis:gd.Vector4, p_w_axis:gd.Vector4):Projection_wrapper return new Projection_wrapper(new gdnative.Projection(p_x_axis, p_y_axis, p_z_axis, p_w_axis));
+	static function _new0():Projection_wrapper {
+		final v = new gdnative.Projection();
+		return new Projection_wrapper(v);
+	}
+	static function _new1(p_from:gd.Projection):Projection_wrapper {
+		final v = new gdnative.Projection(p_from);
+		return new Projection_wrapper(v);
+	}
+	static function _new2(p_from:gd.Transform3D):Projection_wrapper {
+		final v = new gdnative.Projection(p_from);
+		return new Projection_wrapper(v);
+	}
+	static function _new3(p_x_axis:gd.Vector4, p_y_axis:gd.Vector4, p_z_axis:gd.Vector4, p_w_axis:gd.Vector4):Projection_wrapper {
+		final v = new gdnative.Projection(p_x_axis, p_y_axis, p_z_axis, p_w_axis);
+		return new Projection_wrapper(v);
+	}
 	public static function create_depth_correction(p_flip_y:Bool):gd.Projection return {
 		final v = gdnative.Projection.Projection_extern.create_depth_correction(((p_flip_y : Bool)));
 		v;
