@@ -1,5 +1,5 @@
 package gdnative.object;
-@:semantics(reference) @:cpp.ValueType({ type : "ConnectFlags", namespace : ["godot", "Object"] }) @:include("godot_cpp/classes/object.hpp") extern enum abstract ConnectFlags(Int) to Int {
+@:semantics(value) @:cpp.ValueType({ type : "ConnectFlags", namespace : ["godot", "Object"] }) @:include("godot_cpp/classes/object.hpp") extern enum abstract ConnectFlags(Int) to Int {
 	@:op(A == B)
 	static inline function eq(v1:ConnectFlags, v2:ConnectFlags):Bool return __cast(v1) == __cast(v2);
 	static inline function __cast(v:ConnectFlags):Int return v;

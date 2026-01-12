@@ -48,7 +48,7 @@ class BuiltinClassBuilder extends Builder {
 			// {pos: null, name: ':native', params: [macro $v{'godot::$cname'}]},
 			// {pos: null, name: ':structAccess', params: []},
 			{pos: null, name: ':include', params: [macro $v{hpp}]},
-			{pos: null, name: ':semantics', params: [macro reference]},
+			{pos: null, name: ':semantics', params: [macro value]},
 			{
 				pos: null,
 				name: ':cpp.ValueType',

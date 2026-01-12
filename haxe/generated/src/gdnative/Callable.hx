@@ -32,7 +32,7 @@ package gdnative;
 	public extern overload inline function new(p_custom:gdnative.CallableCustom.CallableCustom_extern) this = new gdnative.Callable.Callable_extern(p_custom);
 }
 
-@:include("godot_cpp/variant/callable.hpp") @:semantics(reference) @:cpp.ValueType({ type : "Callable", namespace : ['godot'] }) extern class Callable_extern {
+@:include("godot_cpp/variant/callable.hpp") @:semantics(value) @:cpp.ValueType({ type : "Callable", namespace : ['godot'] }) extern class Callable_extern {
 	function _native_ptr():cpp.Star<cpp.Void>;
 	@:overload(function(p_from:cpp.Reference<gdnative.Callable>):Void { })
 	@:overload(function(p_object:gdnative.Object, p_method:cpp.Reference<gdnative.StringName>):Void { })

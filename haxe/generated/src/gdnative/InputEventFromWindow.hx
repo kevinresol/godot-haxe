@@ -4,11 +4,11 @@ package gdnative;
 **/
 @:forward abstract InputEventFromWindow(gdnative.Ref<InputEventFromWindow_extern>) from gdnative.Ref<InputEventFromWindow_extern> to gdnative.Ref<InputEventFromWindow_extern> {
 	@:from
-	static inline function fromWrapper(v:gd.InputEventFromWindow):gdnative.InputEventFromWindow return cast @:privateAccess v.__gd;
+	static inline function fromWrapper(v:gd.InputEventFromWindow):gdnative.InputEventFromWindow return @:privateAccess v.__inputeventfromwindow_ptr();
 	@:to
 	inline function toWrapper():gd.InputEventFromWindow return new gd.InputEventFromWindow(this);
 }
-@:include("godot_cpp/classes/input_event_from_window.hpp") @:semantics(reference) @:cpp.PointerType({ type : "InputEventFromWindow", namespace : ['godot'] }) extern class InputEventFromWindow_extern extends gdnative.InputEvent.InputEvent_extern {
+@:include("godot_cpp/classes/input_event_from_window.hpp") @:semantics(value) @:cpp.PointerType({ type : "InputEventFromWindow", namespace : ['godot'] }) extern class InputEventFromWindow_extern extends gdnative.InputEvent.InputEvent_extern {
 	extern static inline function __alloc():InputEventFromWindow_extern return gdnative.Memory.memnew(untyped __cpp__("godot::InputEventFromWindow"));
 	function set_window_id(p_id:cpp.Int64):Void;
 	function get_window_id():cpp.Int64;

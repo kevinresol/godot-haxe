@@ -1,5 +1,5 @@
 package gdnative.variant;
-@:semantics(reference) @:cpp.ValueType({ type : "Operator", namespace : ["godot", "Variant"] }) @:include("godot_cpp/variant/variant.hpp") extern enum abstract Operator(Int) to Int {
+@:semantics(value) @:cpp.ValueType({ type : "Operator", namespace : ["godot", "Variant"] }) @:include("godot_cpp/variant/variant.hpp") extern enum abstract Operator(Int) to Int {
 	@:op(A == B)
 	static inline function eq(v1:Operator, v2:Operator):Bool return __cast(v1) == __cast(v2);
 	static inline function __cast(v:Operator):Int return v;

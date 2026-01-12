@@ -1,5 +1,5 @@
 package gdnative.variant;
-@:semantics(reference) @:cpp.ValueType({ type : "Type", namespace : ["godot", "Variant"] }) @:include("godot_cpp/variant/variant.hpp") extern enum abstract Type(Int) to Int {
+@:semantics(value) @:cpp.ValueType({ type : "Type", namespace : ["godot", "Variant"] }) @:include("godot_cpp/variant/variant.hpp") extern enum abstract Type(Int) to Int {
 	@:op(A == B)
 	static inline function eq(v1:Type, v2:Type):Bool return __cast(v1) == __cast(v2);
 	static inline function __cast(v:Type):Int return v;

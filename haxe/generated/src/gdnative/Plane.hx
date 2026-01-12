@@ -37,7 +37,7 @@ package gdnative;
 	public extern overload inline function new(p_a:Float, p_b:Float, p_c:Float, p_d:Float) this = new gdnative.Plane.Plane_extern(p_a, p_b, p_c, p_d);
 }
 
-@:include("godot_cpp/variant/plane.hpp") @:semantics(reference) @:cpp.ValueType({ type : "Plane", namespace : ['godot'] }) extern class Plane_extern {
+@:include("godot_cpp/variant/plane.hpp") @:semantics(value) @:cpp.ValueType({ type : "Plane", namespace : ['godot'] }) extern class Plane_extern {
 	function _native_ptr():cpp.Star<cpp.Void>;
 	@:overload(function(p_from:cpp.Reference<gdnative.Plane>):Void { })
 	@:overload(function(p_normal:cpp.Reference<gdnative.Vector3>):Void { })

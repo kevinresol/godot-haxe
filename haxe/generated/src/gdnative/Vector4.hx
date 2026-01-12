@@ -59,7 +59,7 @@ package gdnative;
 	public extern overload inline function new(p_x:Float, p_y:Float, p_z:Float, p_w:Float) this = new gdnative.Vector4.Vector4_extern(p_x, p_y, p_z, p_w);
 }
 
-@:include("godot_cpp/variant/vector4.hpp") @:semantics(reference) @:cpp.ValueType({ type : "Vector4", namespace : ['godot'] }) extern class Vector4_extern {
+@:include("godot_cpp/variant/vector4.hpp") @:semantics(value) @:cpp.ValueType({ type : "Vector4", namespace : ['godot'] }) extern class Vector4_extern {
 	function _native_ptr():cpp.Star<cpp.Void>;
 	@:overload(function(p_from:cpp.Reference<gdnative.Vector4>):Void { })
 	@:overload(function(p_x:Float, p_y:Float, p_z:Float, p_w:Float):Void { })

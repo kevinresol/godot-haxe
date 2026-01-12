@@ -8,7 +8,7 @@ package gdnative;
 	@:to
 	inline function toWrapper():gd.Object return new gd.Object(this);
 }
-@:include("godot_cpp/classes/object.hpp") @:semantics(reference) @:cpp.PointerType({ type : "Object", namespace : ['godot'] }) extern class Object_extern {
+@:include("godot_cpp/classes/object.hpp") @:semantics(value) @:cpp.PointerType({ type : "Object", namespace : ['godot'] }) extern class Object_extern {
 	extern static inline function __alloc():Object_extern return gdnative.Memory.memnew(untyped __cpp__("godot::Object"));
 	function get_class():gdnative.String;
 	function is_class(p_class:gdnative.String):Bool;

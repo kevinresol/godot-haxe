@@ -8,7 +8,7 @@ package gdnative;
 	@:to
 	inline function toWrapper():gd.ResourceLoader return new gd.ResourceLoader(this);
 }
-@:include("godot_cpp/classes/resource_loader.hpp") @:semantics(reference) @:cpp.PointerType({ type : "ResourceLoader", namespace : ['godot'] }) extern class ResourceLoader_extern extends gdnative.Object.Object_extern {
+@:include("godot_cpp/classes/resource_loader.hpp") @:semantics(value) @:cpp.PointerType({ type : "ResourceLoader", namespace : ['godot'] }) extern class ResourceLoader_extern extends gdnative.Object.Object_extern {
 	extern static inline function __alloc():ResourceLoader_extern return gdnative.Memory.memnew(untyped __cpp__("godot::ResourceLoader"));
 	static function get_singleton():ResourceLoader_extern;
 	overload function load_threaded_request(p_path:gdnative.String):gdnative.Error;

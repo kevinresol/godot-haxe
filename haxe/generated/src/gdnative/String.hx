@@ -140,7 +140,7 @@ package gdnative;
 	public extern overload inline function new(p_from:std.String) this = new gdnative.String.String_extern(p_from);
 }
 
-@:include("godot_cpp/variant/string.hpp") @:semantics(reference) @:cpp.ValueType({ type : "String", namespace : ['godot'] }) extern class String_extern {
+@:include("godot_cpp/variant/string.hpp") @:semantics(value) @:cpp.ValueType({ type : "String", namespace : ['godot'] }) extern class String_extern {
 	function _native_ptr():cpp.Star<cpp.Void>;
 	@:overload(function(p_from:cpp.Reference<gdnative.String>):Void { })
 	@:overload(function(p_from:cpp.Reference<gdnative.StringName>):Void { })

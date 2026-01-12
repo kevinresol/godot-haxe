@@ -55,7 +55,7 @@ package gdnative;
 	public extern overload inline function new(p_code:std.String, p_alpha:Float) this = new gdnative.Color.Color_extern(p_code, p_alpha);
 }
 
-@:include("godot_cpp/variant/color.hpp") @:semantics(reference) @:cpp.ValueType({ type : "Color", namespace : ['godot'] }) extern class Color_extern {
+@:include("godot_cpp/variant/color.hpp") @:semantics(value) @:cpp.ValueType({ type : "Color", namespace : ['godot'] }) extern class Color_extern {
 	function _native_ptr():cpp.Star<cpp.Void>;
 	@:overload(function(p_from:cpp.Reference<gdnative.Color>):Void { })
 	@:overload(function(p_from:cpp.Reference<gdnative.Color>, p_alpha:Float):Void { })

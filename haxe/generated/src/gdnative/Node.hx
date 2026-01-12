@@ -8,7 +8,7 @@ package gdnative;
 	@:to
 	inline function toWrapper():gd.Node return new gd.Node(this);
 }
-@:include("godot_cpp/classes/node.hpp") @:semantics(reference) @:cpp.PointerType({ type : "Node", namespace : ['godot'] }) extern class Node_extern extends gdnative.Object.Object_extern {
+@:include("godot_cpp/classes/node.hpp") @:semantics(value) @:cpp.PointerType({ type : "Node", namespace : ['godot'] }) extern class Node_extern extends gdnative.Object.Object_extern {
 	extern static inline function __alloc():Node_extern return gdnative.Memory.memnew(untyped __cpp__("godot::Node"));
 	function _process(p_delta:Float):Void;
 	function _physics_process(p_delta:Float):Void;

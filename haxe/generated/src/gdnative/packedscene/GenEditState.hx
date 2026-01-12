@@ -1,5 +1,5 @@
 package gdnative.packedscene;
-@:semantics(reference) @:cpp.ValueType({ type : "GenEditState", namespace : ["godot", "PackedScene"] }) @:include("godot_cpp/classes/packed_scene.hpp") extern enum abstract GenEditState(Int) to Int {
+@:semantics(value) @:cpp.ValueType({ type : "GenEditState", namespace : ["godot", "PackedScene"] }) @:include("godot_cpp/classes/packed_scene.hpp") extern enum abstract GenEditState(Int) to Int {
 	@:op(A == B)
 	static inline function eq(v1:GenEditState, v2:GenEditState):Bool return __cast(v1) == __cast(v2);
 	static inline function __cast(v:GenEditState):Int return v;

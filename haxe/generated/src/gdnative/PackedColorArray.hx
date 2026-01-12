@@ -33,7 +33,7 @@ package gdnative;
 	public extern overload inline function new(p_from:gd.Array) this = new gdnative.PackedColorArray.PackedColorArray_extern(p_from);
 }
 
-@:include("godot_cpp/variant/packed_color_array.hpp") @:semantics(reference) @:cpp.ValueType({ type : "PackedColorArray", namespace : ['godot'] }) extern class PackedColorArray_extern {
+@:include("godot_cpp/variant/packed_color_array.hpp") @:semantics(value) @:cpp.ValueType({ type : "PackedColorArray", namespace : ['godot'] }) extern class PackedColorArray_extern {
 	function _native_ptr():cpp.Star<cpp.Void>;
 	@:overload(function(p_from:cpp.Reference<gdnative.PackedColorArray>):Void { })
 	@:overload(function(p_from:cpp.Reference<gdnative.Array>):Void { })

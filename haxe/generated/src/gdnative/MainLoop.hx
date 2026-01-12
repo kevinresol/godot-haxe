@@ -8,7 +8,7 @@ package gdnative;
 	@:to
 	inline function toWrapper():gd.MainLoop return new gd.MainLoop(this);
 }
-@:include("godot_cpp/classes/main_loop.hpp") @:semantics(reference) @:cpp.PointerType({ type : "MainLoop", namespace : ['godot'] }) extern class MainLoop_extern extends gdnative.Object.Object_extern {
+@:include("godot_cpp/classes/main_loop.hpp") @:semantics(value) @:cpp.PointerType({ type : "MainLoop", namespace : ['godot'] }) extern class MainLoop_extern extends gdnative.Object.Object_extern {
 	extern static inline function __alloc():MainLoop_extern return gdnative.Memory.memnew(untyped __cpp__("godot::MainLoop"));
 	function _initialize():Void;
 	function _physics_process(p_delta:Float):Bool;

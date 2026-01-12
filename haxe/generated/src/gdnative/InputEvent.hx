@@ -4,11 +4,11 @@ package gdnative;
 **/
 @:forward abstract InputEvent(gdnative.Ref<InputEvent_extern>) from gdnative.Ref<InputEvent_extern> to gdnative.Ref<InputEvent_extern> {
 	@:from
-	static inline function fromWrapper(v:gd.InputEvent):gdnative.InputEvent return cast @:privateAccess v.__gd;
+	static inline function fromWrapper(v:gd.InputEvent):gdnative.InputEvent return @:privateAccess v.__inputevent_ptr();
 	@:to
 	inline function toWrapper():gd.InputEvent return new gd.InputEvent(this);
 }
-@:include("godot_cpp/classes/input_event.hpp") @:semantics(reference) @:cpp.PointerType({ type : "InputEvent", namespace : ['godot'] }) extern class InputEvent_extern extends gdnative.Resource.Resource_extern {
+@:include("godot_cpp/classes/input_event.hpp") @:semantics(value) @:cpp.PointerType({ type : "InputEvent", namespace : ['godot'] }) extern class InputEvent_extern extends gdnative.Resource.Resource_extern {
 	extern static inline function __alloc():InputEvent_extern return gdnative.Memory.memnew(untyped __cpp__("godot::InputEvent"));
 	function set_device(p_device:cpp.Int64):Void;
 	function get_device():cpp.Int64;

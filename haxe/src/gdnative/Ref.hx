@@ -20,10 +20,11 @@ abstract Ref<T:gdnative.RefCounted.RefCounted_extern>(Ref_extern<T>) from Ref_ex
 
 // @:native("godot::Ref")
 // @:unreflective
+// @:include("godot_cpp/classes/ref.hpp")
 
-@:include("godot_cpp/classes/ref.hpp")
-@:semantics(reference)
-@:cpp.ValueType({type: "Ref", namespace: ['godot']})
+@:include("types.h")
+@:semantics(value)
+@:cpp.ValueType({type: "Ref", namespace: ['gd', 'helper']})
 extern class Ref_extern<T:gdnative.RefCounted.RefCounted_extern> {
 	@:overload(function<T:gdnative.RefCounted.RefCounted_extern>(p_other:Ref_extern<T>):Void {})
 	@:overload(function<T:gdnative.RefCounted.RefCounted_extern>(p_from:T):Void {})

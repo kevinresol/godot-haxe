@@ -1,5 +1,5 @@
 package gdnative;
-@:semantics(reference) @:cpp.ValueType({ type : "MouseButtonMask", namespace : ["godot"] }) @:include("godot_cpp/classes/global_constants.hpp") extern enum abstract MouseButtonMask(Int) to Int {
+@:semantics(value) @:cpp.ValueType({ type : "MouseButtonMask", namespace : ["godot"] }) @:include("godot_cpp/classes/global_constants.hpp") extern enum abstract MouseButtonMask(Int) to Int {
 	@:op(A == B)
 	static inline function eq(v1:MouseButtonMask, v2:MouseButtonMask):Bool return __cast(v1) == __cast(v2);
 	static inline function __cast(v:MouseButtonMask):Int return v;

@@ -33,7 +33,7 @@ package gdnative;
 	public extern overload inline function new(p_from:gd.Array) this = new gdnative.PackedFloat64Array.PackedFloat64Array_extern(p_from);
 }
 
-@:include("godot_cpp/variant/packed_float64_array.hpp") @:semantics(reference) @:cpp.ValueType({ type : "PackedFloat64Array", namespace : ['godot'] }) extern class PackedFloat64Array_extern {
+@:include("godot_cpp/variant/packed_float64_array.hpp") @:semantics(value) @:cpp.ValueType({ type : "PackedFloat64Array", namespace : ['godot'] }) extern class PackedFloat64Array_extern {
 	function _native_ptr():cpp.Star<cpp.Void>;
 	@:overload(function(p_from:cpp.Reference<gdnative.PackedFloat64Array>):Void { })
 	@:overload(function(p_from:cpp.Reference<gdnative.Array>):Void { })

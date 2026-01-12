@@ -59,7 +59,7 @@ package gdnative;
 	public extern overload inline function new(p_x:Float, p_y:Float) this = new gdnative.Vector2.Vector2_extern(p_x, p_y);
 }
 
-@:include("godot_cpp/variant/vector2.hpp") @:semantics(reference) @:cpp.ValueType({ type : "Vector2", namespace : ['godot'] }) extern class Vector2_extern {
+@:include("godot_cpp/variant/vector2.hpp") @:semantics(value) @:cpp.ValueType({ type : "Vector2", namespace : ['godot'] }) extern class Vector2_extern {
 	function _native_ptr():cpp.Star<cpp.Void>;
 	@:overload(function(p_from:cpp.Reference<gdnative.Vector2>):Void { })
 	@:overload(function(p_x:Float, p_y:Float):Void { })

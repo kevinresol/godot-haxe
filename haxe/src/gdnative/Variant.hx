@@ -195,7 +195,7 @@ abstract Variant(Variant_extern) from Variant_extern to Variant_extern {
 @:include("godot_cpp/variant/variant.hpp")
 // @:native("godot::Variant")
 // @:structAccess
-@:semantics(reference)
+@:semantics(value)
 @:cpp.ValueType({type: 'Variant', namespace: ['godot']})
 extern class Variant_extern {
 	@:overload(function(v:gdnative.Vector2):Void {})
@@ -258,7 +258,7 @@ extern class Variant_extern {
 }
 
 @:include("gdextension_interface.h")
-@:semantics(reference)
+@:semantics(value)
 @:cpp.ValueType({type: 'GDExtensionCallError'})
 extern class GDExtensionCallError {
 	final error:GDExtensionCallErrorType;
@@ -268,7 +268,7 @@ extern class GDExtensionCallError {
 }
 
 @:include("gdextension_interface.h")
-@:semantics(reference)
+@:semantics(value)
 @:cpp.ValueType({type: 'GDExtensionCallErrorType'})
 extern enum abstract GDExtensionCallErrorType(Int) to Int {
 	final GDEXTENSION_CALL_OK;

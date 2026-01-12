@@ -34,7 +34,7 @@ package gdnative;
 	public extern overload inline function new(p_x_axis:gd.Vector4, p_y_axis:gd.Vector4, p_z_axis:gd.Vector4, p_w_axis:gd.Vector4) this = new gdnative.Projection.Projection_extern(p_x_axis, p_y_axis, p_z_axis, p_w_axis);
 }
 
-@:include("godot_cpp/variant/projection.hpp") @:semantics(reference) @:cpp.ValueType({ type : "Projection", namespace : ['godot'] }) extern class Projection_extern {
+@:include("godot_cpp/variant/projection.hpp") @:semantics(value) @:cpp.ValueType({ type : "Projection", namespace : ['godot'] }) extern class Projection_extern {
 	function _native_ptr():cpp.Star<cpp.Void>;
 	@:overload(function(p_from:cpp.Reference<gdnative.Projection>):Void { })
 	@:overload(function(p_from:cpp.Reference<gdnative.Transform3D>):Void { })

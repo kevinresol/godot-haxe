@@ -1,5 +1,5 @@
 package gdnative.resourceloader;
-@:semantics(reference) @:cpp.ValueType({ type : "CacheMode", namespace : ["godot", "ResourceLoader"] }) @:include("godot_cpp/classes/resource_loader.hpp") extern enum abstract CacheMode(Int) to Int {
+@:semantics(value) @:cpp.ValueType({ type : "CacheMode", namespace : ["godot", "ResourceLoader"] }) @:include("godot_cpp/classes/resource_loader.hpp") extern enum abstract CacheMode(Int) to Int {
 	@:op(A == B)
 	static inline function eq(v1:CacheMode, v2:CacheMode):Bool return __cast(v1) == __cast(v2);
 	static inline function __cast(v:CacheMode):Int return v;

@@ -38,7 +38,7 @@ package gdnative;
 	public extern overload inline function new(p_from:gd.RID) this = new gdnative.RID.RID_extern(p_from);
 }
 
-@:include("godot_cpp/variant/rid.hpp") @:semantics(reference) @:cpp.ValueType({ type : "RID", namespace : ['godot'] }) extern class RID_extern {
+@:include("godot_cpp/variant/rid.hpp") @:semantics(value) @:cpp.ValueType({ type : "RID", namespace : ['godot'] }) extern class RID_extern {
 	function _native_ptr():cpp.Star<cpp.Void>;
 	@:overload(function(p_from:cpp.Reference<gdnative.RID>):Void { })
 	function new();

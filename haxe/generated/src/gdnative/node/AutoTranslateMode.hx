@@ -1,5 +1,5 @@
 package gdnative.node;
-@:semantics(reference) @:cpp.ValueType({ type : "AutoTranslateMode", namespace : ["godot", "Node"] }) @:include("godot_cpp/classes/node.hpp") extern enum abstract AutoTranslateMode(Int) to Int {
+@:semantics(value) @:cpp.ValueType({ type : "AutoTranslateMode", namespace : ["godot", "Node"] }) @:include("godot_cpp/classes/node.hpp") extern enum abstract AutoTranslateMode(Int) to Int {
 	@:op(A == B)
 	static inline function eq(v1:AutoTranslateMode, v2:AutoTranslateMode):Bool return __cast(v1) == __cast(v2);
 	static inline function __cast(v:AutoTranslateMode):Int return v;

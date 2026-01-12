@@ -1,5 +1,5 @@
 package gdnative.scenetree;
-@:semantics(reference) @:cpp.ValueType({ type : "GroupCallFlags", namespace : ["godot", "SceneTree"] }) @:include("godot_cpp/classes/scene_tree.hpp") extern enum abstract GroupCallFlags(Int) to Int {
+@:semantics(value) @:cpp.ValueType({ type : "GroupCallFlags", namespace : ["godot", "SceneTree"] }) @:include("godot_cpp/classes/scene_tree.hpp") extern enum abstract GroupCallFlags(Int) to Int {
 	@:op(A == B)
 	static inline function eq(v1:GroupCallFlags, v2:GroupCallFlags):Bool return __cast(v1) == __cast(v2);
 	static inline function __cast(v:GroupCallFlags):Int return v;

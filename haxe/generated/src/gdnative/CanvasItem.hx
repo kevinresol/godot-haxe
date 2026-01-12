@@ -8,7 +8,7 @@ package gdnative;
 	@:to
 	inline function toWrapper():gd.CanvasItem return new gd.CanvasItem(this);
 }
-@:include("godot_cpp/classes/canvas_item.hpp") @:semantics(reference) @:cpp.PointerType({ type : "CanvasItem", namespace : ['godot'] }) extern class CanvasItem_extern extends gdnative.Node.Node_extern {
+@:include("godot_cpp/classes/canvas_item.hpp") @:semantics(value) @:cpp.PointerType({ type : "CanvasItem", namespace : ['godot'] }) extern class CanvasItem_extern extends gdnative.Node.Node_extern {
 	extern static inline function __alloc():CanvasItem_extern return gdnative.Memory.memnew(untyped __cpp__("godot::CanvasItem"));
 	function _draw():Void;
 	function get_canvas_item():gdnative.RID;

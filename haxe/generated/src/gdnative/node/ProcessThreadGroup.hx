@@ -1,5 +1,5 @@
 package gdnative.node;
-@:semantics(reference) @:cpp.ValueType({ type : "ProcessThreadGroup", namespace : ["godot", "Node"] }) @:include("godot_cpp/classes/node.hpp") extern enum abstract ProcessThreadGroup(Int) to Int {
+@:semantics(value) @:cpp.ValueType({ type : "ProcessThreadGroup", namespace : ["godot", "Node"] }) @:include("godot_cpp/classes/node.hpp") extern enum abstract ProcessThreadGroup(Int) to Int {
 	@:op(A == B)
 	static inline function eq(v1:ProcessThreadGroup, v2:ProcessThreadGroup):Bool return __cast(v1) == __cast(v2);
 	static inline function __cast(v:ProcessThreadGroup):Int return v;

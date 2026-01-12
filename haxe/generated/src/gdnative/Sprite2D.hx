@@ -8,7 +8,7 @@ package gdnative;
 	@:to
 	inline function toWrapper():gd.Sprite2D return new gd.Sprite2D(this);
 }
-@:include("godot_cpp/classes/sprite2d.hpp") @:semantics(reference) @:cpp.PointerType({ type : "Sprite2D", namespace : ['godot'] }) extern class Sprite2D_extern extends gdnative.Node2D.Node2D_extern {
+@:include("godot_cpp/classes/sprite2d.hpp") @:semantics(value) @:cpp.PointerType({ type : "Sprite2D", namespace : ['godot'] }) extern class Sprite2D_extern extends gdnative.Node2D.Node2D_extern {
 	extern static inline function __alloc():Sprite2D_extern return gdnative.Memory.memnew(untyped __cpp__("godot::Sprite2D"));
 	function set_texture(p_texture:gdnative.Texture2D):Void;
 	function get_texture():gdnative.Texture2D;

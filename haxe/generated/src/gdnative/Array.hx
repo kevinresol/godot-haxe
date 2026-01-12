@@ -51,7 +51,7 @@ package gdnative;
 	public extern overload inline function new(p_from:gd.PackedVector4Array) this = new gdnative.Array.Array_extern(p_from);
 }
 
-@:include("godot_cpp/variant/array.hpp") @:semantics(reference) @:cpp.ValueType({ type : "Array", namespace : ['godot'] }) extern class Array_extern {
+@:include("godot_cpp/variant/array.hpp") @:semantics(value) @:cpp.ValueType({ type : "Array", namespace : ['godot'] }) extern class Array_extern {
 	function _native_ptr():cpp.Star<cpp.Void>;
 	@:overload(function(p_from:cpp.Reference<gdnative.Array>):Void { })
 	@:overload(function(p_base:cpp.Reference<gdnative.Array>, p_type:cpp.Int64, p_class_name:cpp.Reference<gdnative.StringName>, p_script:cpp.Reference<gdnative.Variant>):Void { })

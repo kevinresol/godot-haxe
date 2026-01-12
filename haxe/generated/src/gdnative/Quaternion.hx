@@ -49,7 +49,7 @@ package gdnative;
 	public extern overload inline function new(p_x:Float, p_y:Float, p_z:Float, p_w:Float) this = new gdnative.Quaternion.Quaternion_extern(p_x, p_y, p_z, p_w);
 }
 
-@:include("godot_cpp/variant/quaternion.hpp") @:semantics(reference) @:cpp.ValueType({ type : "Quaternion", namespace : ['godot'] }) extern class Quaternion_extern {
+@:include("godot_cpp/variant/quaternion.hpp") @:semantics(value) @:cpp.ValueType({ type : "Quaternion", namespace : ['godot'] }) extern class Quaternion_extern {
 	function _native_ptr():cpp.Star<cpp.Void>;
 	@:overload(function(p_from:cpp.Reference<gdnative.Quaternion>):Void { })
 	@:overload(function(p_axis:cpp.Reference<gdnative.Vector3>, p_angle:Float):Void { })

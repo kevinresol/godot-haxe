@@ -1,5 +1,5 @@
 package gdnative.canvasitem;
-@:semantics(reference) @:cpp.ValueType({ type : "TextureFilter", namespace : ["godot", "CanvasItem"] }) @:include("godot_cpp/classes/canvas_item.hpp") extern enum abstract TextureFilter(Int) to Int {
+@:semantics(value) @:cpp.ValueType({ type : "TextureFilter", namespace : ["godot", "CanvasItem"] }) @:include("godot_cpp/classes/canvas_item.hpp") extern enum abstract TextureFilter(Int) to Int {
 	@:op(A == B)
 	static inline function eq(v1:TextureFilter, v2:TextureFilter):Bool return __cast(v1) == __cast(v2);
 	static inline function __cast(v:TextureFilter):Int return v;

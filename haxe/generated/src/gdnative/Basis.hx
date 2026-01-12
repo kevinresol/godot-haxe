@@ -44,7 +44,7 @@ package gdnative;
 	public extern overload inline function new(p_xx:Float, p_xy:Float, p_xz:Float, p_yx:Float, p_yy:Float, p_yz:Float, p_zx:Float, p_zy:Float, p_zz:Float) this = new gdnative.Basis.Basis_extern(p_xx, p_xy, p_xz, p_yx, p_yy, p_yz, p_zx, p_zy, p_zz);
 }
 
-@:include("godot_cpp/variant/basis.hpp") @:semantics(reference) @:cpp.ValueType({ type : "Basis", namespace : ['godot'] }) extern class Basis_extern {
+@:include("godot_cpp/variant/basis.hpp") @:semantics(value) @:cpp.ValueType({ type : "Basis", namespace : ['godot'] }) extern class Basis_extern {
 	function _native_ptr():cpp.Star<cpp.Void>;
 	@:overload(function(p_from:cpp.Reference<gdnative.Basis>):Void { })
 	@:overload(function(p_from:cpp.Reference<gdnative.Quaternion>):Void { })

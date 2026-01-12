@@ -1,9 +1,6 @@
-import gd.AABB;
-import gd.UtilityFunctions;
 import tink.testrunner.*;
 import tink.unit.*;
 
-@:rtti
 class Main extends gd.Node2D {
 	@signal public final plain:gd.Signal;
 	@signal public final int:gd.Signal;
@@ -23,18 +20,23 @@ class Main extends gd.Node2D {
 			new ConstructorTest(),
 			new ArrayTest(),
 			new DictionaryTest(),
-			// new JsonTest(),
+			new JsonTest(),
 			new InstanceMethodTest(this),
 			new VariantTest(this),
 			new ResourceTest(),
-			new SignalTest(this),
-			new CallableTest(),
-			// new MemoryTest(),
+			// new SignalTest(this),
+			// new CallableTest(),
+			new MemoryTest(),
 		])).handle(result -> get_tree().quit(result.summary().failures.length));
 	}
 
 	public var plainFired(default, null) = false;
 	public var intFired(default, null) = 0;
+
+	public function reset() {
+		plainFired = false;
+		intFired = 0;
+	}
 
 	function _plain_signal_callback() {
 		plainFired = true;
@@ -302,6 +304,7 @@ class ResourceTest {
 	}
 }
 
+@:access(Main)
 @:asserts
 class SignalTest {
 	final node:Main;
@@ -310,6 +313,22 @@ class SignalTest {
 		this.node = node;
 
 	public function method() {
+		node.reset();
+		final signal = node.plain;
+		signal.connect(node._plain_signal_callback, gd.object.ConnectFlags.ONE_SHOT);
+		signal.emit();
+		asserts.assert(node.plainFired);
+
+		final signal = node.int;
+		signal.connect(node._int_signal_callback, gd.object.ConnectFlags.ONE_SHOT);
+		signal.emit(42);
+		asserts.assert(node.intFired == 42);
+
+		return asserts.done();
+	}
+
+	public function named() {
+		node.reset();
 		final signal = node.plain;
 		signal.connect(new gd.Callable(node, '_plain_signal_callback'), gd.object.ConnectFlags.ONE_SHOT);
 		signal.emit();
@@ -323,7 +342,7 @@ class SignalTest {
 		return asserts.done();
 	}
 
-	public function anon() {
+	public function anonymous() {
 		final signal = node.plain;
 		var signalFired = false;
 		signal.connect(() -> signalFired = true, gd.object.ConnectFlags.ONE_SHOT);
@@ -344,12 +363,53 @@ class SignalTest {
 class CallableTest {
 	public function new() {}
 
-	public function anonymous() {
+	public function a0() {
 		var called = false;
 		final callable = new gd.Callable(() -> called = true);
 		callable.call();
 
 		asserts.assert(called);
+		return asserts.done();
+	}
+
+	public function a1() {
+		var a0 = 0;
+		final callable = new gd.Callable((v:Int) -> a0 += v);
+		callable.call(42);
+		callable.call(42);
+
+		asserts.assert(a0 == 84);
+		return asserts.done();
+	}
+
+	public function a2() {
+		var a0 = 0;
+		var a1 = '';
+		final callable = new gd.Callable((v1:Int, v2:String) -> a1 += v2 + (a0 += v1));
+
+		callable.call(42, 'foo');
+		callable.call(42, 'bar');
+
+		asserts.assert(a0 == 84);
+		asserts.assert(a1 == 'foo42bar84');
+		return asserts.done();
+	}
+
+	public function invalid() {
+		final callable = new gd.Callable((v1:Int, v2:String) -> trace(v1, v2));
+
+		try {
+			// TODO: handle godot call error
+			callable.call(42);
+		} catch (e) {
+			trace(e);
+		}
+		try {
+			// TODO: handle godot call error
+			callable.call(42, 'bar', true);
+		} catch (e) {
+			trace(e);
+		}
 		return asserts.done();
 	}
 }

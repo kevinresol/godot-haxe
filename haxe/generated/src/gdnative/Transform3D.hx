@@ -43,7 +43,7 @@ package gdnative;
 	public extern overload inline function new(p_xx:Float, p_xy:Float, p_xz:Float, p_yx:Float, p_yy:Float, p_yz:Float, p_zx:Float, p_zy:Float, p_zz:Float, p_tx:Float, p_ty:Float, p_tz:Float) this = new gdnative.Transform3D.Transform3D_extern(p_xx, p_xy, p_xz, p_yx, p_yy, p_yz, p_zx, p_zy, p_zz, p_tx, p_ty, p_tz);
 }
 
-@:include("godot_cpp/variant/transform3d.hpp") @:semantics(reference) @:cpp.ValueType({ type : "Transform3D", namespace : ['godot'] }) extern class Transform3D_extern {
+@:include("godot_cpp/variant/transform3d.hpp") @:semantics(value) @:cpp.ValueType({ type : "Transform3D", namespace : ['godot'] }) extern class Transform3D_extern {
 	function _native_ptr():cpp.Star<cpp.Void>;
 	@:overload(function(p_from:cpp.Reference<gdnative.Transform3D>):Void { })
 	@:overload(function(p_basis:cpp.Reference<gdnative.Basis>, p_origin:cpp.Reference<gdnative.Vector3>):Void { })

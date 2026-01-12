@@ -152,7 +152,7 @@ package gd;
 	public function cancel_free():Void __object_ptr().cancel_free();
 	public var __gd : gdnative.Object;
 	public function free() {
-		gdnative.Memory.memdelete(__gd);
+		untyped __cpp__("godot::memdelete(static_cast<godot::Object*>({0}->value))", __gd);
 	}
 	public function cast_to<T:(gd.Object)>(cls:Class<T>):T {
 		final ret:T = Type.createInstance(cls, [__gd]);

@@ -1,5 +1,5 @@
 package gdnative;
-@:semantics(reference) @:cpp.ValueType({ type : "MIDIMessage", namespace : ["godot"] }) @:include("godot_cpp/classes/global_constants.hpp") extern enum abstract MIDIMessage(Int) to Int {
+@:semantics(value) @:cpp.ValueType({ type : "MIDIMessage", namespace : ["godot"] }) @:include("godot_cpp/classes/global_constants.hpp") extern enum abstract MIDIMessage(Int) to Int {
 	@:op(A == B)
 	static inline function eq(v1:MIDIMessage, v2:MIDIMessage):Bool return __cast(v1) == __cast(v2);
 	static inline function __cast(v:MIDIMessage):Int return v;

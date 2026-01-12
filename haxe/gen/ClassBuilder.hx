@@ -50,7 +50,7 @@ class ClassBuilder extends EnumBuilder {
 			// {pos: null, name: ':native', params: [macro $v{'godot::${cname == 'ClassDB' ? 'ClassDBSingleton' : cname}'}]},
 			// {pos: null, name: ':structAccess', params: []},
 			{pos: null, name: ':include', params: [macro $v{hpp}]},
-			{pos: null, name: ':semantics', params: [macro reference]},
+			{pos: null, name: ':semantics', params: [macro value]},
 			{
 				pos: null,
 				name: ':cpp.PointerType',
@@ -136,7 +136,7 @@ class ClassBuilder extends EnumBuilder {
 				// }
 
 				@:from static inline function fromWrapper(v:gd.$cname):gdnative.$cname
-					return cast @:privateAccess v.__gd;
+					return @:privateAccess $p{['v', getPointerHelperName(cname)]}();
 
 				@:to inline function toWrapper():gd.$cname
 					return new gd.$cname(this);
@@ -403,7 +403,8 @@ class ClassBuilder extends EnumBuilder {
 						public var __gd:gdnative.Object;
 
 						public function free() {
-							gdnative.Memory.memdelete(__gd);
+							untyped __cpp__($v{'godot::memdelete(static_cast<godot::Object*>({0}->value))'}, __gd);
+							// gdnative.Memory.memdelete(__gd);
 						}
 
 						public function cast_to<T:gd.Object>(cls:Class<T>):T {

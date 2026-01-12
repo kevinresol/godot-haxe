@@ -31,7 +31,7 @@ package gdnative;
 	public extern overload inline function new(p_base:gd.Dictionary, p_key_type:cpp.Int64, p_key_class_name:std.String, p_key_script:gd.Variant, p_value_type:cpp.Int64, p_value_class_name:std.String, p_value_script:gd.Variant) this = new gdnative.Dictionary.Dictionary_extern(p_base, p_key_type, p_key_class_name, p_key_script, p_value_type, p_value_class_name, p_value_script);
 }
 
-@:include("godot_cpp/variant/dictionary.hpp") @:semantics(reference) @:cpp.ValueType({ type : "Dictionary", namespace : ['godot'] }) extern class Dictionary_extern {
+@:include("godot_cpp/variant/dictionary.hpp") @:semantics(value) @:cpp.ValueType({ type : "Dictionary", namespace : ['godot'] }) extern class Dictionary_extern {
 	function _native_ptr():cpp.Star<cpp.Void>;
 	@:overload(function(p_from:cpp.Reference<gdnative.Dictionary>):Void { })
 	@:overload(function(p_base:cpp.Reference<gdnative.Dictionary>, p_key_type:cpp.Int64, p_key_class_name:cpp.Reference<gdnative.StringName>, p_key_script:cpp.Reference<gdnative.Variant>, p_value_type:cpp.Int64, p_value_class_name:cpp.Reference<gdnative.StringName>, p_value_script:cpp.Reference<gdnative.Variant>):Void { })

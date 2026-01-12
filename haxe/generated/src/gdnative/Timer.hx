@@ -8,7 +8,7 @@ package gdnative;
 	@:to
 	inline function toWrapper():gd.Timer return new gd.Timer(this);
 }
-@:include("godot_cpp/classes/timer.hpp") @:semantics(reference) @:cpp.PointerType({ type : "Timer", namespace : ['godot'] }) extern class Timer_extern extends gdnative.Node.Node_extern {
+@:include("godot_cpp/classes/timer.hpp") @:semantics(value) @:cpp.PointerType({ type : "Timer", namespace : ['godot'] }) extern class Timer_extern extends gdnative.Node.Node_extern {
 	extern static inline function __alloc():Timer_extern return gdnative.Memory.memnew(untyped __cpp__("godot::Timer"));
 	function set_wait_time(p_time_sec:Float):Void;
 	function get_wait_time():Float;

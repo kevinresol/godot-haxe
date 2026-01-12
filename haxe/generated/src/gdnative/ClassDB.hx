@@ -8,7 +8,7 @@ package gdnative;
 	@:to
 	inline function toWrapper():gd.ClassDB return new gd.ClassDB(this);
 }
-@:include("godot_cpp/classes/class_db_singleton.hpp") @:semantics(reference) @:cpp.PointerType({ type : "ClassDBSingleton", namespace : ['godot'] }) extern class ClassDB_extern extends gdnative.Object.Object_extern {
+@:include("godot_cpp/classes/class_db_singleton.hpp") @:semantics(value) @:cpp.PointerType({ type : "ClassDBSingleton", namespace : ['godot'] }) extern class ClassDB_extern extends gdnative.Object.Object_extern {
 	extern static inline function __alloc():ClassDB_extern return gdnative.Memory.memnew(untyped __cpp__("godot::ClassDBSingleton"));
 	static function get_singleton():ClassDB_extern;
 	function get_class_list():gdnative.PackedStringArray;

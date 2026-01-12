@@ -1,5 +1,5 @@
 package gdnative;
-@:semantics(reference) @:cpp.ValueType({ type : "VerticalAlignment", namespace : ["godot"] }) @:include("godot_cpp/classes/global_constants.hpp") extern enum abstract VerticalAlignment(Int) to Int {
+@:semantics(value) @:cpp.ValueType({ type : "VerticalAlignment", namespace : ["godot"] }) @:include("godot_cpp/classes/global_constants.hpp") extern enum abstract VerticalAlignment(Int) to Int {
 	@:op(A == B)
 	static inline function eq(v1:VerticalAlignment, v2:VerticalAlignment):Bool return __cast(v1) == __cast(v2);
 	static inline function __cast(v:VerticalAlignment):Int return v;

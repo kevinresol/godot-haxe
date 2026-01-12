@@ -31,7 +31,7 @@ package gdnative;
 	public extern overload inline function new(p_object:gd.Object, p_signal:std.String) this = new gdnative.Signal.Signal_extern(p_object, p_signal);
 }
 
-@:include("godot_cpp/variant/signal.hpp") @:semantics(reference) @:cpp.ValueType({ type : "Signal", namespace : ['godot'] }) extern class Signal_extern {
+@:include("godot_cpp/variant/signal.hpp") @:semantics(value) @:cpp.ValueType({ type : "Signal", namespace : ['godot'] }) extern class Signal_extern {
 	function _native_ptr():cpp.Star<cpp.Void>;
 	@:overload(function(p_from:cpp.Reference<gdnative.Signal>):Void { })
 	@:overload(function(p_object:gdnative.Object, p_signal:cpp.Reference<gdnative.StringName>):Void { })

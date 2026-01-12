@@ -31,7 +31,7 @@ package gdnative;
 	public extern overload inline function new(p_position:gd.Vector3, p_size:gd.Vector3) this = new gdnative.AABB.AABB_extern(p_position, p_size);
 }
 
-@:include("godot_cpp/variant/aabb.hpp") @:semantics(reference) @:cpp.ValueType({ type : "AABB", namespace : ['godot'] }) extern class AABB_extern {
+@:include("godot_cpp/variant/aabb.hpp") @:semantics(value) @:cpp.ValueType({ type : "AABB", namespace : ['godot'] }) extern class AABB_extern {
 	function _native_ptr():cpp.Star<cpp.Void>;
 	@:overload(function(p_from:cpp.Reference<gdnative.AABB>):Void { })
 	@:overload(function(p_position:cpp.Reference<gdnative.Vector3>, p_size:cpp.Reference<gdnative.Vector3>):Void { })

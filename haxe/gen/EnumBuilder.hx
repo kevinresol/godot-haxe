@@ -33,7 +33,7 @@ class EnumBuilder extends Builder {
 		enm.kind = TDAbstract(/* TPath({pack: [], name: ecname}) */ macro :Int, [AbEnum, AbTo(macro :Int)]);
 		enm.meta = [
 			// {pos: null, name: ':native', params: [macro $v{ntype}]}
-			{pos: null, name: ':semantics', params: [macro reference]},
+			{pos: null, name: ':semantics', params: [macro value]},
 			{
 				pos: null,
 				name: ':cpp.ValueType',
