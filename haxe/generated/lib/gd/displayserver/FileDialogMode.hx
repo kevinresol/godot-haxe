@@ -1,0 +1,10 @@
+package gd.displayserver;
+enum abstract FileDialogMode(Int) from Int to Int {
+	@:to
+	extern inline function toVariant():gd.Variant return this;
+	final OPEN_FILE = 0;
+	final OPEN_FILES = 1;
+	final OPEN_DIR = 2;
+	final OPEN_ANY = 3;
+	final SAVE_FILE = 4;
+}

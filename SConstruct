@@ -23,7 +23,7 @@ env.Append(CPPDEFINES=[
     "HXCPP_SCRIPTABLE",
     "HXCPP_VISIT_ALLOCS",
     "HX_SMART_STRINGS",
-    "HXCPP_API_LEVEL=430",
+    "HXCPP_API_LEVEL=500",
 ])
 env.Append(LIBPATH=["haxe/bin/"])
 env.Append(LIBS=["cppia"])

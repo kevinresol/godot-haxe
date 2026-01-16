@@ -2,3 +2,4 @@
 --cppia .godot/cppia/bin/script.cppia
 --class-path ../haxe/lib
 --class-path ../haxe/generated/lib
+--debug

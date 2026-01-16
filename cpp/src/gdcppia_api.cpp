@@ -14,20 +14,24 @@
 #include <string>
 #include <thread>
 
-#define DYN_GET(obj, field, as_type) \
+#define DYN_GET(obj, field, as_type)                                           \
   ((as_type)obj->__Field(HX_CSTRING(field), HX_PROP_DYNAMIC))
 
 namespace gdcppia {
 
-void load_bytecode(const uint8_t* p_ptr, int p_size) {
+void load_bytecode(const uint8_t *p_ptr, int p_size) {
+  SET_HAXE_SCOPE;
   // copy data to haxe-managed memory
   ::Array<uint8_t> data = ::Array_obj<uint8_t>::fromData(p_ptr, p_size);
   gdcppia::Cppia_obj::runBytes(data);
 }
 
 void script_populate_property_list(
-    const godot::StringName& p_name,
-    godot::HashMap<godot::StringName, gdcppia::GDPropertyInfo>& r_properties) {
+    const godot::StringName &p_name,
+    godot::HashMap<godot::StringName, gdcppia::GDPropertyInfo> &r_properties) {
+
+  SET_HAXE_SCOPE;
+
   printf("script_populate_property_list\n");
 
   auto properties =
@@ -37,14 +41,14 @@ void script_populate_property_list(
 
   for (int i = 0; i < size; i++) {
     gdcppia::PropertyInfo prop = properties[i];
-    auto name = godot::StringName((const char*)prop->name);
+    auto name = godot::StringName((const char *)prop->name);
 
     gdcppia::GDPropertyInfo value;
     value.name = name;
     value.type = static_cast<GDExtensionVariantType>(prop->type->value);
-    value.class_name = godot::StringName((const char*)prop->className);
+    value.class_name = godot::StringName((const char *)prop->className);
     value.hint = static_cast<godot::PropertyHint>(prop->hint);
-    value.hint_string = godot::String((const char*)prop->hintString);
+    value.hint_string = godot::String((const char *)prop->hintString);
     value.usage = prop->usage;
 
     r_properties.insert(name, value);
@@ -54,8 +58,10 @@ void script_populate_property_list(
 }
 
 void script_populate_signal_list(
-    const godot::StringName& p_name,
-    godot::HashMap<godot::StringName, gdcppia::GDMethodInfo>& r_signals) {
+    const godot::StringName &p_name,
+    godot::HashMap<godot::StringName, gdcppia::GDMethodInfo> &r_signals) {
+  SET_HAXE_SCOPE;
+
   printf("script_populate_signal_list\n");
 
   auto signals =
@@ -65,7 +71,7 @@ void script_populate_signal_list(
 
   for (int i = 0; i < size; i++) {
     auto signal = signals[i];
-    auto name = godot::StringName((const char*)signal);
+    auto name = godot::StringName((const char *)signal);
 
     gdcppia::GDMethodInfo value;
     value.name = name;
@@ -77,7 +83,7 @@ void script_populate_signal_list(
     value.return_val.hint_string = godot::String();
     value.return_val.usage = godot::PROPERTY_USAGE_DEFAULT;
 
-    value.flags = godot::MethodFlags::METHOD_FLAGS_DEFAULT;  // fn->flags;
+    value.flags = godot::MethodFlags::METHOD_FLAGS_DEFAULT; // fn->flags;
 
     // TODO
     // value.argument_count = 0;          // fn->arguments.__length();
@@ -91,8 +97,10 @@ void script_populate_signal_list(
 }
 
 void script_populate_method_list(
-    const godot::StringName& p_name,
-    godot::HashMap<godot::StringName, gdcppia::GDMethodInfo>& r_methods) {
+    const godot::StringName &p_name,
+    godot::HashMap<godot::StringName, gdcppia::GDMethodInfo> &r_methods) {
+  SET_HAXE_SCOPE;
+
   printf("script_populate_method_list\n");
 
   auto methods =
@@ -102,7 +110,7 @@ void script_populate_method_list(
 
   for (int i = 0; i < size; i++) {
     gdcppia::MethodInfo method = methods[i];
-    auto name = godot::StringName((const char*)method->name);
+    auto name = godot::StringName((const char *)method->name);
 
     gdcppia::GDMethodInfo value;
     value.name = name;
@@ -110,19 +118,19 @@ void script_populate_method_list(
     value.return_val.type =
         static_cast<GDExtensionVariantType>(method->returnValue->type->value);
     value.return_val.name =
-        godot::StringName((const char*)method->returnValue->name);
+        godot::StringName((const char *)method->returnValue->name);
     value.return_val.class_name =
-        godot::StringName((const char*)method->returnValue->className);
+        godot::StringName((const char *)method->returnValue->className);
     value.return_val.hint =
         static_cast<godot::PropertyHint>(method->returnValue->hint);
     value.return_val.hint_string =
-        godot::String((const char*)method->returnValue->hintString);
+        godot::String((const char *)method->returnValue->hintString);
     value.return_val.usage = method->returnValue->usage;
     // value.id = method->id;
 
     value.flags = method->flags;
 
-    auto& arguments = value.arguments;
+    auto &arguments = value.arguments;
     arguments.resize(method->arguments.__length());
     auto argumentsw = arguments.ptrw();
 
@@ -130,19 +138,20 @@ void script_populate_method_list(
       auto arg = (gdcppia::PropertyInfo)method->arguments[j];
       argumentsw[j].type =
           static_cast<GDExtensionVariantType>(arg->type->value);
-      argumentsw[j].name = godot::StringName((const char*)arg->name);
-      argumentsw[j].class_name = godot::StringName((const char*)arg->className);
+      argumentsw[j].name = godot::StringName((const char *)arg->name);
+      argumentsw[j].class_name =
+          godot::StringName((const char *)arg->className);
       argumentsw[j].hint = static_cast<godot::PropertyHint>(arg->hint);
-      argumentsw[j].hint_string = godot::String((const char*)arg->hintString);
+      argumentsw[j].hint_string = godot::String((const char *)arg->hintString);
       argumentsw[j].usage = arg->usage;
     }
 
-    auto& default_arguments = value.default_arguments;
+    auto &default_arguments = value.default_arguments;
     default_arguments.resize(method->defaultArguments.__length());
     auto default_argumentsw = default_arguments.ptrw();
 
     for (int j = 0; j < default_arguments.size(); j++) {
-      default_argumentsw[j] = godot::Variant();  // TODO
+      default_argumentsw[j] = godot::Variant(); // TODO
     }
 
     r_methods.insert(name, value);
@@ -150,12 +159,15 @@ void script_populate_method_list(
   printf("script_populate_method_list end\n");
 }
 
-void* instance_create(::String p_class_name, godot::Object* p_owner) {
+void *instance_create(const char *p_class_name, int p_class_name_length,
+                      godot::Object *p_owner) {
+  SET_HAXE_SCOPE;
+  ::String class_name = ::String::create(p_class_name, p_class_name_length);
   ::Dynamic instance =
-      gdcppia::Cppia_obj::module->createInstance(p_class_name, p_owner);
+      gdcppia::Cppia_obj::module->createInstance(class_name, p_owner);
 
-  void* alloc = memalloc(sizeof(::hx::Object*));
-  ::hx::Object** root = reinterpret_cast<::hx::Object**>(alloc);
+  void *alloc = memalloc(sizeof(::hx::Object *));
+  ::hx::Object **root = reinterpret_cast<::hx::Object **>(alloc);
 
   *root = instance.mPtr;
   ::hx::GCAddRoot(root);
@@ -163,15 +175,20 @@ void* instance_create(::String p_class_name, godot::Object* p_owner) {
   return root;
 }
 
-void instance_destroy(void* p_instance) {
-  ::hx::Object** root = reinterpret_cast<::hx::Object**>(p_instance);
+void instance_destroy(void *p_instance) {
+  SET_HAXE_SCOPE;
+
+  ::hx::Object **root = reinterpret_cast<::hx::Object **>(p_instance);
   ::hx::GCRemoveRoot(root);
   memfree(root);
 }
 
-bool instance_set(void* p_instance, godot::StringName p_name,
-                  const godot::Variant* p_val) {
-  ::hx::Object** root = reinterpret_cast<::hx::Object**>(p_instance);
+bool instance_set(void *p_instance, godot::StringName p_name,
+                  const godot::Variant *p_val) {
+  SET_HAXE_SCOPE;
+
+  ::hx::Object **root = reinterpret_cast<::hx::Object **>(p_instance);
+
   auto name = to_haxe_string(p_name);
 
   auto threadId = std::this_thread::get_id();
@@ -187,9 +204,11 @@ bool instance_set(void* p_instance, godot::StringName p_name,
   }
 }
 
-bool instance_get(void* p_instance, godot::StringName p_name,
-                  godot::Variant* r_ret) {
-  ::hx::Object** root = reinterpret_cast<::hx::Object**>(p_instance);
+bool instance_get(void *p_instance, godot::StringName p_name,
+                  godot::Variant *r_ret) {
+  SET_HAXE_SCOPE;
+
+  ::hx::Object **root = reinterpret_cast<::hx::Object **>(p_instance);
 
   auto name = to_haxe_string(p_name);
   // std::cout << "Get Thread ID: " << std::this_thread::get_id() << std::endl;
@@ -204,27 +223,51 @@ bool instance_get(void* p_instance, godot::StringName p_name,
   }
 }
 
-void instance_call(void* p_instance, ::String p_method_name,
+void instance_call(void *p_instance, ::String p_method_name,
                    ::Array<::Dynamic> p_args) {
-  ::hx::Object** root = reinterpret_cast<::hx::Object**>(p_instance);
+  SET_HAXE_SCOPE;
+
+  ::hx::Object **root = reinterpret_cast<::hx::Object **>(p_instance);
   gdcppia::Cppia_obj::instanceCall(::Dynamic(*root), p_method_name, p_args);
 }
 
-void frame() { gdcppia::Cppia_obj::frame(); }
-void gc_compact() { gdcppia::Cppia_obj::gcCompact(); }
+void frame() {
+  SET_HAXE_SCOPE;
+  gdcppia::Cppia_obj::frame();
+}
 
-::String to_haxe_string(const godot::String& p_str) {
+void gc_compact() {
+  SET_HAXE_SCOPE;
+  gdcppia::Cppia_obj::gcCompact();
+}
+
+void init() {
+  SET_HAXE_SCOPE;
+  const char *err = hxRunLibrary();
+  if (err) {
+    fprintf(stderr, "Error %s\n", err);
+  }
+}
+void main() {
+  SET_HAXE_SCOPE;
+  gdcppia::Cppia_obj::main();
+}
+
+::String to_haxe_string(const godot::String &p_str) {
+  SET_HAXE_SCOPE;
   godot::CharString utf8 = p_str.utf8();
   return ::String::create(utf8.get_data(), utf8.length());
 }
 
-::Dynamic to_haxe_dynamic(const godot::Variant& p_val) {
+::Dynamic to_haxe_dynamic(const godot::Variant &p_val) {
+  SET_HAXE_SCOPE;
   return gdcppia::Cppia_obj::fromVariant(
       cpp::marshal::ValueReference<godot::Variant>(p_val));
 }
 
-::Array<::Dynamic> to_haxe_dynamic_array(const godot::Variant** p_ptr,
+::Array<::Dynamic> to_haxe_dynamic_array(const godot::Variant **p_ptr,
                                          int p_size) {
+  SET_HAXE_SCOPE;
   ::Array<::Dynamic> arr = ::Array_obj<::Dynamic>::__new(p_size);
   for (int i = 0; i < p_size; i++) {
     auto v = p_ptr[i];
@@ -234,8 +277,9 @@ void gc_compact() { gdcppia::Cppia_obj::gcCompact(); }
 }
 
 godot::Variant from_haxe_dynamic(::Dynamic val) {
+  SET_HAXE_SCOPE;
   return (cpp::marshal::ValueReference<godot::Variant>)
       gdcppia::Cppia_obj::toVariant(val);
 }
 
-}  // namespace gdcppia
+} // namespace gdcppia

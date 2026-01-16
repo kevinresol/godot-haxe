@@ -12,9 +12,6 @@
 #include "../helper.h"
 #include "cppia_script.h"
 
-extern "C" const char *hxRunLibrary();
-extern "C" void hxcpp_set_top_of_stack();
-
 namespace godot {
 
 void printThreadId(const char *msg) {
@@ -29,12 +26,10 @@ CppiaScriptLanguage::CppiaScriptLanguage() {
   singleton = this;
 
   // init haxe runtime
-  hxcpp_set_top_of_stack();
-  const char *err = hxRunLibrary();
-  if (err) {
-    fprintf(stderr, "Error %s\n", err);
-  }
+
+  gdcppia::init();
 }
+
 CppiaScriptLanguage::~CppiaScriptLanguage() {
   printf("CppiaScriptLanguage::~CppiaScriptLanguage\n");
   singleton = nullptr;
@@ -42,6 +37,7 @@ CppiaScriptLanguage::~CppiaScriptLanguage() {
 
 void CppiaScriptLanguage::_init() {
   printf("CppiaScriptLanguage::_init\n");
+  gdcppia::main();
 
   printf("Engine::get_singleton()->is_editor_hint() = %d\n",
          Engine::get_singleton()->is_editor_hint());
@@ -51,8 +47,7 @@ void CppiaScriptLanguage::_init() {
 void CppiaScriptLanguage::_finish() {
   printf("CppiaScriptLanguage::_finish\n");
 
-  gdcppia::gc_compact();
-  hx::SetTopOfStack((int *)0, true);
+  // gdcppia::gc_compact();
 }
 
 String CppiaScriptLanguage::_get_name() const { return "Cppia"; }
@@ -114,9 +109,10 @@ PackedStringArray CppiaScriptLanguage::_get_string_delimiters() const {
   return delimiters;
 }
 
-Ref<Script> CppiaScriptLanguage::_make_template(
-    const String &_template, const String &class_name,
-    const String &base_class_name) const {
+Ref<Script>
+CppiaScriptLanguage::_make_template(const String &_template,
+                                    const String &class_name,
+                                    const String &base_class_name) const {
   printf("_make_template\n");
   static String space(" ");
 
@@ -135,8 +131,8 @@ Ref<Script> CppiaScriptLanguage::_make_template(
   return script;
 }
 
-TypedArray<Dictionary> CppiaScriptLanguage::_get_built_in_templates(
-    const StringName &object) const {
+TypedArray<Dictionary>
+CppiaScriptLanguage::_get_built_in_templates(const StringName &object) const {
   printf("_get_built_in_templates\n");
   return TypedArray<Dictionary>();
 }
@@ -162,8 +158,8 @@ Object *CppiaScriptLanguage::_create_script() const {
   return memnew(CppiaScript);
 }
 
-Ref<CppiaScript> CppiaScriptLanguage::get_loaded_script(
-    const String &path) const {
+Ref<CppiaScript>
+CppiaScriptLanguage::get_loaded_script(const String &path) const {
   auto it = loaded_scripts.find(path);
   if (it == loaded_scripts.end()) {
     return Ref<CppiaScript>();
@@ -188,9 +184,10 @@ Dictionary CppiaScriptLanguage::_lookup_code(const String &code,
   return Dictionary();
 }
 
-String CppiaScriptLanguage::_make_function(
-    const String &class_name, const String &name,
-    const PackedStringArray &args) const {
+String
+CppiaScriptLanguage::_make_function(const String &class_name,
+                                    const String &name,
+                                    const PackedStringArray &args) const {
   // The make_function() API does not work for Haxe for the same reason it
   // doesn't work for C#. It will always append the generated function at the
   // very end of the script, outside of any closing bracket.
@@ -207,9 +204,9 @@ String CppiaScriptLanguage::_auto_indent_code(const String &code,
 
 /* Thread Functions */
 
-void CppiaScriptLanguage::_thread_enter() { hxcpp_set_top_of_stack(); }
+void CppiaScriptLanguage::_thread_enter() {}
 
-void CppiaScriptLanguage::_thread_exit() { hx::SetTopOfStack((int *)0, true); }
+void CppiaScriptLanguage::_thread_exit() {}
 
 /* Debugger Functions */
 
@@ -221,8 +218,8 @@ int32_t CppiaScriptLanguage::_debug_get_stack_level_line(int32_t level) const {
   return 0;
 }
 
-String CppiaScriptLanguage::_debug_get_stack_level_function(
-    int32_t level) const {
+String
+CppiaScriptLanguage::_debug_get_stack_level_function(int32_t level) const {
   return String();
 }
 
@@ -267,6 +264,7 @@ void CppiaScriptLanguage::_reload_all_scripts() {
   PackedByteArray bytecode = FileAccess::get_file_as_bytes(path);
 
   gdcppia::load_bytecode(bytecode.ptr(), bytecode.size());
+  printf("load_bytecode end\n");
 }
 
 // void _reload_scripts(const Array &p_scripts, bool p_soft_reload) {
@@ -312,8 +310,8 @@ bool CppiaScriptLanguage::_handles_global_class_type(const String &type) const {
   return type == _get_type();
 }
 
-Dictionary CppiaScriptLanguage::_get_global_class_name(
-    const String &path) const {
+Dictionary
+CppiaScriptLanguage::_get_global_class_name(const String &path) const {
   Dictionary ret{};
 
   return ret;
@@ -323,4 +321,4 @@ void CppiaScriptLanguage::did_finish_hot_reload() {}
 
 void CppiaScriptLanguage::_bind_methods() {}
 
-}  // namespace godot
+} // namespace godot

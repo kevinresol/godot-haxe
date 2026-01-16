@@ -5,3 +5,4 @@
 
 --library tink_unittest
 --define no-deprecation-warnings
+--debug

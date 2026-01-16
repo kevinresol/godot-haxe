@@ -403,7 +403,7 @@ class ClassBuilder extends EnumBuilder {
 						public var __gd:gdnative.Object;
 
 						public function free() {
-							untyped __cpp__($v{'godot::memdelete(static_cast<godot::Object*>({0}->value))'}, __gd);
+							untyped __cpp__($v{'godot::memdelete({0}->value)'}, __gd);
 							// gdnative.Memory.memdelete(__gd);
 						}
 

@@ -26,6 +26,8 @@ class Builder {
 			'ClassDB',
 			'ResourceLoader',
 			'Timer',
+			'OS',
+			'DisplayServer',
 			'InputEventMouseMotion',
 			'InputEventMouseButton',
 			'SceneTree',

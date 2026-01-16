@@ -9,6 +9,9 @@
 
 #include "cppia_script_language.h"
 
+namespace hx {
+void SetTopOfStack(int *inTop, bool inPush);
+}
 namespace godot {
 
 CppiaScriptInstance::CppiaScriptInstance(Ref<CppiaScript> script, Object *owner,
@@ -39,8 +42,9 @@ CppiaScriptInstance::CppiaScriptInstance(Ref<CppiaScript> script, Object *owner,
 
   printf("class_name: %s\n", class_name.get_data());
 
-  _cppia_handle = gdcppia::instance_create(
-      ::String::create(class_name.get_data(), class_name.length()), owner);
+  _cppia_handle = gdcppia::instance_create(class_name.get_data(),
+                                           class_name.length(), owner);
+  ;
 }
 
 CppiaScriptInstance::~CppiaScriptInstance() {
@@ -67,8 +71,8 @@ bool CppiaScriptInstance::get_class_category(
   return false;
 }
 
-const GDExtensionPropertyInfo *CppiaScriptInstance::get_property_list(
-    uint32_t *r_count) {
+const GDExtensionPropertyInfo *
+CppiaScriptInstance::get_property_list(uint32_t *r_count) {
   printf("CppiaScriptInstance::get_property_list\n");
 
   auto &props = script->get_properties();
@@ -107,8 +111,9 @@ void CppiaScriptInstance::free_property_list(
   memdelete_arr(p_list);
 }
 
-GDExtensionVariantType CppiaScriptInstance::get_property_type(
-    const StringName &p_name, GDExtensionBool *r_is_valid) {
+GDExtensionVariantType
+CppiaScriptInstance::get_property_type(const StringName &p_name,
+                                       GDExtensionBool *r_is_valid) {
   const auto &props = script->get_properties();
 
   if (props.has(p_name)) {
@@ -129,15 +134,16 @@ bool CppiaScriptInstance::validate_property(
   return false;
 }
 
-GDExtensionBool CppiaScriptInstance::property_can_revert(
-    const StringName &p_name) {
+GDExtensionBool
+CppiaScriptInstance::property_can_revert(const StringName &p_name) {
   // printf("CppiaScriptInstance::property_can_revert %s\n",
   // p_name.to_utf8_buffer().ptr());
   return false;
 }
 
-GDExtensionBool CppiaScriptInstance::property_get_revert(
-    const StringName &p_name, GDExtensionVariantPtr r_ret) {
+GDExtensionBool
+CppiaScriptInstance::property_get_revert(const StringName &p_name,
+                                         GDExtensionVariantPtr r_ret) {
   printf("CppiaScriptInstance::property_get_revert %s\n",
          p_name.to_utf8_buffer().ptr());
   return false;
@@ -148,8 +154,8 @@ void CppiaScriptInstance::get_property_state(
   printf("CppiaScriptInstance::get_property_state\n");
 }
 
-const GDExtensionMethodInfo *CppiaScriptInstance::get_method_list(
-    uint32_t *r_count) {
+const GDExtensionMethodInfo *
+CppiaScriptInstance::get_method_list(uint32_t *r_count) {
   printf("CppiaScriptInstance::get_method_list\n");
 
   auto &methods = script->get_methods();
@@ -206,7 +212,8 @@ void CppiaScriptInstance::free_method_list(const GDExtensionMethodInfo *p_list,
     return;
   }
   for (int i = 0; i < p_count; i++) {
-    if (p_list[i].argument_count > 0) memdelete_arr(p_list[i].arguments);
+    if (p_list[i].argument_count > 0)
+      memdelete_arr(p_list[i].arguments);
     if (p_list[i].default_argument_count > 0)
       memdelete_arr(p_list[i].default_arguments);
   }
@@ -223,7 +230,7 @@ void CppiaScriptInstance::call(const StringName *p_method,
                                GDExtensionInt p_argument_count,
                                GDExtensionVariantPtr r_return,
                                GDExtensionCallError *r_error) {
-  // printf("call %s %d\n", p_method->to_utf8_buffer().ptr(), p_argument_count);
+  printf("call %s %d\n", p_method->to_utf8_buffer().ptr(), p_argument_count);
 
   if (!has_method(*p_method)) {
     r_error->error = GDEXTENSION_CALL_ERROR_INVALID_METHOD;
@@ -241,10 +248,13 @@ void CppiaScriptInstance::call(const StringName *p_method,
 }
 
 void CppiaScriptInstance::notification(int32_t p_what, bool p_reversed) {
+  SET_HAXE_SCOPE;
+
   ::Array<::Dynamic> args = ::Array_obj<::Dynamic>::__new(2);
   args[0] = p_what;
   args[1] = p_reversed;
   gdcppia::instance_call(_cppia_handle, "_notification", args);
+  ;
 }
 
 void CppiaScriptInstance::to_string(GDExtensionBool *r_is_valid,
@@ -291,4 +301,4 @@ CppiaScriptInstance::get_script_instance_info() {
   return &script_instance_info;
 }
 
-}  // namespace godot
+} // namespace godot

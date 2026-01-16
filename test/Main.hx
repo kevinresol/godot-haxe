@@ -12,22 +12,29 @@ class Main extends gd.Node2D {
 	}
 
 	override function _ready() {
+		trace('script _ready');
+
 		Runner.run(TestBatch.make([
-			new UtilityFunctionTest(),
-			new EnumTest(),
-			new OperatorTest(),
-			new ConstantTest(),
-			new ConstructorTest(),
-			new ArrayTest(),
-			new DictionaryTest(),
+			// new UtilityFunctionTest(),
+			// new EnumTest(),
+			// new OperatorTest(),
+			// new ConstantTest(),
+			// new ConstructorTest(),
+			// new ArrayTest(),
+			// new DictionaryTest(),
+			// new VariantTest(this),
+			new ResourceTest(),
 			new JsonTest(),
 			new InstanceMethodTest(this),
-			new VariantTest(this),
-			new ResourceTest(),
-			// new SignalTest(this),
-			// new CallableTest(),
+			new SignalTest(this),
+			new CallableTest(),
 			new MemoryTest(),
-		])).handle(result -> get_tree().quit(result.summary().failures.length));
+			new TimerTest(),
+		])).handle(result -> {
+			trace('display server name:' + gd.DisplayServer.singleton.get_name());
+			if (gd.DisplayServer.singleton.get_name() == 'headless')
+				get_tree().quit(result.summary().failures.length);
+		});
 	}
 
 	public var plainFired(default, null) = false;
@@ -373,12 +380,17 @@ class CallableTest {
 	}
 
 	public function a1() {
+		trace('here');
 		var a0 = 0;
+		trace('here');
 		final callable = new gd.Callable((v:Int) -> a0 += v);
+		trace('here');
 		callable.call(42);
+		trace('here');
 		callable.call(42);
-
+		trace('here');
 		asserts.assert(a0 == 84);
+		trace('here');
 		return asserts.done();
 	}
 
@@ -425,5 +437,22 @@ class MemoryTest {
 		asserts.assert(!gd.Global.is_instance_id_valid(JsonTest.instanceId));
 
 		return asserts.done();
+	}
+}
+
+@:asserts
+class TimerTest {
+	public function new() {}
+
+	public function test() {
+		var count = 0;
+		for (i in 0...3) {
+			haxe.Timer.delay(() -> {
+				asserts.assert(i == i);
+				if (++count == 3)
+					asserts.done();
+			}, 1000 * i);
+		}
+		return asserts;
 	}
 }

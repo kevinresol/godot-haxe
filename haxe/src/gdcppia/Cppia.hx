@@ -142,13 +142,23 @@ class Cppia {
 		trace('id3', id3, is_instance_id_valid(id3));
 
 		x.free();
+
+		trace('events');
+		trace(sys.thread.Thread.current().events);
+
+		trace('end main()');
 	}
 
 	static var module:Module;
 
 	public static function runBytes(data:std.Array<UInt8>) {
-		gcCompact();
+		// gcCompact();
 		trace('runBytes');
+
+		trace(@:privateAccess sys.thread.Thread.currentTLS);
+		trace(@:privateAccess sys.thread.Thread.currentTLS.value);
+		trace(sys.thread.Thread.current());
+
 		trace('id1', id1, is_instance_id_valid(id1));
 		trace('id2', id2, is_instance_id_valid(id2));
 		trace('id3', id3, is_instance_id_valid(id3));
@@ -167,6 +177,7 @@ class Cppia {
 	static var count = 0;
 
 	public static function frame():Void {
+		sys.thread.Thread.current().events.loopOnce();
 		// if (count++ == 200) {
 		// 	count = 0;
 		// 	printThreadId("frame");
@@ -229,6 +240,7 @@ class Cppia {
 		final fn = Reflect.field(inst, methodName);
 		if (fn != null) {
 			// printThreadId('instanceCall $methodName');
+
 			try {
 				Reflect.callMethod(inst, fn, args);
 			} catch (e) {

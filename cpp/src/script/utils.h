@@ -46,4 +46,4 @@ struct GDMethodInfo {
   bool is_method_vararg() const { return true; }
 };
 
-}  // namespace gdcppia
+} // namespace gdcppia
