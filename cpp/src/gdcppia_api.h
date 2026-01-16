@@ -62,7 +62,6 @@ void instance_call(void *instance, ::String method_name,
                    ::Array<::Dynamic> args);
 
 void frame();
-void gc_check(const char *p_msg);
 void gc_compact();
 void init();
 void main();

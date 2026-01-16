@@ -230,7 +230,7 @@ void CppiaScriptInstance::call(const StringName *p_method,
                                GDExtensionInt p_argument_count,
                                GDExtensionVariantPtr r_return,
                                GDExtensionCallError *r_error) {
-  printf("call %s %d\n", p_method->to_utf8_buffer().ptr(), p_argument_count);
+  // printf("call %s %d\n", p_method->to_utf8_buffer().ptr(), p_argument_count);
 
   if (!has_method(*p_method)) {
     r_error->error = GDEXTENSION_CALL_ERROR_INVALID_METHOD;
