@@ -23,12 +23,6 @@ class Cppia {
 	public static function main() {
 		trace("Hello from Haxe!");
 
-		final oldTrace = haxe.Log.trace;
-		haxe.Log.trace = (v:Dynamic, ?infos:haxe.PosInfos) -> {
-			// oldTrace(v, infos);
-			print('(${getThreadId()})' + haxe.Log.formatOutput(v, infos));
-		}
-
 		trace('UtilityFunctions::print checks (host)');
 		print(42);
 		print(42.3);
