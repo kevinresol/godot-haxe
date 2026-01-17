@@ -53,7 +53,8 @@ jobs:
 
       - name: Setup hxcpp (Windows)
         run: |
-          Set-Location "$(haxelib libpath hxcpp)/tools/hxcpp"
+          $hxcppPath = & haxelib libpath hxcpp
+          Set-Location "$hxcppPath/tools/hxcpp"
           haxe compile.hxml
         if: runner.os == 'Windows'
 
