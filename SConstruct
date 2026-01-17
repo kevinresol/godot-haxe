@@ -28,6 +28,9 @@ env.Append(CPPDEFINES=[
 env.Append(LIBPATH=["haxe/bin/"])
 env.Append(LIBS=["cppia"])
 
+# Link required macOS frameworks for SSL/Crypto support
+if env["platform"] == "macos":
+    env.Append(LINKFLAGS=["-framework", "CoreFoundation", "-framework", "Security"])
 
 print(Glob("cpp/src/*.cpp"))
 
