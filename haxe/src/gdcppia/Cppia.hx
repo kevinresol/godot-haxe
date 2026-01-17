@@ -14,16 +14,6 @@ using Lambda;
 class Cppia {
 	static final mutex = new sys.thread.Mutex();
 
-	public static function getThreadId() {
-		var tid:cpp.UInt64 = 0;
-		untyped __cpp__('pthread_threadid_np(NULL, &{0})', tid);
-		return tid;
-	}
-
-	public static function printThreadId(name:std.String) {
-		trace('$name thread id: ${getThreadId()}');
-	}
-
 	static var rc1:gdnative.RefCounted.RefCounted_extern;
 	static var rc2:gdnative.RefCounted.RefCounted_extern;
 	static var id1:cpp.Int64;
@@ -32,8 +22,6 @@ class Cppia {
 
 	public static function main() {
 		trace("Hello from Haxe!");
-
-		printThreadId("main");
 
 		final oldTrace = haxe.Log.trace;
 		haxe.Log.trace = (v:Dynamic, ?infos:haxe.PosInfos) -> {
@@ -166,7 +154,6 @@ class Cppia {
 		trace('rc1', is_instance_id_valid(id1) ? rc1.get_reference_count() : 0);
 		trace('rc2', is_instance_id_valid(id2) ? rc2.get_reference_count() : 0);
 
-		// printThreadId("runBytes");
 		final bytes = haxe.io.Bytes.ofData(data);
 		trace('Loaded bytes:${bytes.length}');
 
@@ -180,7 +167,6 @@ class Cppia {
 		sys.thread.Thread.current().events.loopOnce();
 		// if (count++ == 200) {
 		// 	count = 0;
-		// 	printThreadId("frame");
 		// 	trace({
 		// 		MEM_INFO_USAGE: cpp.vm.Gc.memInfo(cpp.vm.Gc.MEM_INFO_USAGE),
 		// 		MEM_INFO_RESERVED: cpp.vm.Gc.memInfo(cpp.vm.Gc.MEM_INFO_RESERVED),
@@ -239,8 +225,6 @@ class Cppia {
 		}
 		final fn = Reflect.field(inst, methodName);
 		if (fn != null) {
-			// printThreadId('instanceCall $methodName');
-
 			try {
 				Reflect.callMethod(inst, fn, args);
 			} catch (e) {
