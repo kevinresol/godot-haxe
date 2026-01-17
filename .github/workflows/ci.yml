@@ -53,7 +53,7 @@ jobs:
       - run: ls -lah haxe/bin
       # - run: mv haxe/bin/libcppia_x86_64-debug.a haxe/bin/libcppia.a
 
-      - run: scons use_hot_reload=no generate_template_get_node=no debug_symbols=yes
+      - run: scons use_hot_reload=no generate_template_get_node=no disable_exceptions=no
 
       - name: Build Test Project
         run: lix run haxe cppia.hxml
