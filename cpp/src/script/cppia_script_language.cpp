@@ -14,15 +14,8 @@
 
 namespace godot {
 
-void printThreadId(const char *msg) {
-  uint64_t tid;
-  pthread_threadid_np(NULL, &tid);
-  printf("%s (%llu)\n", msg, tid);
-}
-
 CppiaScriptLanguage *CppiaScriptLanguage::singleton = nullptr;
 CppiaScriptLanguage::CppiaScriptLanguage() {
-  printThreadId("CppiaScriptLanguage::CppiaScriptLanguage");
   singleton = this;
 
   // init haxe runtime
