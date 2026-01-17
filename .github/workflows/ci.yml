@@ -63,5 +63,7 @@ jobs:
 
       - run: vm_stat
       - run: ulimit -a
-      - run: /usr/bin/time -l godot --headless --verbose --import test/project.godot
-      - run: godot --headless --verbose --path test main.tscn
+      - run: |
+          export GODOT_THREADS=1
+          /usr/bin/time -l godot --headless --import test/project.godot --quit-after-import
+      - run: godot --headless --path test main.tscn
