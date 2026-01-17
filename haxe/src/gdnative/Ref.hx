@@ -22,7 +22,7 @@ abstract Ref<T:gdnative.RefCounted.RefCounted_extern>(Ref_extern<T>) from Ref_ex
 // @:unreflective
 // @:include("godot_cpp/classes/ref.hpp")
 
-@:include("types.h")
+@:include("haxe_helpers.h")
 @:semantics(value)
 @:cpp.ValueType({type: "Ref", namespace: ['gd', 'helper']})
 extern class Ref_extern<T:gdnative.RefCounted.RefCounted_extern> {

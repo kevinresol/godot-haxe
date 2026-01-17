@@ -9,9 +9,13 @@ namespace gdcppia {
 class HaxeCallableCustom : public godot::CallableCustom {
   ::Dynamic fn;
 
- public:
+public:
   HaxeCallableCustom(::Dynamic p_fn);
   ~HaxeCallableCustom();
+
+  // disable copying (need to be careful with GC roots)
+  HaxeCallableCustom(const HaxeCallableCustom &) = delete;
+  HaxeCallableCustom &operator=(const HaxeCallableCustom &) = delete;
 
   uint32_t hash() const override;
   godot::String get_as_text() const override;
@@ -45,4 +49,4 @@ class HaxeCallableCustom : public godot::CallableCustom {
             GDExtensionCallError &r_call_error) const override;
 };
 
-}  // namespace gdcppia
+} // namespace gdcppia

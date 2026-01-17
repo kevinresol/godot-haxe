@@ -12,8 +12,6 @@ class Main extends gd.Node2D {
 	}
 
 	override function _ready() {
-		trace('script _ready');
-
 		Runner.run(TestBatch.make([
 			// new UtilityFunctionTest(),
 			// new EnumTest(),
@@ -31,7 +29,6 @@ class Main extends gd.Node2D {
 			new MemoryTest(),
 			new TimerTest(),
 		])).handle(result -> {
-			trace('display server name:' + gd.DisplayServer.singleton.get_name());
 			if (gd.DisplayServer.singleton.get_name() == 'headless')
 				get_tree().quit(result.summary().failures.length);
 		});
@@ -380,17 +377,11 @@ class CallableTest {
 	}
 
 	public function a1() {
-		trace('here');
 		var a0 = 0;
-		trace('here');
 		final callable = new gd.Callable((v:Int) -> a0 += v);
-		trace('here');
 		callable.call(42);
-		trace('here');
 		callable.call(42);
-		trace('here');
 		asserts.assert(a0 == 84);
-		trace('here');
 		return asserts.done();
 	}
 

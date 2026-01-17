@@ -49,8 +49,8 @@ void HaxeCallableCustom::call(const godot::Variant **p_arguments,
   }
 
   ::Dynamic ret = const_cast<::Dynamic &>(fn)->__Run(to_haxe_dynamic_array(
-      p_arguments, p_argcount));  // TODO: just discard extra args with
-                                  // min(expected, p_argcount) ?
+      p_arguments, p_argcount)); // TODO: just discard extra args with
+                                 // min(expected, p_argcount) ?
 
   // // ::Dynamic ret =::Reflect_obj::callMethod(null(), fn,
   // // to_haxe_dynamic_array(p_arguments, p_argcount));
@@ -62,4 +62,4 @@ void HaxeCallableCustom::call(const godot::Variant **p_arguments,
 }
 
 //
-}  // namespace gdcppia
+} // namespace gdcppia
