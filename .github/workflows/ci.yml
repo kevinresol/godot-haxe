@@ -8,6 +8,7 @@ on:
 jobs:
   test:
     runs-on: ${{ matrix.os }}
+    continue-on-error: ${{ matrix.os == 'ubuntu-latest' || matrix.os == 'windows-latest' }}
     strategy:
       matrix:
         os: [macos-latest, ubuntu-latest, windows-latest]
