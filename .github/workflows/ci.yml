@@ -56,7 +56,7 @@ jobs:
       - run: scons use_hot_reload=no generate_template_get_node=no disable_exceptions=no
 
       - name: Build Test Project
-        run: lix run haxe cppia.hxml
+        run: haxe cppia.hxml
         working-directory: test
       # - run: nm -g test/bin/libgdcppia.linux.template_debug.x86_64.so
       # - run: ldd test/bin/libgdcppia.linux.template_debug.x86_64.so
