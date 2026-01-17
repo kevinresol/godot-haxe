@@ -77,6 +77,9 @@ jobs:
 
       - run: lipo -create -output haxe/bin/libcppia.a haxe/bin/libcppia_arm64-debug.a haxe/bin/libcppia_x86_64-debug.a
         if: runner.os == 'macOS'
+        
+      - run: mv haxe/bin/libcppia-debug.a haxe/bin/libcppia.a
+        if: runner.os == 'Linux'
 
       - run: scons use_hot_reload=no generate_template_get_node=no disable_exceptions=no
 
