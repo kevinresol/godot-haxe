@@ -1,3 +1,4 @@
 build.hxml
 
+--define NO_PRECOMPILED_HEADERS
 --define HAXE_OUTPUT_PART=cppia
