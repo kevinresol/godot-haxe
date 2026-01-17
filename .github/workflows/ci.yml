@@ -63,9 +63,5 @@ jobs:
       # - run: nm -g test/bin/libgdcppia.linux.template_debug.x86_64.so
       # - run: ldd test/bin/libgdcppia.linux.template_debug.x86_64.so
 
-      - run: vm_stat
-      - run: ulimit -a
-      - run: |
-          export GODOT_THREADS=1
-          /usr/bin/time -l godot --headless --import test/project.godot --quit-after-import
+      - run: godot --headless --import test/project.godot
       - run: godot --headless --path test main.tscn
