@@ -32,6 +32,8 @@ jobs:
         with:
           version: 4.5.1
           use-dotnet: false
+
+      - run: uname -m
       - run: file /Users/runner/bin/godot
 
       - name: Install Lix
