@@ -1,0 +1,3 @@
+build.hxml
+
+--define HAXE_OUTPUT_PART=cppia

@@ -1,0 +1,9 @@
+build.hxml
+
+--each
+--define HAXE_OUTPUT_PART=cppia_x86_64
+--define HXCPP_M64
+
+--next
+--define HAXE_OUTPUT_PART=cppia_arm64
+--define HXCPP_ARM64

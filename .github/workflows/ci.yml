@@ -7,7 +7,10 @@ on:
 
 jobs:
   test:
-    runs-on: macos-latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [macos-latest, ubuntu-latest, windows-latest]
 
     steps:
       - name: Check out repo
@@ -50,10 +53,23 @@ jobs:
       - run: scons use_hot_reload=no generate_template_get_node=no build_library=no
         working-directory: godot-cpp
 
-      - run: haxe --cwd haxe build.hxml
+      - name: Build Haxe (macOS)
+        run: haxe build-mac.hxml
+        working-directory: haxe
+        if: runner.os == 'macOS'
+
+      - name: Build Haxe (Linux)
+        run: haxe build-linux.hxml
+        working-directory: haxe
+        if: runner.os == 'Linux'
+
+      - name: Build Haxe (Windows)
+        run: haxe build-win.hxml
+        working-directory: haxe
+        if: runner.os == 'Windows'
+
       - run: lipo -create -output haxe/bin/libcppia.a haxe/bin/libcppia_arm64-debug.a haxe/bin/libcppia_x86_64-debug.a
-      - run: ls -lah haxe/bin
-      # - run: mv haxe/bin/libcppia_x86_64-debug.a haxe/bin/libcppia.a
+        if: runner.os == 'macOS'
 
       - run: scons use_hot_reload=no generate_template_get_node=no disable_exceptions=no
 
