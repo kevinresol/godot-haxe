@@ -1,16 +1,11 @@
 --macro include('gdcppia')
 --macro include('gd')
---macro gdcppia.Patch.patch()
 --class-path src
 --class-path generated/src
 --cpp bin
 --define static_link
 --define scriptable
 --define HXCPP_CPP17
---define HXCPP_DEBUGGER
---define HXCPP_GC_CHECK_POINTER
---library hxcpp-debug-server
---library no-spoon
 
 --debug
 --dce no 
