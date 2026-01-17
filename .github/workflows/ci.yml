@@ -36,7 +36,7 @@ jobs:
       - name: Install Lix
         uses: lix-pm/setup-lix@master
         with:
-          lix-version: 15.12.4
+          lix-version: 16.0.2
 
       - name: Install Haxe Compiiler & Libraries
         run: lix download
