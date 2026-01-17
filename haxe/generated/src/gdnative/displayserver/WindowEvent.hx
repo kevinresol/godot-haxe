@@ -19,4 +19,6 @@ package gdnative.displayserver;
 	final DPI_CHANGE;
 	@:native("godot::DisplayServer::WindowEvent::WINDOW_EVENT_TITLEBAR_CHANGE")
 	final TITLEBAR_CHANGE;
+	@:native("godot::DisplayServer::WindowEvent::WINDOW_EVENT_FORCE_CLOSE")
+	final FORCE_CLOSE;
 }

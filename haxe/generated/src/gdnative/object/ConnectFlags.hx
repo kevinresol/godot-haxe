@@ -11,4 +11,6 @@ package gdnative.object;
 	final ONE_SHOT;
 	@:native("godot::Object::ConnectFlags::CONNECT_REFERENCE_COUNTED")
 	final REFERENCE_COUNTED;
+	@:native("godot::Object::ConnectFlags::CONNECT_APPEND_SOURCE_OBJECT")
+	final APPEND_SOURCE_OBJECT;
 }

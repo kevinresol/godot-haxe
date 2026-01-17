@@ -39,9 +39,9 @@ package gdnative;
 	@:overload(function(p_from:cpp.Reference<gdnative.Array>):Void { })
 	function new();
 	function get(p_index:cpp.Int64):Float;
+	function set(p_index:cpp.Int64, p_value:Float):Void;
 	function size():cpp.Int64;
 	function is_empty():Bool;
-	function set(p_index:cpp.Int64, p_value:Float):Void;
 	function push_back(p_value:Float):Bool;
 	function append(p_value:Float):Bool;
 	function append_array(p_array:gdnative.PackedFloat32Array):Void;
@@ -64,4 +64,5 @@ package gdnative;
 	overload function rfind(p_value:Float):cpp.Int64;
 	overload function rfind(p_value:Float, p_from:cpp.Int64):cpp.Int64;
 	function count(p_value:Float):cpp.Int64;
+	function erase(p_value:Float):Bool;
 }

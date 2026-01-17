@@ -20,6 +20,7 @@ extern class Dictionary_wrapper {
 	function keys():gd.Array;
 	function values():gd.Array;
 	function duplicate(?p_deep:Bool):gd.Dictionary;
+	function duplicate_deep(?p_deep_subresources_mode:cpp.Int64):gd.Dictionary;
 	function get(p_key:gd.Variant, p_default:gd.Variant):gd.Variant;
 	function get_or_add(p_key:gd.Variant, p_default:gd.Variant):gd.Variant;
 	function set(p_key:gd.Variant, p_value:gd.Variant):Bool;

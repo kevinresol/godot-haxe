@@ -6,9 +6,9 @@ extern class PackedFloat32Array_wrapper {
 	static function _new1(p_from:gd.PackedFloat32Array):PackedFloat32Array_wrapper;
 	static function _new2(p_from:gd.Array):PackedFloat32Array_wrapper;
 	function get(p_index:cpp.Int64):Float;
+	function set(p_index:cpp.Int64, p_value:Float):Void;
 	function size():cpp.Int64;
 	function is_empty():Bool;
-	function set(p_index:cpp.Int64, p_value:Float):Void;
 	function push_back(p_value:Float):Bool;
 	function append(p_value:Float):Bool;
 	function append_array(p_array:gd.PackedFloat32Array):Void;
@@ -27,6 +27,7 @@ extern class PackedFloat32Array_wrapper {
 	function find(p_value:Float, ?p_from:cpp.Int64):cpp.Int64;
 	function rfind(p_value:Float, ?p_from:cpp.Int64):cpp.Int64;
 	function count(p_value:Float):cpp.Int64;
+	function erase(p_value:Float):Bool;
 	function __op_equal_to_variant(p_rhs:gd.Variant):Bool;
 	function __op_not_equal_variant(p_rhs:gd.Variant):Bool;
 	function __op_membership_in_dictionary(p_rhs:gd.Dictionary):Bool;

@@ -23,6 +23,12 @@ package gdnative.displayserver;
 	final SHARP_CORNERS;
 	@:native("godot::DisplayServer::WindowFlags::WINDOW_FLAG_EXCLUDE_FROM_CAPTURE")
 	final EXCLUDE_FROM_CAPTURE;
+	@:native("godot::DisplayServer::WindowFlags::WINDOW_FLAG_POPUP_WM_HINT")
+	final POPUP_WM_HINT;
+	@:native("godot::DisplayServer::WindowFlags::WINDOW_FLAG_MINIMIZE_DISABLED")
+	final MINIMIZE_DISABLED;
+	@:native("godot::DisplayServer::WindowFlags::WINDOW_FLAG_MAXIMIZE_DISABLED")
+	final MAXIMIZE_DISABLED;
 	@:native("godot::DisplayServer::WindowFlags::WINDOW_FLAG_MAX")
 	final MAX;
 }

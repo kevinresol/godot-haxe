@@ -33,4 +33,7 @@ enum abstract Feature(Int) from Int to Int {
 	final WINDOW_EMBEDDING = 29;
 	final NATIVE_DIALOG_FILE_MIME = 30;
 	final EMOJI_AND_SYMBOL_PICKER = 31;
+	final NATIVE_COLOR_PICKER = 32;
+	final SELF_FITTING_WINDOWS = 33;
+	final ACCESSIBILITY_SCREEN_READER = 34;
 }

@@ -41,6 +41,7 @@ package gd;
 	static public final NOTIFICATION_WM_DPI_CHANGE : Int = 1009;
 	static public final NOTIFICATION_VP_MOUSE_ENTER : Int = 1010;
 	static public final NOTIFICATION_VP_MOUSE_EXIT : Int = 1011;
+	static public final NOTIFICATION_WM_POSITION_CHANGED : Int = 1012;
 	static public final NOTIFICATION_OS_MEMORY_WARNING : Int = 2009;
 	static public final NOTIFICATION_TRANSLATION_CHANGED : Int = 2010;
 	static public final NOTIFICATION_WM_ABOUT : Int = 2011;
@@ -51,6 +52,8 @@ package gd;
 	static public final NOTIFICATION_APPLICATION_FOCUS_IN : Int = 2016;
 	static public final NOTIFICATION_APPLICATION_FOCUS_OUT : Int = 2017;
 	static public final NOTIFICATION_TEXT_SERVER_CHANGED : Int = 2018;
+	static public final NOTIFICATION_ACCESSIBILITY_UPDATE : Int = 3000;
+	static public final NOTIFICATION_ACCESSIBILITY_INVALIDATE : Int = 3001;
 	public function _process(p_delta:Float):Void __node_ptr()._process(((p_delta : Float)));
 	public function _physics_process(p_delta:Float):Void __node_ptr()._physics_process(((p_delta : Float)));
 	public function _enter_tree():Void __node_ptr()._enter_tree();
@@ -60,10 +63,18 @@ package gd;
 		final v = __node_ptr()._get_configuration_warnings();
 		v;
 	};
+	public function _get_accessibility_configuration_warnings():gd.PackedStringArray return {
+		final v = __node_ptr()._get_accessibility_configuration_warnings();
+		v;
+	};
 	public function _input(p_event:gd.InputEvent):Void __node_ptr()._input(((p_event : gd.InputEvent)));
 	public function _shortcut_input(p_event:gd.InputEvent):Void __node_ptr()._shortcut_input(((p_event : gd.InputEvent)));
 	public function _unhandled_input(p_event:gd.InputEvent):Void __node_ptr()._unhandled_input(((p_event : gd.InputEvent)));
 	public function _unhandled_key_input(p_event:gd.InputEvent):Void __node_ptr()._unhandled_key_input(((p_event : gd.InputEvent)));
+	public function _get_focused_accessibility_element():gd.RID return {
+		final v = __node_ptr()._get_focused_accessibility_element();
+		v;
+	};
 	public static function print_orphan_nodes():Void gdnative.Node.Node_extern.print_orphan_nodes();
 	public function add_sibling(p_sibling:gd.Node, ?p_force_readable_name:Bool):Void switch [p_sibling, p_force_readable_name] {
 		case [_, null]:__node_ptr().add_sibling(((p_sibling : gd.Node)));
@@ -216,6 +227,11 @@ package gd;
 		return p_order;
 	}
 	public function get_process_thread_group_order():cpp.Int64 return __node_ptr().get_process_thread_group_order();
+	public function queue_accessibility_update():Void __node_ptr().queue_accessibility_update();
+	public function get_accessibility_element():gd.RID return {
+		final v = __node_ptr().get_accessibility_element();
+		v;
+	};
 	public function set_display_folded(p_fold:Bool):Void __node_ptr().set_display_folded(((p_fold : Bool)));
 	public function is_displayed_folded():Bool return __node_ptr().is_displayed_folded();
 	public function set_process_internal(p_enable:Bool):Void __node_ptr().set_process_internal(((p_enable : Bool)));
@@ -241,6 +257,7 @@ package gd;
 		final v = __node_ptr().get_auto_translate_mode();
 		v;
 	};
+	public function can_auto_translate():Bool return __node_ptr().can_auto_translate();
 	public function set_translation_domain_inherited():Void __node_ptr().set_translation_domain_inherited();
 	public function get_tree():gd.SceneTree return __node_ptr().get_tree();
 	public function duplicate(?p_flags:cpp.Int64):gd.Node return switch [p_flags] {
@@ -265,8 +282,8 @@ package gd;
 	public function get_multiplayer_authority():cpp.Int64 return __node_ptr().get_multiplayer_authority();
 	public function is_multiplayer_authority():Bool return __node_ptr().is_multiplayer_authority();
 	public function rpc_config(p_method:std.String, p_config:gd.Variant):Void __node_ptr().rpc_config(((p_method : std.String)), ((p_config : gd.Variant)));
-	public function get_rpc_config():gd.Variant return {
-		final v = __node_ptr().get_rpc_config();
+	public function get_node_rpc_config():gd.Variant return {
+		final v = __node_ptr().get_node_rpc_config();
 		v;
 	};
 	public function set_editor_description(p_editor_description:std.String):std.String {

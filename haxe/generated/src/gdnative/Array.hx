@@ -108,6 +108,8 @@ package gdnative;
 	function reverse():Void;
 	overload function duplicate():gdnative.Array;
 	overload function duplicate(p_deep:Bool):gdnative.Array;
+	overload function duplicate_deep():gdnative.Array;
+	overload function duplicate_deep(p_deep_subresources_mode:cpp.Int64):gdnative.Array;
 	overload function slice(p_begin:cpp.Int64):gdnative.Array;
 	overload function slice(p_begin:cpp.Int64, p_end:cpp.Int64):gdnative.Array;
 	overload function slice(p_begin:cpp.Int64, p_end:cpp.Int64, p_step:cpp.Int64):gdnative.Array;

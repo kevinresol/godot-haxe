@@ -18,4 +18,5 @@ enum abstract WindowEvent(Int) from Int to Int {
 	final GO_BACK_REQUEST = 5;
 	final DPI_CHANGE = 6;
 	final TITLEBAR_CHANGE = 7;
+	final FORCE_CLOSE = 8;
 }

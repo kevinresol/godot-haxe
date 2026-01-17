@@ -34,5 +34,7 @@ package gdnative;
 	function get_scene_unique_id():gdnative.String;
 	function emit_changed():Void;
 	overload function duplicate():gdnative.Resource;
-	overload function duplicate(p_subresources:Bool):gdnative.Resource;
+	overload function duplicate(p_deep:Bool):gdnative.Resource;
+	overload function duplicate_deep():gdnative.Resource;
+	overload function duplicate_deep(p_deep_subresources_mode:gdnative.resource.DeepDuplicateMode):gdnative.Resource;
 }

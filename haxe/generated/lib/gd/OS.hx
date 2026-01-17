@@ -22,8 +22,8 @@ extern class OS extends gd.Object {
 	function get_system_font_path(p_font_name:std.String, ?p_weight:cpp.Int64, ?p_stretch:cpp.Int64, ?p_italic:Bool):std.String;
 	function get_system_font_path_for_text(p_font_name:std.String, p_text:std.String, ?p_locale:std.String, ?p_script:std.String, ?p_weight:cpp.Int64, ?p_stretch:cpp.Int64, ?p_italic:Bool):gd.PackedStringArray;
 	function get_executable_path():std.String;
-	function read_string_from_stdin(p_buffer_size:cpp.Int64):std.String;
-	function read_buffer_from_stdin(p_buffer_size:cpp.Int64):gd.PackedByteArray;
+	function read_string_from_stdin(?p_buffer_size:cpp.Int64):std.String;
+	function read_buffer_from_stdin(?p_buffer_size:cpp.Int64):gd.PackedByteArray;
 	function get_stdin_type():gd.os.StdHandleType;
 	function get_stdout_type():gd.os.StdHandleType;
 	function get_stderr_type():gd.os.StdHandleType;
@@ -31,6 +31,7 @@ extern class OS extends gd.Object {
 	function execute_with_pipe(p_path:std.String, p_arguments:gd.PackedStringArray, ?p_blocking:Bool):gd.Dictionary;
 	function create_process(p_path:std.String, p_arguments:gd.PackedStringArray, ?p_open_console:Bool):cpp.Int64;
 	function create_instance(p_arguments:gd.PackedStringArray):cpp.Int64;
+	function open_with_program(p_program_path:std.String, p_paths:gd.PackedStringArray):gd.Error;
 	function kill(p_pid:cpp.Int64):gd.Error;
 	function shell_open(p_uri:std.String):gd.Error;
 	function shell_show_in_file_manager(p_file_or_dir_path:std.String, ?p_open_folder:Bool):gd.Error;

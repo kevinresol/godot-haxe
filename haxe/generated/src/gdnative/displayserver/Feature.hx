@@ -65,4 +65,10 @@ package gdnative.displayserver;
 	final NATIVE_DIALOG_FILE_MIME;
 	@:native("godot::DisplayServer::Feature::FEATURE_EMOJI_AND_SYMBOL_PICKER")
 	final EMOJI_AND_SYMBOL_PICKER;
+	@:native("godot::DisplayServer::Feature::FEATURE_NATIVE_COLOR_PICKER")
+	final NATIVE_COLOR_PICKER;
+	@:native("godot::DisplayServer::Feature::FEATURE_SELF_FITTING_WINDOWS")
+	final SELF_FITTING_WINDOWS;
+	@:native("godot::DisplayServer::Feature::FEATURE_ACCESSIBILITY_SCREEN_READER")
+	final ACCESSIBILITY_SCREEN_READER;
 }

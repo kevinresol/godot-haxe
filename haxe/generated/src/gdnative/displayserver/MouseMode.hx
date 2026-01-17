@@ -13,4 +13,6 @@ package gdnative.displayserver;
 	final CONFINED;
 	@:native("godot::DisplayServer::MouseMode::MOUSE_MODE_CONFINED_HIDDEN")
 	final CONFINED_HIDDEN;
+	@:native("godot::DisplayServer::MouseMode::MOUSE_MODE_MAX")
+	final MAX;
 }

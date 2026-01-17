@@ -2,6 +2,8 @@ package gd;
 extern class SceneTree extends gd.MainLoop {
 	function new(?owner:Dynamic);
 	function has_group(p_name:std.String):Bool;
+	function is_accessibility_enabled():Bool;
+	function is_accessibility_supported():Bool;
 	function is_auto_accept_quit():Bool;
 	function set_auto_accept_quit(p_enabled:Bool):Bool;
 	function is_quit_on_go_back():Bool;

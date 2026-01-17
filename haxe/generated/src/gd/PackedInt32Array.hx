@@ -20,9 +20,9 @@ class PackedInt32Array_wrapper {
 		return new PackedInt32Array_wrapper(v);
 	}
 	public function get(p_index:cpp.Int64):cpp.Int64 return __gd.get(((p_index : cpp.Int64)));
+	public function set(p_index:cpp.Int64, p_value:cpp.Int64):Void __gd.set(((p_index : cpp.Int64)), ((p_value : cpp.Int64)));
 	public function size():cpp.Int64 return __gd.size();
 	public function is_empty():Bool return __gd.is_empty();
-	public function set(p_index:cpp.Int64, p_value:cpp.Int64):Void __gd.set(((p_index : cpp.Int64)), ((p_value : cpp.Int64)));
 	public function push_back(p_value:cpp.Int64):Bool return __gd.push_back(((p_value : cpp.Int64)));
 	public function append(p_value:cpp.Int64):Bool return __gd.append(((p_value : cpp.Int64)));
 	public function append_array(p_array:gd.PackedInt32Array):Void __gd.append_array(((p_array : gd.PackedInt32Array)));
@@ -65,6 +65,7 @@ class PackedInt32Array_wrapper {
 		default:__gd.rfind(((p_value : cpp.Int64)), ((p_from : cpp.Int64)));
 	};
 	public function count(p_value:cpp.Int64):cpp.Int64 return __gd.count(((p_value : cpp.Int64)));
+	public function erase(p_value:cpp.Int64):Bool return __gd.erase(((p_value : cpp.Int64)));
 	function __op_equal_to_variant(p_rhs:gd.Variant):Bool return @:privateAccess this.__gd.__op_equal_to_variant(((p_rhs : gdnative.Variant)));
 	function __op_not_equal_variant(p_rhs:gd.Variant):Bool return @:privateAccess this.__gd.__op_not_equal_variant(((p_rhs : gdnative.Variant)));
 	function __op_membership_in_dictionary(p_rhs:gd.Dictionary):Bool return @:privateAccess this.__gd.__op_membership_in_dictionary(((p_rhs : gdnative.Dictionary)));

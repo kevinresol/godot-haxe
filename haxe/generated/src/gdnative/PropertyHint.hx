@@ -85,6 +85,12 @@ package gdnative;
 	final TOOL_BUTTON;
 	@:native("godot::PropertyHint::PROPERTY_HINT_ONESHOT")
 	final ONESHOT;
+	@:native("godot::PropertyHint::PROPERTY_HINT_GROUP_ENABLE")
+	final GROUP_ENABLE;
+	@:native("godot::PropertyHint::PROPERTY_HINT_INPUT_NAME")
+	final INPUT_NAME;
+	@:native("godot::PropertyHint::PROPERTY_HINT_FILE_PATH")
+	final FILE_PATH;
 	@:native("godot::PropertyHint::PROPERTY_HINT_MAX")
 	final MAX;
 }

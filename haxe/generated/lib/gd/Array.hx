@@ -50,6 +50,7 @@ extern class Array_wrapper {
 	function bsearch_custom(p_value:gd.Variant, p_func:gd.Callable, ?p_before:Bool):cpp.Int64;
 	function reverse():Void;
 	function duplicate(?p_deep:Bool):gd.Array;
+	function duplicate_deep(?p_deep_subresources_mode:cpp.Int64):gd.Array;
 	function slice(p_begin:cpp.Int64, ?p_end:cpp.Int64, ?p_step:cpp.Int64, ?p_deep:Bool):gd.Array;
 	function filter(p_method:gd.Callable):gd.Array;
 	function map(p_method:gd.Callable):gd.Array;

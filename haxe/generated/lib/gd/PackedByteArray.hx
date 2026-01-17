@@ -6,9 +6,9 @@ extern class PackedByteArray_wrapper {
 	static function _new1(p_from:gd.PackedByteArray):PackedByteArray_wrapper;
 	static function _new2(p_from:gd.Array):PackedByteArray_wrapper;
 	function get(p_index:cpp.Int64):cpp.Int64;
+	function set(p_index:cpp.Int64, p_value:cpp.Int64):Void;
 	function size():cpp.Int64;
 	function is_empty():Bool;
-	function set(p_index:cpp.Int64, p_value:cpp.Int64):Void;
 	function push_back(p_value:cpp.Int64):Bool;
 	function append(p_value:cpp.Int64):Bool;
 	function append_array(p_array:gd.PackedByteArray):Void;
@@ -26,11 +26,13 @@ extern class PackedByteArray_wrapper {
 	function find(p_value:cpp.Int64, ?p_from:cpp.Int64):cpp.Int64;
 	function rfind(p_value:cpp.Int64, ?p_from:cpp.Int64):cpp.Int64;
 	function count(p_value:cpp.Int64):cpp.Int64;
+	function erase(p_value:cpp.Int64):Bool;
 	function get_string_from_ascii():std.String;
 	function get_string_from_utf8():std.String;
 	function get_string_from_utf16():std.String;
 	function get_string_from_utf32():std.String;
 	function get_string_from_wchar():std.String;
+	function get_string_from_multibyte_char(?p_encoding:std.String):std.String;
 	function hex_encode():std.String;
 	function compress(?p_compression_mode:cpp.Int64):gd.PackedByteArray;
 	function decompress(p_buffer_size:cpp.Int64, ?p_compression_mode:cpp.Int64):gd.PackedByteArray;
@@ -53,6 +55,13 @@ extern class PackedByteArray_wrapper {
 	function to_int64_array():gd.PackedInt64Array;
 	function to_float32_array():gd.PackedFloat32Array;
 	function to_float64_array():gd.PackedFloat64Array;
+	function to_vector2_array():gd.PackedVector2Array;
+	function to_vector3_array():gd.PackedVector3Array;
+	function to_vector4_array():gd.PackedVector4Array;
+	function to_color_array():gd.PackedColorArray;
+	function bswap16(?p_offset:cpp.Int64, ?p_count:cpp.Int64):Void;
+	function bswap32(?p_offset:cpp.Int64, ?p_count:cpp.Int64):Void;
+	function bswap64(?p_offset:cpp.Int64, ?p_count:cpp.Int64):Void;
 	function encode_u8(p_byte_offset:cpp.Int64, p_value:cpp.Int64):Void;
 	function encode_s8(p_byte_offset:cpp.Int64, p_value:cpp.Int64):Void;
 	function encode_u16(p_byte_offset:cpp.Int64, p_value:cpp.Int64):Void;

@@ -51,5 +51,8 @@ enum abstract PropertyHint(Int) from Int to Int {
 	final PASSWORD = 36;
 	final TOOL_BUTTON = 39;
 	final ONESHOT = 40;
-	final MAX = 42;
+	final GROUP_ENABLE = 42;
+	final INPUT_NAME = 43;
+	final FILE_PATH = 44;
+	final MAX = 45;
 }

@@ -41,9 +41,9 @@ package gdnative;
 	@:overload(function(p_from:cpp.Reference<gdnative.Array>):Void { })
 	function new();
 	function get(p_index:cpp.Int64):gdnative.Vector2;
+	function set(p_index:cpp.Int64, p_value:gdnative.Vector2):Void;
 	function size():cpp.Int64;
 	function is_empty():Bool;
-	function set(p_index:cpp.Int64, p_value:gdnative.Vector2):Void;
 	function push_back(p_value:gdnative.Vector2):Bool;
 	function append(p_value:gdnative.Vector2):Bool;
 	function append_array(p_array:gdnative.PackedVector2Array):Void;
@@ -66,4 +66,5 @@ package gdnative;
 	overload function rfind(p_value:gdnative.Vector2):cpp.Int64;
 	overload function rfind(p_value:gdnative.Vector2, p_from:cpp.Int64):cpp.Int64;
 	function count(p_value:gdnative.Vector2):cpp.Int64;
+	function erase(p_value:gdnative.Vector2):Bool;
 }

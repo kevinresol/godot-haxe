@@ -13,6 +13,7 @@ package gd;
 		return singleton;
 	}
 	extern inline function __displayserver_ptr():gdnative.DisplayServer.DisplayServer_extern return cast __gd;
+	static public final INVALID_SCREEN : Int = -1;
 	static public final SCREEN_WITH_MOUSE_FOCUS : Int = -4;
 	static public final SCREEN_WITH_KEYBOARD_FOCUS : Int = -3;
 	static public final SCREEN_PRIMARY : Int = -2;
@@ -509,6 +510,109 @@ package gd;
 		case [_, null]:__displayserver_ptr().window_start_resize(((p_edge : gd.displayserver.WindowResizeEdge)));
 		default:__displayserver_ptr().window_start_resize(((p_edge : gd.displayserver.WindowResizeEdge)), ((p_window_id : cpp.Int64)));
 	};
+	public function accessibility_should_increase_contrast():cpp.Int64 return __displayserver_ptr().accessibility_should_increase_contrast();
+	public function accessibility_should_reduce_animation():cpp.Int64 return __displayserver_ptr().accessibility_should_reduce_animation();
+	public function accessibility_should_reduce_transparency():cpp.Int64 return __displayserver_ptr().accessibility_should_reduce_transparency();
+	public function accessibility_screen_reader_active():cpp.Int64 return __displayserver_ptr().accessibility_screen_reader_active();
+	public function accessibility_create_element(p_window_id:cpp.Int64, p_role:gd.displayserver.AccessibilityRole):gd.RID return {
+		final v = __displayserver_ptr().accessibility_create_element(((p_window_id : cpp.Int64)), ((p_role : gd.displayserver.AccessibilityRole)));
+		v;
+	};
+	public function accessibility_create_sub_element(p_parent_rid:gd.RID, p_role:gd.displayserver.AccessibilityRole, ?p_insert_pos:cpp.Int64):gd.RID return switch [p_parent_rid, p_role, p_insert_pos] {
+		case [_, _, null]:{
+			final v = __displayserver_ptr().accessibility_create_sub_element(((p_parent_rid : gd.RID)), ((p_role : gd.displayserver.AccessibilityRole)));
+			v;
+		};
+		default:{
+			final v = __displayserver_ptr().accessibility_create_sub_element(((p_parent_rid : gd.RID)), ((p_role : gd.displayserver.AccessibilityRole)), ((p_insert_pos : cpp.Int64)));
+			v;
+		};
+	};
+	public function accessibility_create_sub_text_edit_elements(p_parent_rid:gd.RID, p_shaped_text:gd.RID, p_min_height:Float, ?p_insert_pos:cpp.Int64):gd.RID return switch [p_parent_rid, p_shaped_text, p_min_height, p_insert_pos] {
+		case [_, _, _, null]:{
+			final v = __displayserver_ptr().accessibility_create_sub_text_edit_elements(((p_parent_rid : gd.RID)), ((p_shaped_text : gd.RID)), ((p_min_height : Float)));
+			v;
+		};
+		default:{
+			final v = __displayserver_ptr().accessibility_create_sub_text_edit_elements(((p_parent_rid : gd.RID)), ((p_shaped_text : gd.RID)), ((p_min_height : Float)), ((p_insert_pos : cpp.Int64)));
+			v;
+		};
+	};
+	public function accessibility_has_element(p_id:gd.RID):Bool return __displayserver_ptr().accessibility_has_element(((p_id : gd.RID)));
+	public function accessibility_free_element(p_id:gd.RID):Void __displayserver_ptr().accessibility_free_element(((p_id : gd.RID)));
+	public function accessibility_element_set_meta(p_id:gd.RID, p_meta:gd.Variant):Void __displayserver_ptr().accessibility_element_set_meta(((p_id : gd.RID)), ((p_meta : gd.Variant)));
+	public function accessibility_element_get_meta(p_id:gd.RID):gd.Variant return {
+		final v = __displayserver_ptr().accessibility_element_get_meta(((p_id : gd.RID)));
+		v;
+	};
+	public function accessibility_set_window_rect(p_window_id:cpp.Int64, p_rect_out:gd.Rect2, p_rect_in:gd.Rect2):Void __displayserver_ptr().accessibility_set_window_rect(((p_window_id : cpp.Int64)), ((p_rect_out : gd.Rect2)), ((p_rect_in : gd.Rect2)));
+	public function accessibility_set_window_focused(p_window_id:cpp.Int64, p_focused:Bool):Void __displayserver_ptr().accessibility_set_window_focused(((p_window_id : cpp.Int64)), ((p_focused : Bool)));
+	public function accessibility_update_set_focus(p_id:gd.RID):Void __displayserver_ptr().accessibility_update_set_focus(((p_id : gd.RID)));
+	public function accessibility_get_window_root(p_window_id:cpp.Int64):gd.RID return {
+		final v = __displayserver_ptr().accessibility_get_window_root(((p_window_id : cpp.Int64)));
+		v;
+	};
+	public function accessibility_update_set_role(p_id:gd.RID, p_role:gd.displayserver.AccessibilityRole):Void __displayserver_ptr().accessibility_update_set_role(((p_id : gd.RID)), ((p_role : gd.displayserver.AccessibilityRole)));
+	public function accessibility_update_set_name(p_id:gd.RID, p_name:std.String):Void __displayserver_ptr().accessibility_update_set_name(((p_id : gd.RID)), ((p_name : std.String)));
+	public function accessibility_update_set_extra_info(p_id:gd.RID, p_name:std.String):Void __displayserver_ptr().accessibility_update_set_extra_info(((p_id : gd.RID)), ((p_name : std.String)));
+	public function accessibility_update_set_description(p_id:gd.RID, p_description:std.String):Void __displayserver_ptr().accessibility_update_set_description(((p_id : gd.RID)), ((p_description : std.String)));
+	public function accessibility_update_set_value(p_id:gd.RID, p_value:std.String):Void __displayserver_ptr().accessibility_update_set_value(((p_id : gd.RID)), ((p_value : std.String)));
+	public function accessibility_update_set_tooltip(p_id:gd.RID, p_tooltip:std.String):Void __displayserver_ptr().accessibility_update_set_tooltip(((p_id : gd.RID)), ((p_tooltip : std.String)));
+	public function accessibility_update_set_bounds(p_id:gd.RID, p_p_rect:gd.Rect2):Void __displayserver_ptr().accessibility_update_set_bounds(((p_id : gd.RID)), ((p_p_rect : gd.Rect2)));
+	public function accessibility_update_set_transform(p_id:gd.RID, p_transform:gd.Transform2D):Void __displayserver_ptr().accessibility_update_set_transform(((p_id : gd.RID)), ((p_transform : gd.Transform2D)));
+	public function accessibility_update_add_child(p_id:gd.RID, p_child_id:gd.RID):Void __displayserver_ptr().accessibility_update_add_child(((p_id : gd.RID)), ((p_child_id : gd.RID)));
+	public function accessibility_update_add_related_controls(p_id:gd.RID, p_related_id:gd.RID):Void __displayserver_ptr().accessibility_update_add_related_controls(((p_id : gd.RID)), ((p_related_id : gd.RID)));
+	public function accessibility_update_add_related_details(p_id:gd.RID, p_related_id:gd.RID):Void __displayserver_ptr().accessibility_update_add_related_details(((p_id : gd.RID)), ((p_related_id : gd.RID)));
+	public function accessibility_update_add_related_described_by(p_id:gd.RID, p_related_id:gd.RID):Void __displayserver_ptr().accessibility_update_add_related_described_by(((p_id : gd.RID)), ((p_related_id : gd.RID)));
+	public function accessibility_update_add_related_flow_to(p_id:gd.RID, p_related_id:gd.RID):Void __displayserver_ptr().accessibility_update_add_related_flow_to(((p_id : gd.RID)), ((p_related_id : gd.RID)));
+	public function accessibility_update_add_related_labeled_by(p_id:gd.RID, p_related_id:gd.RID):Void __displayserver_ptr().accessibility_update_add_related_labeled_by(((p_id : gd.RID)), ((p_related_id : gd.RID)));
+	public function accessibility_update_add_related_radio_group(p_id:gd.RID, p_related_id:gd.RID):Void __displayserver_ptr().accessibility_update_add_related_radio_group(((p_id : gd.RID)), ((p_related_id : gd.RID)));
+	public function accessibility_update_set_active_descendant(p_id:gd.RID, p_other_id:gd.RID):Void __displayserver_ptr().accessibility_update_set_active_descendant(((p_id : gd.RID)), ((p_other_id : gd.RID)));
+	public function accessibility_update_set_next_on_line(p_id:gd.RID, p_other_id:gd.RID):Void __displayserver_ptr().accessibility_update_set_next_on_line(((p_id : gd.RID)), ((p_other_id : gd.RID)));
+	public function accessibility_update_set_previous_on_line(p_id:gd.RID, p_other_id:gd.RID):Void __displayserver_ptr().accessibility_update_set_previous_on_line(((p_id : gd.RID)), ((p_other_id : gd.RID)));
+	public function accessibility_update_set_member_of(p_id:gd.RID, p_group_id:gd.RID):Void __displayserver_ptr().accessibility_update_set_member_of(((p_id : gd.RID)), ((p_group_id : gd.RID)));
+	public function accessibility_update_set_in_page_link_target(p_id:gd.RID, p_other_id:gd.RID):Void __displayserver_ptr().accessibility_update_set_in_page_link_target(((p_id : gd.RID)), ((p_other_id : gd.RID)));
+	public function accessibility_update_set_error_message(p_id:gd.RID, p_other_id:gd.RID):Void __displayserver_ptr().accessibility_update_set_error_message(((p_id : gd.RID)), ((p_other_id : gd.RID)));
+	public function accessibility_update_set_live(p_id:gd.RID, p_live:gd.displayserver.AccessibilityLiveMode):Void __displayserver_ptr().accessibility_update_set_live(((p_id : gd.RID)), ((p_live : gd.displayserver.AccessibilityLiveMode)));
+	public function accessibility_update_add_action(p_id:gd.RID, p_action:gd.displayserver.AccessibilityAction, p_callable:gd.Callable):Void __displayserver_ptr().accessibility_update_add_action(((p_id : gd.RID)), ((p_action : gd.displayserver.AccessibilityAction)), ((p_callable : gd.Callable)));
+	public function accessibility_update_add_custom_action(p_id:gd.RID, p_action_id:cpp.Int64, p_action_description:std.String):Void __displayserver_ptr().accessibility_update_add_custom_action(((p_id : gd.RID)), ((p_action_id : cpp.Int64)), ((p_action_description : std.String)));
+	public function accessibility_update_set_table_row_count(p_id:gd.RID, p_count:cpp.Int64):Void __displayserver_ptr().accessibility_update_set_table_row_count(((p_id : gd.RID)), ((p_count : cpp.Int64)));
+	public function accessibility_update_set_table_column_count(p_id:gd.RID, p_count:cpp.Int64):Void __displayserver_ptr().accessibility_update_set_table_column_count(((p_id : gd.RID)), ((p_count : cpp.Int64)));
+	public function accessibility_update_set_table_row_index(p_id:gd.RID, p_index:cpp.Int64):Void __displayserver_ptr().accessibility_update_set_table_row_index(((p_id : gd.RID)), ((p_index : cpp.Int64)));
+	public function accessibility_update_set_table_column_index(p_id:gd.RID, p_index:cpp.Int64):Void __displayserver_ptr().accessibility_update_set_table_column_index(((p_id : gd.RID)), ((p_index : cpp.Int64)));
+	public function accessibility_update_set_table_cell_position(p_id:gd.RID, p_row_index:cpp.Int64, p_column_index:cpp.Int64):Void __displayserver_ptr().accessibility_update_set_table_cell_position(((p_id : gd.RID)), ((p_row_index : cpp.Int64)), ((p_column_index : cpp.Int64)));
+	public function accessibility_update_set_table_cell_span(p_id:gd.RID, p_row_span:cpp.Int64, p_column_span:cpp.Int64):Void __displayserver_ptr().accessibility_update_set_table_cell_span(((p_id : gd.RID)), ((p_row_span : cpp.Int64)), ((p_column_span : cpp.Int64)));
+	public function accessibility_update_set_list_item_count(p_id:gd.RID, p_size:cpp.Int64):Void __displayserver_ptr().accessibility_update_set_list_item_count(((p_id : gd.RID)), ((p_size : cpp.Int64)));
+	public function accessibility_update_set_list_item_index(p_id:gd.RID, p_index:cpp.Int64):Void __displayserver_ptr().accessibility_update_set_list_item_index(((p_id : gd.RID)), ((p_index : cpp.Int64)));
+	public function accessibility_update_set_list_item_level(p_id:gd.RID, p_level:cpp.Int64):Void __displayserver_ptr().accessibility_update_set_list_item_level(((p_id : gd.RID)), ((p_level : cpp.Int64)));
+	public function accessibility_update_set_list_item_selected(p_id:gd.RID, p_selected:Bool):Void __displayserver_ptr().accessibility_update_set_list_item_selected(((p_id : gd.RID)), ((p_selected : Bool)));
+	public function accessibility_update_set_list_item_expanded(p_id:gd.RID, p_expanded:Bool):Void __displayserver_ptr().accessibility_update_set_list_item_expanded(((p_id : gd.RID)), ((p_expanded : Bool)));
+	public function accessibility_update_set_popup_type(p_id:gd.RID, p_popup:gd.displayserver.AccessibilityPopupType):Void __displayserver_ptr().accessibility_update_set_popup_type(((p_id : gd.RID)), ((p_popup : gd.displayserver.AccessibilityPopupType)));
+	public function accessibility_update_set_checked(p_id:gd.RID, p_checekd:Bool):Void __displayserver_ptr().accessibility_update_set_checked(((p_id : gd.RID)), ((p_checekd : Bool)));
+	public function accessibility_update_set_num_value(p_id:gd.RID, p_position:Float):Void __displayserver_ptr().accessibility_update_set_num_value(((p_id : gd.RID)), ((p_position : Float)));
+	public function accessibility_update_set_num_range(p_id:gd.RID, p_min:Float, p_max:Float):Void __displayserver_ptr().accessibility_update_set_num_range(((p_id : gd.RID)), ((p_min : Float)), ((p_max : Float)));
+	public function accessibility_update_set_num_step(p_id:gd.RID, p_step:Float):Void __displayserver_ptr().accessibility_update_set_num_step(((p_id : gd.RID)), ((p_step : Float)));
+	public function accessibility_update_set_num_jump(p_id:gd.RID, p_jump:Float):Void __displayserver_ptr().accessibility_update_set_num_jump(((p_id : gd.RID)), ((p_jump : Float)));
+	public function accessibility_update_set_scroll_x(p_id:gd.RID, p_position:Float):Void __displayserver_ptr().accessibility_update_set_scroll_x(((p_id : gd.RID)), ((p_position : Float)));
+	public function accessibility_update_set_scroll_x_range(p_id:gd.RID, p_min:Float, p_max:Float):Void __displayserver_ptr().accessibility_update_set_scroll_x_range(((p_id : gd.RID)), ((p_min : Float)), ((p_max : Float)));
+	public function accessibility_update_set_scroll_y(p_id:gd.RID, p_position:Float):Void __displayserver_ptr().accessibility_update_set_scroll_y(((p_id : gd.RID)), ((p_position : Float)));
+	public function accessibility_update_set_scroll_y_range(p_id:gd.RID, p_min:Float, p_max:Float):Void __displayserver_ptr().accessibility_update_set_scroll_y_range(((p_id : gd.RID)), ((p_min : Float)), ((p_max : Float)));
+	public function accessibility_update_set_text_decorations(p_id:gd.RID, p_underline:Bool, p_strikethrough:Bool, p_overline:Bool):Void __displayserver_ptr().accessibility_update_set_text_decorations(((p_id : gd.RID)), ((p_underline : Bool)), ((p_strikethrough : Bool)), ((p_overline : Bool)));
+	public function accessibility_update_set_text_align(p_id:gd.RID, p_align:gd.HorizontalAlignment):Void __displayserver_ptr().accessibility_update_set_text_align(((p_id : gd.RID)), ((p_align : gd.HorizontalAlignment)));
+	public function accessibility_update_set_text_selection(p_id:gd.RID, p_text_start_id:gd.RID, p_start_char:cpp.Int64, p_text_end_id:gd.RID, p_end_char:cpp.Int64):Void __displayserver_ptr().accessibility_update_set_text_selection(((p_id : gd.RID)), ((p_text_start_id : gd.RID)), ((p_start_char : cpp.Int64)), ((p_text_end_id : gd.RID)), ((p_end_char : cpp.Int64)));
+	public function accessibility_update_set_flag(p_id:gd.RID, p_flag:gd.displayserver.AccessibilityFlags, p_value:Bool):Void __displayserver_ptr().accessibility_update_set_flag(((p_id : gd.RID)), ((p_flag : gd.displayserver.AccessibilityFlags)), ((p_value : Bool)));
+	public function accessibility_update_set_classname(p_id:gd.RID, p_classname:std.String):Void __displayserver_ptr().accessibility_update_set_classname(((p_id : gd.RID)), ((p_classname : std.String)));
+	public function accessibility_update_set_placeholder(p_id:gd.RID, p_placeholder:std.String):Void __displayserver_ptr().accessibility_update_set_placeholder(((p_id : gd.RID)), ((p_placeholder : std.String)));
+	public function accessibility_update_set_language(p_id:gd.RID, p_language:std.String):Void __displayserver_ptr().accessibility_update_set_language(((p_id : gd.RID)), ((p_language : std.String)));
+	public function accessibility_update_set_text_orientation(p_id:gd.RID, p_vertical:Bool):Void __displayserver_ptr().accessibility_update_set_text_orientation(((p_id : gd.RID)), ((p_vertical : Bool)));
+	public function accessibility_update_set_list_orientation(p_id:gd.RID, p_vertical:Bool):Void __displayserver_ptr().accessibility_update_set_list_orientation(((p_id : gd.RID)), ((p_vertical : Bool)));
+	public function accessibility_update_set_shortcut(p_id:gd.RID, p_shortcut:std.String):Void __displayserver_ptr().accessibility_update_set_shortcut(((p_id : gd.RID)), ((p_shortcut : std.String)));
+	public function accessibility_update_set_url(p_id:gd.RID, p_url:std.String):Void __displayserver_ptr().accessibility_update_set_url(((p_id : gd.RID)), ((p_url : std.String)));
+	public function accessibility_update_set_role_description(p_id:gd.RID, p_description:std.String):Void __displayserver_ptr().accessibility_update_set_role_description(((p_id : gd.RID)), ((p_description : std.String)));
+	public function accessibility_update_set_state_description(p_id:gd.RID, p_description:std.String):Void __displayserver_ptr().accessibility_update_set_state_description(((p_id : gd.RID)), ((p_description : std.String)));
+	public function accessibility_update_set_color_value(p_id:gd.RID, p_color:gd.Color):Void __displayserver_ptr().accessibility_update_set_color_value(((p_id : gd.RID)), ((p_color : gd.Color)));
+	public function accessibility_update_set_background_color(p_id:gd.RID, p_color:gd.Color):Void __displayserver_ptr().accessibility_update_set_background_color(((p_id : gd.RID)), ((p_color : gd.Color)));
+	public function accessibility_update_set_foreground_color(p_id:gd.RID, p_color:gd.Color):Void __displayserver_ptr().accessibility_update_set_foreground_color(((p_id : gd.RID)), ((p_color : gd.Color)));
 	public function ime_get_selection():gd.Vector2i return {
 		final v = __displayserver_ptr().ime_get_selection();
 		v;
@@ -528,6 +632,7 @@ package gd;
 	public function virtual_keyboard_hide():Void __displayserver_ptr().virtual_keyboard_hide();
 	public function virtual_keyboard_get_height():cpp.Int64 return __displayserver_ptr().virtual_keyboard_get_height();
 	public function has_hardware_keyboard():Bool return __displayserver_ptr().has_hardware_keyboard();
+	public function set_hardware_keyboard_connection_change_callback(p_callable:gd.Callable):Void __displayserver_ptr().set_hardware_keyboard_connection_change_callback(((p_callable : gd.Callable)));
 	public function cursor_set_shape(p_shape:gd.displayserver.CursorShape):Void __displayserver_ptr().cursor_set_shape(((p_shape : gd.displayserver.CursorShape)));
 	public function cursor_get_shape():gd.displayserver.CursorShape return {
 		final v = __displayserver_ptr().cursor_get_shape();
@@ -548,9 +653,15 @@ package gd;
 		final v = __displayserver_ptr().dialog_input_text(((p_title : std.String)), ((p_description : std.String)), ((p_existing_text : std.String)), ((p_callback : gd.Callable)));
 		v;
 	};
-	public function file_dialog_show(p_title:std.String, p_current_directory:std.String, p_filename:std.String, p_show_hidden:Bool, p_mode:gd.displayserver.FileDialogMode, p_filters:gd.PackedStringArray, p_callback:gd.Callable):gd.Error return {
-		final v = __displayserver_ptr().file_dialog_show(((p_title : std.String)), ((p_current_directory : std.String)), ((p_filename : std.String)), ((p_show_hidden : Bool)), ((p_mode : gd.displayserver.FileDialogMode)), ((p_filters : gd.PackedStringArray)), ((p_callback : gd.Callable)));
-		v;
+	public function file_dialog_show(p_title:std.String, p_current_directory:std.String, p_filename:std.String, p_show_hidden:Bool, p_mode:gd.displayserver.FileDialogMode, p_filters:gd.PackedStringArray, p_callback:gd.Callable, ?p_parent_window_id:cpp.Int64):gd.Error return switch [p_title, p_current_directory, p_filename, p_show_hidden, p_mode, p_filters, p_callback, p_parent_window_id] {
+		case [_, _, _, _, _, _, _, null]:{
+			final v = __displayserver_ptr().file_dialog_show(((p_title : std.String)), ((p_current_directory : std.String)), ((p_filename : std.String)), ((p_show_hidden : Bool)), ((p_mode : gd.displayserver.FileDialogMode)), ((p_filters : gd.PackedStringArray)), ((p_callback : gd.Callable)));
+			v;
+		};
+		default:{
+			final v = __displayserver_ptr().file_dialog_show(((p_title : std.String)), ((p_current_directory : std.String)), ((p_filename : std.String)), ((p_show_hidden : Bool)), ((p_mode : gd.displayserver.FileDialogMode)), ((p_filters : gd.PackedStringArray)), ((p_callback : gd.Callable)), ((p_parent_window_id : cpp.Int64)));
+			v;
+		};
 	};
 	public function beep():Void __displayserver_ptr().beep();
 	public function keyboard_get_layout_count():cpp.Int64 return __displayserver_ptr().keyboard_get_layout_count();
@@ -573,6 +684,7 @@ package gd;
 		v;
 	};
 	public function show_emoji_and_symbol_picker():Void __displayserver_ptr().show_emoji_and_symbol_picker();
+	public function color_picker(p_callback:gd.Callable):Bool return __displayserver_ptr().color_picker(((p_callback : gd.Callable)));
 	public function process_events():Void __displayserver_ptr().process_events();
 	public function force_process_and_drop_events():Void __displayserver_ptr().force_process_and_drop_events();
 	public function set_native_icon(p_filename:std.String):Void __displayserver_ptr().set_native_icon(((p_filename : std.String)));

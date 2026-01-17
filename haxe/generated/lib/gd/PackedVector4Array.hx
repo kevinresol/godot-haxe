@@ -6,9 +6,9 @@ extern class PackedVector4Array_wrapper {
 	static function _new1(p_from:gd.PackedVector4Array):PackedVector4Array_wrapper;
 	static function _new2(p_from:gd.Array):PackedVector4Array_wrapper;
 	function get(p_index:cpp.Int64):gd.Vector4;
+	function set(p_index:cpp.Int64, p_value:gd.Vector4):Void;
 	function size():cpp.Int64;
 	function is_empty():Bool;
-	function set(p_index:cpp.Int64, p_value:gd.Vector4):Void;
 	function push_back(p_value:gd.Vector4):Bool;
 	function append(p_value:gd.Vector4):Bool;
 	function append_array(p_array:gd.PackedVector4Array):Void;
@@ -27,6 +27,7 @@ extern class PackedVector4Array_wrapper {
 	function find(p_value:gd.Vector4, ?p_from:cpp.Int64):cpp.Int64;
 	function rfind(p_value:gd.Vector4, ?p_from:cpp.Int64):cpp.Int64;
 	function count(p_value:gd.Vector4):cpp.Int64;
+	function erase(p_value:gd.Vector4):Bool;
 	function __op_equal_to_variant(p_rhs:gd.Variant):Bool;
 	function __op_not_equal_variant(p_rhs:gd.Variant):Bool;
 	function __op_membership_in_dictionary(p_rhs:gd.Dictionary):Bool;

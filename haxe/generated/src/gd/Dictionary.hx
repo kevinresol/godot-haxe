@@ -64,6 +64,16 @@ class Dictionary_wrapper {
 			v;
 		};
 	};
+	public function duplicate_deep(?p_deep_subresources_mode:cpp.Int64):gd.Dictionary return switch [p_deep_subresources_mode] {
+		case [null]:{
+			final v = __gd.duplicate_deep();
+			v;
+		};
+		default:{
+			final v = __gd.duplicate_deep(((p_deep_subresources_mode : cpp.Int64)));
+			v;
+		};
+	};
 	public function get(p_key:gd.Variant, p_default:gd.Variant):gd.Variant return {
 		final v = __gd.get(((p_key : gd.Variant)), ((p_default : gd.Variant)));
 		v;

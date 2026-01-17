@@ -54,6 +54,8 @@ package gdnative;
 	function values():gdnative.Array;
 	overload function duplicate():gdnative.Dictionary;
 	overload function duplicate(p_deep:Bool):gdnative.Dictionary;
+	overload function duplicate_deep():gdnative.Dictionary;
+	overload function duplicate_deep(p_deep_subresources_mode:cpp.Int64):gdnative.Dictionary;
 	function get(p_key:gdnative.Variant, p_default:gdnative.Variant):gdnative.Variant;
 	function get_or_add(p_key:gdnative.Variant, p_default:gdnative.Variant):gdnative.Variant;
 	function set(p_key:gdnative.Variant, p_value:gdnative.Variant):Bool;

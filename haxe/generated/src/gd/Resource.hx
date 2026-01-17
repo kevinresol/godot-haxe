@@ -52,9 +52,13 @@ package gd;
 		v;
 	};
 	public function emit_changed():Void __resource_ptr().emit_changed();
-	public function duplicate(?p_subresources:Bool):gd.Resource return switch [p_subresources] {
+	public function duplicate(?p_deep:Bool):gd.Resource return switch [p_deep] {
 		case [null]:__resource_ptr().duplicate();
-		default:__resource_ptr().duplicate(((p_subresources : Bool)));
+		default:__resource_ptr().duplicate(((p_deep : Bool)));
+	};
+	public function duplicate_deep(?p_deep_subresources_mode:gd.resource.DeepDuplicateMode):gd.Resource return switch [p_deep_subresources_mode] {
+		case [null]:__resource_ptr().duplicate_deep();
+		default:__resource_ptr().duplicate_deep(((p_deep_subresources_mode : gd.resource.DeepDuplicateMode)));
 	};
 	public var resource_local_to_scene(get, set) : Bool;
 	function get_resource_local_to_scene():Bool return is_local_to_scene();

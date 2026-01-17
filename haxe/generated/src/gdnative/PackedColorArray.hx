@@ -39,9 +39,9 @@ package gdnative;
 	@:overload(function(p_from:cpp.Reference<gdnative.Array>):Void { })
 	function new();
 	function get(p_index:cpp.Int64):gdnative.Color;
+	function set(p_index:cpp.Int64, p_value:gdnative.Color):Void;
 	function size():cpp.Int64;
 	function is_empty():Bool;
-	function set(p_index:cpp.Int64, p_value:gdnative.Color):Void;
 	function push_back(p_value:gdnative.Color):Bool;
 	function append(p_value:gdnative.Color):Bool;
 	function append_array(p_array:gdnative.PackedColorArray):Void;
@@ -64,4 +64,5 @@ package gdnative;
 	overload function rfind(p_value:gdnative.Color):cpp.Int64;
 	overload function rfind(p_value:gdnative.Color, p_from:cpp.Int64):cpp.Int64;
 	function count(p_value:gdnative.Color):cpp.Int64;
+	function erase(p_value:gdnative.Color):Bool;
 }

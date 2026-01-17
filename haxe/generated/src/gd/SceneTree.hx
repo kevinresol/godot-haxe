@@ -9,6 +9,8 @@ package gd;
 	}
 	extern inline function __scenetree_ptr():gdnative.SceneTree.SceneTree_extern return cast __gd;
 	public function has_group(p_name:std.String):Bool return __scenetree_ptr().has_group(((p_name : std.String)));
+	public function is_accessibility_enabled():Bool return __scenetree_ptr().is_accessibility_enabled();
+	public function is_accessibility_supported():Bool return __scenetree_ptr().is_accessibility_supported();
 	public function is_auto_accept_quit():Bool return __scenetree_ptr().is_auto_accept_quit();
 	public function set_auto_accept_quit(p_enabled:Bool):Bool {
 		__scenetree_ptr().set_auto_accept_quit(((p_enabled : Bool)));

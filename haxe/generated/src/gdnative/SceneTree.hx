@@ -11,6 +11,8 @@ package gdnative;
 @:include("godot_cpp/classes/scene_tree.hpp") @:semantics(value) @:cpp.PointerType({ type : "SceneTree", namespace : ['godot'] }) extern class SceneTree_extern extends gdnative.MainLoop.MainLoop_extern {
 	extern static inline function __alloc():SceneTree_extern return gdnative.Memory.memnew(untyped __cpp__("godot::SceneTree"));
 	function has_group(p_name:gdnative.StringName):Bool;
+	function is_accessibility_enabled():Bool;
+	function is_accessibility_supported():Bool;
 	function is_auto_accept_quit():Bool;
 	function set_auto_accept_quit(p_enabled:Bool):Void;
 	function is_quit_on_go_back():Bool;

@@ -6,9 +6,9 @@ extern class PackedStringArray_wrapper {
 	static function _new1(p_from:gd.PackedStringArray):PackedStringArray_wrapper;
 	static function _new2(p_from:gd.Array):PackedStringArray_wrapper;
 	function get(p_index:cpp.Int64):std.String;
+	function set(p_index:cpp.Int64, p_value:std.String):Void;
 	function size():cpp.Int64;
 	function is_empty():Bool;
-	function set(p_index:cpp.Int64, p_value:std.String):Void;
 	function push_back(p_value:std.String):Bool;
 	function append(p_value:std.String):Bool;
 	function append_array(p_array:gd.PackedStringArray):Void;
@@ -27,6 +27,7 @@ extern class PackedStringArray_wrapper {
 	function find(p_value:std.String, ?p_from:cpp.Int64):cpp.Int64;
 	function rfind(p_value:std.String, ?p_from:cpp.Int64):cpp.Int64;
 	function count(p_value:std.String):cpp.Int64;
+	function erase(p_value:std.String):Bool;
 	function __op_equal_to_variant(p_rhs:gd.Variant):Bool;
 	function __op_not_equal_variant(p_rhs:gd.Variant):Bool;
 	function __op_membership_in_dictionary(p_rhs:gd.Dictionary):Bool;

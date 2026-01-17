@@ -33,6 +33,10 @@ extern class StringName_wrapper {
 	function format(p_values:gd.Variant, ?p_placeholder:std.String):std.String;
 	function replace(p_what:std.String, p_forwhat:std.String):std.String;
 	function replacen(p_what:std.String, p_forwhat:std.String):std.String;
+	function replace_char(p_key:cpp.Int64, p_with:cpp.Int64):std.String;
+	function replace_chars(p_keys:std.String, p_with:cpp.Int64):std.String;
+	function remove_char(p_what:cpp.Int64):std.String;
+	function remove_chars(p_chars:std.String):std.String;
 	function repeat(p_count:cpp.Int64):std.String;
 	function reverse():std.String;
 	function insert(p_position:cpp.Int64, p_what:std.String):std.String;
@@ -41,6 +45,7 @@ extern class StringName_wrapper {
 	function to_camel_case():std.String;
 	function to_pascal_case():std.String;
 	function to_snake_case():std.String;
+	function to_kebab_case():std.String;
 	function split(?p_delimiter:std.String, ?p_allow_empty:Bool, ?p_maxsplit:cpp.Int64):gd.PackedStringArray;
 	function rsplit(?p_delimiter:std.String, ?p_allow_empty:Bool, ?p_maxsplit:cpp.Int64):gd.PackedStringArray;
 	function split_floats(p_delimiter:std.String, ?p_allow_empty:Bool):gd.PackedFloat64Array;
@@ -55,7 +60,7 @@ extern class StringName_wrapper {
 	function rstrip(p_chars:std.String):std.String;
 	function get_extension():std.String;
 	function get_basename():std.String;
-	function path_join(p_file:std.String):std.String;
+	function path_join(p_path:std.String):std.String;
 	function unicode_at(p_at:cpp.Int64):cpp.Int64;
 	function indent(p_prefix:std.String):std.String;
 	function dedent():std.String;
@@ -77,6 +82,7 @@ extern class StringName_wrapper {
 	function xml_unescape():std.String;
 	function uri_encode():std.String;
 	function uri_decode():std.String;
+	function uri_file_decode():std.String;
 	function c_escape():std.String;
 	function c_unescape():std.String;
 	function json_escape():std.String;
@@ -105,8 +111,9 @@ extern class StringName_wrapper {
 	function to_utf8_buffer():gd.PackedByteArray;
 	function to_utf16_buffer():gd.PackedByteArray;
 	function to_utf32_buffer():gd.PackedByteArray;
-	function hex_decode():gd.PackedByteArray;
 	function to_wchar_buffer():gd.PackedByteArray;
+	function to_multibyte_char_buffer(?p_encoding:std.String):gd.PackedByteArray;
+	function hex_decode():gd.PackedByteArray;
 	function hash():cpp.Int64;
 	function __op_equal_to_variant(p_rhs:gd.Variant):Bool;
 	function __op_not_equal_variant(p_rhs:gd.Variant):Bool;
@@ -145,6 +152,7 @@ extern class StringName_wrapper {
 	function __op_modulus_stringname(p_rhs:std.String):std.String;
 	function __op_membership_in_stringname(p_rhs:std.String):Bool;
 	function __op_modulus_nodepath(p_rhs:std.String):std.String;
+	function __op_modulus_rid(p_rhs:gd.RID):std.String;
 	function __op_modulus_object(p_rhs:gd.Object):std.String;
 	function __op_membership_in_object(p_rhs:gd.Object):Bool;
 	function __op_modulus_callable(p_rhs:gd.Callable):std.String;
@@ -246,6 +254,8 @@ extern class StringName_wrapper {
 	inline function __op_membership_in_stringname(p_rhs:std.String):Bool return @:privateAccess this.__op_membership_in_stringname(p_rhs);
 	@:op(A % B)
 	inline function __op_modulus_nodepath(p_rhs:std.String):std.String return @:privateAccess this.__op_modulus_nodepath(p_rhs);
+	@:op(A % B)
+	inline function __op_modulus_rid(p_rhs:gd.RID):std.String return @:privateAccess this.__op_modulus_rid(p_rhs);
 	@:op(A % B)
 	inline function __op_modulus_object(p_rhs:gd.Object):std.String return @:privateAccess this.__op_modulus_object(p_rhs);
 	@:op(A in B)

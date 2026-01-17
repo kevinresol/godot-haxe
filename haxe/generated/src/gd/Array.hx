@@ -142,6 +142,16 @@ class Array_wrapper {
 			v;
 		};
 	};
+	public function duplicate_deep(?p_deep_subresources_mode:cpp.Int64):gd.Array return switch [p_deep_subresources_mode] {
+		case [null]:{
+			final v = __gd.duplicate_deep();
+			v;
+		};
+		default:{
+			final v = __gd.duplicate_deep(((p_deep_subresources_mode : cpp.Int64)));
+			v;
+		};
+	};
 	public function slice(p_begin:cpp.Int64, ?p_end:cpp.Int64, ?p_step:cpp.Int64, ?p_deep:Bool):gd.Array return switch [p_begin, p_end, p_step, p_deep] {
 		case [_, null, _, _]:{
 			final v = __gd.slice(((p_begin : cpp.Int64)));

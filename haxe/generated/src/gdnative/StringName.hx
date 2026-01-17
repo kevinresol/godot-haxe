@@ -99,6 +99,8 @@ package gdnative;
 	@:op(A % B)
 	extern inline function __op_modulus_nodepath(p_rhs:gdnative.NodePath):gdnative.String return untyped __cpp__('{0} % {1}', val(), @:privateAccess p_rhs.val());
 	@:op(A % B)
+	extern inline function __op_modulus_rid(p_rhs:gdnative.RID):gdnative.String return untyped __cpp__('{0} % {1}', val(), @:privateAccess p_rhs.val());
+	@:op(A % B)
 	extern inline function __op_modulus_object(p_rhs:gdnative.Object):gdnative.String return untyped __cpp__('{0} % {1}', val(), untyped __cpp__('{0}.ptr', p_rhs));
 	@:op(A in B)
 	extern inline function __op_membership_in_object(p_rhs:gdnative.Object):Bool return false;
@@ -183,6 +185,10 @@ package gdnative;
 	overload function format(p_values:gdnative.Variant, p_placeholder:gdnative.String):gdnative.String;
 	function replace(p_what:gdnative.String, p_forwhat:gdnative.String):gdnative.String;
 	function replacen(p_what:gdnative.String, p_forwhat:gdnative.String):gdnative.String;
+	function replace_char(p_key:cpp.Int64, p_with:cpp.Int64):gdnative.String;
+	function replace_chars(p_keys:gdnative.String, p_with:cpp.Int64):gdnative.String;
+	function remove_char(p_what:cpp.Int64):gdnative.String;
+	function remove_chars(p_chars:gdnative.String):gdnative.String;
 	function repeat(p_count:cpp.Int64):gdnative.String;
 	function reverse():gdnative.String;
 	function insert(p_position:cpp.Int64, p_what:gdnative.String):gdnative.String;
@@ -192,6 +198,7 @@ package gdnative;
 	function to_camel_case():gdnative.String;
 	function to_pascal_case():gdnative.String;
 	function to_snake_case():gdnative.String;
+	function to_kebab_case():gdnative.String;
 	overload function split():gdnative.PackedStringArray;
 	overload function split(p_delimiter:gdnative.String):gdnative.PackedStringArray;
 	overload function split(p_delimiter:gdnative.String, p_allow_empty:Bool):gdnative.PackedStringArray;
@@ -215,7 +222,7 @@ package gdnative;
 	function rstrip(p_chars:gdnative.String):gdnative.String;
 	function get_extension():gdnative.String;
 	function get_basename():gdnative.String;
-	function path_join(p_file:gdnative.String):gdnative.String;
+	function path_join(p_path:gdnative.String):gdnative.String;
 	function unicode_at(p_at:cpp.Int64):cpp.Int64;
 	function indent(p_prefix:gdnative.String):gdnative.String;
 	function dedent():gdnative.String;
@@ -238,6 +245,7 @@ package gdnative;
 	function xml_unescape():gdnative.String;
 	function uri_encode():gdnative.String;
 	function uri_decode():gdnative.String;
+	function uri_file_decode():gdnative.String;
 	function c_escape():gdnative.String;
 	function c_unescape():gdnative.String;
 	function json_escape():gdnative.String;
@@ -269,7 +277,9 @@ package gdnative;
 	function to_utf8_buffer():gdnative.PackedByteArray;
 	function to_utf16_buffer():gdnative.PackedByteArray;
 	function to_utf32_buffer():gdnative.PackedByteArray;
-	function hex_decode():gdnative.PackedByteArray;
 	function to_wchar_buffer():gdnative.PackedByteArray;
+	overload function to_multibyte_char_buffer():gdnative.PackedByteArray;
+	overload function to_multibyte_char_buffer(p_encoding:gdnative.String):gdnative.PackedByteArray;
+	function hex_decode():gdnative.PackedByteArray;
 	function hash():cpp.Int64;
 }

@@ -20,5 +20,8 @@ enum abstract WindowFlags(Int) from Int to Int {
 	final MOUSE_PASSTHROUGH = 7;
 	final SHARP_CORNERS = 8;
 	final EXCLUDE_FROM_CAPTURE = 9;
-	final MAX = 10;
+	final POPUP_WM_HINT = 10;
+	final MINIMIZE_DISABLED = 11;
+	final MAXIMIZE_DISABLED = 12;
+	final MAX = 13;
 }

@@ -52,6 +52,10 @@ class Basis_wrapper {
 		final v = __gd.scaled(((p_scale : gd.Vector3)));
 		v;
 	};
+	public function scaled_local(p_scale:gd.Vector3):gd.Basis return {
+		final v = __gd.scaled_local(((p_scale : gd.Vector3)));
+		v;
+	};
 	public function get_scale():gd.Vector3 return {
 		final v = __gd.get_scale();
 		v;

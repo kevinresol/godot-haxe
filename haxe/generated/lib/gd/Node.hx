@@ -34,6 +34,7 @@ extern class Node extends gd.Object {
 	static final NOTIFICATION_WM_DPI_CHANGE : Int;
 	static final NOTIFICATION_VP_MOUSE_ENTER : Int;
 	static final NOTIFICATION_VP_MOUSE_EXIT : Int;
+	static final NOTIFICATION_WM_POSITION_CHANGED : Int;
 	static final NOTIFICATION_OS_MEMORY_WARNING : Int;
 	static final NOTIFICATION_TRANSLATION_CHANGED : Int;
 	static final NOTIFICATION_WM_ABOUT : Int;
@@ -44,16 +45,20 @@ extern class Node extends gd.Object {
 	static final NOTIFICATION_APPLICATION_FOCUS_IN : Int;
 	static final NOTIFICATION_APPLICATION_FOCUS_OUT : Int;
 	static final NOTIFICATION_TEXT_SERVER_CHANGED : Int;
+	static final NOTIFICATION_ACCESSIBILITY_UPDATE : Int;
+	static final NOTIFICATION_ACCESSIBILITY_INVALIDATE : Int;
 	function _process(p_delta:Float):Void;
 	function _physics_process(p_delta:Float):Void;
 	function _enter_tree():Void;
 	function _exit_tree():Void;
 	function _ready():Void;
 	function _get_configuration_warnings():gd.PackedStringArray;
+	function _get_accessibility_configuration_warnings():gd.PackedStringArray;
 	function _input(p_event:gd.InputEvent):Void;
 	function _shortcut_input(p_event:gd.InputEvent):Void;
 	function _unhandled_input(p_event:gd.InputEvent):Void;
 	function _unhandled_key_input(p_event:gd.InputEvent):Void;
+	function _get_focused_accessibility_element():gd.RID;
 	static function print_orphan_nodes():Void;
 	function add_sibling(p_sibling:gd.Node, ?p_force_readable_name:Bool):Void;
 	function set_name(p_name:std.String):std.String;
@@ -119,6 +124,8 @@ extern class Node extends gd.Object {
 	function get_process_thread_messages():Int;
 	function set_process_thread_group_order(p_order:cpp.Int64):cpp.Int64;
 	function get_process_thread_group_order():cpp.Int64;
+	function queue_accessibility_update():Void;
+	function get_accessibility_element():gd.RID;
 	function set_display_folded(p_fold:Bool):Void;
 	function is_displayed_folded():Bool;
 	function set_process_internal(p_enable:Bool):Void;
@@ -132,6 +139,7 @@ extern class Node extends gd.Object {
 	function reset_physics_interpolation():Void;
 	function set_auto_translate_mode(p_mode:gd.node.AutoTranslateMode):gd.node.AutoTranslateMode;
 	function get_auto_translate_mode():gd.node.AutoTranslateMode;
+	function can_auto_translate():Bool;
 	function set_translation_domain_inherited():Void;
 	function get_tree():gd.SceneTree;
 	function duplicate(?p_flags:cpp.Int64):gd.Node;
@@ -147,7 +155,7 @@ extern class Node extends gd.Object {
 	function get_multiplayer_authority():cpp.Int64;
 	function is_multiplayer_authority():Bool;
 	function rpc_config(p_method:std.String, p_config:gd.Variant):Void;
-	function get_rpc_config():gd.Variant;
+	function get_node_rpc_config():gd.Variant;
 	function set_editor_description(p_editor_description:std.String):std.String;
 	function get_editor_description():std.String;
 	function set_unique_name_in_owner(p_enable:Bool):Bool;

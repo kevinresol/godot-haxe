@@ -15,4 +15,5 @@ enum abstract MouseMode(Int) from Int to Int {
 	final CAPTURED = 2;
 	final CONFINED = 3;
 	final CONFINED_HIDDEN = 4;
+	final MAX = 5;
 }

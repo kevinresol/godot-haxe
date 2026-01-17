@@ -17,6 +17,8 @@ package gdnative;
 	final STATIC;
 	@:native("godot::MethodFlags::METHOD_FLAG_OBJECT_CORE")
 	final OBJECT_CORE;
+	@:native("godot::MethodFlags::METHOD_FLAG_VIRTUAL_REQUIRED")
+	final VIRTUAL_REQUIRED;
 	@:native("godot::MethodFlags::METHOD_FLAGS_DEFAULT")
 	final DEFAULT;
 }

@@ -20,9 +20,9 @@ class PackedByteArray_wrapper {
 		return new PackedByteArray_wrapper(v);
 	}
 	public function get(p_index:cpp.Int64):cpp.Int64 return __gd.get(((p_index : cpp.Int64)));
+	public function set(p_index:cpp.Int64, p_value:cpp.Int64):Void __gd.set(((p_index : cpp.Int64)), ((p_value : cpp.Int64)));
 	public function size():cpp.Int64 return __gd.size();
 	public function is_empty():Bool return __gd.is_empty();
-	public function set(p_index:cpp.Int64, p_value:cpp.Int64):Void __gd.set(((p_index : cpp.Int64)), ((p_value : cpp.Int64)));
 	public function push_back(p_value:cpp.Int64):Bool return __gd.push_back(((p_value : cpp.Int64)));
 	public function append(p_value:cpp.Int64):Bool return __gd.append(((p_value : cpp.Int64)));
 	public function append_array(p_array:gd.PackedByteArray):Void __gd.append_array(((p_array : gd.PackedByteArray)));
@@ -61,6 +61,7 @@ class PackedByteArray_wrapper {
 		default:__gd.rfind(((p_value : cpp.Int64)), ((p_from : cpp.Int64)));
 	};
 	public function count(p_value:cpp.Int64):cpp.Int64 return __gd.count(((p_value : cpp.Int64)));
+	public function erase(p_value:cpp.Int64):Bool return __gd.erase(((p_value : cpp.Int64)));
 	public function get_string_from_ascii():std.String return {
 		final v = __gd.get_string_from_ascii();
 		v;
@@ -80,6 +81,16 @@ class PackedByteArray_wrapper {
 	public function get_string_from_wchar():std.String return {
 		final v = __gd.get_string_from_wchar();
 		v;
+	};
+	public function get_string_from_multibyte_char(?p_encoding:std.String):std.String return switch [p_encoding] {
+		case [null]:{
+			final v = __gd.get_string_from_multibyte_char();
+			v;
+		};
+		default:{
+			final v = __gd.get_string_from_multibyte_char(((p_encoding : std.String)));
+			v;
+		};
 	};
 	public function hex_encode():std.String return {
 		final v = __gd.hex_encode();
@@ -159,6 +170,37 @@ class PackedByteArray_wrapper {
 	public function to_float64_array():gd.PackedFloat64Array return {
 		final v = __gd.to_float64_array();
 		v;
+	};
+	public function to_vector2_array():gd.PackedVector2Array return {
+		final v = __gd.to_vector2_array();
+		v;
+	};
+	public function to_vector3_array():gd.PackedVector3Array return {
+		final v = __gd.to_vector3_array();
+		v;
+	};
+	public function to_vector4_array():gd.PackedVector4Array return {
+		final v = __gd.to_vector4_array();
+		v;
+	};
+	public function to_color_array():gd.PackedColorArray return {
+		final v = __gd.to_color_array();
+		v;
+	};
+	public function bswap16(?p_offset:cpp.Int64, ?p_count:cpp.Int64):Void switch [p_offset, p_count] {
+		case [null, _]:__gd.bswap16();
+		case [_, null]:__gd.bswap16(((p_offset : cpp.Int64)));
+		default:__gd.bswap16(((p_offset : cpp.Int64)), ((p_count : cpp.Int64)));
+	};
+	public function bswap32(?p_offset:cpp.Int64, ?p_count:cpp.Int64):Void switch [p_offset, p_count] {
+		case [null, _]:__gd.bswap32();
+		case [_, null]:__gd.bswap32(((p_offset : cpp.Int64)));
+		default:__gd.bswap32(((p_offset : cpp.Int64)), ((p_count : cpp.Int64)));
+	};
+	public function bswap64(?p_offset:cpp.Int64, ?p_count:cpp.Int64):Void switch [p_offset, p_count] {
+		case [null, _]:__gd.bswap64();
+		case [_, null]:__gd.bswap64(((p_offset : cpp.Int64)));
+		default:__gd.bswap64(((p_offset : cpp.Int64)), ((p_count : cpp.Int64)));
 	};
 	public function encode_u8(p_byte_offset:cpp.Int64, p_value:cpp.Int64):Void __gd.encode_u8(((p_byte_offset : cpp.Int64)), ((p_value : cpp.Int64)));
 	public function encode_s8(p_byte_offset:cpp.Int64, p_value:cpp.Int64):Void __gd.encode_s8(((p_byte_offset : cpp.Int64)), ((p_value : cpp.Int64)));

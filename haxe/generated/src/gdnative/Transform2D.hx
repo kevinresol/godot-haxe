@@ -65,7 +65,6 @@ package gdnative;
 	function scaled_local(p_scale:gdnative.Vector2):gdnative.Transform2D;
 	function translated(p_offset:gdnative.Vector2):gdnative.Transform2D;
 	function translated_local(p_offset:gdnative.Vector2):gdnative.Transform2D;
-	@:native("basis_determinant")
 	function determinant():Float;
 	function basis_xform(p_v:gdnative.Vector2):gdnative.Vector2;
 	function basis_xform_inv(p_v:gdnative.Vector2):gdnative.Vector2;

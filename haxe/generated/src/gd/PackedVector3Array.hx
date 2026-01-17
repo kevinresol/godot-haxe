@@ -23,9 +23,9 @@ class PackedVector3Array_wrapper {
 		final v = __gd.get(((p_index : cpp.Int64)));
 		v;
 	};
+	public function set(p_index:cpp.Int64, p_value:gd.Vector3):Void __gd.set(((p_index : cpp.Int64)), ((p_value : gd.Vector3)));
 	public function size():cpp.Int64 return __gd.size();
 	public function is_empty():Bool return __gd.is_empty();
-	public function set(p_index:cpp.Int64, p_value:gd.Vector3):Void __gd.set(((p_index : cpp.Int64)), ((p_value : gd.Vector3)));
 	public function push_back(p_value:gd.Vector3):Bool return __gd.push_back(((p_value : gd.Vector3)));
 	public function append(p_value:gd.Vector3):Bool return __gd.append(((p_value : gd.Vector3)));
 	public function append_array(p_array:gd.PackedVector3Array):Void __gd.append_array(((p_array : gd.PackedVector3Array)));
@@ -68,6 +68,7 @@ class PackedVector3Array_wrapper {
 		default:__gd.rfind(((p_value : gd.Vector3)), ((p_from : cpp.Int64)));
 	};
 	public function count(p_value:gd.Vector3):cpp.Int64 return __gd.count(((p_value : gd.Vector3)));
+	public function erase(p_value:gd.Vector3):Bool return __gd.erase(((p_value : gd.Vector3)));
 	function __op_equal_to_variant(p_rhs:gd.Variant):Bool return @:privateAccess this.__gd.__op_equal_to_variant(((p_rhs : gdnative.Variant)));
 	function __op_not_equal_variant(p_rhs:gd.Variant):Bool return @:privateAccess this.__gd.__op_not_equal_variant(((p_rhs : gdnative.Variant)));
 	function __op_multiply_transform3d(p_rhs:gd.Transform3D):gd.PackedVector3Array return @:privateAccess this.__gd.__op_multiply_transform3d(((p_rhs : gdnative.Transform3D)));

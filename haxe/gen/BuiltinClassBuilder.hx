@@ -787,8 +787,6 @@ class BuiltinClassBuilder extends Builder {
 	// Handle cases where the API-specified name is different from the actual c++ implementation
 	function getMethodNative(cls:String, fn:String):Null<String> {
 		return switch [cls, fn] {
-			case ['Transform2D', 'determinant']:
-				'basis_determinant';
 			case ['Plane', 'get_center']:
 				'center';
 			default:

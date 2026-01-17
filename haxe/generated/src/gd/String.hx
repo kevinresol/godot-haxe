@@ -104,6 +104,22 @@ class String_wrapper {
 		final v = __gd.replacen(((p_what : std.String)), ((p_forwhat : std.String)));
 		v;
 	};
+	public function replace_char(p_key:cpp.Int64, p_with:cpp.Int64):std.String return {
+		final v = __gd.replace_char(((p_key : cpp.Int64)), ((p_with : cpp.Int64)));
+		v;
+	};
+	public function replace_chars(p_keys:std.String, p_with:cpp.Int64):std.String return {
+		final v = __gd.replace_chars(((p_keys : std.String)), ((p_with : cpp.Int64)));
+		v;
+	};
+	public function remove_char(p_what:cpp.Int64):std.String return {
+		final v = __gd.remove_char(((p_what : cpp.Int64)));
+		v;
+	};
+	public function remove_chars(p_chars:std.String):std.String return {
+		final v = __gd.remove_chars(((p_chars : std.String)));
+		v;
+	};
 	public function repeat(p_count:cpp.Int64):std.String return {
 		final v = __gd.repeat(((p_count : cpp.Int64)));
 		v;
@@ -140,6 +156,10 @@ class String_wrapper {
 	};
 	public function to_snake_case():std.String return {
 		final v = __gd.to_snake_case();
+		v;
+	};
+	public function to_kebab_case():std.String return {
+		final v = __gd.to_kebab_case();
 		v;
 	};
 	public function split(?p_delimiter:std.String, ?p_allow_empty:Bool, ?p_maxsplit:cpp.Int64):gd.PackedStringArray return switch [p_delimiter, p_allow_empty, p_maxsplit] {
@@ -242,8 +262,8 @@ class String_wrapper {
 		final v = __gd.get_basename();
 		v;
 	};
-	public function path_join(p_file:std.String):std.String return {
-		final v = __gd.path_join(((p_file : std.String)));
+	public function path_join(p_path:std.String):std.String return {
+		final v = __gd.path_join(((p_path : std.String)));
 		v;
 	};
 	public function unicode_at(p_at:cpp.Int64):cpp.Int64 return __gd.unicode_at(((p_at : cpp.Int64)));
@@ -317,6 +337,10 @@ class String_wrapper {
 	};
 	public function uri_decode():std.String return {
 		final v = __gd.uri_decode();
+		v;
+	};
+	public function uri_file_decode():std.String return {
+		final v = __gd.uri_file_decode();
 		v;
 	};
 	public function c_escape():std.String return {
@@ -407,12 +431,22 @@ class String_wrapper {
 		final v = __gd.to_utf32_buffer();
 		v;
 	};
-	public function hex_decode():gd.PackedByteArray return {
-		final v = __gd.hex_decode();
-		v;
-	};
 	public function to_wchar_buffer():gd.PackedByteArray return {
 		final v = __gd.to_wchar_buffer();
+		v;
+	};
+	public function to_multibyte_char_buffer(?p_encoding:std.String):gd.PackedByteArray return switch [p_encoding] {
+		case [null]:{
+			final v = __gd.to_multibyte_char_buffer();
+			v;
+		};
+		default:{
+			final v = __gd.to_multibyte_char_buffer(((p_encoding : std.String)));
+			v;
+		};
+	};
+	public function hex_decode():gd.PackedByteArray return {
+		final v = __gd.hex_decode();
 		v;
 	};
 	public static function num_scientific(p_number:Float):std.String return {
@@ -457,8 +491,8 @@ class String_wrapper {
 			v;
 		};
 	};
-	public static function chr(p_char:cpp.Int64):std.String return {
-		final v = gdnative.String.String_extern.chr(((p_char : cpp.Int64)));
+	public static function chr(p_code:cpp.Int64):std.String return {
+		final v = gdnative.String.String_extern.chr(((p_code : cpp.Int64)));
 		v;
 	};
 	public static function humanize_size(p_size:cpp.Int64):std.String return {
@@ -502,6 +536,7 @@ class String_wrapper {
 	function __op_modulus_stringname(p_rhs:std.String):std.String return @:privateAccess this.__gd.__op_modulus_stringname(((p_rhs : gdnative.StringName)));
 	function __op_membership_in_stringname(p_rhs:std.String):Bool return @:privateAccess this.__gd.__op_membership_in_stringname(((p_rhs : gdnative.StringName)));
 	function __op_modulus_nodepath(p_rhs:std.String):std.String return @:privateAccess this.__gd.__op_modulus_nodepath(((p_rhs : gdnative.NodePath)));
+	function __op_modulus_rid(p_rhs:gd.RID):std.String return @:privateAccess this.__gd.__op_modulus_rid(((p_rhs : gdnative.RID)));
 	function __op_modulus_object(p_rhs:gd.Object):std.String return @:privateAccess this.__gd.__op_modulus_object(((p_rhs : gdnative.Object)));
 	function __op_membership_in_object(p_rhs:gd.Object):Bool return @:privateAccess this.__gd.__op_membership_in_object(((p_rhs : gdnative.Object)));
 	function __op_modulus_callable(p_rhs:gd.Callable):std.String return @:privateAccess this.__gd.__op_modulus_callable(((p_rhs : gdnative.Callable)));
@@ -603,6 +638,8 @@ class String_wrapper {
 	inline function __op_membership_in_stringname(p_rhs:std.String):Bool return @:privateAccess this.__op_membership_in_stringname(p_rhs);
 	@:op(A % B)
 	inline function __op_modulus_nodepath(p_rhs:std.String):std.String return @:privateAccess this.__op_modulus_nodepath(p_rhs);
+	@:op(A % B)
+	inline function __op_modulus_rid(p_rhs:gd.RID):std.String return @:privateAccess this.__op_modulus_rid(p_rhs);
 	@:op(A % B)
 	inline function __op_modulus_object(p_rhs:gd.Object):std.String return @:privateAccess this.__op_modulus_object(p_rhs);
 	@:op(A in B)

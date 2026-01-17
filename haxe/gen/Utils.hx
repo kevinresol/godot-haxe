@@ -44,12 +44,12 @@ class Utils {
 					case 'MethodFlags':
 						clip(name, name.startsWith('METHOD_FLAGS_') ? 'METHOD_FLAGS_' : 'METHOD_FLAG_');
 					default:
-						static final cache = new Map<String, Int>();
-						final len = switch cache.get(type) {
+						static final cache2 = new Map<String, Int>();
+						final len = switch cache2.get(type) {
 							case null:
 								final p = findCommonPrefix(all);
 								final len = p.endsWith('_') ? p.length : p.lastIndexOf('_') + 1;
-								cache.set(type, len);
+								cache2.set(type, len);
 								len;
 							case v:
 								v;

@@ -58,6 +58,7 @@ package gdnative;
 	function determinant():Float;
 	function rotated(p_axis:gdnative.Vector3, p_angle:Float):gdnative.Basis;
 	function scaled(p_scale:gdnative.Vector3):gdnative.Basis;
+	function scaled_local(p_scale:gdnative.Vector3):gdnative.Basis;
 	function get_scale():gdnative.Vector3;
 	overload function get_euler():gdnative.Vector3;
 	overload function get_euler(p_order:gdnative.EulerOrder):gdnative.Vector3;

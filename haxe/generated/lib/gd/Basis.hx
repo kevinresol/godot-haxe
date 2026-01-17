@@ -14,6 +14,7 @@ extern class Basis_wrapper {
 	function determinant():Float;
 	function rotated(p_axis:gd.Vector3, p_angle:Float):gd.Basis;
 	function scaled(p_scale:gd.Vector3):gd.Basis;
+	function scaled_local(p_scale:gd.Vector3):gd.Basis;
 	function get_scale():gd.Vector3;
 	function get_euler(?p_order:gd.EulerOrder):gd.Vector3;
 	function tdotx(p_with:gd.Vector3):Float;

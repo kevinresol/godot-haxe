@@ -104,13 +104,25 @@ package gd;
 		final v = __os_ptr().get_executable_path();
 		v;
 	};
-	public function read_string_from_stdin(p_buffer_size:cpp.Int64):std.String return {
-		final v = __os_ptr().read_string_from_stdin(((p_buffer_size : cpp.Int64)));
-		v;
+	public function read_string_from_stdin(?p_buffer_size:cpp.Int64):std.String return switch [p_buffer_size] {
+		case [null]:{
+			final v = __os_ptr().read_string_from_stdin();
+			v;
+		};
+		default:{
+			final v = __os_ptr().read_string_from_stdin(((p_buffer_size : cpp.Int64)));
+			v;
+		};
 	};
-	public function read_buffer_from_stdin(p_buffer_size:cpp.Int64):gd.PackedByteArray return {
-		final v = __os_ptr().read_buffer_from_stdin(((p_buffer_size : cpp.Int64)));
-		v;
+	public function read_buffer_from_stdin(?p_buffer_size:cpp.Int64):gd.PackedByteArray return switch [p_buffer_size] {
+		case [null]:{
+			final v = __os_ptr().read_buffer_from_stdin();
+			v;
+		};
+		default:{
+			final v = __os_ptr().read_buffer_from_stdin(((p_buffer_size : cpp.Int64)));
+			v;
+		};
 	};
 	public function get_stdin_type():gd.os.StdHandleType return {
 		final v = __os_ptr().get_stdin_type();
@@ -145,6 +157,10 @@ package gd;
 		default:__os_ptr().create_process(((p_path : std.String)), ((p_arguments : gd.PackedStringArray)), ((p_open_console : Bool)));
 	};
 	public function create_instance(p_arguments:gd.PackedStringArray):cpp.Int64 return __os_ptr().create_instance(((p_arguments : gd.PackedStringArray)));
+	public function open_with_program(p_program_path:std.String, p_paths:gd.PackedStringArray):gd.Error return {
+		final v = __os_ptr().open_with_program(((p_program_path : std.String)), ((p_paths : gd.PackedStringArray)));
+		v;
+	};
 	public function kill(p_pid:cpp.Int64):gd.Error return {
 		final v = __os_ptr().kill(((p_pid : cpp.Int64)));
 		v;
