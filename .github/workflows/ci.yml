@@ -32,6 +32,7 @@ jobs:
         with:
           version: 4.5.1
           use-dotnet: false
+      - run: file /Users/runner/bin/godot
 
       - name: Install Lix
         uses: lix-pm/setup-lix@master
