@@ -47,7 +47,6 @@ package gdnative;
 	@:overload(function(p_a:Float, p_b:Float, p_c:Float, p_d:Float):Void { })
 	function new();
 	function normalized():gdnative.Plane;
-	@:native("center")
 	function get_center():gdnative.Vector3;
 	function is_equal_approx(p_to_plane:gdnative.Plane):Bool;
 	function is_finite():Bool;
