@@ -25,7 +25,7 @@ env.Append(CPPDEFINES=[
     "HX_SMART_STRINGS",
     "HXCPP_API_LEVEL=500",
 ])
-env.Append(LIBPATH=["haxe/bin/"])
+env.Append(LIBPATH=["haxe/bin/", "godot-cpp/bin/"])
 env.Append(LIBS=["cppia"])
 
 # Link required macOS frameworks for SSL/Crypto support
