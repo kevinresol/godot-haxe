@@ -52,7 +52,8 @@ jobs:
         if: runner.os != 'Windows'
 
       - name: Setup hxcpp (Windows)
-        run: echo y | lix run hxcpp
+        run: |
+          "y" | lix run hxcpp
         if: runner.os == 'Windows'
 
       - run: python -m pip install scons
