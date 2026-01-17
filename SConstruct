@@ -31,6 +31,14 @@ env.Append(LIBS=["cppia"])
 # Link required macOS frameworks for SSL/Crypto support
 if env["platform"] == "macos":
     env.Append(LINKFLAGS=["-framework", "CoreFoundation", "-framework", "Security"])
+elif env["platform"] == "linux":
+    # On Linux, use --whole-archive to ensure all symbols from the static godot-cpp library
+    # are included in the shared library, especially RTTI symbols like typeinfo.
+    # Use the full path to the library file to ensure it's found and linked correctly.
+    import os
+    library_name = "libgodot-cpp" + env["suffix"] + env["LIBSUFFIX"]
+    library_path = os.path.join("godot-cpp", "bin", library_name)
+    env.Append(LINKFLAGS=["-Wl,--whole-archive", library_path, "-Wl,--no-whole-archive"])
 
 print(Glob("cpp/src/*.cpp"))
 
