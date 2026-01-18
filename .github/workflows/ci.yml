@@ -55,6 +55,7 @@ jobs:
         run: |
           $hxcppPath = & haxelib libpath hxcpp
           Set-Location "$hxcppPath/tools/hxcpp"
+          haxelib git hxcpp https://github.com/HaxeFoundation/hxcpp.git
           haxe compile.hxml
         if: runner.os == 'Windows'
 
