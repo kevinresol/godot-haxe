@@ -117,34 +117,56 @@ abstract Variant(Variant_extern) from Variant_extern to Variant_extern {
 	@:to @:analyzer(no_const_propagation)
 	public function toHaxe():Dynamic {
 		// switch-case won't work: https://github.com/HaxeFoundation/hxcpp/issues/1131
+		// even with marshalling, each comparison will alloc a Boxed value
 		final type = this.get_type();
-		// final typeName:std.String = this.get_type_name(type);
-		// trace('Type is $type, $typeName');
 
-		return switch this.get_type() {
-			case NIL:
-				null;
-			case BOOL:
-				final v = (cast val() : Bool);
-				v;
-			case INT:
-				final v = (cast val() : Int);
-				v;
-			case FLOAT:
-				final v = (cast val() : Float);
-				v;
-
-			case STRING | STRING_NAME | NODE_PATH:
-				toHaxeString();
-			case OBJECT:
-				final name = this.call("get_class");
-				// TODO: is there a chance the class doesn't exist?
-				gd.Utils.createClassWrapper(toObjectPointer(), Type.resolveClass('gd.${(name : std.String)}'));
-			case _:
-				trace(CallStack.toString(CallStack.callStack()));
-				trace('Unhandled type ${(type : Int)}');
-				throw 'Unhandled type ${(type : Int)}';
+		if (type == NIL) {
+			return null;
+		} else if (type == BOOL) {
+			final v = (cast val() : Bool);
+			return v;
+		} else if (type == INT) {
+			final v = (cast val() : Int);
+			return v;
+		} else if (type == FLOAT) {
+			final v = (cast val() : Float);
+			return v;
+		} else if (type == STRING || type == STRING_NAME || type == NODE_PATH) {
+			return toHaxeString();
+		} else if (type == OBJECT) {
+			final name = this.call("get_class");
+			// TODO: is there a chance the class doesn't exist?
+			return gd.Utils.createClassWrapper(toObjectPointer(), Type.resolveClass('gd.${(name : std.String)}'));
+		} else {
+			trace(CallStack.toString(CallStack.callStack()));
+			final typeName:std.String = this.get_type_name(type);
+			trace('Unhandled type ${(type : Int)} ($typeName)');
+			throw 'Unhandled type ${(type : Int)} ($typeName)';
 		}
+		// return switch this.get_type() {
+		// 	case NIL:
+		// 		null;
+		// 	case BOOL:
+		// 		final v = (cast val() : Bool);
+		// 		v;
+		// 	case INT:
+		// 		final v = (cast val() : Int);
+		// 		v;
+		// 	case FLOAT:
+		// 		final v = (cast val() : Float);
+		// 		v;
+
+		// 	case STRING | STRING_NAME | NODE_PATH:
+		// 		toHaxeString();
+		// 	case OBJECT:
+		// 		final name = this.call("get_class");
+		// 		// TODO: is there a chance the class doesn't exist?
+		// 		gd.Utils.createClassWrapper(toObjectPointer(), Type.resolveClass('gd.${(name : std.String)}'));
+		// 	case _:
+		// 		trace(CallStack.toString(CallStack.callStack()));
+		// 		trace('Unhandled type ${(type : Int)}');
+		// 		throw 'Unhandled type ${(type : Int)}';
+		// }
 	}
 
 	@:to inline function toHaxeString():std.String {
